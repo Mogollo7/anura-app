@@ -1,0 +1,49 @@
+{
+  "package_id": "CAUCA",
+  "package_version": "v1.0.0",
+  "catalog_release": "visual_catalog_1.0.0",
+  "validation_status": "PILOT",
+  "regional_catalog_scope": {
+    "species_present_estimated": 17,
+    "geobounds_reference": "colombia_departamentos.geojson (33 features, códigos DANE)",
+    "source_package": "COLOMBIA_ANURA\\CAUCA\\metadata\\package.json",
+    "generated_on": "2026-09-13",
+    "data_status_counts": {
+      "DATA_SUFFICIENT": 17
+    },
+    "caveat": "El catálogo se limita a las especies ya scrapeadas del proyecto. NO es todavía el catálogo completo de anuros del departamento: falta cruzar con Batrachia y GBIF para incorporar las especies con ocurrencia documentada y sin fotos propias."
+  },
+  "visual_classifier_scope": {
+    "species_supported": 17,
+    "species_ids": [
+      "ANU_COL_BOAN_BOA_001",
+      "ANU_COL_BOAN_CIN_001",
+      "ANU_COL_BOAN_LAN_001",
+      "ANU_COL_BOAN_PLA_001",
+      "ANU_COL_BOAN_PUN_001",
+      "ANU_COL_BOAN_ROS_001",
+      "ANU_COL_CRAU_RAN_001",
+      "ANU_COL_DEND_COL_001",
+      "ANU_COL_DEND_TRI_001",
+      "ANU_COL_ENGY_PUS_001",
+      "ANU_COL_PHYL_TAR_001",
+      "ANU_COL_PRIS_ACH_001",
+      "ANU_COL_PRIS_PAL_001",
+      "ANU_COL_PRIS_THE_001",
+      "ANU_COL_RHIN_ALA_001",
+      "ANU_COL_RHIN_MAR_001",
+      "ANU_COL_SCIN_RUB_001"
+    ],
+    "source_catalog_release_manifest": "visual_catalog\\v1.0.0\\manifest.json",
+    "join_method": "species_id (set intersection contra catalog_release.species_ids)"
+  },
+  "regional_species_without_visual_support": [],
+  "regional_species_taxonomically_unresolved": [],
+  "notes": [
+    "regional_catalog_scope = biodiversidad/presencia (fuente: construir_paquete_departamental.py).",
+    "visual_classifier_scope = interseccion por species_id contra catalog_release.species_ids del release especifico solicitado. Presencia regional NO implica soporte visual.",
+    "El join usa species_id como clave, resuelto previamente por resolve_regional_species_ids.py via taxonomia.canonico() (incluye alias conocidos como acanthinus->achatinus). El nombre cientifico NUNCA se usa como clave de relacion en este script.",
+    "0 especies resueltas a species_id pero ausentes de visual_catalog_1.0.0 (pueden existir en un release posterior).",
+    "0 especies regionales sin species_id (no estan en species_registry.json, ej. excluidas del catalogo visual)."
+  ]
+}

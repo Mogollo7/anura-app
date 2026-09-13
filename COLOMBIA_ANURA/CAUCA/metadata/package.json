@@ -1,0 +1,24 @@
+{
+  "department": "CAUCA",
+  "dane_code": "19",
+  "generated_on": "2026-09-13",
+  "species_in_department": 17,
+  "species_in_catalog": 44,
+  "occurrences_in_department": 134,
+  "data_status_counts": {
+    "DATA_SUFFICIENT": 17
+  },
+  "geographic_assignment": {
+    "method": "point-in-polygon contra límites departamentales DANE",
+    "source": "colombia_departamentos.geojson (33 features, códigos DANE)",
+    "border_tolerance_km": 2.0,
+    "max_positional_accuracy_m": 10000
+  },
+  "thresholds": {
+    "DATA_SUFFICIENT": ">= 45 individuos independientes con foto curada",
+    "DATA_LIMITED": "10-44 individuos",
+    "DATA_CRITICAL": "< 10 individuos",
+    "MANUAL_REVIEW": "cualquier motivo de revisión registrado (ver review_reasons)"
+  },
+  "caveat": "El catálogo se limita a las especies ya scrapeadas del proyecto. NO es todavía el catálogo completo de anuros del departamento: falta cruzar con Batrachia y GBIF para incorporar las especies con ocurrencia documentada y sin fotos propias."
+}

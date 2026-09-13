@@ -1,0 +1,22 @@
+[
+  {
+    "observation_id": 378231427,
+    "latitude": 1.00815,
+    "longitude": -76.284125,
+    "positional_accuracy": 4,
+    "observed_on": "2026-07-01",
+    "observer": "samuelcev",
+    "url": "https://www.inaturalist.org/observations/378231427",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 118368419,
+    "latitude": 1.06528991,
+    "longitude": -76.1973101646,
+    "positional_accuracy": 499,
+    "observed_on": "2022-05-21",
+    "observer": "yennyth",
+    "url": "https://www.inaturalist.org/observations/118368419",
+    "assignment_method": "interior"
+  }
+]

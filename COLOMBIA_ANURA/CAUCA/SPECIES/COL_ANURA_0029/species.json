@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0029",
+  "scientific_name": "Dendropsophus columbianus",
+  "family": "Hylidae",
+  "genus": "Dendropsophus",
+  "common_name_es": "Ranita de pantano Colombiana",
+  "directory_legacy": "Dendropsophus_columbianus",
+  "occurrences_in_department": 26,
+  "distinct_observers_in_department": 20,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 695,
+  "occurrences_dropped_low_accuracy": 16,
+  "photos_curated_total": 146,
+  "photos_raw_total": 147,
+  "individuals_curated_total": 76,
+  "individuals_from_department": 2,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

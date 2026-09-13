@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0026",
+  "scientific_name": "Boana rosenbergi",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "rana arbórea de gladiadora",
+  "directory_legacy": "Boana_rosenbergi",
+  "occurrences_in_department": 4,
+  "distinct_observers_in_department": 3,
+  "occurrence_evidence": "OCCURRENCE_PROBABLE",
+  "occurrences_total_colombia": 147,
+  "occurrences_dropped_low_accuracy": 2,
+  "photos_curated_total": 148,
+  "photos_raw_total": 149,
+  "individuals_curated_total": 65,
+  "individuals_from_department": 2,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

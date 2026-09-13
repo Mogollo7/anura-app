@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0041",
+  "scientific_name": "Phyllomedusa tarsius",
+  "family": "Phyllomedusidae",
+  "genus": "Phyllomedusa",
+  "common_name_es": "Rana Lemur",
+  "directory_legacy": "Phyllomedusa_tarsius",
+  "occurrences_in_department": 2,
+  "distinct_observers_in_department": 2,
+  "occurrence_evidence": "OCCURRENCE_PROBABLE",
+  "occurrences_total_colombia": 18,
+  "occurrences_dropped_low_accuracy": 0,
+  "photos_curated_total": 97,
+  "photos_raw_total": 98,
+  "individuals_curated_total": 45,
+  "individuals_from_department": 2,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

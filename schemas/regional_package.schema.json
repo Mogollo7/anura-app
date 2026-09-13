@@ -22,11 +22,20 @@
     },
     "visual_classifier_scope": {
       "type": "object",
-      "description": "Subconjunto de especies de la region con soporte del clasificador visual.",
+      "description": "Subconjunto de especies de la region con soporte del clasificador visual EN ESTE catalog_release especifico. Calculado por interseccion de species_id (no por nombre) contra catalog_release.species_ids.",
       "properties": {
         "species_supported": { "type": "integer" },
-        "species_ids": { "type": "array", "items": { "type": "string" } }
+        "species_ids": { "type": "array", "items": { "type": "string" } },
+        "join_method": { "type": "string", "const": "species_id (set intersection contra catalog_release.species_ids)" }
       }
+    },
+    "regional_species_without_visual_support": {
+      "type": "array",
+      "description": "Especies con species_id resuelto pero AUSENTE de este release especifico (pueden existir en un release posterior)."
+    },
+    "regional_species_taxonomically_unresolved": {
+      "type": "array",
+      "description": "Especies regionales sin species_id (no estan en species_registry.json en absoluto)."
     }
   },
   "additionalProperties": false

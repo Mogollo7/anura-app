@@ -1,0 +1,82 @@
+[
+  {
+    "observation_id": 321820421,
+    "latitude": 3.0094040069,
+    "longitude": -76.477028355,
+    "positional_accuracy": 12,
+    "observed_on": "2018-05-06",
+    "observer": "jflaz",
+    "url": "https://www.inaturalist.org/observations/321820421",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 282550936,
+    "latitude": 3.204335859,
+    "longitude": -76.4133543894,
+    "positional_accuracy": 142,
+    "observed_on": "2025-05-19",
+    "observer": "romabarona",
+    "url": "https://www.inaturalist.org/observations/282550936",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 217835333,
+    "latitude": 2.8443156816,
+    "longitude": -76.5436439069,
+    "positional_accuracy": 31,
+    "observed_on": "2024-05-23",
+    "observer": "jormamg",
+    "url": "https://www.inaturalist.org/observations/217835333",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 214202851,
+    "latitude": 2.7264710316,
+    "longitude": -76.5497858219,
+    "positional_accuracy": 19,
+    "observed_on": "2024-05-07",
+    "observer": "jormamg",
+    "url": "https://www.inaturalist.org/observations/214202851",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 196291130,
+    "latitude": 2.7667499107,
+    "longitude": -76.7499699444,
+    "positional_accuracy": 2169,
+    "observed_on": "2024-01-10",
+    "observer": "mruizc",
+    "url": "https://www.inaturalist.org/observations/196291130",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 183580040,
+    "latitude": 3.0343416667,
+    "longitude": -76.5126633333,
+    "positional_accuracy": 4,
+    "observed_on": "2023-08-09",
+    "observer": "juan_carlos53717",
+    "url": "https://www.inaturalist.org/observations/183580040",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 148445130,
+    "latitude": 3.0074287155,
+    "longitude": -76.4802331786,
+    "positional_accuracy": 15,
+    "observed_on": "2023-02-10",
+    "observer": "anabusi",
+    "url": "https://www.inaturalist.org/observations/148445130",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 147157351,
+    "latitude": 3.0090129444,
+    "longitude": -76.4863047749,
+    "positional_accuracy": 2846,
+    "observed_on": null,
+    "observer": "pammelaalixoncaicedobuitrago",
+    "url": "https://www.inaturalist.org/observations/147157351",
+    "assignment_method": "interior"
+  }
+]

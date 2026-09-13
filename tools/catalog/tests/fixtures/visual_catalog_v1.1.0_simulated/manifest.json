@@ -1,6 +1,6 @@
 {
-  "catalog_release": "visual_catalog_1.0.0",
-  "species_count": 41,
+  "catalog_release": "visual_catalog_1.1.0_SIMULATED_TEST",
+  "species_count": 42,
   "species_ids": [
     "ANU_COL_BOAN_BOA_001",
     "ANU_COL_BOAN_CIN_001",
@@ -42,6 +42,7 @@
     "ANU_COL_RHIN_ALA_001",
     "ANU_COL_RHIN_HOR_001",
     "ANU_COL_RHIN_MAR_001",
+    "ANU_COL_SACH_ELE_001_SIMULATED",
     "ANU_COL_SCIN_RUB_001"
   ],
   "unresolved_species": [],
@@ -50,9 +51,9 @@
   "method": "M5_LedoitWolf_Shared",
   "threshold_frozen": 39.35406371422803,
   "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
-  "status": "FROZEN",
+  "status": "TEST_SIMULATION",
   "validation_report": "validation/v1.0.0/validation_report.json",
-  "supersedes": null,
+  "supersedes": "visual_catalog_1.0.0",
   "source_artifacts": {
     "note": "Rutas relativas a artefactos EXISTENTES, no copiados. No modificar los originales.",
     "frozen_rejection_config": "evaluation/fase13/selection/frozen_rejection_config.json",

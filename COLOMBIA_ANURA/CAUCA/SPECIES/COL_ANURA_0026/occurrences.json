@@ -1,0 +1,42 @@
+[
+  {
+    "observation_id": 349815389,
+    "latitude": 2.769369,
+    "longitude": -77.66973,
+    "positional_accuracy": null,
+    "observed_on": "2021-05-21",
+    "observer": "fundacion_proaves",
+    "url": "https://www.inaturalist.org/observations/349815389",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 312529208,
+    "latitude": 2.7690133333,
+    "longitude": -77.6700216667,
+    "positional_accuracy": 60,
+    "observed_on": "2025-09-08",
+    "observer": "fundacion_proaves",
+    "url": "https://www.inaturalist.org/observations/312529208",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 88771354,
+    "latitude": 2.659348,
+    "longitude": -77.624031,
+    "positional_accuracy": null,
+    "observed_on": "2021-06-10",
+    "observer": "dannaruizp",
+    "url": "https://www.inaturalist.org/observations/88771354",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 75581169,
+    "latitude": 2.7680555556,
+    "longitude": -77.6705555556,
+    "positional_accuracy": null,
+    "observed_on": "2021-04-28",
+    "observer": "juancarlosluna1",
+    "url": "https://www.inaturalist.org/observations/75581169",
+    "assignment_method": "interior"
+  }
+]

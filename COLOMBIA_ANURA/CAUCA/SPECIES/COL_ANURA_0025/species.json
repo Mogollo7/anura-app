@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0025",
+  "scientific_name": "Boana punctata",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "Rana Punteada",
+  "directory_legacy": "Boana_punctata",
+  "occurrences_in_department": 1,
+  "distinct_observers_in_department": 1,
+  "occurrence_evidence": "OCCURRENCE_MARGINAL",
+  "occurrences_total_colombia": 182,
+  "occurrences_dropped_low_accuracy": 11,
+  "photos_curated_total": 395,
+  "photos_raw_total": 399,
+  "individuals_curated_total": 224,
+  "individuals_from_department": 1,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

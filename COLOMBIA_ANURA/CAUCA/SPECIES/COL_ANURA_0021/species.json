@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0021",
+  "scientific_name": "Boana cinerascens",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "Rana Granosa",
+  "directory_legacy": "Boana_cinerascens",
+  "occurrences_in_department": 6,
+  "distinct_observers_in_department": 4,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 92,
+  "occurrences_dropped_low_accuracy": 5,
+  "photos_curated_total": 138,
+  "photos_raw_total": 140,
+  "individuals_curated_total": 90,
+  "individuals_from_department": 6,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

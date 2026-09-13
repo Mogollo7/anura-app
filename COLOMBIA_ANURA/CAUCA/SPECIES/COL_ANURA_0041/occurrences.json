@@ -1,0 +1,22 @@
+[
+  {
+    "observation_id": 356318287,
+    "latitude": 1.1231527073,
+    "longitude": -76.3189755008,
+    "positional_accuracy": 212,
+    "observed_on": "2026-04-10",
+    "observer": "arleyo",
+    "url": "https://www.inaturalist.org/observations/356318287",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 344564253,
+    "latitude": 1.1416361667,
+    "longitude": -76.350975,
+    "positional_accuracy": 3,
+    "observed_on": "2026-03-21",
+    "observer": "roger_rodriguez",
+    "url": "https://www.inaturalist.org/observations/344564253",
+    "assignment_method": "interior"
+  }
+]

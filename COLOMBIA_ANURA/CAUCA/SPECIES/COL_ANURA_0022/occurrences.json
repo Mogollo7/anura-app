@@ -1,0 +1,32 @@
+[
+  {
+    "observation_id": 230916133,
+    "latitude": 1.530963,
+    "longitude": -76.3244368,
+    "positional_accuracy": 28,
+    "observed_on": "2024-07-21",
+    "observer": "danielgomez___",
+    "url": "https://www.inaturalist.org/observations/230916133",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 216940292,
+    "latitude": 1.4975820056,
+    "longitude": -76.3842748851,
+    "positional_accuracy": 68,
+    "observed_on": "2024-05-19",
+    "observer": "andreitaramirez",
+    "url": "https://www.inaturalist.org/observations/216940292",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 201554577,
+    "latitude": 1.4939916667,
+    "longitude": -76.3724666667,
+    "positional_accuracy": 70,
+    "observed_on": "2024-02-24",
+    "observer": "danielgomez___",
+    "url": "https://www.inaturalist.org/observations/201554577",
+    "assignment_method": "interior"
+  }
+]

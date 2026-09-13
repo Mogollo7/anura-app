@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0020",
+  "scientific_name": "Boana boans",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "Rana gladiadora",
+  "directory_legacy": "Boana_boans",
+  "occurrences_in_department": 1,
+  "distinct_observers_in_department": 1,
+  "occurrence_evidence": "OCCURRENCE_MARGINAL",
+  "occurrences_total_colombia": 272,
+  "occurrences_dropped_low_accuracy": 9,
+  "photos_curated_total": 145,
+  "photos_raw_total": 147,
+  "individuals_curated_total": 84,
+  "individuals_from_department": 0,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

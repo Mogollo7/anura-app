@@ -1,0 +1,62 @@
+[
+  {
+    "observation_id": 339766574,
+    "latitude": 1.6718666667,
+    "longitude": -76.564105,
+    "positional_accuracy": 1,
+    "observed_on": "2026-02-22",
+    "observer": "malejahol",
+    "url": "https://www.inaturalist.org/observations/339766574",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 120770693,
+    "latitude": 2.458375,
+    "longitude": -76.5131033333,
+    "positional_accuracy": null,
+    "observed_on": "2022-05-27",
+    "observer": "avistadepajaro",
+    "url": "https://www.inaturalist.org/observations/120770693",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 83665861,
+    "latitude": 2.4138312921,
+    "longitude": -76.4271680903,
+    "positional_accuracy": 604,
+    "observed_on": "2021-06-06",
+    "observer": "andres_forero",
+    "url": "https://www.inaturalist.org/observations/83665861",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 39858786,
+    "latitude": 2.9678033333,
+    "longitude": -76.2268216667,
+    "positional_accuracy": null,
+    "observed_on": "2020-03-03",
+    "observer": "avistadepajaro",
+    "url": "https://www.inaturalist.org/observations/39858786",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 39029745,
+    "latitude": 2.9662983333,
+    "longitude": -76.23383,
+    "positional_accuracy": null,
+    "observed_on": "2020-01-31",
+    "observer": "avistadepajaro",
+    "url": "https://www.inaturalist.org/observations/39029745",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 14095187,
+    "latitude": 2.4448143,
+    "longitude": -76.6147395,
+    "positional_accuracy": 9171,
+    "observed_on": "2017-03-14",
+    "observer": "andres_forero",
+    "url": "https://www.inaturalist.org/observations/14095187",
+    "assignment_method": "interior"
+  }
+]

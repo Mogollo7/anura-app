@@ -3,10 +3,19 @@
   "$id": "https://anura.local/schemas/catalog_release.schema.json",
   "title": "CatalogRelease",
   "type": "object",
-  "required": ["catalog_release", "species_count", "method", "status"],
+  "required": ["catalog_release", "species_count", "species_ids", "method", "status"],
   "properties": {
     "catalog_release": { "type": "string", "pattern": "^visual_catalog_[0-9]+\\.[0-9]+\\.[0-9]+$" },
     "species_count": { "type": "integer" },
+    "species_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Lista explicita de species_id que pertenecen a ESTE release. Obligatorio: sin esto, un paquete regional no puede verificar membership por release especifico (solo contra el registry global, lo cual es incorrecto)."
+    },
+    "unresolved_species": {
+      "type": "array",
+      "description": "Especies del centroid_audit que no se pudieron resolver a species_id via canonico(). Reportado, no silenciado."
+    },
     "group_a_count": { "type": "integer" },
     "group_b_count": { "type": "integer" },
     "method": { "type": "string" },

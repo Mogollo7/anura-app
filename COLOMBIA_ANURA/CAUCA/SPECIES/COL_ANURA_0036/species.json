@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0036",
+  "scientific_name": "Dendropsophus triangulum",
+  "family": "Hylidae",
+  "genus": "Dendropsophus",
+  "common_name_es": "Ranita arbórea común",
+  "directory_legacy": "Dendropsophus_triangulum",
+  "occurrences_in_department": 2,
+  "distinct_observers_in_department": 2,
+  "occurrence_evidence": "OCCURRENCE_PROBABLE",
+  "occurrences_total_colombia": 66,
+  "occurrences_dropped_low_accuracy": 2,
+  "photos_curated_total": 132,
+  "photos_raw_total": 132,
+  "individuals_curated_total": 66,
+  "individuals_from_department": 2,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0004",
+  "scientific_name": "Rhinella margaritifera",
+  "family": "Bufonidae",
+  "genus": "Rhinella",
+  "common_name_es": "Sapo Crestado",
+  "directory_legacy": "Rhinella_margaritifera",
+  "occurrences_in_department": 1,
+  "distinct_observers_in_department": 1,
+  "occurrence_evidence": "OCCURRENCE_MARGINAL",
+  "occurrences_total_colombia": 135,
+  "occurrences_dropped_low_accuracy": 15,
+  "photos_curated_total": 159,
+  "photos_raw_total": 237,
+  "individuals_curated_total": 104,
+  "individuals_from_department": 0,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

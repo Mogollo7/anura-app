@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0022",
+  "scientific_name": "Boana lanciformis",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "Rana Lanceolada Comun",
+  "directory_legacy": "Boana_lanciformis",
+  "occurrences_in_department": 3,
+  "distinct_observers_in_department": 2,
+  "occurrence_evidence": "OCCURRENCE_PROBABLE",
+  "occurrences_total_colombia": 130,
+  "occurrences_dropped_low_accuracy": 13,
+  "photos_curated_total": 209,
+  "photos_raw_total": 214,
+  "individuals_curated_total": 120,
+  "individuals_from_department": 3,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,18 @@
+taxon_id,scientific_name,family,genus,common_name_es,directory_legacy,occurrences_in_department,distinct_observers_in_department,occurrence_evidence,occurrences_total_colombia,occurrences_dropped_low_accuracy,photos_curated_total,photos_raw_total,individuals_curated_total,individuals_from_department,data_status,review_reasons,notes
+COL_ANURA_0002,Rhinella alata,Bufonidae,Rhinella,Sapo del Obispo,Rhinella_alata,58,10,OCCURRENCE_CONFIRMED,899,20,90,1800,55,2,DATA_SUFFICIENT,,submuestreo_en_curaduria (90/1800 fotos conservadas)
+COL_ANURA_0029,Dendropsophus columbianus,Hylidae,Dendropsophus,Ranita de pantano Colombiana,Dendropsophus_columbianus,26,20,OCCURRENCE_CONFIRMED,695,16,146,147,76,2,DATA_SUFFICIENT,,
+COL_ANURA_0007,Pristimantis achatinus,Craugastoridae,Pristimantis,Cutín común de occidente,Pristimantis_achatinus,12,9,OCCURRENCE_CONFIRMED,971,10,1902,1908,967,12,DATA_SUFFICIENT,,
+COL_ANURA_0023,Boana platanera,Hylidae,Boana,Rana Platanera de Ojos Pálidos,Boana_platanera,8,7,OCCURRENCE_CONFIRMED,1000,21,150,150,80,0,DATA_SUFFICIENT,,
+COL_ANURA_0021,Boana cinerascens,Hylidae,Boana,Rana Granosa,Boana_cinerascens,6,4,OCCURRENCE_CONFIRMED,92,5,138,140,90,6,DATA_SUFFICIENT,,
+COL_ANURA_0016,Pristimantis thectopternus,Craugastoridae,Pristimantis,Rana De Espolon,Pristimantis_thectopternus,6,3,OCCURRENCE_CONFIRMED,164,0,80,149,56,0,DATA_SUFFICIENT,,
+COL_ANURA_0026,Boana rosenbergi,Hylidae,Boana,rana arbórea de gladiadora,Boana_rosenbergi,4,3,OCCURRENCE_PROBABLE,147,2,148,149,65,2,DATA_SUFFICIENT,,
+COL_ANURA_0022,Boana lanciformis,Hylidae,Boana,Rana Lanceolada Comun,Boana_lanciformis,3,2,OCCURRENCE_PROBABLE,130,13,209,214,120,3,DATA_SUFFICIENT,,
+COL_ANURA_0036,Dendropsophus triangulum,Hylidae,Dendropsophus,Ranita arbórea común,Dendropsophus_triangulum,2,2,OCCURRENCE_PROBABLE,66,2,132,132,66,2,DATA_SUFFICIENT,,
+COL_ANURA_0041,Phyllomedusa tarsius,Phyllomedusidae,Phyllomedusa,Rana Lemur,Phyllomedusa_tarsius,2,2,OCCURRENCE_PROBABLE,18,0,97,98,45,2,DATA_SUFFICIENT,,
+COL_ANURA_0020,Boana boans,Hylidae,Boana,Rana gladiadora,Boana_boans,1,1,OCCURRENCE_MARGINAL,272,9,145,147,84,0,DATA_SUFFICIENT,,
+COL_ANURA_0025,Boana punctata,Hylidae,Boana,Rana Punteada,Boana_punctata,1,1,OCCURRENCE_MARGINAL,182,11,395,399,224,1,DATA_SUFFICIENT,,
+COL_ANURA_0006,Craugastor raniformis,Craugastoridae,Craugastor,Rana chivita,Craugastor_raniformis,1,1,OCCURRENCE_MARGINAL,175,3,298,298,175,1,DATA_SUFFICIENT,,
+COL_ANURA_0039,Engystomops pustulosus,Leptodactylidae,Engystomops,Ranita túngara,Engystomops_pustulosus,1,1,OCCURRENCE_MARGINAL,1000,16,1718,1740,979,1,DATA_SUFFICIENT,,
+COL_ANURA_0012,Pristimantis palmeri,Craugastoridae,Pristimantis,Palmer's Robber Frog,Pristimantis_palmeri,1,1,OCCURRENCE_MARGINAL,286,2,100,150,57,0,DATA_SUFFICIENT,,
+COL_ANURA_0004,Rhinella margaritifera,Bufonidae,Rhinella,Sapo Crestado,Rhinella_margaritifera,1,1,OCCURRENCE_MARGINAL,135,15,159,237,104,0,DATA_SUFFICIENT,,
+COL_ANURA_0038,Scinax ruber,Hylidae,Scinax,Ranita Listada,Scinax_ruber,1,1,OCCURRENCE_MARGINAL,394,9,125,649,95,0,DATA_SUFFICIENT,,submuestreo_en_curaduria (125/649 fotos conservadas)

@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0016",
+  "scientific_name": "Pristimantis thectopternus",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Rana De Espolon",
+  "directory_legacy": "Pristimantis_thectopternus",
+  "occurrences_in_department": 6,
+  "distinct_observers_in_department": 3,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 164,
+  "occurrences_dropped_low_accuracy": 0,
+  "photos_curated_total": 80,
+  "photos_raw_total": 149,
+  "individuals_curated_total": 56,
+  "individuals_from_department": 0,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}
