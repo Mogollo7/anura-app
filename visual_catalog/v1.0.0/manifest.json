@@ -1,0 +1,27 @@
+{
+  "catalog_release": "visual_catalog_1.0.0",
+  "species_count": 41,
+  "group_a_count": 9,
+  "group_b_count": 32,
+  "method": "M5_LedoitWolf_Shared",
+  "threshold_frozen": 39.35406371422803,
+  "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "status": "FROZEN",
+  "validation_report": "validation/v1.0.0/validation_report.json",
+  "supersedes": null,
+  "source_artifacts": {
+    "note": "Rutas relativas a artefactos EXISTENTES, no copiados. No modificar los originales.",
+    "frozen_rejection_config": "evaluation/fase13/selection/frozen_rejection_config.json",
+    "centroid_source_audit": "evaluation/fase13/final_evaluation/centroid_source_audit.json",
+    "final_metrics": "evaluation/fase13/final_evaluation/FASE13_FINAL_METRICS.json",
+    "reference_embeddings": "evaluation/fase13/embeddings/reference_embeddings.npz",
+    "calibration_embeddings": "evaluation/fase13/embeddings/calibration_embeddings.npz",
+    "train_embeddings": "evaluation/fase13/embeddings/train_embeddings.npz"
+  },
+  "evidence_summary": {
+    "auroc": 0.6247668780305856,
+    "kar": 0.8537859007832899,
+    "udr": 0.08928571428571429,
+    "far": 0.9107142857142857
+  }
+}

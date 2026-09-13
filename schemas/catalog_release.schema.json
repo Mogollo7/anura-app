@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/catalog_release.schema.json",
+  "title": "CatalogRelease",
+  "type": "object",
+  "required": ["catalog_release", "species_count", "method", "status"],
+  "properties": {
+    "catalog_release": { "type": "string", "pattern": "^visual_catalog_[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "species_count": { "type": "integer" },
+    "group_a_count": { "type": "integer" },
+    "group_b_count": { "type": "integer" },
+    "method": { "type": "string" },
+    "threshold_frozen": { "type": ["number", "null"] },
+    "encoder_sha256": { "type": "string" },
+    "status": { "type": "string", "enum": ["DRAFT", "IN_VALIDATION", "FROZEN", "DEPRECATED"] },
+    "validation_report": { "type": "string" },
+    "supersedes": { "type": ["string", "null"], "description": "catalog_release anterior, si aplica. Nunca implica sobrescritura." }
+  },
+  "additionalProperties": false
+}

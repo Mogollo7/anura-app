@@ -11,10 +11,14 @@
             "id": "5b44cbfc4999787f",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vista gráfica"
+              "type": "markdown",
+              "state": {
+                "file": "02 Metodología/Dataset Jerárquico de Colombia — Paquetes Departamentales.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Dataset Jerárquico de Colombia — Paquetes Departamentales"
             }
           }
         ]
@@ -186,6 +190,9 @@
   },
   "active": "5b44cbfc4999787f",
   "lastOpenFiles": [
+    "05 Evaluación y Métricas/Reportes de Pruebas Piloto.md",
+    "11_TECHNICAL_DEVELOPMENT/INDEX.md",
+    "02 Metodología/Listado de Individuos y Arreglo Taxonómico.md",
     "01 Proyecto/Cronograma y Plan de Trabajo.md",
     "Anura — Índice General.md",
     "04 Desarrollo Técnico/Plan de Acción y Arquitectura Conceptual.md",
@@ -215,13 +222,10 @@
     "01 Proyecto/Riesgos del Proyecto.md",
     "01 Proyecto/Consideraciones Ecológicas y Éticas.md",
     "05 Evaluación y Métricas/Experimentos y Resultados.md",
-    "05 Evaluación y Métricas/Reportes de Pruebas Piloto.md",
     "05 Evaluación y Métricas/Evaluación en Campo Real.md",
     "05 Evaluación y Métricas/Matrices de Confusión.md",
     "02 Metodología/Escalabilidad.md",
     "02 Metodología/Infraestructura.md",
-    "02 Metodología/Open-Set Recognition.md",
-    "02 Metodología/Arquitectura Multimodal.md",
     "99 Recursos/Attachments/anura-esquema-conceptual.png",
     "99 Recursos/Attachments/cvat/cvat-44.png",
     "99 Recursos/Attachments/cvat/cvat-43.jpg",

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/species.schema.json",
+  "title": "Species",
+  "type": "object",
+  "required": ["species_id", "scientific_name", "family", "genus", "taxonomic_status", "source"],
+  "properties": {
+    "species_id": {
+      "type": "string",
+      "pattern": "^ANU_COL_[A-Z]{3,4}_[A-Z]{3}_[0-9]{3}$",
+      "description": "Identificador estable e inmutable. No debe reasignarse ni reutilizarse."
+    },
+    "scientific_name": { "type": "string" },
+    "family": { "type": "string" },
+    "genus": { "type": "string" },
+    "authority": { "type": ["string", "null"] },
+    "synonyms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "taxonomic_status": {
+      "type": "string",
+      "enum": ["ACCEPTED", "SYNONYM", "UNVERIFIED", "DISPUTED"]
+    },
+    "source": {
+      "type": "string",
+      "description": "Origen documental del registro, ej. 'training/taxonomia.py' o 'iNaturalist taxon_info.json'."
+    },
+    "verified_at": { "type": ["string", "null"], "format": "date" },
+    "visual_lifecycle_status": {
+      "type": "string",
+      "enum": [
+        "DISCOVERED", "TAXONOMICALLY_VERIFIED", "DATA_COLLECTING", "DATA_READY",
+        "EMBEDDED", "CENTROID_READY", "VALIDATION", "APPROVED", "DEPLOYED", "REJECTED"
+      ],
+      "description": "Ver SPECIES_LIFECYCLE.md. CENTROID_READY no implica DEPLOYED."
+    }
+  },
+  "additionalProperties": false
+}

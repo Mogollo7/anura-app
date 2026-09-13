@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/observation.schema.json",
+  "title": "Observation",
+  "type": "object",
+  "required": ["observation_id", "source", "species_id", "quality_status"],
+  "properties": {
+    "observation_id": { "type": "string" },
+    "source": { "type": "string", "description": "ej. 'iNaturalist', 'GBIF', 'campo'" },
+    "source_id": {
+      "type": ["string", "null"],
+      "description": "obs_id original de la fuente, ej. el numero en 'col_obs_<id>_photo_*.jpg'"
+    },
+    "species_id": { "type": "string" },
+    "latitude": { "type": ["number", "null"] },
+    "longitude": { "type": ["number", "null"] },
+    "date": { "type": ["string", "null"], "format": "date" },
+    "location_precision": {
+      "type": "string",
+      "enum": ["EXACT", "OBSCURED", "REGION_ONLY", "UNKNOWN"],
+      "default": "UNKNOWN"
+    },
+    "taxonomic_status": { "type": "string" },
+    "quality_status": {
+      "type": "string",
+      "enum": ["PENDING", "CLEAN", "CONTAMINATED", "DUPLICATE", "REJECTED"]
+    },
+    "dataset_membership": {
+      "type": "array",
+      "description": "Historial de a que splits pertenece esta observacion. Una observacion NO puede estar en TRAIN y BLIND simultaneamente.",
+      "items": {
+        "type": "object",
+        "required": ["split", "catalog_release", "added_at"],
+        "properties": {
+          "split": { "type": "string", "enum": ["TRAIN", "REFERENCE", "CALIBRATION", "F3", "F4", "BLIND"] },
+          "catalog_release": { "type": "string" },
+          "added_at": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

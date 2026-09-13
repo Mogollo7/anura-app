@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Listado de Individuos y Arreglo TaxonÃ³mico"
 proyecto: Anura
 fuente: "Notion â€” Proyecto IdentificaciÃ³n de Anuros Colombia"

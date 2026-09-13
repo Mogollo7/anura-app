@@ -1,4 +1,4 @@
-﻿# 11_TECHNICAL_DEVELOPMENT: Desarrollo técnico
+# 11_TECHNICAL_DEVELOPMENT: Desarrollo técnico
 
 Fuentes inventariadas: 502. Consolidación trazable. Fases no evidenciadas: NOT_EXECUTED.
 

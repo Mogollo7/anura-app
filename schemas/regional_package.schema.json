@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/regional_package.schema.json",
+  "title": "RegionalPackage",
+  "type": "object",
+  "required": ["package_id", "package_version", "catalog_release", "validation_status"],
+  "properties": {
+    "package_id": { "type": "string", "description": "ej. 'ANTIOQUIA', 'CAUCA'" },
+    "package_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "catalog_release": {
+      "type": "string",
+      "description": "Debe referenciar un catalog_release existente con status FROZEN. Nunca 'el catalogo actual' implicito."
+    },
+    "validation_status": { "type": "string", "enum": ["PILOT", "FIELD_VALIDATED", "PRODUCTION"] },
+    "regional_catalog_scope": {
+      "type": "object",
+      "description": "Especies presentes/conocidas en la region (biodiversidad), distinto del alcance del clasificador.",
+      "properties": {
+        "species_present_estimated": { "type": ["integer", "null"] },
+        "geobounds_reference": { "type": ["string", "null"] }
+      }
+    },
+    "visual_classifier_scope": {
+      "type": "object",
+      "description": "Subconjunto de especies de la region con soporte del clasificador visual.",
+      "properties": {
+        "species_supported": { "type": "integer" },
+        "species_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "additionalProperties": false
+}

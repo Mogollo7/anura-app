@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/centroid.schema.json",
+  "title": "Centroid",
+  "type": "object",
+  "required": ["species_id", "centroid_version", "encoder_version", "dataset_version", "source_split", "validation_status"],
+  "properties": {
+    "species_id": { "type": "string" },
+    "centroid_version": { "type": "string", "description": "ej. 'visual_catalog_1.0.0'" },
+    "encoder_version": { "type": "string", "const": "bioclip_anura_v1" },
+    "dataset_version": { "type": "string" },
+    "individual_count": {
+      "type": ["integer", "null"],
+      "description": "null si no hay obs_id/grupo disponible en la fuente. NO inventar un numero."
+    },
+    "image_count": { "type": "integer", "minimum": 0 },
+    "source_split": { "type": "string", "enum": ["REFERENCE", "TRAIN", "CALIBRATION"] },
+    "validation_status": {
+      "type": "string",
+      "enum": ["INDEPENDENT_CALIBRATION", "STRUCTURAL_ONLY", "PENDING"]
+    }
+  },
+  "additionalProperties": false
+}

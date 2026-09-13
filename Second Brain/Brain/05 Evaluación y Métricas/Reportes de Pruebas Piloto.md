@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Reportes de Pruebas Piloto"
 proyecto: Anura
 tipo: evaluaciÃ³n

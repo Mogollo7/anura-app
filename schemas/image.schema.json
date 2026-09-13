@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/image.schema.json",
+  "title": "Image",
+  "type": "object",
+  "required": ["image_id", "observation_id", "file_hash", "path"],
+  "properties": {
+    "image_id": { "type": "string" },
+    "observation_id": { "type": "string" },
+    "file_hash": { "type": "string", "description": "SHA-256, campo ya existente hoy como 'SHA256'/'sha256' en manifests reales" },
+    "path": { "type": "string" },
+    "width": { "type": ["integer", "null"] },
+    "height": { "type": ["integer", "null"] },
+    "annotation_status": { "type": "string", "enum": ["NONE", "PARTIAL", "COMPLETE"], "default": "NONE" },
+    "segmentation_status": { "type": "string", "enum": ["NONE", "PARTIAL", "COMPLETE"], "default": "NONE" },
+    "quality_status": { "type": "string", "enum": ["PENDING", "CLEAN", "CONTAMINATED", "DUPLICATE", "REJECTED"] }
+  },
+  "additionalProperties": false
+}

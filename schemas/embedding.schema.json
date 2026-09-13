@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/embedding.schema.json",
+  "title": "Embedding",
+  "type": "object",
+  "required": ["embedding_id", "encoder_id", "encoder_sha256", "embedding_dim", "preprocessing_version", "normalization_version"],
+  "properties": {
+    "embedding_id": { "type": "string" },
+    "observation_id": { "type": ["string", "null"] },
+    "image_id": { "type": ["string", "null"] },
+    "encoder_id": { "type": "string", "const": "bioclip_anura_v1" },
+    "encoder_sha256": {
+      "type": "string",
+      "const": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+      "description": "Hash verificado del encoder congelado actual (encoder_anura_fp16.onnx). Ver EMBEDDING_CONTRACT.md."
+    },
+    "embedding_dim": { "type": "integer", "const": 512 },
+    "preprocessing_version": { "type": "string" },
+    "normalization_version": { "type": "string", "enum": ["L2", "NONE"] }
+  },
+  "additionalProperties": false
+}
