@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anura · Sistema HIG</title>
+<link rel="stylesheet" href="anura-hig.css">
+<style>
+  /* sólo para esta página de comprobación, no forma parte del sistema */
+  .harness{max-width:1240px;margin:0 auto;padding:24px 20px 80px}
+  .modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;position:sticky;top:0;
+         background:var(--bg-base);padding:12px 0;z-index:20}
+  .frames{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+  .frame{width:393px;flex:0 0 auto;border-radius:44px;overflow:hidden;position:relative;
+         background:var(--bg-base);box-shadow:var(--sh-modal);isolation:isolate}
+  .frame__scroll{height:812px;overflow:hidden;position:relative;padding:0 0 0 0}
+  .frame .a-navbar,.frame .a-tabbar{position:absolute}
+  .frame .a-immersive{position:absolute;inset:0;overflow:hidden}
+  .frame__body{position:absolute;inset:64px 0 0 0;overflow:auto;padding:0 20px 120px}
+  .frame__label{font-size:var(--f-caption);color:var(--label-secondary);
+                margin:0 0 8px 4px;letter-spacing:.06em;text-transform:uppercase}
+  .stack>*+*{margin-top:12px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px}
+  .sw{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--sh-card);background:var(--bg-elevated)}
+  .sw__chip{height:56px} .sw__meta{padding:8px 10px}
+  .ratio{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="harness">
+  <h1 class="a-title1">Anura · sistema HIG</h1>
+  <p class="a-subhead a-secondary" style="margin:4px 0 20px">
+    Banco de comprobación. Cambiá de tema y revisá jerarquía, contraste y elevación.
+  </p>
+
+  <div class="modes">
+    <button class="a-btn a-btn--primary"   onclick="setTheme('light')">Claro</button>
+    <button class="a-btn a-btn--secondary" onclick="setTheme('dark')">Oscuro</button>
+    <button class="a-btn a-btn--outline"   onclick="setTheme('night')">Luz roja</button>
+    <button class="a-btn a-btn--plain"     onclick="document.body.classList.toggle('gs')">Escala de grises</button>
+  </div>
+
+  <div class="frames">
+
+    <div>
+      <p class="frame__label">Inicio</p>
+      <div class="frame"><div class="frame__scroll">
+        <header class="a-navbar"><span class="a-navbar__title">Inicio</span></header>
+        <div class="frame__body">
+          <div class="a-media" style="margin:12px 0">
+            <div class="a-photo" role="img" aria-label="Foto destacada del día"></div>
+            <div class="a-media__scrim" style="border-radius:0 0 var(--r-card) var(--r-card)"></div>
+            <div class="a-media__caption">
+              <div class="a-headline">Rana del día</div>
+              <div class="a-footnote a-sci" style="color:#fff">Dendrobates truncatus</div>
+            </div>
+          </div>
+          <div class="a-card a-card--trip stack">
+            <div class="a-headline">
+              <span class="a-trip-dot" aria-hidden="true"></span>
+              <span>Salida de campo en curso</span>
+            </div>
+            <div class="a-footnote">Quebrada La Miel · 1 h 12 min · 7 registros</div>
+            <div class="a-progress"><div class="a-progress__fill" style="width:42%"></div></div>
+          </div>
+          <div class="a-list" style="margin-top:12px">
+            <div class="a-list__row">
+              <div class="a-thumb" role="img" aria-label="Miniatura dorsal"></div>
+              <div class="a-list__text">
+                <div class="a-body">Rana venenosa de vientre azulado y patrón dorsal muy llamativo</div>
+                <div class="a-caption a-sci">Dendrobates truncatus</div>
+              </div>
+              <span class="a-badge a-badge--toxic">Tóxica</span>
+            </div>
+            <div class="a-list__row">
+              <div class="a-thumb" role="img" aria-label="Miniatura dorsal"></div>
+              <div class="a-list__text">
+                <div class="a-body">Sapo común</div>
+                <div class="a-caption a-sci">Rhinella horribilis</div>
+              </div>
+              <span class="a-badge a-badge--lc">LC</span>
+            </div>
+          </div>
+          <div class="row" style="margin-top:16px">
+            <button class="a-btn a-btn--primary" style="flex:1">Analizar foto</button>
+          </div>
+          <div class="row" style="margin-top:12px">
+            <button class="a-btn a-btn--outline" style="flex:1">Omitir este paso</button>
+          </div>
+          <div class="row" style="margin-top:12px">
+            <label class="a-list__row a-card" style="flex:1;justify-content:space-between">
+              <span class="a-body">Sincronizar sólo con Wi-Fi</span>
+              <input class="a-switch" type="checkbox" checked>
+            </label>
+          </div>
+        </div>
+        <nav class="a-tabbar">
+          <button class="a-tab" aria-selected="true">▲<span>Inicio</span></button>
+          <button class="a-tab">◎<span>Explorar</span></button>
+          <button class="a-fab" aria-label="Registrar observación">＋</button>
+          <button class="a-tab">☰<span>Listado</span></button>
+          <button class="a-tab">⚙<span>Ajustes</span></button>
+        </nav>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="frame__label">Modal y estados</p>
+      <div class="frame"><div class="frame__scroll">
+        <div class="frame__body" style="inset:20px 0 0 0">
+          <div class="a-sheet" style="border-radius:var(--r-modal)">
+            <div class="a-sheet__handle"></div>
+            <h2 class="a-title2" style="margin:0 0 6px">Añadir una foto</h2>
+            <p class="a-subhead a-secondary" style="margin:0 0 20px">
+              La vista dorsal es la que más ayuda al modelo.
+            </p>
+            <div class="stack">
+              <button class="a-btn a-btn--primary" style="width:100%">Tomar una foto</button>
+              <button class="a-btn a-btn--secondary" style="width:100%">Cargar de la galería</button>
+            </div>
+          </div>
+
+          <div class="row" style="margin:20px 0 8px">
+            <span class="a-chip" aria-pressed="true">Todas</span>
+            <span class="a-chip">Tóxicas</span>
+            <span class="a-chip">Amenazadas</span>
+          </div>
+
+          <input class="a-field" placeholder="Buscar por nombre o género" style="margin-top:12px">
+
+          <div class="a-card stack" style="margin-top:16px">
+            <div class="a-title3">Diagnóstico morfológico</div>
+            <div><div class="a-caption">Tímpano</div><div class="a-body">Visible, diámetro ≈ ½ del ojo</div></div>
+            <div><div class="a-caption">Disco digital</div><div class="a-body">Ensanchado en dedos y artejos</div></div>
+            <div><div class="a-caption">Patrón dorsal</div><div class="a-body">Franjas amarillas sobre negro</div></div>
+          </div>
+
+          <div class="row" style="margin-top:16px">
+            <span class="a-badge a-badge--cr">CR</span><span class="a-badge a-badge--en">EN</span>
+            <span class="a-badge a-badge--vu">VU</span><span class="a-badge a-badge--nt">NT</span>
+            <span class="a-badge a-badge--lc">LC</span><span class="a-badge a-badge--dd">DD</span>
+          </div>
+          <button class="a-btn a-btn--danger" style="width:100%;margin-top:16px">Eliminar observación</button>
+        </div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="frame__label">Sonidos nocturnos de la salida</p>
+      <div class="frame"><div class="frame__scroll">
+        <div class="a-immersive">
+          <header class="a-navbar">
+            <span class="a-navbar__title">Sonidos nocturnos</span>
+            <span class="a-badge" style="background:var(--accent-tint);color:#062B12">● En vivo</span>
+          </header>
+          <div class="frame__body">
+            <p class="a-footnote" style="color:var(--label-secondary);margin:16px 0 0">
+              Quebrada La Miel · grabando desde hace 6 min
+            </p>
+            <div class="a-waveform" aria-hidden="true">
+              <span style="height:14px"></span><span style="height:28px"></span>
+              <span style="height:44px"></span><span style="height:20px"></span>
+              <span style="height:52px"></span><span style="height:16px"></span>
+              <span style="height:36px"></span><span style="height:48px"></span>
+              <span style="height:24px"></span><span style="height:40px"></span>
+              <span style="height:14px"></span><span style="height:32px"></span>
+              <span style="height:50px"></span><span style="height:18px"></span>
+              <span style="height:44px"></span><span style="height:26px"></span>
+              <span style="height:38px"></span><span style="height:20px"></span>
+              <span style="height:46px"></span><span style="height:16px"></span>
+            </div>
+            <button class="a-record" aria-label="Detener grabación">■</button>
+            <div class="a-list" style="margin-top:28px">
+              <div class="a-list__row">
+                <div class="a-thumb" role="img" aria-label="Espectrograma del canto"></div>
+                <div class="a-list__text">
+                  <div class="a-body">Canto identificado</div>
+                  <div class="a-caption a-sci">Dendropsophus microcephalus</div>
+                </div>
+                <span class="a-badge a-badge--lc">92%</span>
+              </div>
+              <div class="a-list__row">
+                <div class="a-thumb" role="img" aria-label="Espectrograma del canto"></div>
+                <div class="a-list__text">
+                  <div class="a-body">Canto identificado</div>
+                  <div class="a-caption a-sci">Boana punctata</div>
+                </div>
+                <span class="a-badge a-badge--lc">78%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div style="flex:1;min-width:320px">
+      <p class="frame__label">Fichas de color · contraste medido</p>
+      <div class="swatches" id="swatches"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function setTheme(t){ document.documentElement.setAttribute('data-theme', t); paint(); }
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function lum(hex){ const h=hex.replace('#','');
+  const c=i=>{const v=parseInt(h.substr(i,2),16)/255; return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);};
+  return 0.2126*c(0)+0.7152*c(2)+0.0722*c(4); }
+function ratio(a,b){ const x=lum(a),y=lum(b); return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05); }
+const PAIRS = [
+  ['Texto primario','--label-primary','--bg-base',4.5],
+  ['Texto secundario','--label-secondary','--bg-elevated',4.5],
+  ['Secundario AA','--label-secondary-aa','--bg-base',4.5],
+  ['Tinta de acento','--accent-ink','--bg-elevated',4.5],
+  ['CTA relleno','--cta-fg','--cta-bg',4.5],
+  ['FAB · glifo','--fab-fg','--fab-bg',3.0],
+  ['Botón peligro','--danger-fg','--danger',4.5],
+  ['Peligro · texto','--danger','--bg-elevated',4.5],
+  ['Separador','--separator','--bg-elevated',1.4]
+];
+function paint(){
+  const host = document.getElementById('swatches'); host.innerHTML='';
+  for (const [name, fg, bg, need] of PAIRS){
+    const f = fg.startsWith('--') ? css(fg) : fg;
+    const b = bg.startsWith('--') ? css(bg) : bg;
+    const r = ratio(f,b), ok = r >= need;
+    host.insertAdjacentHTML('beforeend', `
+      <div class="sw">
+        <div class="sw__chip" style="background:${b};display:grid;place-items:center">
+          <span style="color:${f};font-weight:600">Aa</span></div>
+        <div class="sw__meta">
+          <div class="a-caption" style="color:var(--label-primary)">${name}</div>
+          <div class="a-caption ratio">${r.toFixed(2)}:1 · mín ${need} ${ok?'✓':'✗'}</div>
+        </div>
+      </div>`);
+  }
+}
+document.head.insertAdjacentHTML('beforeend',
+  '<style>body.gs{filter:grayscale(1)}</style>');
+paint();
+</script>
+</body>
+</html>

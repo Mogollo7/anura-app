@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0024",
+  "scientific_name": "Boana pugnax",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "Rana Platanera de ojos tornasol",
+  "directory_legacy": "Boana_pugnax",
+  "occurrences_in_department": 250,
+  "distinct_observers_in_department": 184,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 1000,
+  "occurrences_dropped_low_accuracy": 20,
+  "photos_curated_total": 148,
+  "photos_raw_total": 149,
+  "individuals_curated_total": 75,
+  "individuals_from_department": 22,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

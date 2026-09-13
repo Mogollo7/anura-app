@@ -1,0 +1,67 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+======================================================================
+FASE 4: Transfer Learning BioCLIP v1 -> Anura (variante A (imagen completa, fallback sin H4))
+======================================================================
+Dispositivo: cuda
+Taxonomía: 9 familias, 15 géneros, 28 especies
+  train: 2230 imágenes
+  val: 479 imágenes
+  test: 548 imágenes
+
+Cargando BioCLIP v1...
+
+=== Fase A: 8 épocas, solo cabezas (backbone congelado) ===
+  Parámetros entrenables: 26,676
+  [cabezas] época 1/8  L=2.6543  val top1: fam=49.5% gen=57.0% esp=46.3%  top3_esp=69.5%  (51s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=46.3%)
+  [cabezas] época 2/8  L=2.2594  val top1: fam=59.1% gen=59.7% esp=49.7%  top3_esp=76.6%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=49.7%)
+  [cabezas] época 3/8  L=1.9915  val top1: fam=65.3% gen=62.4% esp=53.2%  top3_esp=77.0%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=53.2%)
+  [cabezas] época 4/8  L=1.7850  val top1: fam=70.4% gen=63.5% esp=55.3%  top3_esp=79.3%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=55.3%)
+  [cabezas] época 5/8  L=1.6184  val top1: fam=73.3% gen=65.6% esp=57.6%  top3_esp=80.6%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=57.6%)
+  [cabezas] época 6/8  L=1.4875  val top1: fam=76.0% gen=68.7% esp=58.0%  top3_esp=81.2%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=58.0%)
+  [cabezas] época 7/8  L=1.3800  val top1: fam=77.0% gen=71.8% esp=58.9%  top3_esp=81.6%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=58.9%)
+  [cabezas] época 8/8  L=1.2866  val top1: fam=77.5% gen=74.7% esp=59.9%  top3_esp=82.7%  (29s, VRAM 0.4/0.4 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=59.9%)
+
+=== Fase B: 20 épocas, últimas 4 capas + cabezas ===
+  Parámetros backbone descongelados: 28,746,240
+  Parámetros cabezas: 26,676
+  [finetune] época 1/20  L=0.9176  val top1: fam=83.7% gen=79.7% esp=61.2%  top3_esp=88.1%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=61.2%)
+  [finetune] época 2/20  L=0.5337  val top1: fam=85.0% gen=83.5% esp=65.6%  top3_esp=88.1%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=65.6%)
+  [finetune] época 3/20  L=0.3415  val top1: fam=84.3% gen=82.9% esp=66.6%  top3_esp=88.5%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=66.6%)
+  [finetune] época 4/20  L=0.2280  val top1: fam=85.8% gen=83.3% esp=67.8%  top3_esp=89.4%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=67.8%)
+  [finetune] época 5/20  L=0.1575  val top1: fam=85.2% gen=84.3% esp=69.1%  top3_esp=89.8%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=69.1%)
+  [finetune] época 6/20  L=0.1048  val top1: fam=86.6% gen=84.8% esp=71.4%  top3_esp=89.4%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=71.4%)
+  [finetune] época 7/20  L=0.0713  val top1: fam=85.8% gen=84.8% esp=70.1%  top3_esp=88.7%  (29s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 8/20  L=0.0486  val top1: fam=86.0% gen=84.8% esp=71.4%  top3_esp=89.4%  (29s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 9/20  L=0.0359  val top1: fam=86.2% gen=84.3% esp=71.0%  top3_esp=89.8%  (29s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 10/20  L=0.0283  val top1: fam=86.6% gen=85.0% esp=72.7%  top3_esp=89.4%  (30s, VRAM 0.7/1.1 GB actual/pico)
+    -> nuevo mejor checkpoint (top1_especie=72.7%)
+  [finetune] época 11/20  L=0.0220  val top1: fam=86.8% gen=84.8% esp=71.8%  top3_esp=89.8%  (29s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 12/20  L=0.0177  val top1: fam=87.3% gen=85.0% esp=71.8%  top3_esp=89.8%  (29s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 13/20  L=0.0148  val top1: fam=87.9% gen=86.4% esp=71.0%  top3_esp=89.6%  (30s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 14/20  L=0.0121  val top1: fam=88.1% gen=85.4% esp=70.8%  top3_esp=89.8%  (29s, VRAM 0.7/1.1 GB actual/pico)
+  [finetune] época 15/20  L=0.0106  val top1: fam=87.7% gen=85.4% esp=70.8%  top3_esp=89.6%  (29s, VRAM 0.7/1.1 GB actual/pico)
+    -> parada temprana (5 épocas sin mejora)
+
+=== Evaluación final (test, mejor checkpoint) ===
+  Top-1 familia:  88.9%
+  Top-1 género:   85.6%
+  Top-1 especie:  69.2%
+  Top-3 especie:  89.8%
+
+✅ FASE 4 OK — mejor checkpoint en D:\Anura\bioclip\checkpoints\bioclip_anura_mejor.pt
+   Listo para Fase 5 (evaluación completa) y Fase 6 (extraer model.visual)

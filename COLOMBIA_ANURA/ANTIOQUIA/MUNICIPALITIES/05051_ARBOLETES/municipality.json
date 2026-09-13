@@ -1,0 +1,51 @@
+{
+  "dane_code": "05051",
+  "name": "Arboletes",
+  "department": "ANTIOQUIA",
+  "area_km2": 754.3,
+  "species_count": 5,
+  "observations": 6,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Trachycephalus macrotis",
+      "inaturalist_taxon_id": 517297,
+      "common_name_es": "Rana Gomosa Grande",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24247/1663545",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Dendropsophus ebraccatus",
+      "inaturalist_taxon_id": 65349,
+      "common_name_es": "Rana arbórea amarillenta",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Boana platanera",
+      "inaturalist_taxon_id": 1251425,
+      "common_name_es": "Rana Platanera de Ojos Pálidos",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Boana pugnax",
+      "inaturalist_taxon_id": 555142,
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

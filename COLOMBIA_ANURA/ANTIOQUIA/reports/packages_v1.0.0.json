@@ -1,0 +1,151 @@
+{
+  "package_version": "1.0.0",
+  "evaluation": {
+    "test_images_located_in_department": 167,
+    "visual_only": {
+      "top1": 0.6287425149700598,
+      "top3": 0.8203592814371258
+    },
+    "visual_x_prior": {
+      "top1": 0.7245508982035929,
+      "top3": 0.8323353293413174
+    },
+    "prior_weight_w": 0.75,
+    "leakage_control": "las observaciones de prueba se retiran de los conteos del prior antes de evaluar",
+    "combination": "score(s) = votos_knn(s) · P(s|z)^w; solo compiten especies con voto visual > 0"
+  },
+  "sizes": {
+    "base_bytes": 9117696,
+    "base_mb": 8.7,
+    "zone_packages_bytes": {
+      "antioquia_zone_001_v1.0.0.sqlite": 16384,
+      "antioquia_zone_002_v1.0.0.sqlite": 16384,
+      "antioquia_zone_005_v1.0.0.sqlite": 24576,
+      "antioquia_zone_006_v1.0.0.sqlite": 24576
+    },
+    "reference_vectors": 4034,
+    "bytes_per_vector_observed": 2260,
+    "projection_full_catalog_float32_mb": 188.2,
+    "projection_full_catalog_int8_mb": 44.0
+  },
+  "base_checks": {
+    "vectors_in_index": 4034,
+    "vectors_expected": 4034,
+    "knn_query_sample": [
+      [
+        1,
+        "COL_ANURA_0001",
+        "Rheobates palmatus",
+        0.0
+      ],
+      [
+        12,
+        "COL_ANURA_0001",
+        "Rheobates palmatus",
+        0.21776269376277924
+      ],
+      [
+        4,
+        "COL_ANURA_0001",
+        "Rheobates palmatus",
+        0.24191367626190186
+      ],
+      [
+        3,
+        "COL_ANURA_0001",
+        "Rheobates palmatus",
+        0.2510499060153961
+      ],
+      [
+        6,
+        "COL_ANURA_0001",
+        "Rheobates palmatus",
+        0.2561732828617096
+      ]
+    ],
+    "non_visual_taxa_in_index": [],
+    "references_without_license_metadata": 1450
+  },
+  "zone_checks": {
+    "ZONE_001": {
+      "rows_observed": 86,
+      "sum_p_reconstructed": 1.0,
+      "normalized": true,
+      "all_taxon_ids_in_base": true,
+      "min_p": 0.0016220600162206002
+    },
+    "ZONE_002": {
+      "rows_observed": 93,
+      "sum_p_reconstructed": 1.0,
+      "normalized": true,
+      "all_taxon_ids_in_base": true,
+      "min_p": 0.0015105740181268882
+    },
+    "ZONE_005": {
+      "rows_observed": 175,
+      "sum_p_reconstructed": 1.0,
+      "normalized": true,
+      "all_taxon_ids_in_base": true,
+      "min_p": 0.0002853067047075606
+    },
+    "ZONE_006": {
+      "rows_observed": 141,
+      "sum_p_reconstructed": 1.0,
+      "normalized": true,
+      "all_taxon_ids_in_base": true,
+      "min_p": 0.0006279434850863422
+    }
+  },
+  "example_record": {
+    "vec_references": {
+      "rowid": 1033,
+      "taxon_id": "COL_ANURA_0011",
+      "embedding_first_8": [
+        -0.030643,
+        0.031989,
+        0.019549,
+        -0.004739,
+        0.035786,
+        -0.08245,
+        -0.008623,
+        -0.044807
+      ],
+      "embedding_dim": 512,
+      "embedding_l2_norm": 1.0
+    },
+    "reference_images": {
+      "ref_id": 1033,
+      "source_record_id": "inat:103760460",
+      "license_code": "cc-by-nc",
+      "attribution": "(c) Eliza Patiño Ocampo, some rights reserved (CC BY-NC)"
+    },
+    "taxa": {
+      "taxon_id": "COL_ANURA_0011",
+      "scientific_name": "Pristimantis paisa",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "species_epithet": "paisa",
+      "gbif_species_key": 2425047,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+      "visual_status": "VISUAL_ENABLED",
+      "flags": []
+    },
+    "grid_lookup": {
+      "gps": [
+        6.2442,
+        -75.5812
+      ],
+      "row": 25,
+      "col": -302,
+      "zone_id": "ZONE_006"
+    },
+    "zone_prior": {
+      "zone_id": "ZONE_006",
+      "taxon_id": "COL_ANURA_0011",
+      "n_records": 271,
+      "n_effective": 119,
+      "p": 0.03799058084772371
+    },
+    "lineage_file": "lineage/prior_lineage_v1.csv"
+  }
+}

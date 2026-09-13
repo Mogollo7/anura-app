@@ -1,0 +1,254 @@
+[
+  {
+    "archivo": "col_obs_156488742_photo_270601921.jpg",
+    "sim_ventral_translucido": 0.04713105782866478,
+    "sim_dorsal_habitat": 0.03243456035852432,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_156488742_photo_270601964.jpg",
+    "sim_ventral_translucido": 0.08979737758636475,
+    "sim_dorsal_habitat": 0.024027641862630844,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_156488742_photo_270602005.jpg",
+    "sim_ventral_translucido": 0.03249697759747505,
+    "sim_dorsal_habitat": 0.060327984392642975,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_156488742_photo_270602393.jpg",
+    "sim_ventral_translucido": 0.07529749721288681,
+    "sim_dorsal_habitat": 0.06266029179096222,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_19467476_photo_29951899.jpg",
+    "sim_ventral_translucido": 0.059627875685691833,
+    "sim_dorsal_habitat": 0.08777082711458206,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_19467476_photo_29951910.jpg",
+    "sim_ventral_translucido": 0.08058110624551773,
+    "sim_dorsal_habitat": 0.048248786479234695,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_19467476_photo_29951924.jpg",
+    "sim_ventral_translucido": 0.0988600105047226,
+    "sim_dorsal_habitat": 0.0978994220495224,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644841.jpg",
+    "sim_ventral_translucido": 0.05478634685277939,
+    "sim_dorsal_habitat": 0.055365003645420074,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644853.jpg",
+    "sim_ventral_translucido": 0.12019998580217361,
+    "sim_dorsal_habitat": 0.07674489170312881,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644865.jpg",
+    "sim_ventral_translucido": 0.12145974487066269,
+    "sim_dorsal_habitat": 0.10841821879148483,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644873.jpg",
+    "sim_ventral_translucido": 0.09781917184591293,
+    "sim_dorsal_habitat": 0.06840453296899796,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644883.jpg",
+    "sim_ventral_translucido": 0.10889820754528046,
+    "sim_dorsal_habitat": 0.04198028892278671,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644894.jpg",
+    "sim_ventral_translucido": 0.10914470255374908,
+    "sim_dorsal_habitat": 0.13421212136745453,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_197884576_photo_348644910.jpg",
+    "sim_ventral_translucido": 0.10374021530151367,
+    "sim_dorsal_habitat": 0.028883492574095726,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197927794_photo_348731209.jpg",
+    "sim_ventral_translucido": 0.0991693064570427,
+    "sim_dorsal_habitat": 0.04332040995359421,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197927794_photo_348731230.jpg",
+    "sim_ventral_translucido": 0.09930448234081268,
+    "sim_dorsal_habitat": 0.08284316211938858,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197927794_photo_348731255.jpg",
+    "sim_ventral_translucido": 0.06275609135627747,
+    "sim_dorsal_habitat": 0.019507989287376404,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_197927794_photo_348731276.jpg",
+    "sim_ventral_translucido": 0.10893429070711136,
+    "sim_dorsal_habitat": 0.13428494334220886,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_197927794_photo_348731295.jpg",
+    "sim_ventral_translucido": 0.055437713861465454,
+    "sim_dorsal_habitat": 0.06437686085700989,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_25388999_photo_39312678.jpg",
+    "sim_ventral_translucido": 0.1657295674085617,
+    "sim_dorsal_habitat": 0.06239005923271179,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_324593666_photo_587620730.jpg",
+    "sim_ventral_translucido": 0.09314784407615662,
+    "sim_dorsal_habitat": 0.13328564167022705,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_324593666_photo_587620799.jpg",
+    "sim_ventral_translucido": 0.0841221883893013,
+    "sim_dorsal_habitat": 0.11481321603059769,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "col_obs_324593666_photo_587620944.jpg",
+    "sim_ventral_translucido": 0.1226760521531105,
+    "sim_dorsal_habitat": 0.1135389506816864,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_34660191_photo_54573892.jpg",
+    "sim_ventral_translucido": 0.11363785713911057,
+    "sim_dorsal_habitat": 0.03480784222483635,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_34660191_photo_54574016.jpg",
+    "sim_ventral_translucido": 0.13606706261634827,
+    "sim_dorsal_habitat": 0.13028940558433533,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_34660191_photo_54574021.jpg",
+    "sim_ventral_translucido": 0.11184728145599365,
+    "sim_dorsal_habitat": 0.06548185646533966,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_34660191_photo_54574026.jpg",
+    "sim_ventral_translucido": 0.12001150101423264,
+    "sim_dorsal_habitat": 0.10989665985107422,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_34660191_photo_54574032.jpg",
+    "sim_ventral_translucido": 0.10815074294805527,
+    "sim_dorsal_habitat": 0.05994727462530136,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "col_obs_34660191_photo_54574034.jpg",
+    "sim_ventral_translucido": 0.09675643593072891,
+    "sim_dorsal_habitat": 0.0975627675652504,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "IMG-20251013-WA0387.jpg",
+    "sim_ventral_translucido": 0.12261097133159637,
+    "sim_dorsal_habitat": 0.06831591576337814,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "IMG-20251013-WA0388.jpg",
+    "sim_ventral_translucido": 0.09223887324333191,
+    "sim_dorsal_habitat": 0.03979228436946869,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "IMG-20251013-WA0390.jpg",
+    "sim_ventral_translucido": 0.08608468621969223,
+    "sim_dorsal_habitat": 0.05178949236869812,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "IMG-20251013-WA0397.jpg",
+    "sim_ventral_translucido": 0.08111116290092468,
+    "sim_dorsal_habitat": 0.08024371415376663,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "IMG-20251013-WA0398.jpg",
+    "sim_ventral_translucido": 0.1233987957239151,
+    "sim_dorsal_habitat": 0.035562947392463684,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "IMG-20251205-WA0056.jpg",
+    "sim_ventral_translucido": 0.09053616225719452,
+    "sim_dorsal_habitat": 0.04611404985189438,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "IMG-20260409-WA0121.jpg",
+    "sim_ventral_translucido": 0.08449036628007889,
+    "sim_dorsal_habitat": -0.01320849172770977,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "large (1).jpg",
+    "sim_ventral_translucido": 0.0315888412296772,
+    "sim_dorsal_habitat": 0.060555972158908844,
+    "vista": "dorsal_lateral"
+  },
+  {
+    "archivo": "large (2).jpg",
+    "sim_ventral_translucido": 0.09014081209897995,
+    "sim_dorsal_habitat": 0.022542841732501984,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "large (3).jpg",
+    "sim_ventral_translucido": 0.07557050883769989,
+    "sim_dorsal_habitat": 0.06354895234107971,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "large (4).jpg",
+    "sim_ventral_translucido": 0.1124153733253479,
+    "sim_dorsal_habitat": 0.03177633509039879,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "large.jpg",
+    "sim_ventral_translucido": 0.04628308117389679,
+    "sim_dorsal_habitat": 0.032475680112838745,
+    "vista": "ventral_translucido"
+  },
+  {
+    "archivo": "Sachatamia_electrops.jpg",
+    "sim_ventral_translucido": 0.09600282460451126,
+    "sim_dorsal_habitat": 0.0899297297000885,
+    "vista": "ventral_translucido"
+  }
+]

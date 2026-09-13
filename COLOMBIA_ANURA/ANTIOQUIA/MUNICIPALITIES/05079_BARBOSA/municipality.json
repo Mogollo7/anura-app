@@ -1,0 +1,99 @@
+{
+  "dane_code": "05079",
+  "name": "Barbosa",
+  "department": "ANTIOQUIA",
+  "area_km2": 205.7,
+  "species_count": 11,
+  "observations": 29,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 14,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Pristimantis achatinus",
+      "inaturalist_taxon_id": 66531,
+      "common_name_es": "Cutín común de occidente",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 4,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Smilisca phaeota",
+      "inaturalist_taxon_id": 24272,
+      "common_name_es": "rana arborícola enmascarada",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24271",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Pristimantis penelopus",
+      "inaturalist_taxon_id": 66797,
+      "common_name_es": "Rana De Ingles Negras Y Amarillas",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Rheobates pseudopalmatus",
+      "inaturalist_taxon_id": 67083,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787558/64818",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Leucostethus fraterdanieli",
+      "inaturalist_taxon_id": 787625,
+      "common_name_es": "Rana cohete silbadora",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/604136",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Rhinella alata",
+      "inaturalist_taxon_id": 67089,
+      "common_name_es": "Sapo del Obispo",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Leptodactylus colombiensis",
+      "inaturalist_taxon_id": 22939,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Boana pugnax",
+      "inaturalist_taxon_id": 555142,
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Pristimantis paisa",
+      "inaturalist_taxon_id": 66785,
+      "common_name_es": "Cutín paisa",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Pristimantis gaigei",
+      "inaturalist_taxon_id": 66673,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

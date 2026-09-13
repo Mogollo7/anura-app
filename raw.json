@@ -1,0 +1,418 @@
+[
+  {
+    "name": "anuro_completo",
+    "id": 8368690,
+    "color": "#54b49e",
+    "type": "any",
+    "attributes": [
+      {
+        "id": 2613757,
+        "name": "vista",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "dorsal",
+          "ventral",
+          "lateral",
+          "frontal",
+          "detalle_macro"
+        ],
+        "default_value": "dorsal"
+      },
+      {
+        "id": 2613758,
+        "name": "calidad_enfoque",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "alta",
+          "media",
+          "borrosa_parcial"
+        ],
+        "default_value": "alta"
+      },
+      {
+        "id": 2613759,
+        "name": "postura",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "extendida",
+          "recogida",
+          "salto",
+          "parcialmente_oculta"
+        ],
+        "default_value": "extendida"
+      }
+    ]
+  },
+  {
+    "name": "cabeza",
+    "id": 8368691,
+    "color": "#eb6d5d",
+    "type": "polygon",
+    "attributes": []
+  },
+  {
+    "name": "hocico",
+    "id": 8368692,
+    "color": "#e67e22",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613760,
+        "name": "forma",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "redondeado",
+          "puntiagudo",
+          "truncado",
+          "acuminado"
+        ],
+        "default_value": "redondeado"
+      }
+    ]
+  },
+  {
+    "name": "ojo",
+    "id": 8368693,
+    "color": "#f1c40f",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613761,
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      },
+      {
+        "id": 2613762,
+        "name": "orientacion",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "horizontal",
+          "vertical",
+          "oblicua"
+        ],
+        "default_value": "horizontal"
+      },
+      {
+        "id": 2613763,
+        "name": "forma_pupila",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "redonda",
+          "elipsoidal",
+          "romboidal",
+          "no_visible"
+        ],
+        "default_value": "redonda"
+      },
+      {
+        "id": 2613764,
+        "name": "color_iris",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "marron_pardo",
+          "amarillo_dorado",
+          "rojo_naranja",
+          "verde",
+          "azul_turquesa",
+          "gris_claro",
+          "otro",
+          "no_determinable"
+        ],
+        "default_value": "marron_pardo"
+      }
+    ]
+  },
+  {
+    "name": "timpano",
+    "id": 8368694,
+    "color": "#9b59b6",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613765,
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      },
+      {
+        "id": 2613766,
+        "name": "visibilidad",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "visible",
+          "oculto_pliegue",
+          "no_evaluable"
+        ],
+        "default_value": "visible"
+      }
+    ]
+  },
+  {
+    "name": "dorso_flancos",
+    "id": 8368695,
+    "color": "#5781f3",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613767,
+        "name": "color_base",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "verde",
+          "marron_pardo",
+          "gris",
+          "amarillo_naranja",
+          "azul_turquesa",
+          "negro",
+          "otro",
+          "no_determinable"
+        ],
+        "default_value": "marron_pardo"
+      },
+      {
+        "id": 2613768,
+        "name": "patron",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "liso",
+          "manchado",
+          "rayado",
+          "granular",
+          "verrugoso",
+          "mixto"
+        ],
+        "default_value": "liso"
+      },
+      {
+        "id": 2613769,
+        "name": "textura",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "lisa",
+          "granulosa",
+          "verrugosa",
+          "plegada"
+        ],
+        "default_value": "lisa"
+      }
+    ]
+  },
+  {
+    "name": "vientre",
+    "id": 8368696,
+    "color": "#3498db",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613770,
+        "name": "color_base",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "blanco_crema",
+          "amarillo",
+          "translucido",
+          "manchado_oscuro",
+          "azul_turquesa",
+          "otro",
+          "no_determinable"
+        ],
+        "default_value": "blanco_crema"
+      },
+      {
+        "id": 2613771,
+        "name": "patron",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "liso",
+          "moteado",
+          "reticulado",
+          "manchas_grandes"
+        ],
+        "default_value": "liso"
+      }
+    ]
+  },
+  {
+    "name": "glandulas_pliegues",
+    "id": 8368697,
+    "color": "#16a085",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613772,
+        "name": "tipo",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "parotoide",
+          "dorsolateral",
+          "inguinal",
+          "supratimpanica",
+          "otra"
+        ],
+        "default_value": "dorsolateral"
+      },
+      {
+        "id": 2613773,
+        "name": "prominencia",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "leve",
+          "moderada",
+          "marcada"
+        ],
+        "default_value": "leve"
+      }
+    ]
+  },
+  {
+    "name": "extremidad_anterior",
+    "id": 8368698,
+    "color": "#afd68b",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613774,
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      }
+    ]
+  },
+  {
+    "name": "extremidad_posterior",
+    "id": 8368699,
+    "color": "#25bbcd",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613775,
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      }
+    ]
+  },
+  {
+    "name": "dedos",
+    "id": 8368700,
+    "color": "#d35400",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613776,
+        "name": "extremidad",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "anterior",
+          "posterior"
+        ],
+        "default_value": "posterior"
+      },
+      {
+        "id": 2613777,
+        "name": "presencia_discos",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "presente_pequeno",
+          "presente_grande"
+        ],
+        "default_value": "ausente"
+      }
+    ]
+  },
+  {
+    "name": "palmeadura",
+    "id": 8368701,
+    "color": "#2ecc71",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613778,
+        "name": "extremidad",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "anterior",
+          "posterior"
+        ],
+        "default_value": "posterior"
+      },
+      {
+        "id": 2613779,
+        "name": "grado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "basal",
+          "parcial",
+          "completa"
+        ],
+        "default_value": "ausente"
+      }
+    ]
+  },
+  {
+    "name": "region_cloacal",
+    "id": 8368702,
+    "color": "#048713",
+    "type": "polygon",
+    "attributes": [
+      {
+        "id": 2613780,
+        "name": "visibilidad",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "visible",
+          "no_observable"
+        ],
+        "default_value": "visible"
+      }
+    ]
+  }
+]

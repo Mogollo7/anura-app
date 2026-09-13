@@ -1,0 +1,19 @@
+{
+  "dane_code": "05125",
+  "name": "Caicedo",
+  "department": "ANTIOQUIA",
+  "area_km2": 200.1,
+  "species_count": 1,
+  "observations": 2,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Leucostethus fraterdanieli",
+      "inaturalist_taxon_id": 787625,
+      "common_name_es": "Rana cohete silbadora",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/604136",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    }
+  ]
+}

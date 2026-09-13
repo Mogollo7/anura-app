@@ -1,0 +1,131 @@
+﻿{
+    "FASE":  "FASE 12.2",
+    "Title":  "Corrección de Duplicados Cross-Split REFERENCE/CALIBRATION",
+    "Timestamp":  "2026-09-13",
+    "STATUS":  "READY_FOR_PHASE_13",
+    "CORRECTION_SUMMARY":  {
+                               "DUPLICATES_DETECTED":  3,
+                               "DUPLICATES_RESOLVED":  3,
+                               "DUPLICATES_REMAINING":  0,
+                               "AMBIGUOUS_CASES":  0
+                           },
+    "CORRECTIONS_APPLIED":  [
+                                {
+                                    "Number":  1,
+                                    "Species":  "Pristimantis penelopus",
+                                    "SHA256":  "f7a8ed86daf051e8e17c5ea7f2d3c1ae0d5f3dabd243395514a5d74864782697",
+                                    "Conserved":  "REFERENCE/Craugastoridae/Pristimantis/Pristimantis penelopus/Pristimantis_penelopus_076.jpg",
+                                    "Removed":  "CALIBRATION/Craugastoridae/Pristimantis/Pristimantis penelopus/Pristimantis_penelopus_094.jpg",
+                                    "Justification":  "Integridad de la particion: _076 pertenece al bloque REFERENCE (indices 001-080) segun la estrategia de split secuencial reconstruida. _094 pertenece al bloque CALIBRATION (indices 081-099) pero es SHA-256 identico a _076. La copia de CALIBRATION se elimina para resolver la duplicacion cross-split."
+                                },
+                                {
+                                    "Number":  2,
+                                    "Species":  "Rhinella horribilis",
+                                    "SHA256":  "f775bb3b95ef0951cb82b0912c9fa59b21f568aec796d351c5fd4266273b6af5",
+                                    "Conserved":  "REFERENCE/Bufonidae/Rhinella/Rhinella horribilis/Rhinella_horribilis_003.jpg",
+                                    "Removed":  "CALIBRATION/Bufonidae/Rhinella/Rhinella horribilis/Rhinella_horribilis_084.jpg",
+                                    "Justification":  "Integridad de la particion: _003 pertenece al bloque REFERENCE (indices 001-068). _084 pertenece al bloque CALIBRATION (indices 069-084) pero es SHA-256 identico a _003. La copia de CALIBRATION se elimina para resolver la duplicacion cross-split."
+                                },
+                                {
+                                    "Number":  3,
+                                    "Species":  "Pristimantis penelopus",
+                                    "SHA256":  "0bffa53b8208ce86aa524e6da717f503f587f721da218d48f7c663eecac67fd5",
+                                    "Conserved":  "REFERENCE/Craugastoridae/Pristimantis/Pristimantis penelopus/Pristimantis_penelopus_030.jpg",
+                                    "Removed":  "CALIBRATION/Craugastoridae/Pristimantis/Pristimantis penelopus/Pristimantis_penelopus_085.jpg",
+                                    "Justification":  "Integridad de la particion: _030 pertenece al bloque REFERENCE (indices 001-080). _085 pertenece al bloque CALIBRATION (indices 081-099) pero es SHA-256 identico a _030. La copia de CALIBRATION se elimina para resolver la duplicacion cross-split."
+                                }
+                            ],
+    "SET_SIZES":  {
+                      "REFERENCE_SIZE":  798,
+                      "CALIBRATION_SIZE":  192,
+                      "REFERENCE_SIZE_BEFORE":  798,
+                      "CALIBRATION_SIZE_BEFORE":  195
+                  },
+    "TAXONOMIC_VALIDATION":  {
+                                 "REFERENCE_SPECIES":  10,
+                                 "CALIBRATION_SPECIES":  10,
+                                 "ALL_SPECIES_IN_BOTH":  "YES",
+                                 "SPECIES_LIST":  [
+                                                      "Dendrobates truncatus",
+                                                      "Dendropsophus bogerti",
+                                                      "Dendropsophus microcephalus",
+                                                      "Hyloscirtus palmeri",
+                                                      "Leucostethus fraterdanieli",
+                                                      "Pristimantis acanthinus",
+                                                      "Pristimantis paisa",
+                                                      "Pristimantis penelopus",
+                                                      "Rhinella alata",
+                                                      "Rhinella horribilis"
+                                                  ]
+                             },
+    "SHA256_VALIDATION":  {
+                              "SHA256_CROSS_SPLIT_DUPLICATES":  0,
+                              "STATUS":  "PASS",
+                              "REFERENCE_UNIQUE_HASHES":  792,
+                              "CALIBRATION_UNIQUE_HASHES":  190,
+                              "NOTE_INTERNAL_DUPLICATES":  "6 duplicados internos en REFERENCE y 2 en CALIBRATION son heredados de la coleccion fuente. No son cross-split y no se modifican en esta fase."
+                          },
+    "CONTAMINATION_VALIDATION":  {
+                                     "CONTAMINATED_IN_REFERENCE":  0,
+                                     "CONTAMINATED_IN_CALIBRATION":  0,
+                                     "CONTAMINATED_IMAGES_TOTAL":  28,
+                                     "STATUS":  "PASS"
+                                 },
+    "INTEGRITY_VALIDATION":  {
+                                 "STATUS":  "PASS",
+                                 "CHECKS":  [
+                                                {
+                                                    "File":  "Pristimantis_penelopus_076.jpg",
+                                                    "Set":  "REFERENCE",
+                                                    "MatchesSource":  "YES"
+                                                },
+                                                {
+                                                    "File":  "Rhinella_horribilis_003.jpg",
+                                                    "Set":  "REFERENCE",
+                                                    "MatchesSource":  "YES"
+                                                },
+                                                {
+                                                    "File":  "Pristimantis_penelopus_030.jpg",
+                                                    "Set":  "REFERENCE",
+                                                    "MatchesSource":  "YES"
+                                                }
+                                            ]
+                             },
+    "SEPARATION_STRATEGY":  {
+                                "Method":  "Split secuencial por indice numerico por especie (80/20)",
+                                "Secondary_Criteria":  "Salto de 5 imagenes (aproximado — implementado como bloque secuencial)",
+                                "SEPARATION_STRATEGY":  "SALTO_DE_5",
+                                "INDIVIDUAL_ID_AVAILABLE":  "NO",
+                                "OBS_ID_AVAILABLE":  "NO",
+                                "INDIVIDUAL_INDEPENDENCE":  "CONTROLLED_NOT_FORMALLY_VERIFIABLE",
+                                "OBSERVATION_INDEPENDENCE":  "NOT_FORMALLY_VERIFIABLE",
+                                "Note":  "La eliminacion de los 3 duplicados SHA-256 elimina la duplicacion cross-split confirmada. No implica independencia formal de individuos ni de observaciones, cuya verificacion requiere individual_id y obs_id no disponibles en la coleccion."
+                            },
+    "PROTECTED_ARTIFACTS":  {
+                                "F3_PROTECTED":  "YES",
+                                "F4_PROTECTED":  "YES",
+                                "MODEL_MODIFIED":  "NO",
+                                "DATASET_MODIFIED":  "NO",
+                                "PRODUCTION_MODIFIED":  "NO",
+                                "SOURCE_DATA_MODIFIED":  "NO",
+                                "SOURCE_PATH":  "D:\\Anura\\data calibration\\ (carpetas familia)",
+                                "NOTE":  "Los archivos duplicados solo fueron eliminados del conjunto derivado CALIBRATION\\. La coleccion fuente permanece intacta para trazabilidad y auditoria."
+                            },
+    "MANIFESTS_UPDATED":  {
+                              "CALIBRATION_manifest_json":  "YES — 192 registros",
+                              "CALIBRATION_manifest_csv":  "YES — 192 registros",
+                              "REFERENCE_manifest_json":  "NO MODIFICADO — 798 registros",
+                              "REFERENCE_manifest_csv":  "NO MODIFICADO — 798 registros"
+                          },
+    "FROZEN_STATUS":  {
+                          "REFERENCE":  "FROZEN",
+                          "CALIBRATION":  "FROZEN",
+                          "Manifests":  "FROZEN",
+                          "Note":  "REFERENCE y CALIBRATION quedan congelados despues de esta correccion. No deben modificarse durante Fase 13 salvo auditoria de integridad con error objetivo documentado."
+                      },
+    "NEXT_PHASE_NOTES":  {
+                             "Note1":  "REFERENCE/CALIBRATION contienen 10 de las 41 especies visuales del sistema. Fase 13 debe analizar explicitamente como tratar las 31 especies no representadas antes de seleccionar el metodo final de rechazo.",
+                             "Note2":  "F3/F4 deben permanecer ciegos: no usar para seleccionar regularizacion, metodo de covarianza, umbral, pesos, hiperparametros ni modelo de rechazo.",
+                             "Note3":  "El resultado Mahalanobis AUROC=1.000000 de Fase 9 fue in-sample y no debe usarse como evidencia de rendimiento generalizable. Fase 13 debe producir estimacion out-of-sample."
+                         }
+}

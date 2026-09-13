@@ -1,0 +1,19 @@
+{
+  "dane_code": "05543",
+  "name": "Peque",
+  "department": "ANTIOQUIA",
+  "area_km2": 434.1,
+  "species_count": 1,
+  "observations": 1,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Dendrobates truncatus",
+      "inaturalist_taxon_id": 21116,
+      "common_name_es": "Rana venenosa de rayas amarillas",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21112",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

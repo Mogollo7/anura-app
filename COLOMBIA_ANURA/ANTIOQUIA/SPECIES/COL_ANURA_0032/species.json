@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0032",
+  "scientific_name": "Dendropsophus microcephalus",
+  "family": "Hylidae",
+  "genus": "Dendropsophus",
+  "common_name_es": "Rana de árbol amarilla",
+  "directory_legacy": "Dendropsophus_microcephalus",
+  "occurrences_in_department": 69,
+  "distinct_observers_in_department": 49,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 439,
+  "occurrences_dropped_low_accuracy": 6,
+  "photos_curated_total": 713,
+  "photos_raw_total": 719,
+  "individuals_curated_total": 426,
+  "individuals_from_department": 67,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

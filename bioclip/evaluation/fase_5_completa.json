@@ -1,0 +1,1107 @@
+{
+  "meta": {
+    "n_especies": 41,
+    "n_test": 766,
+    "top1_global": 0.5704960835509139,
+    "top3_global": 0.8237597911227154
+  },
+  "por_especie": [
+    {
+      "especie": "Dendropsophus_columbianus",
+      "n_test": 17,
+      "n_individuos_train_reales": 49,
+      "top1": 0.0,
+      "top3": 0.058823529411764705,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "especie": "Dendropsophus_norandinus",
+      "n_test": 7,
+      "n_individuos_train_reales": 8,
+      "top1": 0.0,
+      "top3": 0.14285714285714285,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "especie": "Dendropsophus_microcephalus",
+      "n_test": 14,
+      "n_individuos_train_reales": 49,
+      "top1": 0.07142857142857142,
+      "top3": 0.7142857142857143,
+      "f1": 0.08,
+      "precision": 0.09090909090909091,
+      "recall": 0.07142857142857142
+    },
+    {
+      "especie": "Dendropsophus_reticulatus",
+      "n_test": 14,
+      "n_individuos_train_reales": 36,
+      "top1": 0.07142857142857142,
+      "top3": 0.6428571428571429,
+      "f1": 0.09523809523809523,
+      "precision": 0.14285714285714285,
+      "recall": 0.07142857142857142
+    },
+    {
+      "especie": "Dendropsophus_triangulum",
+      "n_test": 21,
+      "n_individuos_train_reales": 46,
+      "top1": 0.09523809523809523,
+      "top3": 0.7619047619047619,
+      "f1": 0.14285714285714285,
+      "precision": 0.2857142857142857,
+      "recall": 0.09523809523809523
+    },
+    {
+      "especie": "Boana_pugnax",
+      "n_test": 19,
+      "n_individuos_train_reales": 49,
+      "top1": 0.21052631578947367,
+      "top3": 0.8421052631578947,
+      "f1": 0.3333333333333333,
+      "precision": 0.8,
+      "recall": 0.21052631578947367
+    },
+    {
+      "especie": "Pristimantis_achatinus",
+      "n_test": 32,
+      "n_individuos_train_reales": 49,
+      "top1": 0.21875,
+      "top3": 0.78125,
+      "f1": 0.35,
+      "precision": 0.875,
+      "recall": 0.21875
+    },
+    {
+      "especie": "Dendropsophus_bogerti",
+      "n_test": 21,
+      "n_individuos_train_reales": 49,
+      "top1": 0.23809523809523808,
+      "top3": 0.42857142857142855,
+      "f1": 0.3333333333333333,
+      "precision": 0.5555555555555556,
+      "recall": 0.23809523809523808
+    },
+    {
+      "especie": "Pristimantis_erythropleura",
+      "n_test": 19,
+      "n_individuos_train_reales": 49,
+      "top1": 0.2631578947368421,
+      "top3": 0.5789473684210527,
+      "f1": 0.4166666666666667,
+      "precision": 1.0,
+      "recall": 0.2631578947368421
+    },
+    {
+      "especie": "Pristimantis_vilarsi",
+      "n_test": 7,
+      "n_individuos_train_reales": 22,
+      "top1": 0.2857142857142857,
+      "top3": 0.8571428571428571,
+      "f1": 0.23529411764705882,
+      "precision": 0.2,
+      "recall": 0.2857142857142857
+    },
+    {
+      "especie": "Boana_xerophylla",
+      "n_test": 20,
+      "n_individuos_train_reales": 38,
+      "top1": 0.35,
+      "top3": 0.8,
+      "f1": 0.42424242424242425,
+      "precision": 0.5384615384615384,
+      "recall": 0.35
+    },
+    {
+      "especie": "Pristimantis_bogotensis",
+      "n_test": 25,
+      "n_individuos_train_reales": 38,
+      "top1": 0.36,
+      "top3": 0.68,
+      "f1": 0.46153846153846156,
+      "precision": 0.6428571428571429,
+      "recall": 0.36
+    },
+    {
+      "especie": "Scinax_ruber",
+      "n_test": 12,
+      "n_individuos_train_reales": 49,
+      "top1": 0.4166666666666667,
+      "top3": 0.75,
+      "f1": 0.4166666666666667,
+      "precision": 0.4166666666666667,
+      "recall": 0.4166666666666667
+    },
+    {
+      "especie": "Pristimantis_palmeri",
+      "n_test": 19,
+      "n_individuos_train_reales": 40,
+      "top1": 0.42105263157894735,
+      "top3": 0.6842105263157895,
+      "f1": 0.5517241379310345,
+      "precision": 0.8,
+      "recall": 0.42105263157894735
+    },
+    {
+      "especie": "Boana_punctata",
+      "n_test": 13,
+      "n_individuos_train_reales": 49,
+      "top1": 0.46153846153846156,
+      "top3": 0.8461538461538461,
+      "f1": 0.6,
+      "precision": 0.8571428571428571,
+      "recall": 0.46153846153846156
+    },
+    {
+      "especie": "Boana_platanera",
+      "n_test": 15,
+      "n_individuos_train_reales": 49,
+      "top1": 0.4666666666666667,
+      "top3": 0.6666666666666666,
+      "f1": 0.45161290322580644,
+      "precision": 0.4375,
+      "recall": 0.4666666666666667
+    },
+    {
+      "especie": "Pristimantis_taeniatus",
+      "n_test": 15,
+      "n_individuos_train_reales": 49,
+      "top1": 0.4666666666666667,
+      "top3": 0.7333333333333333,
+      "f1": 0.358974358974359,
+      "precision": 0.2916666666666667,
+      "recall": 0.4666666666666667
+    },
+    {
+      "especie": "Pristimantis_paisa",
+      "n_test": 21,
+      "n_individuos_train_reales": 49,
+      "top1": 0.47619047619047616,
+      "top3": 0.7142857142857143,
+      "f1": 0.47619047619047616,
+      "precision": 0.47619047619047616,
+      "recall": 0.47619047619047616
+    },
+    {
+      "especie": "Pristimantis_penelopus",
+      "n_test": 28,
+      "n_individuos_train_reales": 49,
+      "top1": 0.5,
+      "top3": 0.8214285714285714,
+      "f1": 0.5957446808510638,
+      "precision": 0.7368421052631579,
+      "recall": 0.5
+    },
+    {
+      "especie": "Pristimantis_thectopternus",
+      "n_test": 13,
+      "n_individuos_train_reales": 38,
+      "top1": 0.5384615384615384,
+      "top3": 0.9230769230769231,
+      "f1": 0.4666666666666667,
+      "precision": 0.4117647058823529,
+      "recall": 0.5384615384615384
+    },
+    {
+      "especie": "Rhinella_margaritifera",
+      "n_test": 18,
+      "n_individuos_train_reales": 49,
+      "top1": 0.5555555555555556,
+      "top3": 1.0,
+      "f1": 0.6451612903225806,
+      "precision": 0.7692307692307693,
+      "recall": 0.5555555555555556
+    },
+    {
+      "especie": "Phyllomedusa_venusta",
+      "n_test": 21,
+      "n_individuos_train_reales": 49,
+      "top1": 0.5714285714285714,
+      "top3": 1.0,
+      "f1": 0.631578947368421,
+      "precision": 0.7058823529411765,
+      "recall": 0.5714285714285714
+    },
+    {
+      "especie": "Pristimantis_permixtus",
+      "n_test": 25,
+      "n_individuos_train_reales": 42,
+      "top1": 0.64,
+      "top3": 0.84,
+      "f1": 0.6666666666666666,
+      "precision": 0.6956521739130435,
+      "recall": 0.64
+    },
+    {
+      "especie": "Hyloscirtus_palmeri",
+      "n_test": 29,
+      "n_individuos_train_reales": 49,
+      "top1": 0.6896551724137931,
+      "top3": 0.9655172413793104,
+      "f1": 0.7692307692307693,
+      "precision": 0.8695652173913043,
+      "recall": 0.6896551724137931
+    },
+    {
+      "especie": "Boana_rosenbergi",
+      "n_test": 20,
+      "n_individuos_train_reales": 46,
+      "top1": 0.7,
+      "top3": 0.8,
+      "f1": 0.5185185185185185,
+      "precision": 0.4117647058823529,
+      "recall": 0.7
+    },
+    {
+      "especie": "Dendropsophus_mathiassoni",
+      "n_test": 27,
+      "n_individuos_train_reales": 43,
+      "top1": 0.7037037037037037,
+      "top3": 0.8518518518518519,
+      "f1": 0.475,
+      "precision": 0.3584905660377358,
+      "recall": 0.7037037037037037
+    },
+    {
+      "especie": "Boana_boans",
+      "n_test": 14,
+      "n_individuos_train_reales": 49,
+      "top1": 0.7142857142857143,
+      "top3": 0.8571428571428571,
+      "f1": 0.7407407407407407,
+      "precision": 0.7692307692307693,
+      "recall": 0.7142857142857143
+    },
+    {
+      "especie": "Engystomops_pustulosus",
+      "n_test": 14,
+      "n_individuos_train_reales": 49,
+      "top1": 0.7142857142857143,
+      "top3": 0.8571428571428571,
+      "f1": 0.8,
+      "precision": 0.9090909090909091,
+      "recall": 0.7142857142857143
+    },
+    {
+      "especie": "Craugastor_raniformis",
+      "n_test": 18,
+      "n_individuos_train_reales": 49,
+      "top1": 0.7222222222222222,
+      "top3": 1.0,
+      "f1": 0.4727272727272727,
+      "precision": 0.35135135135135137,
+      "recall": 0.7222222222222222
+    },
+    {
+      "especie": "Phyllomedusa_tarsius",
+      "n_test": 28,
+      "n_individuos_train_reales": 31,
+      "top1": 0.7857142857142857,
+      "top3": 0.8928571428571429,
+      "f1": 0.7857142857142857,
+      "precision": 0.7857142857142857,
+      "recall": 0.7857142857142857
+    },
+    {
+      "especie": "Leptodactylus_colombiensis",
+      "n_test": 25,
+      "n_individuos_train_reales": 49,
+      "top1": 0.8,
+      "top3": 1.0,
+      "f1": 0.8,
+      "precision": 0.8,
+      "recall": 0.8
+    },
+    {
+      "especie": "Rhinella_alata",
+      "n_test": 19,
+      "n_individuos_train_reales": 38,
+      "top1": 0.8421052631578947,
+      "top3": 0.9473684210526315,
+      "f1": 0.7804878048780488,
+      "precision": 0.7272727272727273,
+      "recall": 0.8421052631578947
+    },
+    {
+      "especie": "Dendropsophus_molitor",
+      "n_test": 15,
+      "n_individuos_train_reales": 49,
+      "top1": 0.8666666666666667,
+      "top3": 0.9333333333333333,
+      "f1": 0.7878787878787878,
+      "precision": 0.7222222222222222,
+      "recall": 0.8666666666666667
+    },
+    {
+      "especie": "Dendropsophus_ebraccatus",
+      "n_test": 18,
+      "n_individuos_train_reales": 49,
+      "top1": 0.8888888888888888,
+      "top3": 0.9444444444444444,
+      "f1": 0.47058823529411764,
+      "precision": 0.32,
+      "recall": 0.8888888888888888
+    },
+    {
+      "especie": "Rhinella_horribilis",
+      "n_test": 10,
+      "n_individuos_train_reales": 46,
+      "top1": 0.9,
+      "top3": 1.0,
+      "f1": 0.6923076923076923,
+      "precision": 0.5625,
+      "recall": 0.9
+    },
+    {
+      "especie": "Pristimantis_gaigei",
+      "n_test": 11,
+      "n_individuos_train_reales": 38,
+      "top1": 0.9090909090909091,
+      "top3": 1.0,
+      "f1": 0.8333333333333334,
+      "precision": 0.7692307692307693,
+      "recall": 0.9090909090909091
+    },
+    {
+      "especie": "Boana_cinerascens",
+      "n_test": 14,
+      "n_individuos_train_reales": 49,
+      "top1": 0.9285714285714286,
+      "top3": 0.9285714285714286,
+      "f1": 0.6046511627906976,
+      "precision": 0.4482758620689655,
+      "recall": 0.9285714285714286
+    },
+    {
+      "especie": "Boana_lanciformis",
+      "n_test": 15,
+      "n_individuos_train_reales": 49,
+      "top1": 0.9333333333333333,
+      "top3": 1.0,
+      "f1": 0.6511627906976745,
+      "precision": 0.5,
+      "recall": 0.9333333333333333
+    },
+    {
+      "especie": "Dendrobates_truncatus",
+      "n_test": 23,
+      "n_individuos_train_reales": 49,
+      "top1": 1.0,
+      "top3": 1.0,
+      "f1": 0.9019607843137255,
+      "precision": 0.8214285714285714,
+      "recall": 1.0
+    },
+    {
+      "especie": "Pithecopus_hypochondrialis",
+      "n_test": 40,
+      "n_individuos_train_reales": 49,
+      "top1": 1.0,
+      "top3": 1.0,
+      "f1": 0.9411764705882353,
+      "precision": 0.8888888888888888,
+      "recall": 1.0
+    },
+    {
+      "especie": "Rheobates_palmatus",
+      "n_test": 10,
+      "n_individuos_train_reales": 31,
+      "top1": 1.0,
+      "top3": 1.0,
+      "f1": 0.5882352941176471,
+      "precision": 0.4166666666666667,
+      "recall": 1.0
+    }
+  ],
+  "pares_confundibles": [
+    {
+      "confusiones": 15,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Dendropsophus_triangulum"
+    },
+    {
+      "confusiones": 10,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Pristimantis_achatinus"
+    },
+    {
+      "confusiones": 9,
+      "especie_a": "Phyllomedusa_tarsius",
+      "especie_b": "Phyllomedusa_venusta"
+    },
+    {
+      "confusiones": 9,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Dendropsophus_reticulatus"
+    },
+    {
+      "confusiones": 9,
+      "especie_a": "Dendropsophus_bogerti",
+      "especie_b": "Dendropsophus_mathiassoni"
+    },
+    {
+      "confusiones": 8,
+      "especie_a": "Pristimantis_paisa",
+      "especie_b": "Pristimantis_taeniatus"
+    },
+    {
+      "confusiones": 8,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Dendropsophus_microcephalus"
+    },
+    {
+      "confusiones": 8,
+      "especie_a": "Boana_rosenbergi",
+      "especie_b": "Boana_xerophylla"
+    },
+    {
+      "confusiones": 8,
+      "especie_a": "Boana_pugnax",
+      "especie_b": "Boana_rosenbergi"
+    },
+    {
+      "confusiones": 7,
+      "especie_a": "Rhinella_alata",
+      "especie_b": "Rhinella_margaritifera"
+    },
+    {
+      "confusiones": 7,
+      "especie_a": "Pristimantis_achatinus",
+      "especie_b": "Pristimantis_thectopternus"
+    },
+    {
+      "confusiones": 6,
+      "especie_a": "Boana_cinerascens",
+      "especie_b": "Hyloscirtus_palmeri"
+    },
+    {
+      "confusiones": 5,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Dendropsophus_ebraccatus"
+    },
+    {
+      "confusiones": 5,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Pristimantis_thectopternus"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Pristimantis_penelopus",
+      "especie_b": "Pristimantis_taeniatus"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Pristimantis_palmeri",
+      "especie_b": "Pristimantis_taeniatus"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Pristimantis_bogotensis",
+      "especie_b": "Rheobates_palmatus"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Pristimantis_bogotensis",
+      "especie_b": "Pristimantis_taeniatus"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Leptodactylus_colombiensis",
+      "especie_b": "Rhinella_horribilis"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Dendropsophus_triangulum"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Dendropsophus_microcephalus"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Dendropsophus_mathiassoni"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Boana_platanera",
+      "especie_b": "Boana_xerophylla"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Boana_platanera",
+      "especie_b": "Boana_rosenbergi"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Boana_platanera",
+      "especie_b": "Boana_pugnax"
+    },
+    {
+      "confusiones": 4,
+      "especie_a": "Boana_cinerascens",
+      "especie_b": "Boana_punctata"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Pristimantis_penelopus",
+      "especie_b": "Rheobates_palmatus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Pristimantis_paisa",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Pristimantis_paisa",
+      "especie_b": "Pristimantis_penelopus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Pristimantis_erythropleura",
+      "especie_b": "Pristimantis_penelopus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Pristimantis_bogotensis",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Pristimantis_bogotensis",
+      "especie_b": "Pristimantis_paisa"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Leptodactylus_colombiensis",
+      "especie_b": "Pristimantis_achatinus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Dendropsophus_reticulatus",
+      "especie_b": "Dendropsophus_triangulum"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Dendropsophus_microcephalus",
+      "especie_b": "Dendropsophus_reticulatus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Dendropsophus_bogerti",
+      "especie_b": "Dendropsophus_norandinus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Dendropsophus_bogerti",
+      "especie_b": "Dendropsophus_microcephalus"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Dendrobates_truncatus",
+      "especie_b": "Rhinella_margaritifera"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Boana_cinerascens",
+      "especie_b": "Pristimantis_erythropleura"
+    },
+    {
+      "confusiones": 3,
+      "especie_a": "Boana_cinerascens",
+      "especie_b": "Boana_xerophylla"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Rheobates_palmatus",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_taeniatus",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_permixtus",
+      "especie_b": "Pristimantis_thectopternus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_palmeri",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_palmeri",
+      "especie_b": "Pristimantis_penelopus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_paisa",
+      "especie_b": "Pristimantis_palmeri"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_gaigei",
+      "especie_b": "Pristimantis_penelopus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Pristimantis_erythropleura",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Phyllomedusa_venusta",
+      "especie_b": "Pithecopus_hypochondrialis"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Engystomops_pustulosus",
+      "especie_b": "Rheobates_palmatus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Pithecopus_hypochondrialis"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Dendropsophus_reticulatus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Dendropsophus_microcephalus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Dendropsophus_bogerti",
+      "especie_b": "Dendropsophus_ebraccatus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Dendrobates_truncatus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_xerophylla",
+      "especie_b": "Hyloscirtus_palmeri"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_punctata",
+      "especie_b": "Hyloscirtus_palmeri"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Pristimantis_achatinus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Dendropsophus_microcephalus"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Craugastor_raniformis"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Boana_pugnax"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_boans",
+      "especie_b": "Boana_rosenbergi"
+    },
+    {
+      "confusiones": 2,
+      "especie_a": "Boana_boans",
+      "especie_b": "Boana_platanera"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Rhinella_alata",
+      "especie_b": "Rhinella_horribilis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_vilarsi",
+      "especie_b": "Rhinella_margaritifera"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_taeniatus",
+      "especie_b": "Rheobates_palmatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_taeniatus",
+      "especie_b": "Pristimantis_thectopternus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_permixtus",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_penelopus",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_palmeri",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_paisa",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_paisa",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_gaigei",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_erythropleura",
+      "especie_b": "Pristimantis_thectopternus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_bogotensis",
+      "especie_b": "Pristimantis_penelopus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_bogotensis",
+      "especie_b": "Pristimantis_palmeri"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_achatinus",
+      "especie_b": "Rheobates_palmatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_achatinus",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pristimantis_achatinus",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Pithecopus_hypochondrialis",
+      "especie_b": "Pristimantis_achatinus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Leptodactylus_colombiensis",
+      "especie_b": "Rheobates_palmatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Leptodactylus_colombiensis",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Leptodactylus_colombiensis",
+      "especie_b": "Pristimantis_bogotensis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Hyloscirtus_palmeri",
+      "especie_b": "Phyllomedusa_venusta"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Hyloscirtus_palmeri",
+      "especie_b": "Phyllomedusa_tarsius"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Engystomops_pustulosus",
+      "especie_b": "Rhinella_horribilis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Engystomops_pustulosus",
+      "especie_b": "Pristimantis_paisa"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Engystomops_pustulosus",
+      "especie_b": "Pristimantis_bogotensis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_triangulum",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_norandinus",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_norandinus",
+      "especie_b": "Pristimantis_erythropleura"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_molitor",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_molitor",
+      "especie_b": "Pristimantis_erythropleura"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_molitor",
+      "especie_b": "Phyllomedusa_venusta"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_molitor",
+      "especie_b": "Phyllomedusa_tarsius"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_microcephalus",
+      "especie_b": "Pristimantis_bogotensis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Pristimantis_taeniatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Pristimantis_palmeri"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Pristimantis_bogotensis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_mathiassoni",
+      "especie_b": "Dendropsophus_norandinus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Pristimantis_erythropleura"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_ebraccatus",
+      "especie_b": "Dendropsophus_mathiassoni"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Pristimantis_vilarsi"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Pristimantis_bogotensis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Dendropsophus_reticulatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_columbianus",
+      "especie_b": "Dendropsophus_molitor"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_bogerti",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Dendropsophus_bogerti",
+      "especie_b": "Dendropsophus_reticulatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Rhinella_alata"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Pristimantis_gaigei"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Dendropsophus_norandinus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Craugastor_raniformis",
+      "especie_b": "Dendropsophus_columbianus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_xerophylla",
+      "especie_b": "Dendropsophus_molitor"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_rosenbergi",
+      "especie_b": "Scinax_ruber"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_rosenbergi",
+      "especie_b": "Rhinella_horribilis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_rosenbergi",
+      "especie_b": "Pristimantis_permixtus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_rosenbergi",
+      "especie_b": "Dendropsophus_mathiassoni"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_punctata",
+      "especie_b": "Phyllomedusa_venusta"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_punctata",
+      "especie_b": "Dendropsophus_molitor"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_pugnax",
+      "especie_b": "Craugastor_raniformis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_platanera",
+      "especie_b": "Rhinella_horribilis"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_platanera",
+      "especie_b": "Phyllomedusa_tarsius"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_platanera",
+      "especie_b": "Dendropsophus_triangulum"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Pristimantis_erythropleura"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Dendropsophus_norandinus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Dendropsophus_mathiassoni"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Dendropsophus_ebraccatus"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Dendropsophus_bogerti"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_lanciformis",
+      "especie_b": "Boana_xerophylla"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_cinerascens",
+      "especie_b": "Dendropsophus_mathiassoni"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_boans",
+      "especie_b": "Pristimantis_erythropleura"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_boans",
+      "especie_b": "Boana_pugnax"
+    },
+    {
+      "confusiones": 1,
+      "especie_a": "Boana_boans",
+      "especie_b": "Boana_lanciformis"
+    }
+  ]
+}

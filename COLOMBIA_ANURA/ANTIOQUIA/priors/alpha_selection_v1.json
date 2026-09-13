@@ -1,0 +1,299 @@
+{
+  "formula": "P(s|z) = (N(s,z) + α) / (N(z) + α·K)",
+  "N_definition": "N(s,z) = Σ_celdas min(n(s,c), 18); n(s,c) = registros válidos de s en la celda c",
+  "effort_cap": 18,
+  "effort_cap_rule": "percentil 90 de n(s,c) > 0",
+  "K": 291,
+  "alpha": 2.0,
+  "alpha_at_grid_edge": false,
+  "selection": "máxima log-verosimilitud media por registro efectivo, validación dejando una celda fuera dentro de cada zona",
+  "curve": [
+    {
+      "alpha": 0.001,
+      "mean_heldout_loglik": -5.214068568278194
+    },
+    {
+      "alpha": 0.002,
+      "mean_heldout_loglik": -5.146656415951573
+    },
+    {
+      "alpha": 0.005,
+      "mean_heldout_loglik": -5.057677496632974
+    },
+    {
+      "alpha": 0.01,
+      "mean_heldout_loglik": -4.990587002086332
+    },
+    {
+      "alpha": 0.02,
+      "mean_heldout_loglik": -4.9238969699462665
+    },
+    {
+      "alpha": 0.05,
+      "mean_heldout_loglik": -4.8370703553497165
+    },
+    {
+      "alpha": 0.1,
+      "mean_heldout_loglik": -4.773520968487495
+    },
+    {
+      "alpha": 0.2,
+      "mean_heldout_loglik": -4.713746417166189
+    },
+    {
+      "alpha": 0.5,
+      "mean_heldout_loglik": -4.64645085986204
+    },
+    {
+      "alpha": 1.0,
+      "mean_heldout_loglik": -4.6120909296411465
+    },
+    {
+      "alpha": 2.0,
+      "mean_heldout_loglik": -4.601678265513737
+    },
+    {
+      "alpha": 5.0,
+      "mean_heldout_loglik": -4.642770607269681
+    },
+    {
+      "alpha": 10.0,
+      "mean_heldout_loglik": -4.727556506987351
+    }
+  ],
+  "diagnostics_by_zone": {
+    "ZONE_001": {
+      "records": 794,
+      "effective_records": 651,
+      "species_observed": 86,
+      "p_unobserved": 0.0016220600162206002,
+      "mass_on_unobserved_species": 0.33252230332522303,
+      "sum_p": 1.0,
+      "min_p": 0.0016220600162206002,
+      "max_p": 0.050283860502838604,
+      "max_p_without_effort_cap": 0.07049418604651163,
+      "top_cell_share_raw": 0.37405541561712846,
+      "top_cell_share_capped": 0.36098310291858676,
+      "spearman_prior_vs_incidence": 0.5237887574364001,
+      "spearman_prior_vs_raw_records": 0.9994838740582815,
+      "normalized_entropy": 0.9012584220479078,
+      "top_species": [
+        {
+          "taxon_id": "COL_ANURA_0009",
+          "scientific_name": "Pristimantis erythropleura",
+          "p": 0.050283860502838604,
+          "n_records": 95,
+          "n_effective": 60,
+          "cells": 6
+        },
+        {
+          "taxon_id": "COL_ANURA_0007",
+          "scientific_name": "Pristimantis achatinus",
+          "p": 0.0413625304136253,
+          "n_records": 87,
+          "n_effective": 49,
+          "cells": 5
+        },
+        {
+          "taxon_id": "COL_ANURA_0029",
+          "scientific_name": "Dendropsophus columbianus",
+          "p": 0.030008110300081103,
+          "n_records": 37,
+          "n_effective": 35,
+          "cells": 3
+        },
+        {
+          "taxon_id": "COL_ANURA_0179",
+          "scientific_name": "Pristimantis zophus",
+          "p": 0.030008110300081103,
+          "n_records": 37,
+          "n_effective": 35,
+          "cells": 3
+        },
+        {
+          "taxon_id": "COL_ANURA_0003",
+          "scientific_name": "Rhinella horribilis",
+          "p": 0.025141930251419302,
+          "n_records": 30,
+          "n_effective": 29,
+          "cells": 5
+        }
+      ]
+    },
+    "ZONE_002": {
+      "records": 819,
+      "effective_records": 742,
+      "species_observed": 93,
+      "p_unobserved": 0.0015105740181268882,
+      "mass_on_unobserved_species": 0.2990936555891239,
+      "sum_p": 1.0,
+      "min_p": 0.0015105740181268882,
+      "max_p": 0.030211480362537766,
+      "max_p_without_effort_cap": 0.037116345467523196,
+      "top_cell_share_raw": 0.3247863247863248,
+      "top_cell_share_capped": 0.3032345013477089,
+      "spearman_prior_vs_incidence": 0.5001263651064864,
+      "spearman_prior_vs_raw_records": 0.9968661497705154,
+      "normalized_entropy": 0.9112802170694942,
+      "top_species": [
+        {
+          "taxon_id": "COL_ANURA_0266",
+          "scientific_name": "Smilisca phaeota",
+          "p": 0.030211480362537766,
+          "n_records": 42,
+          "n_effective": 38,
+          "cells": 7
+        },
+        {
+          "taxon_id": "COL_ANURA_0219",
+          "scientific_name": "Oophaga histrionica",
+          "p": 0.028700906344410877,
+          "n_records": 44,
+          "n_effective": 36,
+          "cells": 2
+        },
+        {
+          "taxon_id": "COL_ANURA_0003",
+          "scientific_name": "Rhinella horribilis",
+          "p": 0.02190332326283988,
+          "n_records": 27,
+          "n_effective": 27,
+          "cells": 6
+        },
+        {
+          "taxon_id": "COL_ANURA_0058",
+          "scientific_name": "Rhaebo haematiticus",
+          "p": 0.02039274924471299,
+          "n_records": 25,
+          "n_effective": 25,
+          "cells": 5
+        },
+        {
+          "taxon_id": "COL_ANURA_0164",
+          "scientific_name": "Pristimantis sanguineus",
+          "p": 0.019637462235649546,
+          "n_records": 50,
+          "n_effective": 24,
+          "cells": 3
+        }
+      ]
+    },
+    "ZONE_005": {
+      "records": 8600,
+      "effective_records": 6428,
+      "species_observed": 175,
+      "p_unobserved": 0.0002853067047075606,
+      "mass_on_unobserved_species": 0.033095577746077035,
+      "sum_p": 1.0,
+      "min_p": 0.0002853067047075606,
+      "max_p": 0.05777460770328103,
+      "max_p_without_effort_cap": 0.1181659769113483,
+      "top_cell_share_raw": 0.07616279069767441,
+      "top_cell_share_capped": 0.05584940883634101,
+      "spearman_prior_vs_incidence": 0.8956925721437242,
+      "spearman_prior_vs_raw_records": 0.9982001168189224,
+      "normalized_entropy": 0.7960797033854687,
+      "top_species": [
+        {
+          "taxon_id": "COL_ANURA_0003",
+          "scientific_name": "Rhinella horribilis",
+          "p": 0.05777460770328103,
+          "n_records": 1083,
+          "n_effective": 403,
+          "cells": 43
+        },
+        {
+          "taxon_id": "COL_ANURA_0018",
+          "scientific_name": "Dendrobates truncatus",
+          "p": 0.04550641940085592,
+          "n_records": 574,
+          "n_effective": 317,
+          "cells": 41
+        },
+        {
+          "taxon_id": "COL_ANURA_0039",
+          "scientific_name": "Engystomops pustulosus",
+          "p": 0.042225392296718976,
+          "n_records": 384,
+          "n_effective": 294,
+          "cells": 39
+        },
+        {
+          "taxon_id": "COL_ANURA_0266",
+          "scientific_name": "Smilisca phaeota",
+          "p": 0.03680456490727532,
+          "n_records": 333,
+          "n_effective": 256,
+          "cells": 33
+        },
+        {
+          "taxon_id": "COL_ANURA_0024",
+          "scientific_name": "Boana pugnax",
+          "p": 0.03238231098430813,
+          "n_records": 287,
+          "n_effective": 225,
+          "cells": 36
+        }
+      ]
+    },
+    "ZONE_006": {
+      "records": 4868,
+      "effective_records": 2603,
+      "species_observed": 141,
+      "p_unobserved": 0.0006279434850863422,
+      "mass_on_unobserved_species": 0.09419152276295134,
+      "sum_p": 1.0,
+      "min_p": 0.0006279434850863422,
+      "max_p": 0.07001569858712715,
+      "max_p_without_effort_cap": 0.10422018348623853,
+      "top_cell_share_raw": 0.17460969597370585,
+      "top_cell_share_capped": 0.12101421436803687,
+      "spearman_prior_vs_incidence": 0.8597626091956748,
+      "spearman_prior_vs_raw_records": 0.9951079149703952,
+      "normalized_entropy": 0.8193755901787831,
+      "top_species": [
+        {
+          "taxon_id": "COL_ANURA_0003",
+          "scientific_name": "Rhinella horribilis",
+          "p": 0.07001569858712715,
+          "n_records": 450,
+          "n_effective": 221,
+          "cells": 18
+        },
+        {
+          "taxon_id": "COL_ANURA_0028",
+          "scientific_name": "Dendropsophus bogerti",
+          "p": 0.04709576138147567,
+          "n_records": 566,
+          "n_effective": 148,
+          "cells": 13
+        },
+        {
+          "taxon_id": "COL_ANURA_0215",
+          "scientific_name": "Leucostethus fraterdanieli",
+          "p": 0.03956043956043956,
+          "n_records": 220,
+          "n_effective": 124,
+          "cells": 13
+        },
+        {
+          "taxon_id": "COL_ANURA_0011",
+          "scientific_name": "Pristimantis paisa",
+          "p": 0.03799058084772371,
+          "n_records": 271,
+          "n_effective": 119,
+          "cells": 11
+        },
+        {
+          "taxon_id": "COL_ANURA_0014",
+          "scientific_name": "Pristimantis permixtus",
+          "p": 0.03390894819466248,
+          "n_records": 322,
+          "n_effective": 106,
+          "cells": 12
+        }
+      ]
+    }
+  },
+  "prior_table_sha256": "1d8c28a2da30f3edb055ee860d7825c5981d415b792e77f36d94ea9c32949b05"
+}

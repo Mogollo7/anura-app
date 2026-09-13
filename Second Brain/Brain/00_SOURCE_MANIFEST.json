@@ -1,0 +1,2512 @@
+﻿[
+    {
+        "path":  ".agents\\skills\\apple-hig\\assets\\checklists\\accessibility-review.md",
+        "sha256":  "af6b0e319177530495c54bd7c32c4f12ef9b3002c0c1415929f607a33016bee4",
+        "title":  "Accessibility review checklist"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\assets\\checklists\\platform-parity-review.md",
+        "sha256":  "0811b5ea276be938b3d3f5af9e08a56ab87e332e82941d6ba583919f5723a6f7",
+        "title":  "Platform parity review checklist"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\assets\\checklists\\pre-submission-hig-review.md",
+        "sha256":  "2f254bc34b522c339a8f80abe7a6bd64044dbbaec21da3a68fc3f236471ae3c7",
+        "title":  "Pre-submission HIG review checklist"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\CHANGELOG.md",
+        "sha256":  "aa59fe94c00a32d56609f96b180714664a9520a45217a150e88fc5d7338d2780",
+        "title":  "Changelog"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\README.md",
+        "sha256":  "da0fb51c81569147503389069483c2a6cf1fd4f9ec1cb713e116eae9221ecae9",
+        "title":  "apple-hig"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\bars.md",
+        "sha256":  "dbdec072c87a669cf309fac27834de1e583ec9555975d3c19711b1a43fe76fc0",
+        "title":  "Bars — tab, navigation, toolbar, sidebar"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\buttons.md",
+        "sha256":  "752735b5958d1fcb1ae02f62826d4b40180f6fc9a4e37372eb958dac64d83927",
+        "title":  "Buttons"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\collections-and-scrolling.md",
+        "sha256":  "416663da9728325fb2643e1d93a1511cfd579b5b92f0556eaf929f7f3a5858c6",
+        "title":  "Collections and scrolling"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\labels-and-badges.md",
+        "sha256":  "96000a7d774138103c7da95e9bd0dc377e039844902d9a0e3b002f09d1d396d3",
+        "title":  "Labels and badges"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\lists-and-tables.md",
+        "sha256":  "617bc6cdea52af6c7d68c4bab6ee5c194191bec2ee5153916752509849b1c904",
+        "title":  "Lists and tables"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\pickers-and-menus.md",
+        "sha256":  "3e722aa66177f4a4204b81851e2841b30c4d6d8d674f488e68a860261db22ec7",
+        "title":  "Pickers, menus, pull-down and pop-up buttons"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\progress-and-activity.md",
+        "sha256":  "570e87948805e299415720b52971d9f9bb77166e903cb497f25cd37a023e4e67",
+        "title":  "Progress and activity (progress indicators, gauges, activity rings)"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\segmented-controls.md",
+        "sha256":  "b5c3f8916829f491ebfda9ab58f8300f097979e79ef339221063e4ebf6bf24e0",
+        "title":  "Segmented controls"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\sheets-and-popovers.md",
+        "sha256":  "29a60aeb5d4bbd813e408d7f60d4d0a4030107f316d85fedbe647f6eb7d9bb1d",
+        "title":  "Sheets, popovers, alerts, action sheets"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\sliders-steppers-toggles.md",
+        "sha256":  "17bb3e0fea720ef2d56fab01f72c610d8c8a5ae5605bbca929f1fb9a7b7948f7",
+        "title":  "Sliders, steppers, toggles (switches / checkboxes / radio buttons)"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\split-views.md",
+        "sha256":  "c125d9a00735d86ae706d8ac87c5531a764e92f722be0143519d1580d357e310",
+        "title":  "Split views"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\system-experiences.md",
+        "sha256":  "a3979108b04e4ae575b5423cd6f1daa4450ef35858cdeb48227753e59492c27c",
+        "title":  "System experiences (share sheet, activity views, share/action extensions)"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\components\\text-inputs.md",
+        "sha256":  "37400dccaefdabd678acdc0a64822f549489ca5ff42918ac6de0db600d3dc8d9",
+        "title":  "Text inputs — text fields, secure fields, combo boxes"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\accessibility.md",
+        "sha256":  "a9503678691ae0688aea1362feda731942b6767c2d2c11d9459577768ea3de99",
+        "title":  "Accessibility"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\color.md",
+        "sha256":  "f80153d0003920f586b23ba64557d0f246718c73642ba943f1f1738fae2e849c",
+        "title":  "Color"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\dark-mode.md",
+        "sha256":  "6a693383f41af868d1ebcf89ecfd06dd4a8bd34206382a5f80300ca326b8f682",
+        "title":  "Dark Mode"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\layout.md",
+        "sha256":  "ed9ea4df892d8a21964cfbd9c969d42080bb6d248dbd39316bc900e423302e11",
+        "title":  "Layout"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\materials.md",
+        "sha256":  "3cc692eab9048a62754a3a338cd97e013f8f53b27ef0c0e41e8ca06e5ead4f16",
+        "title":  "Materials (Liquid Glass and standard materials)"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\motion.md",
+        "sha256":  "9ab98c34e57291a6521d918a5ec5bd9895f009d07ac46def7ec31d82a32907c6",
+        "title":  "Motion"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\sf-symbols.md",
+        "sha256":  "51626c508e5f4c488b7b1145abc8ba8aba874953d0a2d8237d0fe24ff7533ce0",
+        "title":  "SF Symbols"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\foundations\\typography.md",
+        "sha256":  "3d263110d96d6cd0fbc903f9b9e6a29b5f4e20fb2368fd2bb2d2f7726d668549",
+        "title":  "Typography"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\apple-pencil.md",
+        "sha256":  "a23238c59bda9e4fca41563ea77cc76bb56869338bd4b95c04bda665f813587d",
+        "title":  "Apple Pencil"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\digital-crown.md",
+        "sha256":  "beb7493bcd41cde1ebccf3c01d8a1f541d44f1c78523876bce5d15dfde3454ca",
+        "title":  "Digital Crown"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\focus-and-remote.md",
+        "sha256":  "2f02c893a9d71cbad392fc74acc40e56a429a2f86866506702986173c355a836",
+        "title":  "Focus and Siri Remote (tvOS) + focus on iPadOS / macOS / visionOS"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\game-controllers.md",
+        "sha256":  "fd53b99fd939c0896b9ddd7dff79fefc7372a6e30a6b8a1d18c7de07086de4fe",
+        "title":  "Game controllers"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\pointer-and-keyboard.md",
+        "sha256":  "2a5c57da09eef2589c8fa8b05e2dace6555711ea420bc18ac65d05914c2a6c38",
+        "title":  "Pointer and keyboard"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\spatial-input.md",
+        "sha256":  "ee8467c476829acf31282cc505583f91d1de389880101a8f8c5f25685abe1f6f",
+        "title":  "Spatial input (eyes + hands on visionOS)"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\inputs\\touch-and-gestures.md",
+        "sha256":  "1bc09826fc8bce5a71d1af2f17e39a522d794b8a51acfc341bd19fad7e07b9d1",
+        "title":  "Touch and gestures"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\charting-data.md",
+        "sha256":  "1faf0069cce9fcd7affdeb153ff9f652a2af46ea6ca2f3b90c2cdd841866ac33",
+        "title":  "Charting data"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\drag-and-drop.md",
+        "sha256":  "7b42f7604d8232b379ce56bd609dabd0ba608412cd7e56438d7ffc659bd62e00",
+        "title":  "Drag and drop"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\entering-data.md",
+        "sha256":  "8bf4c970298a3b21b099d944c7e563ccdc0d1c8fbac95c254b5a8b99e87bd152",
+        "title":  "Entering data"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\feedback.md",
+        "sha256":  "f3c90123e11e2d2eadc5e230c49219bdfcd9ee5712e7040d2212ba72d76838e4",
+        "title":  "Feedback"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\file-management.md",
+        "sha256":  "eca06d56965a7905de3f9f3cda06fbe62bbcdc0b1f11abce949cb57e9ea9f437",
+        "title":  "File management"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\going-full-screen.md",
+        "sha256":  "2e554f65509f10c18c60996cf84b69684b25ca79a537f59904c42833913857cf",
+        "title":  "Going full screen"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\in-app-purchase.md",
+        "sha256":  "2024ad4c98bb5ed4373d1f281b00593aa92307c3aaf7a272f944a6890dd813a2",
+        "title":  "In-app purchase"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\live-viewing-apps.md",
+        "sha256":  "5e6d099b7424f2d8f2fbfb35f87fbbfe3fa681029e06dff602d9b382ba7ca126",
+        "title":  "Live-viewing apps"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\loading.md",
+        "sha256":  "5cb009b99abb81dddc3ccad9d54a273f1eecf7360f7f493036c6b8b0f987186f",
+        "title":  "Loading"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\managing-accounts.md",
+        "sha256":  "c744c86b6f83fed96535ffbd775324eaad3821b84108846470108244e400f8ca",
+        "title":  "Managing accounts"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\managing-notifications.md",
+        "sha256":  "aa198b8868f6498501ac2c0bfc459e6fd408c1a997df011dc711c602533519c2",
+        "title":  "Managing notifications"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\modality.md",
+        "sha256":  "b2dc4634d36508f58f4556ab0d422027578f9b3699a4302cb1f7acb88063b005",
+        "title":  "Modality"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\multitasking.md",
+        "sha256":  "e41a78e769c9b547dbca81149eca3e6f00ecf11b1044d6aa72e7d71d6eb6ae40",
+        "title":  "Multitasking"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\navigation.md",
+        "sha256":  "e416a351a9af3fdebc1c0c2a6d0b7ced2f1fdbd402d9f82d53ffc3383d0c3f43",
+        "title":  "Navigation"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\offering-help.md",
+        "sha256":  "f2f276ed1bcf27bed241782ebeac5743daa33684a5a863080578ca2e355e290c",
+        "title":  "Offering help"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\onboarding.md",
+        "sha256":  "07fc743adc9ed0bbd31ab4be26e39b5cffcc70fc9171bc8eed4e5d27c8471179",
+        "title":  "Onboarding"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\printing.md",
+        "sha256":  "e47b20a4b4ce48b00671329e162d7aa49b900cdefac363a97398742398ead130",
+        "title":  "Printing"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\ratings-and-reviews.md",
+        "sha256":  "ccebe2a479484a3b3151ccc60ea78c494eba4b8eb5d15a765403f698ba81dfa2",
+        "title":  "Ratings and reviews"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\search.md",
+        "sha256":  "0fd4368f3a3051a5aefc2adeea4e3fc83da26f38051d3803636d91d61082ebad",
+        "title":  "Search"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\settings.md",
+        "sha256":  "9dcf7b1e3b355a5b940a985b37d2110d65ad090c341f3a03a4c55bced1b2d2ae",
+        "title":  "Settings"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\undo-and-redo.md",
+        "sha256":  "e412c3c23af339086bbb72983033607444dfa64de6a69a189e0d3baac0bda93d",
+        "title":  "Undo and redo"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\patterns\\workouts.md",
+        "sha256":  "3f55cea306bcc1eabc3d38fcf04a5383dacfded644abeeb59105aa1065af55cc",
+        "title":  "Workouts"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\platforms\\ios.md",
+        "sha256":  "f62ea23cb0e0d28f49cc41b04ed8d3740ccc8981284e25ebda2d39b9cf6f587b",
+        "title":  "iOS / iPhone"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\platforms\\ipados.md",
+        "sha256":  "b1ac5aef04b2c82d1686722fe989f79e926bc70109daaa7037ceb1df0701c3aa",
+        "title":  "iPadOS"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\platforms\\macos.md",
+        "sha256":  "31e23bcf98a1cb87a7155d80985124f66233d57a49fadb9b849c91c22d0f898c",
+        "title":  "macOS / Mac"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\platforms\\tvos.md",
+        "sha256":  "c4769a70c9c8af2a20f98c16ad010f526db6e73db3a19dd65bc7d155e2c18aaf",
+        "title":  "tvOS"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\platforms\\visionos.md",
+        "sha256":  "e4785566659b70e4b8339d27923ceac91f53fd1c228635c8e9239a9fbaa488d4",
+        "title":  "visionOS"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\platforms\\watchos.md",
+        "sha256":  "552891b54756ce2182fa1b1c887bd7e2f599e668d78d7b24b4ac735feb167cc0",
+        "title":  "watchOS"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\README.md",
+        "sha256":  "8548822076cafcd7a5c69f8bfd4b6ac21343322ada75c6bc3f77b2b9e27ace6a",
+        "title":  "references/"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\app-clips.md",
+        "sha256":  "e8bdfeb296ac468177b61b8f78c7d56924cd4ff024989b8c65b264dd0d8d9308",
+        "title":  "App Clips"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\carplay.md",
+        "sha256":  "ec61021594d40f2eb57eb476db3066bed722c2d4e26f84e50e8ab13a3f5227f6",
+        "title":  "CarPlay"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\control-center.md",
+        "sha256":  "9947aee6851c01d8e27631bda93f5a3407c403d3d907ef888bcac7b9791c81b8",
+        "title":  "Control Center (and custom Controls, iOS 18+)"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\dynamic-island.md",
+        "sha256":  "c8f0345c3e034a7965db7ca3b051bb11915ef8a9a2becb35e611b2536566fcdf",
+        "title":  "Dynamic Island"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\game-center.md",
+        "sha256":  "b9424a8ac436cb7f887b19965ff9c7e2df8d69567d0af4c5e9b7d95419e557b7",
+        "title":  "Game Center"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\generative-ai.md",
+        "sha256":  "d75742625de20dd11979059e021068a6153e24588378d33c8008739b8ec1c0b8",
+        "title":  "Generative AI"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\homekit.md",
+        "sha256":  "329964b7506c41815b10756306f0a8aa7c3b0b0fa2b5ec9fe3ba3232873c9b65",
+        "title":  "HomeKit"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\imessage-apps.md",
+        "sha256":  "8407e8b240a46e3bef51623842f4268db01fe10586461afd154c0b8e0a663f46",
+        "title":  "iMessage apps and stickers"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\lock-screen.md",
+        "sha256":  "ef7b543cf79fc9a5f4bd8d6147fcea887736746def608aa4e936e0bbe89f80f9",
+        "title":  "Lock Screen"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\share-extension.md",
+        "sha256":  "9a7c6667424a85d3b1b7c842f37efa4eeb02a1d5f46d7e324cd46a119c5aaaad",
+        "title":  "Share and action extensions"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\shortcuts-and-siri.md",
+        "sha256":  "0a61764a69190511a7005354d9aa9486a8f6eb0fb0b1191106a29b378de28742",
+        "title":  "Shortcuts and Siri"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\references\\technologies\\widgets-and-live-activities.md",
+        "sha256":  "b0db0969e56065dbbb77ede8bc4b77cf9c12683ab4414e693395a905a6d016b1",
+        "title":  "Widgets and Live Activities"
+    },
+    {
+        "path":  ".agents\\skills\\apple-hig\\SKILL.md",
+        "sha256":  "9341a4e07d392973dd7c6f914d2d93c9cb801a65398687a3271c16c7c20c3d87",
+        "title":  "apple-hig"
+    },
+    {
+        "path":  ".agents\\skills\\caveman\\README.md",
+        "sha256":  "e86f4b56765fc288859a8a1f3e3814c990ba920b326c40c55667b56d44c58c1e",
+        "title":  "caveman"
+    },
+    {
+        "path":  ".agents\\skills\\caveman\\SKILL.md",
+        "sha256":  "fec5718a391dd9d8c89746d39e0cc0fa7aa5b50447669a15e44c3244167828c0",
+        "title":  "Persistence"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\README.md",
+        "sha256":  "dce4f1804563ac66140779919237d8478561e3f51e94d06fe84a770441389ad5",
+        "title":  "Mobile App Design Standards Skill"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\accessibility-checklist.md",
+        "sha256":  "e702944608644080796a0b4dd6d408c1429be5b0dedde6bfd1835c7abd9ab01b",
+        "title":  "Mobile Accessibility Checklist"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\android-guidelines.md",
+        "sha256":  "181ae568d00a392da3526d66370aa1ddef7a4a1ab08f3c3d573b20b5463afc58",
+        "title":  "Android Material Design - Essential Summary"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\common-mistakes.md",
+        "sha256":  "397bbc8cbef89e51e31054685660e68c2f8cb42bbdebb71cc2bb88c0315f6630",
+        "title":  "Common Mobile App Design Mistakes and Fixes"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\ios-guidelines.md",
+        "sha256":  "e2325cd163120f14aa8d9163aa81d9de15a5d458888c9660bb4b3c1ad7b9883f",
+        "title":  "iOS Human Interface Guidelines - Essential Summary"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\performance-patterns.md",
+        "sha256":  "301a7dc5a881ecd3d82bde05d25d03f75fb7691fd53832ff352884fa8604125c",
+        "title":  "React Native Performance Optimization Patterns"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\platform-differences.md",
+        "sha256":  "0238bbe1c4801528dd82ce0e484805d511addc7582ad081af4dbb7a752f42db7",
+        "title":  "iOS vs Android Platform Differences Quick Reference"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\references\\ui-libraries.md",
+        "sha256":  "f8b846da0fe65870f31f176cacc00201498a1995bcc7b6910c9999d056796f10",
+        "title":  "React Native UI Component Libraries"
+    },
+    {
+        "path":  ".agents\\skills\\mobile-app-design\\SKILL.md",
+        "sha256":  "0350f670a50af86c83777d69d7ee1075b6f7a2d87da7d5bd805f3305789eee3d",
+        "title":  "Mobile App Design Standards"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\AGENTS.md",
+        "sha256":  "2fa0f69abed6aadad3e20068e00a1d9fe8fed1c2355b8e35ade754c55fb87177",
+        "title":  "AGENTS.md — Penpot Agentic Design Workflows"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\architecture.md",
+        "sha256":  "ad1fa7f76e73617e3f648aa1c8e1393a9fa7a5ccb5b51800607e776b7a957ecd",
+        "title":  "Architecture"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\clients.md",
+        "sha256":  "427211beabeedf7c70156e7b0fe18fd67abb801ca21729c5b01899e64f226624",
+        "title":  "Supported clients — install matrix"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\glossary.md",
+        "sha256":  "55bcd926c6eee5ddeb414b04b01228260188f98a5aaa2d47557cdb60371960c6",
+        "title":  "Glossary — Penpot terms (and Figma equivalents)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\mcp-api-findings.md",
+        "sha256":  "86cb72897681e177950e67fac02ebbaef3037536d62dbb509221e12117b61930",
+        "title":  "Penpot MCP / Plugin API — Verification Findings \u0026 Developer Feedback"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\setup-local.md",
+        "sha256":  "938a78d7c8a584aa4a0dc79fe6bee4770a5b7bd4e31e865cf96bc551691c3ef0",
+        "title":  "Setup — Local (Self-Hosted / Development)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\setup-remote.md",
+        "sha256":  "eb49eaa1f9eac1ab8f7d54aac39d52b2f336b10d3dcfb70d5afc7ae76cb746f6",
+        "title":  "Setup — Remote (Penpot SaaS)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\docs\\troubleshooting.md",
+        "sha256":  "84c431440868ccb562fc765a6d6e51c573732bbc999d91f8e86dcc92924fe3cf",
+        "title":  "Troubleshooting"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\evals\\fixtures\\README.md",
+        "sha256":  "8b66050709698889a92189d797eb350fbee768a8bbed66ec72fd76e2bf4ce11f",
+        "title":  "Fixtures"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\evals\\README.md",
+        "sha256":  "73a32a9dd93d7936b1a0bdbe428df16108d0dbe40b9d07a3508749c017998e26",
+        "title":  "Evals"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\INSTALL.md",
+        "sha256":  "7cf64b3e4520dfa2ecbaa2c04d57b43d1d9b81e1ba4a9de4cb05bf08e6c67caa",
+        "title":  "Install the Penpot AI Kit — agent playbook"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\policies\\approval-checkpoints.md",
+        "sha256":  "4b551b131a18ea8776d4db713b1137473bf3ef0a85a707d771a9e3f14a0a1553",
+        "title":  "Approval checkpoints"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\policies\\README.md",
+        "sha256":  "46cc277626da65cc4f57cfa93d71d29004734ce573f9e24d0c28965a8137d4ab",
+        "title":  "Policies"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\audit-request.md",
+        "sha256":  "a746de25b801eba9bf047af274bb872afa391cfa611edb6d25e2011bf94db68d",
+        "title":  "Audit request"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\component-spec.md",
+        "sha256":  "7a37697ca78fd49a7c344bc7abc02ae76869c765151a3ec4a7fa6eca5335c1c8",
+        "title":  "Component spec"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\design-brief.md",
+        "sha256":  "515433cf9ebb85ede8d984aad5710619ac75658421cf2502d0e9dec23bf060cb",
+        "title":  "Design brief (screen)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\handoff-brief.md",
+        "sha256":  "8f3d5523c6bd415a1721bc425c0e5cce1d1f37ce5954fa948a7d1e8b198f8f63",
+        "title":  "Handoff brief (annotate a design)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\migration-brief.md",
+        "sha256":  "0da70d48d0565a8caefab9587e0905bfc2f197d3ed90cd773b19bd4030d2d9d6",
+        "title":  "Migration brief (Figma → Penpot)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\README.md",
+        "sha256":  "68f96f9df212cae512546d981027336f36ffc508bc08c35e868f07bdd438d2a2",
+        "title":  "Prompts — token-aware templates"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\prompts\\resume-continuation.md",
+        "sha256":  "d5dcb51dcbb3c554fbf20ec56ef44f48ad4ef3066c26aae8150091b5dcdf4a89",
+        "title":  "Resume a long run"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\README.md",
+        "sha256":  "69788d70d53a6e3eb2e080ecc5ebc8e90e48ae279e21e464c0d80f64da106baa",
+        "title":  "Penpot AI Kit"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\design-quality.md",
+        "sha256":  "2c37c5d48ea12696d2d13c68741b195ffc9d36a1f1bb0b9e03a4398b4e8ac168",
+        "title":  "Design quality — deliberate aesthetics, by the numbers"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\modes-and-policies.md",
+        "sha256":  "f205d8c13ed34baf1028a65b5cd5752d91a30562579eee17034b6343a114a749",
+        "title":  "Operating Modes \u0026 Policies"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\naming-conventions.md",
+        "sha256":  "b324d6a03a4b27683caff0f39fc4b6ead9684318b94364080dde79b95118afa1",
+        "title":  "Naming Conventions"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\penpot-mcp-tool-reference.md",
+        "sha256":  "5893d3ed93743c5db60418bf5a0ed28b7c2ae45b18ae251fd9fc56c70bbcf43e",
+        "title":  "Penpot MCP Tool Reference"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\plugin-api-gotchas.md",
+        "sha256":  "cfcf3c969e14a7e38d67c35847202576cb65b7b9199a92afdc06c92cabb36964",
+        "title":  "Penpot Plugin API — Gotchas"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\report-schemas\\README.md",
+        "sha256":  "2cb2cfb8bebef0552b48d8046d472c679049220aab4bab466764b31299b2fe33",
+        "title":  "Report schemas — structured outputs the workflows can actually branch on"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\SKILL-template.md",
+        "sha256":  "33dd4037dcbd3ec115e482ca45f273f6e7569ae275ec58d7f03b720344caac68",
+        "title":  "Canonical SKILL.md Anatomy"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\state-management.md",
+        "sha256":  "8314da25517e5cc103e848e96db7bb04eb168c6dd88eddec03fcffc67adb470d",
+        "title":  "State Management \u0026 Resumability"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\shared\\visual-self-review.md",
+        "sha256":  "fea805c8b5d54033a7d634809670df3b513ffdd550bdb9b1223f555a6958f8d5",
+        "title":  "Visual self-review — look at your own work before showing it"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-accessibility\\references\\01-inspection.md",
+        "sha256":  "b05e0d14ad80bec7f85f7275f201e263c782713897bb096b801cc43ea2b38d94",
+        "title":  "01 — Inspection"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-accessibility\\references\\02-contrast-checks.md",
+        "sha256":  "a9a5a85ba8b5bcb59b866ac7b90175e083a795846a7eeb72253420cd754ce5a1",
+        "title":  "02 — Contrast checks (WCAG 1.4.3 / 1.4.11)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-accessibility\\references\\03-sizing-checks.md",
+        "sha256":  "96a323ad40a4b220c0f6897f7127cf1d754215c155e4d606e9939aa265989d88",
+        "title":  "03 — Sizing checks (WCAG 2.5.8 Target Size)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-accessibility\\references\\04-report-generation.md",
+        "sha256":  "c512e26cace117517a1d1420048ae179c44f8c6920311f9f8b91c4e1b50eb5c8",
+        "title":  "04 — Report generation"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-accessibility\\SKILL.md",
+        "sha256":  "c90a89608931211594cc6148053fc54ad52ec69073eafd0c7fd110195741d95b",
+        "title":  "penpot-audit-accessibility — WCAG AA auditor"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-tokens\\references\\01-inspection.md",
+        "sha256":  "b0ae4b1dc039d867a2649ab299f2245d2fdb10c0cf75be228fdb963ccacd86d5",
+        "title":  "01 — Inspection"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-tokens\\references\\02-hardcoded-value-detection.md",
+        "sha256":  "29d34f17cfc46e18fccf6583203911578b08fa352147d5fe2e4fea0f629c9e2a",
+        "title":  "02 — Hardcoded value detection"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-tokens\\references\\03-orphan-and-grid-checks.md",
+        "sha256":  "1f5effa2fef6d39fa08714bb18d9cbdcbea9200895ab9ce001be23d7518747e6",
+        "title":  "03 — Orphan \u0026 grid checks"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-tokens\\references\\04-report-generation.md",
+        "sha256":  "ee3e82183b4dd21e71fdb6eaaa4b4573f441d01bb2b2bf57908873fcb82e9b45",
+        "title":  "04 — Report generation (governance)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-audit-tokens\\SKILL.md",
+        "sha256":  "43a20e09925fca6cd87c068f22616dae7035f58686e0d08e72e763a2aadde4d0",
+        "title":  "penpot-audit-tokens — design-system governance auditor"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\references\\01-discovery.md",
+        "sha256":  "56b4ba879fda3aa96f1f0db9fe8ea3c9a789dc6632779484241a1d91f5fce5d1",
+        "title":  "01 — Discovery (Phase 0)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\references\\02-component-assembly.md",
+        "sha256":  "2526ba75cd63ec1105d145dd607171d329654bfff7180f4322a4e258fc9631e9",
+        "title":  "02 — Component Assembly (Phase 2)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\references\\03-token-binding.md",
+        "sha256":  "1b3bae951399c9c529c3aa2f2effb6ae6132c476d43b5141e06f06ae144f8528",
+        "title":  "03 — Token Binding (Phase 2)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\references\\04-incremental-transform.md",
+        "sha256":  "255e0c1303b99ef61aece79cd49b2fa82a25c8dac45ec8780ed074c1f98b54b6",
+        "title":  "04 — Incremental Transformation (Phase 2 loop)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\references\\05-anti-rationalization.md",
+        "sha256":  "1e230bf6323ef66f868bd10e36420e9aecb9bd6338190a028a3da81b018cb504",
+        "title":  "05 — Anti-Rationalization (all phases)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\references\\06-error-recovery.md",
+        "sha256":  "04577113a49d667228b0195536a276b35b4f3dac6e60b129db8f36a4164ffd2d",
+        "title":  "06 — Error Recovery"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-from-code\\SKILL.md",
+        "sha256":  "37fabc78c7a12df49b5062277a7ecdb5564fd8c9db9865f75a1759a788b4470e",
+        "title":  "Build From Code — Translate App Code into an On-System Penpot Screen"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\01-brief-analysis.md",
+        "sha256":  "899c7d23ed81bd6481c76ff4134c3eca3133c8e2a0f40b475a577f6e3354cd05",
+        "title":  "01 — Brief analysis"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\02-style-profiles.md",
+        "sha256":  "5af7a9abb3739d4b8388a0fbec3ccdc4c57a97d6ed651efc5b1427d9ee50cd59",
+        "title":  "02 — Style profiles (avoid generic output)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\03-layout-composition.md",
+        "sha256":  "284b81b6b1cff6ee650f8d1fc60cfff6f16d7ef46243013ed389070b27e51eac",
+        "title":  "03 — Layout \u0026 composition"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\04-component-recipes.md",
+        "sha256":  "20327dffb4b75b6b3d1e83176ed6bea8f2e390ab052628902b5d270144d51a45",
+        "title":  "04 — Component recipes"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\05-critique-framework.md",
+        "sha256":  "204144f83b4ec68133b27090d62590d06299ed6207e76c75c3eadbe53620d751",
+        "title":  "05 — Critique framework (scored)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\06-anti-rationalization.md",
+        "sha256":  "7c5ff9a40b63657a83fee59e5456786c923749fa105a28813fcdaa5fd0dc0b8a",
+        "title":  "06 — Anti-rationalization (screens)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\references\\07-error-recovery.md",
+        "sha256":  "972033ec4857218e6a62e601533d655933c734fd94f65ed639b43237690285d1",
+        "title":  "07 — Error recovery (screens)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-build-screen\\SKILL.md",
+        "sha256":  "6f105fab80ecdaf0b9dd560f0866350ab141face4192cd9c095cebb78eabfed0",
+        "title":  "penpot-build-screen — brief to on-system screen"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\references\\01-variant-axes.md",
+        "sha256":  "f3b8a02acdf1ea6984fc3931731646f1b50758b5a2b98081015ff3cf5c948a44",
+        "title":  "01 — Variant axes"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\references\\02-flex-grid-layout.md",
+        "sha256":  "650a5b0599f5b244a73d1ccf1046ba612a832dcf9436d256b3c54045dbe7056b",
+        "title":  "02 — Flex / grid layout for components"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\references\\03-variant-api.md",
+        "sha256":  "1ea039bf470e3cb3f82683b399d1eff93d041711c3526811a61e9d8626aba74d",
+        "title":  "03 — Variant API"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\references\\04-instance-swap-detach.md",
+        "sha256":  "edc7993043ebc526e81227b76e792b6dc8ac5a9ed22c2a995fbb28a1358415b0",
+        "title":  "04 — Instances, swap, detach"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\references\\05-anti-rationalization.md",
+        "sha256":  "353bb7e1e2274e5938c4882310d522a3c6e7264765e7266a65155612bf42866e",
+        "title":  "05 — Anti-rationalization (components)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\references\\06-error-recovery.md",
+        "sha256":  "00930382bd74270fa23ab5b2f149153044737a57f8775cb84a9a11050ea9adfa",
+        "title":  "06 — Error recovery (components)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-component-factory\\SKILL.md",
+        "sha256":  "2ec489f73409eee4d7498c87c5e0206096114fbe1ad8dc1292b68dc64880a020",
+        "title":  "penpot-component-factory — complete, tokenized variants"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-md\\references\\01-extraction.md",
+        "sha256":  "b2922c79dc64eca4fb06469edb4866fc93f6ca926708aca23baa05dd5f9581b5",
+        "title":  "Extraction recipes (Phases 0–2)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-md\\references\\02-designmd-format.md",
+        "sha256":  "b727db649d1a27cf005df5b5808e1d7be1b51186a74b593a5ea613e8f3c8caef",
+        "title":  "The DESIGN.md format contract"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-md\\references\\03-inference.md",
+        "sha256":  "9d2e69f1db461fc2a39a67e0863b72ba42ef0b24e5cd019025127073de279f93",
+        "title":  "Inference for token-poor files (Phase 1 fallback)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-md\\references\\04-designmd-template.md",
+        "sha256":  "01e58c38db9fff6f5578069b9b5174f580cf3ea07ddd57347164000d7c2fd7a8",
+        "title":  "DESIGN.md template — copy, fill, delete the guidance"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-md\\SKILL.md",
+        "sha256":  "a66bb89753ef98735e78c9d837dc204f3ffba14758889b556e6621e44a09c922",
+        "title":  "penpot-design-md — Extract a DESIGN.md spec from a Penpot file"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-to-code-review\\references\\01-extract-markup-style.md",
+        "sha256":  "abb75316d54ec0d72debecdba8c042637f55dcdcb238b6ebe00eb843d30b57f4",
+        "title":  "01 — Extract markup \u0026 style from the design"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-to-code-review\\references\\02-mapping-to-source.md",
+        "sha256":  "482a492ee2e24fbacbd83e0032fccb5e70e2e8e9cda47ea4e871766a00828472",
+        "title":  "02 — Mapping the design to the source code"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-to-code-review\\references\\03-storybook-compare.md",
+        "sha256":  "ba0dcc608913dc354cf562dff62d97eeb027e22944978eae3f56df9526edf4e3",
+        "title":  "03 — Comparing against Storybook (or any rendered source)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-to-code-review\\references\\04-drift-report.md",
+        "sha256":  "ecd87d44cdec709c59191d01c384aa7dfa43e338a88844c4bdf915d319614524",
+        "title":  "04 — The DRIFT report: normalize, diff, classify, render"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-design-to-code-review\\SKILL.md",
+        "sha256":  "9991410a5b9d001a06d9fa2d9ee8c7f4a9c6b54f9935cd69991b1bc6136fde20",
+        "title":  "penpot-design-to-code-review — Close the design↔code bridge in the READ direction"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\references\\01-annotation-anatomy.md",
+        "sha256":  "94765430ef11b4ae06b13bd501b4a6cbb3a38aa89bb60830255e810494e8b500",
+        "title":  "01 — Annotation system anatomy (reverse-engineered)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\references\\02-handoff-brief.md",
+        "sha256":  "b1168bb213225fe3dd6dbbc83ac06016b6a8366e2c69b5c6b6b0a838f23d7383",
+        "title":  "02 — Eliciting the handoff brief"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\references\\03-layout-placement.md",
+        "sha256":  "89045638e2ffb202b683b0616a02704f0c026f2fdeae9fba375a711b31984733",
+        "title":  "03 — Layout \u0026 placement geometry"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\references\\04-component-and-tokens.md",
+        "sha256":  "a870f9ad7ba83445250b460f3b8fe24568528ed21e77f938f70d243305610cd4",
+        "title":  "04 — Find-or-create the annotation kit + tokens"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\references\\05-anti-rationalization.md",
+        "sha256":  "9c1f495cdf23123fb6dcfbb8dd75abf830b0beb1344a30da7de60c943d6a6e1d",
+        "title":  "05 — Anti-rationalization (extended)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\references\\06-error-recovery.md",
+        "sha256":  "a351707d1d5bb197462a14b345dbd35fd6843a25ee3b69cafd4d752b3a51186b",
+        "title":  "06 — Error recovery"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-document-handoff\\SKILL.md",
+        "sha256":  "9a494ccca13628c6abd84c527fb7c17c1f6b2b82087da6ca55b8288ebcf71e65",
+        "title":  "penpot-document-handoff — design → annotated handoff"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\01-discovery.md",
+        "sha256":  "d6f5a9671ee45dfaeb8f9eedb9be0d7853941780a623785399ac4ffe88229f83",
+        "title":  "01 — Discovery (read-only)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\02-token-architecture.md",
+        "sha256":  "d6a2167405b98a325a1937716e98e23e8be3eacda09e5fcfe1fbfb745cb1c292",
+        "title":  "02 — Token Architecture"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\03-infer-from-design.md",
+        "sha256":  "ead3f017af4e7e1952e3a820230e4552408065c70c3934afeb9586f358a7cf8c",
+        "title":  "03 — Infer tokens from an existing (hardcoded) design"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\04-themes-modes.md",
+        "sha256":  "52b0f6166a803fc751d1043c9216ce03199d8f91fb502cadfaf36e000d1b3bfc",
+        "title":  "04 — Themes \u0026 modes (light/dark)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\05-naming.md",
+        "sha256":  "272c3878a51d7bdc8ac22e92971622d5754faa67a8008c8ba7397d4c34cd92c8",
+        "title":  "05 — Token naming"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\06-anti-rationalization.md",
+        "sha256":  "ebdbb0fe81350e86374d45438d0f17a192d6493cc105be402df2b38844f1e6c1",
+        "title":  "06 — Anti-rationalization (governance)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\references\\07-error-recovery.md",
+        "sha256":  "edee91bb35947d3021f39c630dd4469c8a4ff5dd0374805c21e245ebe02d0838",
+        "title":  "07 — Error recovery"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-foundations\\SKILL.md",
+        "sha256":  "0d2a1cd57ceb5b8811850485f090bfc32f2c5e007e8c9c78402d5bbacf3a0a9f",
+        "title":  "penpot-foundations — token \u0026 library foundation"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\01-figma-analysis.md",
+        "sha256":  "04bfc681753cb1a6fa21ed3c0a459b7425569fde8bddb34fe19b5e1ff690d71d",
+        "title":  "01 — Figma analysis"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\02-ir-building.md",
+        "sha256":  "d983d948eca0c7c0c8a3f8cc523037a9dfb69a381bb013f9723a1d957d71daed",
+        "title":  "02 — Building the IR"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\03-token-migration.md",
+        "sha256":  "f078221bc0db222b104e9556ec62780fdd49b07bd0569b2cb9cd8d6ccf15053b",
+        "title":  "03 — Token migration (Variables → tokens)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\04-component-migration.md",
+        "sha256":  "17dfa8e06354d0b9a30e456f6a3aedc00d85517ed41f990ecb169ecb5c508fd4",
+        "title":  "04 — Component migration"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\05-layout-translation.md",
+        "sha256":  "8384422f15f4bb45140d419fd85375f5a36cd5c41a26b50d549765041d33f224",
+        "title":  "05 — Layout translation (Auto Layout → flex/grid)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\06-screen-migration.md",
+        "sha256":  "9c1e3dbb366e7de2f37babf8b1081cb8c40baaafd9de01c5f343c1ee580edea0",
+        "title":  "06 — Screen migration"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\07-validation.md",
+        "sha256":  "ed396430234ee8d0f48c9f98f4d1b018917005c3f2062df5d8719d87a9d40daa",
+        "title":  "07 — Validation (fidelity)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\references\\08-error-recovery.md",
+        "sha256":  "14f162d1f349e224acdd4a59c03e9dd9d571410b03d7df09c94821daf2c11c40",
+        "title":  "08 — Error recovery (migration)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-migrate\\SKILL.md",
+        "sha256":  "24c2b8b2d783dc0b12c92247d86e882c71d2c10e2ca747f625d1a3b3c0328d5a",
+        "title":  "penpot-migrate — Figma → Penpot, fidelity-first"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-rename-layers\\references\\01-inspection.md",
+        "sha256":  "f9a0ab3313e192c34a8ef769350f4d2bac663c6e33498271f563d15d656fc0f5",
+        "title":  "01 — Inspection (Phase 0, read-only)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-rename-layers\\references\\02-semantic-inference.md",
+        "sha256":  "68fdbb8ef6b972ada49e6f36f8da1cb3aa2acf9042f3bef648b952b92cfbefa0",
+        "title":  "02 — Semantic Inference (Phase 1, analysis only)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-rename-layers\\references\\03-renaming-strategy.md",
+        "sha256":  "6807e38ab079065d716a6eff6bf55429ad84e8c244a2c9fea72522eef7875b91",
+        "title":  "03 — Renaming Strategy (Phase 2, writes)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-rename-layers\\SKILL.md",
+        "sha256":  "ffed3f6732ed92bdb68870a614e0ba1c9c929fea3ad3ab8f31c979a6ebcf710f",
+        "title":  "Semantic Layer Renaming"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-router\\references\\01-intent-taxonomy.md",
+        "sha256":  "716156f6df8cced7d6d85f96d738588cc48cae17aecc45a2a92f3ced2d243b79",
+        "title":  "01 — Intent Taxonomy (router classification map)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-router\\references\\02-preflight-overview.md",
+        "sha256":  "81f5a0991827f7809e37aaa4835eeeeec6a5360f7c361227328b5cde27ec1465",
+        "title":  "02 — Preflight \u0026 Overview (router Phase 0)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\skills\\penpot-router\\SKILL.md",
+        "sha256":  "01d3398137be59ce9e62c78ace51a144db28d39491e2a5690aea12d0ecc857ef",
+        "title":  "penpot-router — the dispatcher"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\templates\\local-model-calibration.md",
+        "sha256":  "42d84fabc7adb43c4939ff772f77337cbcc4abc15e79f722daa20f0b55d2d503",
+        "title":  "Local model calibration (LM Studio / local LLMs)"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\templates\\README.md",
+        "sha256":  "831638beeaa91169bd1f79ecfbea33e58aae5b547f56f0ece6fd8b961d40482c",
+        "title":  "Templates — MCP client configs"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\accessibility-gate\\README.md",
+        "sha256":  "3ba1ee63417897000693afdc2f1c9254c3d8fdf4ae73e24ddc61de5090d3a162",
+        "title":  "Workflow: accessibility-gate"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\brief-to-screen\\README.md",
+        "sha256":  "21d76159049e00019dbd2f93250805b1b18379207aeff9cff0a52a27a1cd0bf5",
+        "title":  "Workflow: brief-to-screen"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\code-to-penpot-sync\\README.md",
+        "sha256":  "f8c6028e980731bb54e7c63cf2a37f848d076eb67133e1e8d38b0d977b751d18",
+        "title":  "Workflow: code-to-penpot-sync"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\design-system-bootstrap\\README.md",
+        "sha256":  "e312462b9d23dddc3a312f5972cdcf8b50e1e1b39dc5127ba9e341c9028a0caf",
+        "title":  "Workflow: design-system-bootstrap"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\figma-migration\\README.md",
+        "sha256":  "e165de733469ea6c6b1e18803f97646acf6cddc84be35a15b13f521fe45badbf",
+        "title":  "Workflow: figma-migration"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\README.md",
+        "sha256":  "6b63c759569f345a8b40b10812a86246b0ebf0288d4012d1536a10cc616d204b",
+        "title":  "Workflows"
+    },
+    {
+        "path":  ".agents\\skills\\penpot-ai-kit\\workflows\\routing\\README.md",
+        "sha256":  "bf404dd0136bc33de2f1f55f62e031cf906ebc54cc70ac0fb8f7f891bd27db66",
+        "title":  "Workflow: routing"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\agents\\design-critic.md",
+        "sha256":  "b32ef44f0caa39d89defb7c25fa5dc192fbaa16cd41d1b6ff95f04e6dea53d34",
+        "title":  "Design Critic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\commands\\critique.md",
+        "sha256":  "0d0aa687c900a4d7e5f4e8f20b42762af155afae2a9bd65a0b09ca314babd98e",
+        "title":  "1. Refuse to critique blind"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\commands\\gate.md",
+        "sha256":  "e7c0615ad31e709b50a31ecdad844c76d8c8685acbf38a7509f972123dab69c8",
+        "title":  "gate"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\commands\\scaffold-project.md",
+        "sha256":  "2bfe97cf227600f61a5ada1f4a29135a0baca8d400b1e43f33c088bb848baafc",
+        "title":  "CONTEXT CLAUDE LOADS"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\commands\\ship.md",
+        "sha256":  "a6e91336b0cfec5ac725556bdb458558a8b42ac9addb618adf9679359d91dc3b",
+        "title":  "ship"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\accessibility.md",
+        "sha256":  "6b869479d4200c9d198b146429144e85c4fb1aa26bf3b608549ea7196912ac23",
+        "title":  "Rule: Accessibility standards"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\brand-and-operations.md",
+        "sha256":  "aff8051bbfc229b982711e5374b73c79eb01c26caf5d366c0108974706c8efab",
+        "title":  "Rule: Brand, motion, copy, and operations"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\components.md",
+        "sha256":  "a6dcd550a72d0244befea7b359b5fd5b3989c1e3289f6b65826df0703fd2036d",
+        "title":  "Rule: Component design"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\frameworks.md",
+        "sha256":  "8e8e48aab57c825d337291ac5291ec768fb6dfc4236168f7e0ff4a6c17dd2e48",
+        "title":  "Rule: Framework output"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\review-and-research.md",
+        "sha256":  "7d7de32a72fa35dc13119d83017c33fb80623713b1ac37fc45ddc640d01f6543",
+        "title":  "Rule: Review, research, and handoff"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\tokens-and-color.md",
+        "sha256":  "92dff9294014f5db5639970528381c8284e2e3c13cc32b55a31c7b6410ccb3a4",
+        "title":  "Rule: Token architecture and colour"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\rules\\typography-and-spacing.md",
+        "sha256":  "af8f902c718f8e81d0437a9a9d142b68c4ba34fd47a288e97ebe3f54c55ead8b",
+        "title":  "Rule: Typography and spacing"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\a11y-audit\\SKILL.md",
+        "sha256":  "d164e2c44d6b9ce96e3cac40ad29a96c5fa666b962d2275cddaf6d681c6da334",
+        "title":  "Skill: Accessibility Audit"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\apply-aesthetic\\SKILL.md",
+        "sha256":  "dc7e0e0aeecc76cf661514cc0d302279a6f9e87599b10284c57989b715452348",
+        "title":  "Skill: Apply Aesthetic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\brandkit\\SKILL.md",
+        "sha256":  "632a788b018b70406a47e01a433728da854eaf794917a9a1f31304df2cc1d3ab",
+        "title":  "Skill: Brand Kit"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\design-code\\SKILL.md",
+        "sha256":  "0d39aae3ed1daf9f06c37608e78e3956037e66fb92ca1df7fdb0988fd00cd566",
+        "title":  "Skill: Design Code"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\design-component\\SKILL.md",
+        "sha256":  "dd535b8461f0f9428142d8781fab5f2e1df97d0d5c8fa5394b909f16bdd20f4d",
+        "title":  "Skill: Design Component"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\design-qa\\SKILL.md",
+        "sha256":  "d1c0a9c6b13c01406163846b1ed9b95612d76226965fbbb550ce23666cfaac81",
+        "title":  "Skill: Design QA"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\design-review\\SKILL.md",
+        "sha256":  "b91f2199928cabd2c92a29dea1afe364225140de6a32cf3d77b589a2dc8bce6a",
+        "title":  "Skill: Design Review"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\design-tokens\\SKILL.md",
+        "sha256":  "68d1951fceda2790ab8e2a560e0c33423edc64391a1368dd741fe122f80e0882",
+        "title":  "Skill: Design Tokens"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\figma-integration\\SKILL.md",
+        "sha256":  "49cce3d2f741176d2a451434e154e765060b4e02c67af45fe7f557abc9bd97e7",
+        "title":  "Skill: Figma Integration"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\governance\\SKILL.md",
+        "sha256":  "0ed13d1429e207a044a10f5362720708599a296f352839a50544132a5fa98508",
+        "title":  "Skill: Governance"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\image-to-code\\SKILL.md",
+        "sha256":  "3e68188ac9a4d9273fff9eeb78701bd36488857cffe80c78f4396b4da5852372",
+        "title":  "Skill: Image to Code"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\migrate-design-system\\SKILL.md",
+        "sha256":  "06136a2370928e2827f10c2791aa64bfc5dcd677c2afff607ac0ddec71b9bdfa",
+        "title":  "Skill: Migrate / Interop Design System"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\performance\\SKILL.md",
+        "sha256":  "2667c727a397a57063c8d11f4c437122734d42f1f98c0b3474c594ef463c09f2",
+        "title":  "Skill: Performance"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\prototype\\SKILL.md",
+        "sha256":  "c5fff9f187bab1d63f94e24cef9e3fbd5000bbec060a2427b8b979cd30abfcca",
+        "title":  "Skill: Prototype \u0026 Research"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\redesign\\SKILL.md",
+        "sha256":  "b58e99143b7189b8d3a30d9455c043a40e45bae9872679953fa4171b760dd070",
+        "title":  "Skill: Redesign \u0026 Audit"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\token-build\\SKILL.md",
+        "sha256":  "9dd0faa515b070ba8e21364d40e13ef852c04c1e2536a65518289ced259652ae",
+        "title":  "Skill: Token Build"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\.claude\\skills\\ux-writing\\SKILL.md",
+        "sha256":  "961296b8c5d2b7628a4fe9579dc409c4e80f78ab1340212064df654c41b57444",
+        "title":  "Skill: UX Writing"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\accessibility\\aria-patterns.md",
+        "sha256":  "f17c05cf5a62a2f448f6ec540077ee92eba89032dd49559ad9ed9df969cc2af9",
+        "title":  "WAI-ARIA Design Patterns"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\accessibility\\cognitive.md",
+        "sha256":  "d3a4851a74ae4a179d9c3aa265eb54f2d563e22599f4c02b8f599e62152b7200",
+        "title":  "Cognitive Accessibility"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\accessibility\\i18n-rtl.md",
+        "sha256":  "7fcc8b5533a8f80e8c48a7fff1af05e2ba06054aa1a36abddc4f514c0db06319",
+        "title":  "Internationalization \u0026 RTL"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\accessibility\\vision.md",
+        "sha256":  "6774a8ed4fd3015a6a1a29e8a02faf20c64c9bde89d557ec07707824af0ead71",
+        "title":  "Vision Accessibility — Low Vision, Color Blindness, High Contrast"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\accessibility\\wcag-aaa.md",
+        "sha256":  "ab617b77087297cae530c9b3bd2c010d79a65db52865495094fce7dff6a6aaa4",
+        "title":  "WCAG 2.2 AAA — Upgrade Guide"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\accessibility\\wcag-checklist.md",
+        "sha256":  "2e2395397ca97027c13c82e3b9d2c89bc3fde8e1d59247b958c2da5130f28ef7",
+        "title":  "WCAG 2.2 Accessibility Checklist"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\CLAUDE.md",
+        "sha256":  "9655bdd093929df16938f855d2529e93f541f26151fb8b54d0b09cebebcdaa9e",
+        "title":  "UX/UI Expert Agent — Claude Design System Skill"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\atoms.md",
+        "sha256":  "7633035f67881039eff1a126dfa880be3bdf8011cf4bc956d2f1d71c05dc2210",
+        "title":  "Atoms"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\data-display.md",
+        "sha256":  "e9db44f5a003c74fc2105ec6bc6dde95ff069da725e5de2c766d934f289b38ef",
+        "title":  "Data-Display Components"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\data-viz.md",
+        "sha256":  "9779e6c51b557f1c227a06eb7aa671daf7ffa83f83af27a659dbfc05897a0afd",
+        "title":  "Data-Visualization Components"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\feedback.md",
+        "sha256":  "e9eba4068b2432a4d9e188ad00d8ebfd254f282cfedeb632dbe234ee2a1d82b8",
+        "title":  "Feedback \u0026 Status Components"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\forms-advanced.md",
+        "sha256":  "9a644acd99f295dd0aa3f765dfc92a6571f1ae2792a47cf0a1ca6f6c2c53c99a",
+        "title":  "Advanced Form Components"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\icon-system.md",
+        "sha256":  "35b7e9112d790d1ea824c2489eec9e379e125426a5a171cdbee714e6359c585e",
+        "title":  "Icon System"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\molecules.md",
+        "sha256":  "180300554c7789df89282a8ede80885ff2ced891376fee74c3092e1f508ee6d8",
+        "title":  "Molecules"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\navigation.md",
+        "sha256":  "5beb19c9e21415c7d26d46897d8e4cbeb3fde787216ae1fcfbfecbe7be21f535",
+        "title":  "Navigation Components"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\organisms.md",
+        "sha256":  "d034df10bfa9a7400b563521582d4702e5c8e1e764da79b9d71d7f4d10816b1e",
+        "title":  "Organisms"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\overlays.md",
+        "sha256":  "2348ba06e5f79a192679a9e2ddd905f4ab5b60e3d2b76361f563d621916ac75b",
+        "title":  "Overlay \u0026 Utility Components"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\components\\templates.md",
+        "sha256":  "944255ac865d9a0ae6dfc4b3d0bd62a2f6937a306685d0cbde97d09542327ccd",
+        "title":  "Templates"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\content\\voice-tone.md",
+        "sha256":  "6c8a849768a33b6e044d805a58108d699b4bbc058b4db7b4d3d6f5d84b849cad",
+        "title":  "Voice, Tone \u0026 UX Writing"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\CONTEXT.md",
+        "sha256":  "05620107f5f9a3b12d69271e75b09d734387bb3ecfcd635bc434dc74068228ab",
+        "title":  "CONTEXT — Ubiquitous Language"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\crosswalk.md",
+        "sha256":  "79d3b309eadf4ac34447afafd9107505b1dbdc78322bb8cbc0f4acac4a798a75",
+        "title":  "Design-System Crosswalks (curated)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\interop-protocol.md",
+        "sha256":  "0be50c6cca2a9f2e5bcc5519d971c4fa19ecba19ec484d6c624657e563a496ad",
+        "title":  "Design-System Interop Protocol"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\agentic\\DESIGN.md",
+        "sha256":  "dc9f1b788f1e300ccfcc15b8ba39d15d8dc01afb93f4815c83c85cdcbbaf30f9",
+        "title":  "Design System Inspired by Agentic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\airbnb\\DESIGN.md",
+        "sha256":  "68c28cf9f6b250ddf0f8d04aec1c63758c47a03e8bb8bf5c34a297f7aeddc3b1",
+        "title":  "Design System Inspired by Airbnb"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\airtable\\DESIGN.md",
+        "sha256":  "66797d63c63f5c6427c555bd382e1465161f120a7472dfe5678813171f5e7c5f",
+        "title":  "Design System Inspired by Airtable"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\ant\\DESIGN.md",
+        "sha256":  "5f1a75bdadd625fc2cc4b60ea488915b7b88926dd0129dda1a4d0df7208f8a7c",
+        "title":  "Design System Inspired by Ant"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\apple\\DESIGN.md",
+        "sha256":  "93faa636063b9899a6ee1b34b4d1628de289f0d2907e9c02b8a183442fd2a6f7",
+        "title":  "Design System Inspired by Apple"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\application\\DESIGN.md",
+        "sha256":  "977f57cd520d07fa3f413590f32271c8d27eaa0814858c41cfa623f441d0dced",
+        "title":  "Design System Inspired by Application"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\arc\\DESIGN.md",
+        "sha256":  "454608b46dc13b42d870f16c0b8600b84634b423fa85d6cc45e65cc99f761166",
+        "title":  "Design System Inspired by Arc Browser"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\artistic\\DESIGN.md",
+        "sha256":  "04494505b58e9b63dd5feec38911319dcbcc24be06d109db7f1407891b99e49b",
+        "title":  "Design System Inspired by Artistic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\atelier-zero\\DESIGN.md",
+        "sha256":  "56b1c36cd43071d528a493d01872b928272e6e593680c470b77ddaf9fe574fd2",
+        "title":  "Atelier Zero"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\bento\\DESIGN.md",
+        "sha256":  "3a6578d18dd7bb749700e2c5c92c58fd1c0da49de9834c6df56639b53e5aa8cd",
+        "title":  "Design System Inspired by Bento"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\binance\\DESIGN.md",
+        "sha256":  "a060287e8a1579af5644574e29faa2b70418eb780bae42985e8535ead2533310",
+        "title":  "Design System Inspired by Binance.US"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\bmw\\DESIGN.md",
+        "sha256":  "d17b9bd97634d14a02dbf1db9da909367a4048447e83ddb2e1f35e6d9c4d2e3a",
+        "title":  "Design System Inspired by BMW"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\bold\\DESIGN.md",
+        "sha256":  "57cd831161e113a98b5a342eac95fd6969276f0a09bfce3141bb586808b9011f",
+        "title":  "Design System Inspired by Bold"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\brutalism\\DESIGN.md",
+        "sha256":  "0fafefe871ab99ea504ef9ea467b74b2eb84403c1ef08ae358d3ba947f2f6dcc",
+        "title":  "Design System Inspired by Brutalism"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\bugatti\\DESIGN.md",
+        "sha256":  "06c817b6f269c50a8d3dd39236aa5bb2d823b586e39ac8e2ea24473c5ae6be24",
+        "title":  "Design System Inspired by Bugatti"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\cafe\\DESIGN.md",
+        "sha256":  "c3add8b4428dafd778f2ce76477d2c5adae38816327252da052ba3d941be976c",
+        "title":  "Design System Inspired by Cafe"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\cal\\DESIGN.md",
+        "sha256":  "7fbb0ede3512be5ff9c3e9ede41dd69c8d31d617e05b235912d4e900451e3ab8",
+        "title":  "Design System Inspired by Cal.com"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\canva\\DESIGN.md",
+        "sha256":  "81f1f1a70111bbb25ebb95e60fa60b14f186fa23bbddd1dd5a32033cbfdfba19",
+        "title":  "Design System Inspired by Canva"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\claude\\DESIGN.md",
+        "sha256":  "b07da3777821c13a65bc4182cc30b1ae2e3dc840eab25b822fbd82f81c210623",
+        "title":  "Design System Inspired by Claude (Anthropic)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\clay\\DESIGN.md",
+        "sha256":  "59660ff47959c782607d40c6732a6aa404f9bf05dc5eda89bf9017bc31bec498",
+        "title":  "Design System Inspired by Clay"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\claymorphism\\DESIGN.md",
+        "sha256":  "b003ddc34e7a75bd10e93d97aa0b447c3aa13506df3ec37bf90be8953f8347e5",
+        "title":  "Design System Inspired by Claymorphism"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\clean\\DESIGN.md",
+        "sha256":  "1678fd7497eced27101646a883715a9beec31f4d740b926d7c9e294dab1a0774",
+        "title":  "Design System Inspired by Clean"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\clickhouse\\DESIGN.md",
+        "sha256":  "22b8ae0957c6aa1008b6d5b0219830f211fdfd686ba141a1f089ba8ccec9f9f9",
+        "title":  "Design System Inspired by ClickHouse"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\cohere\\DESIGN.md",
+        "sha256":  "8dff838be732885ced2c2b544d91e39a5c1e6674f8a65859fb06e65274d32015",
+        "title":  "Design System Inspired by Cohere"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\coinbase\\DESIGN.md",
+        "sha256":  "f8994d5baa7c7c2acaa8eecc182b2f46e0b4dd668432eefa9784916a8a1d114f",
+        "title":  "Design System Inspired by Coinbase"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\colorful\\DESIGN.md",
+        "sha256":  "67d635c150c93975cc00a0b00a9e8912590805d76b3faaf3b91ecb05c29db649",
+        "title":  "Design System Inspired by Colorful"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\composio\\DESIGN.md",
+        "sha256":  "5b49c0999c6e01ef7a7d74401c1e784d1ef847c87f6d8f179ca22ad6ff6c0baf",
+        "title":  "Design System Inspired by Composio"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\contemporary\\DESIGN.md",
+        "sha256":  "fd6e3657e3c062914c34d98b05dee405234915ee69267430552d797ede904126",
+        "title":  "Design System Inspired by Contemporary"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\corporate\\DESIGN.md",
+        "sha256":  "f516cc08070a174b5b37f2906770339964a46bece4d8d27167d076e7211ac306",
+        "title":  "Design System Inspired by Corporate"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\cosmic\\DESIGN.md",
+        "sha256":  "654e9245601390598b76d03a1de80282d8b964ef88e71471af5ac05de5c9ae46",
+        "title":  "Design System Inspired by Cosmic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\creative\\DESIGN.md",
+        "sha256":  "87fc850f0cd9a96998ac8c4b1a354e7db556d4a22a984514063c421ffcdfeed7",
+        "title":  "Design System Inspired by Creative"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\cursor\\DESIGN.md",
+        "sha256":  "68095c4967ac58e19524b689f13593f29cd570fb96af5901a52cfcbc8f6b509e",
+        "title":  "Design System Inspired by Cursor"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\dashboard\\DESIGN.md",
+        "sha256":  "634b646f3e9f41069a2248de6085bc62d76bb9a61e2a7c416d6d25b1d805e660",
+        "title":  "Design System Inspired by Dashboard"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\default\\DESIGN.md",
+        "sha256":  "97b539560d834385248b6f5628b0d8287b397f600edacf16d3cf4acf8625bfab",
+        "title":  "Neutral Modern"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\discord\\DESIGN.md",
+        "sha256":  "318946bdc534f0fc4ea87dc6ee12516e6eae02c3fe4da4e497d8e902d1d43f7f",
+        "title":  "Design System Inspired by Discord"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\dithered\\DESIGN.md",
+        "sha256":  "36d18bd30a27432d286e37cbd2f8c4f6012cac059fa08af4e32200d3c5f963d6",
+        "title":  "Design System Inspired by Dithered"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\doodle\\DESIGN.md",
+        "sha256":  "292dc120cbc42bc4614777f15357c6988da85b5790de4f4d13dab1b1c68ebf4f",
+        "title":  "Design System Inspired by Doodle"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\dramatic\\DESIGN.md",
+        "sha256":  "ba33795d15ee4dfffe201d2f097013d304033fae63c4131b4b1e65e7d0664cd3",
+        "title":  "Design System Inspired by Dramatic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\duolingo\\DESIGN.md",
+        "sha256":  "df49b1fc35cb9e580adad18e4860f7c8cc65c37bde242cf37704c8916b59d3a8",
+        "title":  "Design System Inspired by Duolingo"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\editorial\\DESIGN.md",
+        "sha256":  "2c5c330d42f9976d43d97fdae93f339eac60eb55e407ef5763ff9896e5995066",
+        "title":  "Design System Inspired by Editorial"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\elegant\\DESIGN.md",
+        "sha256":  "95224360c80bb3adceb318e2621bbf7de5aac11d42b5807ba32ba303b2a62b29",
+        "title":  "Design System Inspired by Elegant"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\elevenlabs\\DESIGN.md",
+        "sha256":  "3b504c2c6cdc8898c402aad604f87f66ab0f2b360ecb9a9c59d924242ffce748",
+        "title":  "Design System Inspired by ElevenLabs"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\energetic\\DESIGN.md",
+        "sha256":  "1da5510aafa74e8ff8ed9be8dedd0e86516919a30de5fc09adfbd9054dd96b40",
+        "title":  "Design System Inspired by Energetic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\enterprise\\DESIGN.md",
+        "sha256":  "68826c072e6fea49e8488f4bd3be093bfb632f3c269f4e340b155dee3ad16ce1",
+        "title":  "Design System Inspired by Enterprise"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\expo\\DESIGN.md",
+        "sha256":  "42f08a424f52952eb39b04971fc712ef0dad793c8f3f12225ef448e2ba678022",
+        "title":  "Design System Inspired by Expo"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\expressive\\DESIGN.md",
+        "sha256":  "7a2b07dd4f099e077eb07890aa9c31ae660f88c73e49317ab3123d656ae6b64a",
+        "title":  "Design System Inspired by Expressive"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\fantasy\\DESIGN.md",
+        "sha256":  "b98b48d9c1a9b2f8c57f7cb236db4cb33c2fa5a2d93067947555340cb8cb4815",
+        "title":  "Design System Inspired by Fantasy"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\ferrari\\DESIGN.md",
+        "sha256":  "f531c598e065d46fe249a0d570111ffc67191a179291937dbcc084893108efa0",
+        "title":  "Design System Inspired by Ferrari"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\figma\\DESIGN.md",
+        "sha256":  "608fe6dd8620e7e61b64ba863a1e7ef09db60cd9aac6e8294fe15b154c171d95",
+        "title":  "Design System Inspired by Figma"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\flat\\DESIGN.md",
+        "sha256":  "28c47bc3a6bc54b0aa20481b1601fd9789dc101a9f00a70b7e338c976ff6d784",
+        "title":  "Design System Inspired by Flat"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\framer\\DESIGN.md",
+        "sha256":  "bcd76cec7b4730d4f7f44f80564dc3d7d78145d5a651e3ab7930ab75f8a5efe1",
+        "title":  "Design System Inspired by Framer"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\friendly\\DESIGN.md",
+        "sha256":  "d7b8ccb3ffa21c56c7e8e16275c7055bab6844ba9a37efc3bcf67b5740c956de",
+        "title":  "Design System Inspired by Friendly"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\futuristic\\DESIGN.md",
+        "sha256":  "b8998a44dece0039a0d987deaf61486b4756dacc9b58134634a0a319727d1479",
+        "title":  "Design System Inspired by Futuristic"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\github\\DESIGN.md",
+        "sha256":  "1061f2652649885866be8536cd3186eade95227ad66c4b24229858a117a12e16",
+        "title":  "Design System Inspired by GitHub"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\glassmorphism\\DESIGN.md",
+        "sha256":  "3bdb8b1f6ca75c6dd4ef51dbf27a58a62d7817e07812de476a0bc654725af021",
+        "title":  "Design System Inspired by Glassmorphism"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\gradient\\DESIGN.md",
+        "sha256":  "83702eccad83363135e579fb42c813efcaa859d2159776e99f0103fd7b2f2122",
+        "title":  "Design System Inspired by Gradient"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\hashicorp\\DESIGN.md",
+        "sha256":  "3431ee5480b1eaa87f48ddf209837e7b79042ccc31f3578d7c6704f7ab564107",
+        "title":  "Design System Inspired by HashiCorp"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\huggingface\\DESIGN.md",
+        "sha256":  "a314d2e52680cb97f3eba8993450de310d529ca4d0da4e426c3ce0cfee84ccaa",
+        "title":  "Design System Inspired by Hugging Face"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\ibm\\DESIGN.md",
+        "sha256":  "3ee17447c0558664d17679cbfcdacad6bd5f2cc0c509a5ed2418387c67ba6340",
+        "title":  "Design System Inspired by IBM"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\intercom\\DESIGN.md",
+        "sha256":  "358664322f1b2c8610e4228c542f009b0222e5da65ff3e0e07acbeca34e891ca",
+        "title":  "Design System Inspired by Intercom"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\kami\\DESIGN.md",
+        "sha256":  "e22d32eb673789cc66dbdbd2f55a62103f8f863a7aa9881810532e3ebdbc09da",
+        "title":  "Design System Inspired by kami (紙 / 纸)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\kraken\\DESIGN.md",
+        "sha256":  "ccef86cd7d0dea9c51956155e90e7607bb4f77f54c14bf058a5a900b8d7f1d36",
+        "title":  "Design System Inspired by Kraken"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\lamborghini\\DESIGN.md",
+        "sha256":  "cbaea5ad445035582d6d4cb81580c0384a91f525b9ba35542accb8a19355018a",
+        "title":  "Design System Inspired by Lamborghini"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\levels\\DESIGN.md",
+        "sha256":  "efb1f31ee0755a9c6ffc31efb84e59b82ecbdd3d9984f4222bdb3749c03c7eeb",
+        "title":  "Design System Inspired by Levels"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\linear-app\\DESIGN.md",
+        "sha256":  "47ec02edd7a63533c239e7a1d5aa11102ceda6d8408a7ff437fcf1ea0b155bfc",
+        "title":  "Design System Inspired by Linear"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\lingo\\DESIGN.md",
+        "sha256":  "d6da3156d9c523ff83de5ab7d45ddea43f06ade1acac9b53b6cdd17a242fd2a8",
+        "title":  "Design System Inspired by Lingo"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\lovable\\DESIGN.md",
+        "sha256":  "21cdbc19a9c438fc7965aab469b8eaf9e3a62738b1d544955ec5e62e2c575eb6",
+        "title":  "Design System Inspired by Lovable"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\luxury\\DESIGN.md",
+        "sha256":  "e7129160952d6dec3983f13ffd84aad7fc5e4f98dfe6db2a388dcd2ea5eec1b4",
+        "title":  "Design System Inspired by Luxury"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\mastercard\\DESIGN.md",
+        "sha256":  "f76e514393445e2743c4f2da57e56b91b7723e7935aa7a97616ed6e18651331f",
+        "title":  "Design System Inspired by Mastercard"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\material\\DESIGN.md",
+        "sha256":  "14ab1a0215cd0c78d11e6cbc6a08ec46a034ddf71f6b2661322743f7dcbc318d",
+        "title":  "Design System Inspired by Material"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\meta\\DESIGN.md",
+        "sha256":  "965982586481618a9a2c6ea5e163f6053ca1197267d017e7b03f406bd3f0f16d",
+        "title":  "Design System Inspired by Meta (Store)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\minimal\\DESIGN.md",
+        "sha256":  "f05fdcc7719483c43fa4976eba56f242e766c4db2fae4db451591007d05c84f0",
+        "title":  "Design System Inspired by Minimal"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\minimax\\DESIGN.md",
+        "sha256":  "5ea002a901b1fd1038b843b74eeabbba3de3dc2bca4b6e6835ff4c7700d1e270",
+        "title":  "Design System Inspired by MiniMax"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\mintlify\\DESIGN.md",
+        "sha256":  "4b7ec14c373c86d1461585a77cc7d61a0e187b34cc8cdcff33daa768fb73ae93",
+        "title":  "Design System Inspired by Mintlify"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\miro\\DESIGN.md",
+        "sha256":  "e7777cf461a171d46a48d5478a253e42a85fbfd48597d90f017546d000deb3f5",
+        "title":  "Design System Inspired by Miro"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\mistral-ai\\DESIGN.md",
+        "sha256":  "72480f51122db4b8093aec92416fd7d5d7ac996e7421cc383a1ec0f78bfe4802",
+        "title":  "Design System Inspired by Mistral AI"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\modern\\DESIGN.md",
+        "sha256":  "371c14825a40259ac011afac06d19f8d0bd7a8e0eaaf0133fcbe4e42cded2062",
+        "title":  "Design System Inspired by Modern"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\mongodb\\DESIGN.md",
+        "sha256":  "748ac5efc6f918943b869f1cfe6b02a3cef1e572dd75fec4a02fff1dae4255db",
+        "title":  "Design System Inspired by MongoDB"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\mono\\DESIGN.md",
+        "sha256":  "1ce651978b5b08133de4b13cdee16bcbb643ca83ddc64eced71507ed831ee0cb",
+        "title":  "Design System Inspired by Mono"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\neobrutalism\\DESIGN.md",
+        "sha256":  "638dc6ca6d355bf57c993e46f45e8d3794da839d9849b2325c24703c1afc8a70",
+        "title":  "Design System Inspired by Neobrutalism"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\neon\\DESIGN.md",
+        "sha256":  "ddb4da8593c0bccc78c1d48799c80e8319014ddf52c4d73733a7aded670b2d50",
+        "title":  "Design System Inspired by Neon"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\neumorphism\\DESIGN.md",
+        "sha256":  "bc50bd16767823f41f9de8aa7f2b1721e411b4cf2f5d08a98eb1136de2a72790",
+        "title":  "Design System Inspired by Neumorphism"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\nike\\DESIGN.md",
+        "sha256":  "1f25580cdcf71fb80fc6970ddd0770e1247871fc7a19f1f55d85683b7404f38f",
+        "title":  "Design System Inspired by Nike"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\notion\\DESIGN.md",
+        "sha256":  "d2db573cd1b0ffee8801633577d04ec286a1fa51f79ad4c989a2eb85de53e92c",
+        "title":  "Design System Inspired by Notion"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\nvidia\\DESIGN.md",
+        "sha256":  "92eaaa449c34d25095c89f04a3ebe2715c3d51bbb68cfd542224d74dda246ef2",
+        "title":  "Design System Inspired by NVIDIA"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\ollama\\DESIGN.md",
+        "sha256":  "979665d853d415653148b8a3ca79a1fa759286685f5280fa52676fbf74d54e27",
+        "title":  "Design System Inspired by Ollama"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\openai\\DESIGN.md",
+        "sha256":  "11dd419a444834e64fd5302fd705032a8f874ffd7009bd7b5c4b5985f27a1f5e",
+        "title":  "Design System Inspired by OpenAI"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\opencode-ai\\DESIGN.md",
+        "sha256":  "b57a174a29624810a05b8ef19927b5a9338c0f5a1686ec39879a5248577a94ad",
+        "title":  "Design System Inspired by OpenCode"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\pacman\\DESIGN.md",
+        "sha256":  "cba629ed459b0de3dc147f476acc83572bacbfb6ac8e391856e60be27689d54c",
+        "title":  "Design System Inspired by Pacman"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\paper\\DESIGN.md",
+        "sha256":  "a17952887154d1eeb2995cb64030e1a703e447e23795afffe00cc7583eae1be9",
+        "title":  "Design System Inspired by Paper"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\perspective\\DESIGN.md",
+        "sha256":  "7306561ccbd5e01c7cfcda080683530c6803829c23e7b14e406cb0859339e4dc",
+        "title":  "Design System Inspired by Perspective"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\pinterest\\DESIGN.md",
+        "sha256":  "225ebbeb7a4712d28bf91431e1554dfa33076cbcf3b3f57930a84b7423972bc6",
+        "title":  "Design System Inspired by Pinterest"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\playstation\\DESIGN.md",
+        "sha256":  "4d646186c2d64dfd6a3d8966fd9698aace4051a4591a7c95d0058282378cbd6f",
+        "title":  "Design System Inspired by PlayStation"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\posthog\\DESIGN.md",
+        "sha256":  "aa096edfa99e1cec22077634af14dcd2dceba6e450002faefb716bb8e82aacdf",
+        "title":  "Design System Inspired by PostHog"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\premium\\DESIGN.md",
+        "sha256":  "b65fa90dd703246aa7c746cff04654e3757136a02bd0666715c437d0b43ebbac",
+        "title":  "Design System Inspired by Premium"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\professional\\DESIGN.md",
+        "sha256":  "bf409ef68e5968b0c499da46166b429d622f5420c38ac8e8730924f4f1ccf82b",
+        "title":  "Design System Inspired by Professional"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\publication\\DESIGN.md",
+        "sha256":  "9699387196d64f45d6e54092e9eb0fa37b0a99c5600442239aa84056bc77f27e",
+        "title":  "Design System Inspired by Publication"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\raycast\\DESIGN.md",
+        "sha256":  "b9e3c5925220bd3fe2d1bb9acc5c6490abded52998d7bb80f5e41071a40a377f",
+        "title":  "Design System Inspired by Raycast"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\refined\\DESIGN.md",
+        "sha256":  "d647f3e4b5410df94d1d2274aef2be56cfe9b7411662fd0085aa743402f08454",
+        "title":  "Design System Inspired by Refined"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\renault\\DESIGN.md",
+        "sha256":  "e25fe129c530baa2d63b23416a86371fc8477c81b9c6591b3216f840d6a87380",
+        "title":  "Design System Inspired by Renault"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\replicate\\DESIGN.md",
+        "sha256":  "b566164eb539ba5a47fc8b76c11174d3fdef16a5ebfe33380b87475a4543e30a",
+        "title":  "Design System Inspired by Replicate"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\resend\\DESIGN.md",
+        "sha256":  "6562efc256981a746b7346049c43ff7f7424c60f111cc2af97c087fa179f974d",
+        "title":  "Design System Inspired by Resend"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\retro\\DESIGN.md",
+        "sha256":  "7665279a42d41e0419779d44fe1d9cf56fc4ee87cfc5371b6485e31e95907d32",
+        "title":  "Design System Inspired by Retro"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\revolut\\DESIGN.md",
+        "sha256":  "823ca8b7d8039f86443b9fd757475d0c945568d1b42db6ce42ff45f4acb38ce8",
+        "title":  "Design System Inspired by Revolut"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\runwayml\\DESIGN.md",
+        "sha256":  "5f623a4767c10ac18b141bebc52b0f92317911bd1a303ec2732d667b59502f27",
+        "title":  "Design System Inspired by Runway"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\sanity\\DESIGN.md",
+        "sha256":  "86d2e322ef20c046c0c9235ac6316cb247adba8ccdbabe3e6a9c7ce6c909bab7",
+        "title":  "Design System Inspired by Sanity"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\sentry\\DESIGN.md",
+        "sha256":  "de438b236ff9982077d402adf68ae7bc7817f9aac9d537aaac3778cd5a7c6464",
+        "title":  "Design System Inspired by Sentry"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\shadcn\\DESIGN.md",
+        "sha256":  "01faeb4cf83a747183939c8c5d29616ebe5b951ce0e1bb6d6013c498b04bbbf5",
+        "title":  "Design System Inspired by Shadcn"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\shopify\\DESIGN.md",
+        "sha256":  "0ae8b56b3f024ba3ea73f45f896d28fb39643d85fdfbe1fe9399969880a8824d",
+        "title":  "Design System Inspired by Shopify"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\simple\\DESIGN.md",
+        "sha256":  "11dfd94676894cbe5b12dfc60c797ee43b259b177a1edb06f54769779918cb66",
+        "title":  "Design System Inspired by Simple"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\skeumorphism\\DESIGN.md",
+        "sha256":  "f57f659ca74e9b39bd390b885543627fd3571b5bee1dabab6223d465c611225c",
+        "title":  "Design System Inspired by Skeumorphism"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\sleek\\DESIGN.md",
+        "sha256":  "8e359a575eb12a0855611239e37cd2f545a07ec27bdb3175f2492d91ff05880b",
+        "title":  "Design System Inspired by Sleek"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\spacex\\DESIGN.md",
+        "sha256":  "25449dfabd4ef98b600ffbe96c4ddb36b0a3d2a87a05c1d3b8684bb9b0a8af6b",
+        "title":  "Design System Inspired by SpaceX"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\spacious\\DESIGN.md",
+        "sha256":  "84589b4fef809c0d057e9a655194143a738fcd569be83f70c7fd28243334d73d",
+        "title":  "Design System Inspired by Spacious"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\spotify\\DESIGN.md",
+        "sha256":  "04d86fd0a2f6212256ecd036f3687f8053cb8b739d6e9f84181bb51ee4bfb7c4",
+        "title":  "Design System Inspired by Spotify"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\starbucks\\DESIGN.md",
+        "sha256":  "30656a436f2ed502143dd9c61869cebfaf9fe13ceab0dae43b3c27a0dcd64339",
+        "title":  "Design System Inspired by Starbucks"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\storytelling\\DESIGN.md",
+        "sha256":  "2649fd3a205553ef471aa9cce053fdf2e935fe278dc896a41020abfc9e2f5066",
+        "title":  "Design System Inspired by Storytelling"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\stripe\\DESIGN.md",
+        "sha256":  "ffb6c6b3912151d1dc35c7afa034f013158a43d710b3de1d8e72bc7b9804ea7f",
+        "title":  "Design System Inspired by Stripe"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\supabase\\DESIGN.md",
+        "sha256":  "5b7adf6d96b720d9784bdb6566db594641e4cdc3767f18fba692b830ee891991",
+        "title":  "Design System Inspired by Supabase"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\superhuman\\DESIGN.md",
+        "sha256":  "810c05a9dda668590af5704283e8349c7dde5a2e783a09ca985a9e71a88f870c",
+        "title":  "Design System Inspired by Superhuman"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\tesla\\DESIGN.md",
+        "sha256":  "60c5b83625f6b11c040385aec380274f6f5d4a06f0c83bd1c117f03cb35a9166",
+        "title":  "Design System Inspired by Tesla"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\tetris\\DESIGN.md",
+        "sha256":  "bde1ea492dccdf6334de7f661095c16c14b7b90dcb602fe5ff8043e562c0910c",
+        "title":  "Design System Inspired by Tetris"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\theverge\\DESIGN.md",
+        "sha256":  "1d9a1852ec99174ebed353776ee1c52747db511bc6ed2b3752fc6fee1dd3f44a",
+        "title":  "Design System Inspired by The Verge"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\together-ai\\DESIGN.md",
+        "sha256":  "a5cc02bf989f14233d2dad239be82eb5d595a994da15162e2617c2f627f80e92",
+        "title":  "Design System Inspired by Together AI"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\uber\\DESIGN.md",
+        "sha256":  "def062af16464bbf4f44d6bcf17af3cfa1d60bb5e1edc7c9ffdfc96570f0f625",
+        "title":  "Design System Inspired by Uber"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\vercel\\DESIGN.md",
+        "sha256":  "9fef1d2613e024bc4a1e71360769f053f6baf862476cccb18a08619d2da7a8d1",
+        "title":  "Design System Inspired by Vercel"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\vibrant\\DESIGN.md",
+        "sha256":  "b457ccc10355c6b59e37f00cfc478986916ca6f9e1761bf1ee395d3d3755eefa",
+        "title":  "Design System Inspired by Vibrant"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\vintage\\DESIGN.md",
+        "sha256":  "c06b58f4fd5de4ac664d56b72ffb78760debecec35c91e077544c696f8be2a12",
+        "title":  "Design System Inspired by Vintage"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\vodafone\\DESIGN.md",
+        "sha256":  "90e180c25efc655fe0ecee838ab05f98351f3a8865fa78a668543d7c3e86ca35",
+        "title":  "Design System Inspired by Vodafone"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\voltagent\\DESIGN.md",
+        "sha256":  "310d74536c22bff73c6c31f4103712fe9ba56fcf6607c6f02ee10dc43a39b2d4",
+        "title":  "Design System Inspired by VoltAgent"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\warm-editorial\\DESIGN.md",
+        "sha256":  "b534583ca448a7dbded9b867fa995386044fdf8bcfd88383f8375887b7e587b9",
+        "title":  "Warm Editorial"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\warp\\DESIGN.md",
+        "sha256":  "037d7c87df245657c02c5507dd3036174df2107b38989d7eb4401bb1a2b6a1e2",
+        "title":  "Design System Inspired by Warp"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\webflow\\DESIGN.md",
+        "sha256":  "749b582d3218c79b121aad138843136d8b0fe45396fd512ca87bb2778e09ff67",
+        "title":  "Design System Inspired by Webflow"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\wired\\DESIGN.md",
+        "sha256":  "fbfbe48d08d92d7a35cc484b37eee1391b25c501f57e976a92bd05327f7f3e86",
+        "title":  "Design System Inspired by WIRED"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\wise\\DESIGN.md",
+        "sha256":  "67090544111789965292228f0895700fbe81237a0f81506297e00f20e1032318",
+        "title":  "Design System Inspired by Wise"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\x-ai\\DESIGN.md",
+        "sha256":  "4a5b0813a92804591d87736681d6b5c5d02eccd183f13b08dbef47f03489f082",
+        "title":  "Design System Inspired by xAI"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\xiaohongshu\\DESIGN.md",
+        "sha256":  "dc12c9b68f2099e7d6d695cb8f6cf9da64f9040b9d5cefda26969e747afa4bc9",
+        "title":  "Design System Inspired by Xiaohongshu"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\design-systems\\library\\zapier\\DESIGN.md",
+        "sha256":  "f5633e694db57c1eea86a855a4a8fb7430a5c54c7bd1c7f745c088f3e0a7326e",
+        "title":  "Design System Inspired by Zapier"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\docs\\restructure-plan.md",
+        "sha256":  "03b2f33a80bc5b64c142512c9a738a92fa29aac826f1e547cbcac35ea8d784f7",
+        "title":  "Restructure Plan — `ux-ui-skills`"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\docs\\WORKFLOW.md",
+        "sha256":  "a98e6665eabb259d92c1d2b5fff210f91b0eefb81eec1cf732349bad4127a607",
+        "title":  "How It Works — End-to-End Workflow"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\briefs\\01-billing-settings.md",
+        "sha256":  "41802f49dafabfc3b3966973e3b17cfe76f84ba9e5c60fde1e30296cacf50dfd",
+        "title":  "Billing settings"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\briefs\\02-first-run-empty.md",
+        "sha256":  "646c51025d3865261bc613a1e442cc4682d64c255a1aba756d6054dfa8a6c9f4",
+        "title":  "First run and empty states"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\briefs\\03-data-density.md",
+        "sha256":  "76d7be4395b320bfff8ee514848bb4bf5447dae5f176312a4abffa2fff2d060a",
+        "title":  "Dense data table"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\briefs\\04-notification-center.md",
+        "sha256":  "5908ed8e0358ff7506cd5869ac8d78dd292b129cff80e35a3d93b54276740c95",
+        "title":  "Notification centre"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\out\\blind-2026-08-25\\README.md",
+        "sha256":  "77481d58cae43c79a2a8ab7a894caca60eb0e920b5cf642389958228c8beea32",
+        "title":  "Blind cold-start artifacts, 2026-08-25"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\README.md",
+        "sha256":  "f9a46130473b4e6f278880365a2e4ffe9008283472878d0f813c6166688a1a0f",
+        "title":  "Evals — does an agent with this kit actually produce good work?"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\evals\\RESULTS.md",
+        "sha256":  "113e0f2eec1c0340d50aca1cbe6aeb7671886fd6ccc99b97db1f14826b05c337",
+        "title":  "Eval results"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\examples\\golden\\README.md",
+        "sha256":  "3f7b8e94caef94b93f426a6463b6053e7ad8fc39e7fb58075f380921e2f993fa",
+        "title":  "Golden Examples — the quality bar, demonstrated"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\examples\\sample-app\\BRIEF.md",
+        "sha256":  "d8bb2202cb34e2a5fa60e9780cc0567c9d0fad4af769cdfabdd5df6576fc1fb3",
+        "title":  "Test Brief (the \"โจทย์\")"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapter-protocol.md",
+        "sha256":  "faab97def6b81bbc53f16be2609828e91e56aed1852d8ba5c1b1defdf3e24e5a",
+        "title":  "Framework Adapter Protocol"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\angular.md",
+        "sha256":  "cb8f30d8977214bc97958785a9e0209ce01543ceb137c128df750b5b0725f308",
+        "title":  "Adapter: Angular"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\astro.md",
+        "sha256":  "312781889d88684e08a5637385a67a19491933dbc0d432c5047d25fbde7ccf4a",
+        "title":  "Adapter: Astro"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\bootstrap.md",
+        "sha256":  "1ee744dae427d4bec4832aea52fe11edf129c0434ca7406a1c2e1ba2ce2c413c",
+        "title":  "Adapter: Bootstrap 5"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\chakra.md",
+        "sha256":  "10cd36f3e5f1427ed721e2960f913c3d207b789d44539c0ab0d69d0561cfa933",
+        "title":  "Adapter: Chakra UI"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\css-in-js.md",
+        "sha256":  "be059591008832061ecef3ce6179bba30701d77317456c875ef5f966ad0314d7",
+        "title":  "Adapter: CSS-in-JS (styled-components / emotion / vanilla-extract / Panda)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\flutter.md",
+        "sha256":  "3a48e27e8a8cadd85a8592abf1035b74c4f695e9f8fe90940394d7106dc82a29",
+        "title":  "Adapter: Flutter"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\jetpack-compose.md",
+        "sha256":  "b8b679b6ee8a40eebcdc902c2984bb59b709b1fe7cc72ddeb7c1c8fd76a78e69",
+        "title":  "Adapter: Jetpack Compose (Android)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\mantine.md",
+        "sha256":  "4cffd8863f771199bc5338b868c8292ddd6c4545ef47517eff7aa0778c8e8257",
+        "title":  "Adapter: Mantine"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\mui.md",
+        "sha256":  "5db30bfc038c8ecc6d6cf23e34f49ad2a6ae0eb461c77b94a64e9badbef7a857",
+        "title":  "Adapter: MUI (Material UI)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\qwik.md",
+        "sha256":  "e5a7d8be0329c62e7cbc77519d11262cb28966b771d04ff1c1da7892327bf978",
+        "title":  "Adapter: Qwik"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\react-native.md",
+        "sha256":  "7cc3da37e79ceccb13fe9c5ccaae925c5913feaaa86a445fd37e4690bc04f26a",
+        "title":  "Adapter: React Native"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\solid.md",
+        "sha256":  "6c8ce1f7bc5d583efd0d545d2cbe2667c5c15ce6d7abfa08145da801d01dfb3f",
+        "title":  "Adapter: SolidJS"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\svelte.md",
+        "sha256":  "79475337fc26a551e584ce3664bf163bd4836baf1c7852290f5e332f48916d45",
+        "title":  "Adapter: Svelte 5"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\vanilla-css.md",
+        "sha256":  "beaf1976ef7cecb35918bf9fb3f2a730b1c6259bf1f424c8a13e303be1a7c3b0",
+        "title":  "Adapter: Vanilla CSS + HTML"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\vue.md",
+        "sha256":  "a58eadd0d4a718739b1e5bc80aca20217f80dcc19ef2c29b9c4a4b287346e3b8",
+        "title":  "Adapter: Vue 3"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\adapters\\web-components-lit.md",
+        "sha256":  "bf8e9a6fb2966acc54f5e09759980ce0a4b9f05a3b75064015225905dd50d97e",
+        "title":  "Adapter: Web Components (Lit)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\nextjs.md",
+        "sha256":  "f0f54cee8b45e391ac03c166ab46d3d617bf12288942b857426281b3d8463137",
+        "title":  "Next.js 15 App Router Patterns"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\react-tailwind.md",
+        "sha256":  "f0c2d17cde2dd2cf3ed9f2ebf56bfff87989511c228c89b39b280171b96b58ef",
+        "title":  "React + Tailwind v4 + TypeScript Patterns"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\frameworks\\swiftui.md",
+        "sha256":  "3eb8e4739e1d60d8091fc34b5c537c9183f3a1442fc6fef03e57aefb22e3598c",
+        "title":  "SwiftUI 6 Design System Patterns"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\README.md",
+        "sha256":  "791a8056ff5b1bf355ee9abe954f77a9dc12dcb95afc23c7f44c1a7067b91f45",
+        "title":  "UX/UI Agent Skills"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\reference\\README.md",
+        "sha256":  "6e366c4c1f19b514a6aa9e5e1cd8a2d8ab64186f898e35812896bb343dfda227",
+        "title":  "reference/"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\taste\\aesthetic-systems.md",
+        "sha256":  "b980fdbe97f4130ecc52b98aceb53c45dbba5bc541bc4f5c83b2b72d08079d65",
+        "title":  "Aesthetic Systems — Archetypes + the Design-System Library"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\taste\\design-taste.md",
+        "sha256":  "02abfad67d15e18a4225058d77a25106c89f787d23e5682fe9535ddf5c1844dd",
+        "title":  "Design Taste — The Anti-Slop Doctrine"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\taste\\motion-choreography.md",
+        "sha256":  "92cc7dc640d3978360e45e58f82f05394c28e4461c9a4e1e083f9a5adfdba795",
+        "title":  "Motion Choreography"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\templates\\product-design\\.claude\\commands\\gate.md",
+        "sha256":  "699fcd9f18b2a5b9394f9695b32c12a62538258ba195f309fefd756aed530fba",
+        "title":  "Theme (the source of truth)"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\templates\\product-design\\.claude\\rules\\accessibility.md",
+        "sha256":  "cc81f97d9762bb7d92e3051fa25a359928ac47abc32e59b42ec4dc087e87fbf8",
+        "title":  "Rule: what must pass before a screen merges"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\templates\\product-design\\.claude\\rules\\components.md",
+        "sha256":  "a853ae857168ecc2102c6c8f95b6103ec625993e08710176ed7dbe574e6949bb",
+        "title":  "Rule: how a component is built here"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\templates\\product-design\\.claude\\rules\\tokens.md",
+        "sha256":  "80ae6cf3f0c392b7be6a39d635be20f71576923f491194d7d64ae95d18cbcf36",
+        "title":  "Rule: how to add or change a token"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\templates\\product-design\\CLAUDE.md",
+        "sha256":  "c46129594c6eaec8bf40d95db9e05fa64fc4dc313298909d977f8378e3b6d91a",
+        "title":  "\u003cPRODUCT NAME\u003e — design brief"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\tests\\README.md",
+        "sha256":  "507cdb8b4c8de5f655ad57e9daf3c0b84de32249af429303a925022406fe9f7b",
+        "title":  "tests/ — the layer that checks the gates"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\design-qa.md",
+        "sha256":  "35897078b2225a47f90bb903dfaef0c4b16034c26e37cf5ae08b782704eaa2c9",
+        "title":  "Design QA — Visual Regression \u0026 Accessibility CI"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\design-review.md",
+        "sha256":  "b9d1d271422ad1af70791baf34607b204aaaaf053de2ba9077ada3479da9019b",
+        "title":  "Design Review Workflow"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\design-to-code.md",
+        "sha256":  "96f247ef5559756d2c5db70ab62f171311e4c71d9ba1c088f4e4940b1fad9ae9",
+        "title":  "Design-to-Code Handoff Workflow"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\figma-integration.md",
+        "sha256":  "d2631c80465930d5016b7baa23bdf5d9c4c2cfe9aca9332143dbc59ff32a21df",
+        "title":  "Figma Integration"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\governance.md",
+        "sha256":  "d0564faf5457c211187403b3e45524933272c1c8cd8c5ee9fe2fbcc7f1e6d5be",
+        "title":  "Design-System Governance"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\performance.md",
+        "sha256":  "a948e398f96277bac851e46466059611f8ef7d97b1f3d19afc3644aa3838c04a",
+        "title":  "Performance \u0026 Web Vitals"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\prototyping.md",
+        "sha256":  "a15a895ce77ae19f223bb9fe1a9a326ad8b861d101b0be39ac21bba2b0822151",
+        "title":  "Prototyping \u0026 User Research Workflow"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\redesign-audit.md",
+        "sha256":  "33edce945798f0dc8f57e392bf1df042acba46d6d46e9a89c1cf4c85f61fb3b8",
+        "title":  "Redesign \u0026 Audit Workflow"
+    },
+    {
+        "path":  ".agents\\skills\\ux-ui-agent-skills\\workflows\\token-build.md",
+        "sha256":  "8240f9674474400d953adb1feabcea74a827ed2da37b72ce6ed65dc0e9b22243",
+        "title":  "Token Build Pipeline"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\.serena\\memories\\code_style_conventions.md",
+        "sha256":  "71bb705482cd86187078f1717415b41193aa7aaf62598f2a2b7e93d7d77f85fa",
+        "title":  "Code Style and Conventions"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\.serena\\memories\\project_overview.md",
+        "sha256":  "080b4722ec6ba57283360349f59e4137da5a72b5fe2c285078ef7896d24a0d7b",
+        "title":  "Penpot MCP Project Overview - Updated"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\.serena\\memories\\suggested_commands.md",
+        "sha256":  "f0b0486e32d1310f2b8f0324c42a998ff992fb728d4038aadb6133ee3f93f706",
+        "title":  "Suggested Commands"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\.serena\\memories\\task_completion_guidelines.md",
+        "sha256":  "8edde0032ee763a8cc991a44ce6a19e6ab7d3cfe79c9e4f7da5f25bbcedc8228",
+        "title":  "Task Completion Guidelines"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\CONTRIBUTING.md",
+        "sha256":  "3f59f4311205c1b87f3dde9c0366dc7c752f3b84fb8d5b565d0aff105e359bdc",
+        "title":  "Contributing to Penpot MCP"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\docs\\multi-user-mode.md",
+        "sha256":  "db63c0ea49747b2bdcf7a7ba31170c5cbc8d9f17b11e4b89fbf932e3f539e68d",
+        "title":  "Multi-User Mode"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\mcp-server\\README.md",
+        "sha256":  "35dbb04aaa2d03c2ac08551c00193828a571888d2346d3eec52ecd38ed325007",
+        "title":  "Penpot MCP Server"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\penpot-plugin\\README.md",
+        "sha256":  "8f5f6c9b823c94def18eda7699b01824d87044a3b56d2085a8e5605e82f48cb1",
+        "title":  "Penpot MCP Plugin"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\python-scripts\\README.md",
+        "sha256":  "848d6b5f4323b4e48f3fa30d8aeabc9ee28ee0d1f6612446ac2cb9e47d493dc2",
+        "title":  "Helper Scripts for the Penpot MCP Server"
+    },
+    {
+        "path":  ".tools\\penpot-mcp\\README.md",
+        "sha256":  "63f0f2f20666a73fc92fa01a7eeb18e764a1d823ddc82cf869826d6a20dca1b2",
+        "title":  "Penpot\u0027s Official MCP Server"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\~ip-25.3.dist-info\\licenses\\src\\pip\\_vendor\\idna\\LICENSE.md",
+        "sha256":  "a59f0b0ef3635874109a4461ca44ff7a70d50696e814767bfaf721d4c9b0db0f",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\httpcore-1.0.9.dist-info\\licenses\\LICENSE.md",
+        "sha256":  "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\httpx-0.28.1.dist-info\\licenses\\LICENSE.md",
+        "sha256":  "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\huggingface_hub\\templates\\datasetcard_template.md",
+        "sha256":  "5be10ca91eb09dd6eb9d9a2b915bf9e944563c6e3d97b3004c6788d35e644efb",
+        "title":  "For reference on dataset card metadata, see the spec: https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\huggingface_hub\\templates\\modelcard_template.md",
+        "sha256":  "e00a80ad2ddca9db5b8ade41a3e0e18dc9c3151fa9cdae6112b2cb4cf33862e7",
+        "title":  "For reference on model card metadata, see the spec: https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\idna-3.19.dist-info\\licenses\\LICENSE.md",
+        "sha256":  "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\narwhals-2.26.0.dist-info\\licenses\\LICENSE.md",
+        "sha256":  "811445f30147b8f0c9d444c9025fd528f9532c54b7b83f6e2368473dc91cfdf0",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy\\random\\LICENSE.md",
+        "sha256":  "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "title":  "NCSA Open Source License"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\_core\\src\\npysort\\x86-simd-sort\\LICENSE.md",
+        "sha256":  "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\fft\\pocketfft\\LICENSE.md",
+        "sha256":  "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\LICENSE.md",
+        "sha256":  "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "title":  "NCSA Open Source License"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\src\\distributions\\LICENSE.md",
+        "sha256":  "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+        "title":  "NumPy"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\src\\mt19937\\LICENSE.md",
+        "sha256":  "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+        "title":  "MT19937"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\src\\pcg64\\LICENSE.md",
+        "sha256":  "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+        "title":  "PCG64"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\src\\philox\\LICENSE.md",
+        "sha256":  "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+        "title":  "PHILOX"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\src\\sfc64\\LICENSE.md",
+        "sha256":  "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+        "title":  "SFC64"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\numpy-2.5.2.dist-info\\licenses\\numpy\\random\\src\\splitmix64\\LICENSE.md",
+        "sha256":  "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+        "title":  "SPLITMIX64"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\onnxruntime\\Privacy.md",
+        "sha256":  "a1e6108942be2f56d9ea93c342462d5ec15fd0510603dae7a654f417e0d4e95f",
+        "title":  "Privacy"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\onnxruntime\\tools\\mobile_helpers\\coreml_supported_mlprogram_ops.md",
+        "sha256":  "9114e3a9dea71ed4096b0109f833bf1fa80914aeffb6385e7d5ef01b29fc4f7b",
+        "title":  "coreml_supported_mlprogram_ops"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\onnxruntime\\tools\\mobile_helpers\\coreml_supported_neuralnetwork_ops.md",
+        "sha256":  "249070bf4e02fe8d8ad5458eb6d0ed6ab9c2ef1145650daebef2198381059960",
+        "title":  "coreml_supported_neuralnetwork_ops"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\onnxruntime\\tools\\mobile_helpers\\nnapi_supported_ops.md",
+        "sha256":  "b89ce7132cbb640765ae42907a858516ce79acf13e90e78f2098afef8d6bf7c4",
+        "title":  "nnapi_supported_ops"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\pip\\_vendor\\idna\\LICENSE.md",
+        "sha256":  "a59f0b0ef3635874109a4461ca44ff7a70d50696e814767bfaf721d4c9b0db0f",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\pyparsing\\ai\\best_practices.md",
+        "sha256":  "aa53ca4e679311869a005446930477133ba43fe4de2052f3a18389ce85417086",
+        "title":  "Planning"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\pywt\\tests\\data\\README.md",
+        "sha256":  "599a20a3372a5381b5638655bb58bcc6b2b7627da9ead5ad5f82a793082aa9ff",
+        "title":  "README"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\scipy\\fft\\_duccfft\\LICENSE.md",
+        "sha256":  "c04661685cff9d8035fe1c4c3ab357e7f7633cafc06a73e9d90c3c5fede8a86a",
+        "title":  "LICENSE"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\sklearn\\externals\\array_api_compat\\README.md",
+        "sha256":  "f8d133bc56f266062c63de2c6a81fb23ea8c3979626ca70f58c85f745860d4c4",
+        "title":  "README"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\sklearn\\externals\\array_api_extra\\README.md",
+        "sha256":  "f24ac7883ced6f56e76ed31ceb1b494c1c80a34756953a3bcbe87261e7e3748f",
+        "title":  "README"
+    },
+    {
+        "path":  ".venv-train\\Lib\\site-packages\\torchgen\\packaged\\autograd\\README.md",
+        "sha256":  "67f841759d34e3d830f572c456b6e6af1b84285e7d87ca479c40cfde2659fda6",
+        "title":  "README"
+    },
+    {
+        "path":  "bioclip\\resultados_fase4_esquematizado.md",
+        "sha256":  "43cc578197b3694a1813c688ba958c47f0de540d4958a7df61023c966e327d36",
+        "title":  "Anura Fase 4: Transfer Learning — Resumen Esquematizado (2026-09-11)"
+    },
+    {
+        "path":  "data dirty\\fuentes_scraping_manual.md",
+        "sha256":  "8cbda3dc4485a0239cfd62727c09401531dd9dc6ca37c7d799ae9576bdd5ff35",
+        "title":  "Registro de scraping manual complementario (fuera del pipeline automático)"
+    },
+    {
+        "path":  "data dirty\\reporte_especies_problematicas.md",
+        "sha256":  "48e11df51e693e15b7bcdf6ba9da1dd89e32d469da6a99caf1c35754abbb0ff1",
+        "title":  "Reporte de Auditoría: Disponibilidad de Datos en iNaturalist"
+    },
+    {
+        "path":  "docs_vision_model_plan\\ahora_documento_explicado_entrenamiento.md",
+        "sha256":  "14c19fc01b6ef46b22b3afda3a226b6c06336be0c7435c6b14c0500fc89d5717",
+        "title":  "**Guía Técnica Integral: Destilación de Conocimiento (Esquema Profesor-Alumno) para Visión por Computador en Dispositivos Móviles**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\archivo_md_amplio_como_hacer_modelo.md",
+        "sha256":  "7ce344c4f0085fb165491a98c0dc27be0b8af8a6d77dc3e327ce195d1f5b7b5f",
+        "title":  "**Sistema de Visión Computacional y Segmentación Anatómica para Anuros**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\bien_etiquetas_de_imagen.md",
+        "sha256":  "74a94e5892b6e64350a69e6f388abc4bd94fd94eed785f74d27ecc002f433c75",
+        "title":  "**Plan Maestro de Entrenamiento y Despliegue: Esquema Profesor-Alumno con Jerarquía Taxonómica**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\calcula_pesos_totales_modelo_vision.md",
+        "sha256":  "706bdc6305abc80c190588a2d315b8bd4e342b545a4adbcb5ddcd50a94e428af",
+        "title":  "**1\\. Desglose de Componentes del Sistema**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\etiquetado_por_familia.md",
+        "sha256":  "e8bddde0d787c19f84b03e3baf1837ed7192cbd4d11f7a42b4a5b779f7802118",
+        "title":  "**1\\. Estructura de la Base de Datos SQLite con sqlite-vec**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\explicacion_embeddings.md",
+        "sha256":  "587bdba60099bc814f97293ce084a8e9d7f72c850c810ba00253db2552ecdb3c",
+        "title":  "**1\\. Particionamiento Geográfico de los Embeddings (Servidor / Nube)**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\organiza_plan_completo.md",
+        "sha256":  "e2383876f102324a6b2b81384275de63ebacd31c11334058bb90b20478186ba2",
+        "title":  "**Plan de Ejecución Táctico: Sistema Móvil de Identificación de Anuros (Entrega: 27 de Septiembre de 2026\\)**"
+    },
+    {
+        "path":  "docs_vision_model_plan\\organiza_plan_optimizacion_bioclip.md",
+        "sha256":  "9470ea92775f7be78e22aefbcb2876367259ee75c2d4f4aa244114a97816b2f1",
+        "title":  "**Plan de Optimización y Fine-Tuning Directo de BioCLIP para Clasificación de Anuros**"
+    },
+    {
+        "path":  "evaluation\\model_size_audit.md",
+        "sha256":  "8b9cf8451da2e8cd2a1cc9be5536542e5f76e5f8ccf99461e2345c3ecfbfa14d",
+        "title":  "Auditoria de peso del modelo ANURA"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\closed_set\\closed_set_report.md",
+        "sha256":  "83b5772fd2b1849cf28f2a1a16a59ee2b53cc12f47c5693279c0df97d0501030",
+        "title":  "Closed-Set Control Report"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\dataset\\dataset_inventory.md",
+        "sha256":  "9d9b157999992fe9ed7b5094db0b10bb671285c5b346d3ddc73d034e8d0eac2c",
+        "title":  "Open Set Dataset Inventory"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\ensemble\\calibration_audit.md",
+        "sha256":  "502e936b3bdc7305e025ff5179b08e420cb7092a172aca3752d4e67c333e464a",
+        "title":  "Fase 8A — Auditoría de fuente de calibración"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\ensemble\\ensemble_report.md",
+        "sha256":  "3a04715a8ca845f415b0311b54dabb84891d837bed3fe76a48badbc46064e56a",
+        "title":  "FASE 8B ? ENSEMBLE SOFTMAX + kNN"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\knn\\knn_open_set_report.md",
+        "sha256":  "d30010e4ad675e2a5b7255c43d72c50cb9ea1277134cf905e21a6271e32b7264",
+        "title":  "Fase 6 — Embeddings, k-NN y señales Open Set"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\metrics\\open_set_metrics_report.md",
+        "sha256":  "5b1d47deb415cd57be75e767863abc3f480c96f8490ba0e9be8dbff0bd1a8ddd",
+        "title":  "Fase 5 — Métricas y discriminación Open Set"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\open_set\\open_set_report.md",
+        "sha256":  "73c2c15e18bebbb074c268aa6d02ec58e6a4ba11b9c7974a4be86cc569bc4dd1",
+        "title":  "Fase 4 — Open Set Real"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\pipeline_audit.md",
+        "sha256":  "2558cec6a2779e90741065c4975ab0f73bd3f88b5a0b58c1277f834e9045f697",
+        "title":  "ANURA Open Set Evaluation — Phase 1 Pipeline Audit"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\prior\\prior_ablation_report.md",
+        "sha256":  "f39115db1675ee9f520d3904084c34aadafadf8fe30b4ff36d0cf79e87f5279c",
+        "title":  "Fase 7 — Evaluación controlada del prior geográfico"
+    },
+    {
+        "path":  "evaluation\\open_set_v1\\README.md",
+        "sha256":  "146abb54291ff0f0733792813bd527656451e89c7416c052c93ccb6708713a82",
+        "title":  "ANURA Open Set Validation — Evaluation Directory"
+    },
+    {
+        "path":  "PLAN_DESARROLLO.md",
+        "sha256":  "37b4c9d730c669db046c5fa16ef9a975dc385eeda6ddb4033b27d97293ee8b6a",
+        "title":  "Plan de Desarrollo — Estado Actual y Ruta a 2026-09-27"
+    },
+    {
+        "path":  "PLAN_ETIQUETADO_DATOS.md",
+        "sha256":  "e54aec9621a2d458fe3c5db4c48c27d76f74324eaade929872a0102588b693f5",
+        "title":  "PLAN_ETIQUETADO_DATOS.md"
+    },
+    {
+        "path":  "PLAN_MODELO_VISION.md",
+        "sha256":  "519bd93faa323669157e743f477e11a261287f3ed53fd8672060934f8f6eec0c",
+        "title":  "Plan del Modelo de Visión (y Audio) — Anura"
+    },
+    {
+        "path":  "training\\resultados_diagnostico_destilacion.md",
+        "sha256":  "2f36e09e1f21c76b1659272543e7c2a9332ef1fbca895f818737043d20a29f2c",
+        "title":  "Resultados de Destilación BioCLIP v1 → MobileNetV3-Small"
+    }
+]

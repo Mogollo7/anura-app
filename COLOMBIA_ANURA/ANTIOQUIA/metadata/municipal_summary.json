@@ -1,0 +1,72 @@
+{
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-12",
+  "municipalities_total": 125,
+  "municipalities_with_records": 115,
+  "species_total": 97,
+  "observations_assigned": 5059,
+  "excluded_obscured": 1348,
+  "excluded_low_accuracy": 67,
+  "restricted_species": [
+    {
+      "scientific_name": "Eleutherodactylus johnstonei",
+      "observations": 21,
+      "municipalities": [
+        "Envigado",
+        "Medellin"
+      ]
+    },
+    {
+      "scientific_name": "Pristimantis ferwerdai",
+      "observations": 7,
+      "municipalities": [
+        "Jardin"
+      ]
+    },
+    {
+      "scientific_name": "Agalychnis spurrelli",
+      "observations": 5,
+      "municipalities": [
+        "Mutata",
+        "Necocli"
+      ]
+    },
+    {
+      "scientific_name": "Craugastor opimus",
+      "observations": 4,
+      "municipalities": [
+        "Remedios",
+        "Segovia"
+      ]
+    },
+    {
+      "scientific_name": "Dendropsophus norandinus",
+      "observations": 3,
+      "municipalities": [
+        "Concepcion",
+        "El Carmen De Viboral"
+      ]
+    },
+    {
+      "scientific_name": "Dendrobates auratus",
+      "observations": 3,
+      "municipalities": [
+        "Canasgordas",
+        "Turbo"
+      ]
+    },
+    {
+      "scientific_name": "Teratohyla spinosa",
+      "observations": 3,
+      "municipalities": [
+        "Chigorodo",
+        "Mutata"
+      ]
+    }
+  ],
+  "assignment": {
+    "method": "point-in-polygon contra municipios DANE (MGN 2018)",
+    "border_tolerance_km": 1.0,
+    "obscured_excluded_reason": "iNaturalist desplaza hasta ~25 km las coordenadas de especies amenazadas y por privacidad; a escala municipal eso cambia la respuesta"
+  }
+}

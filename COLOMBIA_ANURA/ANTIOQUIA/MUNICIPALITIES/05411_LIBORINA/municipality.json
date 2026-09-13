@@ -1,0 +1,19 @@
+{
+  "dane_code": "05411",
+  "name": "Liborina",
+  "department": "ANTIOQUIA",
+  "area_km2": 216.4,
+  "species_count": 1,
+  "observations": 1,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Trachycephalus macrotis",
+      "inaturalist_taxon_id": 517297,
+      "common_name_es": "Rana Gomosa Grande",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24247/1663545",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

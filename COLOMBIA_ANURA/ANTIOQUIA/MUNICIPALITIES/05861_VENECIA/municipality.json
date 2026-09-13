@@ -1,0 +1,59 @@
+{
+  "dane_code": "05861",
+  "name": "Venecia",
+  "department": "ANTIOQUIA",
+  "area_km2": 139.7,
+  "species_count": 6,
+  "observations": 17,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 5,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Dendropsophus bogerti",
+      "inaturalist_taxon_id": 65336,
+      "common_name_es": "Ranita de pantano",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 3,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Boana platanera",
+      "inaturalist_taxon_id": 1251425,
+      "common_name_es": "Rana Platanera de Ojos Pálidos",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 3,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Pristimantis achatinus",
+      "inaturalist_taxon_id": 66531,
+      "common_name_es": "Cutín común de occidente",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Lithobates catesbeianus",
+      "inaturalist_taxon_id": 65979,
+      "common_name_es": "Rana toro americana",
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Boana pugnax",
+      "inaturalist_taxon_id": 555142,
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    }
+  ]
+}

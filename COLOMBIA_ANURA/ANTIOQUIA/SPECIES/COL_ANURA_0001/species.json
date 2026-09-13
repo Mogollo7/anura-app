@@ -1,0 +1,22 @@
+{
+  "taxon_id": "COL_ANURA_0001",
+  "scientific_name": "Rheobates palmatus",
+  "family": "Aromobatidae",
+  "genus": "Rheobates",
+  "common_name_es": "Palm Rocket Frog",
+  "directory_legacy": "Rheobates_palmatus",
+  "occurrences_in_department": 1,
+  "distinct_observers_in_department": 1,
+  "occurrence_evidence": "OCCURRENCE_MARGINAL",
+  "occurrences_total_colombia": 231,
+  "occurrences_dropped_low_accuracy": 9,
+  "photos_curated_total": 70,
+  "photos_raw_total": 480,
+  "individuals_curated_total": 45,
+  "individuals_from_department": 0,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": [
+    "submuestreo_en_curaduria (70/480 fotos conservadas)"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "STATUS": "NO_INDEPENDENT_REFERENCE_AVAILABLE",
+  "results": [],
+  "integrity": [
+    {
+      "path": "D:\\Anura\\training\\manifiesto.json",
+      "exists": true,
+      "sha256": "20bef170559e9da3e5b9bec3e91c4c7a2ae224af4774dda6e577a2c0d6354cd2"
+    },
+    {
+      "path": "D:\\Anura\\data cleaned\\dataset_limpio.json",
+      "exists": true,
+      "sha256": "d9c373e50dea43b18423beb8fb7e4910506c0131c819995d65ffe454affd2ef9"
+    },
+    {
+      "path": "D:\\Anura\\evaluation\\open_set_v1\\dataset\\open_set_manifest.json",
+      "exists": true,
+      "sha256": "4fd6e76b4d7e151f2196dfc83ae2344768b287ec85d366e75182ea52c4018e6a"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\cache\\embeddings\\98a6c54d6edb27e2.npz",
+      "exists": true,
+      "sha256": "f03d38c3e76a7d38edd0faf146c8e33c9c52013e39a0e7b86785c81dad07fa1a"
+    },
+    {
+      "path": "D:\\Anura\\evaluation\\open_set_v1\\rejection\\rejection_metrics.json",
+      "exists": true,
+      "sha256": "25a4ffb8458a4ee30d414d28133d72c7ae9f2bd065c401f8eccb5c32811233f5"
+    },
+    {
+      "path": "D:\\Anura\\evaluation\\open_set_v1\\rejection\\rejection_results.json",
+      "exists": true,
+      "sha256": "b6c685838052c3f18304eb2e6fcf57248c17779aae46e79e5aca2dd7def2590d"
+    }
+  ]
+}

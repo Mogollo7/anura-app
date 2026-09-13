@@ -1,0 +1,43 @@
+{
+  "dane_code": "05086",
+  "name": "Belmira",
+  "department": "ANTIOQUIA",
+  "area_km2": 296.2,
+  "species_count": 4,
+  "observations": 18,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Pristimantis permixtus",
+      "inaturalist_taxon_id": 66801,
+      "common_name_es": "Rana De Muslos Naranja",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 8,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Dendropsophus bogerti",
+      "inaturalist_taxon_id": 65336,
+      "common_name_es": "Ranita de pantano",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 5,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Gastrotheca dunni",
+      "inaturalist_taxon_id": 24151,
+      "common_name_es": "Rana Marsupial Norandina",
+      "ancestry": "48460/1/2/355675/20978/20979/64737/24126",
+      "observations_in_municipality": 4,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Pristimantis piceus",
+      "inaturalist_taxon_id": 66810,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

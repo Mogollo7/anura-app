@@ -1,0 +1,19 @@
+{
+  "dane_code": "05004",
+  "name": "Abriaqui",
+  "department": "ANTIOQUIA",
+  "area_km2": 297.0,
+  "species_count": 1,
+  "observations": 1,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Pristimantis erythropleura",
+      "inaturalist_taxon_id": 66657,
+      "common_name_es": "Rana De Ingle Roja",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

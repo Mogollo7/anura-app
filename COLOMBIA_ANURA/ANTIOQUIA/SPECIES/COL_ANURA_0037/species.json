@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0037",
+  "scientific_name": "Hyloscirtus palmeri",
+  "family": "Hylidae",
+  "genus": "Hyloscirtus",
+  "common_name_es": "Rana de torrente de Palmer",
+  "directory_legacy": "Hyloscirtus_palmeri",
+  "occurrences_in_department": 60,
+  "distinct_observers_in_department": 40,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 94,
+  "occurrences_dropped_low_accuracy": 1,
+  "photos_curated_total": 178,
+  "photos_raw_total": 179,
+  "individuals_curated_total": 94,
+  "individuals_from_department": 60,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

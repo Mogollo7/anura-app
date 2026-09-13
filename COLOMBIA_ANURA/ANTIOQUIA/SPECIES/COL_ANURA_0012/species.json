@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0012",
+  "scientific_name": "Pristimantis palmeri",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Palmer's Robber Frog",
+  "directory_legacy": "Pristimantis_palmeri",
+  "occurrences_in_department": 3,
+  "distinct_observers_in_department": 3,
+  "occurrence_evidence": "OCCURRENCE_PROBABLE",
+  "occurrences_total_colombia": 286,
+  "occurrences_dropped_low_accuracy": 2,
+  "photos_curated_total": 100,
+  "photos_raw_total": 150,
+  "individuals_curated_total": 57,
+  "individuals_from_department": 2,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

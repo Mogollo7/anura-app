@@ -1,0 +1,43 @@
+{
+  "dane_code": "05390",
+  "name": "La Pintada",
+  "department": "ANTIOQUIA",
+  "area_km2": 54.3,
+  "species_count": 4,
+  "observations": 5,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Boana pugnax",
+      "inaturalist_taxon_id": 555142,
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Elachistocleis pearsei",
+      "inaturalist_taxon_id": 476537,
+      "common_name_es": "Rana Pingüina",
+      "ancestry": "48460/1/2/355675/20978/20979/24736/787573/25086",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Boana platanera",
+      "inaturalist_taxon_id": 1251425,
+      "common_name_es": "Rana Platanera de Ojos Pálidos",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Lithobates catesbeianus",
+      "inaturalist_taxon_id": 65979,
+      "common_name_es": "Rana toro americana",
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-09-13T00:53:55.961167",
+  "total_candidates": 56,
+  "clean": 56,
+  "open_set_leakage": 0,
+  "unknown": 0,
+  "duplicate_exact": 0,
+  "duplicate_perceptual": 0,
+  "same_individual": 0,
+  "leakage_criteria": {
+    "obs_id_in_train": "Check if obs_id appears in training partition",
+    "obs_id_in_test": "Check if obs_id appears in test partition",
+    "exact_hash_duplicate": "Check if SHA256 already seen in dataset",
+    "perceptual_duplicate": "Not implemented",
+    "same_individual_id": "Not implemented"
+  },
+  "notes": [
+    "CATALOG_ONLY species: Hyloxalus_picachos, Sachatamia_electrops",
+    "These species are in the catalog but NOT among the 41 visual classes",
+    "No contamination with training data detected",
+    "Duplicates within CATALOG_ONLY dataset marked but kept for audit"
+  ]
+}

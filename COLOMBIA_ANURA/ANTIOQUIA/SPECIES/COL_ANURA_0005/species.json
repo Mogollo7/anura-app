@@ -1,0 +1,22 @@
+{
+  "taxon_id": "COL_ANURA_0005",
+  "scientific_name": "Sachatamia electrops",
+  "family": "Centrolenidae",
+  "genus": "Sachatamia",
+  "common_name_es": "",
+  "directory_legacy": "Sachatamia_electrops",
+  "occurrences_in_department": 7,
+  "distinct_observers_in_department": 6,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 7,
+  "occurrences_dropped_low_accuracy": 0,
+  "photos_curated_total": 41,
+  "photos_raw_total": 38,
+  "individuals_curated_total": 20,
+  "individuals_from_department": 7,
+  "data_status": "MANUAL_REVIEW",
+  "review_reasons": [
+    "excluida_del_entrenamiento_por_integridad_de_datos"
+  ],
+  "notes": []
+}

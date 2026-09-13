@@ -1,0 +1,68 @@
+{
+  "M1_Euclidean": {
+    "overall_mean_score": 0.5713015198707581,
+    "overall_std_score": 0.15500590205192566,
+    "inter_fold_std": 0.010677262209355831,
+    "mean_condition_number": 1.0
+  },
+  "M2_Cosine": {
+    "overall_mean_score": 0.19597065448760986,
+    "overall_std_score": 0.12443047761917114,
+    "inter_fold_std": 0.008633692748844624,
+    "mean_condition_number": 1.0
+  },
+  "M3_Mahalanobis_Diagonal_Shared": {
+    "overall_mean_score": 21.919116973876953,
+    "overall_std_score": 5.950017929077148,
+    "inter_fold_std": 0.49628281593322754,
+    "mean_condition_number": 60.47715835571289
+  },
+  "M5_LedoitWolf_Shared": {
+    "overall_mean_score": 24.396055442957277,
+    "overall_std_score": 6.093025109763706,
+    "inter_fold_std": 0.54482651941043,
+    "mean_condition_number": 502.9358196019328
+  },
+  "M6_OAS_Shared": {
+    "overall_mean_score": 25.939402566767082,
+    "overall_std_score": 6.56003372198204,
+    "inter_fold_std": 0.6316337781293235,
+    "mean_condition_number": 679.6257974470985
+  },
+  "M4_Ridge_lambda_0.001": {
+    "overall_mean_score": 10.673956871032715,
+    "overall_std_score": 2.501162528991699,
+    "inter_fold_std": 0.20982812345027924,
+    "mean_condition_number": 32.062988662719725
+  },
+  "M4_Ridge_lambda_0.01": {
+    "overall_mean_score": 4.722947120666504,
+    "overall_std_score": 1.177429437637329,
+    "inter_fold_std": 0.09505648165941238,
+    "mean_condition_number": 4.07838397026062
+  },
+  "M4_Ridge_lambda_0.05": {
+    "overall_mean_score": 2.4024152755737305,
+    "overall_std_score": 0.6325309872627258,
+    "inter_fold_std": 0.04685115069150925,
+    "mean_condition_number": 1.5908020973205566
+  },
+  "M4_Ridge_lambda_0.1": {
+    "overall_mean_score": 1.7484815120697021,
+    "overall_std_score": 0.4667172133922577,
+    "inter_fold_std": 0.03352485969662666,
+    "mean_condition_number": 1.279853630065918
+  },
+  "M4_Ridge_lambda_0.2": {
+    "overall_mean_score": 1.2577494382858276,
+    "overall_std_score": 0.3385670781135559,
+    "inter_fold_std": 0.023824775591492653,
+    "mean_condition_number": 1.1243794679641723
+  },
+  "M4_Ridge_lambda_0.5": {
+    "overall_mean_score": 0.8046636581420898,
+    "overall_std_score": 0.21786834299564362,
+    "inter_fold_std": 0.015095637179911137,
+    "mean_condition_number": 1.0310948848724366
+  }
+}

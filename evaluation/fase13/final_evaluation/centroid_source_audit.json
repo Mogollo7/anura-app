@@ -1,0 +1,253 @@
+{
+  "total_centroids": 41,
+  "group_a_count": 9,
+  "group_b_count": 32,
+  "species_details": {
+    "Boana boans": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana cinerascens": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana lanciformis": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana platanera": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana pugnax": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana punctata": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana rosenbergi": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Boana xerophylla": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Craugastor raniformis": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendrobates truncatus": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Dendropsophus bogerti": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Dendropsophus columbianus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendropsophus ebraccatus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendropsophus mathiassoni": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendropsophus microcephalus": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Dendropsophus molitor": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendropsophus norandinus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendropsophus reticulatus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Dendropsophus triangulum": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Engystomops pustulosus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Hyloscirtus palmeri": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Leptodactylus colombiensis": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Phyllomedusa tarsius": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Phyllomedusa venusta": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pithecopus hypochondrialis": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis achatinus": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Pristimantis bogotensis": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis erythropleura": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis gaigei": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis paisa": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Pristimantis palmeri": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis penelopus": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Pristimantis permixtus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis taeniatus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis thectopternus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Pristimantis vilarsi": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Rheobates palmatus": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Rhinella alata": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Rhinella horribilis": {
+      "group": "A",
+      "centroid_source": "REFERENCE",
+      "independent_calibration": "YES",
+      "train_reference_structural_only": "NO"
+    },
+    "Rhinella margaritifera": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    },
+    "Scinax ruber": {
+      "group": "B",
+      "centroid_source": "TRAIN",
+      "independent_calibration": "NO",
+      "train_reference_structural_only": "YES"
+    }
+  }
+}

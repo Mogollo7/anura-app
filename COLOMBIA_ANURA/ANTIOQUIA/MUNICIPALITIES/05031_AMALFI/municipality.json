@@ -1,0 +1,171 @@
+{
+  "dane_code": "05031",
+  "name": "Amalfi",
+  "department": "ANTIOQUIA",
+  "area_km2": 1209.1,
+  "species_count": 20,
+  "observations": 22,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Dendrobates truncatus",
+      "inaturalist_taxon_id": 21116,
+      "common_name_es": "Rana venenosa de rayas amarillas",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21112",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Rhinella alata",
+      "inaturalist_taxon_id": 67089,
+      "common_name_es": "Sapo del Obispo",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Pristimantis taeniatus",
+      "inaturalist_taxon_id": 66893,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Rheobates pseudopalmatus",
+      "inaturalist_taxon_id": 67083,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787558/64818",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Pristimantis zorro",
+      "inaturalist_taxon_id": 1125831,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Hyalinobatrachium aureoguttatum",
+      "inaturalist_taxon_id": 21340,
+      "common_name_es": "rana de cristal de manchas doradas",
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787565/21321",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Dendropsophus subocularis",
+      "inaturalist_taxon_id": 65406,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Dendropsophus ebraccatus",
+      "inaturalist_taxon_id": 65349,
+      "common_name_es": "Rana arbórea amarillenta",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Boana platanera",
+      "inaturalist_taxon_id": 1251425,
+      "common_name_es": "Rana Platanera de Ojos Pálidos",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Elachistocleis pearsei",
+      "inaturalist_taxon_id": 476537,
+      "common_name_es": "Rana Pingüina",
+      "ancestry": "48460/1/2/355675/20978/20979/24736/787573/25086",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Smilisca sila",
+      "inaturalist_taxon_id": 24275,
+      "common_name_es": "rana arborícola ñata",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24271",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Lithobates vaillanti",
+      "inaturalist_taxon_id": 66016,
+      "common_name_es": "Rana de Vaillant",
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Rhaebo haematiticus",
+      "inaturalist_taxon_id": 67078,
+      "common_name_es": "sapo hojarasquero",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64817",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Allobates niputidea",
+      "inaturalist_taxon_id": 64862,
+      "common_name_es": "Rana Nodriza Niputidea",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787562/21209",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Smilisca phaeota",
+      "inaturalist_taxon_id": 24272,
+      "common_name_es": "rana arborícola enmascarada",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24271",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Diasporus gularis",
+      "inaturalist_taxon_id": 65419,
+      "common_name_es": "Rana naranja de Esmeraldas",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/64721/787585/64767",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Espadarana prosoblepon",
+      "inaturalist_taxon_id": 134933,
+      "common_name_es": "rana de vidrio esmeralda",
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70625",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Craugastor metriosistus",
+      "inaturalist_taxon_id": 517046,
+      "common_name_es": "Rana Duende del Magdalena Medio",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/64732/64763",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Pristimantis penelopus",
+      "inaturalist_taxon_id": 66797,
+      "common_name_es": "Rana De Ingles Negras Y Amarillas",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

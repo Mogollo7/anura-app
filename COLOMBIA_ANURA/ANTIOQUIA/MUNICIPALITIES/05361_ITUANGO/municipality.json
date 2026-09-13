@@ -1,0 +1,43 @@
+{
+  "dane_code": "05361",
+  "name": "Ituango",
+  "department": "ANTIOQUIA",
+  "area_km2": 2841.1,
+  "species_count": 4,
+  "observations": 7,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Dendrobates truncatus",
+      "inaturalist_taxon_id": 21116,
+      "common_name_es": "Rana venenosa de rayas amarillas",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21112",
+      "observations_in_municipality": 4,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Rhaebo haematiticus",
+      "inaturalist_taxon_id": 67078,
+      "common_name_es": "sapo hojarasquero",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64817",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Leptodactylus savagei",
+      "inaturalist_taxon_id": 65962,
+      "common_name_es": "Rana de dedos delgados de Savage",
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Boana boans",
+      "inaturalist_taxon_id": 555086,
+      "common_name_es": "Rana gladiadora",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

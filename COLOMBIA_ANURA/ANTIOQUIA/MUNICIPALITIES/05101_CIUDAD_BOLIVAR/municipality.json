@@ -1,0 +1,67 @@
+{
+  "dane_code": "05101",
+  "name": "Ciudad Bolivar",
+  "department": "ANTIOQUIA",
+  "area_km2": 260.4,
+  "species_count": 7,
+  "observations": 40,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Pristimantis achatinus",
+      "inaturalist_taxon_id": 66531,
+      "common_name_es": "Cutín común de occidente",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 21,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 5,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Nymphargus pijao",
+      "inaturalist_taxon_id": 1473419,
+      "common_name_es": "",
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "observations_in_municipality": 5,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Gastrotheca nicefori",
+      "inaturalist_taxon_id": 24158,
+      "common_name_es": "Rana Marsupial De Niceforo",
+      "ancestry": "48460/1/2/355675/20978/20979/64737/24126",
+      "observations_in_municipality": 3,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Pristimantis erythropleura",
+      "inaturalist_taxon_id": 66657,
+      "common_name_es": "Rana De Ingle Roja",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 3,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Dendropsophus columbianus",
+      "inaturalist_taxon_id": 65344,
+      "common_name_es": "Ranita de pantano Colombiana",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Hyloscirtus larinopygion",
+      "inaturalist_taxon_id": 65655,
+      "common_name_es": "Rana de torrente pastusa",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64783",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

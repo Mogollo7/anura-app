@@ -1,0 +1,43 @@
+{
+  "dane_code": "05368",
+  "name": "Jerico",
+  "department": "ANTIOQUIA",
+  "area_km2": 205.0,
+  "species_count": 4,
+  "observations": 8,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Boana platanera",
+      "inaturalist_taxon_id": 1251425,
+      "common_name_es": "Rana Platanera de Ojos Pálidos",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 3,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Lithobates catesbeianus",
+      "inaturalist_taxon_id": 65979,
+      "common_name_es": "Rana toro americana",
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Boana pugnax",
+      "inaturalist_taxon_id": 555142,
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Dendropsophus columbianus",
+      "inaturalist_taxon_id": 65344,
+      "common_name_es": "Ranita de pantano Colombiana",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

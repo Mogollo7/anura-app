@@ -1,0 +1,19 @@
+{
+  "dane_code": "05353",
+  "name": "Hispania",
+  "department": "ANTIOQUIA",
+  "area_km2": 57.5,
+  "species_count": 1,
+  "observations": 1,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Boana pugnax",
+      "inaturalist_taxon_id": 555142,
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

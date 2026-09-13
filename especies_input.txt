@@ -1,0 +1,37 @@
+# ==============================================================================
+# LISTA DE ESPECIES DE RANAS (ANURA) PARA EXTRACCIÓN EN iNaturalist
+# ==============================================================================
+# Escribe el nombre científico de cada especie (una por línea).
+# Las líneas que comiencen con '#' o estén vacías serán ignoradas.
+#
+# Puedes agregar, quitar o reemplazar todas las especies que desees.
+# ==============================================================================
+
+Boana cinerascens
+Boana lanciformis
+Boana punctata
+Boana xerophylla
+Craugastor raniformis
+Dendrobates truncatus
+Dendropsophus bogerti
+Dendropsophus microcephalus
+Dendropsophus norandinus
+Dendropsophus triangulum
+Dendropsophus reticulatus
+Engystomops pustulosus
+Hyloscirtus palmeri
+Hyloxalus picachos
+Leptodactylus colombiensis
+Phyllomedusa tarsius
+Pithecopus hypochondrialis
+Pristimantis achatinus
+Pristimantis paisa
+Pristimantis penelopus
+Pristimantis taeniatus
+Pristimantis vilarsi
+Rheobates palmatus
+Rhinella margaritifera
+Rhinella alata
+Rhinella horribilis
+Sachatamia electrops
+Scinax ruber

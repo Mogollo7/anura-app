@@ -1,0 +1,22 @@
+{
+  "taxon_id": "COL_ANURA_0002",
+  "scientific_name": "Rhinella alata",
+  "family": "Bufonidae",
+  "genus": "Rhinella",
+  "common_name_es": "Sapo del Obispo",
+  "directory_legacy": "Rhinella_alata",
+  "occurrences_in_department": 303,
+  "distinct_observers_in_department": 174,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 899,
+  "occurrences_dropped_low_accuracy": 20,
+  "photos_curated_total": 90,
+  "photos_raw_total": 1800,
+  "individuals_curated_total": 55,
+  "individuals_from_department": 22,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": [
+    "submuestreo_en_curaduria (90/1800 fotos conservadas)"
+  ]
+}

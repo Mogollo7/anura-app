@@ -1,0 +1,123 @@
+cell_id,row,col,lat,lon,in_department,area_in_department_km2,elev_median_m,zone_original,zone_final,assignment,decided_by,confidence,n_records,n_species_composition
+G025_22_-304,22,-304,5.5,-76.0,True,196.4,2250,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,131,36
+G025_22_-303,22,-303,5.5,-75.75,True,290.7,2089,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,128,26
+G025_22_-302,22,-302,5.5,-75.5,True,61.9,1435,,ZONE_006,inferida_con_datos,continuidad_elevacional,media,4,3
+G025_22_-301,22,-301,5.5,-75.25,True,326.5,1916,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,18,35
+G025_22_-300,22,-300,5.5,-75.0,True,15.5,1040,,ZONE_005,inferida_con_datos,continuidad_elevacional,media,1,1
+G025_23_-304,23,-304,5.75,-76.0,True,605.7,1459,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,191,30
+G025_23_-303,23,-303,5.75,-75.75,True,766.2,1504,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,372,33
+G025_23_-302,23,-302,5.75,-75.5,True,604.9,1306,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,73,26
+G025_23_-301,23,-301,5.75,-75.25,True,766.2,2235,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,392,80
+G025_23_-300,23,-300,5.75,-75.0,True,547.8,856,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,115,47
+G025_23_-299,23,-299,5.75,-74.75,True,400.6,242,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,182,38
+G025_23_-298,23,-298,5.75,-74.5,True,0.0,192,,ZONE_005,inferida_con_datos,continuidad_espacial (único vecino),alta,0,1
+G025_24_-305,24,-305,6.0,-76.25,True,91.9,2177,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,0,5
+G025_24_-304,24,-304,6.0,-76.0,True,684.0,1896,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,13,13
+G025_24_-303,24,-303,6.0,-75.75,True,765.8,1358,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,196,30
+G025_24_-302,24,-302,6.0,-75.5,True,765.8,2259,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,316,43
+G025_24_-301,24,-301,6.0,-75.25,True,765.8,2168,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,382,55
+G025_24_-300,24,-300,6.0,-75.0,True,765.8,1011,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,436,60
+G025_24_-299,24,-299,6.0,-74.75,True,765.8,338,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,481,49
+G025_24_-298,24,-298,6.0,-74.5,True,120.2,139,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,96,28
+G025_25_-307,25,-307,6.25,-76.75,True,321.9,29,,ZONE_005,inferida_con_datos,continuidad_elevacional,media,1,1
+G025_25_-306,25,-306,6.25,-76.5,True,592.9,478,,ZONE_002,inferida_con_datos,continuidad_elevacional,media,3,4
+G025_25_-305,25,-305,6.25,-76.25,True,614.9,1910,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,34,29
+G025_25_-304,25,-304,6.25,-76.0,True,765.5,1985,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,60,25
+G025_25_-303,25,-303,6.25,-75.75,True,765.5,1685,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,467,32
+G025_25_-302,25,-302,6.25,-75.5,True,765.5,2168,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,850,53
+G025_25_-301,25,-301,6.25,-75.25,True,765.5,2116,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,241,60
+G025_25_-300,25,-300,6.25,-75.0,True,765.5,1153,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,655,65
+G025_25_-299,25,-299,6.25,-74.75,True,765.5,533,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,434,50
+G025_25_-298,25,-298,6.25,-74.5,True,291.5,129,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,191,22
+G025_26_-308,26,-308,6.5,-77.0,True,23.1,19,,ZONE_005,inferida_con_datos,continuidad_espacial (único vecino),alta,4,1
+G025_26_-307,26,-307,6.5,-76.75,True,593.1,37,,ZONE_005,inferida_sin_datos,continuidad_elevacional,media,0,0
+G025_26_-306,26,-306,6.5,-76.5,True,765.1,564,ZONE_003,ZONE_002,fusion_zona_pequena,continuidad_elevacional,media,7,24
+G025_26_-305,26,-305,6.5,-76.25,True,765.1,1673,ZONE_001,ZONE_001,clustering,zonificacion_bsim,alta,297,62
+G025_26_-304,26,-304,6.5,-76.0,True,765.1,2261,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,275,30
+G025_26_-303,26,-303,6.5,-75.75,True,765.1,936,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,217,52
+G025_26_-302,26,-302,6.5,-75.5,True,765.1,2423,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,101,28
+G025_26_-301,26,-301,6.5,-75.25,True,765.1,1859,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,553,54
+G025_26_-300,26,-300,6.5,-75.0,True,765.1,1294,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,225,45
+G025_26_-299,26,-299,6.5,-74.75,True,765.1,833,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,373,52
+G025_26_-298,26,-298,6.5,-74.5,True,675.7,246,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,92,23
+G025_26_-297,26,-297,6.5,-74.25,True,0.3,100,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_27_-308,27,-308,6.75,-77.0,True,207.1,19,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_27_-307,27,-307,6.75,-76.75,True,741.2,38,,ZONE_005,inferida_sin_datos,continuidad_elevacional,media,0,0
+G025_27_-306,27,-306,6.75,-76.5,True,764.7,787,ZONE_003,ZONE_002,fusion_zona_pequena,continuidad_elevacional,media,220,42
+G025_27_-305,27,-305,6.75,-76.25,True,764.7,1458,ZONE_002,ZONE_002,clustering,zonificacion_bsim,alta,266,66
+G025_27_-304,27,-304,6.75,-76.0,True,764.7,1771,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,79,24
+G025_27_-303,27,-303,6.75,-75.75,True,764.7,2296,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,460,60
+G025_27_-302,27,-302,6.75,-75.5,True,764.7,2614,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,294,28
+G025_27_-301,27,-301,6.75,-75.25,True,764.7,1875,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,260,46
+G025_27_-300,27,-300,6.75,-75.0,True,764.7,1364,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,151,48
+G025_27_-299,27,-299,6.75,-74.75,True,764.7,929,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,50,28
+G025_27_-298,27,-298,6.75,-74.5,True,764.7,356,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,16,12
+G025_27_-297,27,-297,6.75,-74.25,True,558.8,101,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,167,28
+G025_27_-296,27,-296,6.75,-74.0,True,58.4,85,,ZONE_005,inferida_con_datos,continuidad_espacial (bordes compartidos),baja,0,1
+G025_28_-307,28,-307,7.0,-76.75,True,328.9,30,,ZONE_005,inferida_sin_datos,continuidad_elevacional,media,0,0
+G025_28_-306,28,-306,7.0,-76.5,True,634.0,498,ZONE_002,ZONE_002,clustering,zonificacion_bsim,alta,205,40
+G025_28_-305,28,-305,7.0,-76.25,True,764.3,1223,ZONE_002,ZONE_002,clustering,zonificacion_bsim,alta,89,20
+G025_28_-304,28,-304,7.0,-76.0,True,764.3,1927,ZONE_002,ZONE_002,clustering,zonificacion_bsim,alta,9,5
+G025_28_-303,28,-303,7.0,-75.75,True,764.3,1341,ZONE_006,ZONE_006,clustering,zonificacion_bsim,alta,312,45
+G025_28_-302,28,-302,7.0,-75.5,True,764.3,2099,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,263,81
+G025_28_-301,28,-301,7.0,-75.25,True,764.3,1578,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,272,48
+G025_28_-300,28,-300,7.0,-75.0,True,764.3,1095,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,382,58
+G025_28_-299,28,-299,7.0,-74.75,True,764.3,661,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,103,32
+G025_28_-298,28,-298,7.0,-74.5,True,764.3,505,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,32,24
+G025_28_-297,28,-297,7.0,-74.25,True,503.8,105,,ZONE_005,reasignacion_fragmento_incoherente,continuidad_espacial (único vecino),media,0,0
+G025_28_-296,28,-296,7.0,-74.0,True,578.4,83,ZONE_006,ZONE_005,reasignacion_fragmento_incoherente,continuidad_espacial (único vecino),media,2,6
+G025_29_-307,29,-307,7.25,-76.75,True,4.2,33,,ZONE_005,inferida_sin_datos,continuidad_elevacional,media,0,0
+G025_29_-306,29,-306,7.25,-76.5,True,537.5,198,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,323,50
+G025_29_-305,29,-305,7.25,-76.25,True,762.3,1436,ZONE_004,ZONE_002,fusion_zona_pequena,continuidad_elevacional,media,20,13
+G025_29_-304,29,-304,7.25,-76.0,True,717.7,1681,,ZONE_005,inferida_con_datos,continuidad_elevacional,media,2,1
+G025_29_-303,29,-303,7.25,-75.75,True,752.3,1733,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,25,7
+G025_29_-302,29,-302,7.25,-75.5,True,763.9,1149,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,297,39
+G025_29_-301,29,-301,7.25,-75.25,True,763.9,879,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,19,11
+G025_29_-300,29,-300,7.25,-75.0,True,763.9,570,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,31,25
+G025_29_-299,29,-299,7.25,-74.75,True,763.9,378,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,44,21
+G025_29_-298,29,-298,7.25,-74.5,True,693.8,634,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,11,7
+G025_29_-297,29,-297,7.25,-74.25,True,0.1,366,,ZONE_005,inferida_sin_datos,continuidad_espacial (bordes compartidos),baja,0,0
+G025_29_-296,29,-296,7.25,-74.0,True,184.5,68,,ZONE_005,reasignacion_fragmento_incoherente,continuidad_espacial (único vecino),media,3,3
+G025_30_-308,30,-308,7.5,-77.0,True,37.1,10,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_30_-307,30,-307,7.5,-76.75,True,350.9,20,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,8,24
+G025_30_-306,30,-306,7.5,-76.5,True,523.6,220,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,87,29
+G025_30_-305,30,-305,7.5,-76.25,True,19.2,1229,,ZONE_002,inferida_sin_datos,continuidad_elevacional,media,0,0
+G025_30_-304,30,-304,7.5,-76.0,True,0.0,297,,ZONE_002,inferida_sin_datos,continuidad_elevacional,media,0,0
+G025_30_-303,30,-303,7.5,-75.75,True,456.8,850,,ZONE_005,inferida_sin_datos,continuidad_espacial (bordes compartidos),baja,0,0
+G025_30_-302,30,-302,7.5,-75.5,True,747.8,466,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,0,20
+G025_30_-301,30,-301,7.5,-75.25,True,763.5,265,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,62,27
+G025_30_-300,30,-300,7.5,-75.0,True,763.5,157,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,23,25
+G025_30_-299,30,-299,7.5,-74.75,True,763.5,148,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,21,19
+G025_30_-298,30,-298,7.5,-74.5,True,253.5,672,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_30_-297,30,-297,7.5,-74.25,True,35.7,878,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_31_-309,31,-309,7.75,-77.25,True,0.0,20,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_31_-308,31,-308,7.75,-77.0,True,540.2,4,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,4,6
+G025_31_-307,31,-307,7.75,-76.75,True,763.0,11,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,288,45
+G025_31_-306,31,-306,7.75,-76.5,True,430.6,251,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,143,37
+G025_31_-302,31,-302,7.75,-75.5,True,339.4,96,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_31_-301,31,-301,7.75,-75.25,True,760.5,83,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,1,5
+G025_31_-300,31,-300,7.75,-75.0,True,763.0,81,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,49,17
+G025_31_-299,31,-299,7.75,-74.75,True,763.0,69,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,24,29
+G025_31_-298,31,-298,7.75,-74.5,True,309.2,614,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_32_-308,32,-308,8.0,-77.0,True,231.2,1,,ZONE_005,inferida_con_datos,continuidad_espacial (único vecino),alta,1,1
+G025_32_-307,32,-307,8.0,-76.75,True,408.4,8,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,306,33
+G025_32_-306,32,-306,8.0,-76.5,True,631.5,246,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,107,30
+G025_32_-305,32,-305,8.0,-76.25,True,0.0,257,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_32_-301,32,-301,8.0,-75.25,True,379.2,57,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,318,27
+G025_32_-300,32,-300,8.0,-75.0,True,605.8,52,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,7,7
+G025_32_-299,32,-299,8.0,-74.75,True,697.2,46,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,311,9
+G025_32_-298,32,-298,8.0,-74.5,True,133.0,475,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_33_-307,33,-307,8.25,-76.75,True,403.6,94,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,32,12
+G025_33_-306,33,-306,8.25,-76.5,True,762.0,178,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,23,11
+G025_33_-305,33,-305,8.25,-76.25,True,171.9,152,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_33_-300,33,-300,8.25,-75.0,True,2.2,40,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_33_-299,33,-299,8.25,-74.75,True,49.2,27,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_34_-308,34,-308,8.5,-77.0,True,38.2,4,,ZONE_005,inferida_con_datos,continuidad_espacial (único vecino),alta,2,2
+G025_34_-307,34,-307,8.5,-76.75,True,624.3,37,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,128,26
+G025_34_-306,34,-306,8.5,-76.5,True,761.6,111,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,105,16
+G025_34_-305,34,-305,8.5,-76.25,True,471.1,86,,ZONE_005,inferida_con_datos,continuidad_espacial (único vecino),alta,1,1
+G025_35_-308,35,-308,8.75,-77.0,True,0.0,0,,ZONE_005,inferida_con_datos,continuidad_espacial (único vecino),alta,0,2
+G025_35_-307,35,-307,8.75,-76.75,True,71.7,10,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,8,7
+G025_35_-306,35,-306,8.75,-76.5,True,515.4,56,ZONE_005,ZONE_005,clustering,zonificacion_bsim,alta,8,6
+G025_35_-305,35,-305,8.75,-76.25,True,63.5,118,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0
+G025_36_-306,36,-306,9.0,-76.5,True,0.0,0,,ZONE_005,inferida_sin_datos,continuidad_espacial (único vecino),alta,0,0

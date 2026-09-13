@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-09-13T06:50:42.423404+00:00",
+  "total_candidates": 5,
+  "matches_f3": 766,
+  "matches_f4": 56,
+  "obs_id_matches": {
+    "F3": 398,
+    "F4": 14
+  },
+  "individual_id_matches": "NOT_AVAILABLE",
+  "sha256_matches": {
+    "F3": 766,
+    "F4": 56
+  },
+  "perceptual_hash_matches": "NOT_AVAILABLE",
+  "ambiguous_matches": 0,
+  "f3_f4_overlap": {
+    "path": 0,
+    "obs_id": 0,
+    "sha256": 0
+  },
+  "excluded_candidates": [
+    "TEST",
+    "F4_UNKNOWN",
+    "VAL_MODEL_SELECTION"
+  ]
+}

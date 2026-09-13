@@ -1,0 +1,48 @@
+﻿# 13_RISKS: Riesgos
+
+Fuentes inventariadas: 502. Consolidación trazable. Fases no evidenciadas: NOT_EXECUTED.
+
+- [PLAN_DESARROLLO](../../../PLAN_DESARROLLO.md)
+- [PLAN_ETIQUETADO_DATOS](../../../PLAN_ETIQUETADO_DATOS.md)
+- [PLAN_MODELO_VISION](../../../PLAN_MODELO_VISION.md)
+- [CHANGELOG](../../../.agents/skills/apple-hig/CHANGELOG.md)
+- [README](../../../.agents/skills/apple-hig/README.md)
+- [SKILL](../../../.agents/skills/apple-hig/SKILL.md)
+- [accessibility-review](../../../.agents/skills/apple-hig/assets/checklists/accessibility-review.md)
+- [platform-parity-review](../../../.agents/skills/apple-hig/assets/checklists/platform-parity-review.md)
+- [pre-submission-hig-review](../../../.agents/skills/apple-hig/assets/checklists/pre-submission-hig-review.md)
+- [README](../../../.agents/skills/apple-hig/references/README.md)
+- [bars](../../../.agents/skills/apple-hig/references/components/bars.md)
+- [buttons](../../../.agents/skills/apple-hig/references/components/buttons.md)
+- [collections-and-scrolling](../../../.agents/skills/apple-hig/references/components/collections-and-scrolling.md)
+- [labels-and-badges](../../../.agents/skills/apple-hig/references/components/labels-and-badges.md)
+- [lists-and-tables](../../../.agents/skills/apple-hig/references/components/lists-and-tables.md)
+- [pickers-and-menus](../../../.agents/skills/apple-hig/references/components/pickers-and-menus.md)
+- [progress-and-activity](../../../.agents/skills/apple-hig/references/components/progress-and-activity.md)
+- [segmented-controls](../../../.agents/skills/apple-hig/references/components/segmented-controls.md)
+- [sheets-and-popovers](../../../.agents/skills/apple-hig/references/components/sheets-and-popovers.md)
+- [sliders-steppers-toggles](../../../.agents/skills/apple-hig/references/components/sliders-steppers-toggles.md)
+- [split-views](../../../.agents/skills/apple-hig/references/components/split-views.md)
+- [system-experiences](../../../.agents/skills/apple-hig/references/components/system-experiences.md)
+- [text-inputs](../../../.agents/skills/apple-hig/references/components/text-inputs.md)
+- [accessibility](../../../.agents/skills/apple-hig/references/foundations/accessibility.md)
+- [color](../../../.agents/skills/apple-hig/references/foundations/color.md)
+- [dark-mode](../../../.agents/skills/apple-hig/references/foundations/dark-mode.md)
+- [layout](../../../.agents/skills/apple-hig/references/foundations/layout.md)
+- [materials](../../../.agents/skills/apple-hig/references/foundations/materials.md)
+- [motion](../../../.agents/skills/apple-hig/references/foundations/motion.md)
+- [sf-symbols](../../../.agents/skills/apple-hig/references/foundations/sf-symbols.md)
+- [typography](../../../.agents/skills/apple-hig/references/foundations/typography.md)
+- [apple-pencil](../../../.agents/skills/apple-hig/references/inputs/apple-pencil.md)
+- [digital-crown](../../../.agents/skills/apple-hig/references/inputs/digital-crown.md)
+- [focus-and-remote](../../../.agents/skills/apple-hig/references/inputs/focus-and-remote.md)
+- [game-controllers](../../../.agents/skills/apple-hig/references/inputs/game-controllers.md)
+- [pointer-and-keyboard](../../../.agents/skills/apple-hig/references/inputs/pointer-and-keyboard.md)
+- [spatial-input](../../../.agents/skills/apple-hig/references/inputs/spatial-input.md)
+- [touch-and-gestures](../../../.agents/skills/apple-hig/references/inputs/touch-and-gestures.md)
+- [charting-data](../../../.agents/skills/apple-hig/references/patterns/charting-data.md)
+- [drag-and-drop](../../../.agents/skills/apple-hig/references/patterns/drag-and-drop.md)
+
+
+
+

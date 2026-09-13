@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "skills": {
+    "caveman": {
+      "source": "JuliusBrussee/caveman",
+      "sourceType": "github",
+      "skillPath": "skills/caveman/SKILL.md",
+      "computedHash": "1a41e7f3543c4a969c040c34a96925f8a3f82a6179a3f1002692b37957f7140b"
+    },
+    "apple-hig": {
+      "source": "ebuntario/apple-hig",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "9341a4e07d392973dd7c6f914d2d93c9cb801a65398687a3271c16c7c20c3d87"
+    },
+    "mobile-app-design": {
+      "source": "awesome-skills/mobile-app-design",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "0350f670a50af86c83777d69d7ee1075b6f7a2d87da7d5bd805f3305789eee3d"
+    },
+    "penpot-router": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-router/SKILL.md",
+      "computedHash": "01d3398137be59ce9e62c78ace51a144db28d39491e2a5690aea12d0ecc857ef"
+    },
+    "penpot-foundations": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-foundations/SKILL.md",
+      "computedHash": "0d2a1cd57ceb5b8811850485f090bfc32f2c5e007e8c9c78402d5bbacf3a0a9f"
+    },
+    "penpot-build-screen": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-build-screen/SKILL.md",
+      "computedHash": "6f105fab80ecdaf0b9dd560f0866350ab141face4192cd9c095cebb78eabfed0"
+    },
+    "penpot-build-from-code": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-build-from-code/SKILL.md",
+      "computedHash": "37fabc78c7a12df49b5062277a7ecdb5564fd8c9db9865f75a1759a788b4470e"
+    },
+    "penpot-component-factory": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-component-factory/SKILL.md",
+      "computedHash": "2ec489f73409eee4d7498c87c5e0206096114fbe1ad8dc1292b68dc64880a020"
+    },
+    "penpot-audit-accessibility": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-audit-accessibility/SKILL.md",
+      "computedHash": "c90a89608931211594cc6148053fc54ad52ec69073eafd0c7fd110195741d95b"
+    },
+    "penpot-audit-tokens": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-audit-tokens/SKILL.md",
+      "computedHash": "43a20e09925fca6cd87c068f22616dae7035f58686e0d08e72e763a2aadde4d0"
+    },
+    "penpot-design-md": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-design-md/SKILL.md",
+      "computedHash": "a66bb89753ef98735e78c9d837dc204f3ffba14758889b556e6621e44a09c922"
+    },
+    "penpot-design-to-code-review": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-design-to-code-review/SKILL.md",
+      "computedHash": "9991410a5b9d001a06d9fa2d9ee8c7f4a9c6b54f9935cd69991b1bc6136fde20"
+    },
+    "penpot-document-handoff": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-document-handoff/SKILL.md",
+      "computedHash": "9a494ccca13628c6abd84c527fb7c17c1f6b2b82087da6ca55b8288ebcf71e65"
+    },
+    "penpot-migrate": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-migrate/SKILL.md",
+      "computedHash": "24c2b8b2d783dc0b12c92247d86e882c71d2c10e2ca747f625d1a3b3c0328d5a"
+    },
+    "penpot-rename-layers": {
+      "source": "penpot/penpot-ai-kit",
+      "sourceType": "github",
+      "skillPath": "skills/penpot-rename-layers/SKILL.md",
+      "computedHash": "ffed3f6732ed92bdb68870a614e0ba1c9c929fea3ad3ab8f31c979a6ebcf710f"
+    }
+  }
+}

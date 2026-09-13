@@ -1,0 +1,62 @@
+﻿{
+    "ContaminationDetails":  {
+                                 "Rhinella alata":  3,
+                                 "Dendrobates truncatus":  15,
+                                 "Dendropsophus bogerti":  4,
+                                 "Dendropsophus microcephalus":  6
+                             },
+    "FinalSplit":  {
+                       "CALIBRATION":  {
+                                           "Percentage":  19.6,
+                                           "Count":  195,
+                                           "Species":  10
+                                       },
+                       "REFERENCE":  {
+                                         "Percentage":  80.4,
+                                         "Count":  798,
+                                         "Species":  10
+                                     }
+                   },
+    "ValidationResults":  {
+                              "ObservationOverlap":  "PASS (0)",
+                              "IndividualOverlap":  "PASS (0)",
+                              "AllSpeciesRepresented":  "YES",
+                              "SHA256Integrity":  "PASS"
+                          },
+    "NextPhase":  "FASE 13: MAHALANOBIS VALIDATION",
+    "OriginalImages":  {
+                           "Valid":  993,
+                           "Contaminated":  28,
+                           "Total":  1021
+                       },
+    "Phase":  "FASE 12",
+    "Timestamp":  "2026-09-13",
+    "GeneratedFiles":  [
+                           "REFERENCE/ (directory with 798 images)",
+                           "CALIBRATION/ (directory with 195 images)",
+                           "REFERENCE_manifest.json",
+                           "REFERENCE_manifest.csv",
+                           "CALIBRATION_manifest.json",
+                           "CALIBRATION_manifest.csv",
+                           "species_distribution.csv",
+                           "contamination_report.json",
+                           "FASE12_REPORT.txt",
+                           "FASE12_FINAL_STATUS.txt"
+                       ],
+    "Status":  "COMPLETE",
+    "Title":  "Auditoría y Construcción de REFERENCE / CALIBRATION",
+    "FrozenStatus":  {
+                         "REFERENCE":  "FROZEN",
+                         "CALIBRATION":  "FROZEN",
+                         "Manifests":  "FROZEN"
+                     },
+    "ProtectedArtifacts":  {
+                               "Embeddings_F4":  "UNCHANGED",
+                               "Embeddings_F3":  "UNCHANGED",
+                               "ValidationDataset":  "UNCHANGED",
+                               "Model":  "UNCHANGED",
+                               "TrainingDataset":  "UNCHANGED",
+                               "GeographicPrior":  "UNCHANGED",
+                               "kNNIndex":  "UNCHANGED"
+                           }
+}

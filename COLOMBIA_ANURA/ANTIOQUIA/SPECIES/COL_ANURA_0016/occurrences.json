@@ -1,0 +1,12 @@
+[
+  {
+    "observation_id": 190340805,
+    "latitude": 5.5988130684,
+    "longitude": -75.8198174089,
+    "positional_accuracy": 1104,
+    "observed_on": "2023-11-05",
+    "observer": "oscarencisoa",
+    "url": "https://www.inaturalist.org/observations/190340805",
+    "assignment_method": "interior"
+  }
+]

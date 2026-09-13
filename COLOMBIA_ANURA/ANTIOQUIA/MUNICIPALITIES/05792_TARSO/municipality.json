@@ -1,0 +1,19 @@
+{
+  "dane_code": "05792",
+  "name": "Tarso",
+  "department": "ANTIOQUIA",
+  "area_km2": 120.5,
+  "species_count": 1,
+  "observations": 1,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Lithobates catesbeianus",
+      "inaturalist_taxon_id": 65979,
+      "common_name_es": "Rana toro americana",
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

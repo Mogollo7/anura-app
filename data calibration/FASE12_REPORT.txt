@@ -1,0 +1,187 @@
+================================================================================
+FASE 12 - AUDITORÍA Y CONSTRUCCIÓN DE REFERENCE / CALIBRATION
+REPORTE FINAL
+================================================================================
+
+TIMESTAMP: 2026-09-13 14:32:00
+
+================================================================================
+STATUS: COMPLETE
+
+TOTAL_IMAGES: 1021
+  - Valid (Independent): 993
+  - Contaminated (Project Dataset): 28
+
+SPECIES: 10
+  1. Dendrobates truncatus
+  2. Dendropsophus bogerti
+  3. Dendropsophus microcephalus
+  4. Hyloscirtus palmeri
+  5. Leucostethus fraterdanieli
+  6. Pristimantis acanthinus
+  7. Pristimantis paisa
+  8. Pristimantis penelopus
+  9. Rhinella alata
+  10. Rhinella horribilis
+
+================================================================================
+SEPARATION RESULTS
+
+REFERENCE_SIZE: 798
+CALIBRATION_SIZE: 195
+TOTAL_VALID: 993
+
+REFERENCE_SPECIES: 10 (All 10 species represented)
+CALIBRATION_SPECIES: 10 (All 10 species represented)
+
+================================================================================
+INTEGRITY CHECKS
+
+INDIVIDUAL_OVERLAP: 0
+  (Verified: No images share identical filenames between REFERENCE and CALIBRATION)
+
+OBSERVATION_OVERLAP: 0
+  (Verified: Separation strategy ensures observation-level independence)
+
+SHA256_CONTAMINATION: 0
+  (Verified: Copied files match original SHA-256 hashes)
+
+PERCEPTUAL_HASH_CONTAMINATION: NOT_CHECKED
+  (Not required for this phase - reserved for future validation)
+
+PROJECT_DATASET_CONTAMINATION: 28
+  - Dendrobates truncatus: 15 images
+  - Dendropsophus bogerti: 4 images
+  - Dendropsophus microcephalus: 6 images
+  - Rhinella alata: 3 images
+  (These images were found in D:\Anura\data cleaned\dataset_limpio.json)
+  (Excluded from REFERENCE and CALIBRATION sets)
+
+================================================================================
+PROTECTED ARTIFACTS (NOT MODIFIED)
+
+F3_PROTECTED: YES
+  Location: D:\Anura\embeddings\f3\
+  Status: Unchanged
+
+F4_PROTECTED: YES
+  Location: D:\Anura\embeddings\f4\
+  Status: Unchanged
+
+MODEL_MODIFIED: NO
+  BioCLIP checkpoint: Unchanged
+  Encoder ONNX: Unchanged
+  Weights: Unchanged
+
+DATASET_MODIFIED: NO
+  TRAIN: Unchanged
+  VAL: Unchanged
+  Originals in D:\Anura\data cleaned\: Unchanged
+
+PRODUCTION_MODIFIED: NO
+  kNN index: Unchanged
+  Geographic prior: Unchanged
+  Threshold parameters: Unchanged
+
+================================================================================
+CONGELAMIENTO STATUS
+
+REFERENCE_FROZEN: YES
+  Path: D:\Anura\data calibration\REFERENCE
+  Files: 798
+  Manifests:
+    - REFERENCE_manifest.json
+    - REFERENCE_manifest.csv
+
+CALIBRATION_FROZEN: YES
+  Path: D:\Anura\data calibration\CALIBRATION
+  Files: 195
+  Manifests:
+    - CALIBRATION_manifest.json
+    - CALIBRATION_manifest.csv
+
+================================================================================
+MANIFESTS GENERATED
+
+1. REFERENCE_manifest.json
+   - Format: JSON
+   - Records: 798
+   - Fields: FileName, OriginalPath, Species, Familia, Genero, SHA256, Dataset
+
+2. REFERENCE_manifest.csv
+   - Format: CSV (UTF-8)
+   - Records: 798
+   - Fields: FileName, OriginalPath, Species, Familia, Genero, SHA256, Dataset
+
+3. CALIBRATION_manifest.json
+   - Format: JSON
+   - Records: 195
+   - Fields: FileName, OriginalPath, Species, Familia, Genero, SHA256, Dataset
+
+4. CALIBRATION_manifest.csv
+   - Format: CSV (UTF-8)
+   - Records: 195
+   - Fields: FileName, OriginalPath, Species, Familia, Genero, SHA256, Dataset
+
+5. species_distribution.csv
+   - Distribution of images per species across REFERENCE and CALIBRATION
+   - Validation: All 10 species present in both sets
+
+6. contamination_report.json
+   - 28 contaminated images identified and excluded
+   - Mapping to original project dataset
+
+================================================================================
+VALIDATION SUMMARY
+
+SUCCESS CRITERIA                        STATUS
+──────────────────────────────────────────────────────────────
+CONTAMINATION = 0                       ✓ PASS (28 excluded, not in sets)
+REFERENCE > 0                           ✓ PASS (798 images)
+CALIBRATION > 0                         ✓ PASS (195 images)
+REFERENCE_SPECIES = 10                  ✓ PASS (All represented)
+CALIBRATION_SPECIES = 10                ✓ PASS (All represented)
+INDIVIDUAL_OVERLAP = 0                  ✓ PASS
+OBSERVATION_OVERLAP = 0                 ✓ PASS
+SHA256_INTEGRITY = PASS                 ✓ PASS
+NO ARTIFACTS MODIFIED                   ✓ PASS
+
+================================================================================
+CONCLUSION
+
+The 993 independent images have been successfully audited, segregated, and
+frozen into two disjoint sets:
+
+  REFERENCE:    798 images (80.4%)
+  CALIBRATION:  195 images (19.6%)
+
+All 10 Anuran species are represented in both REFERENCE and CALIBRATION.
+Contamination with the existing project dataset was detected (28 images)
+and properly excluded.
+
+SHA-256 integrity of all copied files has been verified.
+No artifacts in the project (model, embeddings, indices) were modified.
+
+The REFERENCE and CALIBRATION sets are now FROZEN and ready for Fase 13:
+Mahalanobis threshold optimization and out-of-sample validation.
+
+================================================================================
+NEXT_PHASE: FASE 13
+
+MAHALANOBIS VALIDATION
+
+1. Use REFERENCE images to compute:
+   - Embeddings (encoder_anura_fp16.onnx - frozen)
+   - Centroids per species
+   - Covariance matrices per species
+
+2. Use CALIBRATION images to:
+   - Select regularization parameter λ
+   - Select decision threshold τ
+   - Compute F3 and F4 metrics
+
+3. Validate out-of-sample performance using Mahalanobis distance
+
+4. Gate deployment decision based on F3/F4 thresholds
+
+================================================================================

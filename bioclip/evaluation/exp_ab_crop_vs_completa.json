@@ -1,0 +1,4514 @@
+{
+  "n_muestra": 150,
+  "semilla": 20260912,
+  "n_especies": 38,
+  "con_mascara_usable": 149,
+  "top1_completa": 0.6066666666666667,
+  "top1_zoom": 0.5066666666666667,
+  "top1_mascara": 0.44666666666666666,
+  "top3_completa": 0.8333333333333334,
+  "top3_zoom": 0.8066666666666666,
+  "top3_mascara": 0.7533333333333333,
+  "detalle": [
+    {
+      "ruta": "Pristimantis_palmeri/col_obs_289632817_photo_521055266.jpg",
+      "especie": "Pristimantis_palmeri",
+      "y_real": 30,
+      "top1_completa": 30,
+      "top1_zoom": 40,
+      "top1_mascara": 40,
+      "prob_correcta_completa": 0.09958784282207489,
+      "prob_correcta_zoom": 0.05499232932925224,
+      "prob_correcta_mascara": 0.05293011665344238,
+      "top3_completa": [
+        30,
+        33,
+        27
+      ],
+      "top3_zoom": [
+        40,
+        27,
+        33
+      ],
+      "top3_mascara": [
+        40,
+        10,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.07481041094322344,
+      "bbox_frac": 0.10714285714285714
+    },
+    {
+      "ruta": "Pristimantis_achatinus/col_obs_6306639_photo_7946698.jpg",
+      "especie": "Pristimantis_achatinus",
+      "y_real": 25,
+      "top1_completa": 25,
+      "top1_zoom": 25,
+      "top1_mascara": 25,
+      "prob_correcta_completa": 0.16977347433567047,
+      "prob_correcta_zoom": 0.15750712156295776,
+      "prob_correcta_mascara": 0.09431806206703186,
+      "top3_completa": [
+        25,
+        34,
+        8
+      ],
+      "top3_zoom": [
+        25,
+        8,
+        34
+      ],
+      "top3_mascara": [
+        25,
+        2,
+        8
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.07994461059570312,
+      "bbox_frac": 0.138671875
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_672205_photo_846760.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 31,
+      "top1_zoom": 31,
+      "top1_mascara": 31,
+      "prob_correcta_completa": 0.2567635476589203,
+      "prob_correcta_zoom": 0.09408634901046753,
+      "prob_correcta_mascara": 0.11658647656440735,
+      "top3_completa": [
+        31,
+        30,
+        29
+      ],
+      "top3_zoom": [
+        31,
+        30,
+        36
+      ],
+      "top3_mascara": [
+        31,
+        30,
+        36
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.08905283610026042,
+      "bbox_frac": 0.17710113525390625
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_81535369_photo_133745467.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 36,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.05484757572412491,
+      "prob_correcta_zoom": 0.03277904912829399,
+      "prob_correcta_mascara": 0.026830142363905907,
+      "top3_completa": [
+        36,
+        28,
+        29
+      ],
+      "top3_zoom": [
+        36,
+        21,
+        28
+      ],
+      "top3_mascara": [
+        36,
+        25,
+        28
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.19555155436197916,
+      "bbox_frac": 0.4587669372558594
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_10214137_photo_14109788.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 31,
+      "top1_zoom": 33,
+      "top1_mascara": 35,
+      "prob_correcta_completa": 0.18216530978679657,
+      "prob_correcta_zoom": 0.14101499319076538,
+      "prob_correcta_mascara": 0.10769657790660858,
+      "top3_completa": [
+        31,
+        30,
+        33
+      ],
+      "top3_zoom": [
+        33,
+        31,
+        30
+      ],
+      "top3_mascara": [
+        35,
+        31,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.15589445754716982,
+      "bbox_frac": 0.2637806603773585
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_340157854_photo_618985248.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 23,
+      "top1_zoom": 15,
+      "top1_mascara": 15,
+      "prob_correcta_completa": 0.16569940745830536,
+      "prob_correcta_zoom": 0.10379008948802948,
+      "prob_correcta_mascara": 0.12985937297344208,
+      "top3_completa": [
+        23,
+        15,
+        24
+      ],
+      "top3_zoom": [
+        15,
+        23,
+        24
+      ],
+      "top3_mascara": [
+        15,
+        23,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.02922821044921875,
+      "bbox_frac": 0.041263580322265625
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_54246108_photo_86308153.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 21,
+      "top1_zoom": 21,
+      "top1_mascara": 21,
+      "prob_correcta_completa": 0.5416025519371033,
+      "prob_correcta_zoom": 0.30825868248939514,
+      "prob_correcta_mascara": 0.15518535673618317,
+      "top3_completa": [
+        21,
+        32,
+        36
+      ],
+      "top3_zoom": [
+        21,
+        36,
+        19
+      ],
+      "top3_mascara": [
+        21,
+        39,
+        19
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.2860832214355469,
+      "bbox_frac": 0.48992665608723956
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_81535369_photo_133745317.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 31,
+      "top1_zoom": 33,
+      "top1_mascara": 31,
+      "prob_correcta_completa": 0.13233645260334015,
+      "prob_correcta_zoom": 0.10647908598184586,
+      "prob_correcta_mascara": 0.1251663863658905,
+      "top3_completa": [
+        31,
+        28,
+        35
+      ],
+      "top3_zoom": [
+        33,
+        31,
+        27
+      ],
+      "top3_mascara": [
+        31,
+        36,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.1505559285481771,
+      "bbox_frac": 0.2550544738769531
+    },
+    {
+      "ruta": "Boana_cinerascens/col_obs_356315034_photo_649782494.jpg",
+      "especie": "Boana_cinerascens",
+      "y_real": 1,
+      "top1_completa": 13,
+      "top1_zoom": 20,
+      "top1_mascara": 20,
+      "prob_correcta_completa": 0.08147941529750824,
+      "prob_correcta_zoom": 0.134201779961586,
+      "prob_correcta_mascara": 0.10842053592205048,
+      "top3_completa": [
+        13,
+        20,
+        5
+      ],
+      "top3_zoom": [
+        20,
+        1,
+        5
+      ],
+      "top3_mascara": [
+        20,
+        1,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.06962214739992517,
+      "bbox_frac": 0.13945629130814316
+    },
+    {
+      "ruta": "Rhinella_margaritifera/col_obs_25837646_photo_40061415.jpg",
+      "especie": "Rhinella_margaritifera",
+      "y_real": 39,
+      "top1_completa": 37,
+      "top1_zoom": 37,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.31174707412719727,
+      "prob_correcta_zoom": 0.27895912528038025,
+      "prob_correcta_mascara": 0.2985483407974243,
+      "top3_completa": [
+        37,
+        39,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        38
+      ],
+      "top3_mascara": [
+        37,
+        39,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.16156005859375,
+      "bbox_frac": 0.31483713785807294
+    },
+    {
+      "ruta": "Dendropsophus_microcephalus/col_obs_33411560_photo_52475169.jpg",
+      "especie": "Dendropsophus_microcephalus",
+      "y_real": 14,
+      "top1_completa": 17,
+      "top1_zoom": 15,
+      "top1_mascara": 3,
+      "prob_correcta_completa": 0.08834276348352432,
+      "prob_correcta_zoom": 0.0780065506696701,
+      "prob_correcta_mascara": 0.052887994796037674,
+      "top3_completa": [
+        17,
+        18,
+        14
+      ],
+      "top3_zoom": [
+        15,
+        40,
+        14
+      ],
+      "top3_mascara": [
+        3,
+        40,
+        7
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.08847043351074275,
+      "bbox_frac": 0.130003280093164
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_194299021_photo_341498325.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 31,
+      "top1_zoom": 31,
+      "top1_mascara": 33,
+      "prob_correcta_completa": 0.17194624245166779,
+      "prob_correcta_zoom": 0.1928747147321701,
+      "prob_correcta_mascara": 0.16829821467399597,
+      "top3_completa": [
+        31,
+        29,
+        33
+      ],
+      "top3_zoom": [
+        31,
+        33,
+        29
+      ],
+      "top3_mascara": [
+        33,
+        31,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.2001775105794271,
+      "bbox_frac": 0.33367919921875
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_182771664_photo_318720923.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 20,
+      "top1_zoom": 20,
+      "top1_mascara": 0,
+      "prob_correcta_completa": 0.33497557044029236,
+      "prob_correcta_zoom": 0.10793010145425797,
+      "prob_correcta_mascara": 0.07584578543901443,
+      "top3_completa": [
+        20,
+        1,
+        23
+      ],
+      "top3_zoom": [
+        20,
+        13,
+        1
+      ],
+      "top3_mascara": [
+        0,
+        6,
+        3
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.12932201659440645,
+      "bbox_frac": 0.2024876343429409
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_377048588_photo_689460162.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 31,
+      "top1_zoom": 31,
+      "top1_mascara": 31,
+      "prob_correcta_completa": 0.13648594915866852,
+      "prob_correcta_zoom": 0.13222181797027588,
+      "prob_correcta_mascara": 0.1473572999238968,
+      "top3_completa": [
+        31,
+        33,
+        29
+      ],
+      "top3_zoom": [
+        31,
+        29,
+        33
+      ],
+      "top3_mascara": [
+        31,
+        29,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.17473983764648438,
+      "bbox_frac": 0.3460489908854167
+    },
+    {
+      "ruta": "Dendropsophus_bogerti/col_obs_199897424_photo_352582871.jpg",
+      "especie": "Dendropsophus_bogerti",
+      "y_real": 10,
+      "top1_completa": 13,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.050074655562639236,
+      "prob_correcta_zoom": 0.04439378157258034,
+      "prob_correcta_mascara": 0.04487035796046257,
+      "top3_completa": [
+        13,
+        3,
+        14
+      ],
+      "top3_zoom": [
+        36,
+        19,
+        26
+      ],
+      "top3_mascara": [
+        36,
+        19,
+        40
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.09964752197265625,
+      "bbox_frac": 0.132598876953125
+    },
+    {
+      "ruta": "Pristimantis_achatinus/col_obs_262812772_photo_472021051.jpg",
+      "especie": "Pristimantis_achatinus",
+      "y_real": 25,
+      "top1_completa": 25,
+      "top1_zoom": 32,
+      "top1_mascara": 40,
+      "prob_correcta_completa": 0.12076970934867859,
+      "prob_correcta_zoom": 0.0642479881644249,
+      "prob_correcta_mascara": 0.0565071776509285,
+      "top3_completa": [
+        25,
+        8,
+        32
+      ],
+      "top3_zoom": [
+        32,
+        28,
+        40
+      ],
+      "top3_mascara": [
+        40,
+        10,
+        2
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.06343573985477742,
+      "bbox_frac": 0.21159596396579805
+    },
+    {
+      "ruta": "Scinax_ruber/col_obs_88090097_photo_145304631.jpg",
+      "especie": "Scinax_ruber",
+      "y_real": 40,
+      "top1_completa": 10,
+      "top1_zoom": 10,
+      "top1_mascara": 10,
+      "prob_correcta_completa": 0.06604055315256119,
+      "prob_correcta_zoom": 0.09685854613780975,
+      "prob_correcta_mascara": 0.13524846732616425,
+      "top3_completa": [
+        10,
+        15,
+        13
+      ],
+      "top3_zoom": [
+        10,
+        40,
+        13
+      ],
+      "top3_mascara": [
+        10,
+        40,
+        16
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.09952316563644689,
+      "bbox_frac": 0.21641376201923077
+    },
+    {
+      "ruta": "Boana_platanera/col_obs_381961985_photo_698960365.jpg",
+      "especie": "Boana_platanera",
+      "y_real": 3,
+      "top1_completa": 3,
+      "top1_zoom": 3,
+      "top1_mascara": 3,
+      "prob_correcta_completa": 0.17926131188869476,
+      "prob_correcta_zoom": 0.21810635924339294,
+      "prob_correcta_mascara": 0.207415372133255,
+      "top3_completa": [
+        3,
+        6,
+        4
+      ],
+      "top3_zoom": [
+        3,
+        6,
+        4
+      ],
+      "top3_mascara": [
+        3,
+        4,
+        6
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.04090118408203125,
+      "bbox_frac": 0.06244023640950521
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_347662459_photo_633929904.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 38,
+      "top1_zoom": 36,
+      "top1_mascara": 39,
+      "prob_correcta_completa": 0.14467377960681915,
+      "prob_correcta_zoom": 0.05217748135328293,
+      "prob_correcta_mascara": 0.007243616972118616,
+      "top3_completa": [
+        38,
+        21,
+        36
+      ],
+      "top3_zoom": [
+        36,
+        26,
+        40
+      ],
+      "top3_mascara": [
+        39,
+        37,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 6,
+      "fg_frac": 0.015435536702473959,
+      "bbox_frac": 0.06902694702148438
+    },
+    {
+      "ruta": "Pristimantis_achatinus/col_obs_17550489_photo_26695709.jpg",
+      "especie": "Pristimantis_achatinus",
+      "y_real": 25,
+      "top1_completa": 8,
+      "top1_zoom": 8,
+      "top1_mascara": 25,
+      "prob_correcta_completa": 0.1351456344127655,
+      "prob_correcta_zoom": 0.13317494094371796,
+      "prob_correcta_mascara": 0.15454736351966858,
+      "top3_completa": [
+        8,
+        25,
+        34
+      ],
+      "top3_zoom": [
+        8,
+        34,
+        25
+      ],
+      "top3_mascara": [
+        25,
+        8,
+        34
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.05995051066080729,
+      "bbox_frac": 0.1115557352701823
+    },
+    {
+      "ruta": "Boana_pugnax/col_obs_380186494_photo_695524226.jpg",
+      "especie": "Boana_pugnax",
+      "y_real": 4,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.1236846074461937,
+      "prob_correcta_zoom": 0.13256390392780304,
+      "prob_correcta_mascara": 0.1234690323472023,
+      "top3_completa": [
+        6,
+        38,
+        4
+      ],
+      "top3_zoom": [
+        6,
+        38,
+        4
+      ],
+      "top3_mascara": [
+        6,
+        38,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.44426332131410257,
+      "bbox_frac": 0.7068448803800367
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_276754854_photo_496967615.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 12,
+      "prob_correcta_completa": 0.3908664882183075,
+      "prob_correcta_zoom": 0.3085930049419403,
+      "prob_correcta_mascara": 0.29726988077163696,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        12,
+        18,
+        13
+      ],
+      "top3_mascara": [
+        12,
+        18,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.10771560668945312,
+      "bbox_frac": 0.189208984375
+    },
+    {
+      "ruta": "Dendropsophus_reticulatus/col_obs_343916564_photo_626567883.jpg",
+      "especie": "Dendropsophus_reticulatus",
+      "y_real": 17,
+      "top1_completa": 13,
+      "top1_zoom": 13,
+      "top1_mascara": 40,
+      "prob_correcta_completa": 0.10117469727993011,
+      "prob_correcta_zoom": 0.12628847360610962,
+      "prob_correcta_mascara": 0.046715300530195236,
+      "top3_completa": [
+        13,
+        14,
+        10
+      ],
+      "top3_zoom": [
+        13,
+        12,
+        17
+      ],
+      "top3_mascara": [
+        40,
+        10,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.0626538594563802,
+      "bbox_frac": 0.11722819010416667
+    },
+    {
+      "ruta": "Rhinella_alata/col_obs_28328050_photo_44150148.jpg",
+      "especie": "Rhinella_alata",
+      "y_real": 37,
+      "top1_completa": 37,
+      "top1_zoom": 37,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.32688388228416443,
+      "prob_correcta_zoom": 0.3261297047138214,
+      "prob_correcta_mascara": 0.31834501028060913,
+      "top3_completa": [
+        37,
+        39,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        38
+      ],
+      "top3_mascara": [
+        37,
+        39,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1095136006673177,
+      "bbox_frac": 0.1872584025065104
+    },
+    {
+      "ruta": "Boana_rosenbergi/col_obs_280698444_photo_504155244.jpg",
+      "especie": "Boana_rosenbergi",
+      "y_real": 6,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.26938188076019287,
+      "prob_correcta_zoom": 0.2441329061985016,
+      "prob_correcta_mascara": 0.23909538984298706,
+      "top3_completa": [
+        6,
+        4,
+        3
+      ],
+      "top3_zoom": [
+        6,
+        4,
+        3
+      ],
+      "top3_mascara": [
+        6,
+        0,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.22070693969726562,
+      "bbox_frac": 0.5553576151529948
+    },
+    {
+      "ruta": "Phyllomedusa_tarsius/fallback_obs_362774827_photo_662147100.jpg",
+      "especie": "Phyllomedusa_tarsius",
+      "y_real": 22,
+      "top1_completa": 22,
+      "top1_zoom": 22,
+      "top1_mascara": 22,
+      "prob_correcta_completa": 0.47911062836647034,
+      "prob_correcta_zoom": 0.4605444073677063,
+      "prob_correcta_mascara": 0.5125228762626648,
+      "top3_completa": [
+        22,
+        23,
+        24
+      ],
+      "top3_zoom": [
+        22,
+        23,
+        24
+      ],
+      "top3_mascara": [
+        22,
+        23,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.23837770061728394,
+      "bbox_frac": 0.5170114776234568
+    },
+    {
+      "ruta": "Dendropsophus_triangulum/col_obs_73041302_photo_120600658.jpg",
+      "especie": "Dendropsophus_triangulum",
+      "y_real": 18,
+      "top1_completa": 12,
+      "top1_zoom": 14,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.17136763036251068,
+      "prob_correcta_zoom": 0.01921074651181698,
+      "prob_correcta_mascara": 0.008717126213014126,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        14,
+        36,
+        3
+      ],
+      "top3_mascara": [
+        37,
+        39,
+        35
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.05705897013346354,
+      "bbox_frac": 0.15219497680664062
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_340165346_photo_618974995.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 12,
+      "prob_correcta_completa": 0.36597883701324463,
+      "prob_correcta_zoom": 0.30851882696151733,
+      "prob_correcta_mascara": 0.3301544189453125,
+      "top3_completa": [
+        12,
+        18,
+        13
+      ],
+      "top3_zoom": [
+        12,
+        18,
+        17
+      ],
+      "top3_mascara": [
+        12,
+        18,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.05723604862315698,
+      "bbox_frac": 0.09858792281006071
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_336401203_photo_611302096.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 22,
+      "top1_zoom": 22,
+      "top1_mascara": 22,
+      "prob_correcta_completa": 0.24199825525283813,
+      "prob_correcta_zoom": 0.24199825525283813,
+      "prob_correcta_mascara": 0.24199825525283813,
+      "top3_completa": [
+        22,
+        23,
+        0
+      ],
+      "top3_zoom": [
+        22,
+        23,
+        0
+      ],
+      "top3_mascara": [
+        22,
+        23,
+        0
+      ],
+      "tenia_mascara": false,
+      "n_componentes": 0,
+      "fg_frac": 0.0,
+      "bbox_frac": 0.0
+    },
+    {
+      "ruta": "Dendropsophus_mathiassoni/col_obs_288815386_photo_519423946.jpg",
+      "especie": "Dendropsophus_mathiassoni",
+      "y_real": 13,
+      "top1_completa": 13,
+      "top1_zoom": 13,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.3027019202709198,
+      "prob_correcta_zoom": 0.09135367721319199,
+      "prob_correcta_mascara": 0.13346265256404877,
+      "top3_completa": [
+        13,
+        14,
+        11
+      ],
+      "top3_zoom": [
+        13,
+        10,
+        40
+      ],
+      "top3_mascara": [
+        13,
+        17,
+        14
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.04627692211644733,
+      "bbox_frac": 0.07695001526631179
+    },
+    {
+      "ruta": "Engystomops_pustulosus/col_obs_150887842_photo_260259305.jpg",
+      "especie": "Engystomops_pustulosus",
+      "y_real": 19,
+      "top1_completa": 19,
+      "top1_zoom": 40,
+      "top1_mascara": 40,
+      "prob_correcta_completa": 0.27497607469558716,
+      "prob_correcta_zoom": 0.08218374103307724,
+      "prob_correcta_mascara": 0.074671171605587,
+      "top3_completa": [
+        19,
+        26,
+        36
+      ],
+      "top3_zoom": [
+        40,
+        36,
+        19
+      ],
+      "top3_mascara": [
+        40,
+        36,
+        26
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.045592206790123456,
+      "bbox_frac": 0.06838831018518518
+    },
+    {
+      "ruta": "Rhinella_alata/col_obs_17483452_photo_26589324.jpg",
+      "especie": "Rhinella_alata",
+      "y_real": 37,
+      "top1_completa": 37,
+      "top1_zoom": 37,
+      "top1_mascara": 39,
+      "prob_correcta_completa": 0.35926738381385803,
+      "prob_correcta_zoom": 0.33109912276268005,
+      "prob_correcta_mascara": 0.2579461634159088,
+      "top3_completa": [
+        37,
+        39,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        38
+      ],
+      "top3_mascara": [
+        39,
+        37,
+        34
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.10219511407971237,
+      "bbox_frac": 0.16594809038402691
+    },
+    {
+      "ruta": "Dendropsophus_triangulum/col_obs_252604806_photo_452225301.jpg",
+      "especie": "Dendropsophus_triangulum",
+      "y_real": 18,
+      "top1_completa": 13,
+      "top1_zoom": 17,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.10676806420087814,
+      "prob_correcta_zoom": 0.10847660899162292,
+      "prob_correcta_mascara": 0.09774027019739151,
+      "top3_completa": [
+        13,
+        12,
+        17
+      ],
+      "top3_zoom": [
+        17,
+        13,
+        18
+      ],
+      "top3_mascara": [
+        13,
+        17,
+        18
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.04327980324074074,
+      "bbox_frac": 0.08253658234126984
+    },
+    {
+      "ruta": "Boana_lanciformis/col_obs_119688234_photo_202354866.jpg",
+      "especie": "Boana_lanciformis",
+      "y_real": 2,
+      "top1_completa": 2,
+      "top1_zoom": 2,
+      "top1_mascara": 2,
+      "prob_correcta_completa": 0.3639182150363922,
+      "prob_correcta_zoom": 0.2889057695865631,
+      "prob_correcta_mascara": 0.23786959052085876,
+      "top3_completa": [
+        2,
+        0,
+        8
+      ],
+      "top3_zoom": [
+        2,
+        0,
+        8
+      ],
+      "top3_mascara": [
+        2,
+        0,
+        6
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.18446666666666667,
+      "bbox_frac": 0.3514
+    },
+    {
+      "ruta": "Dendropsophus_mathiassoni/col_obs_231733159_photo_411616080.jpg",
+      "especie": "Dendropsophus_mathiassoni",
+      "y_real": 13,
+      "top1_completa": 13,
+      "top1_zoom": 13,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.42583245038986206,
+      "prob_correcta_zoom": 0.2248607873916626,
+      "prob_correcta_mascara": 0.21650166809558868,
+      "top3_completa": [
+        13,
+        14,
+        11
+      ],
+      "top3_zoom": [
+        13,
+        14,
+        11
+      ],
+      "top3_mascara": [
+        13,
+        14,
+        11
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.07773717244466145,
+      "bbox_frac": 0.11161295572916667
+    },
+    {
+      "ruta": "Scinax_ruber/col_obs_25082492_photo_38817354.jpg",
+      "especie": "Scinax_ruber",
+      "y_real": 40,
+      "top1_completa": 40,
+      "top1_zoom": 40,
+      "top1_mascara": 15,
+      "prob_correcta_completa": 0.21122890710830688,
+      "prob_correcta_zoom": 0.12035710364580154,
+      "prob_correcta_mascara": 0.12444300949573517,
+      "top3_completa": [
+        40,
+        7,
+        15
+      ],
+      "top3_zoom": [
+        40,
+        15,
+        10
+      ],
+      "top3_mascara": [
+        15,
+        40,
+        10
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.08327738444010417,
+      "bbox_frac": 0.2089818318684896
+    },
+    {
+      "ruta": "Pristimantis_bogotensis/col_obs_347964591_photo_634533916.jpg",
+      "especie": "Pristimantis_bogotensis",
+      "y_real": 26,
+      "top1_completa": 32,
+      "top1_zoom": 32,
+      "top1_mascara": 19,
+      "prob_correcta_completa": 0.09642641246318817,
+      "prob_correcta_zoom": 0.08009317517280579,
+      "prob_correcta_mascara": 0.07757269591093063,
+      "top3_completa": [
+        32,
+        26,
+        29
+      ],
+      "top3_zoom": [
+        32,
+        21,
+        26
+      ],
+      "top3_mascara": [
+        19,
+        26,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1935071720881627,
+      "bbox_frac": 0.3498735683474639
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_340157854_photo_619002427.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 23,
+      "top1_zoom": 22,
+      "top1_mascara": 24,
+      "prob_correcta_completa": 0.17400825023651123,
+      "prob_correcta_zoom": 0.21017874777317047,
+      "prob_correcta_mascara": 0.12862804532051086,
+      "top3_completa": [
+        23,
+        15,
+        24
+      ],
+      "top3_zoom": [
+        22,
+        23,
+        24
+      ],
+      "top3_mascara": [
+        24,
+        15,
+        23
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.0499267578125,
+      "bbox_frac": 0.06681060791015625
+    },
+    {
+      "ruta": "Pristimantis_paisa/col_obs_55563103_photo_88484032.jpg",
+      "especie": "Pristimantis_paisa",
+      "y_real": 29,
+      "top1_completa": 33,
+      "top1_zoom": 32,
+      "top1_mascara": 35,
+      "prob_correcta_completa": 0.10958972573280334,
+      "prob_correcta_zoom": 0.08452068269252777,
+      "prob_correcta_mascara": 0.06803232431411743,
+      "top3_completa": [
+        33,
+        29,
+        32
+      ],
+      "top3_zoom": [
+        32,
+        33,
+        35
+      ],
+      "top3_mascara": [
+        35,
+        32,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.21864745497557997,
+      "bbox_frac": 0.3727869352869353
+    },
+    {
+      "ruta": "Pristimantis_paisa/col_obs_37206863_photo_58944988.jpg",
+      "especie": "Pristimantis_paisa",
+      "y_real": 29,
+      "top1_completa": 40,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.06964494287967682,
+      "prob_correcta_zoom": 0.03361043334007263,
+      "prob_correcta_mascara": 0.023976752534508705,
+      "top3_completa": [
+        40,
+        35,
+        33
+      ],
+      "top3_zoom": [
+        36,
+        40,
+        33
+      ],
+      "top3_mascara": [
+        36,
+        25,
+        40
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.10785555555555555,
+      "bbox_frac": 0.27169629629629627
+    },
+    {
+      "ruta": "Dendropsophus_bogerti/col_obs_94068934_photo_155999195.jpg",
+      "especie": "Dendropsophus_bogerti",
+      "y_real": 10,
+      "top1_completa": 17,
+      "top1_zoom": 24,
+      "top1_mascara": 24,
+      "prob_correcta_completa": 0.04534246772527695,
+      "prob_correcta_zoom": 0.02138211950659752,
+      "prob_correcta_mascara": 0.021599989384412766,
+      "top3_completa": [
+        17,
+        2,
+        12
+      ],
+      "top3_zoom": [
+        24,
+        22,
+        23
+      ],
+      "top3_mascara": [
+        24,
+        16,
+        15
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.009074065644862288,
+      "bbox_frac": 0.017793299788135594
+    },
+    {
+      "ruta": "Dendropsophus_molitor/col_obs_396009978_photo_726189172.jpg",
+      "especie": "Dendropsophus_molitor",
+      "y_real": 15,
+      "top1_completa": 7,
+      "top1_zoom": 17,
+      "top1_mascara": 18,
+      "prob_correcta_completa": 0.04555545374751091,
+      "prob_correcta_zoom": 0.04082000255584717,
+      "prob_correcta_mascara": 0.03311985731124878,
+      "top3_completa": [
+        7,
+        4,
+        5
+      ],
+      "top3_zoom": [
+        17,
+        16,
+        10
+      ],
+      "top3_mascara": [
+        18,
+        17,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.030049641927083332,
+      "bbox_frac": 0.057697296142578125
+    },
+    {
+      "ruta": "Pristimantis_gaigei/col_obs_347680968_photo_633968340.jpg",
+      "especie": "Pristimantis_gaigei",
+      "y_real": 28,
+      "top1_completa": 28,
+      "top1_zoom": 28,
+      "top1_mascara": 28,
+      "prob_correcta_completa": 0.20715756714344025,
+      "prob_correcta_zoom": 0.1743301898241043,
+      "prob_correcta_mascara": 0.1675017923116684,
+      "top3_completa": [
+        28,
+        8,
+        25
+      ],
+      "top3_zoom": [
+        28,
+        40,
+        36
+      ],
+      "top3_mascara": [
+        28,
+        25,
+        8
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.06320701841456736,
+      "bbox_frac": 0.09209422918948522
+    },
+    {
+      "ruta": "Boana_cinerascens/col_obs_59338_photo_92171.jpg",
+      "especie": "Boana_cinerascens",
+      "y_real": 1,
+      "top1_completa": 1,
+      "top1_zoom": 1,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.438036173582077,
+      "prob_correcta_zoom": 0.4497523307800293,
+      "prob_correcta_mascara": 0.44738689064979553,
+      "top3_completa": [
+        1,
+        5,
+        20
+      ],
+      "top3_zoom": [
+        1,
+        5,
+        20
+      ],
+      "top3_mascara": [
+        1,
+        5,
+        20
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.3646111523360743,
+      "bbox_frac": 0.6364623708162417
+    },
+    {
+      "ruta": "Pristimantis_taeniatus/col_obs_301344559_photo_543009292.jpg",
+      "especie": "Pristimantis_taeniatus",
+      "y_real": 33,
+      "top1_completa": 33,
+      "top1_zoom": 8,
+      "top1_mascara": 8,
+      "prob_correcta_completa": 0.17734597623348236,
+      "prob_correcta_zoom": 0.08750753104686737,
+      "prob_correcta_mascara": 0.09688831120729446,
+      "top3_completa": [
+        33,
+        30,
+        29
+      ],
+      "top3_zoom": [
+        8,
+        35,
+        33
+      ],
+      "top3_mascara": [
+        8,
+        35,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.14305437337872892,
+      "bbox_frac": 0.2649768082238975
+    },
+    {
+      "ruta": "Dendropsophus_triangulum/col_obs_344061974_photo_626850519.jpg",
+      "especie": "Dendropsophus_triangulum",
+      "y_real": 18,
+      "top1_completa": 12,
+      "top1_zoom": 18,
+      "top1_mascara": 18,
+      "prob_correcta_completa": 0.2290363758802414,
+      "prob_correcta_zoom": 0.13025014102458954,
+      "prob_correcta_mascara": 0.14756660163402557,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        18,
+        12,
+        17
+      ],
+      "top3_mascara": [
+        18,
+        17,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.015867869059244793,
+      "bbox_frac": 0.024068196614583332
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_262129318_photo_470997839.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 12,
+      "prob_correcta_completa": 0.2734970450401306,
+      "prob_correcta_zoom": 0.2719005346298218,
+      "prob_correcta_mascara": 0.34297654032707214,
+      "top3_completa": [
+        12,
+        18,
+        13
+      ],
+      "top3_zoom": [
+        12,
+        18,
+        17
+      ],
+      "top3_mascara": [
+        12,
+        18,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.2745109661006744,
+      "bbox_frac": 0.540899905166185
+    },
+    {
+      "ruta": "Pristimantis_permixtus/col_obs_339215295_photo_617024229.jpg",
+      "especie": "Pristimantis_permixtus",
+      "y_real": 32,
+      "top1_completa": 32,
+      "top1_zoom": 32,
+      "top1_mascara": 32,
+      "prob_correcta_completa": 0.10645127296447754,
+      "prob_correcta_zoom": 0.1160937175154686,
+      "prob_correcta_mascara": 0.1337297111749649,
+      "top3_completa": [
+        32,
+        10,
+        36
+      ],
+      "top3_zoom": [
+        32,
+        10,
+        11
+      ],
+      "top3_mascara": [
+        32,
+        2,
+        10
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1979700724283854,
+      "bbox_frac": 0.3667488098144531
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_194299021_photo_341499401.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 31,
+      "top1_zoom": 31,
+      "top1_mascara": 31,
+      "prob_correcta_completa": 0.1733674854040146,
+      "prob_correcta_zoom": 0.18857404589653015,
+      "prob_correcta_mascara": 0.17379309237003326,
+      "top3_completa": [
+        31,
+        29,
+        33
+      ],
+      "top3_zoom": [
+        31,
+        33,
+        29
+      ],
+      "top3_mascara": [
+        31,
+        33,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.23153813680013022,
+      "bbox_frac": 0.47405242919921875
+    },
+    {
+      "ruta": "Boana_xerophylla/fallback_obs_344525907_photo_627753655.jpg",
+      "especie": "Boana_xerophylla",
+      "y_real": 7,
+      "top1_completa": 1,
+      "top1_zoom": 13,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.05060870572924614,
+      "prob_correcta_zoom": 0.021018847823143005,
+      "prob_correcta_mascara": 0.01065754797309637,
+      "top3_completa": [
+        1,
+        5,
+        20
+      ],
+      "top3_zoom": [
+        13,
+        12,
+        5
+      ],
+      "top3_mascara": [
+        13,
+        12,
+        18
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.2358963213762811,
+      "bbox_frac": 0.4196873856149341
+    },
+    {
+      "ruta": "Boana_pugnax/col_obs_390912649_photo_716220735.jpg",
+      "especie": "Boana_pugnax",
+      "y_real": 4,
+      "top1_completa": 3,
+      "top1_zoom": 3,
+      "top1_mascara": 3,
+      "prob_correcta_completa": 0.07655198872089386,
+      "prob_correcta_zoom": 0.10262133926153183,
+      "prob_correcta_mascara": 0.06399041414260864,
+      "top3_completa": [
+        3,
+        0,
+        4
+      ],
+      "top3_zoom": [
+        3,
+        6,
+        0
+      ],
+      "top3_mascara": [
+        3,
+        1,
+        7
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1082353604288262,
+      "bbox_frac": 0.19143506556014916
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_42887431_photo_68101262.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 20,
+      "top1_zoom": 20,
+      "top1_mascara": 20,
+      "prob_correcta_completa": 0.5604140162467957,
+      "prob_correcta_zoom": 0.42261990904808044,
+      "prob_correcta_mascara": 0.3739817440509796,
+      "top3_completa": [
+        20,
+        1,
+        5
+      ],
+      "top3_zoom": [
+        20,
+        1,
+        5
+      ],
+      "top3_mascara": [
+        20,
+        1,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.14507731958762887,
+      "bbox_frac": 0.2838296626054358
+    },
+    {
+      "ruta": "Pristimantis_taeniatus/col_obs_339208106_photo_616986222.jpg",
+      "especie": "Pristimantis_taeniatus",
+      "y_real": 33,
+      "top1_completa": 33,
+      "top1_zoom": 29,
+      "top1_mascara": 30,
+      "prob_correcta_completa": 0.10781221836805344,
+      "prob_correcta_zoom": 0.11669634282588959,
+      "prob_correcta_mascara": 0.11749996244907379,
+      "top3_completa": [
+        33,
+        31,
+        29
+      ],
+      "top3_zoom": [
+        29,
+        33,
+        31
+      ],
+      "top3_mascara": [
+        30,
+        33,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.16151936848958334,
+      "bbox_frac": 0.2810872395833333
+    },
+    {
+      "ruta": "Boana_cinerascens/col_obs_121477681_photo_205561621.jpg",
+      "especie": "Boana_cinerascens",
+      "y_real": 1,
+      "top1_completa": 1,
+      "top1_zoom": 1,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.4224919378757477,
+      "prob_correcta_zoom": 0.34121355414390564,
+      "prob_correcta_mascara": 0.3468365967273712,
+      "top3_completa": [
+        1,
+        5,
+        20
+      ],
+      "top3_zoom": [
+        1,
+        5,
+        20
+      ],
+      "top3_mascara": [
+        1,
+        5,
+        20
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.10752107644382912,
+      "bbox_frac": 0.1934829905063291
+    },
+    {
+      "ruta": "Pithecopus_hypochondrialis/col_obs_149579344_photo_257772904.jpg",
+      "especie": "Pithecopus_hypochondrialis",
+      "y_real": 24,
+      "top1_completa": 24,
+      "top1_zoom": 24,
+      "top1_mascara": 24,
+      "prob_correcta_completa": 0.587637722492218,
+      "prob_correcta_zoom": 0.5783727765083313,
+      "prob_correcta_mascara": 0.40677642822265625,
+      "top3_completa": [
+        24,
+        23,
+        22
+      ],
+      "top3_zoom": [
+        24,
+        23,
+        22
+      ],
+      "top3_mascara": [
+        24,
+        23,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.2304662068684896,
+      "bbox_frac": 0.4425048828125
+    },
+    {
+      "ruta": "Rhinella_margaritifera/col_obs_33561623_photo_52795051.jpg",
+      "especie": "Rhinella_margaritifera",
+      "y_real": 39,
+      "top1_completa": 39,
+      "top1_zoom": 37,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.2951507866382599,
+      "prob_correcta_zoom": 0.21725501120090485,
+      "prob_correcta_mascara": 0.20101934671401978,
+      "top3_completa": [
+        39,
+        37,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        34
+      ],
+      "top3_mascara": [
+        37,
+        39,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.18423334757486978,
+      "bbox_frac": 0.3347981770833333
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_182771664_photo_318720901.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 20,
+      "top1_zoom": 20,
+      "top1_mascara": 20,
+      "prob_correcta_completa": 0.16254188120365143,
+      "prob_correcta_zoom": 0.18666309118270874,
+      "prob_correcta_mascara": 0.1856566071510315,
+      "top3_completa": [
+        20,
+        1,
+        7
+      ],
+      "top3_zoom": [
+        20,
+        1,
+        5
+      ],
+      "top3_mascara": [
+        20,
+        1,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.07226145878059964,
+      "bbox_frac": 0.1891265980071778
+    },
+    {
+      "ruta": "Rheobates_palmatus/col_obs_141428890_photo_242290795.jpg",
+      "especie": "Rheobates_palmatus",
+      "y_real": 36,
+      "top1_completa": 36,
+      "top1_zoom": 36,
+      "top1_mascara": 38,
+      "prob_correcta_completa": 0.3027571737766266,
+      "prob_correcta_zoom": 0.3227357566356659,
+      "prob_correcta_mascara": 0.13376466929912567,
+      "top3_completa": [
+        36,
+        21,
+        38
+      ],
+      "top3_zoom": [
+        36,
+        21,
+        19
+      ],
+      "top3_mascara": [
+        38,
+        36,
+        37
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.22754414876302084,
+      "bbox_frac": 0.58203125
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_340157854_photo_618985453.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 24,
+      "top1_zoom": 23,
+      "top1_mascara": 23,
+      "prob_correcta_completa": 0.25977838039398193,
+      "prob_correcta_zoom": 0.2288994938135147,
+      "prob_correcta_mascara": 0.18953675031661987,
+      "top3_completa": [
+        24,
+        23,
+        22
+      ],
+      "top3_zoom": [
+        23,
+        22,
+        24
+      ],
+      "top3_mascara": [
+        23,
+        24,
+        22
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.04889551798502604,
+      "bbox_frac": 0.06689453125
+    },
+    {
+      "ruta": "Rhinella_alata/col_obs_18950629_photo_29051613.jpg",
+      "especie": "Rhinella_alata",
+      "y_real": 37,
+      "top1_completa": 39,
+      "top1_zoom": 39,
+      "top1_mascara": 39,
+      "prob_correcta_completa": 0.24238069355487823,
+      "prob_correcta_zoom": 0.18027938902378082,
+      "prob_correcta_mascara": 0.2059972584247589,
+      "top3_completa": [
+        39,
+        37,
+        34
+      ],
+      "top3_zoom": [
+        39,
+        37,
+        0
+      ],
+      "top3_mascara": [
+        39,
+        37,
+        0
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.12373606363932292,
+      "bbox_frac": 0.2682291666666667
+    },
+    {
+      "ruta": "Pristimantis_paisa/col_obs_37206863_photo_58944990.jpg",
+      "especie": "Pristimantis_paisa",
+      "y_real": 29,
+      "top1_completa": 35,
+      "top1_zoom": 35,
+      "top1_mascara": 35,
+      "prob_correcta_completa": 0.06820359826087952,
+      "prob_correcta_zoom": 0.07477009296417236,
+      "prob_correcta_mascara": 0.03665877506136894,
+      "top3_completa": [
+        35,
+        33,
+        28
+      ],
+      "top3_zoom": [
+        35,
+        33,
+        29
+      ],
+      "top3_mascara": [
+        35,
+        25,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.14659259259259258,
+      "bbox_frac": 0.67
+    },
+    {
+      "ruta": "Pristimantis_paisa/col_obs_37206863_photo_58944979.jpg",
+      "especie": "Pristimantis_paisa",
+      "y_real": 29,
+      "top1_completa": 29,
+      "top1_zoom": 29,
+      "top1_mascara": 29,
+      "prob_correcta_completa": 0.14036868512630463,
+      "prob_correcta_zoom": 0.1670840084552765,
+      "prob_correcta_mascara": 0.13315553963184357,
+      "top3_completa": [
+        29,
+        33,
+        35
+      ],
+      "top3_zoom": [
+        29,
+        33,
+        31
+      ],
+      "top3_mascara": [
+        29,
+        33,
+        31
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.19547962962962964,
+      "bbox_frac": 0.31822222222222224
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_342139756_photo_622991616.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 23,
+      "top1_zoom": 23,
+      "top1_mascara": 22,
+      "prob_correcta_completa": 0.422210156917572,
+      "prob_correcta_zoom": 0.37789756059646606,
+      "prob_correcta_mascara": 0.3794131577014923,
+      "top3_completa": [
+        23,
+        22,
+        24
+      ],
+      "top3_zoom": [
+        23,
+        22,
+        24
+      ],
+      "top3_mascara": [
+        22,
+        23,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.13541285196940103,
+      "bbox_frac": 0.2481689453125
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_105634128_photo_177277406.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 21,
+      "top1_zoom": 8,
+      "top1_mascara": 8,
+      "prob_correcta_completa": 0.11210131645202637,
+      "prob_correcta_zoom": 0.1494804173707962,
+      "prob_correcta_mascara": 0.1388961374759674,
+      "top3_completa": [
+        21,
+        35,
+        32
+      ],
+      "top3_zoom": [
+        8,
+        21,
+        25
+      ],
+      "top3_mascara": [
+        8,
+        21,
+        35
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.18024698893229166,
+      "bbox_frac": 0.3233846028645833
+    },
+    {
+      "ruta": "Boana_pugnax/col_obs_366065001_photo_668398762.jpg",
+      "especie": "Boana_pugnax",
+      "y_real": 4,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.16759492456912994,
+      "prob_correcta_zoom": 0.16935287415981293,
+      "prob_correcta_mascara": 0.1443507969379425,
+      "top3_completa": [
+        6,
+        4,
+        3
+      ],
+      "top3_zoom": [
+        6,
+        4,
+        3
+      ],
+      "top3_mascara": [
+        6,
+        4,
+        3
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.07806142171223958,
+      "bbox_frac": 0.15472412109375
+    },
+    {
+      "ruta": "Boana_pugnax/col_obs_370161141_photo_676206782.jpg",
+      "especie": "Boana_pugnax",
+      "y_real": 4,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.16743788123130798,
+      "prob_correcta_zoom": 0.16309867799282074,
+      "prob_correcta_mascara": 0.1773720681667328,
+      "top3_completa": [
+        6,
+        4,
+        3
+      ],
+      "top3_zoom": [
+        6,
+        4,
+        3
+      ],
+      "top3_mascara": [
+        6,
+        4,
+        7
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.21041971664295098,
+      "bbox_frac": 0.3690576770468476
+    },
+    {
+      "ruta": "Pristimantis_bogotensis/col_obs_342320626_photo_623355705.jpg",
+      "especie": "Pristimantis_bogotensis",
+      "y_real": 26,
+      "top1_completa": 36,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.09653827548027039,
+      "prob_correcta_zoom": 0.0607541985809803,
+      "prob_correcta_mascara": 0.06389117240905762,
+      "top3_completa": [
+        36,
+        26,
+        33
+      ],
+      "top3_zoom": [
+        36,
+        33,
+        26
+      ],
+      "top3_mascara": [
+        36,
+        40,
+        26
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.10905436197916667,
+      "bbox_frac": 0.17180826822916667
+    },
+    {
+      "ruta": "Dendrobates_truncatus/col_obs_312725394_photo_565815867.jpg",
+      "especie": "Dendrobates_truncatus",
+      "y_real": 9,
+      "top1_completa": 9,
+      "top1_zoom": 9,
+      "top1_mascara": 9,
+      "prob_correcta_completa": 0.7437239289283752,
+      "prob_correcta_zoom": 0.298018217086792,
+      "prob_correcta_mascara": 0.44579485058784485,
+      "top3_completa": [
+        9,
+        18,
+        12
+      ],
+      "top3_zoom": [
+        9,
+        18,
+        12
+      ],
+      "top3_mascara": [
+        9,
+        18,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.017641703287760418,
+      "bbox_frac": 0.02391815185546875
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_99711059_photo_166280298.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 21,
+      "top1_zoom": 21,
+      "top1_mascara": 21,
+      "prob_correcta_completa": 0.5895118117332458,
+      "prob_correcta_zoom": 0.3619135022163391,
+      "prob_correcta_mascara": 0.26329419016838074,
+      "top3_completa": [
+        21,
+        36,
+        19
+      ],
+      "top3_zoom": [
+        21,
+        36,
+        8
+      ],
+      "top3_mascara": [
+        21,
+        36,
+        32
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.2854789051326871,
+      "bbox_frac": 0.44562609248371204
+    },
+    {
+      "ruta": "Dendropsophus_mathiassoni/col_obs_253784058_photo_454463143.jpg",
+      "especie": "Dendropsophus_mathiassoni",
+      "y_real": 13,
+      "top1_completa": 14,
+      "top1_zoom": 14,
+      "top1_mascara": 14,
+      "prob_correcta_completa": 0.06387729197740555,
+      "prob_correcta_zoom": 0.07963869720697403,
+      "prob_correcta_mascara": 0.08766781538724899,
+      "top3_completa": [
+        14,
+        17,
+        11
+      ],
+      "top3_zoom": [
+        14,
+        17,
+        13
+      ],
+      "top3_mascara": [
+        14,
+        17,
+        13
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.24797439575195312,
+      "bbox_frac": 0.43196360270182294
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_182771664_photo_318720852.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 23,
+      "top1_zoom": 1,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.042680662125349045,
+      "prob_correcta_zoom": 0.1758406013250351,
+      "prob_correcta_mascara": 0.23927603662014008,
+      "top3_completa": [
+        23,
+        22,
+        24
+      ],
+      "top3_zoom": [
+        1,
+        20,
+        5
+      ],
+      "top3_mascara": [
+        1,
+        20,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.04193350787738154,
+      "bbox_frac": 0.06364115168539326
+    },
+    {
+      "ruta": "Phyllomedusa_tarsius/fallback_obs_362774827_photo_662147174.jpg",
+      "especie": "Phyllomedusa_tarsius",
+      "y_real": 22,
+      "top1_completa": 22,
+      "top1_zoom": 23,
+      "top1_mascara": 22,
+      "prob_correcta_completa": 0.456057608127594,
+      "prob_correcta_zoom": 0.3925304710865021,
+      "prob_correcta_mascara": 0.4217970073223114,
+      "top3_completa": [
+        22,
+        23,
+        24
+      ],
+      "top3_zoom": [
+        23,
+        22,
+        24
+      ],
+      "top3_mascara": [
+        22,
+        23,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 6,
+      "fg_frac": 0.24732767889824306,
+      "bbox_frac": 0.4505113012445095
+    },
+    {
+      "ruta": "Pithecopus_hypochondrialis/col_obs_149989589_photo_258547334.jpg",
+      "especie": "Pithecopus_hypochondrialis",
+      "y_real": 24,
+      "top1_completa": 24,
+      "top1_zoom": 24,
+      "top1_mascara": 24,
+      "prob_correcta_completa": 0.22347883880138397,
+      "prob_correcta_zoom": 0.17965124547481537,
+      "prob_correcta_mascara": 0.4061281979084015,
+      "top3_completa": [
+        24,
+        15,
+        5
+      ],
+      "top3_zoom": [
+        24,
+        15,
+        17
+      ],
+      "top3_mascara": [
+        24,
+        23,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.05205663045247396,
+      "bbox_frac": 0.08785374959309895
+    },
+    {
+      "ruta": "Pristimantis_palmeri/col_obs_330663858_photo_599664980.jpg",
+      "especie": "Pristimantis_palmeri",
+      "y_real": 30,
+      "top1_completa": 40,
+      "top1_zoom": 40,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.029534244909882545,
+      "prob_correcta_zoom": 0.01873018778860569,
+      "prob_correcta_mascara": 0.03737444430589676,
+      "top3_completa": [
+        40,
+        10,
+        11
+      ],
+      "top3_zoom": [
+        40,
+        36,
+        10
+      ],
+      "top3_mascara": [
+        36,
+        40,
+        26
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.11010233561197917,
+      "bbox_frac": 0.21181360880533853
+    },
+    {
+      "ruta": "Boana_rosenbergi/col_obs_273196224_photo_491402968.jpg",
+      "especie": "Boana_rosenbergi",
+      "y_real": 6,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.46241435408592224,
+      "prob_correcta_zoom": 0.46750152111053467,
+      "prob_correcta_mascara": 0.40639975666999817,
+      "top3_completa": [
+        6,
+        4,
+        7
+      ],
+      "top3_zoom": [
+        6,
+        4,
+        7
+      ],
+      "top3_mascara": [
+        6,
+        7,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.24705584707646178,
+      "bbox_frac": 0.4506394302848576
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_96765926_photo_160807834.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 21,
+      "top1_zoom": 21,
+      "top1_mascara": 21,
+      "prob_correcta_completa": 0.4917730689048767,
+      "prob_correcta_zoom": 0.34318482875823975,
+      "prob_correcta_mascara": 0.3230299949645996,
+      "top3_completa": [
+        21,
+        36,
+        28
+      ],
+      "top3_zoom": [
+        21,
+        36,
+        28
+      ],
+      "top3_mascara": [
+        21,
+        36,
+        28
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.3501048105540293,
+      "bbox_frac": 0.5735587654532966
+    },
+    {
+      "ruta": "Rhinella_horribilis/col_obs_334881680_photo_608241253.jpg",
+      "especie": "Rhinella_horribilis",
+      "y_real": 38,
+      "top1_completa": 38,
+      "top1_zoom": 38,
+      "top1_mascara": 38,
+      "prob_correcta_completa": 0.5669860243797302,
+      "prob_correcta_zoom": 0.5362995266914368,
+      "prob_correcta_mascara": 0.4293685555458069,
+      "top3_completa": [
+        38,
+        37,
+        39
+      ],
+      "top3_zoom": [
+        38,
+        37,
+        39
+      ],
+      "top3_mascara": [
+        38,
+        37,
+        39
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1580274868360806,
+      "bbox_frac": 0.28920057806776556
+    },
+    {
+      "ruta": "Pithecopus_hypochondrialis/col_obs_109686002_photo_184908756.jpg",
+      "especie": "Pithecopus_hypochondrialis",
+      "y_real": 24,
+      "top1_completa": 24,
+      "top1_zoom": 2,
+      "top1_mascara": 2,
+      "prob_correcta_completa": 0.23006115853786469,
+      "prob_correcta_zoom": 0.029251262545585632,
+      "prob_correcta_mascara": 0.02431754395365715,
+      "top3_completa": [
+        24,
+        23,
+        22
+      ],
+      "top3_zoom": [
+        2,
+        8,
+        3
+      ],
+      "top3_mascara": [
+        2,
+        13,
+        3
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.17761611938476562,
+      "bbox_frac": 0.3115857442220052
+    },
+    {
+      "ruta": "Dendropsophus_mathiassoni/col_obs_253784058_photo_454463413.jpg",
+      "especie": "Dendropsophus_mathiassoni",
+      "y_real": 13,
+      "top1_completa": 18,
+      "top1_zoom": 13,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.09044966101646423,
+      "prob_correcta_zoom": 0.18880678713321686,
+      "prob_correcta_mascara": 0.16971854865550995,
+      "top3_completa": [
+        18,
+        17,
+        14
+      ],
+      "top3_zoom": [
+        13,
+        17,
+        14
+      ],
+      "top3_mascara": [
+        13,
+        14,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.004174550374348958,
+      "bbox_frac": 0.007080078125
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_263757478_photo_473889790.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 13,
+      "top1_mascara": 3,
+      "prob_correcta_completa": 0.18600404262542725,
+      "prob_correcta_zoom": 0.08292463421821594,
+      "prob_correcta_mascara": 0.05932939425110817,
+      "top3_completa": [
+        12,
+        18,
+        13
+      ],
+      "top3_zoom": [
+        13,
+        17,
+        12
+      ],
+      "top3_mascara": [
+        3,
+        13,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.045551300048828125,
+      "bbox_frac": 0.1297760009765625
+    },
+    {
+      "ruta": "Engystomops_pustulosus/col_obs_154196005_photo_266404942.jpg",
+      "especie": "Engystomops_pustulosus",
+      "y_real": 19,
+      "top1_completa": 38,
+      "top1_zoom": 19,
+      "top1_mascara": 19,
+      "prob_correcta_completa": 0.11423652619123459,
+      "prob_correcta_zoom": 0.21772372722625732,
+      "prob_correcta_mascara": 0.11650685220956802,
+      "top3_completa": [
+        38,
+        36,
+        19
+      ],
+      "top3_zoom": [
+        21,
+        19,
+        36
+      ],
+      "top3_mascara": [
+        19,
+        21,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.04030536523151537,
+      "bbox_frac": 0.06914148288799414
+    },
+    {
+      "ruta": "Boana_pugnax/col_obs_374671357_photo_684847010.jpg",
+      "especie": "Boana_pugnax",
+      "y_real": 4,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.10801400989294052,
+      "prob_correcta_zoom": 0.11099530756473541,
+      "prob_correcta_mascara": 0.13142485916614532,
+      "top3_completa": [
+        6,
+        7,
+        4
+      ],
+      "top3_zoom": [
+        6,
+        7,
+        4
+      ],
+      "top3_mascara": [
+        6,
+        7,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.24075169110315445,
+      "bbox_frac": 0.3378573411439449
+    },
+    {
+      "ruta": "Engystomops_pustulosus/col_obs_159329005_photo_275274336.jpg",
+      "especie": "Engystomops_pustulosus",
+      "y_real": 19,
+      "top1_completa": 19,
+      "top1_zoom": 38,
+      "top1_mascara": 19,
+      "prob_correcta_completa": 0.3682342767715454,
+      "prob_correcta_zoom": 0.13112303614616394,
+      "prob_correcta_mascara": 0.35064372420310974,
+      "top3_completa": [
+        19,
+        26,
+        29
+      ],
+      "top3_zoom": [
+        38,
+        19,
+        39
+      ],
+      "top3_mascara": [
+        19,
+        38,
+        39
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.045221964518229164,
+      "bbox_frac": 0.06944529215494792
+    },
+    {
+      "ruta": "Boana_punctata/col_obs_339035788_photo_616967335.jpg",
+      "especie": "Boana_punctata",
+      "y_real": 5,
+      "top1_completa": 5,
+      "top1_zoom": 5,
+      "top1_mascara": 5,
+      "prob_correcta_completa": 0.364769846200943,
+      "prob_correcta_zoom": 0.3169984519481659,
+      "prob_correcta_mascara": 0.32845616340637207,
+      "top3_completa": [
+        5,
+        1,
+        20
+      ],
+      "top3_zoom": [
+        5,
+        1,
+        15
+      ],
+      "top3_mascara": [
+        5,
+        1,
+        20
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.3680254618326823,
+      "bbox_frac": 0.521240234375
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_81535369_photo_133745297.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 30,
+      "top1_zoom": 33,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.14089834690093994,
+      "prob_correcta_zoom": 0.13326804339885712,
+      "prob_correcta_mascara": 0.041526589542627335,
+      "top3_completa": [
+        30,
+        31,
+        29
+      ],
+      "top3_zoom": [
+        33,
+        31,
+        30
+      ],
+      "top3_mascara": [
+        36,
+        34,
+        26
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.15540949503580728,
+      "bbox_frac": 0.2596028645833333
+    },
+    {
+      "ruta": "Pristimantis_bogotensis/col_obs_280768595_photo_504306143.jpg",
+      "especie": "Pristimantis_bogotensis",
+      "y_real": 26,
+      "top1_completa": 26,
+      "top1_zoom": 19,
+      "top1_mascara": 19,
+      "prob_correcta_completa": 0.11211627721786499,
+      "prob_correcta_zoom": 0.06367649883031845,
+      "prob_correcta_mascara": 0.17265541851520538,
+      "top3_completa": [
+        26,
+        28,
+        40
+      ],
+      "top3_zoom": [
+        19,
+        21,
+        36
+      ],
+      "top3_mascara": [
+        19,
+        26,
+        36
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.19803283035114247,
+      "bbox_frac": 0.3866780598958333
+    },
+    {
+      "ruta": "Scinax_ruber/col_obs_33205925_photo_52132937.jpg",
+      "especie": "Scinax_ruber",
+      "y_real": 40,
+      "top1_completa": 12,
+      "top1_zoom": 40,
+      "top1_mascara": 15,
+      "prob_correcta_completa": 0.08624748885631561,
+      "prob_correcta_zoom": 0.1439361423254013,
+      "prob_correcta_mascara": 0.14758215844631195,
+      "top3_completa": [
+        12,
+        15,
+        40
+      ],
+      "top3_zoom": [
+        40,
+        15,
+        10
+      ],
+      "top3_mascara": [
+        15,
+        40,
+        10
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.019589742024739582,
+      "bbox_frac": 0.056060791015625
+    },
+    {
+      "ruta": "Scinax_ruber/col_obs_10396065_photo_14432671.jpg",
+      "especie": "Scinax_ruber",
+      "y_real": 40,
+      "top1_completa": 36,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.11437007784843445,
+      "prob_correcta_zoom": 0.08732737600803375,
+      "prob_correcta_mascara": 0.05826646834611893,
+      "top3_completa": [
+        36,
+        40,
+        28
+      ],
+      "top3_zoom": [
+        36,
+        40,
+        28
+      ],
+      "top3_mascara": [
+        36,
+        26,
+        19
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1493457662806437,
+      "bbox_frac": 0.2354477827782084
+    },
+    {
+      "ruta": "Pristimantis_gaigei/col_obs_346797729_photo_632216817.jpg",
+      "especie": "Pristimantis_gaigei",
+      "y_real": 28,
+      "top1_completa": 28,
+      "top1_zoom": 28,
+      "top1_mascara": 28,
+      "prob_correcta_completa": 0.15870697796344757,
+      "prob_correcta_zoom": 0.1496690809726715,
+      "prob_correcta_mascara": 0.22970950603485107,
+      "top3_completa": [
+        28,
+        8,
+        35
+      ],
+      "top3_zoom": [
+        28,
+        6,
+        40
+      ],
+      "top3_mascara": [
+        28,
+        35,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.10719553629557292,
+      "bbox_frac": 0.19882710774739584
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_347662459_photo_633929952.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 38,
+      "top1_zoom": 38,
+      "top1_mascara": 38,
+      "prob_correcta_completa": 0.13719718158245087,
+      "prob_correcta_zoom": 0.04321513697504997,
+      "prob_correcta_mascara": 0.02238602377474308,
+      "top3_completa": [
+        38,
+        21,
+        19
+      ],
+      "top3_zoom": [
+        38,
+        4,
+        7
+      ],
+      "top3_mascara": [
+        38,
+        4,
+        19
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.08783213297526042,
+      "bbox_frac": 0.19901529947916666
+    },
+    {
+      "ruta": "Pristimantis_penelopus/col_obs_17953891_photo_27434082.jpg",
+      "especie": "Pristimantis_penelopus",
+      "y_real": 31,
+      "top1_completa": 26,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.08660753071308136,
+      "prob_correcta_zoom": 0.026170408353209496,
+      "prob_correcta_mascara": 0.06900939345359802,
+      "top3_completa": [
+        26,
+        29,
+        16
+      ],
+      "top3_zoom": [
+        36,
+        21,
+        16
+      ],
+      "top3_mascara": [
+        36,
+        26,
+        31
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.037376954732510285,
+      "bbox_frac": 0.05934320987654321
+    },
+    {
+      "ruta": "Pristimantis_permixtus/col_obs_237710175_photo_423086465.jpg",
+      "especie": "Pristimantis_permixtus",
+      "y_real": 32,
+      "top1_completa": 29,
+      "top1_zoom": 36,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.09928819537162781,
+      "prob_correcta_zoom": 0.06922474503517151,
+      "prob_correcta_mascara": 0.07340513914823532,
+      "top3_completa": [
+        29,
+        32,
+        27
+      ],
+      "top3_zoom": [
+        36,
+        25,
+        32
+      ],
+      "top3_mascara": [
+        36,
+        33,
+        32
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1410261436406429,
+      "bbox_frac": 0.2290863717536747
+    },
+    {
+      "ruta": "Pristimantis_palmeri/col_obs_289632817_photo_521055292.jpg",
+      "especie": "Pristimantis_palmeri",
+      "y_real": 30,
+      "top1_completa": 33,
+      "top1_zoom": 16,
+      "top1_mascara": 36,
+      "prob_correcta_completa": 0.11403042078018188,
+      "prob_correcta_zoom": 0.05954043194651604,
+      "prob_correcta_mascara": 0.04494857415556908,
+      "top3_completa": [
+        33,
+        30,
+        35
+      ],
+      "top3_zoom": [
+        16,
+        36,
+        40
+      ],
+      "top3_mascara": [
+        36,
+        26,
+        40
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.09945484203296703,
+      "bbox_frac": 0.14014637706043956
+    },
+    {
+      "ruta": "Pithecopus_hypochondrialis/col_obs_136506622_photo_232983528.jpg",
+      "especie": "Pithecopus_hypochondrialis",
+      "y_real": 24,
+      "top1_completa": 24,
+      "top1_zoom": 24,
+      "top1_mascara": 24,
+      "prob_correcta_completa": 0.6489829421043396,
+      "prob_correcta_zoom": 0.5116815567016602,
+      "prob_correcta_mascara": 0.6444576382637024,
+      "top3_completa": [
+        24,
+        23,
+        22
+      ],
+      "top3_zoom": [
+        24,
+        23,
+        22
+      ],
+      "top3_mascara": [
+        24,
+        23,
+        22
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.05968475341796875,
+      "bbox_frac": 0.10030110677083333
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_200805011_photo_354351580.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 20,
+      "top1_zoom": 20,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.2133094221353531,
+      "prob_correcta_zoom": 0.1989794671535492,
+      "prob_correcta_mascara": 0.2063564509153366,
+      "top3_completa": [
+        20,
+        23,
+        1
+      ],
+      "top3_zoom": [
+        20,
+        1,
+        23
+      ],
+      "top3_mascara": [
+        1,
+        20,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.17020816368078176,
+      "bbox_frac": 0.2509256667345277
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_246394425_photo_439861624.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 12,
+      "prob_correcta_completa": 0.4553375542163849,
+      "prob_correcta_zoom": 0.2999078929424286,
+      "prob_correcta_mascara": 0.3798011839389801,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        12,
+        18,
+        17
+      ],
+      "top3_mascara": [
+        12,
+        18,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.04747411032749676,
+      "bbox_frac": 0.07920384190580415
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_181647062_photo_316559567.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 20,
+      "top1_zoom": 20,
+      "top1_mascara": 20,
+      "prob_correcta_completa": 0.4700717031955719,
+      "prob_correcta_zoom": 0.5645205974578857,
+      "prob_correcta_mascara": 0.596678614616394,
+      "top3_completa": [
+        20,
+        1,
+        5
+      ],
+      "top3_zoom": [
+        20,
+        1,
+        5
+      ],
+      "top3_mascara": [
+        20,
+        1,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.14292865816636308,
+      "bbox_frac": 0.2387055251973285
+    },
+    {
+      "ruta": "Rhinella_alata/col_obs_18950629_photo_29051617.jpg",
+      "especie": "Rhinella_alata",
+      "y_real": 37,
+      "top1_completa": 37,
+      "top1_zoom": 37,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.38488250970840454,
+      "prob_correcta_zoom": 0.37095189094543457,
+      "prob_correcta_mascara": 0.3699783980846405,
+      "top3_completa": [
+        37,
+        39,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        38
+      ],
+      "top3_mascara": [
+        37,
+        39,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.3188680013020833,
+      "bbox_frac": 0.58544921875
+    },
+    {
+      "ruta": "Rhinella_margaritifera/col_obs_63444684_photo_101817967.jpg",
+      "especie": "Rhinella_margaritifera",
+      "y_real": 39,
+      "top1_completa": 37,
+      "top1_zoom": 37,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.27298685908317566,
+      "prob_correcta_zoom": 0.1758391261100769,
+      "prob_correcta_mascara": 0.06769067049026489,
+      "top3_completa": [
+        37,
+        39,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        38
+      ],
+      "top3_mascara": [
+        6,
+        0,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.10520985220042418,
+      "bbox_frac": 0.18391012311108165
+    },
+    {
+      "ruta": "Dendropsophus_mathiassoni/col_obs_370045566_photo_675987408.jpg",
+      "especie": "Dendropsophus_mathiassoni",
+      "y_real": 13,
+      "top1_completa": 13,
+      "top1_zoom": 13,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.20810118317604065,
+      "prob_correcta_zoom": 0.18857185542583466,
+      "prob_correcta_mascara": 0.1662900745868683,
+      "top3_completa": [
+        13,
+        14,
+        17
+      ],
+      "top3_zoom": [
+        13,
+        17,
+        14
+      ],
+      "top3_mascara": [
+        13,
+        17,
+        18
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.17167887369791668,
+      "bbox_frac": 0.26563639322916666
+    },
+    {
+      "ruta": "Boana_xerophylla/fallback_obs_339528423_photo_617672121.jpg",
+      "especie": "Boana_xerophylla",
+      "y_real": 7,
+      "top1_completa": 6,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.16281746327877045,
+      "prob_correcta_zoom": 0.17204919457435608,
+      "prob_correcta_mascara": 0.18393144011497498,
+      "top3_completa": [
+        6,
+        7,
+        4
+      ],
+      "top3_zoom": [
+        6,
+        7,
+        4
+      ],
+      "top3_mascara": [
+        6,
+        7,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.390100779267132,
+      "bbox_frac": 0.6934771077887056
+    },
+    {
+      "ruta": "Boana_cinerascens/col_obs_262978268_photo_472348125.jpg",
+      "especie": "Boana_cinerascens",
+      "y_real": 1,
+      "top1_completa": 1,
+      "top1_zoom": 1,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.46252530813217163,
+      "prob_correcta_zoom": 0.49969083070755005,
+      "prob_correcta_mascara": 0.4588254392147064,
+      "top3_completa": [
+        1,
+        20,
+        5
+      ],
+      "top3_zoom": [
+        1,
+        5,
+        20
+      ],
+      "top3_mascara": [
+        1,
+        20,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1121022206959707,
+      "bbox_frac": 0.14951064560439561
+    },
+    {
+      "ruta": "Craugastor_raniformis/col_obs_277184099_photo_497722967.jpg",
+      "especie": "Craugastor_raniformis",
+      "y_real": 8,
+      "top1_completa": 8,
+      "top1_zoom": 8,
+      "top1_mascara": 8,
+      "prob_correcta_completa": 0.3431239128112793,
+      "prob_correcta_zoom": 0.3104635179042816,
+      "prob_correcta_mascara": 0.3081594407558441,
+      "top3_completa": [
+        8,
+        2,
+        25
+      ],
+      "top3_zoom": [
+        8,
+        34,
+        2
+      ],
+      "top3_mascara": [
+        8,
+        2,
+        25
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.16325434027777777,
+      "bbox_frac": 0.3232309027777778
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_399292022_photo_732558365.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 23,
+      "top1_zoom": 23,
+      "top1_mascara": 23,
+      "prob_correcta_completa": 0.3126998245716095,
+      "prob_correcta_zoom": 0.36049383878707886,
+      "prob_correcta_mascara": 0.3438540995121002,
+      "top3_completa": [
+        23,
+        24,
+        22
+      ],
+      "top3_zoom": [
+        23,
+        22,
+        24
+      ],
+      "top3_mascara": [
+        23,
+        22,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.07569376627604167,
+      "bbox_frac": 0.24081293741861978
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_54246108_photo_86308137.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 21,
+      "top1_zoom": 21,
+      "top1_mascara": 21,
+      "prob_correcta_completa": 0.7298591136932373,
+      "prob_correcta_zoom": 0.555816650390625,
+      "prob_correcta_mascara": 0.49357840418815613,
+      "top3_completa": [
+        21,
+        36,
+        19
+      ],
+      "top3_zoom": [
+        21,
+        36,
+        19
+      ],
+      "top3_mascara": [
+        21,
+        36,
+        19
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.33270263671875,
+      "bbox_frac": 0.5535151163736979
+    },
+    {
+      "ruta": "Pristimantis_erythropleura/col_obs_359759496_photo_656424938.jpg",
+      "especie": "Pristimantis_erythropleura",
+      "y_real": 27,
+      "top1_completa": 16,
+      "top1_zoom": 40,
+      "top1_mascara": 40,
+      "prob_correcta_completa": 0.01574801653623581,
+      "prob_correcta_zoom": 0.01716243289411068,
+      "prob_correcta_mascara": 0.006903290282934904,
+      "top3_completa": [
+        16,
+        15,
+        10
+      ],
+      "top3_zoom": [
+        40,
+        15,
+        10
+      ],
+      "top3_mascara": [
+        40,
+        7,
+        15
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.010037740071614584,
+      "bbox_frac": 0.015745798746744793
+    },
+    {
+      "ruta": "Phyllomedusa_tarsius/fallback_obs_362774827_photo_662147099.jpg",
+      "especie": "Phyllomedusa_tarsius",
+      "y_real": 22,
+      "top1_completa": 22,
+      "top1_zoom": 22,
+      "top1_mascara": 22,
+      "prob_correcta_completa": 0.4784777760505676,
+      "prob_correcta_zoom": 0.4796248972415924,
+      "prob_correcta_mascara": 0.5052919387817383,
+      "top3_completa": [
+        22,
+        23,
+        24
+      ],
+      "top3_zoom": [
+        22,
+        23,
+        24
+      ],
+      "top3_mascara": [
+        22,
+        23,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.2395098679083541,
+      "bbox_frac": 0.41091119856608477
+    },
+    {
+      "ruta": "Pristimantis_thectopternus/col_obs_315921838_photo_570746031.jpg",
+      "especie": "Pristimantis_thectopternus",
+      "y_real": 34,
+      "top1_completa": 34,
+      "top1_zoom": 34,
+      "top1_mascara": 34,
+      "prob_correcta_completa": 0.2089998722076416,
+      "prob_correcta_zoom": 0.23288089036941528,
+      "prob_correcta_mascara": 0.231577530503273,
+      "top3_completa": [
+        34,
+        8,
+        25
+      ],
+      "top3_zoom": [
+        34,
+        39,
+        8
+      ],
+      "top3_mascara": [
+        34,
+        39,
+        25
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.22392314814814815,
+      "bbox_frac": 0.37745555555555554
+    },
+    {
+      "ruta": "Pristimantis_achatinus/col_obs_214706764_photo_379532444.jpg",
+      "especie": "Pristimantis_achatinus",
+      "y_real": 25,
+      "top1_completa": 36,
+      "top1_zoom": 36,
+      "top1_mascara": 21,
+      "prob_correcta_completa": 0.04463539645075798,
+      "prob_correcta_zoom": 0.032194480299949646,
+      "prob_correcta_mascara": 0.046126630157232285,
+      "top3_completa": [
+        36,
+        21,
+        40
+      ],
+      "top3_zoom": [
+        36,
+        21,
+        38
+      ],
+      "top3_mascara": [
+        21,
+        36,
+        8
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.2037283268865364,
+      "bbox_frac": 0.36477684327497284
+    },
+    {
+      "ruta": "Hyloscirtus_palmeri/col_obs_182771660_photo_318702283.jpg",
+      "especie": "Hyloscirtus_palmeri",
+      "y_real": 20,
+      "top1_completa": 20,
+      "top1_zoom": 20,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.43387407064437866,
+      "prob_correcta_zoom": 0.11043664067983627,
+      "prob_correcta_mascara": 0.14598895609378815,
+      "top3_completa": [
+        20,
+        1,
+        5
+      ],
+      "top3_zoom": [
+        20,
+        13,
+        5
+      ],
+      "top3_mascara": [
+        1,
+        20,
+        5
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.05894749748106986,
+      "bbox_frac": 0.11439926378541769
+    },
+    {
+      "ruta": "Boana_lanciformis/col_obs_34577801_photo_54432551.jpg",
+      "especie": "Boana_lanciformis",
+      "y_real": 2,
+      "top1_completa": 2,
+      "top1_zoom": 2,
+      "top1_mascara": 0,
+      "prob_correcta_completa": 0.14340627193450928,
+      "prob_correcta_zoom": 0.12921898066997528,
+      "prob_correcta_mascara": 0.06846464425325394,
+      "top3_completa": [
+        2,
+        3,
+        0
+      ],
+      "top3_zoom": [
+        2,
+        0,
+        3
+      ],
+      "top3_mascara": [
+        0,
+        4,
+        3
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.11157421104536488,
+      "bbox_frac": 0.21468318540433926
+    },
+    {
+      "ruta": "Pristimantis_paisa/col_obs_36368109_photo_57481139.jpg",
+      "especie": "Pristimantis_paisa",
+      "y_real": 29,
+      "top1_completa": 29,
+      "top1_zoom": 29,
+      "top1_mascara": 29,
+      "prob_correcta_completa": 0.2059527337551117,
+      "prob_correcta_zoom": 0.1737438142299652,
+      "prob_correcta_mascara": 0.145317941904068,
+      "top3_completa": [
+        29,
+        31,
+        33
+      ],
+      "top3_zoom": [
+        29,
+        31,
+        33
+      ],
+      "top3_mascara": [
+        29,
+        31,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.18282190958658853,
+      "bbox_frac": 0.3350779215494792
+    },
+    {
+      "ruta": "Dendropsophus_triangulum/col_obs_343922238_photo_626578812.jpg",
+      "especie": "Dendropsophus_triangulum",
+      "y_real": 18,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.19733871519565582,
+      "prob_correcta_zoom": 0.1111951395869255,
+      "prob_correcta_mascara": 0.07425106316804886,
+      "top3_completa": [
+        12,
+        18,
+        13
+      ],
+      "top3_zoom": [
+        12,
+        13,
+        18
+      ],
+      "top3_mascara": [
+        13,
+        14,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.09682591756184895,
+      "bbox_frac": 0.17062505086263022
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_263757478_photo_473889794.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 12,
+      "prob_correcta_completa": 0.3287949860095978,
+      "prob_correcta_zoom": 0.2436332106590271,
+      "prob_correcta_mascara": 0.277454674243927,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        12,
+        18,
+        17
+      ],
+      "top3_mascara": [
+        12,
+        18,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.05129369099934896,
+      "bbox_frac": 0.10687255859375
+    },
+    {
+      "ruta": "Phyllomedusa_venusta/col_obs_329080145_photo_596446277.jpg",
+      "especie": "Phyllomedusa_venusta",
+      "y_real": 23,
+      "top1_completa": 24,
+      "top1_zoom": 24,
+      "top1_mascara": 24,
+      "prob_correcta_completa": 0.18245628476142883,
+      "prob_correcta_zoom": 0.14991362392902374,
+      "prob_correcta_mascara": 0.1339998096227646,
+      "top3_completa": [
+        24,
+        23,
+        22
+      ],
+      "top3_zoom": [
+        24,
+        22,
+        23
+      ],
+      "top3_mascara": [
+        24,
+        22,
+        23
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.13110733032226562,
+      "bbox_frac": 0.21394856770833334
+    },
+    {
+      "ruta": "Dendropsophus_molitor/col_obs_390050591_photo_714541951.jpg",
+      "especie": "Dendropsophus_molitor",
+      "y_real": 15,
+      "top1_completa": 15,
+      "top1_zoom": 15,
+      "top1_mascara": 15,
+      "prob_correcta_completa": 0.27008700370788574,
+      "prob_correcta_zoom": 0.10106445848941803,
+      "prob_correcta_mascara": 0.15563219785690308,
+      "top3_completa": [
+        15,
+        16,
+        24
+      ],
+      "top3_zoom": [
+        15,
+        40,
+        7
+      ],
+      "top3_mascara": [
+        15,
+        7,
+        6
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 5,
+      "fg_frac": 0.021299997965494793,
+      "bbox_frac": 0.034423828125
+    },
+    {
+      "ruta": "Pristimantis_permixtus/col_obs_328094243_photo_594461377.jpg",
+      "especie": "Pristimantis_permixtus",
+      "y_real": 32,
+      "top1_completa": 32,
+      "top1_zoom": 32,
+      "top1_mascara": 32,
+      "prob_correcta_completa": 0.2401724010705948,
+      "prob_correcta_zoom": 0.18671047687530518,
+      "prob_correcta_mascara": 0.0736420750617981,
+      "top3_completa": [
+        32,
+        35,
+        8
+      ],
+      "top3_zoom": [
+        32,
+        21,
+        8
+      ],
+      "top3_mascara": [
+        32,
+        7,
+        0
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.13896814982096353,
+      "bbox_frac": 0.2577781677246094
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_276754854_photo_496967190.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 12,
+      "prob_correcta_completa": 0.4705979526042938,
+      "prob_correcta_zoom": 0.37670275568962097,
+      "prob_correcta_mascara": 0.36484456062316895,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        12,
+        18,
+        17
+      ],
+      "top3_mascara": [
+        12,
+        18,
+        17
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.0743560791015625,
+      "bbox_frac": 0.1282933553059896
+    },
+    {
+      "ruta": "Dendropsophus_microcephalus/col_obs_101783596_photo_170042388.jpg",
+      "especie": "Dendropsophus_microcephalus",
+      "y_real": 14,
+      "top1_completa": 13,
+      "top1_zoom": 13,
+      "top1_mascara": 5,
+      "prob_correcta_completa": 0.1671605259180069,
+      "prob_correcta_zoom": 0.0568118616938591,
+      "prob_correcta_mascara": 0.042457208037376404,
+      "top3_completa": [
+        13,
+        14,
+        11
+      ],
+      "top3_zoom": [
+        13,
+        17,
+        5
+      ],
+      "top3_mascara": [
+        5,
+        13,
+        1
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.19718907243114406,
+      "bbox_frac": 0.2825120828919492
+    },
+    {
+      "ruta": "Dendrobates_truncatus/col_obs_312725394_photo_564661082.jpg",
+      "especie": "Dendrobates_truncatus",
+      "y_real": 9,
+      "top1_completa": 9,
+      "top1_zoom": 9,
+      "top1_mascara": 9,
+      "prob_correcta_completa": 0.8509637117385864,
+      "prob_correcta_zoom": 0.3582957684993744,
+      "prob_correcta_mascara": 0.4229874610900879,
+      "top3_completa": [
+        9,
+        18,
+        12
+      ],
+      "top3_zoom": [
+        9,
+        18,
+        12
+      ],
+      "top3_mascara": [
+        9,
+        18,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.017195383707682293,
+      "bbox_frac": 0.028895060221354168
+    },
+    {
+      "ruta": "Boana_platanera/col_obs_372107229_photo_679930234.jpg",
+      "especie": "Boana_platanera",
+      "y_real": 3,
+      "top1_completa": 3,
+      "top1_zoom": 3,
+      "top1_mascara": 3,
+      "prob_correcta_completa": 0.17095434665679932,
+      "prob_correcta_zoom": 0.17172004282474518,
+      "prob_correcta_mascara": 0.13920170068740845,
+      "top3_completa": [
+        3,
+        6,
+        4
+      ],
+      "top3_zoom": [
+        3,
+        6,
+        4
+      ],
+      "top3_mascara": [
+        3,
+        6,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.13528513008145554,
+      "bbox_frac": 0.25058998172959807
+    },
+    {
+      "ruta": "Dendropsophus_mathiassoni/col_obs_279365712_photo_501658326.jpg",
+      "especie": "Dendropsophus_mathiassoni",
+      "y_real": 13,
+      "top1_completa": 13,
+      "top1_zoom": 13,
+      "top1_mascara": 13,
+      "prob_correcta_completa": 0.19032391905784607,
+      "prob_correcta_zoom": 0.2442225217819214,
+      "prob_correcta_mascara": 0.16451029479503632,
+      "top3_completa": [
+        13,
+        14,
+        3
+      ],
+      "top3_zoom": [
+        13,
+        14,
+        12
+      ],
+      "top3_mascara": [
+        13,
+        3,
+        14
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.17293802897135416,
+      "bbox_frac": 0.2432988484700521
+    },
+    {
+      "ruta": "Boana_rosenbergi/col_obs_363544286_photo_663625079.jpg",
+      "especie": "Boana_rosenbergi",
+      "y_real": 6,
+      "top1_completa": 40,
+      "top1_zoom": 1,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.022008419036865234,
+      "prob_correcta_zoom": 0.05693060904741287,
+      "prob_correcta_mascara": 0.031024472787976265,
+      "top3_completa": [
+        40,
+        13,
+        10
+      ],
+      "top3_zoom": [
+        1,
+        7,
+        3
+      ],
+      "top3_mascara": [
+        1,
+        5,
+        3
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.04900685515511093,
+      "bbox_frac": 0.1025232613010208
+    },
+    {
+      "ruta": "Pristimantis_paisa/col_obs_90938675_photo_150347515.jpg",
+      "especie": "Pristimantis_paisa",
+      "y_real": 29,
+      "top1_completa": 33,
+      "top1_zoom": 33,
+      "top1_mascara": 33,
+      "prob_correcta_completa": 0.1111837849020958,
+      "prob_correcta_zoom": 0.11560171097517014,
+      "prob_correcta_mascara": 0.1519518792629242,
+      "top3_completa": [
+        33,
+        29,
+        30
+      ],
+      "top3_zoom": [
+        33,
+        29,
+        30
+      ],
+      "top3_mascara": [
+        33,
+        29,
+        30
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.047402513402551576,
+      "bbox_frac": 0.09443815316232357
+    },
+    {
+      "ruta": "Phyllomedusa_tarsius/fallback_obs_362774827_photo_662147515.jpg",
+      "especie": "Phyllomedusa_tarsius",
+      "y_real": 22,
+      "top1_completa": 22,
+      "top1_zoom": 22,
+      "top1_mascara": 22,
+      "prob_correcta_completa": 0.4039837121963501,
+      "prob_correcta_zoom": 0.4356609582901001,
+      "prob_correcta_mascara": 0.4433661997318268,
+      "top3_completa": [
+        22,
+        23,
+        24
+      ],
+      "top3_zoom": [
+        22,
+        23,
+        24
+      ],
+      "top3_mascara": [
+        22,
+        23,
+        24
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.373234180545388,
+      "bbox_frac": 0.7183782485358712
+    },
+    {
+      "ruta": "Pristimantis_bogotensis/col_obs_251388363_photo_449801521.jpg",
+      "especie": "Pristimantis_bogotensis",
+      "y_real": 26,
+      "top1_completa": 26,
+      "top1_zoom": 36,
+      "top1_mascara": 26,
+      "prob_correcta_completa": 0.09162566065788269,
+      "prob_correcta_zoom": 0.09339747577905655,
+      "prob_correcta_mascara": 0.09885207563638687,
+      "top3_completa": [
+        26,
+        33,
+        30
+      ],
+      "top3_zoom": [
+        36,
+        19,
+        26
+      ],
+      "top3_mascara": [
+        26,
+        36,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.002711979166666667,
+      "bbox_frac": 0.0036
+    },
+    {
+      "ruta": "Dendropsophus_columbianus/col_obs_391306352_photo_716996831.jpg",
+      "especie": "Dendropsophus_columbianus",
+      "y_real": 11,
+      "top1_completa": 12,
+      "top1_zoom": 17,
+      "top1_mascara": 18,
+      "prob_correcta_completa": 0.06079231575131416,
+      "prob_correcta_zoom": 0.06715445220470428,
+      "prob_correcta_mascara": 0.053470492362976074,
+      "top3_completa": [
+        12,
+        17,
+        18
+      ],
+      "top3_zoom": [
+        17,
+        18,
+        10
+      ],
+      "top3_mascara": [
+        18,
+        17,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.11997178590285111,
+      "bbox_frac": 0.24362501649947202
+    },
+    {
+      "ruta": "Dendropsophus_bogerti/col_obs_19200244_photo_29491408.jpg",
+      "especie": "Dendropsophus_bogerti",
+      "y_real": 10,
+      "top1_completa": 14,
+      "top1_zoom": 10,
+      "top1_mascara": 10,
+      "prob_correcta_completa": 0.08625634014606476,
+      "prob_correcta_zoom": 0.08963175863027573,
+      "prob_correcta_mascara": 0.11893309652805328,
+      "top3_completa": [
+        14,
+        13,
+        10
+      ],
+      "top3_zoom": [
+        10,
+        14,
+        15
+      ],
+      "top3_mascara": [
+        10,
+        15,
+        14
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.026839599609375,
+      "bbox_frac": 0.0394384765625
+    },
+    {
+      "ruta": "Dendropsophus_microcephalus/col_obs_339149267_photo_616897110.jpg",
+      "especie": "Dendropsophus_microcephalus",
+      "y_real": 14,
+      "top1_completa": 14,
+      "top1_zoom": 6,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.10618951171636581,
+      "prob_correcta_zoom": 0.031031882390379906,
+      "prob_correcta_mascara": 0.019643787294626236,
+      "top3_completa": [
+        14,
+        13,
+        3
+      ],
+      "top3_zoom": [
+        6,
+        4,
+        3
+      ],
+      "top3_mascara": [
+        6,
+        4,
+        0
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.018650054931640625,
+      "bbox_frac": 0.02436065673828125
+    },
+    {
+      "ruta": "Dendropsophus_ebraccatus/col_obs_340165346_photo_618974967.jpg",
+      "especie": "Dendropsophus_ebraccatus",
+      "y_real": 12,
+      "top1_completa": 12,
+      "top1_zoom": 12,
+      "top1_mascara": 2,
+      "prob_correcta_completa": 0.35641470551490784,
+      "prob_correcta_zoom": 0.16323640942573547,
+      "prob_correcta_mascara": 0.07003475725650787,
+      "top3_completa": [
+        12,
+        18,
+        17
+      ],
+      "top3_zoom": [
+        12,
+        3,
+        14
+      ],
+      "top3_mascara": [
+        2,
+        3,
+        12
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.06293111041847355,
+      "bbox_frac": 0.08923731569817867
+    },
+    {
+      "ruta": "Pristimantis_taeniatus/col_obs_6343189_photo_7994735.jpg",
+      "especie": "Pristimantis_taeniatus",
+      "y_real": 33,
+      "top1_completa": 33,
+      "top1_zoom": 33,
+      "top1_mascara": 30,
+      "prob_correcta_completa": 0.16534945368766785,
+      "prob_correcta_zoom": 0.17713598906993866,
+      "prob_correcta_mascara": 0.11670703440904617,
+      "top3_completa": [
+        33,
+        29,
+        30
+      ],
+      "top3_zoom": [
+        33,
+        30,
+        29
+      ],
+      "top3_mascara": [
+        30,
+        33,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.21499777315438137,
+      "bbox_frac": 0.3669828744662309
+    },
+    {
+      "ruta": "Leptodactylus_colombiensis/col_obs_308582523_photo_556734895.jpg",
+      "especie": "Leptodactylus_colombiensis",
+      "y_real": 21,
+      "top1_completa": 21,
+      "top1_zoom": 21,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.42017698287963867,
+      "prob_correcta_zoom": 0.44233405590057373,
+      "prob_correcta_mascara": 0.07081272453069687,
+      "top3_completa": [
+        21,
+        36,
+        38
+      ],
+      "top3_zoom": [
+        21,
+        36,
+        8
+      ],
+      "top3_mascara": [
+        37,
+        36,
+        39
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.09586841865272373,
+      "bbox_frac": 0.16378321072470817
+    },
+    {
+      "ruta": "Rheobates_palmatus/col_obs_110253577_photo_185958888.jpg",
+      "especie": "Rheobates_palmatus",
+      "y_real": 36,
+      "top1_completa": 36,
+      "top1_zoom": 36,
+      "top1_mascara": 8,
+      "prob_correcta_completa": 0.12410393357276917,
+      "prob_correcta_zoom": 0.10339201986789703,
+      "prob_correcta_mascara": 0.043680429458618164,
+      "top3_completa": [
+        36,
+        21,
+        38
+      ],
+      "top3_zoom": [
+        36,
+        40,
+        8
+      ],
+      "top3_mascara": [
+        8,
+        38,
+        6
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.1861782950726366,
+      "bbox_frac": 0.29352775368603645
+    },
+    {
+      "ruta": "Pristimantis_permixtus/col_obs_341299212_photo_621282176.jpg",
+      "especie": "Pristimantis_permixtus",
+      "y_real": 32,
+      "top1_completa": 32,
+      "top1_zoom": 8,
+      "top1_mascara": 2,
+      "prob_correcta_completa": 0.2123352438211441,
+      "prob_correcta_zoom": 0.14225515723228455,
+      "prob_correcta_mascara": 0.10285744816064835,
+      "top3_completa": [
+        32,
+        8,
+        35
+      ],
+      "top3_zoom": [
+        8,
+        32,
+        2
+      ],
+      "top3_mascara": [
+        2,
+        32,
+        8
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.23606236775716147,
+      "bbox_frac": 0.5080439249674479
+    },
+    {
+      "ruta": "Boana_rosenbergi/col_obs_225632483_photo_400061794.jpg",
+      "especie": "Boana_rosenbergi",
+      "y_real": 6,
+      "top1_completa": 6,
+      "top1_zoom": 7,
+      "top1_mascara": 7,
+      "prob_correcta_completa": 0.23551245033740997,
+      "prob_correcta_zoom": 0.15799447894096375,
+      "prob_correcta_mascara": 0.08082621544599533,
+      "top3_completa": [
+        6,
+        7,
+        4
+      ],
+      "top3_zoom": [
+        7,
+        6,
+        4
+      ],
+      "top3_mascara": [
+        7,
+        6,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 4,
+      "fg_frac": 0.18300872304778554,
+      "bbox_frac": 0.4154670199592075
+    },
+    {
+      "ruta": "Dendropsophus_bogerti/col_obs_336196352_photo_610888517.jpg",
+      "especie": "Dendropsophus_bogerti",
+      "y_real": 10,
+      "top1_completa": 2,
+      "top1_zoom": 2,
+      "top1_mascara": 2,
+      "prob_correcta_completa": 0.019843388348817825,
+      "prob_correcta_zoom": 0.025746073573827744,
+      "prob_correcta_mascara": 0.025793828070163727,
+      "top3_completa": [
+        2,
+        38,
+        23
+      ],
+      "top3_zoom": [
+        2,
+        38,
+        0
+      ],
+      "top3_mascara": [
+        2,
+        23,
+        22
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.07840728759765625,
+      "bbox_frac": 0.13753255208333334
+    },
+    {
+      "ruta": "Rhinella_margaritifera/col_obs_33561623_photo_52795064.jpg",
+      "especie": "Rhinella_margaritifera",
+      "y_real": 39,
+      "top1_completa": 39,
+      "top1_zoom": 39,
+      "top1_mascara": 39,
+      "prob_correcta_completa": 0.3468739092350006,
+      "prob_correcta_zoom": 0.34190553426742554,
+      "prob_correcta_mascara": 0.2758997678756714,
+      "top3_completa": [
+        39,
+        37,
+        34
+      ],
+      "top3_zoom": [
+        39,
+        37,
+        34
+      ],
+      "top3_mascara": [
+        39,
+        37,
+        34
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.13965352376302084,
+      "bbox_frac": 0.23286946614583334
+    },
+    {
+      "ruta": "Pristimantis_bogotensis/col_obs_347964591_photo_634533933.jpg",
+      "especie": "Pristimantis_bogotensis",
+      "y_real": 26,
+      "top1_completa": 29,
+      "top1_zoom": 21,
+      "top1_mascara": 29,
+      "prob_correcta_completa": 0.06679608672857285,
+      "prob_correcta_zoom": 0.051739297807216644,
+      "prob_correcta_mascara": 0.08690837770700455,
+      "top3_completa": [
+        29,
+        21,
+        32
+      ],
+      "top3_zoom": [
+        21,
+        32,
+        36
+      ],
+      "top3_mascara": [
+        29,
+        26,
+        33
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.1537187280521179,
+      "bbox_frac": 0.34458962001404664
+    },
+    {
+      "ruta": "Pristimantis_bogotensis/col_obs_347964591_photo_634533954.jpg",
+      "especie": "Pristimantis_bogotensis",
+      "y_real": 26,
+      "top1_completa": 21,
+      "top1_zoom": 21,
+      "top1_mascara": 19,
+      "prob_correcta_completa": 0.06494874507188797,
+      "prob_correcta_zoom": 0.05728535354137421,
+      "prob_correcta_mascara": 0.10782409459352493,
+      "top3_completa": [
+        21,
+        36,
+        19
+      ],
+      "top3_zoom": [
+        21,
+        19,
+        36
+      ],
+      "top3_mascara": [
+        19,
+        26,
+        36
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.2134844137842107,
+      "bbox_frac": 0.3080386404908503
+    },
+    {
+      "ruta": "Dendropsophus_microcephalus/col_obs_8973298_photo_12101156.jpg",
+      "especie": "Dendropsophus_microcephalus",
+      "y_real": 14,
+      "top1_completa": 2,
+      "top1_zoom": 10,
+      "top1_mascara": 16,
+      "prob_correcta_completa": 0.06995090842247009,
+      "prob_correcta_zoom": 0.0821523368358612,
+      "prob_correcta_mascara": 0.06258494406938553,
+      "top3_completa": [
+        2,
+        13,
+        17
+      ],
+      "top3_zoom": [
+        10,
+        14,
+        17
+      ],
+      "top3_mascara": [
+        16,
+        7,
+        14
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.0024045308430989585,
+      "bbox_frac": 0.00390625
+    },
+    {
+      "ruta": "Rhinella_horribilis/col_obs_336414303_photo_611330619.jpg",
+      "especie": "Rhinella_horribilis",
+      "y_real": 38,
+      "top1_completa": 38,
+      "top1_zoom": 38,
+      "top1_mascara": 38,
+      "prob_correcta_completa": 0.7748538851737976,
+      "prob_correcta_zoom": 0.45597904920578003,
+      "prob_correcta_mascara": 0.6679450273513794,
+      "top3_completa": [
+        38,
+        37,
+        39
+      ],
+      "top3_zoom": [
+        38,
+        37,
+        39
+      ],
+      "top3_mascara": [
+        38,
+        37,
+        39
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 3,
+      "fg_frac": 0.057210416666666666,
+      "bbox_frac": 0.0863625
+    },
+    {
+      "ruta": "Pristimantis_thectopternus/col_obs_249570616_photo_446155084.jpg",
+      "especie": "Pristimantis_thectopternus",
+      "y_real": 34,
+      "top1_completa": 34,
+      "top1_zoom": 19,
+      "top1_mascara": 19,
+      "prob_correcta_completa": 0.2215498387813568,
+      "prob_correcta_zoom": 0.11763907223939896,
+      "prob_correcta_mascara": 0.10198035091161728,
+      "top3_completa": [
+        34,
+        25,
+        8
+      ],
+      "top3_zoom": [
+        19,
+        34,
+        36
+      ],
+      "top3_mascara": [
+        19,
+        34,
+        26
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.14474380410167412,
+      "bbox_frac": 0.26696769289803235
+    },
+    {
+      "ruta": "Boana_lanciformis/col_obs_34577801_photo_54432554.jpg",
+      "especie": "Boana_lanciformis",
+      "y_real": 2,
+      "top1_completa": 2,
+      "top1_zoom": 10,
+      "top1_mascara": 0,
+      "prob_correcta_completa": 0.2174602448940277,
+      "prob_correcta_zoom": 0.04009564593434334,
+      "prob_correcta_mascara": 0.10072247684001923,
+      "top3_completa": [
+        2,
+        0,
+        3
+      ],
+      "top3_zoom": [
+        10,
+        11,
+        40
+      ],
+      "top3_mascara": [
+        0,
+        3,
+        2
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.17705991124260356,
+      "bbox_frac": 0.3101232741617357
+    },
+    {
+      "ruta": "Dendropsophus_columbianus/col_obs_341800841_photo_622307753.jpg",
+      "especie": "Dendropsophus_columbianus",
+      "y_real": 11,
+      "top1_completa": 14,
+      "top1_zoom": 3,
+      "top1_mascara": 6,
+      "prob_correcta_completa": 0.08965031802654266,
+      "prob_correcta_zoom": 0.02876899391412735,
+      "prob_correcta_mascara": 0.030564434826374054,
+      "top3_completa": [
+        14,
+        13,
+        11
+      ],
+      "top3_zoom": [
+        3,
+        4,
+        6
+      ],
+      "top3_mascara": [
+        6,
+        3,
+        4
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.053159387010431915,
+      "bbox_frac": 0.07459765053074671
+    },
+    {
+      "ruta": "Boana_cinerascens/col_obs_327936920_photo_594165501.jpg",
+      "especie": "Boana_cinerascens",
+      "y_real": 1,
+      "top1_completa": 1,
+      "top1_zoom": 1,
+      "top1_mascara": 1,
+      "prob_correcta_completa": 0.44124117493629456,
+      "prob_correcta_zoom": 0.4062515199184418,
+      "prob_correcta_mascara": 0.388457328081131,
+      "top3_completa": [
+        1,
+        5,
+        20
+      ],
+      "top3_zoom": [
+        1,
+        5,
+        20
+      ],
+      "top3_mascara": [
+        1,
+        5,
+        20
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.29067230224609375,
+      "bbox_frac": 0.427459716796875
+    },
+    {
+      "ruta": "Craugastor_raniformis/col_obs_36203597_photo_57200036.jpg",
+      "especie": "Craugastor_raniformis",
+      "y_real": 8,
+      "top1_completa": 8,
+      "top1_zoom": 8,
+      "top1_mascara": 8,
+      "prob_correcta_completa": 0.16200198233127594,
+      "prob_correcta_zoom": 0.23765350878238678,
+      "prob_correcta_mascara": 0.18589957058429718,
+      "top3_completa": [
+        8,
+        2,
+        25
+      ],
+      "top3_zoom": [
+        8,
+        2,
+        25
+      ],
+      "top3_mascara": [
+        8,
+        2,
+        25
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.2553049723307292,
+      "bbox_frac": 0.3692626953125
+    },
+    {
+      "ruta": "Dendropsophus_reticulatus/col_obs_343916564_photo_626567823.jpg",
+      "especie": "Dendropsophus_reticulatus",
+      "y_real": 17,
+      "top1_completa": 14,
+      "top1_zoom": 17,
+      "top1_mascara": 18,
+      "prob_correcta_completa": 0.10437067598104477,
+      "prob_correcta_zoom": 0.11636126041412354,
+      "prob_correcta_mascara": 0.0774623304605484,
+      "top3_completa": [
+        14,
+        13,
+        12
+      ],
+      "top3_zoom": [
+        17,
+        12,
+        18
+      ],
+      "top3_mascara": [
+        18,
+        17,
+        14
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.04180272420247396,
+      "bbox_frac": 0.07468414306640625
+    },
+    {
+      "ruta": "Pristimantis_taeniatus/col_obs_48753206_photo_77374387.jpg",
+      "especie": "Pristimantis_taeniatus",
+      "y_real": 33,
+      "top1_completa": 29,
+      "top1_zoom": 29,
+      "top1_mascara": 33,
+      "prob_correcta_completa": 0.08998890221118927,
+      "prob_correcta_zoom": 0.12723660469055176,
+      "prob_correcta_mascara": 0.15132543444633484,
+      "top3_completa": [
+        29,
+        32,
+        33
+      ],
+      "top3_zoom": [
+        29,
+        33,
+        32
+      ],
+      "top3_mascara": [
+        33,
+        29,
+        30
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 2,
+      "fg_frac": 0.039119720458984375,
+      "bbox_frac": 0.06690216064453125
+    },
+    {
+      "ruta": "Pristimantis_taeniatus/col_obs_48753206_photo_77374383.jpg",
+      "especie": "Pristimantis_taeniatus",
+      "y_real": 33,
+      "top1_completa": 29,
+      "top1_zoom": 33,
+      "top1_mascara": 33,
+      "prob_correcta_completa": 0.08676472306251526,
+      "prob_correcta_zoom": 0.13925087451934814,
+      "prob_correcta_mascara": 0.14067041873931885,
+      "top3_completa": [
+        29,
+        19,
+        33
+      ],
+      "top3_zoom": [
+        33,
+        29,
+        31
+      ],
+      "top3_mascara": [
+        33,
+        35,
+        29
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.030450185139973957,
+      "bbox_frac": 0.05278905232747396
+    },
+    {
+      "ruta": "Rhinella_margaritifera/col_obs_63444684_photo_101817984.jpg",
+      "especie": "Rhinella_margaritifera",
+      "y_real": 39,
+      "top1_completa": 39,
+      "top1_zoom": 37,
+      "top1_mascara": 37,
+      "prob_correcta_completa": 0.3330276310443878,
+      "prob_correcta_zoom": 0.24135003983974457,
+      "prob_correcta_mascara": 0.34223371744155884,
+      "top3_completa": [
+        39,
+        37,
+        38
+      ],
+      "top3_zoom": [
+        37,
+        39,
+        38
+      ],
+      "top3_mascara": [
+        37,
+        39,
+        38
+      ],
+      "tenia_mascara": true,
+      "n_componentes": 1,
+      "fg_frac": 0.13362595688626724,
+      "bbox_frac": 0.20403632025450688
+    }
+  ]
+}

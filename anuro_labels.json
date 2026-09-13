@@ -1,0 +1,601 @@
+[
+  {
+    "name": "anuro_completo",
+    "color": "#54b49e",
+    "type": "any",
+    "attributes": [
+      {
+        "name": "especie",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "rheobates_palmatus",
+          "rhinella_alata",
+          "rhinella_horribilis",
+          "rhinella_margaritifera",
+          "sachatamia_electrops",
+          "craugastor_raniformis",
+          "dendrobates_truncatus",
+          "hyloxalus_picachos",
+          "boana_cinerascens",
+          "boana_lanciformis",
+          "boana_punctata",
+          "boana_xerophylla",
+          "dendropsophus_bogerti",
+          "dendropsophus_microcephalus",
+          "dendropsophus_reticulatus",
+          "dendropsophus_triangulum",
+          "hyloscirtus_palmeri",
+          "phyllomedusa_tarsius",
+          "pithecopus_hypochondrialis",
+          "scinax_ruber",
+          "engystomops_pustulosus",
+          "leptodactylus_colombiensis",
+          "pristimantis_achatinus",
+          "dendropsophus_norandinus",
+          "pristimantis_paisa",
+          "pristimantis_penelopus",
+          "pristimantis_taeniatus",
+          "pristimantis_vilarsi",
+          "otra_no_listada",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      },
+      {
+        "name": "vista",
+        "input_type": "select",
+        "mutable": true,
+        "values": [
+          "dorsal",
+          "ventral",
+          "lateral",
+          "frontal",
+          "detalle_macro"
+        ],
+        "default_value": "dorsal"
+      },
+      {
+        "name": "calidad_enfoque",
+        "input_type": "select",
+        "mutable": true,
+        "values": [
+          "alta",
+          "media",
+          "borrosa_parcial",
+          "borrosa_total"
+        ],
+        "default_value": "alta"
+      },
+      {
+        "name": "postura",
+        "input_type": "select",
+        "mutable": true,
+        "values": [
+          "extendida",
+          "recogida",
+          "salto",
+          "parcialmente_oculta",
+          "amplexus"
+        ],
+        "default_value": "extendida"
+      },
+      {
+        "name": "sexo_aparente",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "macho",
+          "hembra",
+          "indeterminado"
+        ],
+        "default_value": "indeterminado"
+      },
+      {
+        "name": "estadio",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "adulto",
+          "juvenil",
+          "metamorfo"
+        ],
+        "default_value": "adulto"
+      }
+    ]
+  },
+  {
+    "name": "cabeza",
+    "color": "#eb6d5d",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "forma_general",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ancha",
+          "estrecha",
+          "triangular",
+          "ovalada"
+        ],
+        "default_value": "ovalada"
+      }
+    ]
+  },
+  {
+    "name": "hocico",
+    "color": "#e67e22",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "forma",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "redondeado",
+          "puntiagudo",
+          "truncado",
+          "acuminado"
+        ],
+        "default_value": "redondeado"
+      },
+      {
+        "name": "canto_rostral",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "definido",
+          "indefinido",
+          "no_evaluable"
+        ],
+        "default_value": "indefinido"
+      }
+    ]
+  },
+  {
+    "name": "ojo",
+    "color": "#f1c40f",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      },
+      {
+        "name": "orientacion",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "horizontal",
+          "vertical",
+          "oblicua"
+        ],
+        "default_value": "horizontal"
+      },
+      {
+        "name": "forma_pupila",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "redonda",
+          "elipsoidal",
+          "romboidal",
+          "no_visible"
+        ],
+        "default_value": "redonda"
+      },
+      {
+        "name": "color_iris",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "marron_pardo",
+          "amarillo_dorado",
+          "rojo_naranja",
+          "verde",
+          "azul_turquesa",
+          "gris_claro",
+          "otro",
+          "negro",
+          "bicolor_reticulado",
+          "no_determinable"
+        ],
+        "default_value": "marron_pardo"
+      },
+      {
+        "name": "tamano_relativo",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "grande",
+          "mediano",
+          "pequeno"
+        ],
+        "default_value": "mediano"
+      }
+    ]
+  },
+  {
+    "name": "timpano",
+    "color": "#9b59b6",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      },
+      {
+        "name": "visibilidad",
+        "input_type": "select",
+        "mutable": true,
+        "values": [
+          "visible",
+          "oculto_pliegue",
+          "no_evaluable"
+        ],
+        "default_value": "visible"
+      },
+      {
+        "name": "tamano_relativo_ojo",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "mayor",
+          "igual",
+          "menor",
+          "no_evaluable"
+        ],
+        "default_value": "menor"
+      }
+    ]
+  },
+  {
+    "name": "dorso_flancos",
+    "color": "#2e7d32",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "color_base",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "verde",
+          "marron_pardo",
+          "gris",
+          "amarillo_naranja",
+          "azul_turquesa",
+          "negro",
+          "otro",
+          "no_determinable"
+        ],
+        "default_value": "marron_pardo"
+      },
+      {
+        "name": "patron",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "liso",
+          "manchado",
+          "rayado",
+          "granular",
+          "verrugoso",
+          "mixto",
+          "reticulado",
+          "lineas_dorsolaterales"
+        ],
+        "default_value": "liso"
+      },
+      {
+        "name": "textura",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "lisa",
+          "granulosa",
+          "verrugosa",
+          "plegada"
+        ],
+        "default_value": "lisa"
+      },
+      {
+        "name": "linea_vertebral",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "presente_delgada",
+          "presente_ancha"
+        ],
+        "default_value": "ausente"
+      }
+    ]
+  },
+  {
+    "name": "vientre",
+    "color": "#1565c0",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "color_base",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "blanco_crema",
+          "amarillo",
+          "translucido",
+          "manchado_oscuro",
+          "azul_turquesa",
+          "otro",
+          "no_determinable"
+        ],
+        "default_value": "blanco_crema"
+      },
+      {
+        "name": "patron",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "liso",
+          "moteado",
+          "reticulado",
+          "manchas_grandes"
+        ],
+        "default_value": "liso"
+      }
+    ]
+  },
+  {
+    "name": "ingle_muslo",
+    "color": "#c2185b",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "color_patron",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "liso",
+          "manchado",
+          "marmoreado",
+          "reticulado",
+          "barreado",
+          "no_evaluable"
+        ],
+        "default_value": "no_evaluable"
+      },
+      {
+        "name": "color_flash",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "rojo",
+          "naranja",
+          "amarillo",
+          "azul",
+          "otro"
+        ],
+        "default_value": "ausente"
+      }
+    ]
+  },
+  {
+    "name": "glandulas_pliegues",
+    "color": "#16a085",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "tipo",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "parotoide",
+          "dorsolateral",
+          "cresta_dorsolateral",
+          "pliegue_supratimpanico",
+          "inguinal",
+          "femoral",
+          "otra",
+          "pliegue_tarsal"
+        ],
+        "default_value": "dorsolateral"
+      },
+      {
+        "name": "prominencia",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "leve",
+          "moderada",
+          "marcada"
+        ],
+        "default_value": "leve"
+      }
+    ]
+  },
+  {
+    "name": "saco_vocal",
+    "color": "#8e44ad",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "presencia",
+        "input_type": "select",
+        "mutable": true,
+        "values": [
+          "ausente",
+          "presente_no_inflado",
+          "presente_inflado"
+        ],
+        "default_value": "ausente"
+      },
+      {
+        "name": "posicion",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "subgular_medial",
+          "subgular_bilateral",
+          "lateral",
+          "no_aplica"
+        ],
+        "default_value": "no_aplica"
+      }
+    ]
+  },
+  {
+    "name": "extremidad_anterior",
+    "color": "#afd68b",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      }
+    ]
+  },
+  {
+    "name": "extremidad_posterior",
+    "color": "#00838f",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "lado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "izquierdo",
+          "derecho",
+          "no_determinable"
+        ],
+        "default_value": "no_determinable"
+      }
+    ]
+  },
+  {
+    "name": "tuberculo_metatarsal",
+    "color": "#6d4c41",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "presencia",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "presente"
+        ],
+        "default_value": "ausente"
+      },
+      {
+        "name": "forma",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "comprimido",
+          "redondeado",
+          "no_evaluable"
+        ],
+        "default_value": "no_evaluable"
+      }
+    ]
+  },
+  {
+    "name": "dedos",
+    "color": "#d35400",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "extremidad",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "anterior",
+          "posterior"
+        ],
+        "default_value": "posterior"
+      },
+      {
+        "name": "presencia_discos",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "presente_pequeno",
+          "presente_grande"
+        ],
+        "default_value": "ausente"
+      }
+    ]
+  },
+  {
+    "name": "palmeadura",
+    "color": "#2ecc71",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "extremidad",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "anterior",
+          "posterior"
+        ],
+        "default_value": "posterior"
+      },
+      {
+        "name": "grado",
+        "input_type": "select",
+        "mutable": false,
+        "values": [
+          "ausente",
+          "basal",
+          "parcial",
+          "completa"
+        ],
+        "default_value": "ausente"
+      }
+    ]
+  },
+  {
+    "name": "region_cloacal",
+    "color": "#048713",
+    "type": "polygon",
+    "attributes": [
+      {
+        "name": "visibilidad",
+        "input_type": "select",
+        "mutable": true,
+        "values": [
+          "visible",
+          "no_observable"
+        ],
+        "default_value": "visible"
+      }
+    ]
+  }
+]

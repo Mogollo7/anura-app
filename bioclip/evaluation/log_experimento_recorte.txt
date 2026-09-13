@@ -1,0 +1,24 @@
+======================================================================
+EXPERIMENTO: recorte segmentado vs imagen completa
+======================================================================
+Dispositivo: cuda
+Encoder: BioCLIP v1 zero-shot (SIN fine-tuning, idéntico en ambos modos)
+Mismo conjunto en ambos modos: 3629 train, 848 test, 41 especies
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [  completa]  Top-1 =  51.5%   Top-3 =  72.6%   (197s)
+  [ recortada]  Top-1 =  42.5%   Top-3 =  63.4%   (209s)
+
+======================================================================
+VEREDICTO
+======================================================================
+  Δ Top-1 (recortada − completa): -9.1%
+  Δ Top-3 (recortada − completa): -9.2%
+
+  ❌ El recorte DAÑA los embeddings de BioCLIP.
+     Explica el resultado de Fase 4 variante C sin necesidad de más entrenamientos.
+     Causa probable: recortar ~10% del encuadre y reescalar a 224x224 introduce
+     borrosidad severa, y/o se pierde contexto que BioCLIP usa como señal.
+
+  Guardado en D:\Anura\bioclip\evaluation\experimento_recorte.json

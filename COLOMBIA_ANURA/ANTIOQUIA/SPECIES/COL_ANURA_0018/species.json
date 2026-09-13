@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0018",
+  "scientific_name": "Dendrobates truncatus",
+  "family": "Dendrobatidae",
+  "genus": "Dendrobates",
+  "common_name_es": "Rana venenosa de rayas amarillas",
+  "directory_legacy": "Dendrobates_truncatus",
+  "occurrences_in_department": 243,
+  "distinct_observers_in_department": 196,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 1000,
+  "occurrences_dropped_low_accuracy": 27,
+  "photos_curated_total": 1809,
+  "photos_raw_total": 1828,
+  "individuals_curated_total": 984,
+  "individuals_from_department": 238,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

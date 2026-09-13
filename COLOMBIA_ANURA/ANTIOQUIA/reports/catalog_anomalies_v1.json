@@ -1,0 +1,582 @@
+{
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-13",
+  "base_exclusions": {
+    "fuera_del_departamento": 58
+  },
+  "gbif_key_vs_name_disagreements": [],
+  "complement_by_species": [
+    {
+      "gbif_species_key": 2422192,
+      "scientific_name": "Osornophryne percrassa",
+      "taxon_id": "COL_ANURA_0056",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2423153,
+      "scientific_name": "Rhaebo blombergi",
+      "taxon_id": "COL_ANURA_0057",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2424012,
+      "scientific_name": "Diasporus diastema",
+      "taxon_id": "COL_ANURA_0228",
+      "fuera_del_departamento": 1,
+      "valido": 3
+    },
+    {
+      "gbif_species_key": 2425014,
+      "scientific_name": "Pristimantis aemulatus",
+      "taxon_id": "COL_ANURA_0117",
+      "valido": 7
+    },
+    {
+      "gbif_species_key": 2425020,
+      "scientific_name": "Pristimantis bogotensis",
+      "taxon_id": "COL_ANURA_0008",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2425097,
+      "scientific_name": "Pristimantis actinolaimus",
+      "taxon_id": "COL_ANURA_0116",
+      "fuera_del_departamento": 45,
+      "dataset_inaturalist_en_gbif": 1
+    },
+    {
+      "gbif_species_key": 2425099,
+      "scientific_name": "Pristimantis conspicillatus",
+      "taxon_id": "COL_ANURA_0132",
+      "fuera_del_departamento": 3,
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2425117,
+      "scientific_name": "Pristimantis maculosus",
+      "taxon_id": "COL_ANURA_0151",
+      "fuera_del_departamento": 6,
+      "valido": 3
+    },
+    {
+      "gbif_species_key": 2425126,
+      "scientific_name": "Pristimantis bicolor",
+      "taxon_id": "COL_ANURA_0122",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2425142,
+      "scientific_name": "Pristimantis bernali",
+      "taxon_id": "COL_ANURA_0121",
+      "valido": 3
+    },
+    {
+      "gbif_species_key": 2425160,
+      "scientific_name": "Pristimantis bellona",
+      "taxon_id": "COL_ANURA_0120",
+      "valido": 32
+    },
+    {
+      "gbif_species_key": 2425376,
+      "scientific_name": "Pristimantis helvolus",
+      "taxon_id": "COL_ANURA_0142",
+      "valido": 6
+    },
+    {
+      "gbif_species_key": 2425516,
+      "scientific_name": "Pristimantis vertebralis",
+      "taxon_id": "COL_ANURA_0175",
+      "valido": 3
+    },
+    {
+      "gbif_species_key": 2425752,
+      "scientific_name": "Pristimantis cabrerai",
+      "taxon_id": "COL_ANURA_0125",
+      "fuera_del_departamento": 3,
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 2425850,
+      "scientific_name": "Pristimantis signifer",
+      "taxon_id": "COL_ANURA_0168",
+      "incertidumbre_mayor_10km": 31
+    },
+    {
+      "gbif_species_key": 2425863,
+      "scientific_name": "Pristimantis johannesdei",
+      "taxon_id": "COL_ANURA_0144",
+      "valido": 6
+    },
+    {
+      "gbif_species_key": 2425875,
+      "scientific_name": "Niceforonia adenobrachia",
+      "taxon_id": "COL_ANURA_0111",
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 2425984,
+      "scientific_name": "Strabomantis cheiroplethus",
+      "taxon_id": "COL_ANURA_0184",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2426021,
+      "scientific_name": "Atopophrynus syntomopus",
+      "taxon_id": "COL_ANURA_0105",
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 2427080,
+      "scientific_name": "Lithobates palmipes",
+      "taxon_id": "COL_ANURA_0297",
+      "incertidumbre_mayor_10km": 1,
+      "valido": 3
+    },
+    {
+      "gbif_species_key": 2427983,
+      "scientific_name": "Phyllomedusa tarsius",
+      "taxon_id": "COL_ANURA_0041",
+      "fuera_del_departamento": 1,
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 2428380,
+      "scientific_name": "Pseudis paradoxa",
+      "taxon_id": "COL_ANURA_0258",
+      "fuera_del_departamento": 152,
+      "dataset_inaturalist_en_gbif": 2,
+      "valido": 3,
+      "rango_no_especie": 1
+    },
+    {
+      "gbif_species_key": 2428655,
+      "scientific_name": "Ecnomiohyla phantasmagoria",
+      "taxon_id": "COL_ANURA_0253",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2428976,
+      "scientific_name": "Colostethus yaguara",
+      "taxon_id": "COL_ANURA_0200",
+      "valido": 9
+    },
+    {
+      "gbif_species_key": 2429177,
+      "scientific_name": "Hyloxalus excisus",
+      "taxon_id": "COL_ANURA_0209",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2429227,
+      "scientific_name": "Hyloxalus vergeli",
+      "taxon_id": "COL_ANURA_0213",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2429383,
+      "scientific_name": "Nymphargus spilotus",
+      "taxon_id": "COL_ANURA_0099",
+      "dataset_inaturalist_en_gbif": 5,
+      "fuera_del_departamento": 13
+    },
+    {
+      "gbif_species_key": 2429424,
+      "scientific_name": "Cochranella resplendens",
+      "taxon_id": "COL_ANURA_0082",
+      "valido": 11,
+      "fuera_del_departamento": 1
+    },
+    {
+      "gbif_species_key": 2429461,
+      "scientific_name": "Centrolene peristictum",
+      "taxon_id": "COL_ANURA_0075",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 2429462,
+      "scientific_name": "Centrolene geckoideum",
+      "taxon_id": "COL_ANURA_0074",
+      "fuera_del_departamento": 2,
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 2430380,
+      "scientific_name": "Hoplobatrachus tigerinus",
+      "taxon_id": "COL_ANURA_0226",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 5216630,
+      "scientific_name": "Atelopus carauta",
+      "taxon_id": "COL_ANURA_0048",
+      "valido": 9
+    },
+    {
+      "gbif_species_key": 5216635,
+      "scientific_name": "Atelopus sonsonensis",
+      "taxon_id": "COL_ANURA_0053",
+      "valido": 20
+    },
+    {
+      "gbif_species_key": 5216700,
+      "scientific_name": "Atelopus sanjosei",
+      "taxon_id": "COL_ANURA_0051",
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 5216977,
+      "scientific_name": "Rhinella acrolopha",
+      "taxon_id": "COL_ANURA_0060",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 5217160,
+      "scientific_name": "Bufo bufo",
+      "taxon_id": "COL_ANURA_0054",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 5217574,
+      "scientific_name": "Leptodactylus mystacinus",
+      "taxon_id": "COL_ANURA_0277",
+      "fuera_del_departamento": 30,
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 7536992,
+      "scientific_name": "Andinobates daleswansoni",
+      "taxon_id": "COL_ANURA_0190",
+      "dataset_inaturalist_en_gbif": 10,
+      "fuera_del_departamento": 24
+    },
+    {
+      "gbif_species_key": 10704158,
+      "scientific_name": "Dendropsophus molitor",
+      "taxon_id": "COL_ANURA_0033",
+      "fuera_del_departamento": 8,
+      "rango_no_especie": 1,
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 10736342,
+      "scientific_name": "Callimedusa perinesos",
+      "taxon_id": "COL_ANURA_0293",
+      "valido": 2
+    },
+    {
+      "gbif_species_key": 10782364,
+      "scientific_name": "Boana albomarginata",
+      "taxon_id": "COL_ANURA_0244",
+      "valido": 1
+    },
+    {
+      "gbif_species_key": 10845498,
+      "scientific_name": "Ectopoglossus atopoglossus",
+      "taxon_id": "COL_ANURA_0203",
+      "valido": 1
+    }
+  ],
+  "facet_only_without_valid_record": [
+    {
+      "taxon_id": "COL_ANURA_0099",
+      "scientific_name": "Nymphargus spilotus",
+      "gbif_facet_count_department": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0116",
+      "scientific_name": "Pristimantis actinolaimus",
+      "gbif_facet_count_department": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0168",
+      "scientific_name": "Pristimantis signifer",
+      "gbif_facet_count_department": 31
+    },
+    {
+      "taxon_id": "COL_ANURA_0190",
+      "scientific_name": "Andinobates daleswansoni",
+      "gbif_facet_count_department": 4
+    }
+  ],
+  "doubtful_occurrence": [
+    {
+      "taxon_id": "COL_ANURA_0008",
+      "scientific_name": "Pristimantis bogotensis",
+      "records_valid": 1,
+      "gbif_count_colombia": 1719,
+      "department_share": 0.0006
+    },
+    {
+      "taxon_id": "COL_ANURA_0033",
+      "scientific_name": "Dendropsophus molitor",
+      "records_valid": 1,
+      "gbif_count_colombia": 2486,
+      "department_share": 0.0008
+    },
+    {
+      "taxon_id": "COL_ANURA_0041",
+      "scientific_name": "Phyllomedusa tarsius",
+      "records_valid": 2,
+      "gbif_count_colombia": 88,
+      "department_share": 0.0227
+    },
+    {
+      "taxon_id": "COL_ANURA_0056",
+      "scientific_name": "Osornophryne percrassa",
+      "records_valid": 1,
+      "gbif_count_colombia": 157,
+      "department_share": 0.0064
+    },
+    {
+      "taxon_id": "COL_ANURA_0057",
+      "scientific_name": "Rhaebo blombergi",
+      "records_valid": 1,
+      "gbif_count_colombia": 71,
+      "department_share": 0.0141
+    },
+    {
+      "taxon_id": "COL_ANURA_0083",
+      "scientific_name": "Espadarana andina",
+      "records_valid": 3,
+      "gbif_count_colombia": 160,
+      "department_share": 0.0187
+    },
+    {
+      "taxon_id": "COL_ANURA_0116",
+      "scientific_name": "Pristimantis actinolaimus",
+      "records_valid": 0,
+      "gbif_count_colombia": 52,
+      "department_share": 0.0192
+    },
+    {
+      "taxon_id": "COL_ANURA_0122",
+      "scientific_name": "Pristimantis bicolor",
+      "records_valid": 1,
+      "gbif_count_colombia": 211,
+      "department_share": 0.0047
+    },
+    {
+      "taxon_id": "COL_ANURA_0123",
+      "scientific_name": "Pristimantis boulengeri",
+      "records_valid": 4,
+      "gbif_count_colombia": 476,
+      "department_share": 0.0252
+    },
+    {
+      "taxon_id": "COL_ANURA_0126",
+      "scientific_name": "Pristimantis calcaratus",
+      "records_valid": 2,
+      "gbif_count_colombia": 234,
+      "department_share": 0.0085
+    },
+    {
+      "taxon_id": "COL_ANURA_0132",
+      "scientific_name": "Pristimantis conspicillatus",
+      "records_valid": 1,
+      "gbif_count_colombia": 138,
+      "department_share": 0.0072
+    },
+    {
+      "taxon_id": "COL_ANURA_0140",
+      "scientific_name": "Pristimantis frater",
+      "records_valid": 1,
+      "gbif_count_colombia": 339,
+      "department_share": 0.0029
+    },
+    {
+      "taxon_id": "COL_ANURA_0152",
+      "scientific_name": "Pristimantis myops",
+      "records_valid": 1,
+      "gbif_count_colombia": 70,
+      "department_share": 0.0143
+    },
+    {
+      "taxon_id": "COL_ANURA_0166",
+      "scientific_name": "Pristimantis savagei",
+      "records_valid": 2,
+      "gbif_count_colombia": 725,
+      "department_share": 0.0083
+    },
+    {
+      "taxon_id": "COL_ANURA_0188",
+      "scientific_name": "Andinobates bombetes",
+      "records_valid": 1,
+      "gbif_count_colombia": 583,
+      "department_share": 0.0017
+    },
+    {
+      "taxon_id": "COL_ANURA_0197",
+      "scientific_name": "Colostethus latinasus",
+      "records_valid": 2,
+      "gbif_count_colombia": 68,
+      "department_share": 0.0294
+    },
+    {
+      "taxon_id": "COL_ANURA_0201",
+      "scientific_name": "Dendrobates auratus",
+      "records_valid": 3,
+      "gbif_count_colombia": 207,
+      "department_share": 0.0193
+    },
+    {
+      "taxon_id": "COL_ANURA_0212",
+      "scientific_name": "Hyloxalus subpunctatus",
+      "records_valid": 3,
+      "gbif_count_colombia": 840,
+      "department_share": 0.0202
+    },
+    {
+      "taxon_id": "COL_ANURA_0213",
+      "scientific_name": "Hyloxalus vergeli",
+      "records_valid": 1,
+      "gbif_count_colombia": 282,
+      "department_share": 0.0035
+    },
+    {
+      "taxon_id": "COL_ANURA_0220",
+      "scientific_name": "Oophaga solanensis",
+      "records_valid": 4,
+      "gbif_count_colombia": 208,
+      "department_share": 0.0096
+    },
+    {
+      "taxon_id": "COL_ANURA_0221",
+      "scientific_name": "Phyllobates aurotaenia",
+      "records_valid": 2,
+      "gbif_count_colombia": 144,
+      "department_share": 0.0139
+    },
+    {
+      "taxon_id": "COL_ANURA_0222",
+      "scientific_name": "Phyllobates terribilis",
+      "records_valid": 1,
+      "gbif_count_colombia": 342,
+      "department_share": 0.0029
+    },
+    {
+      "taxon_id": "COL_ANURA_0231",
+      "scientific_name": "Diasporus tinker",
+      "records_valid": 1,
+      "gbif_count_colombia": 261,
+      "department_share": 0.0038
+    },
+    {
+      "taxon_id": "COL_ANURA_0258",
+      "scientific_name": "Pseudis paradoxa",
+      "records_valid": 3,
+      "gbif_count_colombia": 557,
+      "department_share": 0.0018
+    },
+    {
+      "taxon_id": "COL_ANURA_0277",
+      "scientific_name": "Leptodactylus mystacinus",
+      "records_valid": 1,
+      "gbif_count_colombia": 181,
+      "department_share": 0.0055
+    },
+    {
+      "taxon_id": "COL_ANURA_0280",
+      "scientific_name": "Leptodactylus rhodomerus",
+      "records_valid": 2,
+      "gbif_count_colombia": 82,
+      "department_share": 0.0244
+    },
+    {
+      "taxon_id": "COL_ANURA_0282",
+      "scientific_name": "Leptodactylus ventrimaculatus",
+      "records_valid": 1,
+      "gbif_count_colombia": 60,
+      "department_share": 0.0167
+    },
+    {
+      "taxon_id": "COL_ANURA_0283",
+      "scientific_name": "Physalaemus fischeri",
+      "records_valid": 1,
+      "gbif_count_colombia": 1162,
+      "department_share": 0.0009
+    },
+    {
+      "taxon_id": "COL_ANURA_0294",
+      "scientific_name": "Phyllomedusa bicolor",
+      "records_valid": 1,
+      "gbif_count_colombia": 63,
+      "department_share": 0.0159
+    },
+    {
+      "taxon_id": "COL_ANURA_0297",
+      "scientific_name": "Lithobates palmipes",
+      "records_valid": 3,
+      "gbif_count_colombia": 459,
+      "department_share": 0.0087
+    }
+  ],
+  "synonyms_merged": [
+    {
+      "taxon_id": "COL_ANURA_0072",
+      "accepted": "Centrolene antioquiense",
+      "input_names": [
+        "Centrolene antioquiense",
+        "Centrolene antioquiensis"
+      ]
+    },
+    {
+      "taxon_id": "COL_ANURA_0194",
+      "accepted": "Colostethus dysprosium",
+      "input_names": [
+        "Colostethus dysprosium",
+        "Leucostethus dysprosium"
+      ]
+    }
+  ],
+  "fuzzy_matches": [],
+  "unresolved_names": [
+    "Eleutherodactylus spec",
+    "Pristimantis campesino",
+    "Pristimantis cryptopictus"
+  ],
+  "epithet_shared_across_genera": {
+    "bogotensis": [
+      "Pristimantis bogotensis",
+      "Hyloscirtus bogotensis"
+    ],
+    "palmeri": [
+      "Pristimantis palmeri",
+      "Hyloscirtus palmeri"
+    ],
+    "nicefori": [
+      "Atelopus nicefori",
+      "Rhinella nicefori",
+      "Gastrotheca nicefori"
+    ],
+    "ruizi": [
+      "Rhinella ruizi",
+      "Strabomantis ruizi"
+    ],
+    "buckleyi": [
+      "Centrolene buckleyi",
+      "Agalychnis buckleyi"
+    ],
+    "savagei": [
+      "Centrolene savagei",
+      "Pristimantis savagei",
+      "Leptodactylus savagei"
+    ],
+    "ramirezi": [
+      "Cochranella ramirezi",
+      "Leucostethus ramirezi"
+    ],
+    "bicolor": [
+      "Pristimantis bicolor",
+      "Phyllomedusa bicolor"
+    ],
+    "boulengeri": [
+      "Pristimantis boulengeri",
+      "Scinax boulengeri"
+    ],
+    "crepitans": [
+      "Acris crepitans",
+      "Boana crepitans"
+    ]
+  },
+  "guide_duplicates": []
+}

@@ -1,0 +1,134 @@
+﻿{
+    "TAXONOMIC_VALIDATION":  {
+                                 "TAXONOMIC_COHERENCE":  "PASS",
+                                 "SPECIES_CALIBRATION":  10,
+                                 "All_Species_In_Both_Sets":  "YES",
+                                 "SPECIES_REFERENCE":  10,
+                                 "Families":  [
+                                                  "Bufonidae",
+                                                  "Craugastoridae",
+                                                  "Dendrobatidae",
+                                                  "Hylidae"
+                                              ]
+                             },
+    "NEXT_PHASE":  "FASE 13: MAHALANOBIS VALIDATION (with awareness of limitations)",
+    "OBSERVATION_AUDIT":  {
+                              "OBS_ID_AVAILABLE":  "NO",
+                              "OBSERVATION_OVERLAP":  "NOT_VERIFIABLE",
+                              "OBSERVATION_METADATA_FIELDS":  [
+
+                                                              ],
+                              "OBSERVATION_INDEPENDENCE_STATUS":  "NOT_VERIFIABLE",
+                              "Reason":  "No obs_id or observation_id in manifests",
+                              "Risk_Assessment":  "HIGH - Cannot verify observation-level independence"
+                          },
+    "INDIVIDUAL_AUDIT":  {
+                             "INDIVIDUAL_OVERLAP":  "NOT_VERIFIABLE",
+                             "INDIVIDUAL_METADATA_FIELDS":  [
+
+                                                            ],
+                             "INDIVIDUAL_ID_AVAILABLE":  "NO",
+                             "INDIVIDUAL_INDEPENDENCE_STATUS":  "NOT_VERIFIABLE",
+                             "Finding":  "3 SHA-256 duplicates found - same individuals in both sets",
+                             "Reason":  "No individual_id or equivalent metadata in manifests",
+                             "Risk_Assessment":  "HIGH - Separation strategy cannot guarantee individual independence"
+                         },
+    "VERIFICATION_SUMMARY":  {
+                                 "REFERENCE":  798,
+                                 "TOTAL_VALID":  993,
+                                 "CALIBRATION":  195
+                             },
+    "Timestamp":  "2026-09-13",
+    "Status":  "COMPLETE",
+    "PERCEPTUAL_HASH_AUDIT":  {
+                                  "ImageMagick":  "NO",
+                                  "Recommendation":  "Use external tool if additional perceptual analysis needed",
+                                  "Python3":  "NO",
+                                  "PERCEPTUAL_DUPLICATES":  "NOT_COMPUTED",
+                                  "PIL":  "NO",
+                                  "imagehash":  "NO",
+                                  "PERCEPTUAL_HASH_STATUS":  "NOT_AVAILABLE"
+                              },
+    "PROTECTED_ARTIFACTS":  {
+                                "PRODUCTION_MODIFIED":  "NO",
+                                "F3_PROTECTED":  "YES",
+                                "REFERENCE_FROZEN":  "YES",
+                                "MODEL_MODIFIED":  "NO",
+                                "DATASET_MODIFIED":  "NO",
+                                "CALIBRATION_FROZEN":  "YES",
+                                "F4_PROTECTED":  "YES"
+                            },
+    "FINAL_STATUS":  "INDEPENDENCE_COMPROMISED",
+    "SEPARATION_STRATEGY":  {
+                                "Method":  "80/20 percentile split per species",
+                                "Individual_Independence_Guarantee":  "NOT FORMAL",
+                                "Secondary_Criteria":  "Salto de 5 imágenes (approximately)",
+                                "Effectiveness":  "PARTIAL (3 duplicates found)"
+                            },
+    "SHA256_AUDIT":  {
+                         "CALIBRATION_Internal_Duplicates":  2,
+                         "Duplicates":  [
+                                            {
+                                                "Number":  1,
+                                                "Severity":  "CRITICAL",
+                                                "SHA256":  "f7a8ed86daf051e8e17c5ea7f2d3c1ae0d5f3dabd243395514a5d74864782697",
+                                                "CalFile":  "Pristimantis_penelopus_094.jpg",
+                                                "Species":  "Pristimantis penelopus",
+                                                "RefFile":  "Pristimantis_penelopus_076.jpg"
+                                            },
+                                            {
+                                                "Number":  2,
+                                                "Severity":  "CRITICAL",
+                                                "SHA256":  "f775bb3b95ef0951cb82b0912c9fa59b21f568aec796d351c5fd4266273b6af5",
+                                                "CalFile":  "Rhinella_horribilis_084.jpg",
+                                                "Species":  "Rhinella horribilis",
+                                                "RefFile":  "Rhinella_horribilis_003.jpg"
+                                            },
+                                            {
+                                                "Number":  3,
+                                                "Severity":  "CRITICAL",
+                                                "SHA256":  "0bffa53b8208ce86aa524e6da717f503f587f721da218d48f7c663eecac67fd5",
+                                                "CalFile":  "Pristimantis_penelopus_085.jpg",
+                                                "Species":  "Pristimantis penelopus",
+                                                "RefFile":  "Pristimantis_penelopus_030.jpg"
+                                            }
+                                        ],
+                         "CrossSplit_Status":  "FAIL",
+                         "SHA256_CROSS_SPLIT_DUPLICATES":  3,
+                         "REFERENCE_Internal_Duplicates":  6
+                     },
+    "FASE":  "FASE 12.1",
+    "CONTAMINATION_AUDIT":  {
+                                "Exclusion_Status":  "PASS",
+                                "CONTAMINATED_IMAGES":  28,
+                                "BySpecies":  {
+                                                  "Rhinella alata":  3,
+                                                  "Dendrobates truncatus":  15,
+                                                  "Dendropsophus bogerti":  4,
+                                                  "Dendropsophus microcephalus":  6
+                                              },
+                                "CONTAMINATED_IN_CALIBRATION":  0,
+                                "CONTAMINATED_IN_REFERENCE":  0
+                            },
+    "DECISION":  {
+                     "Recommended_Action":  "Proceed with explicit documentation of limitations",
+                     "Can_Proceed_To_Phase_13":  "YES (with caveats)",
+                     "Mandatory_Documentation":  "Clearly state in Mahalanobis validation report that individual-level independence is not formally guaranteed",
+                     "Alternative":  "Remove the 3 duplicates and recalculate splits (out of scope for Phase 12.1)"
+                 },
+    "KEY_FINDINGS":  {
+                         "Critical":  [
+                                          "3 SHA-256 duplicates between REFERENCE and CALIBRATION",
+                                          "No individual_id metadata - individual independence not verifiable",
+                                          "No obs_id metadata - observation independence not verifiable",
+                                          "6 internal duplicates in REFERENCE, 2 in CALIBRATION (from source data)"
+                                      ],
+                         "Positive":  [
+                                          "28 contaminated images correctly excluded from both sets",
+                                          "All 10 species represented in both REFERENCE and CALIBRATION",
+                                          "Taxonomic coherence validated",
+                                          "No interference with production artifacts"
+                                      ]
+                     },
+    "Title":  "Auditoría Final de Independencia"
+}

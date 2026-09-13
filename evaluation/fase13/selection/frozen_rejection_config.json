@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-09-13T16:40:34.552729+00:00",
+  "METHOD_FROZEN": true,
+  "REGULARIZATION_FROZEN": true,
+  "THRESHOLD_FROZEN": true,
+  "selected_method": "M5_LedoitWolf_Shared",
+  "selected_threshold_tau_95KAR": 39.35406371422803,
+  "threshold_table": {
+    "KAR_80_percent": 32.36951098564399,
+    "KAR_85_percent": 34.04141353120939,
+    "KAR_90_percent": 35.361070335430924,
+    "KAR_95_percent": 39.35406371422803
+  },
+  "target_KAR_principal": 0.95,
+  "CALIBRATION_AUROC": "NOT_COMPUTABLE",
+  "10_OF_41_INDEPENDENTLY_CALIBRATED": "YES",
+  "31_OF_41_INDEPENDENTLY_CALIBRATED": "NO",
+  "INDIVIDUAL_INDEPENDENCE": "CONTROLLED_NOT_FORMALLY_VERIFIABLE",
+  "OBSERVATION_INDEPENDENCE": "NOT_FORMALLY_VERIFIABLE",
+  "reference_species_count": 10,
+  "calibration_known_count": 192
+}

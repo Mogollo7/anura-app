@@ -1,0 +1,126 @@
+dane_code,municipality,area_km2,species_count,observations
+05756,Sonson,1346.4,33,485
+05480,Mutata,1075.2,33,115
+05040,Anori,1413.8,29,62
+05045,Apartado,535.2,29,231
+05667,San Rafael,363.9,26,249
+05649,San Carlos,717.8,25,204
+05585,Puerto Nare,669.3,25,70
+05425,Maceo,387.1,24,106
+05197,Cocorna,241.8,24,129
+05837,Turbo,2919.5,24,127
+05148,El Carmen De Viboral,423.6,24,97
+05686,Santa Rosa De Osos,864.8,22,83
+05893,Yondo,1895.0,22,98
+05670,San Roque,424.9,22,73
+05172,Chigorodo,721.7,22,82
+05021,Alejandria,128.9,21,173
+05147,Carepa,387.3,20,168
+05031,Amalfi,1209.1,20,22
+05310,Gomez Plata,332.2,20,45
+05490,Necocli,1255.5,20,205
+05736,Segovia,1127.3,19,36
+05604,Remedios,1989.2,18,52
+05847,Urrao,2563.4,17,36
+05660,San Luis,425.6,17,117
+05890,Yolombo,1012.5,16,33
+05364,Jardin,201.2,16,118
+05690,Santo Domingo,266.0,16,76
+05591,Puerto Triunfo,369.6,15,36
+05652,San Francisco,356.3,15,69
+05313,Granada,190.2,14,72
+05579,Puerto Berrio,1220.1,14,17
+05887,Yarumal,738.3,14,41
+05885,Yali,440.9,14,26
+05001,Medellin,374.8,13,210
+05284,Frontino,1384.1,13,33
+05212,Copacabana,67.8,12,122
+05142,Caracoli,262.8,12,28
+05237,Donmatias,203.3,12,21
+05079,Barbosa,205.7,11,29
+05154,Caucasia,1429.1,11,15
+05789,Tamesis,252.2,11,51
+05266,Envigado,78.0,10,81
+05895,Zaragoza,1167.4,10,13
+05107,Briceno,376.3,10,28
+05088,Bello,147.8,9,66
+05858,Vegachi,525.0,9,9
+05854,Valdivia,567.7,9,12
+05129,Caldas,132.8,8,55
+05761,Sopetran,219.1,7,17
+05101,Ciudad Bolivar,260.4,7,40
+05034,Andes,402.5,7,11
+05250,El Bagre,1560.2,7,10
+05819,Toledo,122.6,7,8
+05861,Venecia,139.7,6,17
+05615,Rionegro,195.9,6,49
+05030,Amaga,84.1,6,12
+05674,San Vicente Ferrer,230.5,6,17
+05042,Santa Fe De Antioquia,525.6,6,9
+05656,San Jeronimo,161.3,6,11
+05282,Fredonia,258.1,6,11
+05234,Dabeiba,1957.3,6,22
+05120,Caceres,1873.8,6,12
+05044,Anza,255.9,5,6
+05315,Guadalupe,118.2,5,5
+05134,Campamento,206.3,5,9
+05631,Sabaneta,16.0,5,10
+05607,Retiro,243.6,5,24
+05051,Arboletes,754.3,5,6
+05856,Valparaiso,126.2,5,7
+05086,Belmira,296.2,4,18
+05501,Olaya,87.0,4,6
+05150,Carolina,149.6,4,6
+05380,La Estrella,36.5,4,108
+05145,Caramanta,92.1,4,6
+05664,San Pedro De Los Milagros,220.9,4,14
+05318,Guarne,151.8,4,26
+05321,Guatape,83.3,4,12
+05628,Sabanalarga,265.8,4,7
+05697,El Santuario,83.5,4,15
+05368,Jerico,205.0,4,8
+05206,Concepcion,202.1,4,5
+05376,La Ceja,132.7,4,11
+05361,Ituango,2841.1,4,7
+05790,Taraza,1149.0,4,5
+05055,Argelia,245.3,4,6
+05390,La Pintada,54.3,4,5
+05440,Marinilla,114.9,3,21
+05038,Angostura,338.7,3,4
+05360,Itagui,19.6,3,24
+05308,Girardota,82.9,3,15
+05400,La Union,167.7,3,10
+05679,Santa Barbara,196.2,3,6
+05036,Angelopolis,81.9,3,5
+05240,Ebejico,237.8,3,4
+05642,Salgar,288.2,3,3
+05138,Canasgordas,364.8,3,24
+05809,Titiribi,140.3,2,7
+05113,Buritica,355.2,2,2
+05576,Pueblorrico,75.4,2,2
+05306,Giraldo,93.5,2,5
+05842,Uramita,265.9,2,2
+05483,Narino,316.8,2,2
+05659,San Juan De Uraba,252.0,2,2
+05541,Penol,118.3,1,5
+05543,Peque,434.1,1,1
+05190,Cisneros,46.9,1,1
+05125,Caicedo,200.1,1,2
+05467,Montebello,76.0,1,1
+05059,Armenia,110.4,1,1
+05093,Betulia,262.4,1,1
+05792,Tarso,120.5,1,1
+05411,Liborina,216.4,1,1
+05353,Hispania,57.5,1,1
+05004,Abriaqui,297.0,1,1
+05091,Betania,180.5,1,1
+05002,Abejorral,507.1,0,0
+05264,Entrerrios,214.2,0,0
+05209,Concordia,247.9,0,0
+05665,San Pedro De Uraba,602.5,0,0
+05658,San Jose De La Montana,126.1,0,0
+05647,San Andres De Cuerquia,218.7,0,0
+05495,Nechi,937.3,0,0
+05347,Heliconia,114.8,0,0
+05475,Murindo,1266.2,0,0
+05873,Vigia Del Fuerte,1661.9,0,0

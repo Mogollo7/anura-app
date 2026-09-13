@@ -1,0 +1,156 @@
+﻿{
+    "BySpecies":  {
+                      "Rhinella alata":  0,
+                      "Dendrobates truncatus":  0,
+                      "Dendropsophus bogerti":  0,
+                      "Dendropsophus microcephalus":  0
+                  },
+    "Status":  "28 images found in existing project dataset",
+    "TotalContaminated":  28,
+    "ContaminatedImages":  {
+                               "value":  [
+                                             {
+                                                 "SHA256":  "d12d909646e94b68cc6ae9958c4748cee838fa1d4ec8a185ace3b94f46b385a6",
+                                                 "FileName":  "Rhinella_alata_095.jpg",
+                                                 "RelativePath":  "Bufonidae\\Rhinella\\Rhinella alata\\Rhinella_alata_095.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "66b30d44cf9a22c429942e0640e94f44c6b5c6b4a29655e457fea65879b8356b",
+                                                 "FileName":  "Rhinella_alata_101.jpg",
+                                                 "RelativePath":  "Bufonidae\\Rhinella\\Rhinella alata\\Rhinella_alata_101.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "db6100f7a7f70c33fdaa1ca32824bb925418b0331fde6ba35fe5ad1c72dd1bb4",
+                                                 "FileName":  "Rhinella_alata_108.jpg",
+                                                 "RelativePath":  "Bufonidae\\Rhinella\\Rhinella alata\\Rhinella_alata_108.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "9628adf675adf2a4d6ff5e30eb708a2b09f136dcbf2cb81e8772c61b2d760577",
+                                                 "FileName":  "Dendrobates_truncatus_012.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_012.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "064c967c22134488f8d5fe39d5b90c4051391195d2294fff346d3a0f482a65dc",
+                                                 "FileName":  "Dendrobates_truncatus_075.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_075.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "3a67c76414f29da1299a82f5f8959a3e381a9cd357f1468899db23aba397253b",
+                                                 "FileName":  "Dendrobates_truncatus_078.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_078.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "ceaa424dd08f1684607990e47bfc96578c987f4549efdcd793b65e4a29e60a76",
+                                                 "FileName":  "Dendrobates_truncatus_079.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_079.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "97bc2d82782429f588eac47b963685fd24ecbb94d73b49d16fbc82f554a66fee",
+                                                 "FileName":  "Dendrobates_truncatus_080.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_080.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "b9321f3570306d5e1f85e540bd73659c1acd7e3079aebd28ebcd4e2c2509b17d",
+                                                 "FileName":  "Dendrobates_truncatus_083.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_083.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "8b1c216bc40f4a0799603d05a251a26eaed38a369a45a95f026607668aac1850",
+                                                 "FileName":  "Dendrobates_truncatus_084.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_084.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "433c6b2cd7e35f9e3af692c7d3400243e100b8eb5840eb4457b2388927754b07",
+                                                 "FileName":  "Dendrobates_truncatus_086.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_086.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "1c2495327b4c4adf6b632add5df7550e7f7ffc2535f43776f49384cdb346d7f1",
+                                                 "FileName":  "Dendrobates_truncatus_093.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_093.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "cc2e0c1fc7ba66dd3c21033c2cfea93e21dfa537feffe6f05348058e7122eb29",
+                                                 "FileName":  "Dendrobates_truncatus_094.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_094.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "fddf41c231f5f641f7b0ca9597e4fd9da0ccd29c52eafb46a95662fd9fabacae",
+                                                 "FileName":  "Dendrobates_truncatus_095.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_095.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "b1fa50e3e27dbf42942323c93ce87cf6dd0b8140a6dc4163c01a389a5d90f29a",
+                                                 "FileName":  "Dendrobates_truncatus_096.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_096.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "89b6cb6cd271ea53a5aa920ae1887202bfb3643536ef4a6b0dc6fb6a598e64e6",
+                                                 "FileName":  "Dendrobates_truncatus_097.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_097.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "5a29bfd99f46ff43983d430af691f6f4cae6e228dc861f254ab6c85551b7737c",
+                                                 "FileName":  "Dendrobates_truncatus_098.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_098.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "b7372ab54b263f23896a4a87923edf5a84c532415dfc2a800349656e58b72e66",
+                                                 "FileName":  "Dendrobates_truncatus_105.jpg",
+                                                 "RelativePath":  "Dendrobatidae\\Dendrobates\\Dendrobates truncatus\\Dendrobates_truncatus_105.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "c5beb1e40b4ca337b4fe25f39f03326b84b5e1014db5ef04954f66942da6174b",
+                                                 "FileName":  "Dendropsophus_bogerti_099.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus bogerti\\Dendropsophus_bogerti_099.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "022ccb0526c8756e90949b78c8682e7f672061aea953dc29737c658ae5d44af9",
+                                                 "FileName":  "Dendropsophus_bogerti_100.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus bogerti\\Dendropsophus_bogerti_100.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "491100ff2a9ff21b4c39337283251de276b411fc95fe1f6e03a7e6c7ca1288fc",
+                                                 "FileName":  "Dendropsophus_bogerti_101.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus bogerti\\Dendropsophus_bogerti_101.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "e05cd9bb7b8ddf373c578604f141ddcf2d20250843b04250244520a96a81e4ed",
+                                                 "FileName":  "Dendropsophus_bogerti_102.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus bogerti\\Dendropsophus_bogerti_102.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "90299955b720a620fbc617f15c9490cb55f783b40c7d81134c8fe34343782576",
+                                                 "FileName":  "Dendropsophus_microcephalus_100.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus microcephalus\\Dendropsophus_microcephalus_100.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "56450f9dfbdd5a2b8a3d320393900557fe6e9611d3b56784623a681826e35375",
+                                                 "FileName":  "Dendropsophus_microcephalus_101.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus microcephalus\\Dendropsophus_microcephalus_101.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "b0d71e26ea766ce38e0e8e0cc0dd9adc5bb40a6bd1dbee20296fe7b17d722ec3",
+                                                 "FileName":  "Dendropsophus_microcephalus_102.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus microcephalus\\Dendropsophus_microcephalus_102.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "5ce781ba856184d9fee391186dc220d0d3cca39dfa5d21b74f26b3c46a936d2e",
+                                                 "FileName":  "Dendropsophus_microcephalus_103.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus microcephalus\\Dendropsophus_microcephalus_103.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "eca11f6c48b66d38deeb581bceb3bebeba70be72abe751730d47db463790b9a3",
+                                                 "FileName":  "Dendropsophus_microcephalus_104.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus microcephalus\\Dendropsophus_microcephalus_104.jpg"
+                                             },
+                                             {
+                                                 "SHA256":  "a6da00ed2f0b59508ef69b1d22f6df49081622ff36fe7abf45feb9ad67b697d2",
+                                                 "FileName":  "Dendropsophus_microcephalus_105.jpg",
+                                                 "RelativePath":  "Hylidae\\Dendropsophus\\Dendropsophus microcephalus\\Dendropsophus_microcephalus_105.jpg"
+                                             }
+                                         ],
+                               "Count":  28
+                           },
+    "Action":  "EXCLUDED from REFERENCE and CALIBRATION"
+}

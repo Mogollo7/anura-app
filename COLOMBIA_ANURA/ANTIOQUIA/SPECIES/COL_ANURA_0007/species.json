@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0007",
+  "scientific_name": "Pristimantis achatinus",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Cutín común de occidente",
+  "directory_legacy": "Pristimantis_achatinus",
+  "occurrences_in_department": 361,
+  "distinct_observers_in_department": 190,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 971,
+  "occurrences_dropped_low_accuracy": 10,
+  "photos_curated_total": 1902,
+  "photos_raw_total": 1908,
+  "individuals_curated_total": 967,
+  "individuals_from_department": 360,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,25 @@
+{
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-12",
+  "subregions": 9,
+  "species_after_rescue": 148,
+  "species_precise_only": 97,
+  "rescue_breakdown": {
+    "inferida_por_area": 676,
+    "inferida_por_especie": 383,
+    "unica_candidata": 289
+  },
+  "comparison": {
+    "municipality": {
+      "units": 115,
+      "median_species": 6,
+      "mean_completeness": 0.712
+    },
+    "subregion": {
+      "units": 9,
+      "median_species": 51,
+      "mean_completeness": 0.755
+    }
+  },
+  "obscured_rescue_method": "Círculo de incertidumbre de 25.0 km; desempate entre subregiones candidatas por la distribución de registros precisos de la misma especie; si la especie no tiene registros precisos, por área de solape"
+}

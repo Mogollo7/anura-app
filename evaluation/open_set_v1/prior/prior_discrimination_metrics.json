@@ -1,0 +1,221 @@
+{
+  "status": "PASS",
+  "config": {
+    "radius_km": 50.0,
+    "alpha": 0.5,
+    "weight": 0.75,
+    "formula": "log_visual + weight * log_prior"
+  },
+  "gps_coverage": {
+    "f3_total": 766,
+    "f3_available": 680,
+    "f4_total": 56,
+    "f4_available": 35
+  },
+  "control_gps": {
+    "adversarial": {
+      "gps": [
+        4.6485,
+        -73.8864
+      ],
+      "favored_species": "Pristimantis_bogotensis",
+      "prior_max": 0.3862433862433862
+    },
+    "alternative": {
+      "gps": [
+        -4.218,
+        -69.9435
+      ],
+      "favored_species": "Boana_punctata",
+      "distance_from_adversarial_km": 1078.8201615397645
+    }
+  },
+  "scenario_summaries": {
+    "VISION_ONLY": {
+      "scenario": "VISION_ONLY",
+      "n": 822,
+      "known_n": 766,
+      "unknown_n": 56,
+      "known_top1_accuracy": 0.5691906005221932,
+      "known_correct": 436,
+      "known_incorrect": 330,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 0,
+      "prior_induced_flips": 0,
+      "open_set_risk_counts": {
+        "NO_PRIOR_RISK": 56
+      }
+    },
+    "REAL_GPS": {
+      "scenario": "REAL_GPS",
+      "n": 822,
+      "known_n": 766,
+      "unknown_n": 56,
+      "known_top1_accuracy": 0.7911227154046997,
+      "known_correct": 606,
+      "known_incorrect": 160,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 302,
+      "prior_induced_flips": 302,
+      "open_set_risk_counts": {
+        "NO_PRIOR_RISK": 27,
+        "PRIOR_DOMINANCE_RISK": 17,
+        "OPEN_SET_PRIOR_LEAKAGE_RISK": 12
+      }
+    },
+    "ADVERSARIAL_GPS": {
+      "scenario": "ADVERSARIAL_GPS",
+      "n": 822,
+      "known_n": 766,
+      "unknown_n": 56,
+      "known_top1_accuracy": 0.27154046997389036,
+      "known_correct": 208,
+      "known_incorrect": 558,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 585,
+      "prior_induced_flips": 585,
+      "open_set_risk_counts": {
+        "PRIOR_DOMINANCE_RISK": 27,
+        "NO_PRIOR_RISK": 6,
+        "OPEN_SET_PRIOR_LEAKAGE_RISK": 23
+      }
+    },
+    "ALTERNATIVE_GPS": {
+      "scenario": "ALTERNATIVE_GPS",
+      "n": 822,
+      "known_n": 766,
+      "unknown_n": 56,
+      "known_top1_accuracy": 0.3629242819843342,
+      "known_correct": 278,
+      "known_incorrect": 488,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 438,
+      "prior_induced_flips": 438,
+      "open_set_risk_counts": {
+        "PRIOR_DOMINANCE_RISK": 25,
+        "NO_PRIOR_RISK": 22,
+        "OPEN_SET_PRIOR_LEAKAGE_RISK": 9
+      }
+    },
+    "VISION_ONLY_UNKNOWN": {
+      "scenario": "VISION_ONLY",
+      "n": 56,
+      "known_n": 0,
+      "unknown_n": 56,
+      "known_top1_accuracy": null,
+      "known_correct": 0,
+      "known_incorrect": 0,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 0,
+      "prior_induced_flips": 0,
+      "open_set_risk_counts": {
+        "NO_PRIOR_RISK": 56
+      }
+    },
+    "REAL_GPS_UNKNOWN": {
+      "scenario": "REAL_GPS",
+      "n": 56,
+      "known_n": 0,
+      "unknown_n": 56,
+      "known_top1_accuracy": null,
+      "known_correct": 0,
+      "known_incorrect": 0,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 29,
+      "prior_induced_flips": 29,
+      "open_set_risk_counts": {
+        "NO_PRIOR_RISK": 27,
+        "PRIOR_DOMINANCE_RISK": 17,
+        "OPEN_SET_PRIOR_LEAKAGE_RISK": 12
+      }
+    },
+    "ADVERSARIAL_GPS_UNKNOWN": {
+      "scenario": "ADVERSARIAL_GPS",
+      "n": 56,
+      "known_n": 0,
+      "unknown_n": 56,
+      "known_top1_accuracy": null,
+      "known_correct": 0,
+      "known_incorrect": 0,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 50,
+      "prior_induced_flips": 50,
+      "open_set_risk_counts": {
+        "PRIOR_DOMINANCE_RISK": 27,
+        "NO_PRIOR_RISK": 6,
+        "OPEN_SET_PRIOR_LEAKAGE_RISK": 23
+      }
+    },
+    "ALTERNATIVE_GPS_UNKNOWN": {
+      "scenario": "ALTERNATIVE_GPS",
+      "n": 56,
+      "known_n": 0,
+      "unknown_n": 56,
+      "known_top1_accuracy": null,
+      "known_correct": 0,
+      "known_incorrect": 0,
+      "unknown_known_acceptance": 1.0,
+      "unknown_known_acceptance_count": 56,
+      "prediction_flips": 34,
+      "prior_induced_flips": 34,
+      "open_set_risk_counts": {
+        "PRIOR_DOMINANCE_RISK": 25,
+        "NO_PRIOR_RISK": 22,
+        "OPEN_SET_PRIOR_LEAKAGE_RISK": 9
+      }
+    }
+  },
+  "risk_counts": {
+    "VISION_ONLY": {
+      "NO_PRIOR_RISK": 56
+    },
+    "REAL_GPS": {
+      "NO_PRIOR_RISK": 27,
+      "PRIOR_DOMINANCE_RISK": 17,
+      "OPEN_SET_PRIOR_LEAKAGE_RISK": 12
+    },
+    "ADVERSARIAL_GPS": {
+      "PRIOR_DOMINANCE_RISK": 27,
+      "NO_PRIOR_RISK": 6,
+      "OPEN_SET_PRIOR_LEAKAGE_RISK": 23
+    },
+    "ALTERNATIVE_GPS": {
+      "PRIOR_DOMINANCE_RISK": 25,
+      "NO_PRIOR_RISK": 22,
+      "OPEN_SET_PRIOR_LEAKAGE_RISK": 9
+    }
+  },
+  "reproducibility": {
+    "timestamp_utc": "2026-09-13T06:42:31.062463+00:00",
+    "python": "3.13.10 (tags/v3.13.10:4fd8843, Dec  2 2025, 15:08:18) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.2",
+    "torch": "2.11.0+cu128",
+    "open_clip": "3.3.0",
+    "device": "cuda",
+    "input_sha256": {
+      "D:\\Anura\\evaluation\\open_set_v1\\closed_set\\closed_set_results.json": "52fb67e7f5cb191044caea4eb4c50990005a80e84531be20fa9225ad22ea157f",
+      "D:\\Anura\\evaluation\\open_set_v1\\closed_set\\closed_set_metrics.json": "a200ad2cb87b4c601c488240957ceae7fbd3878edb4a10ff6ce75f6fc5f3f017",
+      "D:\\Anura\\evaluation\\open_set_v1\\open_set\\open_set_results.json": "9b94705f2e8e9f676ed5ea6d1d37c54f603bfdb11f3fa82c8f5f0c8a2d2637a3",
+      "D:\\Anura\\evaluation\\open_set_v1\\open_set\\open_set_metrics.json": "2f2141227e2c9e3aea2701c989390c810ce7a2b472ad717080739ba2bee378ff",
+      "D:\\Anura\\bioclip\\checkpoints\\prior_geografico_movil.json": "4798bf50247b74bf4a82455974643c273e0da616b5c77dfc39715ef50577481c",
+      "D:\\Anura\\bioclip\\checkpoints\\bioclip_anura_mejor.pt": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac"
+    },
+    "git": "NOT_A_GIT_REPOSITORY"
+  },
+  "constraints": {
+    "model_modified": false,
+    "dataset_modified": false,
+    "prior_modified": false,
+    "threshold_applied": false,
+    "rejection_implemented": false,
+    "knn_used": false,
+    "combined_score_created": false
+  }
+}

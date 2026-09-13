@@ -1,0 +1,954 @@
+{
+  "status": "FASE_5_COMPLETE",
+  "known_n": 766,
+  "unknown_n": 56,
+  "unknown_species_n": 2,
+  "unknown_species": [
+    "Hyloxalus_picachos",
+    "Sachatamia_electrops"
+  ],
+  "available_scores": [
+    "top1_probability",
+    "top2_probability",
+    "top3_probability",
+    "margin_top1_top2"
+  ],
+  "unavailable_scores": {
+    "entropy": "NOT COMPUTABLE: no están disponibles las probabilidades completas de 41 clases",
+    "distance": "NOT COMPUTABLE: no hay embedding_distance/cosine_distance",
+    "brier_multiclass": "NOT COMPUTABLE: no están disponibles las probabilidades completas de 41 clases"
+  },
+  "distributions": {
+    "top1_probability": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 0.26611409798342317,
+        "median": 0.20814943313598633,
+        "std": 0.17335285932676983,
+        "min": 0.05582097917795181,
+        "max": 0.933891773223877,
+        "p05": 0.09920436516404152,
+        "p25": 0.1428850255906582,
+        "p50": 0.20814943313598633,
+        "p75": 0.33597245067358017,
+        "p95": 0.6123120188713074
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 0.21083463236157382,
+        "median": 0.18900402635335922,
+        "std": 0.10180312725261839,
+        "min": 0.07102377712726593,
+        "max": 0.4171868562698364,
+        "p05": 0.08839286118745804,
+        "p25": 0.12043143808841705,
+        "p50": 0.18900402635335922,
+        "p75": 0.3030311092734337,
+        "p95": 0.3948037698864937
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 0.13438725968201956,
+        "median": 0.12864592671394348,
+        "std": 0.037565621925185144,
+        "min": 0.07102377712726593,
+        "max": 0.20153619349002838,
+        "p05": 0.08956263810396195,
+        "p25": 0.1127505749464035,
+        "p50": 0.12864592671394348,
+        "p75": 0.1426554173231125,
+        "p95": 0.201296566426754
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 0.23880318334189857,
+        "median": 0.27506643533706665,
+        "std": 0.10374510961466346,
+        "min": 0.08543950319290161,
+        "max": 0.4171868562698364,
+        "p05": 0.08857667446136475,
+        "p25": 0.12465284764766693,
+        "p50": 0.27506643533706665,
+        "p75": 0.32067665457725525,
+        "p95": 0.39592960476875305
+      }
+    },
+    "top2_probability": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 0.1396570741241511,
+        "median": 0.12256830185651779,
+        "std": 0.07012573550779216,
+        "min": 0.006913410499691963,
+        "max": 0.3810478746891022,
+        "p05": 0.061727904714643955,
+        "p25": 0.09408783912658691,
+        "p50": 0.12256830185651779,
+        "p75": 0.16293585300445557,
+        "p95": 0.3014014661312103
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 0.1521285633955683,
+        "median": 0.11102498322725296,
+        "std": 0.07462937483531407,
+        "min": 0.06685110926628113,
+        "max": 0.30642324686050415,
+        "p05": 0.07444317266345024,
+        "p25": 0.08831060118973255,
+        "p50": 0.11102498322725296,
+        "p75": 0.21877209842205048,
+        "p95": 0.27180635184049606
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 0.09230488489071528,
+        "median": 0.09427529573440552,
+        "std": 0.014289589915024973,
+        "min": 0.06685110926628113,
+        "max": 0.11368023604154587,
+        "p05": 0.07236109748482704,
+        "p25": 0.08298363536596298,
+        "p50": 0.09427529573440552,
+        "p75": 0.10166912525892258,
+        "p95": 0.11203770637512207
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 0.17401527504368527,
+        "median": 0.19175274670124054,
+        "std": 0.0758523174287748,
+        "min": 0.07157956063747406,
+        "max": 0.30642324686050415,
+        "p05": 0.07672296464443207,
+        "p25": 0.09298337250947952,
+        "p50": 0.19175274670124054,
+        "p75": 0.24368120729923248,
+        "p95": 0.2834392488002777
+      }
+    },
+    "top3_probability": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 0.09107334120806997,
+        "median": 0.08974302187561989,
+        "std": 0.034571785825285556,
+        "min": 0.006288588047027588,
+        "max": 0.28874531388282776,
+        "p05": 0.04039992764592171,
+        "p25": 0.06989236734807491,
+        "p50": 0.08974302187561989,
+        "p75": 0.10943575948476791,
+        "p95": 0.14748350530862808
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 0.0869496391553964,
+        "median": 0.08269999176263809,
+        "std": 0.02012399148354393,
+        "min": 0.055611565709114075,
+        "max": 0.1446363478899002,
+        "p05": 0.06421072408556938,
+        "p25": 0.07430750504136086,
+        "p50": 0.08269999176263809,
+        "p75": 0.10085516981780529,
+        "p95": 0.12147370353341103
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 0.08168314894040425,
+        "median": 0.08283470571041107,
+        "std": 0.015803377692066654,
+        "min": 0.055611565709114075,
+        "max": 0.11089971661567688,
+        "p05": 0.06311507523059845,
+        "p25": 0.06838082149624825,
+        "p50": 0.08283470571041107,
+        "p75": 0.08948305994272232,
+        "p95": 0.1107712559401989
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 0.0888764038681984,
+        "median": 0.08256527781486511,
+        "std": 0.021335958073505308,
+        "min": 0.06298547238111496,
+        "max": 0.1446363478899002,
+        "p05": 0.06444310396909714,
+        "p25": 0.07562132179737091,
+        "p50": 0.08256527781486511,
+        "p75": 0.10492238402366638,
+        "p95": 0.1273074746131897
+      }
+    },
+    "margin_top1_top2": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 0.12645702385927207,
+        "median": 0.057578377425670624,
+        "std": 0.18114873327732164,
+        "min": 0.0,
+        "max": 0.9259837623685598,
+        "p05": 0.004258407279849052,
+        "p25": 0.022456388920545578,
+        "p50": 0.057578377425670624,
+        "p75": 0.14469223283231258,
+        "p95": 0.532183195464313
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 0.058706069099051614,
+        "median": 0.04079682007431984,
+        "std": 0.051817305177323844,
+        "min": 0.00043144822120666504,
+        "max": 0.19344626367092133,
+        "p05": 0.0015867147594690323,
+        "p25": 0.019338052719831467,
+        "p50": 0.04079682007431984,
+        "p75": 0.09040654823184013,
+        "p95": 0.15531259775161743
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 0.04208237528800964,
+        "median": 0.024697206914424896,
+        "std": 0.040582120670159684,
+        "min": 0.0016054213047027588,
+        "max": 0.12681367993354797,
+        "p05": 0.003402493894100189,
+        "p25": 0.014880247414112091,
+        "p50": 0.024697206914424896,
+        "p75": 0.050600964576005936,
+        "p95": 0.11804840713739394
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 0.0647879082982133,
+        "median": 0.0550236850976944,
+        "std": 0.054534015689590376,
+        "min": 0.00043144822120666504,
+        "max": 0.19344626367092133,
+        "p05": 0.0015305951237678528,
+        "p25": 0.022599413990974426,
+        "p50": 0.0550236850976944,
+        "p75": 0.09713660180568695,
+        "p95": 0.17617852985858917
+      }
+    }
+  },
+  "auroc_known_positive": {
+    "top1_probability": 0.5858121969414397,
+    "top2_probability": 0.48813409175680716,
+    "top3_probability": 0.5397706079820963,
+    "margin_top1_top2": 0.5846465870943678
+  },
+  "fpr_at_95_tpr": {
+    "threshold": 0.09817337989807129,
+    "tpr": 0.9543080939947781,
+    "fpr": 0.8928571428571429,
+    "known_accepted": 731,
+    "unknown_accepted": 50
+  },
+  "threshold_grid": [
+    {
+      "threshold": 0.0,
+      "known_acceptance_rate": 1.0,
+      "unknown_detection_rate": 0.0,
+      "false_acceptance_rate": 1.0,
+      "known_accepted": 766,
+      "unknown_accepted": 56
+    },
+    {
+      "threshold": 0.049999999999999996,
+      "known_acceptance_rate": 1.0,
+      "unknown_detection_rate": 0.0,
+      "false_acceptance_rate": 1.0,
+      "known_accepted": 766,
+      "unknown_accepted": 56
+    },
+    {
+      "threshold": 0.09999999999999999,
+      "known_acceptance_rate": 0.9451697127937336,
+      "unknown_detection_rate": 0.125,
+      "false_acceptance_rate": 0.875,
+      "known_accepted": 724,
+      "unknown_accepted": 49
+    },
+    {
+      "threshold": 0.15,
+      "known_acceptance_rate": 0.7114882506527415,
+      "unknown_detection_rate": 0.4464285714285714,
+      "false_acceptance_rate": 0.5535714285714286,
+      "known_accepted": 545,
+      "unknown_accepted": 31
+    },
+    {
+      "threshold": 0.19999999999999998,
+      "known_acceptance_rate": 0.5261096605744126,
+      "unknown_detection_rate": 0.5178571428571428,
+      "false_acceptance_rate": 0.48214285714285715,
+      "known_accepted": 403,
+      "unknown_accepted": 27
+    },
+    {
+      "threshold": 0.24999999999999997,
+      "known_acceptance_rate": 0.4046997389033943,
+      "unknown_detection_rate": 0.5892857142857143,
+      "false_acceptance_rate": 0.4107142857142857,
+      "known_accepted": 310,
+      "unknown_accepted": 23
+    },
+    {
+      "threshold": 0.3,
+      "known_acceptance_rate": 0.31462140992167104,
+      "unknown_detection_rate": 0.7321428571428572,
+      "false_acceptance_rate": 0.26785714285714285,
+      "known_accepted": 241,
+      "unknown_accepted": 15
+    },
+    {
+      "threshold": 0.35,
+      "known_acceptance_rate": 0.2310704960835509,
+      "unknown_detection_rate": 0.9285714285714286,
+      "false_acceptance_rate": 0.07142857142857142,
+      "known_accepted": 177,
+      "unknown_accepted": 4
+    },
+    {
+      "threshold": 0.39999999999999997,
+      "known_acceptance_rate": 0.17885117493472585,
+      "unknown_detection_rate": 0.9821428571428571,
+      "false_acceptance_rate": 0.017857142857142856,
+      "known_accepted": 137,
+      "unknown_accepted": 1
+    },
+    {
+      "threshold": 0.44999999999999996,
+      "known_acceptance_rate": 0.13577023498694518,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 104,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.49999999999999994,
+      "known_acceptance_rate": 0.08616187989556136,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 66,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.5499999999999999,
+      "known_acceptance_rate": 0.06919060052219321,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 53,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.6,
+      "known_acceptance_rate": 0.050913838120104436,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 39,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.6499999999999999,
+      "known_acceptance_rate": 0.044386422976501305,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 34,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.7,
+      "known_acceptance_rate": 0.03655352480417755,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 28,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.7499999999999999,
+      "known_acceptance_rate": 0.02741514360313316,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 21,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.7999999999999999,
+      "known_acceptance_rate": 0.024804177545691905,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 19,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.85,
+      "known_acceptance_rate": 0.020887728459530026,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 16,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.8999999999999999,
+      "known_acceptance_rate": 0.015665796344647518,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 12,
+      "unknown_accepted": 0
+    },
+    {
+      "threshold": 0.95,
+      "known_acceptance_rate": 0.0,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 0,
+      "unknown_accepted": 0
+    }
+  ],
+  "far_target_rows": {
+    "approximately_5_percent": {
+      "threshold": 0.35,
+      "known_acceptance_rate": 0.2310704960835509,
+      "unknown_detection_rate": 0.9285714285714286,
+      "false_acceptance_rate": 0.07142857142857142,
+      "known_accepted": 177,
+      "unknown_accepted": 4
+    },
+    "approximately_1_percent": {
+      "threshold": 0.39999999999999997,
+      "known_acceptance_rate": 0.17885117493472585,
+      "unknown_detection_rate": 0.9821428571428571,
+      "false_acceptance_rate": 0.017857142857142856,
+      "known_accepted": 137,
+      "unknown_accepted": 1
+    }
+  },
+  "oscr": {
+    "definition": "Standard OSCR: x=FPR of UNKNOWN, y=CCR of KNOWN; confidence-ranked threshold sweep.",
+    "score": "top1_probability",
+    "known_n": 766,
+    "unknown_n": 56,
+    "area_under_curve": 0.3964005967922417,
+    "max_correct_classification_rate": 0.5691906005221932
+  },
+  "ece_known": {
+    "n_bins": 10,
+    "ece": 0.30307650253877005,
+    "bins": [
+      {
+        "bin": 0,
+        "lower": 0.0,
+        "upper": 0.1,
+        "n": 42,
+        "accuracy": 0.21428571428571427,
+        "mean_confidence": 0.08710326502720515
+      },
+      {
+        "bin": 1,
+        "lower": 0.1,
+        "upper": 0.2,
+        "n": 321,
+        "accuracy": 0.38317757009345793,
+        "mean_confidence": 0.14740583005816765
+      },
+      {
+        "bin": 2,
+        "lower": 0.2,
+        "upper": 0.30000000000000004,
+        "n": 162,
+        "accuracy": 0.5740740740740741,
+        "mean_confidence": 0.2434468897588459
+      },
+      {
+        "bin": 3,
+        "lower": 0.30000000000000004,
+        "upper": 0.4,
+        "n": 104,
+        "accuracy": 0.7596153846153846,
+        "mean_confidence": 0.3429329776420043
+      },
+      {
+        "bin": 4,
+        "lower": 0.4,
+        "upper": 0.5,
+        "n": 71,
+        "accuracy": 0.9577464788732394,
+        "mean_confidence": 0.450307889723442
+      },
+      {
+        "bin": 5,
+        "lower": 0.5,
+        "upper": 0.6000000000000001,
+        "n": 27,
+        "accuracy": 0.9259259259259259,
+        "mean_confidence": 0.5533470401057491
+      },
+      {
+        "bin": 6,
+        "lower": 0.6000000000000001,
+        "upper": 0.7000000000000001,
+        "n": 11,
+        "accuracy": 1.0,
+        "mean_confidence": 0.6535140601071444
+      },
+      {
+        "bin": 7,
+        "lower": 0.7000000000000001,
+        "upper": 0.8,
+        "n": 9,
+        "accuracy": 1.0,
+        "mean_confidence": 0.7347127662764655
+      },
+      {
+        "bin": 8,
+        "lower": 0.8,
+        "upper": 0.9,
+        "n": 7,
+        "accuracy": 1.0,
+        "mean_confidence": 0.8506326675415039
+      },
+      {
+        "bin": 9,
+        "lower": 0.9,
+        "upper": 1.0,
+        "n": 12,
+        "accuracy": 1.0,
+        "mean_confidence": 0.9247196813424429
+      }
+    ]
+  },
+  "brier_known": "NOT COMPUTABLE with current artifacts",
+  "high_confidence_unknown": {
+    "0.9": [],
+    "0.8": [],
+    "0.7": []
+  },
+  "unknown_prediction_counts": {
+    "Hyloxalus_picachos": {
+      "Pristimantis_achatinus": 4,
+      "Dendropsophus_microcephalus": 1,
+      "Craugastor_raniformis": 4,
+      "Rheobates_palmatus": 5,
+      "Dendropsophus_columbianus": 1
+    },
+    "Sachatamia_electrops": {
+      "Boana_cinerascens": 18,
+      "Hyloscirtus_palmeri": 11,
+      "Dendropsophus_molitor": 2,
+      "Dendropsophus_bogerti": 1,
+      "Dendropsophus_mathiassoni": 8,
+      "Scinax_ruber": 1
+    }
+  },
+  "top_false_accepts": {
+    "by_top1_probability": [
+      {
+        "image_id": "Sachatamia_electrops_0036",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620799.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.4171868562698364,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.2237405925989151,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.14305393397808075,
+        "margin_top1_top2": 0.19344626367092133,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0055",
+        "path": "Sachatamia_electrops\\large.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.3966028094291687,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.2834392488002777,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.07628663629293442,
+        "margin_top1_top2": 0.11316356062889099,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0016",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601921.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.39592960476875305,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.2846209406852722,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.07735645025968552,
+        "margin_top1_top2": 0.11130866408348083,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0037",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620944.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.3944284915924072,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.21824996173381805,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.11038788408041,
+        "margin_top1_top2": 0.17617852985858917,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0021",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951910.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.34130361676216125,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.2531404197216034,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.1136544942855835,
+        "margin_top1_top2": 0.08816319704055786,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0040",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574021.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.3338675796985626,
+        "top2_species": "Boana_punctata",
+        "top2_probability": 0.1872827410697937,
+        "top3_species": "Hyloscirtus_palmeri",
+        "top3_probability": 0.10817944258451462,
+        "margin_top1_top2": 0.14658483862876892,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0022",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951924.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.33258309960365295,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.21768774092197418,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.07348814606666565,
+        "margin_top1_top2": 0.11489535868167877,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0048",
+        "path": "Sachatamia_electrops\\IMG-20251013-WA0398.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.33227959275245667,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.21453583240509033,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.08567045629024506,
+        "margin_top1_top2": 0.11774376034736633,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0034",
+        "path": "Sachatamia_electrops\\col_obs_25388999_photo_39312678.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.32618242502212524,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.19175274670124054,
+        "top3_species": "Boana_xerophylla",
+        "top3_probability": 0.06613867729902267,
+        "margin_top1_top2": 0.1344296783208847,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0017",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601964.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Hyloscirtus_palmeri",
+        "top1_probability": 0.32503649592399597,
+        "top2_species": "Boana_cinerascens",
+        "top2_probability": 0.26425281167030334,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.10470270365476608,
+        "margin_top1_top2": 0.06078368425369263,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      }
+    ],
+    "by_margin": [
+      {
+        "image_id": "Sachatamia_electrops_0036",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620799.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.4171868562698364,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.2237405925989151,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.14305393397808075,
+        "margin_top1_top2": 0.19344626367092133,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0041",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574026.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.32067665457725525,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.1298183798789978,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.1273074746131897,
+        "margin_top1_top2": 0.19085827469825745,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0037",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620944.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.3944284915924072,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.21824996173381805,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.11038788408041,
+        "margin_top1_top2": 0.17617852985858917,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0043",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574034.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.2759243845939636,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.1275670975446701,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.11301819235086441,
+        "margin_top1_top2": 0.14835728704929352,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0040",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574021.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.3338675796985626,
+        "top2_species": "Boana_punctata",
+        "top2_probability": 0.1872827410697937,
+        "top3_species": "Hyloscirtus_palmeri",
+        "top3_probability": 0.10817944258451462,
+        "margin_top1_top2": 0.14658483862876892,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0034",
+        "path": "Sachatamia_electrops\\col_obs_25388999_photo_39312678.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.32618242502212524,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.19175274670124054,
+        "top3_species": "Boana_xerophylla",
+        "top3_probability": 0.06613867729902267,
+        "margin_top1_top2": 0.1344296783208847,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Hyloxalus_picachos_0004",
+        "path": "Hyloxalus_picachos\\bmc_retrato_04.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Rheobates_palmatus",
+        "top1_probability": 0.20153619349002838,
+        "top2_species": "Pristimantis_vilarsi",
+        "top2_probability": 0.074722521007061,
+        "top3_species": "Pristimantis_gaigei",
+        "top3_probability": 0.06671970337629318,
+        "margin_top1_top2": 0.12681367993354797,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0048",
+        "path": "Sachatamia_electrops\\IMG-20251013-WA0398.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.33227959275245667,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.21453583240509033,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.08567045629024506,
+        "margin_top1_top2": 0.11774376034736633,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Sachatamia_electrops_0022",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951924.jpg",
+        "true_species": "Sachatamia_electrops",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Boana_cinerascens",
+        "top1_probability": 0.33258309960365295,
+        "top2_species": "Hyloscirtus_palmeri",
+        "top2_probability": 0.21768774092197418,
+        "top3_species": "Boana_punctata",
+        "top3_probability": 0.07348814606666565,
+        "margin_top1_top2": 0.11489535868167877,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      },
+      {
+        "image_id": "Hyloxalus_picachos_0013",
+        "path": "Hyloxalus_picachos\\dendrowiki_5670.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "open_set_group": "CATALOG_ONLY",
+        "leakage_status": "CLEAN",
+        "top1_species": "Rheobates_palmatus",
+        "top1_probability": 0.18905235826969147,
+        "top2_species": "Dendropsophus_bogerti",
+        "top2_probability": 0.07476049661636353,
+        "top3_species": "Dendropsophus_mathiassoni",
+        "top3_probability": 0.055611565709114075,
+        "margin_top1_top2": 0.11429186165332794,
+        "softmax_route_a_complete": true,
+        "knn_route_b_complete": false,
+        "prior_complete": false,
+        "rejection_applied": false
+      }
+    ],
+    "top1_prediction_counts": {
+      "Boana_cinerascens": 18,
+      "Hyloscirtus_palmeri": 11,
+      "Dendropsophus_mathiassoni": 8,
+      "Rheobates_palmatus": 5,
+      "Pristimantis_achatinus": 4,
+      "Craugastor_raniformis": 4,
+      "Dendropsophus_molitor": 2,
+      "Dendropsophus_microcephalus": 1,
+      "Dendropsophus_columbianus": 1,
+      "Dendropsophus_bogerti": 1,
+      "Scinax_ruber": 1
+    }
+  },
+  "reproducibility": {
+    "timestamp_utc": "2026-09-13T06:14:34.761241+00:00",
+    "python": "3.13.10 (tags/v3.13.10:4fd8843, Dec  2 2025, 15:08:18) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.5.2",
+    "sklearn": "1.9.1",
+    "git_branch": "NOT_A_GIT_REPOSITORY",
+    "git_commit": "NOT_A_GIT_REPOSITORY",
+    "git_status": "NOT_A_GIT_REPOSITORY",
+    "input_sha256": {
+      "D:\\Anura\\evaluation\\open_set_v1\\closed_set\\closed_set_results.json": "52fb67e7f5cb191044caea4eb4c50990005a80e84531be20fa9225ad22ea157f",
+      "D:\\Anura\\evaluation\\open_set_v1\\closed_set\\closed_set_metrics.json": "a200ad2cb87b4c601c488240957ceae7fbd3878edb4a10ff6ce75f6fc5f3f017",
+      "D:\\Anura\\evaluation\\open_set_v1\\open_set\\open_set_results.json": "9b94705f2e8e9f676ed5ea6d1d37c54f603bfdb11f3fa82c8f5f0c8a2d2637a3",
+      "D:\\Anura\\evaluation\\open_set_v1\\open_set\\open_set_metrics.json": "2f2141227e2c9e3aea2701c989390c810ce7a2b472ad717080739ba2bee378ff"
+    },
+    "plots_created": true
+  },
+  "constraints": {
+    "inference_rerun": false,
+    "model_modified": false,
+    "threshold_applied_to_pipeline": false,
+    "rejection_implemented": false,
+    "knn_used": false,
+    "prior_used": false,
+    "training_done": false
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "status": "FASE_9_COMPLETE",
+  "official_counts": {
+    "F3": 766,
+    "F4": 56
+  },
+  "methods": {
+    "centroid_distance": {
+      "auroc": 0.7184352853412905,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.5714285714285714,
+      "far_at_90_tpr": 0.8928571428571429,
+      "far_at_95_tpr": 0.9107142857142857
+    },
+    "nearest_neighbor_distance": {
+      "auroc": 0.6784781797836628,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.7678571428571429,
+      "far_at_90_tpr": 0.875,
+      "far_at_95_tpr": 0.9642857142857143
+    },
+    "knn_distance_profile_k1": {
+      "auroc": 0.6784781797836628,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.7678571428571429,
+      "far_at_90_tpr": 0.875,
+      "far_at_95_tpr": 0.9642857142857143
+    },
+    "knn_distance_profile_k3": {
+      "auroc": 0.6786646773591944,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.8035714285714286,
+      "far_at_90_tpr": 0.875,
+      "far_at_95_tpr": 0.9642857142857143
+    },
+    "knn_distance_profile_k5": {
+      "auroc": 0.675307720999627,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.8214285714285714,
+      "far_at_90_tpr": 0.875,
+      "far_at_95_tpr": 0.9642857142857143
+    },
+    "knn_distance_profile_k10": {
+      "auroc": 0.6728599403207758,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.8214285714285714,
+      "far_at_90_tpr": 0.8928571428571429,
+      "far_at_95_tpr": 0.9642857142857143
+    },
+    "softmax_top1_confidence": {
+      "auroc": 0.5858121969414397,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.6428571428571429,
+      "far_at_90_tpr": 0.8035714285714286,
+      "far_at_95_tpr": 0.8928571428571429
+    },
+    "softmax_margin_confidence": {
+      "auroc": 0.5846465870943678,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.7678571428571429,
+      "far_at_90_tpr": 0.8392857142857143,
+      "far_at_95_tpr": 0.875
+    },
+    "mahalanobis_distance": {
+      "auroc": 1.0,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.0,
+      "far_at_90_tpr": 0.0,
+      "far_at_95_tpr": 0.0
+    },
+    "simple_distance_plus_confidence": {
+      "auroc": 0.39855697500932485,
+      "n_known": 766,
+      "n_unknown": 56,
+      "far_at_80_tpr": 0.8928571428571429,
+      "far_at_90_tpr": 0.9821428571428571,
+      "far_at_95_tpr": 1.0
+    }
+  },
+  "best_method": "mahalanobis_distance",
+  "mahalanobis": {
+    "status": "NUMERICALLY_STABLE_IN_SAMPLE",
+    "covariance_condition_number": 5541.4106193611005,
+    "validation_warning": "Covariance was fitted on F3 KNOWN and evaluated on those same KNOWN embeddings; performance is optimistic and not independent."
+  },
+  "energy_logit": "NOT_AVAILABLE"
+}

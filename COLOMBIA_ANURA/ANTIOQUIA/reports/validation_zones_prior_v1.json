@@ -1,0 +1,136 @@
+{
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-13",
+  "all_passed": true,
+  "prior_table_sha256": "1d8c28a2da30f3edb055ee860d7825c5981d415b792e77f36d94ea9c32949b05",
+  "checks": [
+    {
+      "check": "sin_zonas_finales_de_2_celdas_o_menos",
+      "passed": true,
+      "detail": {
+        "ZONE_001": 7,
+        "ZONE_002": 10,
+        "ZONE_005": 87,
+        "ZONE_006": 18
+      }
+    },
+    {
+      "check": "todas_las_celdas_originales_tienen_zona_final",
+      "passed": true,
+      "detail": {
+        "clustered": 85
+      }
+    },
+    {
+      "check": "todas_las_celdas_del_departamento_tienen_zona_final",
+      "passed": true,
+      "detail": {
+        "department_cells": 122
+      }
+    },
+    {
+      "check": "sin_fragmentos_elevacionalmente_incoherentes",
+      "passed": true,
+      "detail": {
+        "reassigned": 1,
+        "remaining": []
+      }
+    },
+    {
+      "check": "todo_registro_tiene_zona",
+      "passed": true,
+      "detail": {
+        "without_zone": []
+      }
+    },
+    {
+      "check": "suma_registros_por_zona_igual_al_total_valido",
+      "passed": true,
+      "detail": {
+        "sum_by_zone": 15081,
+        "expected": 15081
+      }
+    },
+    {
+      "check": "registros_base_reconciliados_con_14990",
+      "passed": true,
+      "detail": {
+        "base_reconstructed": 14990,
+        "documented_exclusions": {
+          "fuera_del_departamento": 58
+        },
+        "base_assigned": 14932,
+        "complement_added": 149
+      }
+    },
+    {
+      "check": "record_ids_unicos",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "check": "todo_registro_con_taxon_del_catalogo",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "check": "priors_normalizados",
+      "passed": true,
+      "detail": {
+        "ZONE_001": 1.0,
+        "ZONE_002": 1.0,
+        "ZONE_005": 1.0,
+        "ZONE_006": 1.0
+      }
+    },
+    {
+      "check": "ninguna_probabilidad_cero",
+      "passed": true,
+      "detail": {
+        "ZONE_001": 0.0016220600162206002,
+        "ZONE_002": 0.0015105740181268882,
+        "ZONE_005": 0.0002853067047075606,
+        "ZONE_006": 0.0006279434850863422
+      }
+    },
+    {
+      "check": "tope_de_esfuerzo_no_aumenta_la_dominancia",
+      "passed": true,
+      "detail": {
+        "ZONE_001": [
+          0.050283860502838604,
+          0.07049418604651163
+        ],
+        "ZONE_002": [
+          0.030211480362537766,
+          0.037116345467523196
+        ],
+        "ZONE_005": [
+          0.05777460770328103,
+          0.1181659769113483
+        ],
+        "ZONE_006": [
+          0.07001569858712715,
+          0.10422018348623853
+        ]
+      }
+    },
+    {
+      "check": "prior_sigue_la_incidencia_espacial (rho >= 0.5)",
+      "passed": true,
+      "detail": {
+        "ZONE_001": 0.5237887574364001,
+        "ZONE_002": 0.5001263651064864,
+        "ZONE_005": 0.8956925721437242,
+        "ZONE_006": 0.8597626091956748
+      }
+    },
+    {
+      "check": "alpha_no_en_el_borde_de_la_malla",
+      "passed": true,
+      "detail": {
+        "alpha": 2.0
+      }
+    }
+  ]
+}

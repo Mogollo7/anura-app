@@ -1,0 +1,22 @@
+{
+  "taxon_id": "COL_ANURA_0038",
+  "scientific_name": "Scinax ruber",
+  "family": "Hylidae",
+  "genus": "Scinax",
+  "common_name_es": "Ranita Listada",
+  "directory_legacy": "Scinax_ruber",
+  "occurrences_in_department": 28,
+  "distinct_observers_in_department": 23,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 394,
+  "occurrences_dropped_low_accuracy": 9,
+  "photos_curated_total": 125,
+  "photos_raw_total": 649,
+  "individuals_curated_total": 95,
+  "individuals_from_department": 12,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": [
+    "submuestreo_en_curaduria (125/649 fotos conservadas)"
+  ]
+}

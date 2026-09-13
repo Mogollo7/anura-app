@@ -1,0 +1,143 @@
+{
+  "variante": "A (imagen completa, fallback sin H4)",
+  "historial": [
+    {
+      "fase": "cabezas",
+      "epoca": 1,
+      "perdida": 2.769417101303033,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.6370157819225251,
+      "top1_genero": 0.5595408895265424,
+      "top1_especie": 0.35294117647058826,
+      "top3_especie": 0.6083213773314203
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 2,
+      "perdida": 2.526845396092508,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.697274031563845,
+      "top1_genero": 0.5767575322812052,
+      "top1_especie": 0.40028694404591103,
+      "top3_especie": 0.7187948350071736
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 3,
+      "perdida": 2.3940912653914594,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.7388809182209469,
+      "top1_genero": 0.6126255380200861,
+      "top1_especie": 0.39598278335724535,
+      "top3_especie": 0.7259684361549498
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 4,
+      "perdida": 2.27871153892669,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.7819225251076041,
+      "top1_genero": 0.6413199426111909,
+      "top1_especie": 0.4131994261119082,
+      "top3_especie": 0.7374461979913917
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 5,
+      "perdida": 2.1878449827168893,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.8278335724533716,
+      "top1_genero": 0.672883787661406,
+      "top1_especie": 0.41893830703012913,
+      "top3_especie": 0.7302725968436155
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 6,
+      "perdida": 2.099595704437357,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.8450502152080345,
+      "top1_genero": 0.6800573888091822,
+      "top1_especie": 0.4246771879483501,
+      "top3_especie": 0.7417503586800573
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 7,
+      "perdida": 2.039825013253541,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.8550932568149211,
+      "top1_genero": 0.6872309899569584,
+      "top1_especie": 0.43615494978479197,
+      "top3_especie": 0.7532281205164992
+    },
+    {
+      "fase": "cabezas",
+      "epoca": 8,
+      "perdida": 1.9804828947624273,
+      "vram_gb": 0.369331712,
+      "vram_pico_gb": 0.437256192,
+      "top1_familia": 0.8579626972740315,
+      "top1_genero": 0.703012912482066,
+      "top1_especie": 0.4418938307030129,
+      "top3_especie": 0.7560975609756098
+    },
+    {
+      "fase": "finetune",
+      "epoca": 1,
+      "perdida": 1.537492607019644,
+      "vram_gb": 0.71945728,
+      "vram_pico_gb": 1.082829824,
+      "top1_familia": 0.8780487804878049,
+      "top1_genero": 0.806312769010043,
+      "top1_especie": 0.5078909612625538,
+      "top3_especie": 0.7948350071736011
+    },
+    {
+      "fase": "finetune",
+      "epoca": 2,
+      "perdida": 1.2095488621070323,
+      "vram_gb": 0.71945728,
+      "vram_pico_gb": 1.082829824,
+      "top1_familia": 0.9124820659971306,
+      "top1_genero": 0.8263988522238164,
+      "top1_especie": 0.5480631276901005,
+      "top3_especie": 0.8292682926829268
+    },
+    {
+      "fase": "finetune",
+      "epoca": 3,
+      "perdida": 1.0034889109366762,
+      "vram_gb": 0.71945728,
+      "vram_pico_gb": 1.082829824,
+      "top1_familia": 0.9081779053084649,
+      "top1_genero": 0.8421807747489239,
+      "top1_especie": 0.539454806312769,
+      "top3_especie": 0.8507890961262554
+    },
+    {
+      "fase": "finetune",
+      "epoca": 4,
+      "perdida": 0.8493223675584372,
+      "vram_gb": 0.71945728,
+      "vram_pico_gb": 1.082829824,
+      "top1_familia": 0.9124820659971306,
+      "top1_genero": 0.8493543758967002,
+      "top1_especie": 0.5437589670014347,
+      "top3_especie": 0.8479196556671449
+    }
+  ],
+  "metricas_test": {
+    "top1_familia": 0.9190600522193212,
+    "top1_genero": 0.8433420365535248,
+    "top1_especie": 0.5704960835509139,
+    "top3_especie": 0.8237597911227154
+  }
+}

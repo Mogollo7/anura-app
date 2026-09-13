@@ -1,0 +1,72 @@
+[
+  {
+    "observation_id": 324593666,
+    "latitude": 6.4735907843,
+    "longitude": -75.0428829688,
+    "positional_accuracy": null,
+    "observed_on": "2025-11-02",
+    "observer": "sebasmc_foto",
+    "url": "https://www.inaturalist.org/observations/324593666",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 197927794,
+    "latitude": 6.0111145535,
+    "longitude": -75.0521253105,
+    "positional_accuracy": null,
+    "observed_on": "2024-01-23",
+    "observer": "vero_0522",
+    "url": "https://www.inaturalist.org/observations/197927794",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 197884576,
+    "latitude": 6.1703148026,
+    "longitude": -75.1159023084,
+    "positional_accuracy": null,
+    "observed_on": "2024-01-23",
+    "observer": "sebastian13009",
+    "url": "https://www.inaturalist.org/observations/197884576",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 156488742,
+    "latitude": 6.4856767665,
+    "longitude": -75.0677736212,
+    "positional_accuracy": 1589,
+    "observed_on": "2022-05-19",
+    "observer": "mateogarciameja",
+    "url": "https://www.inaturalist.org/observations/156488742",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 34660191,
+    "latitude": 5.8472923013,
+    "longitude": -75.1206270258,
+    "positional_accuracy": null,
+    "observed_on": "2019-09-14",
+    "observer": "wilmar_agudelo",
+    "url": "https://www.inaturalist.org/observations/34660191",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 25388999,
+    "latitude": 6.3473348583,
+    "longitude": -75.1920919718,
+    "positional_accuracy": null,
+    "observed_on": "2017-08-21",
+    "observer": "microteiido",
+    "url": "https://www.inaturalist.org/observations/25388999",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 19467476,
+    "latitude": 6.0162842851,
+    "longitude": -74.9376515379,
+    "positional_accuracy": null,
+    "observed_on": "2018-12-17",
+    "observer": "wilmar_agudelo",
+    "url": "https://www.inaturalist.org/observations/19467476",
+    "assignment_method": "interior"
+  }
+]

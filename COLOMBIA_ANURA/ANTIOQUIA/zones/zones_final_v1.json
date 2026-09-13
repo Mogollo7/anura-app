@@ -1,0 +1,270 @@
+{
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-13",
+  "version": "v1",
+  "final_zone_count": 4,
+  "zones": [
+    {
+      "zone_id": "ZONE_001",
+      "label": "Montano (mediana 1.910 m)",
+      "merged_from": [
+        "ZONE_001"
+      ],
+      "cells_total": 7,
+      "cells_outside_department": 0,
+      "cells_by_assignment": {
+        "clustering": 7
+      },
+      "area_km2": 3249,
+      "spatial_components": 1,
+      "records": 794,
+      "records_base_batch": 773,
+      "species_observed": 86,
+      "elevation_dem_cell_medians_m": {
+        "p10": 1587,
+        "median": 1910,
+        "p90": 2206
+      },
+      "elevation_records_median_m": 1800,
+      "admin_subregions": {
+        "SUROESTE": 7
+      },
+      "obscured_records": 48,
+      "obscured_records_near_zone_boundary": 48,
+      "cells": [
+        "G025_22_-304",
+        "G025_22_-303",
+        "G025_23_-304",
+        "G025_24_-305",
+        "G025_24_-304",
+        "G025_25_-305",
+        "G025_26_-305"
+      ]
+    },
+    {
+      "zone_id": "ZONE_002",
+      "label": "Premontano (mediana 1.005 m)",
+      "merged_from": [
+        "ZONE_002",
+        "ZONE_003",
+        "ZONE_004"
+      ],
+      "cells_total": 10,
+      "cells_outside_department": 0,
+      "cells_by_assignment": {
+        "inferida_con_datos": 1,
+        "clustering": 4,
+        "fusion_zona_pequena": 3,
+        "inferida_sin_datos": 2
+      },
+      "area_km2": 5832,
+      "spatial_components": 1,
+      "records": 819,
+      "records_base_batch": 780,
+      "species_observed": 93,
+      "elevation_dem_cell_medians_m": {
+        "p10": 460,
+        "median": 1005,
+        "p90": 1505
+      },
+      "elevation_records_median_m": 1009,
+      "admin_subregions": {
+        "OCCIDENTE": 5,
+        "NORTE": 3,
+        "SUROESTE": 2
+      },
+      "obscured_records": 59,
+      "obscured_records_near_zone_boundary": 59,
+      "cells": [
+        "G025_25_-306",
+        "G025_26_-306",
+        "G025_27_-306",
+        "G025_27_-305",
+        "G025_28_-306",
+        "G025_28_-305",
+        "G025_28_-304",
+        "G025_29_-305",
+        "G025_30_-305",
+        "G025_30_-304"
+      ]
+    },
+    {
+      "zone_id": "ZONE_005",
+      "label": "Tierras bajas (mediana 157 m)",
+      "merged_from": [
+        "ZONE_005"
+      ],
+      "cells_total": 87,
+      "cells_outside_department": 0,
+      "cells_by_assignment": {
+        "inferida_sin_datos": 21,
+        "clustering": 53,
+        "inferida_con_datos": 10,
+        "reasignacion_fragmento_incoherente": 3
+      },
+      "area_km2": 41302,
+      "spatial_components": 2,
+      "records": 8600,
+      "records_base_batch": 8555,
+      "species_observed": 175,
+      "elevation_dem_cell_medians_m": {
+        "p10": 16,
+        "median": 157,
+        "p90": 1209
+      },
+      "elevation_records_median_m": 751,
+      "admin_subregions": {
+        "URABA": 31,
+        "BAJO_CAUCA": 17,
+        "NORDESTE": 14,
+        "MAGDALENA_MEDIO": 10,
+        "ORIENTE": 8,
+        "NORTE": 7
+      },
+      "obscured_records": 709,
+      "obscured_records_near_zone_boundary": 428,
+      "cells": [
+        "G025_22_-300",
+        "G025_23_-300",
+        "G025_23_-299",
+        "G025_23_-298",
+        "G025_24_-300",
+        "G025_24_-299",
+        "G025_24_-298",
+        "G025_25_-307",
+        "G025_25_-301",
+        "G025_25_-300",
+        "G025_25_-299",
+        "G025_25_-298",
+        "G025_26_-308",
+        "G025_26_-307",
+        "G025_26_-301",
+        "G025_26_-300",
+        "G025_26_-299",
+        "G025_26_-298",
+        "G025_26_-297",
+        "G025_27_-308",
+        "G025_27_-307",
+        "G025_27_-301",
+        "G025_27_-300",
+        "G025_27_-299",
+        "G025_27_-298",
+        "G025_27_-297",
+        "G025_27_-296",
+        "G025_28_-307",
+        "G025_28_-302",
+        "G025_28_-301",
+        "G025_28_-300",
+        "G025_28_-299",
+        "G025_28_-298",
+        "G025_28_-297",
+        "G025_28_-296",
+        "G025_29_-307",
+        "G025_29_-306",
+        "G025_29_-304",
+        "G025_29_-303",
+        "G025_29_-302",
+        "G025_29_-301",
+        "G025_29_-300",
+        "G025_29_-299",
+        "G025_29_-298",
+        "G025_29_-297",
+        "G025_29_-296",
+        "G025_30_-308",
+        "G025_30_-307",
+        "G025_30_-306",
+        "G025_30_-303",
+        "G025_30_-302",
+        "G025_30_-301",
+        "G025_30_-300",
+        "G025_30_-299",
+        "G025_30_-298",
+        "G025_30_-297",
+        "G025_31_-309",
+        "G025_31_-308",
+        "G025_31_-307",
+        "G025_31_-306",
+        "G025_31_-302",
+        "G025_31_-301",
+        "G025_31_-300",
+        "G025_31_-299",
+        "G025_31_-298",
+        "G025_32_-308",
+        "G025_32_-307",
+        "G025_32_-306",
+        "G025_32_-305",
+        "G025_32_-301",
+        "G025_32_-300",
+        "G025_32_-299",
+        "G025_32_-298",
+        "G025_33_-307",
+        "G025_33_-306",
+        "G025_33_-305",
+        "G025_33_-300",
+        "G025_33_-299",
+        "G025_34_-308",
+        "G025_34_-307",
+        "G025_34_-306",
+        "G025_34_-305",
+        "G025_35_-308",
+        "G025_35_-307",
+        "G025_35_-306",
+        "G025_35_-305",
+        "G025_36_-306"
+      ]
+    },
+    {
+      "zone_id": "ZONE_006",
+      "label": "Montano (mediana 1.950 m)",
+      "merged_from": [
+        "ZONE_006"
+      ],
+      "cells_total": 18,
+      "cells_outside_department": 0,
+      "cells_by_assignment": {
+        "clustering": 17,
+        "inferida_con_datos": 1
+      },
+      "area_km2": 12473,
+      "spatial_components": 1,
+      "records": 4868,
+      "records_base_batch": 4824,
+      "species_observed": 141,
+      "elevation_dem_cell_medians_m": {
+        "p10": 1330,
+        "median": 1950,
+        "p90": 2334
+      },
+      "elevation_records_median_m": 1800,
+      "admin_subregions": {
+        "ORIENTE": 5,
+        "OCCIDENTE": 5,
+        "SUROESTE": 4,
+        "NORTE": 3,
+        "VALLE_DE_ABURRA": 1
+      },
+      "obscured_records": 482,
+      "obscured_records_near_zone_boundary": 418,
+      "cells": [
+        "G025_22_-302",
+        "G025_22_-301",
+        "G025_23_-303",
+        "G025_23_-302",
+        "G025_23_-301",
+        "G025_24_-303",
+        "G025_24_-302",
+        "G025_24_-301",
+        "G025_25_-304",
+        "G025_25_-303",
+        "G025_25_-302",
+        "G025_26_-304",
+        "G025_26_-303",
+        "G025_26_-302",
+        "G025_27_-304",
+        "G025_27_-303",
+        "G025_27_-302",
+        "G025_28_-303"
+      ]
+    }
+  ]
+}

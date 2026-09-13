@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "n_train_referencia": 3260,
+    "n_test": 766,
+    "n_especies": 41,
+    "k_vecinos_evaluado": 5
+  },
+  "ruta_a_clasificador_softmax": {
+    "top1": 0.5704960835509139,
+    "top3": 0.8237597911227154,
+    "fuente": "fase_5_completa.json"
+  },
+  "ruta_b_1nn": {
+    "top1": 0.5391644908616188,
+    "top3": 0.779373368146214
+  },
+  "ruta_b_knn5_voto_ponderado": {
+    "top1": 0.5639686684073107,
+    "top3": 0.779373368146214
+  },
+  "delta_top1_1nn_vs_clasificador": -0.031331592689295085,
+  "delta_top1_knn5_vs_clasificador": -0.00652741514360311,
+  "paquete_sqlite_generado": {
+    "ruta": "D:\\Anura\\bioclip\\paquetes_regionales\\antioquia_prueba_v1.sqlite",
+    "tamano_mb": 8.59,
+    "n_vectores": 3260,
+    "nota": "SIMULADO: usa el catálogo completo de 41 especies como si fuera 'Antioquia' — no hay recorte geográfico real todavía, falta el dato de región por observación"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "dane_code": "05138",
+  "name": "Canasgordas",
+  "department": "ANTIOQUIA",
+  "area_km2": 364.8,
+  "species_count": 3,
+  "observations": 24,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 20,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Dendrobates auratus",
+      "inaturalist_taxon_id": 21121,
+      "common_name_es": "rana venenosa verdinegra",
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21112",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    },
+    {
+      "scientific_name": "Hyloscirtus larinopygion",
+      "inaturalist_taxon_id": 65655,
+      "common_name_es": "Rana de torrente pastusa",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64783",
+      "observations_in_municipality": 2,
+      "occurrence_evidence": "OCCURRENCE_PROBABLE"
+    }
+  ]
+}

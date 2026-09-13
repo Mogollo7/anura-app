@@ -1,0 +1,39 @@
+{
+  "STATUS": "NO_INDEPENDENT_REFERENCE_AVAILABLE",
+  "INDEPENDENT_REFERENCE": false,
+  "REFERENCE_SIZE": 0,
+  "REFERENCE_SPECIES": [],
+  "COVARIANCE_METHOD": "NOT_RUN",
+  "REGULARIZATION": "NOT_RUN",
+  "THRESHOLD_SOURCE": "NOT_RUN",
+  "evaluation": {
+    "F3_known": 766,
+    "F4_unknown": 56,
+    "executed": false
+  },
+  "metrics": {
+    "AUROC": null,
+    "AUPR": null,
+    "FAR_at_KAR_80": null,
+    "UDR_at_KAR_80": null,
+    "FNR_at_KAR_80": null,
+    "FAR_at_KAR_85": null,
+    "UDR_at_KAR_85": null,
+    "FNR_at_KAR_85": null,
+    "FAR_at_KAR_90": null,
+    "UDR_at_KAR_90": null,
+    "FNR_at_KAR_90": null,
+    "FAR_at_KAR_95": null,
+    "UDR_at_KAR_95": null,
+    "FNR_at_KAR_95": null
+  },
+  "bootstrap_ci": null,
+  "unknown_by_species": {
+    "Hyloxalus_picachos": 15,
+    "Sachatamia_electrops": 41
+  },
+  "comparison_fase9_in_sample_vs_fase10_out_of_sample": {
+    "fase9": "Mahalanobis AUROC=1.0, in-sample optimistic; covariance fitted on F3",
+    "fase10": "Not estimable; no independent reference"
+  }
+}

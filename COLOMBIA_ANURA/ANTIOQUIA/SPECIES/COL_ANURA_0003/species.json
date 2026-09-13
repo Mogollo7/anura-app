@@ -1,0 +1,22 @@
+{
+  "taxon_id": "COL_ANURA_0003",
+  "scientific_name": "Rhinella horribilis",
+  "family": "Bufonidae",
+  "genus": "Rhinella",
+  "common_name_es": "Sapo gigante",
+  "directory_legacy": "Rhinella_horribilis",
+  "occurrences_in_department": 681,
+  "distinct_observers_in_department": 362,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 1000,
+  "occurrences_dropped_low_accuracy": 13,
+  "photos_curated_total": 100,
+  "photos_raw_total": 1529,
+  "individuals_curated_total": 65,
+  "individuals_from_department": 38,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": [
+    "submuestreo_en_curaduria (100/1529 fotos conservadas)"
+  ]
+}

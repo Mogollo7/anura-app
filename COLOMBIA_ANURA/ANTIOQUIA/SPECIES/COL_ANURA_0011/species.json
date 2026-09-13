@@ -1,0 +1,22 @@
+{
+  "taxon_id": "COL_ANURA_0011",
+  "scientific_name": "Pristimantis paisa",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Cutín paisa",
+  "directory_legacy": "Pristimantis_paisa",
+  "occurrences_in_department": 240,
+  "distinct_observers_in_department": 111,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 259,
+  "occurrences_dropped_low_accuracy": 7,
+  "photos_curated_total": 170,
+  "photos_raw_total": 518,
+  "individuals_curated_total": 103,
+  "individuals_from_department": 98,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": [
+    "submuestreo_en_curaduria (170/518 fotos conservadas)"
+  ]
+}

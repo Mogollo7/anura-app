@@ -1,0 +1,202 @@
+================================================================================
+INICIANDO EXTRACCIÓN DE iNaturalist PARA ANUROS
+Carpeta de destino: 'data dirty'
+Especies a procesar: 15
+Umbral mínimo requerido de Fotos: 70 | Audios: 70
+================================================================================
+
+[1/15] Procesando: Boana platanera
+
+[*] Buscando taxón: 'Boana platanera'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Boana (Sin nombre común)
+   • Especie: Boana platanera (Rana Platanera de Ojos Pálidos)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 1000)
+  [✓] Mapa generado: data dirty\Boana_platanera\mapa_distribucion.html
+
+[2/15] Procesando: Boana pugnax
+
+[*] Buscando taxón: 'Boana pugnax'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Boana (Sin nombre común)
+   • Especie: Boana pugnax (Rana Platanera de ojos tornasol)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 1000)
+  [✓] Mapa generado: data dirty\Boana_pugnax\mapa_distribucion.html
+
+[3/15] Procesando: Boana boans
+
+[*] Buscando taxón: 'Boana boans'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Boana (Sin nombre común)
+   • Especie: Boana boans (Rana gladiadora)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 285)
+  [✓] Mapa generado: data dirty\Boana_boans\mapa_distribucion.html
+
+[4/15] Procesando: Boana rosenbergi
+
+[*] Buscando taxón: 'Boana rosenbergi'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Boana (Sin nombre común)
+   • Especie: Boana rosenbergi (rana arbórea de gladiadora)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 147)
+  [✓] Mapa generado: data dirty\Boana_rosenbergi\mapa_distribucion.html
+
+[5/15] Procesando: Dendropsophus molitor
+
+[*] Buscando taxón: 'Dendropsophus molitor'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Dendropsophus (Ranas grillo enanas)
+   • Especie: Dendropsophus molitor (Rana sabanera)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 1000)
+  [✓] Mapa generado: data dirty\Dendropsophus_molitor\mapa_distribucion.html
+
+[6/15] Procesando: Dendropsophus columbianus
+
+[*] Buscando taxón: 'Dendropsophus columbianus'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Dendropsophus (Ranas grillo enanas)
+   • Especie: Dendropsophus columbianus (Ranita de pantano Colombiana)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 695)
+  [✓] Mapa generado: data dirty\Dendropsophus_columbianus\mapa_distribucion.html
+
+[7/15] Procesando: Dendropsophus ebraccatus
+
+[*] Buscando taxón: 'Dendropsophus ebraccatus'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Dendropsophus (Ranas grillo enanas)
+   • Especie: Dendropsophus ebraccatus (Rana arbórea amarillenta)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 163)
+  [✓] Mapa generado: data dirty\Dendropsophus_ebraccatus\mapa_distribucion.html
+
+[8/15] Procesando: Dendropsophus mathiassoni
+
+[*] Buscando taxón: 'Dendropsophus mathiassoni'...
+  [Taxonomía]
+   • Familia: Hylidae (Ranas arborícolas típicas)
+   • Género:  Dendropsophus (Ranas grillo enanas)
+   • Especie: Dendropsophus mathiassoni (Ranita llanera de pantanos)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 140)
+  [✓] Mapa generado: data dirty\Dendropsophus_mathiassoni\mapa_distribucion.html
+
+[9/15] Procesando: Phyllomedusa venusta
+
+[*] Buscando taxón: 'Phyllomedusa venusta'...
+  [Taxonomía]
+   • Familia: Phyllomedusidae (Ranas Lemur)
+   • Género:  Phyllomedusa (Sin nombre común)
+   • Especie: Phyllomedusa venusta (Lovely Leaf Frog)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 253)
+  [✓] Mapa generado: data dirty\Phyllomedusa_venusta\mapa_distribucion.html
+
+[10/15] Procesando: Pristimantis palmeri
+
+[*] Buscando taxón: 'Pristimantis palmeri'...
+  [Taxonomía]
+   • Familia: Craugastoridae (Ranas Cutín y Parientes)
+   • Género:  Pristimantis (Ranas Cutín)
+   • Especie: Pristimantis palmeri (Palmer's Robber Frog)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 286)
+  [✓] Mapa generado: data dirty\Pristimantis_palmeri\mapa_distribucion.html
+
+[11/15] Procesando: Pristimantis gaigei
+
+[*] Buscando taxón: 'Pristimantis gaigei'...
+  [Taxonomía]
+   • Familia: Craugastoridae (Ranas Cutín y Parientes)
+   • Género:  Pristimantis (Ranas Cutín)
+   • Especie: Pristimantis gaigei (Gaige's Rain Frog)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 244)
+  [✓] Mapa generado: data dirty\Pristimantis_gaigei\mapa_distribucion.html
+
+[12/15] Procesando: Pristimantis bogotensis
+
+[*] Buscando taxón: 'Pristimantis bogotensis'...
+  [Taxonomía]
+   • Familia: Craugastoridae (Ranas Cutín y Parientes)
+   • Género:  Pristimantis (Ranas Cutín)
+   • Especie: Pristimantis bogotensis (Bogota Robber Frog)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 172)
+  [✓] Mapa generado: data dirty\Pristimantis_bogotensis\mapa_distribucion.html
+
+[13/15] Procesando: Pristimantis thectopternus
+
+[*] Buscando taxón: 'Pristimantis thectopternus'...
+  [Taxonomía]
+   • Familia: Craugastoridae (Ranas Cutín y Parientes)
+   • Género:  Pristimantis (Ranas Cutín)
+   • Especie: Pristimantis thectopternus (Rana De Espolon)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 164)
+  [✓] Mapa generado: data dirty\Pristimantis_thectopternus\mapa_distribucion.html
+
+[14/15] Procesando: Pristimantis erythropleura
+
+[*] Buscando taxón: 'Pristimantis erythropleura'...
+  [Taxonomía]
+   • Familia: Craugastoridae (Ranas Cutín y Parientes)
+   • Género:  Pristimantis (Ranas Cutín)
+   • Especie: Pristimantis erythropleura (Rana De Ingle Roja)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 149)
+  [✓] Mapa generado: data dirty\Pristimantis_erythropleura\mapa_distribucion.html
+
+[15/15] Procesando: Pristimantis permixtus
+
+[*] Buscando taxón: 'Pristimantis permixtus'...
+  [Taxonomía]
+   • Familia: Craugastoridae (Ranas Cutín y Parientes)
+   • Género:  Pristimantis (Ranas Cutín)
+   • Especie: Pristimantis permixtus (Rana De Muslos Naranja)
+  [+] Extrayendo fotos y coordenadas en Colombia (place_id=7196)...
+  [✓] Fotos obtenidas en Colombia: 150 (Coordenadas registradas: 126)
+  [✓] Mapa generado: data dirty\Pristimantis_permixtus\mapa_distribucion.html
+
+[✓] Árbol taxonómico consolidado guardado en: data dirty\arbol_taxonomico.json
+
+[✓] Mapa general interactivo guardado en: data dirty\mapa_distribucion_general.html
+
+[✓] Reporte de auditoría guardado en:
+    - JSON: data dirty\reporte_especies_problematicas.json
+    - Markdown: data dirty\reporte_especies_problematicas.md
+
+================================================================================
+RESUMEN DE AUDITORÍA: ESPECIES CON PROBLEMAS DE DATOS
+================================================================================
+ [DÉFICIT] Boana platanera              | Individuos: 2381   | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Boana pugnax                 | Individuos: 1511   | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Boana boans                  | Individuos: 1561   | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Boana rosenbergi             | Individuos: 3068   | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Dendropsophus molitor        | Individuos: 1658   | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Dendropsophus columbianus    | Individuos: 739    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Dendropsophus ebraccatus     | Individuos: 3388   | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Dendropsophus mathiassoni    | Individuos: 160    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Phyllomedusa venusta         | Individuos: 260    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Pristimantis palmeri         | Individuos: 289    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Pristimantis gaigei          | Individuos: 409    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Pristimantis bogotensis      | Individuos: 184    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Pristimantis thectopternus   | Individuos: 167    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Pristimantis erythropleura   | Individuos: 150    | Audios: 0   | Fotos: 150 | Persistente: False
+ [DÉFICIT] Pristimantis permixtus       | Individuos: 129    | Audios: 0   | Fotos: 150 | Persistente: False
+================================================================================
+
+
+[✓] Extracción y análisis completados con éxito.

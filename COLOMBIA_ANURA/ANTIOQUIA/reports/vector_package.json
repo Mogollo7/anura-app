@@ -1,0 +1,17 @@
+{
+  "package_version": "antioquia_v1",
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-12",
+  "species_count": 29,
+  "reference_vectors": 3881,
+  "embedding_dim": 512,
+  "distance": "coseno (embeddings L2-normalizados)",
+  "encoder": "encoder_anura_fp16.onnx (BioCLIP v1 fine-tuned, Fase 4)",
+  "knn_k": 5,
+  "max_vectors_per_species": 300,
+  "measured_top1": 0.611,
+  "measured_top3": 0.7996,
+  "measured_on_test_images": 509,
+  "geographic_assignment": "point-in-polygon contra límites DANE",
+  "size_mb": 8.72
+}

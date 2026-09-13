@@ -1,0 +1,135 @@
+{
+  "department": "ANTIOQUIA",
+  "generated_on": "2026-09-13",
+  "rule": "zonas con <= 2 celdas de clustering se fusionan; fragmentos desconectados fuera de la banda elevacional de su zona se reubican",
+  "criteria_order": [
+    "continuidad_espacial (adyacencia 8-vecinos obligatoria)",
+    "continuidad_elevacional (equivalentes si Δ <= Δmin + 190 m)",
+    "coherencia_biogeografica (βsim medio menor)",
+    "evitar fragmentacion (componentes conexas no aumentan)"
+  ],
+  "original_zone_sizes": {
+    "ZONE_005": 53,
+    "ZONE_006": 18,
+    "ZONE_001": 7,
+    "ZONE_002": 4,
+    "ZONE_003": 2,
+    "ZONE_004": 1
+  },
+  "mapping_original_to_final": {
+    "ZONE_005": "ZONE_005",
+    "ZONE_006": "ZONE_006",
+    "ZONE_001": "ZONE_001",
+    "ZONE_002": "ZONE_002",
+    "ZONE_003": "ZONE_002",
+    "ZONE_004": "ZONE_002"
+  },
+  "merges": [
+    {
+      "type": "small_zone_merge",
+      "merged_zone": "ZONE_004",
+      "merged_cells": [
+        "G025_29_-305"
+      ],
+      "into": "ZONE_002",
+      "decided_by": "continuidad_elevacional",
+      "elevation_tolerance_m": 190,
+      "candidates": [
+        {
+          "target": "ZONE_002",
+          "target_cells": 4,
+          "target_is_small": false,
+          "shared_borders": 3,
+          "elev_small_zone_m": 1436.0,
+          "elev_target_border_m": 1223.0,
+          "elev_target_zone_m": 1340.5,
+          "elev_diff_m": 213.0,
+          "beta_sim_mean": 0.6423076923076924,
+          "fragmentation_ok": true
+        },
+        {
+          "target": "ZONE_005",
+          "target_cells": 53,
+          "target_is_small": false,
+          "shared_borders": 2,
+          "elev_small_zone_m": 1436.0,
+          "elev_target_border_m": 209.0,
+          "elev_target_zone_m": 251.0,
+          "elev_diff_m": 1227.0,
+          "beta_sim_mean": 0.7837100006911327,
+          "fragmentation_ok": true
+        }
+      ]
+    },
+    {
+      "type": "small_zone_merge",
+      "merged_zone": "ZONE_003",
+      "merged_cells": [
+        "G025_26_-306",
+        "G025_27_-306"
+      ],
+      "into": "ZONE_002",
+      "decided_by": "continuidad_elevacional",
+      "elevation_tolerance_m": 190,
+      "candidates": [
+        {
+          "target": "ZONE_001",
+          "target_cells": 7,
+          "target_is_small": false,
+          "shared_borders": 3,
+          "elev_small_zone_m": 675.5,
+          "elev_target_border_m": 1791.5,
+          "elev_target_zone_m": 1910.0,
+          "elev_diff_m": 1116.0,
+          "beta_sim_mean": 0.7277619889688856,
+          "fragmentation_ok": true
+        },
+        {
+          "target": "ZONE_002",
+          "target_cells": 5,
+          "target_is_small": false,
+          "shared_borders": 4,
+          "elev_small_zone_m": 675.5,
+          "elev_target_border_m": 1223.0,
+          "elev_target_zone_m": 1436.0,
+          "elev_diff_m": 547.5,
+          "beta_sim_mean": 0.6154578754578754,
+          "fragmentation_ok": true
+        }
+      ]
+    }
+  ],
+  "fragment_reassignments": [
+    {
+      "type": "incoherent_fragment_reassignment",
+      "from_zone": "ZONE_006",
+      "into": "ZONE_005",
+      "cells": [
+        "G025_28_-296",
+        "G025_28_-297",
+        "G025_29_-296"
+      ],
+      "previous_assignment": {
+        "G025_28_-297": "inferida_sin_datos",
+        "G025_28_-296": "clustering",
+        "G025_29_-296": "inferida_con_datos"
+      },
+      "fragment_elev_median_m": 83.0,
+      "source_main_component_elev_p10_p90_m": [
+        1330,
+        2334
+      ],
+      "decided_by": "continuidad_espacial (único vecino)",
+      "candidates": [
+        {
+          "target": "ZONE_005",
+          "shared_borders": 7,
+          "elev_target_border_m": 366.0,
+          "elev_diff_m": 283.0,
+          "beta_sim_mean": 0.6637566137566138,
+          "fragmentation_ok": true
+        }
+      ]
+    }
+  ]
+}

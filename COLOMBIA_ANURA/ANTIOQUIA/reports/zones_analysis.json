@@ -1,0 +1,20 @@
+{
+  "department": "ANTIOQUIA",
+  "verdict": "NO_SE_JUSTIFICAN_ZONAS",
+  "cell_size_degrees": 0.25,
+  "cells_with_records": 78,
+  "total_occurrences": 3967,
+  "species_count": 29,
+  "concentration_top3_cells": 0.1739,
+  "sampling_bias_warning": false,
+  "restricted_species": [
+    "Rheobates palmatus",
+    "Pristimantis palmeri",
+    "Pristimantis thectopternus"
+  ],
+  "candidate_zone_cells": {},
+  "criteria": {
+    "restricted_if_cells_leq": 3,
+    "zone_needs_coincident_restricted_species": 3
+  }
+}

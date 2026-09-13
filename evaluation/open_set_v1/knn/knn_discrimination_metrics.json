@@ -1,0 +1,4268 @@
+{
+  "known_n": 766,
+  "unknown_n": 56,
+  "signals": [
+    "max_similarity",
+    "mean_top5_similarity",
+    "species_vote_count"
+  ],
+  "distributions": {
+    "max_similarity": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 0.3199254220288354,
+        "median": 0.32395264506340027,
+        "std": 0.15344846487445676,
+        "min": -0.18873381614685059,
+        "max": 0.7832144945859909,
+        "p05": 0.0627383440732956,
+        "p25": 0.20774023234844208,
+        "p50": 0.32395264506340027,
+        "p75": 0.4320666790008545,
+        "p95": 0.5464939028024673
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 0.23539933562278748,
+        "median": 0.24447691440582275,
+        "std": 0.09097195015722521,
+        "min": -0.0076160430908203125,
+        "max": 0.3882231116294861,
+        "p05": 0.08120711147785187,
+        "p25": 0.19668391346931458,
+        "p50": 0.24447691440582275,
+        "p75": 0.30179762840270996,
+        "p95": 0.37956734001636505
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 0.18575865427652996,
+        "median": 0.1986810564994812,
+        "std": 0.0696996997028273,
+        "min": 0.07766467332839966,
+        "max": 0.3028528094291687,
+        "p05": 0.08097094893455506,
+        "p25": 0.14513367414474487,
+        "p50": 0.1986810564994812,
+        "p75": 0.23019742965698242,
+        "p95": 0.28088535070419307
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 0.25356056050556464,
+        "median": 0.261732816696167,
+        "std": 0.09174360987003553,
+        "min": -0.0076160430908203125,
+        "max": 0.3882231116294861,
+        "p05": 0.08240574598312378,
+        "p25": 0.20691728591918945,
+        "p50": 0.261732816696167,
+        "p75": 0.3156662583351135,
+        "p95": 0.38038724660873413
+      }
+    },
+    "mean_top5_similarity": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 0.2842913031422438,
+        "median": 0.2924543559551239,
+        "std": 0.15191324307768936,
+        "min": -0.20132715702056886,
+        "max": 0.6780336141586304,
+        "p05": 0.03265042901039124,
+        "p25": 0.1657661348581314,
+        "p50": 0.2924543559551239,
+        "p75": 0.4006908416748047,
+        "p95": 0.5177053391933442
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 0.20184485039540703,
+        "median": 0.19562430381774903,
+        "std": 0.08570349171915015,
+        "min": -0.01696798801422119,
+        "max": 0.35184262990951537,
+        "p05": 0.06316326260566711,
+        "p25": 0.16204645335674286,
+        "p50": 0.19562430381774903,
+        "p75": 0.26434200406074526,
+        "p95": 0.3195063292980194
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 0.15397674560546873,
+        "median": 0.16425511837005616,
+        "std": 0.06848359918382824,
+        "min": 0.06272221803665161,
+        "max": 0.29439852237701414,
+        "p05": 0.06726400256156921,
+        "p25": 0.0989959180355072,
+        "p50": 0.16425511837005616,
+        "p75": 0.18015856146812437,
+        "p95": 0.2573539328575134
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 0.21935757166001857,
+        "median": 0.23743151426315307,
+        "std": 0.0853485466505022,
+        "min": -0.01696798801422119,
+        "max": 0.35184262990951537,
+        "p05": 0.06331027746200561,
+        "p25": 0.17814289331436156,
+        "p50": 0.23743151426315307,
+        "p75": 0.2679212212562561,
+        "p95": 0.3443048357963562
+      }
+    },
+    "species_vote_count": {
+      "KNOWN": {
+        "n": 766,
+        "mean": 3.77023498694517,
+        "median": 4.0,
+        "std": 1.214057830293594,
+        "min": 1.0,
+        "max": 5.0,
+        "p05": 2.0,
+        "p25": 3.0,
+        "p50": 4.0,
+        "p75": 5.0,
+        "p95": 5.0
+      },
+      "UNKNOWN": {
+        "n": 56,
+        "mean": 3.6964285714285716,
+        "median": 4.0,
+        "std": 1.3473157537339717,
+        "min": 1.0,
+        "max": 5.0,
+        "p05": 2.0,
+        "p25": 2.0,
+        "p50": 4.0,
+        "p75": 5.0,
+        "p95": 5.0
+      },
+      "Hyloxalus_picachos": {
+        "n": 15,
+        "mean": 3.2,
+        "median": 3.0,
+        "std": 1.01418510567422,
+        "min": 2.0,
+        "max": 5.0,
+        "p05": 2.0,
+        "p25": 2.5,
+        "p50": 3.0,
+        "p75": 4.0,
+        "p95": 5.0
+      },
+      "Sachatamia_electrops": {
+        "n": 41,
+        "mean": 3.8780487804878048,
+        "median": 5.0,
+        "std": 1.417658667508147,
+        "min": 1.0,
+        "max": 5.0,
+        "p05": 2.0,
+        "p25": 2.0,
+        "p50": 5.0,
+        "p75": 5.0,
+        "p95": 5.0
+      }
+    }
+  },
+  "auroc_known_positive": {
+    "max_similarity": 0.6784781797836628,
+    "mean_top5_similarity": 0.675307720999627,
+    "species_vote_count": 0.5100825251771727
+  },
+  "best_vectorial_signal": "max_similarity",
+  "fpr_at_95_tpr": {
+    "threshold": 0.010913252830505371,
+    "tpr": 0.9817232375979112,
+    "fpr": 0.9642857142857143,
+    "known_accepted": 752,
+    "unknown_accepted": 54
+  },
+  "threshold_grid": [
+    {
+      "signal": "max_similarity",
+      "threshold": -0.18873381614685059,
+      "known_acceptance_rate": 1.0,
+      "unknown_detection_rate": 0.0,
+      "false_acceptance_rate": 1.0,
+      "known_accepted": 766,
+      "unknown_accepted": 56
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": -0.14013640061020852,
+      "known_acceptance_rate": 0.9986945169712794,
+      "unknown_detection_rate": 0.0,
+      "false_acceptance_rate": 1.0,
+      "known_accepted": 765,
+      "unknown_accepted": 56
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": -0.09153898507356643,
+      "known_acceptance_rate": 0.9973890339425587,
+      "unknown_detection_rate": 0.0,
+      "false_acceptance_rate": 1.0,
+      "known_accepted": 764,
+      "unknown_accepted": 56
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": -0.04294156953692435,
+      "known_acceptance_rate": 0.9947780678851175,
+      "unknown_detection_rate": 0.0,
+      "false_acceptance_rate": 1.0,
+      "known_accepted": 762,
+      "unknown_accepted": 56
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.005655845999717718,
+      "known_acceptance_rate": 0.9843342036553525,
+      "unknown_detection_rate": 0.017857142857142905,
+      "false_acceptance_rate": 0.9821428571428571,
+      "known_accepted": 754,
+      "unknown_accepted": 55
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.05425326153635979,
+      "known_acceptance_rate": 0.9569190600522193,
+      "unknown_detection_rate": 0.0357142857142857,
+      "false_acceptance_rate": 0.9642857142857143,
+      "known_accepted": 733,
+      "unknown_accepted": 54
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.10285067707300188,
+      "known_acceptance_rate": 0.9138381201044387,
+      "unknown_detection_rate": 0.125,
+      "false_acceptance_rate": 0.875,
+      "known_accepted": 700,
+      "unknown_accepted": 49
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.15144809260964393,
+      "known_acceptance_rate": 0.8485639686684073,
+      "unknown_detection_rate": 0.1428571428571429,
+      "false_acceptance_rate": 0.8571428571428571,
+      "known_accepted": 650,
+      "unknown_accepted": 48
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.20004550814628602,
+      "known_acceptance_rate": 0.7702349869451697,
+      "unknown_detection_rate": 0.3035714285714286,
+      "false_acceptance_rate": 0.6964285714285714,
+      "known_accepted": 590,
+      "unknown_accepted": 39
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.24864292368292812,
+      "known_acceptance_rate": 0.6710182767624021,
+      "unknown_detection_rate": 0.5357142857142857,
+      "false_acceptance_rate": 0.4642857142857143,
+      "known_accepted": 514,
+      "unknown_accepted": 26
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.29724033921957016,
+      "known_acceptance_rate": 0.5639686684073107,
+      "unknown_detection_rate": 0.7321428571428572,
+      "false_acceptance_rate": 0.26785714285714285,
+      "known_accepted": 432,
+      "unknown_accepted": 15
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.34583775475621226,
+      "known_acceptance_rate": 0.45039164490861616,
+      "unknown_detection_rate": 0.9107142857142857,
+      "false_acceptance_rate": 0.08928571428571429,
+      "known_accepted": 345,
+      "unknown_accepted": 5
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.39443517029285435,
+      "known_acceptance_rate": 0.34464751958224543,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 264,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.44303258582949645,
+      "known_acceptance_rate": 0.2310704960835509,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 177,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.49163000136613844,
+      "known_acceptance_rate": 0.12663185378590078,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 97,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.5402274169027805,
+      "known_acceptance_rate": 0.05613577023498695,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 43,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.5888248324394226,
+      "known_acceptance_rate": 0.02741514360313316,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 21,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.6374222479760647,
+      "known_acceptance_rate": 0.01174934725848564,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 9,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.6860196635127068,
+      "known_acceptance_rate": 0.007832898172323759,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 6,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.7346170790493488,
+      "known_acceptance_rate": 0.005221932114882507,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 4,
+      "unknown_accepted": 0
+    },
+    {
+      "signal": "max_similarity",
+      "threshold": 0.7832144945859909,
+      "known_acceptance_rate": 0.0013054830287206266,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 1,
+      "unknown_accepted": 0
+    }
+  ],
+  "far_target_rows": {
+    "approximately_5_percent_far": {
+      "signal": "max_similarity",
+      "threshold": 0.34583775475621226,
+      "known_acceptance_rate": 0.45039164490861616,
+      "unknown_detection_rate": 0.9107142857142857,
+      "false_acceptance_rate": 0.08928571428571429,
+      "known_accepted": 345,
+      "unknown_accepted": 5
+    },
+    "approximately_1_percent_far": {
+      "signal": "max_similarity",
+      "threshold": 0.39443517029285435,
+      "known_acceptance_rate": 0.34464751958224543,
+      "unknown_detection_rate": 1.0,
+      "false_acceptance_rate": 0.0,
+      "known_accepted": 264,
+      "unknown_accepted": 0
+    }
+  },
+  "unknown_species_analysis": {
+    "Hyloxalus_picachos": {
+      "n": 15,
+      "max_similarity": {
+        "n": 15,
+        "mean": 0.18575865427652996,
+        "median": 0.1986810564994812,
+        "std": 0.0696996997028273,
+        "min": 0.07766467332839966,
+        "max": 0.3028528094291687,
+        "p05": 0.08097094893455506,
+        "p25": 0.14513367414474487,
+        "p50": 0.1986810564994812,
+        "p75": 0.23019742965698242,
+        "p95": 0.28088535070419307
+      },
+      "mean_top5_similarity": {
+        "n": 15,
+        "mean": 0.15397674560546873,
+        "median": 0.16425511837005616,
+        "std": 0.06848359918382824,
+        "min": 0.06272221803665161,
+        "max": 0.29439852237701414,
+        "p05": 0.06726400256156921,
+        "p25": 0.0989959180355072,
+        "p50": 0.16425511837005616,
+        "p75": 0.18015856146812437,
+        "p95": 0.2573539328575134
+      },
+      "species_vote_count": {
+        "n": 15,
+        "mean": 3.2,
+        "median": 3.0,
+        "std": 1.01418510567422,
+        "min": 2.0,
+        "max": 5.0,
+        "p05": 2.0,
+        "p25": 2.5,
+        "p50": 3.0,
+        "p75": 4.0,
+        "p95": 5.0
+      },
+      "predicted_species_counts": {
+        "Craugastor_raniformis": 3,
+        "Pristimantis_achatinus": 10,
+        "Dendropsophus_bogerti": 2
+      }
+    },
+    "Sachatamia_electrops": {
+      "n": 41,
+      "max_similarity": {
+        "n": 41,
+        "mean": 0.25356056050556464,
+        "median": 0.261732816696167,
+        "std": 0.09174360987003553,
+        "min": -0.0076160430908203125,
+        "max": 0.3882231116294861,
+        "p05": 0.08240574598312378,
+        "p25": 0.20691728591918945,
+        "p50": 0.261732816696167,
+        "p75": 0.3156662583351135,
+        "p95": 0.38038724660873413
+      },
+      "mean_top5_similarity": {
+        "n": 41,
+        "mean": 0.21935757166001857,
+        "median": 0.23743151426315307,
+        "std": 0.0853485466505022,
+        "min": -0.01696798801422119,
+        "max": 0.35184262990951537,
+        "p05": 0.06331027746200561,
+        "p25": 0.17814289331436156,
+        "p50": 0.23743151426315307,
+        "p75": 0.2679212212562561,
+        "p95": 0.3443048357963562
+      },
+      "species_vote_count": {
+        "n": 41,
+        "mean": 3.8780487804878048,
+        "median": 5.0,
+        "std": 1.417658667508147,
+        "min": 1.0,
+        "max": 5.0,
+        "p05": 2.0,
+        "p25": 2.0,
+        "p50": 5.0,
+        "p75": 5.0,
+        "p95": 5.0
+      },
+      "predicted_species_counts": {
+        "Hyloscirtus_palmeri": 28,
+        "Dendropsophus_columbianus": 3,
+        "Scinax_ruber": 5,
+        "Dendropsophus_bogerti": 4,
+        "Dendropsophus_microcephalus": 1
+      }
+    }
+  },
+  "top_false_accepts": {
+    "by_max_similarity": [
+      {
+        "image_id": "Sachatamia_electrops_0049",
+        "path": "Sachatamia_electrops\\IMG-20251205-WA0056.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3017007112503052,
+        "softmax_margin": 0.06256921589374542,
+        "max_similarity": 0.3882231116294861,
+        "min_distance": 0.6117768883705139,
+        "mean_top5_similarity": 0.29819523096084594,
+        "mean_top5_distance": 0.701804769039154,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6117768883705139,
+            "similarity": 0.3882231116294861,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.712670624256134,
+            "similarity": 0.28732937574386597,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7197105884552002,
+            "similarity": 0.2802894115447998,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7316490411758423,
+            "similarity": 0.2683509588241577,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1057,
+            "distance": 0.7332167029380798,
+            "similarity": 0.26678329706192017,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674026.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0036",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620799.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.4171868562698364,
+        "softmax_margin": 0.19344626367092133,
+        "max_similarity": 0.3861064910888672,
+        "min_distance": 0.6138935089111328,
+        "mean_top5_similarity": 0.3443048357963562,
+        "mean_top5_distance": 0.6556951642036438,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1100,
+            "distance": 0.6138935089111328,
+            "similarity": 0.3861064910888672,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          },
+          {
+            "rowid": 1068,
+            "distance": 0.6275791525840759,
+            "similarity": 0.3724208474159241,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1067,
+            "distance": 0.6585682034492493,
+            "similarity": 0.34143179655075073,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_201469718_photo_355650659.jpg",
+            "individual_id": "Hyloscirtus_palmeri::201469718"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6865735054016113,
+            "similarity": 0.31342649459838867,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6918614506721497,
+            "similarity": 0.30813854932785034,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0052",
+        "path": "Sachatamia_electrops\\large (2).jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32066866755485535,
+        "softmax_margin": 0.0527399480342865,
+        "max_similarity": 0.38038724660873413,
+        "min_distance": 0.6196127533912659,
+        "mean_top5_similarity": 0.35015642642974854,
+        "mean_top5_distance": 0.6498435735702515,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6196127533912659,
+            "similarity": 0.38038724660873413,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.6449998021125793,
+            "similarity": 0.35500019788742065,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1095,
+            "distance": 0.6514782905578613,
+            "similarity": 0.34852170944213867,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.6567140817642212,
+            "similarity": 0.3432859182357788,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.6764129400253296,
+            "similarity": 0.3235870599746704,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0017",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601964.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32503649592399597,
+        "softmax_margin": 0.06078368425369263,
+        "max_similarity": 0.3792940378189087,
+        "min_distance": 0.6207059621810913,
+        "mean_top5_similarity": 0.35184262990951537,
+        "mean_top5_distance": 0.6481573700904846,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6207059621810913,
+            "similarity": 0.3792940378189087,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.6464444994926453,
+            "similarity": 0.35355550050735474,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1095,
+            "distance": 0.6493320465087891,
+            "similarity": 0.35066795349121094,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.6512428522109985,
+            "similarity": 0.34875714778900146,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.6730614900588989,
+            "similarity": 0.3269385099411011,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0032",
+        "path": "Sachatamia_electrops\\col_obs_197927794_photo_348731255.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.10959731042385101,
+        "softmax_margin": 0.024575605988502502,
+        "max_similarity": 0.35510706901550293,
+        "min_distance": 0.6448929309844971,
+        "mean_top5_similarity": 0.29165656566619874,
+        "mean_top5_distance": 0.7083434343338013,
+        "predicted_species": "Dendropsophus_microcephalus",
+        "species_vote_count": 1,
+        "neighbors": [
+          {
+            "rowid": 912,
+            "distance": 0.6448929309844971,
+            "similarity": 0.35510706901550293,
+            "species": "Dendropsophus_microcephalus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_microcephalus/col_obs_33228798_photo_52227312.jpg",
+            "individual_id": "Dendropsophus_microcephalus::33228798"
+          },
+          {
+            "rowid": 704,
+            "distance": 0.7163344025611877,
+            "similarity": 0.28366559743881226,
+            "species": "Dendropsophus_columbianus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_columbianus/col_obs_379184041_photo_693577224.jpg",
+            "individual_id": "Dendropsophus_columbianus::379184041"
+          },
+          {
+            "rowid": 831,
+            "distance": 0.7221406698226929,
+            "similarity": 0.27785933017730713,
+            "species": "Dendropsophus_ebraccatus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_ebraccatus/col_obs_321092010_photo_580645987.jpg",
+            "individual_id": "Dendropsophus_ebraccatus::321092010"
+          },
+          {
+            "rowid": 2010,
+            "distance": 0.7235097289085388,
+            "similarity": 0.2764902710914612,
+            "species": "Scinax_ruber",
+            "genus": "Scinax",
+            "family": "Hylidae",
+            "path": "Scinax_ruber/col_obs_25114790_photo_38870324.jpg",
+            "individual_id": "Scinax_ruber::25114790"
+          },
+          {
+            "rowid": 929,
+            "distance": 0.7348394393920898,
+            "similarity": 0.26516056060791016,
+            "species": "Dendropsophus_norandinus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_norandinus/col_obs_182771650_photo_318691949.jpg",
+            "individual_id": "Dendropsophus_norandinus::182771650"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0037",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620944.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.3944284915924072,
+        "softmax_margin": 0.17617852985858917,
+        "max_similarity": 0.3373579978942871,
+        "min_distance": 0.6626420021057129,
+        "mean_top5_similarity": 0.3112401604652405,
+        "mean_top5_distance": 0.6887598395347595,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6626420021057129,
+            "similarity": 0.3373579978942871,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1058,
+            "distance": 0.6751049757003784,
+            "similarity": 0.3248950242996216,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6865581274032593,
+            "similarity": 0.3134418725967407,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1104,
+            "distance": 0.7013851404190063,
+            "similarity": 0.29861485958099365,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_352367376_photo_643126881.jpg",
+            "individual_id": "Hyloscirtus_palmeri::352367376"
+          },
+          {
+            "rowid": 1100,
+            "distance": 0.7181089520454407,
+            "similarity": 0.2818910479545593,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0030",
+        "path": "Sachatamia_electrops\\col_obs_197927794_photo_348731209.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.11785537749528885,
+        "softmax_margin": 0.022599413990974426,
+        "max_similarity": 0.3309119939804077,
+        "min_distance": 0.6690880060195923,
+        "mean_top5_similarity": 0.2679212212562561,
+        "mean_top5_distance": 0.7320787787437439,
+        "predicted_species": "Dendropsophus_bogerti",
+        "species_vote_count": 2,
+        "neighbors": [
+          {
+            "rowid": 912,
+            "distance": 0.6690880060195923,
+            "similarity": 0.3309119939804077,
+            "species": "Dendropsophus_microcephalus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_microcephalus/col_obs_33228798_photo_52227312.jpg",
+            "individual_id": "Dendropsophus_microcephalus::33228798"
+          },
+          {
+            "rowid": 2010,
+            "distance": 0.7382585406303406,
+            "similarity": 0.2617414593696594,
+            "species": "Scinax_ruber",
+            "genus": "Scinax",
+            "family": "Hylidae",
+            "path": "Scinax_ruber/col_obs_25114790_photo_38870324.jpg",
+            "individual_id": "Scinax_ruber::25114790"
+          },
+          {
+            "rowid": 611,
+            "distance": 0.7438340783119202,
+            "similarity": 0.25616592168807983,
+            "species": "Dendropsophus_bogerti",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_bogerti/col_obs_130068129_photo_221138156.jpg",
+            "individual_id": "Dendropsophus_bogerti::130068129"
+          },
+          {
+            "rowid": 750,
+            "distance": 0.7511225342750549,
+            "similarity": 0.24887746572494507,
+            "species": "Dendropsophus_columbianus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_columbianus/col_obs_340834612_photo_620327242.jpg",
+            "individual_id": "Dendropsophus_columbianus::340805298"
+          },
+          {
+            "rowid": 628,
+            "distance": 0.7580907344818115,
+            "similarity": 0.24190926551818848,
+            "species": "Dendropsophus_bogerti",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_bogerti/col_obs_356969464_photo_661113865.jpg",
+            "individual_id": "Dendropsophus_bogerti::356969464"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0035",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620730.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3070223033428192,
+        "softmax_margin": 0.0005990564823150635,
+        "max_similarity": 0.32635438442230225,
+        "min_distance": 0.6736456155776978,
+        "mean_top5_similarity": 0.30376834869384767,
+        "mean_top5_distance": 0.6962316513061524,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6736456155776978,
+            "similarity": 0.32635438442230225,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1094,
+            "distance": 0.6899698376655579,
+            "similarity": 0.31003016233444214,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_361740483_photo_660197619.jpg",
+            "individual_id": "Hyloscirtus_palmeri::361740483"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6951010227203369,
+            "similarity": 0.3048989772796631,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.6953393816947937,
+            "similarity": 0.3046606183052063,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7271023988723755,
+            "similarity": 0.2728976011276245,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0021",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951910.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.34130361676216125,
+        "softmax_margin": 0.08816319704055786,
+        "max_similarity": 0.3200552463531494,
+        "min_distance": 0.6799447536468506,
+        "mean_top5_similarity": 0.30802390575408933,
+        "mean_top5_distance": 0.6919760942459107,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1067,
+            "distance": 0.6799447536468506,
+            "similarity": 0.3200552463531494,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_201469718_photo_355650659.jpg",
+            "individual_id": "Hyloscirtus_palmeri::201469718"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6926076412200928,
+            "similarity": 0.3073923587799072,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6937624216079712,
+            "similarity": 0.3062375783920288,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1061,
+            "distance": 0.6940392851829529,
+            "similarity": 0.3059607148170471,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_109757940_photo_185046308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::109757940"
+          },
+          {
+            "rowid": 1100,
+            "distance": 0.6995263695716858,
+            "similarity": 0.3004736304283142,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0016",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601921.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.39592960476875305,
+        "softmax_margin": 0.11130866408348083,
+        "max_similarity": 0.3164886236190796,
+        "min_distance": 0.6835113763809204,
+        "mean_top5_similarity": 0.30486832857131957,
+        "mean_top5_distance": 0.6951316714286804,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1060,
+            "distance": 0.6835113763809204,
+            "similarity": 0.3164886236190796,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_149652867_photo_257892699.jpg",
+            "individual_id": "Hyloscirtus_palmeri::149652867"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6865907907485962,
+            "similarity": 0.3134092092514038,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6866236925125122,
+            "similarity": 0.3133763074874878,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.7048887610435486,
+            "similarity": 0.2951112389564514,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.7140437364578247,
+            "similarity": 0.2859562635421753,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      }
+    ],
+    "by_mean_top5_similarity": [
+      {
+        "image_id": "Sachatamia_electrops_0017",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601964.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32503649592399597,
+        "softmax_margin": 0.06078368425369263,
+        "max_similarity": 0.3792940378189087,
+        "min_distance": 0.6207059621810913,
+        "mean_top5_similarity": 0.35184262990951537,
+        "mean_top5_distance": 0.6481573700904846,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6207059621810913,
+            "similarity": 0.3792940378189087,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.6464444994926453,
+            "similarity": 0.35355550050735474,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1095,
+            "distance": 0.6493320465087891,
+            "similarity": 0.35066795349121094,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.6512428522109985,
+            "similarity": 0.34875714778900146,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.6730614900588989,
+            "similarity": 0.3269385099411011,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0052",
+        "path": "Sachatamia_electrops\\large (2).jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32066866755485535,
+        "softmax_margin": 0.0527399480342865,
+        "max_similarity": 0.38038724660873413,
+        "min_distance": 0.6196127533912659,
+        "mean_top5_similarity": 0.35015642642974854,
+        "mean_top5_distance": 0.6498435735702515,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6196127533912659,
+            "similarity": 0.38038724660873413,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.6449998021125793,
+            "similarity": 0.35500019788742065,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1095,
+            "distance": 0.6514782905578613,
+            "similarity": 0.34852170944213867,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.6567140817642212,
+            "similarity": 0.3432859182357788,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.6764129400253296,
+            "similarity": 0.3235870599746704,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0036",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620799.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.4171868562698364,
+        "softmax_margin": 0.19344626367092133,
+        "max_similarity": 0.3861064910888672,
+        "min_distance": 0.6138935089111328,
+        "mean_top5_similarity": 0.3443048357963562,
+        "mean_top5_distance": 0.6556951642036438,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1100,
+            "distance": 0.6138935089111328,
+            "similarity": 0.3861064910888672,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          },
+          {
+            "rowid": 1068,
+            "distance": 0.6275791525840759,
+            "similarity": 0.3724208474159241,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1067,
+            "distance": 0.6585682034492493,
+            "similarity": 0.34143179655075073,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_201469718_photo_355650659.jpg",
+            "individual_id": "Hyloscirtus_palmeri::201469718"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6865735054016113,
+            "similarity": 0.31342649459838867,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6918614506721497,
+            "similarity": 0.30813854932785034,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0037",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620944.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.3944284915924072,
+        "softmax_margin": 0.17617852985858917,
+        "max_similarity": 0.3373579978942871,
+        "min_distance": 0.6626420021057129,
+        "mean_top5_similarity": 0.3112401604652405,
+        "mean_top5_distance": 0.6887598395347595,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6626420021057129,
+            "similarity": 0.3373579978942871,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1058,
+            "distance": 0.6751049757003784,
+            "similarity": 0.3248950242996216,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6865581274032593,
+            "similarity": 0.3134418725967407,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1104,
+            "distance": 0.7013851404190063,
+            "similarity": 0.29861485958099365,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_352367376_photo_643126881.jpg",
+            "individual_id": "Hyloscirtus_palmeri::352367376"
+          },
+          {
+            "rowid": 1100,
+            "distance": 0.7181089520454407,
+            "similarity": 0.2818910479545593,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0021",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951910.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.34130361676216125,
+        "softmax_margin": 0.08816319704055786,
+        "max_similarity": 0.3200552463531494,
+        "min_distance": 0.6799447536468506,
+        "mean_top5_similarity": 0.30802390575408933,
+        "mean_top5_distance": 0.6919760942459107,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1067,
+            "distance": 0.6799447536468506,
+            "similarity": 0.3200552463531494,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_201469718_photo_355650659.jpg",
+            "individual_id": "Hyloscirtus_palmeri::201469718"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6926076412200928,
+            "similarity": 0.3073923587799072,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6937624216079712,
+            "similarity": 0.3062375783920288,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1061,
+            "distance": 0.6940392851829529,
+            "similarity": 0.3059607148170471,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_109757940_photo_185046308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::109757940"
+          },
+          {
+            "rowid": 1100,
+            "distance": 0.6995263695716858,
+            "similarity": 0.3004736304283142,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0016",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601921.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.39592960476875305,
+        "softmax_margin": 0.11130866408348083,
+        "max_similarity": 0.3164886236190796,
+        "min_distance": 0.6835113763809204,
+        "mean_top5_similarity": 0.30486832857131957,
+        "mean_top5_distance": 0.6951316714286804,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1060,
+            "distance": 0.6835113763809204,
+            "similarity": 0.3164886236190796,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_149652867_photo_257892699.jpg",
+            "individual_id": "Hyloscirtus_palmeri::149652867"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6865907907485962,
+            "similarity": 0.3134092092514038,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6866236925125122,
+            "similarity": 0.3133763074874878,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.7048887610435486,
+            "similarity": 0.2951112389564514,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.7140437364578247,
+            "similarity": 0.2859562635421753,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0035",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620730.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3070223033428192,
+        "softmax_margin": 0.0005990564823150635,
+        "max_similarity": 0.32635438442230225,
+        "min_distance": 0.6736456155776978,
+        "mean_top5_similarity": 0.30376834869384767,
+        "mean_top5_distance": 0.6962316513061524,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6736456155776978,
+            "similarity": 0.32635438442230225,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1094,
+            "distance": 0.6899698376655579,
+            "similarity": 0.31003016233444214,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_361740483_photo_660197619.jpg",
+            "individual_id": "Hyloscirtus_palmeri::361740483"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6951010227203369,
+            "similarity": 0.3048989772796631,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.6953393816947937,
+            "similarity": 0.3046606183052063,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7271023988723755,
+            "similarity": 0.2728976011276245,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0055",
+        "path": "Sachatamia_electrops\\large.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3966028094291687,
+        "softmax_margin": 0.11316356062889099,
+        "max_similarity": 0.3156662583351135,
+        "min_distance": 0.6843337416648865,
+        "mean_top5_similarity": 0.3020487427711487,
+        "mean_top5_distance": 0.6979512572288513,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1060,
+            "distance": 0.6843337416648865,
+            "similarity": 0.3156662583351135,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_149652867_photo_257892699.jpg",
+            "individual_id": "Hyloscirtus_palmeri::149652867"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6897066235542297,
+            "similarity": 0.31029337644577026,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6906313896179199,
+            "similarity": 0.3093686103820801,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.7077851295471191,
+            "similarity": 0.29221487045288086,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.7172994017601013,
+            "similarity": 0.2827005982398987,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0049",
+        "path": "Sachatamia_electrops\\IMG-20251205-WA0056.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3017007112503052,
+        "softmax_margin": 0.06256921589374542,
+        "max_similarity": 0.3882231116294861,
+        "min_distance": 0.6117768883705139,
+        "mean_top5_similarity": 0.29819523096084594,
+        "mean_top5_distance": 0.701804769039154,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6117768883705139,
+            "similarity": 0.3882231116294861,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.712670624256134,
+            "similarity": 0.28732937574386597,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7197105884552002,
+            "similarity": 0.2802894115447998,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7316490411758423,
+            "similarity": 0.2683509588241577,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1057,
+            "distance": 0.7332167029380798,
+            "similarity": 0.26678329706192017,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674026.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Hyloxalus_picachos_0003",
+        "path": "Hyloxalus_picachos\\bmc_diagnostica_01.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.12864592671394348,
+        "softmax_margin": 0.01731216162443161,
+        "max_similarity": 0.3028528094291687,
+        "min_distance": 0.6971471905708313,
+        "mean_top5_similarity": 0.29439852237701414,
+        "mean_top5_distance": 0.7056014776229859,
+        "predicted_species": "Pristimantis_achatinus",
+        "species_vote_count": 4,
+        "neighbors": [
+          {
+            "rowid": 1365,
+            "distance": 0.6971471905708313,
+            "similarity": 0.3028528094291687,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_20933825_photo_32311936.jpg",
+            "individual_id": "Pristimantis_achatinus::20933825"
+          },
+          {
+            "rowid": 1344,
+            "distance": 0.7025637030601501,
+            "similarity": 0.29743629693984985,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_21226230_photo_32811744.jpg",
+            "individual_id": "Pristimantis_achatinus::21226230"
+          },
+          {
+            "rowid": 1367,
+            "distance": 0.7077730894088745,
+            "similarity": 0.2922269105911255,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_20933825_photo_32311997.jpg",
+            "individual_id": "Pristimantis_achatinus::20933825"
+          },
+          {
+            "rowid": 1376,
+            "distance": 0.7085989117622375,
+            "similarity": 0.29140108823776245,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_200710429_photo_354168084.jpg",
+            "individual_id": "Pristimantis_achatinus::200710429"
+          },
+          {
+            "rowid": 453,
+            "distance": 0.7119244933128357,
+            "similarity": 0.2880755066871643,
+            "species": "Craugastor_raniformis",
+            "genus": "Craugastor",
+            "family": "Craugastoridae",
+            "path": "Craugastor_raniformis/col_obs_11081253_photo_27354086.jpg",
+            "individual_id": "Craugastor_raniformis::11081253"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      }
+    ],
+    "consensus_5_of_5": [
+      {
+        "image_id": "Hyloxalus_picachos_0005",
+        "path": "Hyloxalus_picachos\\col_obs_297476356_photo_535741216.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.10587238520383835,
+        "softmax_margin": 0.024697206914424896,
+        "max_similarity": 0.22207707166671753,
+        "min_distance": 0.7779229283332825,
+        "mean_top5_similarity": 0.17225997447967528,
+        "mean_top5_distance": 0.8277400255203247,
+        "predicted_species": "Pristimantis_achatinus",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1395,
+            "distance": 0.7779229283332825,
+            "similarity": 0.22207707166671753,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_70789132_photo_115143333.jpg",
+            "individual_id": "Pristimantis_achatinus::70789132"
+          },
+          {
+            "rowid": 1377,
+            "distance": 0.8318414092063904,
+            "similarity": 0.16815859079360962,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_322904530_photo_584223654.jpg",
+            "individual_id": "Pristimantis_achatinus::322904530"
+          },
+          {
+            "rowid": 1415,
+            "distance": 0.8361352682113647,
+            "similarity": 0.16386473178863525,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_198539751_photo_349957759.jpg",
+            "individual_id": "Pristimantis_achatinus::198539751"
+          },
+          {
+            "rowid": 1393,
+            "distance": 0.8362739682197571,
+            "similarity": 0.16372603178024292,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_70789132_photo_115143101.jpg",
+            "individual_id": "Pristimantis_achatinus::70789132"
+          },
+          {
+            "rowid": 1378,
+            "distance": 0.8565265536308289,
+            "similarity": 0.14347344636917114,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_322904530_photo_584223677.jpg",
+            "individual_id": "Pristimantis_achatinus::322904530"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Hyloxalus_picachos_0006",
+        "path": "Hyloxalus_picachos\\col_obs_297476358_photo_535741206.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0000001192092896,
+        "softmax_top1": 0.13920752704143524,
+        "softmax_margin": 0.05054885149002075,
+        "max_similarity": 0.27147072553634644,
+        "min_distance": 0.7285292744636536,
+        "mean_top5_similarity": 0.24147768020629884,
+        "mean_top5_distance": 0.7585223197937012,
+        "predicted_species": "Pristimantis_achatinus",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1393,
+            "distance": 0.7285292744636536,
+            "similarity": 0.27147072553634644,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_70789132_photo_115143101.jpg",
+            "individual_id": "Pristimantis_achatinus::70789132"
+          },
+          {
+            "rowid": 1377,
+            "distance": 0.7552695870399475,
+            "similarity": 0.2447304129600525,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_322904530_photo_584223654.jpg",
+            "individual_id": "Pristimantis_achatinus::322904530"
+          },
+          {
+            "rowid": 1378,
+            "distance": 0.7571456432342529,
+            "similarity": 0.24285435676574707,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_322904530_photo_584223677.jpg",
+            "individual_id": "Pristimantis_achatinus::322904530"
+          },
+          {
+            "rowid": 1380,
+            "distance": 0.7579342722892761,
+            "similarity": 0.24206572771072388,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_322904530_photo_584223723.jpg",
+            "individual_id": "Pristimantis_achatinus::322904530"
+          },
+          {
+            "rowid": 1379,
+            "distance": 0.7937328219413757,
+            "similarity": 0.20626717805862427,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_322904530_photo_584223705.jpg",
+            "individual_id": "Pristimantis_achatinus::322904530"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0016",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601921.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.39592960476875305,
+        "softmax_margin": 0.11130866408348083,
+        "max_similarity": 0.3164886236190796,
+        "min_distance": 0.6835113763809204,
+        "mean_top5_similarity": 0.30486832857131957,
+        "mean_top5_distance": 0.6951316714286804,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1060,
+            "distance": 0.6835113763809204,
+            "similarity": 0.3164886236190796,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_149652867_photo_257892699.jpg",
+            "individual_id": "Hyloscirtus_palmeri::149652867"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6865907907485962,
+            "similarity": 0.3134092092514038,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6866236925125122,
+            "similarity": 0.3133763074874878,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.7048887610435486,
+            "similarity": 0.2951112389564514,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.7140437364578247,
+            "similarity": 0.2859562635421753,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0017",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270601964.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32503649592399597,
+        "softmax_margin": 0.06078368425369263,
+        "max_similarity": 0.3792940378189087,
+        "min_distance": 0.6207059621810913,
+        "mean_top5_similarity": 0.35184262990951537,
+        "mean_top5_distance": 0.6481573700904846,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6207059621810913,
+            "similarity": 0.3792940378189087,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.6464444994926453,
+            "similarity": 0.35355550050735474,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1095,
+            "distance": 0.6493320465087891,
+            "similarity": 0.35066795349121094,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.6512428522109985,
+            "similarity": 0.34875714778900146,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.6730614900588989,
+            "similarity": 0.3269385099411011,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0018",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270602005.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.2765384614467621,
+        "softmax_margin": 0.028650984168052673,
+        "max_similarity": 0.20762401819229126,
+        "min_distance": 0.7923759818077087,
+        "mean_top5_similarity": 0.19550979137420654,
+        "mean_top5_distance": 0.8044902086257935,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1095,
+            "distance": 0.7923759818077087,
+            "similarity": 0.20762401819229126,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1054,
+            "distance": 0.7927324175834656,
+            "similarity": 0.20726758241653442,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_279875063_photo_502621161.jpg",
+            "individual_id": "Hyloscirtus_palmeri::279875063"
+          },
+          {
+            "rowid": 1082,
+            "distance": 0.7971447706222534,
+            "similarity": 0.20285522937774658,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314142.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.8136299848556519,
+            "similarity": 0.18637001514434814,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.8265678882598877,
+            "similarity": 0.1734321117401123,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0019",
+        "path": "Sachatamia_electrops\\col_obs_156488742_photo_270602393.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.2900191843509674,
+        "softmax_margin": 0.03106120228767395,
+        "max_similarity": 0.3014459013938904,
+        "min_distance": 0.6985540986061096,
+        "mean_top5_similarity": 0.2641396760940552,
+        "mean_top5_distance": 0.7358603239059448,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6985540986061096,
+            "similarity": 0.3014459013938904,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.7376075983047485,
+            "similarity": 0.26239240169525146,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7386417388916016,
+            "similarity": 0.26135826110839844,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.748049795627594,
+            "similarity": 0.251950204372406,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7564483880996704,
+            "similarity": 0.2435516119003296,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0020",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951899.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.2592197060585022,
+        "softmax_margin": 0.010902449488639832,
+        "max_similarity": 0.22396045923233032,
+        "min_distance": 0.7760395407676697,
+        "mean_top5_similarity": 0.17406922578811646,
+        "mean_top5_distance": 0.8259307742118835,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1109,
+            "distance": 0.7760395407676697,
+            "similarity": 0.22396045923233032,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_270526547_photo_486526093.jpg",
+            "individual_id": "Hyloscirtus_palmeri::270526547"
+          },
+          {
+            "rowid": 1068,
+            "distance": 0.8020063042640686,
+            "similarity": 0.1979936957359314,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1061,
+            "distance": 0.8440349698066711,
+            "similarity": 0.15596503019332886,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_109757940_photo_185046308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::109757940"
+          },
+          {
+            "rowid": 1047,
+            "distance": 0.8521605730056763,
+            "similarity": 0.14783942699432373,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_60491731_photo_96733405.jpg",
+            "individual_id": "Hyloscirtus_palmeri::60491731"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.855412483215332,
+            "similarity": 0.14458751678466797,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0021",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951910.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.34130361676216125,
+        "softmax_margin": 0.08816319704055786,
+        "max_similarity": 0.3200552463531494,
+        "min_distance": 0.6799447536468506,
+        "mean_top5_similarity": 0.30802390575408933,
+        "mean_top5_distance": 0.6919760942459107,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1067,
+            "distance": 0.6799447536468506,
+            "similarity": 0.3200552463531494,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_201469718_photo_355650659.jpg",
+            "individual_id": "Hyloscirtus_palmeri::201469718"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6926076412200928,
+            "similarity": 0.3073923587799072,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6937624216079712,
+            "similarity": 0.3062375783920288,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1061,
+            "distance": 0.6940392851829529,
+            "similarity": 0.3059607148170471,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_109757940_photo_185046308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::109757940"
+          },
+          {
+            "rowid": 1100,
+            "distance": 0.6995263695716858,
+            "similarity": 0.3004736304283142,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0022",
+        "path": "Sachatamia_electrops\\col_obs_19467476_photo_29951924.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0000001192092896,
+        "softmax_top1": 0.33258309960365295,
+        "softmax_margin": 0.11489535868167877,
+        "max_similarity": 0.16231298446655273,
+        "min_distance": 0.8376870155334473,
+        "mean_top5_similarity": 0.14271724224090576,
+        "mean_top5_distance": 0.8572827577590942,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1068,
+            "distance": 0.8376870155334473,
+            "similarity": 0.16231298446655273,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.8429563641548157,
+            "similarity": 0.15704363584518433,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1094,
+            "distance": 0.8496857285499573,
+            "similarity": 0.15031427145004272,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_361740483_photo_660197619.jpg",
+            "individual_id": "Hyloscirtus_palmeri::361740483"
+          },
+          {
+            "rowid": 1061,
+            "distance": 0.8758935332298279,
+            "similarity": 0.12410646677017212,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_109757940_photo_185046308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::109757940"
+          },
+          {
+            "rowid": 1090,
+            "distance": 0.8801911473274231,
+            "similarity": 0.1198088526725769,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_9174929_photo_12414015.jpg",
+            "individual_id": "Hyloscirtus_palmeri::9174929"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0034",
+        "path": "Sachatamia_electrops\\col_obs_25388999_photo_39312678.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32618242502212524,
+        "softmax_margin": 0.1344296783208847,
+        "max_similarity": 0.24140876531600952,
+        "min_distance": 0.7585912346839905,
+        "mean_top5_similarity": 0.18466193675994874,
+        "mean_top5_distance": 0.8153380632400513,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1109,
+            "distance": 0.7585912346839905,
+            "similarity": 0.24140876531600952,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_270526547_photo_486526093.jpg",
+            "individual_id": "Hyloscirtus_palmeri::270526547"
+          },
+          {
+            "rowid": 1061,
+            "distance": 0.8157753348350525,
+            "similarity": 0.1842246651649475,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_109757940_photo_185046308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::109757940"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.8258417248725891,
+            "similarity": 0.1741582751274109,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.8373035788536072,
+            "similarity": 0.16269642114639282,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1060,
+            "distance": 0.8391784429550171,
+            "similarity": 0.1608215570449829,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_149652867_photo_257892699.jpg",
+            "individual_id": "Hyloscirtus_palmeri::149652867"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0035",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620730.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3070223033428192,
+        "softmax_margin": 0.0005990564823150635,
+        "max_similarity": 0.32635438442230225,
+        "min_distance": 0.6736456155776978,
+        "mean_top5_similarity": 0.30376834869384767,
+        "mean_top5_distance": 0.6962316513061524,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6736456155776978,
+            "similarity": 0.32635438442230225,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1094,
+            "distance": 0.6899698376655579,
+            "similarity": 0.31003016233444214,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_361740483_photo_660197619.jpg",
+            "individual_id": "Hyloscirtus_palmeri::361740483"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6951010227203369,
+            "similarity": 0.3048989772796631,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.6953393816947937,
+            "similarity": 0.3046606183052063,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7271023988723755,
+            "similarity": 0.2728976011276245,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0036",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620799.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.4171868562698364,
+        "softmax_margin": 0.19344626367092133,
+        "max_similarity": 0.3861064910888672,
+        "min_distance": 0.6138935089111328,
+        "mean_top5_similarity": 0.3443048357963562,
+        "mean_top5_distance": 0.6556951642036438,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1100,
+            "distance": 0.6138935089111328,
+            "similarity": 0.3861064910888672,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          },
+          {
+            "rowid": 1068,
+            "distance": 0.6275791525840759,
+            "similarity": 0.3724208474159241,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1067,
+            "distance": 0.6585682034492493,
+            "similarity": 0.34143179655075073,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_201469718_photo_355650659.jpg",
+            "individual_id": "Hyloscirtus_palmeri::201469718"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6865735054016113,
+            "similarity": 0.31342649459838867,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6918614506721497,
+            "similarity": 0.30813854932785034,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0037",
+        "path": "Sachatamia_electrops\\col_obs_324593666_photo_587620944.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.3944284915924072,
+        "softmax_margin": 0.17617852985858917,
+        "max_similarity": 0.3373579978942871,
+        "min_distance": 0.6626420021057129,
+        "mean_top5_similarity": 0.3112401604652405,
+        "mean_top5_distance": 0.6887598395347595,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6626420021057129,
+            "similarity": 0.3373579978942871,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1058,
+            "distance": 0.6751049757003784,
+            "similarity": 0.3248950242996216,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.6865581274032593,
+            "similarity": 0.3134418725967407,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1104,
+            "distance": 0.7013851404190063,
+            "similarity": 0.29861485958099365,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_352367376_photo_643126881.jpg",
+            "individual_id": "Hyloscirtus_palmeri::352367376"
+          },
+          {
+            "rowid": 1100,
+            "distance": 0.7181089520454407,
+            "similarity": 0.2818910479545593,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_178772414_photo_311137790.jpg",
+            "individual_id": "Hyloscirtus_palmeri::178772414"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0038",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54573892.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0000001192092896,
+        "softmax_top1": 0.27506643533706665,
+        "softmax_margin": 0.061262473464012146,
+        "max_similarity": 0.27736014127731323,
+        "min_distance": 0.7226398587226868,
+        "mean_top5_similarity": 0.1957388162612915,
+        "mean_top5_distance": 0.8042611837387085,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.7226398587226868,
+            "similarity": 0.27736014127731323,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.8110402226448059,
+            "similarity": 0.1889597773551941,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.8207635879516602,
+            "similarity": 0.17923641204833984,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.8236337304115295,
+            "similarity": 0.17636626958847046,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          },
+          {
+            "rowid": 1070,
+            "distance": 0.8432285189628601,
+            "similarity": 0.1567714810371399,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552404.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0039",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574016.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.22977791726589203,
+        "softmax_margin": 0.03285419940948486,
+        "max_similarity": 0.0932425856590271,
+        "min_distance": 0.9067574143409729,
+        "mean_top5_similarity": 0.07852140665054322,
+        "mean_top5_distance": 0.9214785933494568,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1068,
+            "distance": 0.9067574143409729,
+            "similarity": 0.0932425856590271,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1114,
+            "distance": 0.9089884161949158,
+            "similarity": 0.09101158380508423,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_182771658_photo_318700641.jpg",
+            "individual_id": "Hyloscirtus_palmeri::182771658"
+          },
+          {
+            "rowid": 1115,
+            "distance": 0.9257391095161438,
+            "similarity": 0.0742608904838562,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_9759121_photo_13363301.jpg",
+            "individual_id": "Hyloscirtus_palmeri::9759121"
+          },
+          {
+            "rowid": 1094,
+            "distance": 0.9311559200286865,
+            "similarity": 0.06884407997131348,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_361740483_photo_660197619.jpg",
+            "individual_id": "Hyloscirtus_palmeri::361740483"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.9347521066665649,
+            "similarity": 0.06524789333343506,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0040",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574021.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.3338675796985626,
+        "softmax_margin": 0.14658483862876892,
+        "max_similarity": 0.19348090887069702,
+        "min_distance": 0.806519091129303,
+        "mean_top5_similarity": 0.17732359170913697,
+        "mean_top5_distance": 0.8226764082908631,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1080,
+            "distance": 0.806519091129303,
+            "similarity": 0.19348090887069702,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1104,
+            "distance": 0.8160279989242554,
+            "similarity": 0.18397200107574463,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_352367376_photo_643126881.jpg",
+            "individual_id": "Hyloscirtus_palmeri::352367376"
+          },
+          {
+            "rowid": 1058,
+            "distance": 0.8175317049026489,
+            "similarity": 0.18246829509735107,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.8229478001594543,
+            "similarity": 0.17705219984054565,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1115,
+            "distance": 0.8503554463386536,
+            "similarity": 0.14964455366134644,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_9759121_photo_13363301.jpg",
+            "individual_id": "Hyloscirtus_palmeri::9759121"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0046",
+        "path": "Sachatamia_electrops\\IMG-20251013-WA0390.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.3174751102924347,
+        "softmax_margin": 0.09713660180568695,
+        "max_similarity": 0.23914813995361328,
+        "min_distance": 0.7608518600463867,
+        "mean_top5_similarity": 0.20891579389572143,
+        "mean_top5_distance": 0.7910842061042785,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.7608518600463867,
+            "similarity": 0.23914813995361328,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.7752973437309265,
+            "similarity": 0.2247026562690735,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7801071405410767,
+            "similarity": 0.21989285945892334,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.813534140586853,
+            "similarity": 0.18646585941314697,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1079,
+            "distance": 0.8256305456161499,
+            "similarity": 0.1743694543838501,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_9759128_photo_13363308.jpg",
+            "individual_id": "Hyloscirtus_palmeri::9759128"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0047",
+        "path": "Sachatamia_electrops\\IMG-20251013-WA0397.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.23448416590690613,
+        "softmax_margin": 0.07705894112586975,
+        "max_similarity": 0.27321285009384155,
+        "min_distance": 0.7267871499061584,
+        "mean_top5_similarity": 0.25593855381011965,
+        "mean_top5_distance": 0.7440614461898803,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1058,
+            "distance": 0.7267871499061584,
+            "similarity": 0.27321285009384155,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.7288590669631958,
+            "similarity": 0.2711409330368042,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7403951287269592,
+            "similarity": 0.25960487127304077,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1057,
+            "distance": 0.7591640949249268,
+            "similarity": 0.24083590507507324,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674026.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.7651017904281616,
+            "similarity": 0.23489820957183838,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0048",
+        "path": "Sachatamia_electrops\\IMG-20251013-WA0398.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.33227959275245667,
+        "softmax_margin": 0.11774376034736633,
+        "max_similarity": 0.247545063495636,
+        "min_distance": 0.752454936504364,
+        "mean_top5_similarity": 0.21048097610473632,
+        "mean_top5_distance": 0.7895190238952636,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.752454936504364,
+            "similarity": 0.247545063495636,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7783547639846802,
+            "similarity": 0.22164523601531982,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.8011661767959595,
+            "similarity": 0.19883382320404053,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1068,
+            "distance": 0.8072577714920044,
+            "similarity": 0.1927422285079956,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_254641330_photo_456152118.jpg",
+            "individual_id": "Hyloscirtus_palmeri::254641330"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.8083614706993103,
+            "similarity": 0.1916385293006897,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0049",
+        "path": "Sachatamia_electrops\\IMG-20251205-WA0056.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3017007112503052,
+        "softmax_margin": 0.06256921589374542,
+        "max_similarity": 0.3882231116294861,
+        "min_distance": 0.6117768883705139,
+        "mean_top5_similarity": 0.29819523096084594,
+        "mean_top5_distance": 0.701804769039154,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6117768883705139,
+            "similarity": 0.3882231116294861,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.712670624256134,
+            "similarity": 0.28732937574386597,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7197105884552002,
+            "similarity": 0.2802894115447998,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7316490411758423,
+            "similarity": 0.2683509588241577,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1057,
+            "distance": 0.7332167029380798,
+            "similarity": 0.26678329706192017,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674026.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0051",
+        "path": "Sachatamia_electrops\\large (1).jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.2782926857471466,
+        "softmax_margin": 0.034611478447914124,
+        "max_similarity": 0.20691728591918945,
+        "min_distance": 0.7930827140808105,
+        "mean_top5_similarity": 0.1943163752555847,
+        "mean_top5_distance": 0.8056836247444152,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1095,
+            "distance": 0.7930827140808105,
+            "similarity": 0.20691728591918945,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1054,
+            "distance": 0.7952545285224915,
+            "similarity": 0.20474547147750854,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_279875063_photo_502621161.jpg",
+            "individual_id": "Hyloscirtus_palmeri::279875063"
+          },
+          {
+            "rowid": 1082,
+            "distance": 0.7964066863059998,
+            "similarity": 0.20359331369400024,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314142.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.8154574036598206,
+            "similarity": 0.18454259634017944,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.8282167911529541,
+            "similarity": 0.1717832088470459,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0052",
+        "path": "Sachatamia_electrops\\large (2).jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32066866755485535,
+        "softmax_margin": 0.0527399480342865,
+        "max_similarity": 0.38038724660873413,
+        "min_distance": 0.6196127533912659,
+        "mean_top5_similarity": 0.35015642642974854,
+        "mean_top5_distance": 0.6498435735702515,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6196127533912659,
+            "similarity": 0.38038724660873413,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.6449998021125793,
+            "similarity": 0.35500019788742065,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1095,
+            "distance": 0.6514782905578613,
+            "similarity": 0.34852170944213867,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_85214487_photo_140169799.jpg",
+            "individual_id": "Hyloscirtus_palmeri::85214487"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.6567140817642212,
+            "similarity": 0.3432859182357788,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.6764129400253296,
+            "similarity": 0.3235870599746704,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0053",
+        "path": "Sachatamia_electrops\\large (3).jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.28787481784820557,
+        "softmax_margin": 0.034321874380111694,
+        "max_similarity": 0.30499571561813354,
+        "min_distance": 0.6950042843818665,
+        "mean_top5_similarity": 0.26494898796081545,
+        "mean_top5_distance": 0.7350510120391845,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.6950042843818665,
+            "similarity": 0.30499571561813354,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.7334038019180298,
+            "similarity": 0.2665961980819702,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.7431502938270569,
+            "similarity": 0.2568497061729431,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.7503959536552429,
+            "similarity": 0.24960404634475708,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7533007264137268,
+            "similarity": 0.2466992735862732,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0054",
+        "path": "Sachatamia_electrops\\large (4).jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 0.9999999403953552,
+        "softmax_top1": 0.26751968264579773,
+        "softmax_margin": 0.06676498055458069,
+        "max_similarity": 0.2603359818458557,
+        "min_distance": 0.7396640181541443,
+        "mean_top5_similarity": 0.17912648916244506,
+        "mean_top5_distance": 0.8208735108375549,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1044,
+            "distance": 0.7396640181541443,
+            "similarity": 0.2603359818458557,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1101,
+            "distance": 0.8330860733985901,
+            "similarity": 0.1669139266014099,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_59212057_photo_94597062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::59212057"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.8336114883422852,
+            "similarity": 0.16638851165771484,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.8378034234046936,
+            "similarity": 0.1621965765953064,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          },
+          {
+            "rowid": 1070,
+            "distance": 0.8602025508880615,
+            "similarity": 0.13979744911193848,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552404.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0055",
+        "path": "Sachatamia_electrops\\large.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.3966028094291687,
+        "softmax_margin": 0.11316356062889099,
+        "max_similarity": 0.3156662583351135,
+        "min_distance": 0.6843337416648865,
+        "mean_top5_similarity": 0.3020487427711487,
+        "mean_top5_distance": 0.6979512572288513,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1060,
+            "distance": 0.6843337416648865,
+            "similarity": 0.3156662583351135,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_149652867_photo_257892699.jpg",
+            "individual_id": "Hyloscirtus_palmeri::149652867"
+          },
+          {
+            "rowid": 1069,
+            "distance": 0.6897066235542297,
+            "similarity": 0.31029337644577026,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_12146174_photo_17431749.jpg",
+            "individual_id": "Hyloscirtus_palmeri::12146174"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.6906313896179199,
+            "similarity": 0.3093686103820801,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1043,
+            "distance": 0.7077851295471191,
+            "similarity": 0.29221487045288086,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951392.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1071,
+            "distance": 0.7172994017601013,
+            "similarity": 0.2827005982398987,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_323596792_photo_585552745.jpg",
+            "individual_id": "Hyloscirtus_palmeri::323596792"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0056",
+        "path": "Sachatamia_electrops\\Sachatamia_electrops.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.18895569443702698,
+        "softmax_margin": 0.018913984298706055,
+        "max_similarity": 0.30965399742126465,
+        "min_distance": 0.6903460025787354,
+        "mean_top5_similarity": 0.2651634693145752,
+        "mean_top5_distance": 0.7348365306854248,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 5,
+        "neighbors": [
+          {
+            "rowid": 1058,
+            "distance": 0.6903460025787354,
+            "similarity": 0.30965399742126465,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.7343337535858154,
+            "similarity": 0.26566624641418457,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1087,
+            "distance": 0.7445134520530701,
+            "similarity": 0.25548654794692993,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_18806848_photo_28805376.jpg",
+            "individual_id": "Hyloscirtus_palmeri::18806848"
+          },
+          {
+            "rowid": 1080,
+            "distance": 0.7496103048324585,
+            "similarity": 0.2503896951675415,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1104,
+            "distance": 0.7553791403770447,
+            "similarity": 0.24462085962295532,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_352367376_photo_643126881.jpg",
+            "individual_id": "Hyloscirtus_palmeri::352367376"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      }
+    ],
+    "consensus_4_of_5": [
+      {
+        "image_id": "Hyloxalus_picachos_0003",
+        "path": "Hyloxalus_picachos\\bmc_diagnostica_01.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.12864592671394348,
+        "softmax_margin": 0.01731216162443161,
+        "max_similarity": 0.3028528094291687,
+        "min_distance": 0.6971471905708313,
+        "mean_top5_similarity": 0.29439852237701414,
+        "mean_top5_distance": 0.7056014776229859,
+        "predicted_species": "Pristimantis_achatinus",
+        "species_vote_count": 4,
+        "neighbors": [
+          {
+            "rowid": 1365,
+            "distance": 0.6971471905708313,
+            "similarity": 0.3028528094291687,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_20933825_photo_32311936.jpg",
+            "individual_id": "Pristimantis_achatinus::20933825"
+          },
+          {
+            "rowid": 1344,
+            "distance": 0.7025637030601501,
+            "similarity": 0.29743629693984985,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_21226230_photo_32811744.jpg",
+            "individual_id": "Pristimantis_achatinus::21226230"
+          },
+          {
+            "rowid": 1367,
+            "distance": 0.7077730894088745,
+            "similarity": 0.2922269105911255,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_20933825_photo_32311997.jpg",
+            "individual_id": "Pristimantis_achatinus::20933825"
+          },
+          {
+            "rowid": 1376,
+            "distance": 0.7085989117622375,
+            "similarity": 0.29140108823776245,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_200710429_photo_354168084.jpg",
+            "individual_id": "Pristimantis_achatinus::200710429"
+          },
+          {
+            "rowid": 453,
+            "distance": 0.7119244933128357,
+            "similarity": 0.2880755066871643,
+            "species": "Craugastor_raniformis",
+            "genus": "Craugastor",
+            "family": "Craugastoridae",
+            "path": "Craugastor_raniformis/col_obs_11081253_photo_27354086.jpg",
+            "individual_id": "Craugastor_raniformis::11081253"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Hyloxalus_picachos_0009",
+        "path": "Hyloxalus_picachos\\col_obs_297476363_photo_535741237.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.11877752095460892,
+        "softmax_margin": 0.02277623862028122,
+        "max_similarity": 0.24857628345489502,
+        "min_distance": 0.751423716545105,
+        "mean_top5_similarity": 0.23359254598617554,
+        "mean_top5_distance": 0.7664074540138245,
+        "predicted_species": "Pristimantis_achatinus",
+        "species_vote_count": 4,
+        "neighbors": [
+          {
+            "rowid": 1344,
+            "distance": 0.751423716545105,
+            "similarity": 0.24857628345489502,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_21226230_photo_32811744.jpg",
+            "individual_id": "Pristimantis_achatinus::21226230"
+          },
+          {
+            "rowid": 1332,
+            "distance": 0.7658169269561768,
+            "similarity": 0.23418307304382324,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_250279054_photo_447580891.jpg",
+            "individual_id": "Pristimantis_achatinus::250279054"
+          },
+          {
+            "rowid": 1369,
+            "distance": 0.7697643041610718,
+            "similarity": 0.23023569583892822,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_346467380_photo_631553413.jpg",
+            "individual_id": "Pristimantis_achatinus::346467380"
+          },
+          {
+            "rowid": 1758,
+            "distance": 0.7715336680412292,
+            "similarity": 0.22846633195877075,
+            "species": "Pristimantis_permixtus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_permixtus/col_obs_320404645_photo_579298276.jpg",
+            "individual_id": "Pristimantis_permixtus::320404645"
+          },
+          {
+            "rowid": 1349,
+            "distance": 0.7734986543655396,
+            "similarity": 0.22650134563446045,
+            "species": "Pristimantis_achatinus",
+            "genus": "Pristimantis",
+            "family": "Craugastoridae",
+            "path": "Pristimantis_achatinus/col_obs_209024464_photo_369877789.jpg",
+            "individual_id": "Pristimantis_achatinus::209024464"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Hyloxalus_picachos_0013",
+        "path": "Hyloxalus_picachos\\dendrowiki_5670.jpg",
+        "true_species": "Hyloxalus_picachos",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.18905235826969147,
+        "softmax_margin": 0.11429186165332794,
+        "max_similarity": 0.1732339859008789,
+        "min_distance": 0.8267660140991211,
+        "mean_top5_similarity": 0.16425511837005616,
+        "mean_top5_distance": 0.8357448816299439,
+        "predicted_species": "Dendropsophus_bogerti",
+        "species_vote_count": 4,
+        "neighbors": [
+          {
+            "rowid": 707,
+            "distance": 0.8267660140991211,
+            "similarity": 0.1732339859008789,
+            "species": "Dendropsophus_columbianus",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_columbianus/col_obs_343003650_photo_624720768.jpg",
+            "individual_id": "Dendropsophus_columbianus::343003650"
+          },
+          {
+            "rowid": 577,
+            "distance": 0.8317016363143921,
+            "similarity": 0.1682983636856079,
+            "species": "Dendropsophus_bogerti",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_bogerti/col_obs_57123457_photo_91090796.jpg",
+            "individual_id": "Dendropsophus_bogerti::57123457"
+          },
+          {
+            "rowid": 612,
+            "distance": 0.8319426774978638,
+            "similarity": 0.16805732250213623,
+            "species": "Dendropsophus_bogerti",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_bogerti/col_obs_339953672_photo_618527018.jpg",
+            "individual_id": "Dendropsophus_bogerti::339953672"
+          },
+          {
+            "rowid": 587,
+            "distance": 0.8415870666503906,
+            "similarity": 0.15841293334960938,
+            "species": "Dendropsophus_bogerti",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_bogerti/col_obs_339953667_photo_618526994.jpg",
+            "individual_id": "Dendropsophus_bogerti::339953667"
+          },
+          {
+            "rowid": 614,
+            "distance": 0.8467270135879517,
+            "similarity": 0.15327298641204834,
+            "species": "Dendropsophus_bogerti",
+            "genus": "Dendropsophus",
+            "family": "Hylidae",
+            "path": "Dendropsophus_bogerti/col_obs_95494181_photo_158538730.jpg",
+            "individual_id": "Dendropsophus_bogerti::95494181"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      },
+      {
+        "image_id": "Sachatamia_electrops_0041",
+        "path": "Sachatamia_electrops\\col_obs_34660191_photo_54574026.jpg",
+        "true_species": "Sachatamia_electrops",
+        "known_unknown": "UNKNOWN",
+        "embedding_dimension": 512,
+        "embedding_norm": 1.0,
+        "softmax_top1": 0.32067665457725525,
+        "softmax_margin": 0.19085827469825745,
+        "max_similarity": 0.28769809007644653,
+        "min_distance": 0.7123019099235535,
+        "mean_top5_similarity": 0.24232263565063478,
+        "mean_top5_distance": 0.7576773643493653,
+        "predicted_species": "Hyloscirtus_palmeri",
+        "species_vote_count": 4,
+        "neighbors": [
+          {
+            "rowid": 1080,
+            "distance": 0.7123019099235535,
+            "similarity": 0.28769809007644653,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117313490.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 1058,
+            "distance": 0.7194294929504395,
+            "similarity": 0.28057050704956055,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_383374940_photo_701674062.jpg",
+            "individual_id": "Hyloscirtus_palmeri::383374940"
+          },
+          {
+            "rowid": 1044,
+            "distance": 0.7710654139518738,
+            "similarity": 0.22893458604812622,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_330803820_photo_599951425.jpg",
+            "individual_id": "Hyloscirtus_palmeri::330803820"
+          },
+          {
+            "rowid": 1081,
+            "distance": 0.7916824221611023,
+            "similarity": 0.2083175778388977,
+            "species": "Hyloscirtus_palmeri",
+            "genus": "Hyloscirtus",
+            "family": "Hylidae",
+            "path": "Hyloscirtus_palmeri/col_obs_71998095_photo_117314113.jpg",
+            "individual_id": "Hyloscirtus_palmeri::71998095"
+          },
+          {
+            "rowid": 259,
+            "distance": 0.7939075827598572,
+            "similarity": 0.20609241724014282,
+            "species": "Boana_pugnax",
+            "genus": "Boana",
+            "family": "Hylidae",
+            "path": "Boana_pugnax/col_obs_371420318_photo_678608638.jpg",
+            "individual_id": "Boana_pugnax::371420318"
+          }
+        ],
+        "geographic_filter_applied": true,
+        "geographic_region": "Antioquia",
+        "candidate_vector_count": 2073,
+        "k": 5,
+        "metric": "cosine"
+      }
+    ],
+    "predicted_species_counts": {
+      "Craugastor_raniformis": 3,
+      "Pristimantis_achatinus": 10,
+      "Dendropsophus_bogerti": 6,
+      "Hyloscirtus_palmeri": 28,
+      "Dendropsophus_columbianus": 3,
+      "Scinax_ruber": 5,
+      "Dendropsophus_microcephalus": 1
+    }
+  },
+  "softmax_reference": {
+    "top1_probability": 0.5858121969414397,
+    "margin_top1_top2": 0.5846465870943678
+  },
+  "correlations_all_images": {
+    "max_similarity": {
+      "softmax_top1": {
+        "pearson_r": 0.4088797822324179,
+        "spearman_rho": 0.4257604343919276
+      },
+      "softmax_margin": {
+        "pearson_r": 0.25307497049525524,
+        "spearman_rho": 0.2133141387696262
+      }
+    },
+    "mean_top5_similarity": {
+      "softmax_top1": {
+        "pearson_r": 0.4119889713983697,
+        "spearman_rho": 0.4312817468036748
+      },
+      "softmax_margin": {
+        "pearson_r": 0.24777760474112967,
+        "spearman_rho": 0.2066149535785747
+      }
+    }
+  },
+  "conclusion": "VECTORIAL_NO_MEJORA",
+  "geographic_filter": {
+    "applied": true,
+    "package": "D:\\Anura\\bioclip\\paquetes_regionales\\antioquia_v1.sqlite",
+    "package_region": "Antioquia bbox materialized in antioquia_v1.sqlite"
+  },
+  "reproducibility": {
+    "timestamp_utc": "2026-09-13T06:19:54.676802+00:00",
+    "python": "3.13.10 (tags/v3.13.10:4fd8843, Dec  2 2025, 15:08:18) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.5.2",
+    "sklearn": "1.9.1",
+    "torch": "2.11.0+cu128",
+    "open_clip": "3.3.0",
+    "sqlite_vec": "0.1.9",
+    "device": "cuda",
+    "git_branch": "NOT_A_GIT_REPOSITORY",
+    "git_commit": "NOT_A_GIT_REPOSITORY",
+    "git_status": "NOT_A_GIT_REPOSITORY",
+    "input_sha256": {
+      "D:\\Anura\\evaluation\\open_set_v1\\closed_set\\closed_set_results.json": "52fb67e7f5cb191044caea4eb4c50990005a80e84531be20fa9225ad22ea157f",
+      "D:\\Anura\\evaluation\\open_set_v1\\open_set\\open_set_results.json": "9b94705f2e8e9f676ed5ea6d1d37c54f603bfdb11f3fa82c8f5f0c8a2d2637a3",
+      "D:\\Anura\\evaluation\\open_set_v1\\metrics\\open_set_discrimination_metrics.json": "8152f196d66a99199e6b7284645633ad24bcf7fde8de727e52de6651036635be",
+      "D:\\Anura\\bioclip\\checkpoints\\bioclip_anura_mejor.pt": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac"
+    },
+    "package_sha256": "762b130e5fc65f66b03fe0c31cb69cf1214413badda4a20415794a1f80cbdb06",
+    "package_manifest": {
+      "version_paquete": "antioquia_v1",
+      "region": "Antioquia (filtrado por bbox geográfico real: lat 5.4-8.9, lon -77.2--73.8, sobre coordenadas de train)",
+      "n_vectores": 2073,
+      "n_especies": 25,
+      "especies": [
+        "Boana_boans",
+        "Boana_platanera",
+        "Boana_pugnax",
+        "Boana_rosenbergi",
+        "Craugastor_raniformis",
+        "Dendrobates_truncatus",
+        "Dendropsophus_bogerti",
+        "Dendropsophus_columbianus",
+        "Dendropsophus_ebraccatus",
+        "Dendropsophus_microcephalus",
+        "Dendropsophus_norandinus",
+        "Engystomops_pustulosus",
+        "Hyloscirtus_palmeri",
+        "Leptodactylus_colombiensis",
+        "Phyllomedusa_venusta",
+        "Pristimantis_achatinus",
+        "Pristimantis_erythropleura",
+        "Pristimantis_gaigei",
+        "Pristimantis_paisa",
+        "Pristimantis_penelopus",
+        "Pristimantis_permixtus",
+        "Pristimantis_taeniatus",
+        "Rhinella_alata",
+        "Rhinella_horribilis",
+        "Scinax_ruber"
+      ],
+      "dimension_embedding": 512,
+      "encoder_origen": "encoder_anura_fp16.onnx (Fase 9, extraído de bioclip_anura_mejor.pt)",
+      "distancia": "coseno (embeddings ya L2-normalizados)"
+    },
+    "embedding_norm_mean": 1.0,
+    "embedding_norm_max_abs_error": 1.1920928955078125e-07,
+    "plots_created": true
+  },
+  "constraints": {
+    "model_modified": false,
+    "training_done": false,
+    "package_modified": false,
+    "catalog_modified": false,
+    "prior_used": false,
+    "threshold_applied": false,
+    "rejection_implemented": false,
+    "combined_score_created": false,
+    "segmentation_used": false
+  },
+  "status": "FASE_6_COMPLETE"
+}

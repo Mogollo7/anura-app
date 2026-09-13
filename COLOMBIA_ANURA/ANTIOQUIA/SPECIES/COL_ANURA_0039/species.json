@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0039",
+  "scientific_name": "Engystomops pustulosus",
+  "family": "Leptodactylidae",
+  "genus": "Engystomops",
+  "common_name_es": "Ranita túngara",
+  "directory_legacy": "Engystomops_pustulosus",
+  "occurrences_in_department": 169,
+  "distinct_observers_in_department": 113,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 1000,
+  "occurrences_dropped_low_accuracy": 16,
+  "photos_curated_total": 1718,
+  "photos_raw_total": 1740,
+  "individuals_curated_total": 979,
+  "individuals_from_department": 167,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0040",
+  "scientific_name": "Leptodactylus colombiensis",
+  "family": "Leptodactylidae",
+  "genus": "Leptodactylus",
+  "common_name_es": "Colombian Thin-toed Frog",
+  "directory_legacy": "Leptodactylus_colombiensis",
+  "occurrences_in_department": 23,
+  "distinct_observers_in_department": 14,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 101,
+  "occurrences_dropped_low_accuracy": 5,
+  "photos_curated_total": 206,
+  "photos_raw_total": 208,
+  "individuals_curated_total": 95,
+  "individuals_from_department": 23,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

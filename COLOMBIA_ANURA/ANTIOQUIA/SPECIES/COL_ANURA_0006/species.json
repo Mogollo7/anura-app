@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0006",
+  "scientific_name": "Craugastor raniformis",
+  "family": "Craugastoridae",
+  "genus": "Craugastor",
+  "common_name_es": "Rana chivita",
+  "directory_legacy": "Craugastor_raniformis",
+  "occurrences_in_department": 95,
+  "distinct_observers_in_department": 49,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 175,
+  "occurrences_dropped_low_accuracy": 3,
+  "photos_curated_total": 298,
+  "photos_raw_total": 298,
+  "individuals_curated_total": 175,
+  "individuals_from_department": 95,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,125 @@
+level,unit,observations,species_observed,chao1_estimated,completeness
+subregion,ORIENTE,2392,78,90.0,0.867
+subregion,URABA,1000,53,102.0,0.52
+subregion,VALLE_DE_ABURRA,792,33,37.6,0.878
+subregion,NORTE,574,65,74.8,0.869
+subregion,NORDESTE,521,57,62.8,0.908
+subregion,SUROESTE,440,50,116.1,0.431
+subregion,MAGDALENA_MEDIO,375,43,43.9,0.98
+subregion,OCCIDENTE,255,51,63.5,0.803
+subregion,BAJO_CAUCA,58,25,46.1,0.542
+municipality,Sonson,485,33,41.2,0.802
+municipality,San Rafael,249,26,30.5,0.852
+municipality,Apartado,231,29,42.5,0.682
+municipality,Medellin,210,13,13.1,0.99
+municipality,Necocli,205,20,24.2,0.828
+municipality,San Carlos,204,25,45.2,0.552
+municipality,Alejandria,173,21,27.1,0.774
+municipality,Carepa,168,20,24.0,0.833
+municipality,Cocorna,129,24,25.6,0.938
+municipality,Turbo,127,24,32.1,0.748
+municipality,Copacabana,122,12,14.5,0.828
+municipality,Jardin,118,16,40.5,0.395
+municipality,San Luis,117,17,21.5,0.791
+municipality,Mutata,115,33,42.0,0.786
+municipality,La Estrella,108,4,4,1.0
+municipality,Maceo,106,24,32.0,0.75
+municipality,Yondo,98,22,40.0,0.55
+municipality,El Carmen De Viboral,97,24,32.0,0.75
+municipality,Santa Rosa De Osos,83,22,28.0,0.786
+municipality,Chigorodo,82,22,32.7,0.673
+municipality,Envigado,81,10,22.5,0.444
+municipality,Santo Domingo,76,16,32.0,0.5
+municipality,San Roque,73,22,30.1,0.731
+municipality,Granada,72,14,54.5,0.257
+municipality,Puerto Nare,70,25,32.1,0.778
+municipality,San Francisco,69,15,30.0,0.5
+municipality,Bello,66,9,9.2,0.973
+municipality,Anori,62,29,43.1,0.673
+municipality,Caldas,55,8,12.5,0.64
+municipality,Remedios,52,18,19.6,0.918
+municipality,Tamesis,51,11,19.0,0.579
+municipality,Rionegro,49,6,8.0,0.75
+municipality,Gomez Plata,45,20,26.8,0.748
+municipality,Yarumal,41,14,14.3,0.977
+municipality,Ciudad Bolivar,40,7,7.5,0.933
+municipality,Puerto Triunfo,36,15,18.1,0.828
+municipality,Urrao,36,17,25.0,0.68
+municipality,Segovia,36,19,27.1,0.701
+municipality,Yolombo,33,16,41.0,0.39
+municipality,Frontino,33,13,15.0,0.867
+municipality,Barbosa,29,11,23.2,0.473
+municipality,Caracoli,28,12,48.0,0.25
+municipality,Briceno,28,10,22.5,0.444
+municipality,Guarne,26,4,4,1.0
+municipality,Yali,26,14,24.7,0.568
+municipality,Itagui,24,3,3,1.0
+municipality,Retiro,24,5,5.5,0.909
+municipality,Canasgordas,24,3,3.0,1.0
+municipality,Amalfi,22,20,101.0,0.198
+municipality,Dabeiba,22,6,10.5,0.571
+municipality,Marinilla,21,3,3.0,1.0
+municipality,Donmatias,21,12,24.2,0.495
+municipality,Belmira,18,4,4,1.0
+municipality,Sopetran,17,7,17.0,0.412
+municipality,Venecia,17,6,6.0,1.0
+municipality,Puerto Berrio,17,14,34.2,0.41
+municipality,San Vicente Ferrer,17,6,9.0,0.667
+municipality,Girardota,15,3,3.0,1.0
+municipality,Caucasia,15,11,51.5,0.214
+municipality,El Santuario,15,4,4.5,0.889
+municipality,San Pedro De Los Milagros,14,4,4,1.0
+municipality,Zaragoza,13,10,18.2,0.55
+municipality,Amaga,12,6,9.0,0.667
+municipality,Valdivia,12,9,33.5,0.269
+municipality,Guatape,12,4,4.2,0.941
+municipality,Caceres,12,6,14.0,0.429
+municipality,Andes,11,7,11.0,0.636
+municipality,San Jeronimo,11,6,12.0,0.5
+municipality,Fredonia,11,6,12.0,0.5
+municipality,La Ceja,11,4,4,1.0
+municipality,Sabaneta,10,5,8.0,0.625
+municipality,La Union,10,3,3.5,0.857
+municipality,El Bagre,10,7,19.5,0.359
+municipality,Campamento,9,5,6.0,0.833
+municipality,Vegachi,9,9,45.0,0.2
+municipality,Santa Fe De Antioquia,9,6,14.0,0.429
+municipality,Toledo,8,7,25.0,0.28
+municipality,Jerico,8,4,4.2,0.941
+municipality,Titiribi,7,2,2,1.0
+municipality,Sabanalarga,7,4,6.0,0.667
+municipality,Ituango,7,4,7.0,0.571
+municipality,Valparaiso,7,5,11.0,0.455
+municipality,Anza,6,5,13.0,0.385
+municipality,Olaya,6,4,5.0,0.8
+municipality,Carolina,6,4,5.0,0.8
+municipality,Caramanta,6,4,5.0,0.8
+municipality,Santa Barbara,6,3,3.5,0.857
+municipality,Arboletes,6,5,13.0,0.385
+municipality,Argelia,6,4,5.0,0.8
+municipality,Guadalupe,5,5,15.0,0.333
+municipality,Penol,5,1,1,1.0
+municipality,Angelopolis,5,3,3.2,0.923
+municipality,Concepcion,5,4,8.5,0.471
+municipality,Taraza,5,4,8.5,0.471
+municipality,Giraldo,5,2,2,1.0
+municipality,La Pintada,5,4,8.5,0.471
+municipality,Angostura,4,3,5.0,0.6
+municipality,Ebejico,4,3,5.0,0.6
+municipality,Salgar,3,3,6.0,0.5
+municipality,Buritica,2,2,3.0,0.667
+municipality,Caicedo,2,1,1.0,1.0
+municipality,Pueblorrico,2,2,3.0,0.667
+municipality,Uramita,2,2,3.0,0.667
+municipality,Narino,2,2,3.0,0.667
+municipality,San Juan De Uraba,2,2,3.0,0.667
+municipality,Peque,1,1,1,1.0
+municipality,Cisneros,1,1,1,1.0
+municipality,Montebello,1,1,1,1.0
+municipality,Armenia,1,1,1,1.0
+municipality,Betulia,1,1,1,1.0
+municipality,Tarso,1,1,1,1.0
+municipality,Liborina,1,1,1,1.0
+municipality,Hispania,1,1,1,1.0
+municipality,Abriaqui,1,1,1,1.0
+municipality,Betania,1,1,1,1.0

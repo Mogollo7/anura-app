@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0023",
+  "scientific_name": "Boana platanera",
+  "family": "Hylidae",
+  "genus": "Boana",
+  "common_name_es": "Rana Platanera de Ojos Pálidos",
+  "directory_legacy": "Boana_platanera",
+  "occurrences_in_department": 150,
+  "distinct_observers_in_department": 122,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 1000,
+  "occurrences_dropped_low_accuracy": 21,
+  "photos_curated_total": 150,
+  "photos_raw_total": 150,
+  "individuals_curated_total": 80,
+  "individuals_from_department": 6,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

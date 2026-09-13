@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-09-13T01:08:51.902977",
+  "total_images": 56,
+  "clean": 56,
+  "leakage": 0,
+  "catalog_only": 56,
+  "predicted_known_class_rate": 1.0,
+  "top1_probability_mean": 0.21083463236157382,
+  "margin_mean": 0.058706069099051614,
+  "by_true_species": {
+    "Hyloxalus_picachos": {
+      "count": 15,
+      "top1_probability_mean": 0.13438725968201956
+    },
+    "Sachatamia_electrops": {
+      "count": 41,
+      "top1_probability_mean": 0.23880318334189857
+    }
+  },
+  "comparison": "Fase 3 Softmax únicamente vs Fase 4 Softmax únicamente",
+  "knn_executed": false,
+  "prior_applied": false,
+  "rejection_applied": false
+}

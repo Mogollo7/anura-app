@@ -1,0 +1,192 @@
+================================================================================
+FASE 12.1 - AUDITORÍA FINAL DE INDEPENDENCIA
+RESUMEN EJECUTIVO
+================================================================================
+
+TIMESTAMP: 2026-09-13
+
+================================================================================
+HALLAZGOS CRÍTICOS
+
+PROBLEMA 1: SHA-256 DUPLICATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STATUS: FAIL ✗
+
+Se encontraron 3 imágenes físicamente idénticas (SHA-256) presentes en ambos
+REFERENCE y CALIBRATION:
+
+  1. Pristimantis penelopus
+     Reference:   Pristimantis_penelopus_076.jpg
+     Calibration: Pristimantis_penelopus_094.jpg
+
+  2. Rhinella horribilis
+     Reference:   Rhinella_horribilis_003.jpg
+     Calibration: Rhinella_horribilis_084.jpg
+
+  3. Pristimantis penelopus
+     Reference:   Pristimantis_penelopus_030.jpg
+     Calibration: Pristimantis_penelopus_085.jpg
+
+IMPLICACIÓN: Estas imágenes rompen la independencia entre REFERENCE y
+CALIBRATION. La misma fotografía física (posiblemente del mismo individuo)
+está presente en ambos conjuntos.
+
+ORIGEN: Las imágenes originales en D:\Anura\data calibration ya contenían
+estos duplicados. Fueron copiadas tal como estaban.
+
+================================================================================
+PROBLEMA 2: FALTA DE METADATA DE INDIVIDUO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STATUS: NOT VERIFIABLE ✗
+
+Los manifiestos NO contienen:
+  - individual_id
+  - obs_id
+  - specimen_id
+  - observation_id
+  - Ningún identificador formal de individuo o observación
+
+IMPLICACIÓN: La independencia entre individuos NO PUEDE VERIFICARSE
+formalmente. La estrategia de separación 80/20 fue diseñada para reducir
+riesgo, pero sin metadata no hay garantía.
+
+================================================================================
+PROBLEMA 3: FALTA DE METADATA DE OBSERVACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STATUS: NOT VERIFIABLE ✗
+
+Sin obs_id o observation_id, no se puede verificar si múltiples imágenes
+de la misma observación fueron correctamente separadas entre REFERENCE
+y CALIBRATION.
+
+================================================================================
+HALLAZGOS POSITIVOS
+
+✓ CONTAMINATION: CLEAN
+  - 28 imágenes contaminadas correctamente excluidas de REFERENCE y CALIBRATION
+
+✓ TAXONOMÍA: VÁLIDA
+  - Todas las 10 especies representadas en ambos conjuntos
+  - Estructura Familia → Género → Especie coherente
+
+✓ ARTEFACTOS PROTEGIDOS: INTACTOS
+  - Modelo BioCLIP: sin cambios
+  - Encoder ONNX: sin cambios
+  - Embeddings F3/F4: sin cambios
+  - kNN index: sin cambios
+  - Prior geográfico: sin cambios
+
+================================================================================
+RESUMEN TÉCNICO
+
+TOTAL_VALID: 993
+REFERENCE: 798
+CALIBRATION: 195
+
+SHA256_CROSS_SPLIT_DUPLICATES: 3 (CRITICAL)
+
+INDIVIDUAL_ID_AVAILABLE: NO
+INDIVIDUAL_INDEPENDENCE_STATUS: NOT_VERIFIABLE
+
+OBS_ID_AVAILABLE: NO
+OBSERVATION_INDEPENDENCE_STATUS: NOT_VERIFIABLE
+
+PERCEPTUAL_HASH_STATUS: NOT_AVAILABLE (sin herramientas en entorno)
+
+CONTAMINATED_IMAGES_EXCLUDED: 28 (PASS)
+
+REFERENCE_INTERNAL_DUPLICATES: 6 (heredados de fuente)
+CALIBRATION_INTERNAL_DUPLICATES: 2 (heredados de fuente)
+
+F3_PROTECTED: YES
+F4_PROTECTED: YES
+MODEL_MODIFIED: NO
+DATASET_MODIFIED: NO
+PRODUCTION_MODIFIED: NO
+
+================================================================================
+DIAGNÓSTICO FINAL
+
+STATUS: INDEPENDENCE_COMPROMISED
+
+Los conjuntos REFERENCE y CALIBRATION están separados pero NO son
+completamente independientes:
+
+  ✗ 3 imágenes SHA-256 duplicadas entre ambos conjuntos
+  ✗ Independencia de individuos: no demostrable (sin individual_id)
+  ✗ Independencia de observaciones: no demostrable (sin obs_id)
+  ✓ Contaminación: limpia
+  ✓ Taxonomía: válida
+
+La estrategia de separación 80/20 con "salto de 5" fue parcialmente efectiva
+pero insuficiente para garantizar independencia formal.
+
+================================================================================
+RECOMENDACIÓN PARA FASE 13
+
+OPCIÓN A (Recomendado):
+──────────────────────────────────────────────────────────────────────────────
+Proceder a Fase 13 con CONOCIMIENTO EXPLÍCITO de las limitaciones:
+
+1. Documentar claramente en el reporte metodológico de Mahalanobis que:
+   - Independencia individual NO está garantizada formalmente
+   - Existen 3 duplicados SHA-256 entre REFERENCE y CALIBRATION
+   - Sin obs_id, la independencia de observación NO puede verificarse
+
+2. Evaluar impacto de los 3 duplicados en:
+   - Cálculo de centroides por especie
+   - Matrices de covarianza
+   - Thresholds F3/F4
+
+3. Registrar esta limitación en futuras publicaciones/reportes
+
+OPCIÓN B (Alternativa):
+──────────────────────────────────────────────────────────────────────────────
+Ejecutar correcciones antes de Fase 13:
+
+1. Remover los 3 duplicados SHA-256
+2. Recalcular split 80/20 para especies afectadas
+3. Regenerar manifiestos
+
+  Nota: Esta opción está fuera del alcance de Fase 12.1 (auditoría-only)
+
+================================================================================
+DECISIÓN ACTUAL
+
+CAN_PROCEED_TO_FASE_13: YES (with caveats)
+
+MANDATORY: Documentar explícitamente en Mahalanobis report que la independencia
+individual no está formalmente garantizada.
+
+================================================================================
+ARCHIVOS GENERADOS
+
+1. FASE12_1_INDEPENDENCE_AUDIT.md
+   - Reporte detallado en formato markdown
+   - Análisis completo de todos los hallazgos
+
+2. FASE12_1_INDEPENDENCE_AUDIT.json
+   - Reporte en formato JSON máquina-legible
+   - Incluye todos los hallazgos y métricas
+
+3. FASE12_1_FINAL_AUDIT_STATUS.txt (este archivo)
+   - Resumen ejecutivo
+
+4. cross_split_duplicates.json (en scratchpad)
+   - Detalles de los 3 duplicados
+
+================================================================================
+CONCLUSIÓN
+
+La Fase 12.1 completó la auditoría de independencia.
+
+HALLAZGO PRINCIPAL: Los conjuntos REFERENCE y CALIBRATION contienen 3 imágenes
+SHA-256 duplicadas que violan el principio de independencia. Sin metadata
+formal de individual_id/obs_id, la independencia no puede garantizarse.
+
+ESTADO: INDEPENDENCE_COMPROMISED (pero procede a Fase 13 con documentación)
+
+================================================================================

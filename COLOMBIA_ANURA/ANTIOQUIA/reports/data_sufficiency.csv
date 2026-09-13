@@ -1,0 +1,30 @@
+taxon_id,scientific_name,family,genus,common_name_es,directory_legacy,occurrences_in_department,distinct_observers_in_department,occurrence_evidence,occurrences_total_colombia,occurrences_dropped_low_accuracy,photos_curated_total,photos_raw_total,individuals_curated_total,individuals_from_department,data_status,review_reasons,notes
+COL_ANURA_0003,Rhinella horribilis,Bufonidae,Rhinella,Sapo gigante,Rhinella_horribilis,681,362,OCCURRENCE_CONFIRMED,1000,13,100,1529,65,38,DATA_SUFFICIENT,,submuestreo_en_curaduria (100/1529 fotos conservadas)
+COL_ANURA_0028,Dendropsophus bogerti,Hylidae,Dendropsophus,Ranita de pantano,Dendropsophus_bogerti,482,175,OCCURRENCE_CONFIRMED,487,2,948,954,484,479,DATA_SUFFICIENT,,
+COL_ANURA_0007,Pristimantis achatinus,Craugastoridae,Pristimantis,Cutín común de occidente,Pristimantis_achatinus,361,190,OCCURRENCE_CONFIRMED,971,10,1902,1908,967,360,DATA_SUFFICIENT,,
+COL_ANURA_0002,Rhinella alata,Bufonidae,Rhinella,Sapo del Obispo,Rhinella_alata,303,174,OCCURRENCE_CONFIRMED,899,20,90,1800,55,22,DATA_SUFFICIENT,,submuestreo_en_curaduria (90/1800 fotos conservadas)
+COL_ANURA_0024,Boana pugnax,Hylidae,Boana,Rana Platanera de ojos tornasol,Boana_pugnax,250,184,OCCURRENCE_CONFIRMED,1000,20,148,149,75,22,DATA_SUFFICIENT,,
+COL_ANURA_0018,Dendrobates truncatus,Dendrobatidae,Dendrobates,Rana venenosa de rayas amarillas,Dendrobates_truncatus,243,196,OCCURRENCE_CONFIRMED,1000,27,1809,1828,984,238,DATA_SUFFICIENT,,
+COL_ANURA_0011,Pristimantis paisa,Craugastoridae,Pristimantis,Cutín paisa,Pristimantis_paisa,240,111,OCCURRENCE_CONFIRMED,259,7,170,518,103,98,DATA_SUFFICIENT,,submuestreo_en_curaduria (170/518 fotos conservadas)
+COL_ANURA_0039,Engystomops pustulosus,Leptodactylidae,Engystomops,Ranita túngara,Engystomops_pustulosus,169,113,OCCURRENCE_CONFIRMED,1000,16,1718,1740,979,167,DATA_SUFFICIENT,,
+COL_ANURA_0010,Pristimantis gaigei,Craugastoridae,Pristimantis,Gaige's Rain Frog,Pristimantis_gaigei,151,99,OCCURRENCE_CONFIRMED,244,4,89,148,54,33,DATA_SUFFICIENT,,
+COL_ANURA_0023,Boana platanera,Hylidae,Boana,Rana Platanera de Ojos Pálidos,Boana_platanera,150,122,OCCURRENCE_CONFIRMED,1000,21,150,150,80,6,DATA_SUFFICIENT,,
+COL_ANURA_0020,Boana boans,Hylidae,Boana,Rana gladiadora,Boana_boans,123,87,OCCURRENCE_CONFIRMED,272,9,145,147,84,53,DATA_SUFFICIENT,,
+COL_ANURA_0042,Phyllomedusa venusta,Phyllomedusidae,Phyllomedusa,Lovely Leaf Frog,Phyllomedusa_venusta,116,79,OCCURRENCE_CONFIRMED,253,6,150,150,79,50,DATA_SUFFICIENT,,
+COL_ANURA_0030,Dendropsophus ebraccatus,Hylidae,Dendropsophus,Rana arbórea amarillenta,Dendropsophus_ebraccatus,102,73,OCCURRENCE_CONFIRMED,163,2,148,149,74,51,DATA_SUFFICIENT,,
+COL_ANURA_0006,Craugastor raniformis,Craugastoridae,Craugastor,Rana chivita,Craugastor_raniformis,95,49,OCCURRENCE_CONFIRMED,175,3,298,298,175,95,DATA_SUFFICIENT,,
+COL_ANURA_0032,Dendropsophus microcephalus,Hylidae,Dendropsophus,Rana de árbol amarilla,Dendropsophus_microcephalus,69,49,OCCURRENCE_CONFIRMED,439,6,713,719,426,67,DATA_SUFFICIENT,,
+COL_ANURA_0014,Pristimantis permixtus,Craugastoridae,Pristimantis,Rana De Muslos Naranja,Pristimantis_permixtus,67,30,OCCURRENCE_CONFIRMED,126,2,111,150,60,25,DATA_SUFFICIENT,,
+COL_ANURA_0013,Pristimantis penelopus,Craugastoridae,Pristimantis,Rana De Ingles Negras Y Amarillas,Pristimantis_penelopus,65,32,OCCURRENCE_CONFIRMED,88,1,156,202,80,59,DATA_SUFFICIENT,,
+COL_ANURA_0037,Hyloscirtus palmeri,Hylidae,Hyloscirtus,Rana de torrente de Palmer,Hyloscirtus_palmeri,60,40,OCCURRENCE_CONFIRMED,94,1,178,179,94,60,DATA_SUFFICIENT,,
+COL_ANURA_0015,Pristimantis taeniatus,Craugastoridae,Pristimantis,Banded Rain Frog,Pristimantis_taeniatus,51,27,OCCURRENCE_CONFIRMED,149,1,160,296,105,33,DATA_SUFFICIENT,,
+COL_ANURA_0029,Dendropsophus columbianus,Hylidae,Dendropsophus,Ranita de pantano Colombiana,Dendropsophus_columbianus,48,32,OCCURRENCE_CONFIRMED,695,16,146,147,76,10,DATA_SUFFICIENT,,
+COL_ANURA_0009,Pristimantis erythropleura,Craugastoridae,Pristimantis,Rana De Ingle Roja,Pristimantis_erythropleura,42,22,OCCURRENCE_CONFIRMED,149,0,136,149,86,18,DATA_SUFFICIENT,,
+COL_ANURA_0038,Scinax ruber,Hylidae,Scinax,Ranita Listada,Scinax_ruber,28,23,OCCURRENCE_CONFIRMED,394,9,125,649,95,12,DATA_SUFFICIENT,,submuestreo_en_curaduria (125/649 fotos conservadas)
+COL_ANURA_0026,Boana rosenbergi,Hylidae,Boana,rana arbórea de gladiadora,Boana_rosenbergi,25,23,OCCURRENCE_CONFIRMED,147,2,148,149,65,16,DATA_SUFFICIENT,,
+COL_ANURA_0040,Leptodactylus colombiensis,Leptodactylidae,Leptodactylus,Colombian Thin-toed Frog,Leptodactylus_colombiensis,23,14,OCCURRENCE_CONFIRMED,101,5,206,208,95,23,DATA_SUFFICIENT,,
+COL_ANURA_0034,Dendropsophus norandinus,Hylidae,Dendropsophus,El Roble Tree Frog,Dendropsophus_norandinus,11,6,OCCURRENCE_CONFIRMED,11,0,26,26,11,11,DATA_LIMITED,,
+COL_ANURA_0005,Sachatamia electrops,Centrolenidae,Sachatamia,,Sachatamia_electrops,7,6,OCCURRENCE_CONFIRMED,7,0,41,38,20,7,MANUAL_REVIEW,excluida_del_entrenamiento_por_integridad_de_datos,
+COL_ANURA_0012,Pristimantis palmeri,Craugastoridae,Pristimantis,Palmer's Robber Frog,Pristimantis_palmeri,3,3,OCCURRENCE_PROBABLE,286,2,100,150,57,2,DATA_SUFFICIENT,,
+COL_ANURA_0016,Pristimantis thectopternus,Craugastoridae,Pristimantis,Rana De Espolon,Pristimantis_thectopternus,1,1,OCCURRENCE_MARGINAL,164,0,80,149,56,1,DATA_SUFFICIENT,,
+COL_ANURA_0001,Rheobates palmatus,Aromobatidae,Rheobates,Palm Rocket Frog,Rheobates_palmatus,1,1,OCCURRENCE_MARGINAL,231,9,70,480,45,0,DATA_SUFFICIENT,,submuestreo_en_curaduria (70/480 fotos conservadas)

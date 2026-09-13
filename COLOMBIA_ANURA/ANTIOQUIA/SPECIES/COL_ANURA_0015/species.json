@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0015",
+  "scientific_name": "Pristimantis taeniatus",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Banded Rain Frog",
+  "directory_legacy": "Pristimantis_taeniatus",
+  "occurrences_in_department": 51,
+  "distinct_observers_in_department": 27,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 149,
+  "occurrences_dropped_low_accuracy": 1,
+  "photos_curated_total": 160,
+  "photos_raw_total": 296,
+  "individuals_curated_total": 105,
+  "individuals_from_department": 33,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

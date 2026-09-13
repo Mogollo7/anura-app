@@ -1,0 +1,27 @@
+{
+  "dane_code": "05306",
+  "name": "Giraldo",
+  "department": "ANTIOQUIA",
+  "area_km2": 93.5,
+  "species_count": 2,
+  "observations": 5,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 4,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Pristimantis w-nigrum",
+      "inaturalist_taxon_id": 66936,
+      "common_name_es": "Cualita",
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}

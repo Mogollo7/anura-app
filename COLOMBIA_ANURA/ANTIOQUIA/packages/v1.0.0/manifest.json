@@ -1,0 +1,224 @@
+{
+  "package_set": "COL_ANURA/ANTIOQUIA",
+  "package_version": "1.0.0",
+  "data_version": "v1",
+  "generated_at_utc": "2026-09-13T05:19:13+00:00",
+  "files": [
+    {
+      "path": "antioquia_base_v1.0.0.sqlite",
+      "role": "base",
+      "bytes": 9117696,
+      "sha256": "618372700d27c8d951651d21c9607daf3ddd50c50e127f16c222d0c164fbda83"
+    },
+    {
+      "path": "zones/antioquia_zone_001_v1.0.0.sqlite",
+      "role": "zone_prior",
+      "bytes": 16384,
+      "sha256": "e638e498f49c55b6e7c3bb434ed41a23a94bd4e8b2cb65f3ed34b9353ec05bcd"
+    },
+    {
+      "path": "zones/antioquia_zone_002_v1.0.0.sqlite",
+      "role": "zone_prior",
+      "bytes": 16384,
+      "sha256": "51c14cdcfa0590ebb2c789751696408b320961c97519046c225524b2dfdb7c7f"
+    },
+    {
+      "path": "zones/antioquia_zone_005_v1.0.0.sqlite",
+      "role": "zone_prior",
+      "bytes": 24576,
+      "sha256": "4e8c1873052a2b9b8a62252941b28aece25e231d4e9b90947053f5462e5ea0af"
+    },
+    {
+      "path": "zones/antioquia_zone_006_v1.0.0.sqlite",
+      "role": "zone_prior",
+      "bytes": 24576,
+      "sha256": "c34ab5b7e5dd5add25cc02071ff378854a31cffba6c1e352ee90a9579aab62a0"
+    }
+  ],
+  "sources": [
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\occurrences\\inaturalist_raw_antioquia.json",
+      "bytes": 5596776,
+      "sha256": "cf2889f9f3178aa58fb2fd3b72c02318c1f30f12fbc69c4e3045a5e509c1ec20"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\occurrences\\gbif_raw_antioquia.json",
+      "bytes": 4411535,
+      "sha256": "4fe5f9186fbf36ce0922f9ed21bc6fa9d1a72f745a86df36beef03b5cbc3af31"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\occurrences\\gbif_composicion_antioquia.json",
+      "bytes": 71858,
+      "sha256": "4951b842253cc781a586b9770c1aaaebdcd694af055df3a4c4da9a2c31d89810"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\occurrences\\records_v1.csv",
+      "bytes": 2205248,
+      "sha256": "9943b9251d76f79d46f37b58101ce3bfc847a6b0b296d4996241a635c7ba6411"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\occurrences\\records_excluded_v1.csv",
+      "bytes": 9596,
+      "sha256": "5f4385ca930ce46e715d91dd5c00b6f9ef13e0c31c785548b32e5790b43afb47"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\catalog\\catalog_v1.json",
+      "bytes": 309018,
+      "sha256": "f786757c4dcdc4742adec8739e13b837cef39a52a0d3d4bbc24e053a844cd583"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\catalog\\name_resolution_v1.csv",
+      "bytes": 28704,
+      "sha256": "6130760ee779c87bdcfafc6c47967e64cb8847cba62d3996b5273114933bffc4"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\taxonomy\\taxonomy_guide.csv",
+      "bytes": 61816,
+      "sha256": "9d131b29bc9c9c672076a0cd09937cd881768332c7564c03a6f4e275d2408f68"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\reports\\biological_zones.json",
+      "bytes": 71299,
+      "sha256": "562537e90161cd35df6de0294a4e039dd08830701d2036a6a88d79306ccea3dd"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\zones\\grid_cells_025_v1.json",
+      "bytes": 39030,
+      "sha256": "836d6f1d1718d18f9faa23801664f600b166b868598d574314e4179f1ef6957e"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\zones\\cell_zone_map_v1.csv",
+      "bytes": 13730,
+      "sha256": "a6184d5c09d7f356d2ea144879b9550b485a9ddc1e0cf0b44fce3a6abdeb46dc"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\zones\\merge_log_v1.json",
+      "bytes": 3956,
+      "sha256": "2acb4c072c93556e3208ed6dd5d41d9961be16dc4ff9794590082d1e87d5ca35"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\zones\\zones_final_v1.json",
+      "bytes": 6771,
+      "sha256": "e52952de1cd609685da9511fe4d6a4fb67514af11e33b60c8b20f961f700551d"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\priors\\prior_zone_taxon_v1.csv",
+      "bytes": 85362,
+      "sha256": "1d8c28a2da30f3edb055ee860d7825c5981d415b792e77f36d94ea9c32949b05"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\priors\\alpha_selection_v1.json",
+      "bytes": 9131,
+      "sha256": "6fa6aabd9aa454068471ed21f7eb1d75d888e4366d0df6d2902aec334bf9f58d"
+    },
+    {
+      "path": "D:\\Anura\\COLOMBIA_ANURA\\ANTIOQUIA\\lineage\\prior_lineage_v1.csv",
+      "bytes": 1090220,
+      "sha256": "891ffcd50c7258c5be04b6b81e54bb7a733bef52872ea1b17deaa844ebdc7de7"
+    },
+    {
+      "path": "D:\\Anura\\geo\\antioquia_municipios.geojson",
+      "bytes": 99811,
+      "sha256": "95f136550185aa17072eb932e045953cea32ec5a8b84df556fa224877d93f2e7"
+    },
+    {
+      "path": "D:\\Anura\\training\\manifiesto.json",
+      "bytes": 1894407,
+      "sha256": "20bef170559e9da3e5b9bec3e91c4c7a2ae224af4774dda6e577a2c0d6354cd2"
+    }
+  ],
+  "pipeline_scripts": [
+    {
+      "path": "analizar_zonas.py",
+      "sha256": "58e0aa40429744a5a3701ff322a27bf127a66a159857d01ac765bef7dfcdbf93"
+    },
+    {
+      "path": "catalogo_taxonomico.py",
+      "sha256": "df9d733a4e900b4f4729d95156119e47584e01bdb671f8e70ebf3489e0488098"
+    },
+    {
+      "path": "construir_guia_taxonomica.py",
+      "sha256": "1359fcf4a223462db06d8582004a6b6c8eb4ac813539dbf5b048b43f30ae418d"
+    },
+    {
+      "path": "construir_paquete_departamental.py",
+      "sha256": "2219550c83a86b5cbc6e00c4136022021bf2b9da03d8b6a7de349237c2e79a5d"
+    },
+    {
+      "path": "construir_paquete_vectorial.py",
+      "sha256": "184e2f3c94a3fd809229b17059ca1d42bc259cbfe6711c17a29d8b54333b3f51"
+    },
+    {
+      "path": "construir_paquetes_municipales.py",
+      "sha256": "e7d8f84e42ff17673beac8ddabd880daccf0eaed0bb168766f5f007a9dc2d074"
+    },
+    {
+      "path": "construir_paquetes_subregionales.py",
+      "sha256": "cd0fc802c902a9728c3f7ea9ad7c4a0d2bb6a1290cce08b4443be0ac0af3eb26"
+    },
+    {
+      "path": "descargar_gbif_departamento.py",
+      "sha256": "800d3729e7944e6f641b6d71a1f3983f21e78e7b14814d0b3ebaa016ff82e960"
+    },
+    {
+      "path": "descargar_gbif_por_celdas.py",
+      "sha256": "74a9be7f92df84966e0e24d585c3c073bac9437dfdde09760becbfa9b4af8fa3"
+    },
+    {
+      "path": "descargar_ocurrencias_departamento.py",
+      "sha256": "6f420a6449524b39fb14fdd1b1681826d7b820bc0cf47302b59e57a2ad2f806f"
+    },
+    {
+      "path": "descubrir_catalogo_departamental.py",
+      "sha256": "d4966c06fff2c045fa290145f25678c4b8ebcb1d95adb0e9cc6b80346fb651b6"
+    },
+    {
+      "path": "elevacion_celdas.py",
+      "sha256": "f52c7bca8d4cc775ce80c6f03b91e53313940b7d39ec9b137555392e6c8bad23"
+    },
+    {
+      "path": "paquetes_zonales.py",
+      "sha256": "f1e91fe9c2dc6cbf226517061458d8c4f7ca2fb83c5ad2edd4faa9cf35da8c75"
+    },
+    {
+      "path": "proponer_zonas_biologicas.py",
+      "sha256": "63d309d0e7bd3138272748c0ee24c1379fc3af57c29a4b41b49f7ca032202ecc"
+    },
+    {
+      "path": "subregiones_antioquia.py",
+      "sha256": "8e9aeeb3f67da4f0ed5a6cd98fa409eb5bfbcd1aafab9a2bf2caee7ca18fbaea"
+    },
+    {
+      "path": "zonas_finales_y_prior.py",
+      "sha256": "6908c7b0f1fe0561c39b5836eb50eb75c34c01900386ab95a42035f97d403995"
+    }
+  ],
+  "models": {
+    "encoder_onnx": {
+      "path": "D:\\Anura\\bioclip\\checkpoints\\encoder_anura_fp16.onnx",
+      "sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad"
+    },
+    "encoder_checkpoint": {
+      "path": "D:\\Anura\\bioclip\\checkpoints\\bioclip_anura_mejor.pt",
+      "sha256": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac"
+    }
+  },
+  "rebuild_order": [
+    "descargar_ocurrencias_departamento.py",
+    "descargar_gbif_por_celdas.py",
+    "proponer_zonas_biologicas.py",
+    "catalogo_taxonomico.py",
+    "elevacion_celdas.py",
+    "zonas_finales_y_prior.py",
+    "paquetes_zonales.py"
+  ],
+  "determinism": {
+    "bit_exact": [
+      "taxa",
+      "grid_cells",
+      "zones",
+      "prior"
+    ],
+    "numerically_equivalent": "vec_references (GPU/autocast puede variar en los últimos bits)"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "dane_code": "05809",
+  "name": "Titiribi",
+  "department": "ANTIOQUIA",
+  "area_km2": 140.3,
+  "species_count": 2,
+  "observations": 7,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Dendropsophus bogerti",
+      "inaturalist_taxon_id": 65336,
+      "common_name_es": "Ranita de pantano",
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "observations_in_municipality": 4,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    },
+    {
+      "scientific_name": "Rhinella horribilis",
+      "inaturalist_taxon_id": 517119,
+      "common_name_es": "Sapo gigante",
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "observations_in_municipality": 3,
+      "occurrence_evidence": "OCCURRENCE_CONFIRMED"
+    }
+  ]
+}

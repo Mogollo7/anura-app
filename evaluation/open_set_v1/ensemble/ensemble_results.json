@@ -1,0 +1,322 @@
+{
+  "phase": "FASE 8B",
+  "status": "ENSEMBLE_NO_MEJORA",
+  "known_n": 766,
+  "unknown_n": 56,
+  "unknown_species": {
+    "Hyloxalus_picachos": 15,
+    "Sachatamia_electrops": 41
+  },
+  "reference_of_scale": "TRAIN",
+  "calibration_independent": false,
+  "normalization": "min-max on TRAIN only",
+  "weights_evaluated": [
+    {
+      "softmax": 0.25,
+      "knn": 0.75
+    },
+    {
+      "softmax": 0.5,
+      "knn": 0.5
+    },
+    {
+      "softmax": 0.75,
+      "knn": 0.25
+    }
+  ],
+  "signal_metrics": [
+    {
+      "method": "Softmax Top1",
+      "auroc": 0.5858121969414397,
+      "fpr_at_95_tpr": 0.8928571428571429,
+      "threshold": 0.036728142613000815,
+      "udr": 0.1071428571428571,
+      "far": 0.8928571428571429,
+      "kar": 0.9543080939947781,
+      "oscr": "NOT_COMPUTABLE",
+      "notes": "normalized on TRAIN reference only"
+    },
+    {
+      "method": "Softmax Margin",
+      "auroc": 0.5846465870943678,
+      "fpr_at_95_tpr": 0.875,
+      "threshold": 0.004498943889589908,
+      "udr": 0.125,
+      "far": 0.875,
+      "kar": 0.9503916449086162,
+      "oscr": "NOT_COMPUTABLE",
+      "notes": "normalized on TRAIN reference only"
+    },
+    {
+      "method": "kNN Max Similarity",
+      "auroc": 0.6784781797836628,
+      "fpr_at_95_tpr": 0.9642857142857143,
+      "threshold": 0.1894984452078295,
+      "udr": 0.0357142857142857,
+      "far": 0.9642857142857143,
+      "kar": 0.9817232375979112,
+      "oscr": "NOT_COMPUTABLE",
+      "notes": "normalized on TRAIN reference only"
+    },
+    {
+      "method": "kNN Mean Top5",
+      "auroc": 0.675307720999627,
+      "fpr_at_95_tpr": 0.9642857142857143,
+      "threshold": 0.2008327627238645,
+      "udr": 0.0357142857142857,
+      "far": 0.9642857142857143,
+      "kar": 0.9712793733681462,
+      "oscr": "NOT_COMPUTABLE",
+      "notes": "normalized on TRAIN reference only"
+    },
+    {
+      "method": "kNN Consensus",
+      "auroc": 0.5100825251771727,
+      "fpr_at_95_tpr": 0.9821428571428571,
+      "threshold": 0.25,
+      "udr": 0.017857142857142905,
+      "far": 0.9821428571428571,
+      "kar": 0.9817232375979112,
+      "oscr": "NOT_COMPUTABLE",
+      "notes": "normalized on TRAIN reference only"
+    }
+  ],
+  "ensemble_metrics": [
+    {
+      "combination": "softmax_top1 + max_similarity",
+      "weights": {
+        "softmax": 0.25,
+        "knn": 0.75
+      },
+      "auroc": 0.6773358821335324,
+      "fpr_at_95_tpr": 0.9285714285714286,
+      "threshold": 0.20250675062081902,
+      "kar": 0.95822454308094,
+      "far": 0.9285714285714286,
+      "udr": 0.0714285714285714,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + max_similarity",
+      "weights": {
+        "softmax": 0.5,
+        "knn": 0.5
+      },
+      "auroc": 0.6524384558000746,
+      "fpr_at_95_tpr": 0.9285714285714286,
+      "threshold": 0.14489535782409715,
+      "kar": 0.9686684073107049,
+      "far": 0.9285714285714286,
+      "udr": 0.0714285714285714,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + max_similarity",
+      "weights": {
+        "softmax": 0.75,
+        "knn": 0.25
+      },
+      "auroc": 0.6177265945542709,
+      "fpr_at_95_tpr": 0.9464285714285714,
+      "threshold": 0.09314312073826558,
+      "kar": 0.9686684073107049,
+      "far": 0.9464285714285714,
+      "udr": 0.0535714285714286,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + mean_top5_similarity",
+      "weights": {
+        "softmax": 0.25,
+        "knn": 0.75
+      },
+      "auroc": 0.6751445356210368,
+      "fpr_at_95_tpr": 0.9464285714285714,
+      "threshold": 0.20165290711696868,
+      "kar": 0.9503916449086162,
+      "far": 0.9464285714285714,
+      "udr": 0.0535714285714286,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + mean_top5_similarity",
+      "weights": {
+        "softmax": 0.5,
+        "knn": 0.5
+      },
+      "auroc": 0.654000372995151,
+      "fpr_at_95_tpr": 0.9285714285714286,
+      "threshold": 0.14675288559544544,
+      "kar": 0.9608355091383812,
+      "far": 0.9285714285714286,
+      "udr": 0.0714285714285714,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + mean_top5_similarity",
+      "weights": {
+        "softmax": 0.75,
+        "knn": 0.25
+      },
+      "auroc": 0.618635770234987,
+      "fpr_at_95_tpr": 0.9464285714285714,
+      "threshold": 0.095291036078748,
+      "kar": 0.9647519582245431,
+      "far": 0.9464285714285714,
+      "udr": 0.0535714285714286,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_margin + max_similarity",
+      "weights": {
+        "softmax": 0.25,
+        "knn": 0.75
+      },
+      "auroc": 0.701813688922044,
+      "fpr_at_95_tpr": 0.9285714285714286,
+      "threshold": 0.19596320536691994,
+      "kar": 0.9516971279373369,
+      "far": 0.9285714285714286,
+      "udr": 0.0714285714285714,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_margin + max_similarity",
+      "weights": {
+        "softmax": 0.5,
+        "knn": 0.5
+      },
+      "auroc": 0.7002051473330847,
+      "fpr_at_95_tpr": 0.9285714285714286,
+      "threshold": 0.13278122392027739,
+      "kar": 0.9647519582245431,
+      "far": 0.9285714285714286,
+      "udr": 0.0714285714285714,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_margin + max_similarity",
+      "weights": {
+        "softmax": 0.75,
+        "knn": 0.25
+      },
+      "auroc": 0.6622762029093622,
+      "fpr_at_95_tpr": 0.9642857142857143,
+      "threshold": 0.0694737427099216,
+      "kar": 0.9778067885117493,
+      "far": 0.9642857142857143,
+      "udr": 0.0357142857142857,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_margin + mean_top5_similarity",
+      "weights": {
+        "softmax": 0.25,
+        "knn": 0.75
+      },
+      "auroc": 0.6978506154419993,
+      "fpr_at_95_tpr": 0.9642857142857143,
+      "threshold": 0.16478452614922684,
+      "kar": 0.9751958224543081,
+      "far": 0.9642857142857143,
+      "udr": 0.0357142857142857,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_margin + mean_top5_similarity",
+      "weights": {
+        "softmax": 0.5,
+        "knn": 0.5
+      },
+      "auroc": 0.7027928011935846,
+      "fpr_at_95_tpr": 0.9285714285714286,
+      "threshold": 0.13743803920779865,
+      "kar": 0.9595300261096605,
+      "far": 0.9285714285714286,
+      "udr": 0.0714285714285714,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_margin + mean_top5_similarity",
+      "weights": {
+        "softmax": 0.75,
+        "knn": 0.25
+      },
+      "auroc": 0.6648172323759792,
+      "fpr_at_95_tpr": 0.9642857142857143,
+      "threshold": 0.07118860556606353,
+      "kar": 0.9686684073107049,
+      "far": 0.9642857142857143,
+      "udr": 0.0357142857142857,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + species_vote_count",
+      "weights": {
+        "softmax": 0.25,
+        "knn": 0.75
+      },
+      "auroc": 0.5523591943304738,
+      "fpr_at_95_tpr": 0.8571428571428571,
+      "threshold": 0.19789249780958934,
+      "kar": 0.9556135770234987,
+      "far": 0.8571428571428571,
+      "udr": 0.1428571428571429,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + species_vote_count",
+      "weights": {
+        "softmax": 0.5,
+        "knn": 0.5
+      },
+      "auroc": 0.5546204774337933,
+      "fpr_at_95_tpr": 0.8571428571428571,
+      "threshold": 0.14578499561917865,
+      "kar": 0.9556135770234987,
+      "far": 0.8571428571428571,
+      "udr": 0.1428571428571429,
+      "oscr": "NOT_COMPUTABLE"
+    },
+    {
+      "combination": "softmax_top1 + species_vote_count",
+      "weights": {
+        "softmax": 0.75,
+        "knn": 0.25
+      },
+      "auroc": 0.5650177172696755,
+      "fpr_at_95_tpr": 0.8571428571428571,
+      "threshold": 0.09367749342876798,
+      "kar": 0.9595300261096605,
+      "far": 0.8571428571428571,
+      "udr": 0.1428571428571429,
+      "oscr": "NOT_COMPUTABLE"
+    }
+  ],
+  "best_single_signal": {
+    "method": "kNN Max Similarity",
+    "auroc": 0.6784781797836628,
+    "fpr_at_95_tpr": 0.9642857142857143,
+    "threshold": 0.1894984452078295,
+    "udr": 0.0357142857142857,
+    "far": 0.9642857142857143,
+    "kar": 0.9817232375979112,
+    "oscr": "NOT_COMPUTABLE",
+    "notes": "normalized on TRAIN reference only"
+  },
+  "best_ensemble_candidate": {
+    "combination": "softmax_margin + mean_top5_similarity",
+    "weights": {
+      "softmax": 0.5,
+      "knn": 0.5
+    },
+    "auroc": 0.7027928011935846,
+    "fpr_at_95_tpr": 0.9285714285714286,
+    "threshold": 0.13743803920779865,
+    "kar": 0.9595300261096605,
+    "far": 0.9285714285714286,
+    "udr": 0.0714285714285714,
+    "oscr": "NOT_COMPUTABLE"
+  },
+  "notes": "No unknown or known data were used to tune weights; only TRAIN-derived min-max scaling was used before evaluation."
+}

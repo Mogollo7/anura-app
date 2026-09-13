@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0028",
+  "scientific_name": "Dendropsophus bogerti",
+  "family": "Hylidae",
+  "genus": "Dendropsophus",
+  "common_name_es": "Ranita de pantano",
+  "directory_legacy": "Dendropsophus_bogerti",
+  "occurrences_in_department": 482,
+  "distinct_observers_in_department": 175,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 487,
+  "occurrences_dropped_low_accuracy": 2,
+  "photos_curated_total": 948,
+  "photos_raw_total": 954,
+  "individuals_curated_total": 484,
+  "individuals_from_department": 479,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

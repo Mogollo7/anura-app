@@ -1,0 +1,1353 @@
+{
+  "department": "ANTIOQUIA",
+  "inaturalist_place_id": 9495,
+  "quality_grade": "research",
+  "taxa_research_grade": 149,
+  "species_rank_only": 149,
+  "taxa_all_quality": 181,
+  "species": [
+    {
+      "inaturalist_taxon_id": 517119,
+      "scientific_name": "Rhinella horribilis",
+      "rank": "species",
+      "common_name_es": "Sapo gigante",
+      "observations_in_place": 1133,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65336,
+      "scientific_name": "Dendropsophus bogerti",
+      "rank": "species",
+      "common_name_es": "Ranita de pantano",
+      "observations_in_place": 408,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21116,
+      "scientific_name": "Dendrobates truncatus",
+      "rank": "species",
+      "common_name_es": "Rana venenosa de rayas amarillas",
+      "observations_in_place": 329,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21112",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67089,
+      "scientific_name": "Rhinella alata",
+      "rank": "species",
+      "common_name_es": "Sapo del Obispo",
+      "observations_in_place": 267,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24272,
+      "scientific_name": "Smilisca phaeota",
+      "rank": "species",
+      "common_name_es": "rana arborícola enmascarada",
+      "observations_in_place": 255,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24271",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66531,
+      "scientific_name": "Pristimantis achatinus",
+      "rank": "species",
+      "common_name_es": "Cutín común de occidente",
+      "observations_in_place": 255,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 135045,
+      "scientific_name": "Andinobates opisthomelas",
+      "rank": "species",
+      "common_name_es": "Rana Venenosa Norandina",
+      "observations_in_place": 218,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/134233",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 555142,
+      "scientific_name": "Boana pugnax",
+      "rank": "species",
+      "common_name_es": "Rana Platanera de ojos tornasol",
+      "observations_in_place": 203,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65448,
+      "scientific_name": "Engystomops pustulosus",
+      "rank": "species",
+      "common_name_es": "Ranita túngara",
+      "observations_in_place": 185,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787575/64769",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66785,
+      "scientific_name": "Pristimantis paisa",
+      "rank": "species",
+      "common_name_es": "Cutín paisa",
+      "observations_in_place": 148,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66673,
+      "scientific_name": "Pristimantis gaigei",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 135,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 555086,
+      "scientific_name": "Boana boans",
+      "rank": "species",
+      "common_name_es": "Rana gladiadora",
+      "observations_in_place": 126,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1251425,
+      "scientific_name": "Boana platanera",
+      "rank": "species",
+      "common_name_es": "Rana Platanera de Ojos Pálidos",
+      "observations_in_place": 121,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 517046,
+      "scientific_name": "Craugastor metriosistus",
+      "rank": "species",
+      "common_name_es": "Rana Duende del Magdalena Medio",
+      "observations_in_place": 114,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/64732/64763",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 23742,
+      "scientific_name": "Phyllomedusa venusta",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 111,
+      "ancestry": "48460/1/2/355675/20978/20979/554974/23714",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 787625,
+      "scientific_name": "Leucostethus fraterdanieli",
+      "rank": "species",
+      "common_name_es": "Rana cohete silbadora",
+      "observations_in_place": 110,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/604136",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67078,
+      "scientific_name": "Rhaebo haematiticus",
+      "rank": "species",
+      "common_name_es": "sapo hojarasquero",
+      "observations_in_place": 106,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64817",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65349,
+      "scientific_name": "Dendropsophus ebraccatus",
+      "rank": "species",
+      "common_name_es": "Rana arbórea amarillenta",
+      "observations_in_place": 94,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 134933,
+      "scientific_name": "Espadarana prosoblepon",
+      "rank": "species",
+      "common_name_es": "rana de vidrio esmeralda",
+      "observations_in_place": 80,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70625",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 81930,
+      "scientific_name": "Rhinella humboldti",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 79,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65285,
+      "scientific_name": "Craugastor raniformis",
+      "rank": "species",
+      "common_name_es": "Rana chivita",
+      "observations_in_place": 77,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/64732/64763",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476704,
+      "scientific_name": "Hyloscirtus antioquia",
+      "rank": "species",
+      "common_name_es": "Rana chocolate antioqueña",
+      "observations_in_place": 70,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64783",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66801,
+      "scientific_name": "Pristimantis permixtus",
+      "rank": "species",
+      "common_name_es": "Rana De Muslos Naranja",
+      "observations_in_place": 61,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65373,
+      "scientific_name": "Dendropsophus microcephalus",
+      "rank": "species",
+      "common_name_es": "Rana de árbol amarilla",
+      "observations_in_place": 60,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66797,
+      "scientific_name": "Pristimantis penelopus",
+      "rank": "species",
+      "common_name_es": "Rana De Ingles Negras Y Amarillas",
+      "observations_in_place": 60,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65660,
+      "scientific_name": "Hyloscirtus palmeri",
+      "rank": "species",
+      "common_name_es": "Rana de torrente de Palmer",
+      "observations_in_place": 57,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64783",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65547,
+      "scientific_name": "Hyalinobatrachium tatayoi",
+      "rank": "species",
+      "common_name_es": "Ranita Cristal de corazón perlado",
+      "observations_in_place": 54,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787565/21321",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67133,
+      "scientific_name": "Rhinella nicefori",
+      "rank": "species",
+      "common_name_es": "Sapito Narizón Montañero",
+      "observations_in_place": 54,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 126247,
+      "scientific_name": "Leptodactylus insularum",
+      "rank": "species",
+      "common_name_es": "Rana Caribeña",
+      "observations_in_place": 54,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 787621,
+      "scientific_name": "Scinax caprarius",
+      "rank": "species",
+      "common_name_es": "Scinax canto de cabra",
+      "observations_in_place": 53,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24278",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67125,
+      "scientific_name": "Rhinella macrorhina",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 49,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24292,
+      "scientific_name": "Scinax rostratus",
+      "rank": "species",
+      "common_name_es": "Ranita Rostral",
+      "observations_in_place": 45,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24278",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21271,
+      "scientific_name": "Rulyrana susatamai",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 44,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70939",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 22976,
+      "scientific_name": "Leptodactylus fragilis",
+      "rank": "species",
+      "common_name_es": "Rana de bigotes",
+      "observations_in_place": 42,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 517297,
+      "scientific_name": "Trachycephalus macrotis",
+      "rank": "species",
+      "common_name_es": "Rana Gomosa Grande",
+      "observations_in_place": 41,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24247/1663545",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66893,
+      "scientific_name": "Pristimantis taeniatus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 40,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 22973,
+      "scientific_name": "Leptodactylus fuscus",
+      "rank": "species",
+      "common_name_es": "Rana Picuda",
+      "observations_in_place": 38,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65962,
+      "scientific_name": "Leptodactylus savagei",
+      "rank": "species",
+      "common_name_es": "Rana de dedos delgados de Savage",
+      "observations_in_place": 38,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66657,
+      "scientific_name": "Pristimantis erythropleura",
+      "rank": "species",
+      "common_name_es": "Rana De Ingle Roja",
+      "observations_in_place": 37,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65344,
+      "scientific_name": "Dendropsophus columbianus",
+      "rank": "species",
+      "common_name_es": "Ranita de pantano Colombiana",
+      "observations_in_place": 36,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66016,
+      "scientific_name": "Lithobates vaillanti",
+      "rank": "species",
+      "common_name_es": "Rana de Vaillant",
+      "observations_in_place": 34,
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476537,
+      "scientific_name": "Elachistocleis pearsei",
+      "rank": "species",
+      "common_name_es": "Rana Pingüina",
+      "observations_in_place": 34,
+      "ancestry": "48460/1/2/355675/20978/20979/24736/787573/25086",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67145,
+      "scientific_name": "Rhinella ruizi",
+      "rank": "species",
+      "common_name_es": "Sapito Narizón altoandino",
+      "observations_in_place": 33,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 555064,
+      "scientific_name": "Andinobates victimatus",
+      "rank": "species",
+      "common_name_es": "Rana venenosa andina escarlata",
+      "observations_in_place": 30,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/134233",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476706,
+      "scientific_name": "Agalychnis terranova",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 28,
+      "ancestry": "48460/1/2/355675/20978/20979/554974/23694",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67083,
+      "scientific_name": "Rheobates pseudopalmatus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 26,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787558/64818",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 22939,
+      "scientific_name": "Leptodactylus colombiensis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 25,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66864,
+      "scientific_name": "Pristimantis scoloblepharus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 25,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21340,
+      "scientific_name": "Hyalinobatrachium aureoguttatum",
+      "rank": "species",
+      "common_name_es": "rana de cristal de manchas doradas",
+      "observations_in_place": 23,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787565/21321",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476702,
+      "scientific_name": "Andinobates cassidyhornae",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 23,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/134233",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21038,
+      "scientific_name": "Colostethus inguinalis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 22,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/20983",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24158,
+      "scientific_name": "Gastrotheca nicefori",
+      "rank": "species",
+      "common_name_es": "Rana Marsupial De Niceforo",
+      "observations_in_place": 22,
+      "ancestry": "48460/1/2/355675/20978/20979/64737/24126",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21235,
+      "scientific_name": "Sachatamia punctulata",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 21,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70940",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 22333,
+      "scientific_name": "Eleutherodactylus johnstonei",
+      "rank": "species",
+      "common_name_es": "Coqui Antillano",
+      "observations_in_place": 21,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/64721/787585/22086",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66647,
+      "scientific_name": "Pristimantis dorsopictus",
+      "rank": "species",
+      "common_name_es": "Rana Amarilla Y Listas Negras",
+      "observations_in_place": 21,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66927,
+      "scientific_name": "Pristimantis viejas",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 21,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21314,
+      "scientific_name": "Nymphargus grandisonae",
+      "rank": "species",
+      "common_name_es": "Rana de cristal sarampiona",
+      "observations_in_place": 19,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24151,
+      "scientific_name": "Gastrotheca dunni",
+      "rank": "species",
+      "common_name_es": "Rana Marsupial Norandina",
+      "observations_in_place": 19,
+      "ancestry": "48460/1/2/355675/20978/20979/64737/24126",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 555150,
+      "scientific_name": "Boana rosenbergi",
+      "rank": "species",
+      "common_name_es": "rana arbórea de gladiadora",
+      "observations_in_place": 19,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1363699,
+      "scientific_name": "Pristimantis cryptopictus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 18,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24275,
+      "scientific_name": "Smilisca sila",
+      "rank": "species",
+      "common_name_es": "rana arborícola ñata",
+      "observations_in_place": 17,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24271",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65417,
+      "scientific_name": "Diasporus anthrax",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 17,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/64721/787585/64767",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 923308,
+      "scientific_name": "Centrolene antioquiensis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 17,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/21280",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24310,
+      "scientific_name": "Scinax boulengeri",
+      "rank": "species",
+      "common_name_es": "rana arboricola narizona de boulenger",
+      "observations_in_place": 16,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24278",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 25461,
+      "scientific_name": "Pipa myersi",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 15,
+      "ancestry": "48460/1/2/355675/20978/20979/25437/1250475/25460",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65979,
+      "scientific_name": "Lithobates catesbeianus",
+      "rank": "species",
+      "common_name_es": "Rana toro americana",
+      "observations_in_place": 15,
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66790,
+      "scientific_name": "Pristimantis parectatus",
+      "rank": "species",
+      "common_name_es": "Rana Diminuta",
+      "observations_in_place": 15,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476696,
+      "scientific_name": "Pristimantis jaguensis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 15,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1423560,
+      "scientific_name": "Pristimantis campesino",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 15,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66945,
+      "scientific_name": "Pristimantis zophus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 14,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67169,
+      "scientific_name": "Scarthyla vigilans",
+      "rank": "species",
+      "common_name_es": "Ranita Vigilante",
+      "observations_in_place": 13,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24433",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67184,
+      "scientific_name": "Silverstoneia erasmios",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 13,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/64822",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 135043,
+      "scientific_name": "Andinobates fulguritus",
+      "rank": "species",
+      "common_name_es": "Rana Venenosa andina Verde/Amarilla",
+      "observations_in_place": 13,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/134233",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21281,
+      "scientific_name": "Centrolene buckleyi",
+      "rank": "species",
+      "common_name_es": "Rana de cristal altoandina de Buckley",
+      "observations_in_place": 12,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/21280",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 22977,
+      "scientific_name": "Leptodactylus poecilochilus",
+      "rank": "species",
+      "common_name_es": "rana de labio turbo blanco",
+      "observations_in_place": 12,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65655,
+      "scientific_name": "Hyloscirtus larinopygion",
+      "rank": "species",
+      "common_name_es": "Rana de torrente pastusa",
+      "observations_in_place": 12,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64783",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1473419,
+      "scientific_name": "Nymphargus pijao",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 12,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66781,
+      "scientific_name": "Pristimantis orpacobates",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 11,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24322,
+      "scientific_name": "Scinax ruber",
+      "rank": "species",
+      "common_name_es": "Ranita Listada",
+      "observations_in_place": 10,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24278",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 135068,
+      "scientific_name": "Centrolene savagei",
+      "rank": "species",
+      "common_name_es": "Rana de cristal de labios blancos",
+      "observations_in_place": 10,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/21280",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66529,
+      "scientific_name": "Pristimantis acatallelus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 9,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67142,
+      "scientific_name": "Rhinella rostrata",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 9,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 135120,
+      "scientific_name": "Nymphargus rosada",
+      "rank": "species",
+      "common_name_es": "Ranita crital rosa",
+      "observations_in_place": 9,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 199727,
+      "scientific_name": "Dendropsophus norandinus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 9,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 555152,
+      "scientific_name": "Boana rufitela",
+      "rank": "species",
+      "common_name_es": "Rana Arborícola de La Zona del Canal",
+      "observations_in_place": 9,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/555034",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 23218,
+      "scientific_name": "Pleurodema brachyops",
+      "rank": "species",
+      "common_name_es": "Sapito Lipón",
+      "observations_in_place": 8,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787575/23208",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66720,
+      "scientific_name": "Pristimantis lemur",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 8,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67155,
+      "scientific_name": "Rhinella tenrec",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 8,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476538,
+      "scientific_name": "Elachistocleis panamensis",
+      "rank": "species",
+      "common_name_es": "Ranita termitera",
+      "observations_in_place": 8,
+      "ancestry": "48460/1/2/355675/20978/20979/24736/787573/25086",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21108,
+      "scientific_name": "Colostethus pratti",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 7,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/20983",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 64862,
+      "scientific_name": "Allobates niputidea",
+      "rank": "species",
+      "common_name_es": "Rana Nodriza Niputidea",
+      "observations_in_place": 7,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787562/21209",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65406,
+      "scientific_name": "Dendropsophus subocularis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 7,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 604172,
+      "scientific_name": "Sachatamia electrops",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 7,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70940",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 923306,
+      "scientific_name": "Pristimantis ferwerdai",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 7,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1125831,
+      "scientific_name": "Pristimantis zorro",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 7,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65419,
+      "scientific_name": "Diasporus gularis",
+      "rank": "species",
+      "common_name_es": "Rana naranja de Esmeraldas",
+      "observations_in_place": 6,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/64721/787585/64767",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66936,
+      "scientific_name": "Pristimantis w-nigrum",
+      "rank": "species",
+      "common_name_es": "Cualita",
+      "observations_in_place": 6,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21042,
+      "scientific_name": "Colostethus imbricolus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 5,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/20983",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 23181,
+      "scientific_name": "Pseudopaludicola pusilla",
+      "rank": "species",
+      "common_name_es": "Ranita Enana",
+      "observations_in_place": 5,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787575/23169",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66205,
+      "scientific_name": "Nymphargus luminosus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 5,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 134927,
+      "scientific_name": "Agalychnis spurrelli",
+      "rank": "species",
+      "common_name_es": "Rana Deslizadora",
+      "observations_in_place": 5,
+      "ancestry": "48460/1/2/355675/20978/20979/554974/23694",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24398,
+      "scientific_name": "Cryptobatrachus fuhrmanni",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/64737/24395",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65272,
+      "scientific_name": "Craugastor opimus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/64732/64763",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66664,
+      "scientific_name": "Pristimantis fallax",
+      "rank": "species",
+      "common_name_es": "Rana De Garganta Manchada",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66915,
+      "scientific_name": "Pristimantis uranobates",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 787624,
+      "scientific_name": "Leucostethus jota",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/604136",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1176933,
+      "scientific_name": "Oophaga solanensis",
+      "rank": "species",
+      "common_name_es": "Rana Venenosa Arlequín Chocoana",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/64803",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1286248,
+      "scientific_name": "Pristimantis carylae",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 4,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21121,
+      "scientific_name": "Dendrobates auratus",
+      "rank": "species",
+      "common_name_es": "rana venenosa verdinegra",
+      "observations_in_place": 3,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21112",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21279,
+      "scientific_name": "Teratohyla spinosa",
+      "rank": "species",
+      "common_name_es": "Rana de cristal de Espinosa",
+      "observations_in_place": 3,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70967",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 555059,
+      "scientific_name": "Pristimantis leopardus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 3,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21292,
+      "scientific_name": "Centrolene quindianum",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65387,
+      "scientific_name": "Dendropsophus phlebodes",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/64765",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66203,
+      "scientific_name": "Nymphargus ignotus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66786,
+      "scientific_name": "Pristimantis palmeri",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66919,
+      "scientific_name": "Pristimantis veletis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 120865,
+      "scientific_name": "Atelopus nocturnus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/21647",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 134937,
+      "scientific_name": "Hyalinobatrachium chirripoi",
+      "rank": "species",
+      "common_name_es": "Rana de cristal de Costa Rica",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787565/21321",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 803870,
+      "scientific_name": "Niceforonia mantipus",
+      "rank": "species",
+      "common_name_es": "Rana Terrestre De Dedos Angostos",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281787/64798",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1286247,
+      "scientific_name": "Pristimantis chocolatebari",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 2,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21217,
+      "scientific_name": "Phyllobates terribilis",
+      "rank": "species",
+      "common_name_es": "Rana dorada venenosa",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/21212",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21275,
+      "scientific_name": "Cochranella ramirezi",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 21316,
+      "scientific_name": "Espadarana andina",
+      "rank": "species",
+      "common_name_es": "Ranita De Cristal Andina",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70625",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 22951,
+      "scientific_name": "Leptodactylus melanonotus",
+      "rank": "species",
+      "common_name_es": "Ranita hojarasca",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/22085/787574/22923",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 23746,
+      "scientific_name": "Phyllomedusa bicolor",
+      "rank": "species",
+      "common_name_es": "Rana Lemur Gigante",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/554974/23714",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 24168,
+      "scientific_name": "Gastrotheca dendronastes",
+      "rank": "species",
+      "common_name_es": "Rana marsupial del río Calima",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/64737/24126",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 64873,
+      "scientific_name": "Allobates talamancae",
+      "rank": "species",
+      "common_name_es": "rana cohete rayado",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787562/21209",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65192,
+      "scientific_name": "Teratohyla pulverata",
+      "rank": "species",
+      "common_name_es": "rana de vidrio de chiriquí",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/70967",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65238,
+      "scientific_name": "Craugastor fitzingeri",
+      "rank": "species",
+      "common_name_es": "Ranita Común de Lluvia",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/64732/64763",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65695,
+      "scientific_name": "Hyloxalus lehmanni",
+      "rank": "species",
+      "common_name_es": "Rana cohete de Lehmann",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787559/64784",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 65710,
+      "scientific_name": "Hyloxalus ramosi",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787559/64784",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66197,
+      "scientific_name": "Nymphargus chami",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66214,
+      "scientific_name": "Nymphargus prasinus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/64800",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66580,
+      "scientific_name": "Pristimantis brevifrons",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66810,
+      "scientific_name": "Pristimantis piceus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66830,
+      "scientific_name": "Pristimantis quantus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66901,
+      "scientific_name": "Pristimantis thectopternus",
+      "rank": "species",
+      "common_name_es": "Rana De Espolon",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 66908,
+      "scientific_name": "Pristimantis tribulosus",
+      "rank": "species",
+      "common_name_es": "Rana Ornamentada",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281789/64811",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67080,
+      "scientific_name": "Rhaebo lynchi",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64817",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67082,
+      "scientific_name": "Rheobates palmatus",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/64722/787558/64818",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 67217,
+      "scientific_name": "Strabomantis necopinus",
+      "rank": "species",
+      "common_name_es": "Rana Cabezona",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281788/64824",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 134631,
+      "scientific_name": "Scinax elaeochroa",
+      "rank": "species",
+      "common_name_es": "rana arborícola hocico oliva",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/1658175/24278",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476539,
+      "scientific_name": "Ctenophryne aterrima",
+      "rank": "species",
+      "common_name_es": "Ranita hocicuda negra",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/24736/787573/25083",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 476693,
+      "scientific_name": "Rhinella paraguas",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/21359/64819",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 604174,
+      "scientific_name": "Ectopoglossus saxatilis",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787559/604137",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 788148,
+      "scientific_name": "Leucostethus ramirezi",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/604136",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 803869,
+      "scientific_name": "Niceforonia latens",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/787530/1628224/1281787/64798",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1176934,
+      "scientific_name": "Oophaga andresi",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787560/64803",
+      "iconic": "Amphibia"
+    },
+    {
+      "inaturalist_taxon_id": 1281758,
+      "scientific_name": "Leucostethus dysprosium",
+      "rank": "species",
+      "common_name_es": "",
+      "observations_in_place": 1,
+      "ancestry": "48460/1/2/355675/20978/20979/713809/20980/787561/604136",
+      "iconic": "Amphibia"
+    }
+  ],
+  "other_ranks": [],
+  "caveat": "Catálogo CANDIDATO: son los taxones que iNaturalist reporta dentro de su propio polígono del lugar. Falta validar cada observación por point-in-polygon contra los límites DANE."
+}

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "anura-design-system",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8777", "--directory", "D:/Anura/design-system"],
+      "port": 8777
+    },
+    {
+      "name": "anura-design-system-verify",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8779", "--directory", "D:/Anura/design-system"],
+      "port": 8779
+    }
+  ]
+}

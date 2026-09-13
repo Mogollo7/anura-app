@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0042",
+  "scientific_name": "Phyllomedusa venusta",
+  "family": "Phyllomedusidae",
+  "genus": "Phyllomedusa",
+  "common_name_es": "Lovely Leaf Frog",
+  "directory_legacy": "Phyllomedusa_venusta",
+  "occurrences_in_department": 116,
+  "distinct_observers_in_department": 79,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 253,
+  "occurrences_dropped_low_accuracy": 6,
+  "photos_curated_total": 150,
+  "photos_raw_total": 150,
+  "individuals_curated_total": 79,
+  "individuals_from_department": 50,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0034",
+  "scientific_name": "Dendropsophus norandinus",
+  "family": "Hylidae",
+  "genus": "Dendropsophus",
+  "common_name_es": "El Roble Tree Frog",
+  "directory_legacy": "Dendropsophus_norandinus",
+  "occurrences_in_department": 11,
+  "distinct_observers_in_department": 6,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 11,
+  "occurrences_dropped_low_accuracy": 0,
+  "photos_curated_total": 26,
+  "photos_raw_total": 26,
+  "individuals_curated_total": 11,
+  "individuals_from_department": 11,
+  "data_status": "DATA_LIMITED",
+  "review_reasons": [],
+  "notes": []
+}

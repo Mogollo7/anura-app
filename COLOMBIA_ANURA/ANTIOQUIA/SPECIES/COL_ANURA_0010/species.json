@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0010",
+  "scientific_name": "Pristimantis gaigei",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Gaige's Rain Frog",
+  "directory_legacy": "Pristimantis_gaigei",
+  "occurrences_in_department": 151,
+  "distinct_observers_in_department": 99,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 244,
+  "occurrences_dropped_low_accuracy": 4,
+  "photos_curated_total": 89,
+  "photos_raw_total": 148,
+  "individuals_curated_total": 54,
+  "individuals_from_department": 33,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

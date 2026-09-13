@@ -1,0 +1,306 @@
+{
+  "status": "NO_INDEPENDENT_REFERENCE_AVAILABLE",
+  "independent_reference_available": false,
+  "reference_size": 0,
+  "reference_species": [],
+  "calibration_available": false,
+  "calibration_size": 0,
+  "species_coverage_41": {
+    "Boana_boans": {
+      "total_cleaned": 145,
+      "candidate_B": 30,
+      "reference_A": 0
+    },
+    "Boana_cinerascens": {
+      "total_cleaned": 138,
+      "candidate_B": 30,
+      "reference_A": 0
+    },
+    "Boana_lanciformis": {
+      "total_cleaned": 209,
+      "candidate_B": 84,
+      "reference_A": 0
+    },
+    "Boana_platanera": {
+      "total_cleaned": 150,
+      "candidate_B": 18,
+      "reference_A": 0
+    },
+    "Boana_pugnax": {
+      "total_cleaned": 148,
+      "candidate_B": 12,
+      "reference_A": 0
+    },
+    "Boana_punctata": {
+      "total_cleaned": 395,
+      "candidate_B": 281,
+      "reference_A": 0
+    },
+    "Boana_rosenbergi": {
+      "total_cleaned": 148,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Boana_xerophylla": {
+      "total_cleaned": 100,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Craugastor_raniformis": {
+      "total_cleaned": 298,
+      "candidate_B": 184,
+      "reference_A": 0
+    },
+    "Dendrobates_truncatus": {
+      "total_cleaned": 1809,
+      "candidate_B": 1684,
+      "reference_A": 0
+    },
+    "Dendropsophus_bogerti": {
+      "total_cleaned": 948,
+      "candidate_B": 814,
+      "reference_A": 0
+    },
+    "Dendropsophus_columbianus": {
+      "total_cleaned": 146,
+      "candidate_B": 6,
+      "reference_A": 0
+    },
+    "Dendropsophus_ebraccatus": {
+      "total_cleaned": 148,
+      "candidate_B": 8,
+      "reference_A": 0
+    },
+    "Dendropsophus_mathiassoni": {
+      "total_cleaned": 150,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Dendropsophus_microcephalus": {
+      "total_cleaned": 713,
+      "candidate_B": 611,
+      "reference_A": 0
+    },
+    "Dendropsophus_molitor": {
+      "total_cleaned": 150,
+      "candidate_B": 41,
+      "reference_A": 0
+    },
+    "Dendropsophus_norandinus": {
+      "total_cleaned": 26,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Dendropsophus_reticulatus": {
+      "total_cleaned": 100,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Dendropsophus_triangulum": {
+      "total_cleaned": 132,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Engystomops_pustulosus": {
+      "total_cleaned": 1718,
+      "candidate_B": 1592,
+      "reference_A": 0
+    },
+    "Hyloscirtus_palmeri": {
+      "total_cleaned": 178,
+      "candidate_B": 44,
+      "reference_A": 0
+    },
+    "Leptodactylus_colombiensis": {
+      "total_cleaned": 206,
+      "candidate_B": 38,
+      "reference_A": 0
+    },
+    "Phyllomedusa_tarsius": {
+      "total_cleaned": 97,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Phyllomedusa_venusta": {
+      "total_cleaned": 150,
+      "candidate_B": 14,
+      "reference_A": 0
+    },
+    "Pithecopus_hypochondrialis": {
+      "total_cleaned": 149,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Pristimantis_achatinus": {
+      "total_cleaned": 1902,
+      "candidate_B": 1761,
+      "reference_A": 0
+    },
+    "Pristimantis_bogotensis": {
+      "total_cleaned": 143,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Pristimantis_erythropleura": {
+      "total_cleaned": 136,
+      "candidate_B": 28,
+      "reference_A": 0
+    },
+    "Pristimantis_gaigei": {
+      "total_cleaned": 89,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Pristimantis_paisa": {
+      "total_cleaned": 170,
+      "candidate_B": 48,
+      "reference_A": 0
+    },
+    "Pristimantis_palmeri": {
+      "total_cleaned": 100,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Pristimantis_penelopus": {
+      "total_cleaned": 156,
+      "candidate_B": 14,
+      "reference_A": 0
+    },
+    "Pristimantis_permixtus": {
+      "total_cleaned": 111,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Pristimantis_taeniatus": {
+      "total_cleaned": 160,
+      "candidate_B": 46,
+      "reference_A": 0
+    },
+    "Pristimantis_thectopternus": {
+      "total_cleaned": 80,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Pristimantis_vilarsi": {
+      "total_cleaned": 56,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Rheobates_palmatus": {
+      "total_cleaned": 70,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Rhinella_alata": {
+      "total_cleaned": 90,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Rhinella_horribilis": {
+      "total_cleaned": 100,
+      "candidate_B": 0,
+      "reference_A": 0
+    },
+    "Rhinella_margaritifera": {
+      "total_cleaned": 159,
+      "candidate_B": 51,
+      "reference_A": 0
+    },
+    "Scinax_ruber": {
+      "total_cleaned": 125,
+      "candidate_B": 36,
+      "reference_A": 0
+    }
+  },
+  "catalog_only_species": [
+    "Hyloxalus_picachos",
+    "Sachatamia_electrops"
+  ],
+  "counts_by_classification": {
+    "C": 4779,
+    "B": 7475
+  },
+  "counts_by_declared_split": {
+    "TRAIN": 3260,
+    "VAL": 697,
+    "TEST": 766,
+    "OUTSIDE_DECLARED_SPLITS": 7475,
+    "F4": 56
+  },
+  "cleaned_image_count": 12254,
+  "filesystem_image_count": 12254,
+  "sha256_manifest_mismatches": 12254,
+  "metadata_fields_available": [
+    "relative_path",
+    "species",
+    "sha256"
+  ],
+  "metadata_fields_missing_for_independence": [
+    "source",
+    "date_observed",
+    "locality",
+    "latitude",
+    "longitude",
+    "author",
+    "license",
+    "url",
+    "timestamp",
+    "individual_id",
+    "perceptual_hash"
+  ],
+  "source_hashes_before": {
+    "data cleaned\\dataset_limpio.json": "d9c373e50dea43b18423beb8fb7e4910506c0131c819995d65ffe454affd2ef9",
+    "training\\manifiesto.json": "20bef170559e9da3e5b9bec3e91c4c7a2ae224af4774dda6e577a2c0d6354cd2",
+    "evaluation\\open_set_v1\\dataset\\open_set_manifest.json": "4fd6e76b4d7e151f2196dfc83ae2344768b287ec85d366e75182ea52c4018e6a",
+    "evaluation\\open_set_v1\\dataset\\leakage_report.json": "f3a206ee9d3f1d562c93f74bc4f124775b44d05ae2efb7571837cd768d2fe894",
+    "evaluation\\open_set_v1\\calibration\\calibration_inventory.md": "9875f09b0aa35c1a937670c152b1502ec0cb93ca5b4f3cfa7063b1065596a5d7",
+    "evaluation\\open_set_v1\\calibration\\calibration_inventory.json": "b7027e32cc6da4e657fe280565973c3a7d1e9138931bc8ee4991bf1b5247433b",
+    "evaluation\\open_set_v1\\ensemble\\calibration_audit.md": "502e936b3bdc7305e025ff5179b08e420cb7092a172aca3752d4e67c333e464a"
+  },
+  "source_hashes_after": {
+    "data cleaned\\dataset_limpio.json": "d9c373e50dea43b18423beb8fb7e4910506c0131c819995d65ffe454affd2ef9",
+    "training\\manifiesto.json": "20bef170559e9da3e5b9bec3e91c4c7a2ae224af4774dda6e577a2c0d6354cd2",
+    "evaluation\\open_set_v1\\dataset\\open_set_manifest.json": "4fd6e76b4d7e151f2196dfc83ae2344768b287ec85d366e75182ea52c4018e6a",
+    "evaluation\\open_set_v1\\dataset\\leakage_report.json": "f3a206ee9d3f1d562c93f74bc4f124775b44d05ae2efb7571837cd768d2fe894",
+    "evaluation\\open_set_v1\\calibration\\calibration_inventory.md": "9875f09b0aa35c1a937670c152b1502ec0cb93ca5b4f3cfa7063b1065596a5d7",
+    "evaluation\\open_set_v1\\calibration\\calibration_inventory.json": "b7027e32cc6da4e657fe280565973c3a7d1e9138931bc8ee4991bf1b5247433b",
+    "evaluation\\open_set_v1\\ensemble\\calibration_audit.md": "502e936b3bdc7305e025ff5179b08e420cb7092a172aca3752d4e67c333e464a"
+  },
+  "source_hashes_unchanged": true,
+  "output_listing_after": {
+    "candidate_calibration.csv": {
+      "bytes": 252,
+      "sha256": "ecb5408546056c9e052cb2d9937bdea3217095f76d4864b2745bd473e923d313"
+    },
+    "candidate_reference.csv": {
+      "bytes": 2408717,
+      "sha256": "c31845a68b69446bc75455dce44f102eb58b985984803eaf2cf807aa05b6e41c"
+    },
+    "excluded_contaminated.csv": {
+      "bytes": 1425158,
+      "sha256": "51cca894e0e9052535e62c351f040b411d326a5484de748c1fb19872e6afe5a8"
+    },
+    "fase11_report.md": {
+      "bytes": 879,
+      "sha256": "9bcdef6e5d40639163aef9eb9c7dd434d1d1f67632920d51c686923ebee2bd0f"
+    },
+    "provenance_gaps.csv": {
+      "bytes": 3208546,
+      "sha256": "16b95558283238ec5fb03a3028da3480e1d62bbaa01419404b999e12872db10a"
+    },
+    "reference_audit.md": {
+      "bytes": 2881,
+      "sha256": "981d46be4b99d7890377fea4a28cdfdffabbff5e01dad62c932af990347ec45b"
+    },
+    "reference_protocol.md": {
+      "bytes": 1346,
+      "sha256": "47f65d369bdc5cd5a9029d84c497e5bd26b32c3807c112027c30853bb086c7e6"
+    },
+    "run_fase11_reference_audit.py": {
+      "bytes": 13630,
+      "sha256": "7fbdc26be5ae9f3ac00b83dc04221a25084da373bfa9e1e33f8eb17d976ba174"
+    }
+  },
+  "policy": "TRAIN=TRAIN_REFERENCE; VAL=VALIDATION_REFERENCE; F3/F4 final and protected; outside-split images are not automatically independent",
+  "generated_at_utc": "2026-09-13T07:42:20.735233+00:00"
+}

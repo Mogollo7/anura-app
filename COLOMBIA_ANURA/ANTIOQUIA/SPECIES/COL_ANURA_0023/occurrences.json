@@ -1,0 +1,1502 @@
+[
+  {
+    "observation_id": 393192799,
+    "latitude": 8.850104,
+    "longitude": -76.427089,
+    "positional_accuracy": 1224,
+    "observed_on": "2025-06-25",
+    "observer": "uraba-biodiversa",
+    "url": "https://www.inaturalist.org/observations/393192799",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 388441533,
+    "latitude": 6.5742325417,
+    "longitude": -74.7134853154,
+    "positional_accuracy": 215,
+    "observed_on": "2026-06-18",
+    "observer": "mateo41324",
+    "url": "https://www.inaturalist.org/observations/388441533",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 380744348,
+    "latitude": 7.5215616667,
+    "longitude": -76.563225,
+    "positional_accuracy": 4,
+    "observed_on": "2026-07-11",
+    "observer": "brand2330",
+    "url": "https://www.inaturalist.org/observations/380744348",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 379353947,
+    "latitude": 6.5744756838,
+    "longitude": -74.7141944245,
+    "positional_accuracy": 215,
+    "observed_on": "2026-06-18",
+    "observer": "talia17552",
+    "url": "https://www.inaturalist.org/observations/379353947",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 372512040,
+    "latitude": 6.5500799442,
+    "longitude": -75.2332598716,
+    "positional_accuracy": 901,
+    "observed_on": "2026-06-16",
+    "observer": "alejozapata",
+    "url": "https://www.inaturalist.org/observations/372512040",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 371432491,
+    "latitude": 6.0352267138,
+    "longitude": -75.2019035071,
+    "positional_accuracy": 6,
+    "observed_on": "2026-06-13",
+    "observer": "denis240",
+    "url": "https://www.inaturalist.org/observations/371432491",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 366881757,
+    "latitude": 6.3885928063,
+    "longitude": -75.0623260438,
+    "positional_accuracy": 600,
+    "observed_on": "2026-05-30",
+    "observer": "mayerly54044",
+    "url": "https://www.inaturalist.org/observations/366881757",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 366881617,
+    "latitude": 6.3890412854,
+    "longitude": -75.0638183579,
+    "positional_accuracy": 600,
+    "observed_on": "2026-05-30",
+    "observer": "mayerly54044",
+    "url": "https://www.inaturalist.org/observations/366881617",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 366832466,
+    "latitude": 8.5212627778,
+    "longitude": -76.5307775,
+    "positional_accuracy": null,
+    "observed_on": "2026-05-06",
+    "observer": "lidis2",
+    "url": "https://www.inaturalist.org/observations/366832466",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 366525792,
+    "latitude": 6.3518068588,
+    "longitude": -75.056890212,
+    "positional_accuracy": 17,
+    "observed_on": "2026-05-26",
+    "observer": "dsypg",
+    "url": "https://www.inaturalist.org/observations/366525792",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 366514516,
+    "latitude": 7.0801670589,
+    "longitude": -76.2338004672,
+    "positional_accuracy": 2383,
+    "observed_on": "2026-05-29",
+    "observer": "jose58586",
+    "url": "https://www.inaturalist.org/observations/366514516",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 366039647,
+    "latitude": 7.24959,
+    "longitude": -76.496298,
+    "positional_accuracy": 2972,
+    "observed_on": "2026-05-28",
+    "observer": "sofia_ballesteros",
+    "url": "https://www.inaturalist.org/observations/366039647",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 365829003,
+    "latitude": 8.1399089722,
+    "longitude": -76.7213249722,
+    "positional_accuracy": null,
+    "observed_on": "2026-05-27",
+    "observer": "ingrid22711",
+    "url": "https://www.inaturalist.org/observations/365829003",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 365828073,
+    "latitude": 8.139639,
+    "longitude": -76.721524,
+    "positional_accuracy": null,
+    "observed_on": "2026-05-27",
+    "observer": "ingrid22711",
+    "url": "https://www.inaturalist.org/observations/365828073",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 364798300,
+    "latitude": 6.32977,
+    "longitude": -75.0345166667,
+    "positional_accuracy": 4,
+    "observed_on": "2026-05-19",
+    "observer": "laura83757",
+    "url": "https://www.inaturalist.org/observations/364798300",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 364798208,
+    "latitude": 6.3298,
+    "longitude": -75.0345083333,
+    "positional_accuracy": 20,
+    "observed_on": "2026-05-19",
+    "observer": "laura83757",
+    "url": "https://www.inaturalist.org/observations/364798208",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 363913190,
+    "latitude": 7.8647089689,
+    "longitude": -76.5841162205,
+    "positional_accuracy": 224,
+    "observed_on": null,
+    "observer": "dalida6",
+    "url": "https://www.inaturalist.org/observations/363913190",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 363727172,
+    "latitude": 6.5740297012,
+    "longitude": -74.715748094,
+    "positional_accuracy": 1027,
+    "observed_on": "2026-05-20",
+    "observer": "linaramirez-07",
+    "url": "https://www.inaturalist.org/observations/363727172",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 363538610,
+    "latitude": 5.9009681845,
+    "longitude": -74.8569372296,
+    "positional_accuracy": 210,
+    "observed_on": "2026-05-14",
+    "observer": "laura_camila11719",
+    "url": "https://www.inaturalist.org/observations/363538610",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 363480819,
+    "latitude": 7.8213383333,
+    "longitude": -76.650405,
+    "positional_accuracy": 14,
+    "observed_on": "2026-05-20",
+    "observer": "natorom",
+    "url": "https://www.inaturalist.org/observations/363480819",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 363048719,
+    "latitude": 6.246535,
+    "longitude": -74.9593933333,
+    "positional_accuracy": null,
+    "observed_on": "2026-05-19",
+    "observer": "estefa5",
+    "url": "https://www.inaturalist.org/observations/363048719",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 362064728,
+    "latitude": 6.55395,
+    "longitude": -74.7873072,
+    "positional_accuracy": 24,
+    "observed_on": "2026-05-16",
+    "observer": "juanita30467",
+    "url": "https://www.inaturalist.org/observations/362064728",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361796963,
+    "latitude": 7.8718365886,
+    "longitude": -76.6953289881,
+    "positional_accuracy": 5,
+    "observed_on": "2026-05-14",
+    "observer": "alex_antojo",
+    "url": "https://www.inaturalist.org/observations/361796963",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361765849,
+    "latitude": 7.7895916667,
+    "longitude": -76.7201944444,
+    "positional_accuracy": null,
+    "observed_on": "2026-05-15",
+    "observer": "sergio_genesis",
+    "url": "https://www.inaturalist.org/observations/361765849",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361751186,
+    "latitude": 7.2793884201,
+    "longitude": -76.5573486473,
+    "positional_accuracy": 16,
+    "observed_on": "2026-05-14",
+    "observer": "juberlys_renteria",
+    "url": "https://www.inaturalist.org/observations/361751186",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361740401,
+    "latitude": 8.5688000868,
+    "longitude": -76.6270677745,
+    "positional_accuracy": 100,
+    "observed_on": "2026-05-15",
+    "observer": "samary3",
+    "url": "https://www.inaturalist.org/observations/361740401",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361538411,
+    "latitude": 6.1677896488,
+    "longitude": -75.0503412634,
+    "positional_accuracy": 11,
+    "observed_on": "2026-05-14",
+    "observer": "laura87155",
+    "url": "https://www.inaturalist.org/observations/361538411",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361414689,
+    "latitude": 5.8282416667,
+    "longitude": -75.6909116667,
+    "positional_accuracy": 35,
+    "observed_on": "2024-09-09",
+    "observer": "nixonforerog",
+    "url": "https://www.inaturalist.org/observations/361414689",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 361125336,
+    "latitude": 6.4422715496,
+    "longitude": -74.9683055654,
+    "positional_accuracy": 29,
+    "observed_on": "2026-05-12",
+    "observer": "manuela6371",
+    "url": "https://www.inaturalist.org/observations/361125336",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 360622471,
+    "latitude": 7.7070633333,
+    "longitude": -76.5616933333,
+    "positional_accuracy": null,
+    "observed_on": "2026-05-07",
+    "observer": "edwin23021",
+    "url": "https://www.inaturalist.org/observations/360622471",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 357026988,
+    "latitude": 6.1635834,
+    "longitude": -74.9312896,
+    "positional_accuracy": 1445,
+    "observed_on": "2026-04-30",
+    "observer": "dayana83412",
+    "url": "https://www.inaturalist.org/observations/357026988",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 356668177,
+    "latitude": 6.35217873,
+    "longitude": -75.0547320396,
+    "positional_accuracy": 305,
+    "observed_on": "2026-04-23",
+    "observer": "tomas58130",
+    "url": "https://www.inaturalist.org/observations/356668177",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 355838385,
+    "latitude": 8.1394580556,
+    "longitude": -76.7216563889,
+    "positional_accuracy": null,
+    "observed_on": "2026-04-27",
+    "observer": "ingrid22711",
+    "url": "https://www.inaturalist.org/observations/355838385",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 355518426,
+    "latitude": 7.8863780441,
+    "longitude": -76.6065081119,
+    "positional_accuracy": 467,
+    "observed_on": "2026-04-24",
+    "observer": "vanesaargumedo20",
+    "url": "https://www.inaturalist.org/observations/355518426",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 355427944,
+    "latitude": 6.1883443766,
+    "longitude": -74.98931095,
+    "positional_accuracy": 77,
+    "observed_on": "2026-04-08",
+    "observer": "melanyvera",
+    "url": "https://www.inaturalist.org/observations/355427944",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 353809362,
+    "latitude": 7.6348081605,
+    "longitude": -76.5984878317,
+    "positional_accuracy": 8,
+    "observed_on": "2026-04-07",
+    "observer": "carlos_andres99728",
+    "url": "https://www.inaturalist.org/observations/353809362",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 353699771,
+    "latitude": 7.7369039297,
+    "longitude": -76.6653318331,
+    "positional_accuracy": 209,
+    "observed_on": "2026-04-25",
+    "observer": "herrera37871",
+    "url": "https://www.inaturalist.org/observations/353699771",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 353118940,
+    "latitude": 6.3779311507,
+    "longitude": -75.1411206275,
+    "positional_accuracy": 100,
+    "observed_on": "2026-03-30",
+    "observer": "lohana6",
+    "url": "https://www.inaturalist.org/observations/353118940",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 353108138,
+    "latitude": 6.3779348159,
+    "longitude": -75.1411347091,
+    "positional_accuracy": 19,
+    "observed_on": "2026-03-21",
+    "observer": "lohana6",
+    "url": "https://www.inaturalist.org/observations/353108138",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 352756724,
+    "latitude": 8.0009018,
+    "longitude": -76.6242756,
+    "positional_accuracy": null,
+    "observed_on": "2026-04-24",
+    "observer": "wendy1125",
+    "url": "https://www.inaturalist.org/observations/352756724",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 352314051,
+    "latitude": 6.3220695997,
+    "longitude": -75.0288826,
+    "positional_accuracy": null,
+    "observed_on": "2026-04-23",
+    "observer": "edwin_alberto2",
+    "url": "https://www.inaturalist.org/observations/352314051",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 352114703,
+    "latitude": 8.5248341667,
+    "longitude": -76.5365561111,
+    "positional_accuracy": null,
+    "observed_on": "2026-04-22",
+    "observer": "yeison80969",
+    "url": "https://www.inaturalist.org/observations/352114703",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 352114554,
+    "latitude": 8.4271735151,
+    "longitude": -76.7876781151,
+    "positional_accuracy": 1845,
+    "observed_on": "2026-04-22",
+    "observer": "maria_eugenia10334",
+    "url": "https://www.inaturalist.org/observations/352114554",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 351745823,
+    "latitude": 7.295660544,
+    "longitude": -76.5247267485,
+    "positional_accuracy": 302,
+    "observed_on": "2026-04-21",
+    "observer": "maritza21328",
+    "url": "https://www.inaturalist.org/observations/351745823",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 351645945,
+    "latitude": 7.7591533333,
+    "longitude": -76.6602383333,
+    "positional_accuracy": 23,
+    "observed_on": "2026-04-20",
+    "observer": "brand2330",
+    "url": "https://www.inaturalist.org/observations/351645945",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 351438253,
+    "latitude": 6.1528070116,
+    "longitude": -75.0534797832,
+    "positional_accuracy": 45,
+    "observed_on": "2026-04-15",
+    "observer": "jp-gutierrez",
+    "url": "https://www.inaturalist.org/observations/351438253",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 351194430,
+    "latitude": 8.523315,
+    "longitude": -76.5323347222,
+    "positional_accuracy": null,
+    "observed_on": "2026-04-10",
+    "observer": "eliana2004",
+    "url": "https://www.inaturalist.org/observations/351194430",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 350965030,
+    "latitude": 5.8579470815,
+    "longitude": -75.1931769401,
+    "positional_accuracy": 1305,
+    "observed_on": "2026-04-18",
+    "observer": "sebastian50798",
+    "url": "https://www.inaturalist.org/observations/350965030",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 350624423,
+    "latitude": 7.5715936469,
+    "longitude": -76.7072762176,
+    "positional_accuracy": 309,
+    "observed_on": null,
+    "observer": "nelson_enrrique",
+    "url": "https://www.inaturalist.org/observations/350624423",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 350392924,
+    "latitude": 6.386921502,
+    "longitude": -75.064300485,
+    "positional_accuracy": 600,
+    "observed_on": "2026-04-16",
+    "observer": "mayerly54044",
+    "url": "https://www.inaturalist.org/observations/350392924",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 350364085,
+    "latitude": 6.3409471705,
+    "longitude": -75.0720463693,
+    "positional_accuracy": 5,
+    "observed_on": "2026-04-16",
+    "observer": "dguarin",
+    "url": "https://www.inaturalist.org/observations/350364085",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 349791443,
+    "latitude": 5.833309691,
+    "longitude": -74.9333902448,
+    "positional_accuracy": 1631,
+    "observed_on": "2026-04-13",
+    "observer": "luisarendon31",
+    "url": "https://www.inaturalist.org/observations/349791443",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 348361991,
+    "latitude": 5.8713083333,
+    "longitude": -75.7583616667,
+    "positional_accuracy": 694,
+    "observed_on": "2025-04-08",
+    "observer": "nixonforerog",
+    "url": "https://www.inaturalist.org/observations/348361991",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 346822101,
+    "latitude": 6.3728131574,
+    "longitude": -75.0934715196,
+    "positional_accuracy": 20,
+    "observed_on": "2026-03-16",
+    "observer": "cindy_noreidy",
+    "url": "https://www.inaturalist.org/observations/346822101",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 346491179,
+    "latitude": 7.8647089689,
+    "longitude": -76.5841162205,
+    "positional_accuracy": 224,
+    "observed_on": "2026-03-25",
+    "observer": "andres33027",
+    "url": "https://www.inaturalist.org/observations/346491179",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 345358725,
+    "latitude": 6.3879730649,
+    "longitude": -75.0626462325,
+    "positional_accuracy": 600,
+    "observed_on": "2026-03-26",
+    "observer": "mayerly54044",
+    "url": "https://www.inaturalist.org/observations/345358725",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 344885297,
+    "latitude": 8.0593359331,
+    "longitude": -76.7049071972,
+    "positional_accuracy": 399,
+    "observed_on": "2026-03-24",
+    "observer": "carlosnobles",
+    "url": "https://www.inaturalist.org/observations/344885297",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 344048797,
+    "latitude": 7.4869982535,
+    "longitude": -76.6954946145,
+    "positional_accuracy": 51,
+    "observed_on": "2026-03-20",
+    "observer": "ludysyanes09",
+    "url": "https://www.inaturalist.org/observations/344048797",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 343965965,
+    "latitude": 6.3434623467,
+    "longitude": -75.0719665736,
+    "positional_accuracy": 88,
+    "observed_on": "2026-03-13",
+    "observer": "svelasquez",
+    "url": "https://www.inaturalist.org/observations/343965965",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 343674759,
+    "latitude": 8.0833916667,
+    "longitude": -76.7176972222,
+    "positional_accuracy": null,
+    "observed_on": "2026-03-18",
+    "observer": "melisa31436",
+    "url": "https://www.inaturalist.org/observations/343674759",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 343567106,
+    "latitude": 6.347553647,
+    "longitude": -75.0670675188,
+    "positional_accuracy": 269,
+    "observed_on": "2026-03-14",
+    "observer": "tomas58130",
+    "url": "https://www.inaturalist.org/observations/343567106",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 342626704,
+    "latitude": 6.3201968326,
+    "longitude": -75.046444349,
+    "positional_accuracy": 216,
+    "observed_on": "2026-03-12",
+    "observer": "diego11543",
+    "url": "https://www.inaturalist.org/observations/342626704",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341767166,
+    "latitude": 8.5401166667,
+    "longitude": -76.5545097222,
+    "positional_accuracy": null,
+    "observed_on": "2026-03-06",
+    "observer": "mabel65174",
+    "url": "https://www.inaturalist.org/observations/341767166",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341585297,
+    "latitude": 6.2562187836,
+    "longitude": -75.0190482661,
+    "positional_accuracy": 19,
+    "observed_on": "2026-02-20",
+    "observer": "tiago_roman",
+    "url": "https://www.inaturalist.org/observations/341585297",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341582152,
+    "latitude": 7.6798378,
+    "longitude": -76.7612334,
+    "positional_accuracy": null,
+    "observed_on": "2026-02-04",
+    "observer": "yeniffer6",
+    "url": "https://www.inaturalist.org/observations/341582152",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341579035,
+    "latitude": 6.2578018584,
+    "longitude": -75.0177691877,
+    "positional_accuracy": 44,
+    "observed_on": "2026-02-24",
+    "observer": "tiago_roman",
+    "url": "https://www.inaturalist.org/observations/341579035",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341509308,
+    "latitude": 6.206370844,
+    "longitude": -74.9995880858,
+    "positional_accuracy": 108,
+    "observed_on": "2026-03-04",
+    "observer": "jhoanc",
+    "url": "https://www.inaturalist.org/observations/341509308",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341447011,
+    "latitude": 6.0875933333,
+    "longitude": -75.1005116667,
+    "positional_accuracy": 7,
+    "observed_on": "2026-03-05",
+    "observer": "alejandra4613",
+    "url": "https://www.inaturalist.org/observations/341447011",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 341165499,
+    "latitude": 7.9960853352,
+    "longitude": -76.6368290037,
+    "positional_accuracy": 1707,
+    "observed_on": "2026-03-03",
+    "observer": "dodanis_22",
+    "url": "https://www.inaturalist.org/observations/341165499",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 340972657,
+    "latitude": 6.3403377016,
+    "longitude": -75.0728869066,
+    "positional_accuracy": 5,
+    "observed_on": "2026-03-01",
+    "observer": "valentina60917",
+    "url": "https://www.inaturalist.org/observations/340972657",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 340794677,
+    "latitude": 5.8126147222,
+    "longitude": -75.1899733333,
+    "positional_accuracy": null,
+    "observed_on": "2026-03-01",
+    "observer": "elisenia23",
+    "url": "https://www.inaturalist.org/observations/340794677",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 340535343,
+    "latitude": 6.3701818358,
+    "longitude": -75.0902461633,
+    "positional_accuracy": 205,
+    "observed_on": "2026-02-26",
+    "observer": "zoraida3626",
+    "url": "https://www.inaturalist.org/observations/340535343",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 340532303,
+    "latitude": 6.2951217031,
+    "longitude": -75.0278663635,
+    "positional_accuracy": 929,
+    "observed_on": null,
+    "observer": "carla57871",
+    "url": "https://www.inaturalist.org/observations/340532303",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 340295197,
+    "latitude": 7.893010153,
+    "longitude": -76.6208678484,
+    "positional_accuracy": 189,
+    "observed_on": null,
+    "observer": "danny42549",
+    "url": "https://www.inaturalist.org/observations/340295197",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 340182808,
+    "latitude": 6.3534172988,
+    "longitude": -75.0522613898,
+    "positional_accuracy": 75,
+    "observed_on": "2026-02-08",
+    "observer": "moi61",
+    "url": "https://www.inaturalist.org/observations/340182808",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339957880,
+    "latitude": 6.5117680162,
+    "longitude": -75.0068612105,
+    "positional_accuracy": 2,
+    "observed_on": "2018-05-06",
+    "observer": "khristimantis",
+    "url": "https://www.inaturalist.org/observations/339957880",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339941121,
+    "latitude": 8.4271735151,
+    "longitude": -76.7876781151,
+    "positional_accuracy": 1845,
+    "observed_on": "2026-02-22",
+    "observer": "jorge47237",
+    "url": "https://www.inaturalist.org/observations/339941121",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339771802,
+    "latitude": 6.3010836113,
+    "longitude": -75.0230843202,
+    "positional_accuracy": 74,
+    "observed_on": "2026-02-22",
+    "observer": "lis_mabel",
+    "url": "https://www.inaturalist.org/observations/339771802",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339645871,
+    "latitude": 6.2745194444,
+    "longitude": -75.0449305556,
+    "positional_accuracy": null,
+    "observed_on": "2026-02-21",
+    "observer": "joshbaryia",
+    "url": "https://www.inaturalist.org/observations/339645871",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339503043,
+    "latitude": 6.2745166667,
+    "longitude": -75.0449333333,
+    "positional_accuracy": null,
+    "observed_on": "2026-02-20",
+    "observer": "joshbaryia",
+    "url": "https://www.inaturalist.org/observations/339503043",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339429754,
+    "latitude": 8.572099827,
+    "longitude": -76.6365554184,
+    "positional_accuracy": 48,
+    "observed_on": "2026-02-20",
+    "observer": "angela__2005",
+    "url": "https://www.inaturalist.org/observations/339429754",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 339376182,
+    "latitude": 6.3122123792,
+    "longitude": -75.0677189603,
+    "positional_accuracy": 109,
+    "observed_on": "2026-02-11",
+    "observer": "camilo62997",
+    "url": "https://www.inaturalist.org/observations/339376182",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 338490318,
+    "latitude": 6.4094899795,
+    "longitude": -74.9433201179,
+    "positional_accuracy": 996,
+    "observed_on": "2026-02-13",
+    "observer": "william92947",
+    "url": "https://www.inaturalist.org/observations/338490318",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 338379302,
+    "latitude": 6.3500421334,
+    "longitude": -75.0676260889,
+    "positional_accuracy": 311,
+    "observed_on": "2026-02-12",
+    "observer": "tomas58130",
+    "url": "https://www.inaturalist.org/observations/338379302",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 338316157,
+    "latitude": 5.7335944322,
+    "longitude": -75.6938011944,
+    "positional_accuracy": 13,
+    "observed_on": "2026-02-12",
+    "observer": "duberjaramillo",
+    "url": "https://www.inaturalist.org/observations/338316157",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 338079565,
+    "latitude": 8.5686266946,
+    "longitude": -76.6270738095,
+    "positional_accuracy": 75,
+    "observed_on": "2026-02-10",
+    "observer": "samary3",
+    "url": "https://www.inaturalist.org/observations/338079565",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 338072998,
+    "latitude": 6.3354073426,
+    "longitude": -75.0303375155,
+    "positional_accuracy": 19,
+    "observed_on": "2026-02-10",
+    "observer": "laura83757",
+    "url": "https://www.inaturalist.org/observations/338072998",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 338018822,
+    "latitude": 6.2574633333,
+    "longitude": -74.9655516667,
+    "positional_accuracy": 4,
+    "observed_on": "2026-02-09",
+    "observer": "dayana83412",
+    "url": "https://www.inaturalist.org/observations/338018822",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336693123,
+    "latitude": 6.410139681,
+    "longitude": -75.0843335688,
+    "positional_accuracy": 33,
+    "observed_on": "2026-01-06",
+    "observer": "ximenaosorio20",
+    "url": "https://www.inaturalist.org/observations/336693123",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336627146,
+    "latitude": 6.410165669,
+    "longitude": -75.0856626034,
+    "positional_accuracy": 72,
+    "observed_on": "2026-01-11",
+    "observer": "ximenaosorio20",
+    "url": "https://www.inaturalist.org/observations/336627146",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336582266,
+    "latitude": 6.1677636486,
+    "longitude": -75.0504006073,
+    "positional_accuracy": 36,
+    "observed_on": null,
+    "observer": "laura87155",
+    "url": "https://www.inaturalist.org/observations/336582266",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336515456,
+    "latitude": 6.3359347757,
+    "longitude": -75.0476932526,
+    "positional_accuracy": 5,
+    "observed_on": "2026-01-27",
+    "observer": "brayan61078",
+    "url": "https://www.inaturalist.org/observations/336515456",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336514613,
+    "latitude": 6.1757463048,
+    "longitude": -75.0503684208,
+    "positional_accuracy": 5,
+    "observed_on": "2026-01-28",
+    "observer": "ginna_shirley",
+    "url": "https://www.inaturalist.org/observations/336514613",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336505295,
+    "latitude": 8.079204231,
+    "longitude": -76.7177321295,
+    "positional_accuracy": 1329,
+    "observed_on": "2026-01-24",
+    "observer": "carlosnobles",
+    "url": "https://www.inaturalist.org/observations/336505295",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336505244,
+    "latitude": 6.0363275551,
+    "longitude": -74.9965784554,
+    "positional_accuracy": 2,
+    "observed_on": "2026-01-17",
+    "observer": "anadelmonte",
+    "url": "https://www.inaturalist.org/observations/336505244",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336504275,
+    "latitude": 6.0365155413,
+    "longitude": -74.9964219237,
+    "positional_accuracy": 2,
+    "observed_on": "2026-01-16",
+    "observer": "anadelmonte",
+    "url": "https://www.inaturalist.org/observations/336504275",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336410291,
+    "latitude": 6.3535662468,
+    "longitude": -75.0537248701,
+    "positional_accuracy": 34,
+    "observed_on": "2026-01-05",
+    "observer": "moi61",
+    "url": "https://www.inaturalist.org/observations/336410291",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336385624,
+    "latitude": 7.6533177516,
+    "longitude": -76.6089347005,
+    "positional_accuracy": 100,
+    "observed_on": "2026-01-22",
+    "observer": "carolina77917",
+    "url": "https://www.inaturalist.org/observations/336385624",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336361624,
+    "latitude": 6.4108240323,
+    "longitude": -75.0844281167,
+    "positional_accuracy": 89,
+    "observed_on": "2025-12-26",
+    "observer": "diana80547",
+    "url": "https://www.inaturalist.org/observations/336361624",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 336006123,
+    "latitude": 6.3775203137,
+    "longitude": -75.1251913235,
+    "positional_accuracy": 600,
+    "observed_on": "2026-01-24",
+    "observer": "mayerly54044",
+    "url": "https://www.inaturalist.org/observations/336006123",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 335327874,
+    "latitude": 6.67881,
+    "longitude": -74.78465,
+    "positional_accuracy": 500,
+    "observed_on": "2024-08-18",
+    "observer": "felipe_barrerao",
+    "url": "https://www.inaturalist.org/observations/335327874",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 335273329,
+    "latitude": 5.7609541,
+    "longitude": -75.6771353,
+    "positional_accuracy": null,
+    "observed_on": "2026-01-17",
+    "observer": "jeroecheverri",
+    "url": "https://www.inaturalist.org/observations/335273329",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 334743080,
+    "latitude": 6.2553775858,
+    "longitude": -75.0620206073,
+    "positional_accuracy": 43,
+    "observed_on": "2025-12-27",
+    "observer": "alexispamplona",
+    "url": "https://www.inaturalist.org/observations/334743080",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 326793164,
+    "latitude": 6.01413055,
+    "longitude": -75.753525,
+    "positional_accuracy": 4,
+    "observed_on": "2025-11-16",
+    "observer": "mariaalegp",
+    "url": "https://www.inaturalist.org/observations/326793164",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 324372761,
+    "latitude": 6.5424804923,
+    "longitude": -75.15617989,
+    "positional_accuracy": 300,
+    "observed_on": "2025-11-01",
+    "observer": "darluin",
+    "url": "https://www.inaturalist.org/observations/324372761",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 323823471,
+    "latitude": 5.9738409512,
+    "longitude": -74.9552805106,
+    "positional_accuracy": 4,
+    "observed_on": "2025-10-28",
+    "observer": "vannevg",
+    "url": "https://www.inaturalist.org/observations/323823471",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 322799490,
+    "latitude": 6.5447778273,
+    "longitude": -75.1564957201,
+    "positional_accuracy": 344,
+    "observed_on": "2025-10-24",
+    "observer": "carolenis",
+    "url": "https://www.inaturalist.org/observations/322799490",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 313858571,
+    "latitude": 6.145609,
+    "longitude": -75.4040595,
+    "positional_accuracy": 5348,
+    "observed_on": null,
+    "observer": "unirse_dayana_uribe",
+    "url": "https://www.inaturalist.org/observations/313858571",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 308418437,
+    "latitude": 5.861218,
+    "longitude": -74.8714065278,
+    "positional_accuracy": null,
+    "observed_on": "2025-08-17",
+    "observer": "sebasmc_foto",
+    "url": "https://www.inaturalist.org/observations/308418437",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 301733669,
+    "latitude": 6.2795020354,
+    "longitude": -75.0331115637,
+    "positional_accuracy": 40,
+    "observed_on": "2025-07-10",
+    "observer": "ihunta",
+    "url": "https://www.inaturalist.org/observations/301733669",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 290828696,
+    "latitude": 6.2626264,
+    "longitude": -75.0289584,
+    "positional_accuracy": null,
+    "observed_on": "2025-06-18",
+    "observer": "heilord",
+    "url": "https://www.inaturalist.org/observations/290828696",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 277957830,
+    "latitude": 5.7413066079,
+    "longitude": -75.6027026067,
+    "positional_accuracy": 42,
+    "observed_on": "2025-02-06",
+    "observer": "jujurenoult",
+    "url": "https://www.inaturalist.org/observations/277957830",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 271364174,
+    "latitude": 6.4859068343,
+    "longitude": -75.036852099,
+    "positional_accuracy": 169,
+    "observed_on": "2022-07-09",
+    "observer": "johnagudelo",
+    "url": "https://www.inaturalist.org/observations/271364174",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 267390796,
+    "latitude": 7.5843717511,
+    "longitude": -74.8005833447,
+    "positional_accuracy": 8,
+    "observed_on": "2025-03-20",
+    "observer": "greysicaldera07",
+    "url": "https://www.inaturalist.org/observations/267390796",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 267387606,
+    "latitude": 7.5843168466,
+    "longitude": -74.8007940469,
+    "positional_accuracy": 1,
+    "observed_on": "2025-03-20",
+    "observer": "nyquysua",
+    "url": "https://www.inaturalist.org/observations/267387606",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 266982996,
+    "latitude": 7.6645453336,
+    "longitude": -76.6774845868,
+    "positional_accuracy": 1568,
+    "observed_on": "2025-03-18",
+    "observer": "cindy_paola1",
+    "url": "https://www.inaturalist.org/observations/266982996",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 266333126,
+    "latitude": 6.4968349722,
+    "longitude": -75.783708,
+    "positional_accuracy": null,
+    "observed_on": "2025-03-22",
+    "observer": "camilo_gz",
+    "url": "https://www.inaturalist.org/observations/266333126",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 262593498,
+    "latitude": 5.9631530077,
+    "longitude": -75.1021850109,
+    "positional_accuracy": 561,
+    "observed_on": "2025-02-21",
+    "observer": "noreenweeden",
+    "url": "https://www.inaturalist.org/observations/262593498",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 262066868,
+    "latitude": 6.4411383333,
+    "longitude": -75.7344583333,
+    "positional_accuracy": 12,
+    "observed_on": "2025-02-15",
+    "observer": "rafael_aaron_vasquez",
+    "url": "https://www.inaturalist.org/observations/262066868",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 255314173,
+    "latitude": 6.3489133333,
+    "longitude": -75.0133833333,
+    "positional_accuracy": 4,
+    "observed_on": "2024-12-16",
+    "observer": "lauramontuna",
+    "url": "https://www.inaturalist.org/observations/255314173",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 255210342,
+    "latitude": 5.88249,
+    "longitude": -75.2038,
+    "positional_accuracy": 810,
+    "observed_on": "2024-12-13",
+    "observer": "juand20",
+    "url": "https://www.inaturalist.org/observations/255210342",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 254900026,
+    "latitude": 5.6849183333,
+    "longitude": -75.6581516667,
+    "positional_accuracy": 6,
+    "observed_on": "2024-12-12",
+    "observer": "tatiana2590",
+    "url": "https://www.inaturalist.org/observations/254900026",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 247335768,
+    "latitude": 6.0393447419,
+    "longitude": -75.2029881254,
+    "positional_accuracy": 214,
+    "observed_on": "2024-10-14",
+    "observer": "denis240",
+    "url": "https://www.inaturalist.org/observations/247335768",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 240879939,
+    "latitude": 5.7143861111,
+    "longitude": -75.1761861111,
+    "positional_accuracy": null,
+    "observed_on": "2024-07-17",
+    "observer": "juancarmona",
+    "url": "https://www.inaturalist.org/observations/240879939",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 239878398,
+    "latitude": 8.0781108911,
+    "longitude": -74.7417610006,
+    "positional_accuracy": 244,
+    "observed_on": "2024-06-26",
+    "observer": "dinagerman",
+    "url": "https://www.inaturalist.org/observations/239878398",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 238672469,
+    "latitude": 7.6762498815,
+    "longitude": -76.7027185691,
+    "positional_accuracy": 8,
+    "observed_on": "2022-07-07",
+    "observer": "mago_29",
+    "url": "https://www.inaturalist.org/observations/238672469",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 235543791,
+    "latitude": 6.3106423997,
+    "longitude": -75.0643993997,
+    "positional_accuracy": null,
+    "observed_on": "2024-08-13",
+    "observer": "juandelgado_sib",
+    "url": "https://www.inaturalist.org/observations/235543791",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 233927674,
+    "latitude": 6.2357823586,
+    "longitude": -75.0166745111,
+    "positional_accuracy": 6157,
+    "observed_on": "2024-08-04",
+    "observer": "llimi",
+    "url": "https://www.inaturalist.org/observations/233927674",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 204269184,
+    "latitude": 5.930788,
+    "longitude": -74.71678645,
+    "positional_accuracy": 3525,
+    "observed_on": "2024-03-27",
+    "observer": "pabloospinaa",
+    "url": "https://www.inaturalist.org/observations/204269184",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 203959863,
+    "latitude": 5.9355666667,
+    "longitude": -75.1614305,
+    "positional_accuracy": 4,
+    "observed_on": "2024-03-21",
+    "observer": "elizaocampo",
+    "url": "https://www.inaturalist.org/observations/203959863",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 202924809,
+    "latitude": 6.7840258,
+    "longitude": -74.7985701833,
+    "positional_accuracy": null,
+    "observed_on": "2023-05-30",
+    "observer": "nestor132",
+    "url": "https://www.inaturalist.org/observations/202924809",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 199689999,
+    "latitude": 5.6629399,
+    "longitude": -75.7118892,
+    "positional_accuracy": 2500,
+    "observed_on": "2024-02-18",
+    "observer": "elkin_dario",
+    "url": "https://www.inaturalist.org/observations/199689999",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 199689966,
+    "latitude": 5.6629399,
+    "longitude": -75.7118892,
+    "positional_accuracy": 2500,
+    "observed_on": "2024-02-18",
+    "observer": "guardabosques3",
+    "url": "https://www.inaturalist.org/observations/199689966",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 196225657,
+    "latitude": 6.0531713097,
+    "longitude": -74.66477598,
+    "positional_accuracy": null,
+    "observed_on": "2024-01-05",
+    "observer": "smejiadu",
+    "url": "https://www.inaturalist.org/observations/196225657",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 195724156,
+    "latitude": 5.6886229167,
+    "longitude": -75.6976852222,
+    "positional_accuracy": null,
+    "observed_on": "2024-01-03",
+    "observer": "luis70987",
+    "url": "https://www.inaturalist.org/observations/195724156",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 194098501,
+    "latitude": 5.7578444444,
+    "longitude": -75.6477916667,
+    "positional_accuracy": null,
+    "observed_on": "2023-12-15",
+    "observer": "tene_19",
+    "url": "https://www.inaturalist.org/observations/194098501",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 193876950,
+    "latitude": 5.8490772389,
+    "longitude": -74.8245602846,
+    "positional_accuracy": 773,
+    "observed_on": null,
+    "observer": "elizabeth14415",
+    "url": "https://www.inaturalist.org/observations/193876950",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 193876901,
+    "latitude": 5.8431610417,
+    "longitude": -74.8304675147,
+    "positional_accuracy": 149,
+    "observed_on": null,
+    "observer": "elizabeth14415",
+    "url": "https://www.inaturalist.org/observations/193876901",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 187983734,
+    "latitude": 5.9631530077,
+    "longitude": -75.1021850109,
+    "positional_accuracy": 560,
+    "observed_on": "2023-10-17",
+    "observer": "alejandraortiz13",
+    "url": "https://www.inaturalist.org/observations/187983734",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 187935673,
+    "latitude": 6.0395149273,
+    "longitude": -75.7045277409,
+    "positional_accuracy": 565,
+    "observed_on": "2023-02-05",
+    "observer": "marianaosorio_",
+    "url": "https://www.inaturalist.org/observations/187935673",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 182889513,
+    "latitude": 5.936111,
+    "longitude": -75.141667,
+    "positional_accuracy": 50,
+    "observed_on": "2023-08-04",
+    "observer": "felipe_barrerao",
+    "url": "https://www.inaturalist.org/observations/182889513",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 182771629,
+    "latitude": 5.9736111111,
+    "longitude": -75.1172222222,
+    "positional_accuracy": 50,
+    "observed_on": "2023-07-29",
+    "observer": "felipe_barrerao",
+    "url": "https://www.inaturalist.org/observations/182771629",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 182771626,
+    "latitude": 5.9383333333,
+    "longitude": -75.1413888889,
+    "positional_accuracy": 50,
+    "observed_on": "2023-08-03",
+    "observer": "felipe_barrerao",
+    "url": "https://www.inaturalist.org/observations/182771626",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 182771625,
+    "latitude": 5.9361111111,
+    "longitude": -75.1416666667,
+    "positional_accuracy": 50,
+    "observed_on": "2023-08-04",
+    "observer": "felipe_barrerao",
+    "url": "https://www.inaturalist.org/observations/182771625",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 171811007,
+    "latitude": 5.829935803,
+    "longitude": -75.9577158527,
+    "positional_accuracy": 24,
+    "observed_on": "2023-07-08",
+    "observer": "emilianamt",
+    "url": "https://www.inaturalist.org/observations/171811007",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 156490668,
+    "latitude": 5.6818420407,
+    "longitude": -75.7141431326,
+    "positional_accuracy": 378,
+    "observed_on": "2022-03-05",
+    "observer": "mateogarciameja",
+    "url": "https://www.inaturalist.org/observations/156490668",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 155328027,
+    "latitude": 6.1617709109,
+    "longitude": -75.5739926174,
+    "positional_accuracy": 214,
+    "observed_on": "2023-04-17",
+    "observer": "migueevam",
+    "url": "https://www.inaturalist.org/observations/155328027",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 149936218,
+    "latitude": 5.9319327154,
+    "longitude": -74.8131335242,
+    "positional_accuracy": 8,
+    "observed_on": "2023-01-27",
+    "observer": "eumomota76",
+    "url": "https://www.inaturalist.org/observations/149936218",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 149340628,
+    "latitude": 6.3773250577,
+    "longitude": -75.8392587304,
+    "positional_accuracy": 543,
+    "observed_on": "2022-08-18",
+    "observer": "douglascalderon",
+    "url": "https://www.inaturalist.org/observations/149340628",
+    "assignment_method": "interior"
+  },
+  {
+    "observation_id": 145538614,
+    "latitude": 6.9545742414,
+    "longitude": -74.8941677751,
+    "positional_accuracy": 1131,
+    "observed_on": "2022-12-17",
+    "observer": "estebanalzate",
+    "url": "https://www.inaturalist.org/observations/145538614",
+    "assignment_method": "interior"
+  }
+]

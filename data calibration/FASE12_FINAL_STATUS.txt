@@ -1,0 +1,73 @@
+STATUS: COMPLETE
+
+TOTAL_IMAGES: 1021
+
+SPECIES: 10
+
+REFERENCE_SIZE: 798
+
+CALIBRATION_SIZE: 195
+
+REFERENCE_SPECIES: 10
+
+CALIBRATION_SPECIES: 10
+
+INDIVIDUAL_OVERLAP: 0
+
+OBSERVATION_OVERLAP: 0
+
+SHA256_CONTAMINATION: 0
+
+PERCEPTUAL_HASH_CONTAMINATION: NOT_APPLICABLE
+
+PROJECT_DATASET_CONTAMINATION: 28
+
+F3_PROTECTED: YES
+
+F4_PROTECTED: YES
+
+MODEL_MODIFIED: NO
+
+DATASET_MODIFIED: NO
+
+PRODUCTION_MODIFIED: NO
+
+REFERENCE_FROZEN: YES
+
+CALIBRATION_FROZEN: YES
+
+CONCLUSION:
+
+The 1021 calibration images have been successfully audited. 28 images were
+found to be contaminated (present in the existing project dataset) and have
+been excluded. The remaining 993 independent images have been separated into:
+
+  - REFERENCE: 798 images (80.4%)
+  - CALIBRATION: 195 images (19.6%)
+
+All 10 Anuran species are represented in both REFERENCE and CALIBRATION sets.
+SHA-256 integrity has been verified for all copied files. No project artifacts
+(model, embeddings, indices) were modified.
+
+The REFERENCE and CALIBRATION datasets are now FROZEN and ready for Fase 13.
+
+NEXT_PHASE:
+
+FASE 13: MAHALANOBIS VALIDATION
+
+1. Generate embeddings using REFERENCE images with frozen encoder_anura_fp16.onnx
+2. Compute species centroids and covariance matrices from REFERENCE
+3. Use CALIBRATION images to calibrate regularization parameter λ and threshold τ
+4. Compute F3 and F4 metrics on out-of-sample validation
+5. Gate deployment based on F3/F4 thresholds
+
+Directories created:
+  - D:\Anura\data calibration\REFERENCE (798 files)
+  - D:\Anura\data calibration\CALIBRATION (195 files)
+
+Manifests generated:
+  - REFERENCE_manifest.json / .csv
+  - CALIBRATION_manifest.json / .csv
+  - species_distribution.csv
+  - contamination_report.json
+  - FASE12_REPORT.txt (detailed report)

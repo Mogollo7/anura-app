@@ -1,0 +1,129 @@
+# ============================================================================
+# ANURA — .gitignore
+# Backup de código, documentación, reportes y Second Brain.
+# EXCLUYE: fotos, checkpoints de modelo, embeddings, entornos virtuales.
+# ============================================================================
+
+# --- Secretos ---
+.env
+.env.*
+*.key
+credentials.json
+
+# --- Entornos virtuales / dependencias ---
+.venv-train/
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Configuración local de Claude Code / IDE ---
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.idea/
+.agents/
+.tools/
+.mcp.json
+
+# --- Modelos entrenados / checkpoints (pesados, no versionables) ---
+bioclip/checkpoints/*.pt
+bioclip/checkpoints/*.pth
+bioclip/checkpoints/*.onnx
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
+
+# --- Embeddings (regenerables desde el encoder + manifests) ---
+*.npz
+evaluation/fase13/embeddings/
+
+# --- Datasets de imágenes (fotos crudas y procesadas) ---
+data cleaned/
+data dirty/
+data calibration/REFERENCE/
+data calibration/CALIBRATION/
+data calibration/Bufonidae/
+data calibration/Craugastoridae/
+data calibration/Dendrobatidae/
+data calibration/Hylidae/
+dataset_cvat_jpg/
+fotos/
+fotos_opt/
+segmentacion/
+pipeline_dataset/
+equipo 1/
+equipo 2/
+equipo 3/
+
+# Carpetas de especies sueltas en la raíz (fotos de trabajo, no organizadas)
+Boana cinereansis/
+Boana lanciformis/
+Boana punctata/
+Boana xeraphyla/
+Craugastor raniformis/
+Dendrobates truncatus/
+Sachatamia electrops/
+Scinax ruber/
+Rhinella SF margatiferas/
+Mascara/
+Hyloxalus picachos/
+Dendrosophus reticulatus/
+Pristimantis acanthinus/
+Phyllomedusa tarsius/
+Boana xeraphyla/
+Rhinella horribilis/
+Dendropsophus norandinus/
+Rhinella alata/
+Dendropsophus microcephalus/
+Hyloscirtus palmeri/
+
+# Imágenes sueltas en cualquier ubicación (excepto assets pequeños explícitos)
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.png
+!design-system/**/*.png
+!Second Brain/**/*.png
+!**/logo.png
+!**/assets/**/*.png
+
+# --- bioclip: mantener scripts y logs, excluir datasets/exports pesados ---
+bioclip/datasets/
+bioclip/exports/
+bioclip/evaluation/muestras_recorte/
+bioclip/paquetes_regionales/*.sqlite
+bioclip/paquetes_regionales/*.npz
+
+# --- Paquetes regionales compilados (binarios, regenerables desde manifests) ---
+paquetes_regionales/*.sqlite
+COLOMBIA_ANURA/**/*.sqlite
+
+# --- Logs de ejecución (ruido, no esencial para backup) ---
+*.log
+scraper_run*.log
+xc_run.log
+
+# --- Archivos temporales de sistema ---
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# --- CVAT / anotación (grandes, regenerables) ---
+dataset_cvat_jpg/
+
+# ============================================================================
+# LO QUE SÍ SE VERSIONA (referencia explícita, no requiere regla):
+#   - Todos los *.py, *.md, *.json pequeños (manifests, configs, reportes)
+#   - Second Brain/ (vault Obsidian, ~29MB, documentación viva del proyecto)
+#   - evaluation/ (reportes, auditorías — excepto embeddings/*.npz)
+#   - training/ (scripts + manifiesto.json, sin imágenes)
+#   - data calibration/*.json, *.csv (manifests, reportes de auditoría)
+#   - docs_vision_model_plan/, design-system/, COLOMBIA_ANURA/ (manifests)
+#   - AppAnura/ (código de la app móvil)
+# ============================================================================

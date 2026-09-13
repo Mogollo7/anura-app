@@ -1,0 +1,44 @@
+# Especies auxiliares para regularización de dominio (2026-09-11)
+# Seleccionadas vía iNaturalist Projects (filtro de proyectos regionales + nacional)
+# Criterio: mismo género que las 8 especies débiles del dataset original,
+#           presencia confirmada en Colombia, >=70 fotos en Colombia
+#
+# Fuente de descubrimiento (iNaturalist Projects):
+#   - ID 69:     Amphibians and Reptiles of Colombia (nacional)
+#   - ID 75550:  Reptiles y Anfibios del Huila (zona nueva)
+#   - ID 156559: Anfibios y reptiles de Cordoba (zona nueva)
+#   - ID 297365: Anfibios y Reptiles Sabana de Bogota (zona nueva)
+#   - ID 23840:  Anfibios y Reptiles Suroccidente Colombiano (zona nueva)
+#   - ID 24068:  Herpetofauna de Sucre (zona nueva)
+#
+# Propósito: NO son especies objetivo de identificación en la app.
+# Su función es regularizar el encoder compartido, dándole más variación
+# intra-género real (Boana, Dendropsophus, Phyllomedusa, Pristimantis) para
+# evitar el colapso/overfitting que vimos en Fase 4 con solo 28 especies.
+#
+# Géneros SIN candidatos viables (Hyloxalus, Sachatamia): no hay especies
+# hermanas con >=70 fotos en Colombia. Confirma que son géneros genuinamente
+# escasos en el registro fotográfico de Colombia, no solo mala suerte de muestreo.
+
+# Refuerza género Boana (débil: Boana_xerophylla, 55 obs)
+Boana platanera
+Boana pugnax
+Boana boans
+Boana rosenbergi
+
+# Refuerza género Dendropsophus (débiles: norandinus 11obs, reticulatus 51obs, triangulum 66obs)
+Dendropsophus molitor
+Dendropsophus columbianus
+Dendropsophus ebraccatus
+Dendropsophus mathiassoni
+
+# Refuerza género Phyllomedusa (débil: Phyllomedusa_tarsius, 45 obs)
+Phyllomedusa venusta
+
+# Refuerza género Pristimantis (débil: Pristimantis_vilarsi, 20 obs)
+Pristimantis palmeri
+Pristimantis gaigei
+Pristimantis bogotensis
+Pristimantis thectopternus
+Pristimantis erythropleura
+Pristimantis permixtus

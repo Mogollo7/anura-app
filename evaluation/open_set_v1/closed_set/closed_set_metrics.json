@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-13T01:03:13.400522",
+  "total_images": 766,
+  "clean": 766,
+  "leakage": 0,
+  "unknown": 0,
+  "top1_accuracy": 0.5691906005221932,
+  "top3_accuracy": 0.8237597911227154,
+  "top1_correct": 436,
+  "top3_correct": 631,
+  "high_confidence_errors": 0,
+  "confidence_threshold_high_conf": 0.9,
+  "model_checkpoint_sha256": "98A6C54D6EDB27E2B0344B8BBBAEBD2AB749B1BF5136991FF73B37F66EE2C1AC",
+  "encoder_sha256": "219E860E6FA9A80FB30A59FC8F61911421BBD53A4537DCA831803D3AB446B2AD",
+  "notes": [
+    "Route A (Softmax) only - k-NN not implemented in Fase 3",
+    "No geographic prior applied",
+    "No rejection threshold applied",
+    "Test set verified independent by manifiesto structure"
+  ]
+}

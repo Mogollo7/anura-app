@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "14cd3c73288c9ad4",
+    "type": "split",
+    "children": [
+      {
+        "id": "f8deb1269d41b1ea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5b44cbfc4999787f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vista gráfica"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4fec80f85c513cf6",
+    "type": "split",
+    "children": [
+      {
+        "id": "ad747b761a2e71a7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f6b02f3157796848",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "d9c098b4ef6e777c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "16338c014878ebdd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "253c88b63d8da081",
+    "type": "split",
+    "children": [
+      {
+        "id": "14aa9f35baf68b83",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c5b004e6d9ccf543",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Añadir nueva informacion.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes"
+            }
+          },
+          {
+            "id": "3d98f44323403362",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Añadir nueva informacion.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes"
+            }
+          },
+          {
+            "id": "307d6d48b2c7b0ad",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "864685f715fd8cd4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "d2fa20fce185f642",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Añadir nueva informacion.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
+    }
+  },
+  "active": "5b44cbfc4999787f",
+  "lastOpenFiles": [
+    "01 Proyecto/Cronograma y Plan de Trabajo.md",
+    "Anura — Índice General.md",
+    "04 Desarrollo Técnico/Plan de Acción y Arquitectura Conceptual.md",
+    "07 Notas de Trabajo/Inconsistencias y Decisiones Pendientes.md",
+    "06 Proceso de Desarrollo de la App/Roadmap y Fases.md",
+    "06 Proceso de Desarrollo de la App/Stack Tecnológico.md",
+    "06 Proceso de Desarrollo de la App/Proceso de Desarrollo — Índice.md",
+    "06 Proceso de Desarrollo de la App/Arquitectura de la Aplicación.md",
+    "04 Desarrollo Técnico/Modelo de Visión — BioCLIP.md",
+    "02 Metodología/Estrategia de Construcción del Dataset.md.tmp.15788.15ddb8aff5a0",
+    "Anura — Índice General.md.tmp.15788.6a68b411652d",
+    "Anura — Índice General.md.tmp.15788.6f2d95359983",
+    "04 Desarrollo Técnico/App Móvil.md.tmp.15788.3b59233ef91f",
+    "02 Metodología/Arquitectura Multimodal.md.tmp.15788.2e04f840bf48",
+    "04 Desarrollo Técnico/Base Vectorial (Qdrant).md.tmp.15788.f8400cbca796",
+    "05 Evaluación y Métricas/Métricas Offline.md",
+    "04 Desarrollo Técnico/Base Vectorial (Qdrant).md.tmp.15788.ebf39ca676db",
+    "01 Proyecto/Introducción y Justificación.md",
+    "03 Anotación y Segmentación/Guía CVAT/Guía CVAT — Índice.md",
+    "05 Evaluación y Métricas/Evaluación y Métricas — Índice.md",
+    "05 Evaluación y Métricas/Evaluación y Métricas — Índice.md.tmp.15788.1accee9220c2",
+    "02 Metodología/Metodología — Índice.md",
+    "Anura — Índice General.md.tmp.15788.89406dbd4c16",
+    "07 Notas de Trabajo",
+    "06 Proceso de Desarrollo de la App/Ciclo de Vida del Modelo (MLOps).md",
+    "06 Proceso de Desarrollo de la App/Flujo de Datos y Sincronización.md",
+    "01 Proyecto/Riesgos del Proyecto.md",
+    "01 Proyecto/Consideraciones Ecológicas y Éticas.md",
+    "05 Evaluación y Métricas/Experimentos y Resultados.md",
+    "05 Evaluación y Métricas/Reportes de Pruebas Piloto.md",
+    "05 Evaluación y Métricas/Evaluación en Campo Real.md",
+    "05 Evaluación y Métricas/Matrices de Confusión.md",
+    "02 Metodología/Escalabilidad.md",
+    "02 Metodología/Infraestructura.md",
+    "02 Metodología/Open-Set Recognition.md",
+    "02 Metodología/Arquitectura Multimodal.md",
+    "99 Recursos/Attachments/anura-esquema-conceptual.png",
+    "99 Recursos/Attachments/cvat/cvat-44.png",
+    "99 Recursos/Attachments/cvat/cvat-43.jpg",
+    "99 Recursos/Attachments/cvat/cvat-42.jpg",
+    "99 Recursos/Attachments/cvat/cvat-41.jpg",
+    "99 Recursos/Attachments/cvat/cvat-40.jpg",
+    "99 Recursos/Attachments/cvat/cvat-39.jpg",
+    "99 Recursos/Attachments/cvat/cvat-38.jpg",
+    "99 Recursos/Attachments/cvat/cvat-37.jpg",
+    "99 Recursos/Attachments/cvat/cvat-36.jpg"
+  ]
+}

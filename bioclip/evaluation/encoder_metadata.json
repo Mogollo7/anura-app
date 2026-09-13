@@ -1,0 +1,43 @@
+{
+  "nombre": "Encoder Visual BioCLIP Anura v1",
+  "base_model": "imageomics/bioclip",
+  "n_parametros": 86192640,
+  "entrenamiento": {
+    "dataset": "12,254 fotos limpias, 41 especies",
+    "loss": "jerárquica: familia(0.2) + género(0.3) + especie(0.5)",
+    "oversampling": "proporcional (umbral 70 reales/especie, tope 4x)",
+    "class_weights": "frecuencia inversa sobre especie"
+  },
+  "metricas_clasificador_fase4": {
+    "top1_test": 0.5705,
+    "top3_test": 0.8238,
+    "n_test": 766
+  },
+  "salida": {
+    "embedding_dim": 512,
+    "input_shape": [
+      3,
+      224,
+      224
+    ],
+    "normalizado_l2": true
+  },
+  "formatos": {
+    "fp32": {
+      "ruta": "D:\\Anura\\bioclip\\checkpoints\\encoder_anura.pt",
+      "mb": 328.9
+    },
+    "fp16": {
+      "ruta": "D:\\Anura\\bioclip\\checkpoints\\encoder_anura_fp16.pt",
+      "mb": 164.4
+    }
+  },
+  "validacion_fp16": {
+    "n_imagenes_reales": 256,
+    "cos_media": 0.9999986290931702,
+    "cos_minima": 0.9999887943267822,
+    "vecino_1_identico": 0.99609375,
+    "solape_top5": 0.9976562857627869,
+    "apto_produccion": true
+  }
+}

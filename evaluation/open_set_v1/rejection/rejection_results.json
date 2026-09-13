@@ -1,0 +1,18 @@
+{
+  "status": "FASE_9_COMPLETE",
+  "best_method": "mahalanobis_distance",
+  "records": 822,
+  "method_names": [
+    "centroid_distance",
+    "nearest_neighbor_distance",
+    "knn_distance_profile_k1",
+    "knn_distance_profile_k3",
+    "knn_distance_profile_k5",
+    "knn_distance_profile_k10",
+    "softmax_top1_confidence",
+    "softmax_margin_confidence",
+    "mahalanobis_distance",
+    "simple_distance_plus_confidence"
+  ],
+  "centroid_species": 41
+}

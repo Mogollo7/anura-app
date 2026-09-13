@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0013",
+  "scientific_name": "Pristimantis penelopus",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Rana De Ingles Negras Y Amarillas",
+  "directory_legacy": "Pristimantis_penelopus",
+  "occurrences_in_department": 65,
+  "distinct_observers_in_department": 32,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 88,
+  "occurrences_dropped_low_accuracy": 1,
+  "photos_curated_total": 156,
+  "photos_raw_total": 202,
+  "individuals_curated_total": 80,
+  "individuals_from_department": 59,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

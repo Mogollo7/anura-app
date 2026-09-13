@@ -1,0 +1,20 @@
+{
+  "taxon_id": "COL_ANURA_0009",
+  "scientific_name": "Pristimantis erythropleura",
+  "family": "Craugastoridae",
+  "genus": "Pristimantis",
+  "common_name_es": "Rana De Ingle Roja",
+  "directory_legacy": "Pristimantis_erythropleura",
+  "occurrences_in_department": 42,
+  "distinct_observers_in_department": 22,
+  "occurrence_evidence": "OCCURRENCE_CONFIRMED",
+  "occurrences_total_colombia": 149,
+  "occurrences_dropped_low_accuracy": 0,
+  "photos_curated_total": 136,
+  "photos_raw_total": 149,
+  "individuals_curated_total": 86,
+  "individuals_from_department": 18,
+  "data_status": "DATA_SUFFICIENT",
+  "review_reasons": [],
+  "notes": []
+}

@@ -1,0 +1,227 @@
+{
+  "encoder_onnx_export": {
+    "onnx_fp32_mb": 329.8,
+    "onnx_fp16_mb": 165.4,
+    "cos_media_fp32_vs_pytorch": 1.000000043772161,
+    "cos_media_fp16_vs_pytorch": 0.9999993676319718,
+    "apto_produccion": true
+  },
+  "especies_antioquia": {
+    "criterio": ">= 3 observaciones de train en bbox lat[5.4,8.9] lon[-77.2,-73.8]",
+    "n_especies": 25,
+    "n_especies_total_catalogo": 41,
+    "lista": [
+      "Dendropsophus_bogerti",
+      "Pristimantis_paisa",
+      "Dendropsophus_ebraccatus",
+      "Pristimantis_penelopus",
+      "Hyloscirtus_palmeri",
+      "Phyllomedusa_venusta",
+      "Boana_boans",
+      "Craugastor_raniformis",
+      "Pristimantis_erythropleura",
+      "Rhinella_horribilis",
+      "Pristimantis_gaigei",
+      "Boana_rosenbergi",
+      "Dendropsophus_microcephalus",
+      "Pristimantis_taeniatus",
+      "Boana_pugnax",
+      "Dendropsophus_columbianus",
+      "Rhinella_alata",
+      "Leptodactylus_colombiensis",
+      "Pristimantis_permixtus",
+      "Dendrobates_truncatus",
+      "Engystomops_pustulosus",
+      "Pristimantis_achatinus",
+      "Scinax_ruber",
+      "Dendropsophus_norandinus",
+      "Boana_platanera"
+    ],
+    "conteo_por_especie": {
+      "Boana_boans": {
+        "total_puntos": 47,
+        "en_antioquia": 36
+      },
+      "Boana_cinerascens": {
+        "total_puntos": 47,
+        "en_antioquia": 0
+      },
+      "Boana_lanciformis": {
+        "total_puntos": 46,
+        "en_antioquia": 0
+      },
+      "Boana_platanera": {
+        "total_puntos": 49,
+        "en_antioquia": 4
+      },
+      "Boana_pugnax": {
+        "total_puntos": 49,
+        "en_antioquia": 19
+      },
+      "Boana_punctata": {
+        "total_puntos": 34,
+        "en_antioquia": 0
+      },
+      "Boana_rosenbergi": {
+        "total_puntos": 46,
+        "en_antioquia": 24
+      },
+      "Boana_xerophylla": {
+        "total_puntos": 1,
+        "en_antioquia": 0
+      },
+      "Craugastor_raniformis": {
+        "total_puntos": 48,
+        "en_antioquia": 35
+      },
+      "Dendrobates_truncatus": {
+        "total_puntos": 48,
+        "en_antioquia": 16
+      },
+      "Dendropsophus_bogerti": {
+        "total_puntos": 49,
+        "en_antioquia": 48
+      },
+      "Dendropsophus_columbianus": {
+        "total_puntos": 51,
+        "en_antioquia": 18
+      },
+      "Dendropsophus_ebraccatus": {
+        "total_puntos": 49,
+        "en_antioquia": 44
+      },
+      "Dendropsophus_mathiassoni": {
+        "total_puntos": 42,
+        "en_antioquia": 0
+      },
+      "Dendropsophus_microcephalus": {
+        "total_puntos": 48,
+        "en_antioquia": 21
+      },
+      "Dendropsophus_molitor": {
+        "total_puntos": 48,
+        "en_antioquia": 0
+      },
+      "Dendropsophus_norandinus": {
+        "total_puntos": 8,
+        "en_antioquia": 8
+      },
+      "Dendropsophus_reticulatus": {
+        "total_puntos": 28,
+        "en_antioquia": 0
+      },
+      "Dendropsophus_triangulum": {
+        "total_puntos": 44,
+        "en_antioquia": 0
+      },
+      "Engystomops_pustulosus": {
+        "total_puntos": 48,
+        "en_antioquia": 16
+      },
+      "Hyloscirtus_palmeri": {
+        "total_puntos": 49,
+        "en_antioquia": 38
+      },
+      "Leptodactylus_colombiensis": {
+        "total_puntos": 47,
+        "en_antioquia": 17
+      },
+      "Phyllomedusa_tarsius": {
+        "total_puntos": 13,
+        "en_antioquia": 0
+      },
+      "Phyllomedusa_venusta": {
+        "total_puntos": 49,
+        "en_antioquia": 37
+      },
+      "Pithecopus_hypochondrialis": {
+        "total_puntos": 44,
+        "en_antioquia": 0
+      },
+      "Pristimantis_achatinus": {
+        "total_puntos": 49,
+        "en_antioquia": 16
+      },
+      "Pristimantis_bogotensis": {
+        "total_puntos": 37,
+        "en_antioquia": 0
+      },
+      "Pristimantis_erythropleura": {
+        "total_puntos": 49,
+        "en_antioquia": 35
+      },
+      "Pristimantis_gaigei": {
+        "total_puntos": 37,
+        "en_antioquia": 25
+      },
+      "Pristimantis_paisa": {
+        "total_puntos": 46,
+        "en_antioquia": 45
+      },
+      "Pristimantis_palmeri": {
+        "total_puntos": 40,
+        "en_antioquia": 1
+      },
+      "Pristimantis_penelopus": {
+        "total_puntos": 49,
+        "en_antioquia": 39
+      },
+      "Pristimantis_permixtus": {
+        "total_puntos": 41,
+        "en_antioquia": 17
+      },
+      "Pristimantis_taeniatus": {
+        "total_puntos": 49,
+        "en_antioquia": 21
+      },
+      "Pristimantis_thectopternus": {
+        "total_puntos": 39,
+        "en_antioquia": 0
+      },
+      "Pristimantis_vilarsi": {
+        "total_puntos": 5,
+        "en_antioquia": 0
+      },
+      "Rheobates_palmatus": {
+        "total_puntos": 28,
+        "en_antioquia": 1
+      },
+      "Rhinella_alata": {
+        "total_puntos": 35,
+        "en_antioquia": 18
+      },
+      "Rhinella_horribilis": {
+        "total_puntos": 46,
+        "en_antioquia": 29
+      },
+      "Rhinella_margaritifera": {
+        "total_puntos": 47,
+        "en_antioquia": 0
+      },
+      "Scinax_ruber": {
+        "total_puntos": 49,
+        "en_antioquia": 13
+      }
+    }
+  },
+  "precision_subconjunto_antioquia": {
+    "n_test_antioquia": 467,
+    "ruta_a_clasificador_softmax": {
+      "top1": 0.5438972162740899,
+      "top3": 0.7987152034261242,
+      "nota": "Clasificador de 41 clases completo, medido solo sobre imágenes de test de especies de Antioquia"
+    },
+    "ruta_b_knn5_paquete_antioquia": {
+      "top1": 0.6616702355460385,
+      "top3": 0.8372591006423983,
+      "nota": "k-NN restringido a las 25 especies del paquete de Antioquia"
+    },
+    "delta_top1_b_vs_a": 0.11777301927194861
+  },
+  "paquete_sqlite_antioquia": {
+    "ruta": "D:\\Anura\\bioclip\\paquetes_regionales\\antioquia_v1.sqlite",
+    "tamano_mb": 6.39,
+    "n_vectores": 2073,
+    "n_especies": 25
+  }
+}

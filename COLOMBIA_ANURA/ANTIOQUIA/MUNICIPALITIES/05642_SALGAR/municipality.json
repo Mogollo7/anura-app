@@ -1,0 +1,35 @@
+{
+  "dane_code": "05642",
+  "name": "Salgar",
+  "department": "ANTIOQUIA",
+  "area_km2": 288.2,
+  "species_count": 3,
+  "observations": 3,
+  "generated_on": "2026-09-12",
+  "species": [
+    {
+      "scientific_name": "Elachistocleis pearsei",
+      "inaturalist_taxon_id": 476537,
+      "common_name_es": "Rana Pingüina",
+      "ancestry": "48460/1/2/355675/20978/20979/24736/787573/25086",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Lithobates catesbeianus",
+      "inaturalist_taxon_id": 65979,
+      "common_name_es": "Rana toro americana",
+      "ancestry": "48460/1/2/355675/20978/20979/25473/60340",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    },
+    {
+      "scientific_name": "Centrolene savagei",
+      "inaturalist_taxon_id": 135068,
+      "common_name_es": "Rana de cristal de labios blancos",
+      "ancestry": "48460/1/2/355675/20978/20979/21218/787581/21280",
+      "observations_in_municipality": 1,
+      "occurrence_evidence": "OCCURRENCE_MARGINAL"
+    }
+  ]
+}
