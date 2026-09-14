@@ -1,39 +1,39 @@
 ﻿---
-title: "Plan de AcciÃ³n y Arquitectura Conceptual"
+title: "Plan de Acción y Arquitectura Conceptual"
 proyecto: Anura
-fuente: "Notion â€” Proyecto IdentificaciÃ³n de Anuros Colombia"
+fuente: "Notion â€” Proyecto Identificación de Anuros Colombia"
 tags: [anura, desarrollo, arquitectura]
 ---
 
-# Plan de AcciÃ³n y Arquitectura Conceptual
+# Plan de Acción y Arquitectura Conceptual
 
-> [!warning] Documento histÃ³rico â€” parcialmente superado
-> Esta es la propuesta original de Notion. La arquitectura vigente sustituyÃ³ **EfficientNet-B0 por BioCLIP como Ãºnico backbone** (visiÃ³n y audio), decisiÃ³n confirmada por el autor y documentada en [[Modelo de VisiÃ³n â€” BioCLIP]] y en [[Inconsistencias y Decisiones Pendientes]] (C-2). El resto de la idea general â€” Ã¡rbol de decisiones jerÃ¡rquico, embeddings morfolÃ³gicos, metric learning y base vectorial â€” sigue vigente y es exactamente lo que las notas de [[MetodologÃ­a â€” Ãndice|MetodologÃ­a]] y de esta misma secciÃ³n de Desarrollo TÃ©cnico desarrollan en detalle. Se conserva el texto original sin alterar por trazabilidad.
+> [!warning] Documento histórico â€” parcialmente superado
+> Esta es la propuesta original de Notion. La arquitectura vigente sustituyó **EfficientNet-B0 por BioCLIP como àºnico backbone** (visión y audio), decisión confirmada por el autor y documentada en [[Modelo de Visión â€” BioCLIP]] y en [[Inconsistencias y Decisiones Pendientes]] (C-2). El resto de la idea general â€” árbol de decisiones jerárquico, embeddings morfológicos, metric learning y base vectorial â€” sigue vigente y es exactamente lo que las notas de [[Metodología â€” àndice|Metodología]] y de esta misma sección de Desarrollo Técnico desarrollan en detalle. Se conserva el texto original sin alterar por trazabilidad.
 
-## Desarrollo tÃ©cnico (cÃ³digo y arquitectura)
+## Desarrollo técnico (código y arquitectura)
 
-## Plan de acciÃ³n
+## Plan de acción
 
-Una vez identificadas las caracterÃ­sticas clave para la clasificaciÃ³n e identificaciÃ³n de los anuros, se propone un mÃ©todo para la creaciÃ³n de la app que facilite su documentaciÃ³n.
+Una vez identificadas las características clave para la clasificación e identificación de los anuros, se propone un método para la creación de la app que facilite su documentación.
 
 ### Idea general
 
-Modelo de visiÃ³n inteligente basado en patrones para la identificaciÃ³n de anfibios del orden Anura.
+Modelo de visión inteligente basado en patrones para la identificación de anfibios del orden Anura.
 
-Estos vertebrados poseen caracterÃ­sticas clave que los dividen en familia, gÃ©nero y especie. Mediante un **Ã¡rbol de decisiones**, se reduce la carga de identificaciÃ³n de caracterÃ­sticas, se eliminan posibles resultados y se disminuye el margen de error, utilizando **morfologÃ­a visual, metadatos y sonido**, creando un modelo **multimodal** mÃ¡s preciso.
+Estos vertebrados poseen características clave que los dividen en familia, género y especie. Mediante un **árbol de decisiones**, se reduce la carga de identificación de características, se eliminan posibles resultados y se disminuye el margen de error, utilizando **morfología visual, metadatos y sonido**, creando un modelo **multimodal** más preciso.
 
 ### Herramientas
 
-Para la creaciÃ³n de la app, se entrena un modelo que aprenda a generar **vectores morfolÃ³gicos (embeddings)** de cada imagen. Cada imagen pasa por una red neuronal y se transforma en un vector numÃ©rico. Estos vectores se comparan usando **distancia euclidiana** o **cosine similarity**, mediante *metric learning*. Esto ayuda a agilizar el desarrollo de software y permite escalar sin necesidad de reentrenar todo el modelo.
+Para la creación de la app, se entrena un modelo que aprenda a generar **vectores morfológicos (embeddings)** de cada imagen. Cada imagen pasa por una red neuronal y se transforma en un vector numérico. Estos vectores se comparan usando **distancia euclidiana** o **cosine similarity**, mediante *metric learning*. Esto ayuda a agilizar el desarrollo de software y permite escalar sin necesidad de reentrenar todo el modelo.
 
 #### Arquitectura (conceptual)
 
-- **Backbone de visiÃ³n:** una serie de capas dentro de una red neuronal procesa imÃ¡genes de entrada para identificar patrones jerÃ¡rquicos.
+- **Backbone de visión:** una serie de capas dentro de una red neuronal procesa imágenes de entrada para identificar patrones jerárquicos.
 - Modelos propuestos: **EfficientNet** y **PyTorch**.
-- **Triplet loss:** se evalÃºan 3 imÃ¡genes: una base A, una correcta P y una incorrecta N. Se busca que A estÃ© mÃ¡s cerca de P que de N.
+- **Triplet loss:** se evalàºan 3 imágenes: una base A, una correcta P y una incorrecta N. Se busca que A esté más cerca de P que de N.
     - Dist(A,P) + margen < Dist(A,N)
 
-#### TecnologÃ­as (lista)
+#### Tecnologías (lista)
 
 - EfficientNet-B0
 - PyTorch
@@ -43,15 +43,15 @@ Para la creaciÃ³n de la app, se entrena un modelo que aprenda a generar **vect
 
 ---
 
-[[Modelo de VisiÃ³n â€” BioCLIP]] *(sustituyÃ³ a la propuesta original de EfficientNet)*
+[[Modelo de Visión â€” BioCLIP]] *(sustituyó a la propuesta original de EfficientNet)*
 
-[[ImplementaciÃ³n de Triplet Loss]]
+[[Implementación de Triplet Loss]]
 
 [[Base Vectorial (SQLite-vec)]]
 
 [[API Backend]]
 
-[[App MÃ³vil]]
+[[App Móvil]]
 
 
 

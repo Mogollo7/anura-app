@@ -1,20 +1,20 @@
 ---
 title: "Reportes de Pruebas Piloto"
 proyecto: Anura
-tipo: evaluaciÃ³n
+tipo: evaluación
 estado: plantilla
-tags: [anura, evaluaciÃ³n, piloto, reportes]
+tags: [anura, evaluación, piloto, reportes]
 ---
 
 # Reportes de Pruebas Piloto
 
-[[Anura â€” Ãndice General]] Â· [[EvaluaciÃ³n y MÃ©tricas â€” Ãndice]] Â· [[EvaluaciÃ³n en Campo Real]]
+[[Anura â€” àndice General]] · [[Evaluación y Métricas â€” àndice]] · [[Evaluación en Campo Real]]
 
-Un reporte por salida. Copiar la plantilla y rellenar **el mismo dÃ­a** â€” lo que no se anota esa noche se pierde.
+Un reporte por salida. Copiar la plantilla y rellenar **el mismo día** â€” lo que no se anota esa noche se pierde.
 
-## Ãndice de reportes
+## àndice de reportes
 
-| # | Fecha | Lugar | Participantes | VersiÃ³n app | Registros | Top-1 | Estado |
+| # | Fecha | Lugar | Participantes | Versión app | Registros | Top-1 | Estado |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | |
 
@@ -30,21 +30,21 @@ Un reporte por salida. Copiar la plantilla y rellenar **el mismo dÃ­a** â€�
 - Fecha y franja horaria:
 - Clima y condiciones: (temperatura, humedad, lluvia reciente, fase lunar)
 - Participantes (perfil, no nombre): 
-- HerpetÃ³logo de referencia:
-- VersiÃ³n app / modelo / paquete regional:
+- Herpetólogo de referencia:
+- Versión app / modelo / paquete regional:
 - Dispositivos usados:
 
 **Resultados cuantitativos**
-| MÃ©trica | Valor | Objetivo | Â¿Cumple? |
+| Métrica | Valor | Objetivo | ¿Cumple? |
 | --- | --- | --- | --- |
 | Observaciones registradas | | â‰¥ 30 | |
 | Top-1 accuracy | | â‰¥ 70 % | |
 | Top-3 accuracy | | â‰¥ 85 % | |
 | Latencia media / p95 | | â‰¤ 4 s | |
 | Fallos de la app | | < 2 % | |
-| BaterÃ­a consumida por hora | | â‰¤ 5 % | |
+| Batería consumida por hora | | â‰¤ 5 % | |
 | Desconocidos detectados correctamente | | | |
-| Reintentos de foto por observaciÃ³n | | | |
+| Reintentos de foto por observación | | | |
 
 **Especies registradas**
 | Especie (experto) | N | Aciertos Top-1 | Aciertos Top-3 | Observaciones |
@@ -55,15 +55,15 @@ Un reporte por salida. Copiar la plantilla y rellenar **el mismo dÃ­a** â€�
 2. 
 
 **Problemas detectados**
-| # | DescripciÃ³n | Severidad | Componente | AcciÃ³n |
+| # | Descripción | Severidad | Componente | Acción |
 | --- | --- | --- | --- | --- |
-| | | crÃ­tica/alta/media/baja | app/modelo/datos/UX | |
+| | | crítica/alta/media/baja | app/modelo/datos/UX | |
 
 **Citas de usuarios**
 > 
 
-**Casos difÃ­ciles para anÃ¡lisis posterior**
-| Obs. ID | Especie real | Predicho | Por quÃ© es interesante |
+**Casos difíciles para análisis posterior**
+| Obs. ID | Especie real | Predicho | Por qué es interesante |
 | --- | --- | --- | --- |
 
 **Acciones siguientes**
@@ -76,7 +76,7 @@ Un reporte por salida. Copiar la plantilla y rellenar **el mismo dÃ­a** â€�
 
 Se actualiza tras cada salida; es la vista que muestra si el sistema mejora.
 
-| MÃ©trica | PP-001 | PP-002 | PP-003 | Tendencia |
+| Métrica | PP-001 | PP-002 | PP-003 | Tendencia |
 | --- | --- | --- | --- | --- |
 | Top-1 | | | | |
 | Top-3 | | | | |
@@ -86,7 +86,7 @@ Se actualiza tras cada salida; es la vista que muestra si el sistema mejora.
 
 ### Problemas recurrentes
 
-Los que aparecen en â‰¥ 2 pilotos. Son los que importan; un problema que aparece una vez puede ser anecdÃ³tico.
+Los que aparecen en â‰¥ 2 pilotos. Son los que importan; un problema que aparece una vez puede ser anecdótico.
 
 | Problema | Pilotos | Estado |
 | --- | --- | --- |
@@ -94,11 +94,11 @@ Los que aparecen en â‰¥ 2 pilotos. Son los que importan; un problema que apa
 
 ### Lecciones aprendidas
 
-| LecciÃ³n | Origen | Aplicada en |
+| Lección | Origen | Aplicada en |
 | --- | --- | --- |
 | | | |
 
-Ver tambiÃ©n: [[Experimentos y Resultados]] Â· [[Riesgos del Proyecto]]
+Ver también: [[Experimentos y Resultados]] · [[Riesgos del Proyecto]]
 
 
 

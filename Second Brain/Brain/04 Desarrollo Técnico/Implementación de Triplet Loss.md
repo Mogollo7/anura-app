@@ -1,122 +1,122 @@
 ﻿---
-title: "ImplementaciÃ³n de Triplet Loss"
+title: "Implementación de Triplet Loss"
 proyecto: Anura
-tipo: desarrollo-tÃ©cnico
+tipo: desarrollo-técnico
 estado: redactado-por-completar-con-experimentos
 tags: [anura, desarrollo, metric-learning, triplet-loss, embeddings]
 ---
 
-# ImplementaciÃ³n de Triplet Loss
+# Implementación de Triplet Loss
 
-[[Anura â€” Ãndice General]] Â· [[Modelo de VisiÃ³n â€” BioCLIP]] Â· [[Base Vectorial (SQLite-vec)]] Â· [[Open-Set Recognition]]
+[[Anura â€” àndice General]] · [[Modelo de Visión â€” BioCLIP]] · [[Base Vectorial (SQLite-vec)]] · [[Open-Set Recognition]]
 
-> [!abstract] Para quÃ© sirve aquÃ­
-> El *triplet loss* no clasifica: **da forma al espacio de embeddings**. Su objetivo es que dos fotos de la misma especie queden cerca y dos de especies distintas queden lejos, de modo que la bÃºsqueda por similitud de la [[Base Vectorial (SQLite-vec)|base vectorial]] y el rechazo de especies desconocidas ([[Open-Set Recognition]]) funcionen sobre una geometrÃ­a con sentido biolÃ³gico. Es la pieza que permite **aÃ±adir especies nuevas sin reentrenar el clasificador**.
+> [!abstract] Para qué sirve aquí
+> El *triplet loss* no clasifica: **da forma al espacio de embeddings**. Su objetivo es que dos fotos de la misma especie queden cerca y dos de especies distintas queden lejos, de modo que la bàºsqueda por similitud de la [[Base Vectorial (SQLite-vec)|base vectorial]] y el rechazo de especies desconocidas ([[Open-Set Recognition]]) funcionen sobre una geometría con sentido biológico. Es la pieza que permite **añadir especies nuevas sin reentrenar el clasificador**.
 
-## 1. La formulaciÃ³n
+## 1. La formulación
 
-Se toman tres muestras: un **ancla** (A), un **positivo** (P, misma clase que el ancla) y un **negativo** (N, clase distinta). La pÃ©rdida exige que el ancla estÃ© mÃ¡s cerca del positivo que del negativo, por al menos un **margen** *m*:
+Se toman tres muestras: un **ancla** (A), un **positivo** (P, misma clase que el ancla) y un **negativo** (N, clase distinta). La pérdida exige que el ancla esté más cerca del positivo que del negativo, por al menos un **margen** *m*:
 
 $$\mathcal{L} = \max\big(0,\; d(A,P) - d(A,N) + m\big)$$
 
-Donde *d* es la distancia en el espacio de embeddings (coseno o euclÃ­dea sobre vectores L2-normalizados; ambas son equivalentes hasta una transformaciÃ³n monÃ³tona si se normaliza).
+Donde *d* es la distancia en el espacio de embeddings (coseno o euclídea sobre vectores L2-normalizados; ambas son equivalentes hasta una transformación monótona si se normaliza).
 
-LeÃ­do en palabras: si el negativo ya estÃ¡ suficientemente lejos, la pÃ©rdida es cero y ese triplete no aporta gradiente. Solo se aprende de los tripletes que **todavÃ­a violan** la condiciÃ³n. De ahÃ­ que la elecciÃ³n de tripletes sea el 80 % del problema.
+Leído en palabras: si el negativo ya está suficientemente lejos, la pérdida es cero y ese triplete no aporta gradiente. Solo se aprende de los tripletes que **todavía violan** la condición. De ahí que la elección de tripletes sea el 80 % del problema.
 
-## 2. El problema real: minerÃ­a de tripletes
+## 2. El problema real: minería de tripletes
 
-Con *N* imÃ¡genes hay del orden de *NÂ³* tripletes posibles. La inmensa mayorÃ­a son triviales (*Rhinella horribilis* vs. *Dendrobates truncatus*: el modelo ya los separa y la pÃ©rdida vale 0). Entrenar con tripletes aleatorios hace que el gradiente se apague casi de inmediato y el modelo no mejore.
+Con *N* imágenes hay del orden de *N³* tripletes posibles. La inmensa mayoría son triviales (*Rhinella horribilis* vs. *Dendrobates truncatus*: el modelo ya los separa y la pérdida vale 0). Entrenar con tripletes aleatorios hace que el gradiente se apague casi de inmediato y el modelo no mejore.
 
-Las estrategias, de mÃ¡s ingenua a mÃ¡s usada:
+Las estrategias, de más ingenua a más usada:
 
-| Estrategia | QuÃ© elige | Comportamiento |
+| Estrategia | Qué elige | Comportamiento |
 | --- | --- | --- |
-| **Aleatoria** | Tripletes al azar | Converge lentÃ­simo, la mayorÃ­a no aporta gradiente |
-| **Hard negative** | El negativo *mÃ¡s cercano* al ancla | SeÃ±al muy fuerte, pero **inestable**: colapsa el espacio si hay ruido de etiquetas |
-| **Semi-hard** | Negativo mÃ¡s lejos que el positivo, pero dentro del margen | Estrategia clÃ¡sica de FaceNet; buen equilibrio |
-| **Batch-hard** âœ… | Dentro de cada lote: el positivo mÃ¡s lejano y el negativo mÃ¡s cercano | **Recomendada.** Estable, eficiente, es el estÃ¡ndar actual |
+| **Aleatoria** | Tripletes al azar | Converge lentísimo, la mayoría no aporta gradiente |
+| **Hard negative** | El negativo *más cercano* al ancla | Señal muy fuerte, pero **inestable**: colapsa el espacio si hay ruido de etiquetas |
+| **Semi-hard** | Negativo más lejos que el positivo, pero dentro del margen | Estrategia clásica de FaceNet; buen equilibrio |
+| **Batch-hard** âœ… | Dentro de cada lote: el positivo más lejano y el negativo más cercano | **Recomendada.** Estable, eficiente, es el estándar actual |
 
-**Batch-hard** requiere construir los lotes de forma especÃ­fica: *P* clases Ã— *K* imÃ¡genes por clase (por ejemplo 8 especies Ã— 4 imÃ¡genes = lote de 32). No sirve un lote aleatorio, porque puede no contener ningÃºn par positivo.
+**Batch-hard** requiere construir los lotes de forma específica: *P* clases à— *K* imágenes por clase (por ejemplo 8 especies à— 4 imágenes = lote de 32). No sirve un lote aleatorio, porque puede no contener ningàºn par positivo.
 
-> [!danger] Riesgo especÃ­fico de este dataset
-> El *hard negative mining* busca el negativo mÃ¡s difÃ­cil. En este proyecto, los negativos mÃ¡s difÃ­ciles serÃ¡n sistemÃ¡ticamente *Pristimantis paisa* vs. *Pristimantis penelopus* â€” que es exactamente donde la Etapa I ya mostrÃ³ peor F1 (0,86). Eso es bueno (el modelo se enfoca donde duele) **siempre que las etiquetas sean correctas**. Si hay una sola imagen mal identificada dentro de *Pristimantis*, el *hard mining* la elegirÃ¡ una y otra vez como el negativo mÃ¡s difÃ­cil y arrastrarÃ¡ el espacio hacia el error. Antes de activar *hard mining*, la verificaciÃ³n taxonÃ³mica de ese gÃ©nero tiene que estar cerrada.
+> [!danger] Riesgo específico de este dataset
+> El *hard negative mining* busca el negativo más difícil. En este proyecto, los negativos más difíciles serán sistemáticamente *Pristimantis paisa* vs. *Pristimantis penelopus* â€” que es exactamente donde la Etapa I ya mostró peor F1 (0,86). Eso es bueno (el modelo se enfoca donde duele) **siempre que las etiquetas sean correctas**. Si hay una sola imagen mal identificada dentro de *Pristimantis*, el *hard mining* la elegirá una y otra vez como el negativo más difícil y arrastrará el espacio hacia el error. Antes de activar *hard mining*, la verificación taxonómica de ese género tiene que estar cerrada.
 
-## 3. DÃ³nde encaja en la arquitectura de Anura
+## 3. Dónde encaja en la arquitectura de Anura
 
-El triplet loss **no sustituye** a la clasificaciÃ³n jerÃ¡rquica; la complementa. ConfiguraciÃ³n recomendada, entrenamiento multi-tarea:
+El triplet loss **no sustituye** a la clasificación jerárquica; la complementa. Configuración recomendada, entrenamiento multi-tarea:
 
 ```
                   Imagen (recorte segmentado)
                             â†“
-              BioCLIP ViT-B/16  (Ãºltimos bloques descongelados)
+              BioCLIP ViT-B/16  (àºltimos bloques descongelados)
                             â†“
                    Embedding 512-d  (L2-normalizado)
                     â†™               â†˜
-       Triplet loss                Cabezas jerÃ¡rquicas
-   (forma del espacio)          Familia Â· GÃ©nero Â· Especie
+       Triplet loss                Cabezas jerárquicas
+   (forma del espacio)          Familia · Género · Especie
                                 (cross-entropy)
 
-        PÃ©rdida total = Î» Â· L_triplet + (1-Î») Â· L_clasificaciÃ³n
+        Pérdida total = Î» · L_triplet + (1-Î») · L_clasificación
 ```
 
-`Î»` es un hiperparÃ¡metro a barrer (valores tÃ­picos 0,3â€“0,5). La razÃ³n de combinar ambas: el triplet loss por sÃ­ solo produce un espacio bien organizado pero sin calibraciÃ³n de probabilidad, y las cabezas jerÃ¡rquicas por sÃ­ solas producen probabilidades pero un espacio con peor estructura para bÃºsqueda por similitud. Anura necesita las dos cosas.
+`Î»` es un hiperparámetro a barrer (valores típicos 0,3â€“0,5). La razón de combinar ambas: el triplet loss por sí solo produce un espacio bien organizado pero sin calibración de probabilidad, y las cabezas jerárquicas por sí solas producen probabilidades pero un espacio con peor estructura para bàºsqueda por similitud. Anura necesita las dos cosas.
 
-### Variante jerÃ¡rquica (opcional, mÃ¡s ambiciosa)
+### Variante jerárquica (opcional, más ambiciosa)
 
-Se puede modular el margen segÃºn la distancia taxonÃ³mica: penalizar mÃ¡s confundir familias que confundir especies del mismo gÃ©nero.
+Se puede modular el margen segàºn la distancia taxonómica: penalizar más confundir familias que confundir especies del mismo género.
 
-| RelaciÃ³n entre ancla y negativo | Margen sugerido |
+| Relación entre ancla y negativo | Margen sugerido |
 | --- | --- |
 | Misma especie | â€” (es positivo) |
-| Mismo gÃ©nero, distinta especie | m = 0,1 (pequeÃ±o: son legÃ­timamente parecidas) |
-| Misma familia, distinto gÃ©nero | m = 0,3 |
-| Distinta familia | m = 0,5 (grande: no deberÃ­an confundirse nunca) |
+| Mismo género, distinta especie | m = 0,1 (pequeño: son legítimamente parecidas) |
+| Misma familia, distinto género | m = 0,3 |
+| Distinta familia | m = 0,5 (grande: no deberían confundirse nunca) |
 
-Esto codifica la taxonomÃ­a **en la geometrÃ­a** del espacio, y es un aporte metodolÃ³gico defendible en el documento de grado.
+Esto codifica la taxonomía **en la geometría** del espacio, y es un aporte metodológico defendible en el documento de grado.
 
-## 4. ConfiguraciÃ³n de referencia
+## 4. Configuración de referencia
 
-| HiperparÃ¡metro | Valor inicial | Nota |
+| Hiperparámetro | Valor inicial | Nota |
 | --- | --- | --- |
 | Margen *m* | 0,2 (embeddings normalizados) | Barrer 0,1 â€“ 0,5 |
-| Distancia | Coseno sobre vectores L2-normalizados | Coherente con la mÃ©trica de la base vectorial |
-| ComposiciÃ³n del lote | P=8 clases Ã— K=4 imÃ¡genes | Kâ‰¥4 es necesario para batch-hard |
-| MinerÃ­a | Batch-hard | Empezar en semi-hard si hay inestabilidad |
-| Bloques descongelados | Ãšltimos 2â€“4 del ViT | Nunca el modelo completo con este tamaÃ±o de dataset |
+| Distancia | Coseno sobre vectores L2-normalizados | Coherente con la métrica de la base vectorial |
+| Composición del lote | P=8 clases à— K=4 imágenes | Kâ‰¥4 es necesario para batch-hard |
+| Minería | Batch-hard | Empezar en semi-hard si hay inestabilidad |
+| Bloques descongelados | àšltimos 2â€“4 del ViT | Nunca el modelo completo con este tamaño de dataset |
 | Tasa de aprendizaje | 1e-5 (backbone) / 1e-4 (cabezas) | Muy baja en el backbone: es un modelo preentrenado valioso |
 
-**AgrupaciÃ³n obligatoria por individuo.** El positivo no puede ser otra foto del **mismo individuo** en la misma sesiÃ³n, o el modelo aprende a reconocer ese ejemplar concreto (color exacto, cicatriz, sustrato) en vez de la especie. El positivo ideal es otro individuo de la misma especie. Esto conecta directamente con las reglas anti-fuga de [[Estrategia de ConstrucciÃ³n del Dataset]].
+**Agrupación obligatoria por individuo.** El positivo no puede ser otra foto del **mismo individuo** en la misma sesión, o el modelo aprende a reconocer ese ejemplar concreto (color exacto, cicatriz, sustrato) en vez de la especie. El positivo ideal es otro individuo de la misma especie. Esto conecta directamente con las reglas anti-fuga de [[Estrategia de Construcción del Dataset]].
 
-## 5. CÃ³mo se evalÃºa que funcionÃ³
+## 5. Cómo se evalàºa que funcionó
 
-El triplet loss no se evalÃºa con accuracy. Las mÃ©tricas correctas son de recuperaciÃ³n y de estructura del espacio:
+El triplet loss no se evalàºa con accuracy. Las métricas correctas son de recuperación y de estructura del espacio:
 
-- **Recall@K / Precision@K** sobre la base vectorial (Â¿las K observaciones mÃ¡s similares son de la especie correcta?).
-- **Distancia intra-clase media vs. inter-clase media** â€” debe aumentar la separaciÃ³n relativa.
+- **Recall@K / Precision@K** sobre la base vectorial (¿las K observaciones más similares son de la especie correcta?).
+- **Distancia intra-clase media vs. inter-clase media** â€” debe aumentar la separación relativa.
 - **Silhouette score** sobre los embeddings de test.
-- **AUROC de open-set** ([[Open-Set Recognition]]): un espacio mejor formado mejora directamente la detecciÃ³n de especies desconocidas. Esta es, probablemente, la justificaciÃ³n mÃ¡s fuerte para usar triplet loss en Anura.
+- **AUROC de open-set** ([[Open-Set Recognition]]): un espacio mejor formado mejora directamente la detección de especies desconocidas. Esta es, probablemente, la justificación más fuerte para usar triplet loss en Anura.
 
-Registrar en [[MÃ©tricas Offline]] y [[Experimentos y Resultados]].
+Registrar en [[Métricas Offline]] y [[Experimentos y Resultados]].
 
 ## 6. Alternativas que conviene considerar antes de comprometerse
 
-El triplet loss es de 2015 y tiene sucesores mÃ¡s estables y con menos hiperparÃ¡metros:
+El triplet loss es de 2015 y tiene sucesores más estables y con menos hiperparámetros:
 
-| MÃ©todo | Ventaja sobre triplet |
+| Método | Ventaja sobre triplet |
 | --- | --- |
-| **ArcFace / CosFace** | Margen angular sobre la clasificaciÃ³n; no necesita minerÃ­a de tripletes. Muy usado hoy en reconocimiento fino. |
-| **SupCon** (contrastivo supervisado) | Usa todos los positivos del lote a la vez, no uno; converge mejor con lotes pequeÃ±os. |
-| **Sin metric learning** | Con 550 imÃ¡genes originales, los embeddings congelados de BioCLIP pueden ser suficientes. **Medirlo antes de aÃ±adir complejidad.** |
+| **ArcFace / CosFace** | Margen angular sobre la clasificación; no necesita minería de tripletes. Muy usado hoy en reconocimiento fino. |
+| **SupCon** (contrastivo supervisado) | Usa todos los positivos del lote a la vez, no uno; converge mejor con lotes pequeños. |
+| **Sin metric learning** | Con 550 imágenes originales, los embeddings congelados de BioCLIP pueden ser suficientes. **Medirlo antes de añadir complejidad.** |
 
 > [!tip] Orden de trabajo recomendado
-> 1. Medir la recuperaciÃ³n con embeddings BioCLIP **congelados** (sin entrenar nada).
-> 2. Solo si Recall@5 es insuficiente, aÃ±adir triplet loss o ArcFace.
+> 1. Medir la recuperación con embeddings BioCLIP **congelados** (sin entrenar nada).
+> 2. Solo si Recall@5 es insuficiente, añadir triplet loss o ArcFace.
 > 3. Comparar y quedarse con lo que mejore de verdad, no con lo que suene mejor.
 
-## 7. QuÃ© falta por decidir o medir
+## 7. Qué falta por decidir o medir
 
-- [ ] Medir la lÃ­nea base sin metric learning (paso 1 de arriba).
-- [ ] Cerrar la verificaciÃ³n taxonÃ³mica de *Pristimantis* antes de activar hard mining.
+- [ ] Medir la línea base sin metric learning (paso 1 de arriba).
+- [ ] Cerrar la verificación taxonómica de *Pristimantis* antes de activar hard mining.
 - [ ] Barrer margen y Î».
 - [ ] Comparar triplet vs. ArcFace vs. SupCon si hay tiempo.
 
@@ -127,7 +127,7 @@ El triplet loss es de 2015 y tiene sucesores mÃ¡s estables y con menos hiperpa
 - Deng et al. (2019). *ArcFace: Additive Angular Margin Loss*. [arXiv:1801.07698](https://arxiv.org/abs/1801.07698)
 - Khosla et al. (2020). *Supervised Contrastive Learning*. [arXiv:2004.11362](https://arxiv.org/abs/2004.11362)
 
-Ver tambiÃ©n: [[BibliografÃ­a]]
+Ver también: [[Bibliografía]]
 
 
 

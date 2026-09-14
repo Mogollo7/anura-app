@@ -1,14 +1,14 @@
 ﻿---
-title: "Arquitectura de la AplicaciÃ³n"
+title: "Arquitectura de la Aplicación"
 proyecto: Anura
 tipo: proceso-desarrollo
 estado: propuesta
-tags: [anura, proceso, arquitectura, android, diseÃ±o]
+tags: [anura, proceso, arquitectura, android, diseño]
 ---
 
-# Arquitectura de la AplicaciÃ³n
+# Arquitectura de la Aplicación
 
-[[Anura â€” Ãndice General]] Â· [[Proceso de Desarrollo â€” Ãndice]] Â· [[App MÃ³vil]] Â· [[Flujo de Datos y SincronizaciÃ³n]] Â· [[Pipeline del Sistema]]
+[[Anura â€” àndice General]] · [[Proceso de Desarrollo â€” àndice]] · [[App Móvil]] · [[Flujo de Datos y Sincronización]] · [[Pipeline del Sistema]]
 
 ## 1. Vista general del sistema
 
@@ -24,7 +24,7 @@ tags: [anura, proceso, arquitectura, android, diseÃ±o]
 â”‚  â””â”€â”€ Vectores local  â”‚         â”‚                              â”‚
 â”‚                      â”‚         â”‚  PostgreSQL (Supabase)       â”‚
 â”‚  100 % funcional     â”‚         â”‚  Vectores (Qdrant/pgvector)  â”‚
-â”‚  sin conexiÃ³n        â”‚         â”‚  Storage                     â”‚
+â”‚  sin conexión        â”‚         â”‚  Storage                     â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
          â–²                                      â–²
          â”‚                                      â”‚
@@ -37,30 +37,30 @@ Regla que define la arquitectura entera: **el servidor es opcional para identifi
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ PRESENTACIÃ“N         Compose Â· ViewModels Â· StateFlowâ”‚
+â”‚ PRESENTACIà“N         Compose · ViewModels · StateFlowâ”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ DOMINIO              Casos de uso Â· Modelos Â· Reglas â”‚   â† sin dependencias
+â”‚ DOMINIO              Casos de uso · Modelos · Reglas â”‚   â† sin dependencias
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ DATOS                Repositorios (interfaces)       â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ INFRAESTRUCTURA      Room Â· LiteRT Â· Vectores Â· API  â”‚
+â”‚ INFRAESTRUCTURA      Room · LiteRT · Vectores · API  â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-La capa de dominio no importa nada de Android, ni de LiteRT, ni de Retrofit. Suena a purismo, pero tiene dos consecuencias muy prÃ¡cticas en este proyecto:
+La capa de dominio no importa nada de Android, ni de LiteRT, ni de Retrofit. Suena a purismo, pero tiene dos consecuencias muy prácticas en este proyecto:
 
-1. La lÃ³gica de identificaciÃ³n (fusiÃ³n, umbrales open-set, evidencia por caracteres) es **testeable sin dispositivo ni modelo**, con JUnit puro y datos sintÃ©ticos. Sin eso, probar la regla de "no observable â‰  ausente" exige un telÃ©fono y una rana.
+1. La lógica de identificación (fusión, umbrales open-set, evidencia por caracteres) es **testeable sin dispositivo ni modelo**, con JUnit puro y datos sintéticos. Sin eso, probar la regla de "no observable â‰  ausente" exige un teléfono y una rana.
 2. El motor de inferencia se puede cambiar (LiteRT â†’ ONNX) sin tocar pantallas. Va a pasar.
 
-## 3. MÃ³dulos
+## 3. Módulos
 
 ```
-:app                 navegaciÃ³n, DI, tema
-:feature:captura     cÃ¡mara, grabaciÃ³n de audio
-:feature:resultado   Top-3, evidencia anatÃ³mica, ficha
+:app                 navegación, DI, tema
+:feature:captura     cámara, grabación de audio
+:feature:resultado   Top-3, evidencia anatómica, ficha
 :feature:campo       salidas, transectos, metadatos (HU-04)
 :feature:historial   observaciones locales, estado de sync
-:core:ml             LiteRT, pre/postproceso, fusiÃ³n, open-set
+:core:ml             LiteRT, pre/postproceso, fusión, open-set
 :core:datos          Room, vectores, repositorios
 :core:sync           WorkManager, cliente API
 :core:ui             componentes, tema oscuro/campo
@@ -75,7 +75,7 @@ Dos decisiones de tipado que evitan errores conceptuales del proyecto entero:
 // "no observable" NO es lo mismo que "ausente"
 enum class EstadoCaracter { PRESENTE, AUSENTE, NO_OBSERVABLE, VARIABLE }
 
-// Un resultado puede ser legÃ­timamente "no lo sÃ©"
+// Un resultado puede ser legítimamente "no lo sé"
 sealed interface ResultadoIdentificacion {
     data class Identificada(
         val candidatos: List<Candidato>,      // Top-3
@@ -85,7 +85,7 @@ sealed interface ResultadoIdentificacion {
     ) : ResultadoIdentificacion
 
     data class NoRegistrada(                   // open-set
-        val nivelAlcanzado: RangoTaxonomico,   // familia / gÃ©nero
+        val nivelAlcanzado: RangoTaxonomico,   // familia / género
         val referencias: List<Candidato>
     ) : ResultadoIdentificacion
 
@@ -95,9 +95,9 @@ sealed interface ResultadoIdentificacion {
 ```
 
 Modelar `NoRegistrada` como un resultado de primera clase â€” y no como un error o un 
-ull` â€” obliga a que la interfaz lo trate con dignidad. Es la diferencia entre una app que dice "no se pudo identificar" y una que dice "es un Hylidae, probablemente Boana, pero ninguna especie de mi catÃ¡logo encaja".
+ull` â€” obliga a que la interfaz lo trate con dignidad. Es la diferencia entre una app que dice "no se pudo identificar" y una que dice "es un Hylidae, probablemente Boana, pero ninguna especie de mi catálogo encaja".
 
-## 5. Estados de una observaciÃ³n
+## 5. Estados de una observación
 
 ```
    BORRADOR â”€â”€â–¶ LOCAL â”€â”€â–¶ EN_COLA â”€â”€â–¶ SINCRONIZADA â”€â”€â–¶ EN_REVISION â”€â”€â–¶ VALIDADA
@@ -113,28 +113,28 @@ ull` â€” obliga a que la interfaz lo trate con dignidad. Es la diferencia e
 
 | Pantalla | Contenido | Requisitos |
 | --- | --- | --- |
-| **Captura** | Visor, disparo, grabaciÃ³n, indicador GPS/offline | RF-01, RNF-07/08 |
-| **Procesando** | Progreso por etapas (segmentando â†’ identificandoâ€¦) | Evita percepciÃ³n de bloqueo |
-| **Resultado** | Top-3, evidencia por regiÃ³n, vecinos similares, acciones | RF-05, RF-06 |
-| **Ficha de especie** | TaxonomÃ­a, morfologÃ­a, bioacÃºstica, distribuciÃ³n, UICN | RF-10 |
-| **RefutaciÃ³n** | SelecciÃ³n de regiÃ³n, correcciÃ³n, envÃ­o | HU-03 |
-| **Salida de campo** | SesiÃ³n, transecto, variables ambientales | HU-04 |
-| **Historial** | Observaciones locales y estado de sincronizaciÃ³n | RF-13 |
-| **Ajustes** | Paquetes regionales, sincronizaciÃ³n, tema, almacenamiento | |
+| **Captura** | Visor, disparo, grabación, indicador GPS/offline | RF-01, RNF-07/08 |
+| **Procesando** | Progreso por etapas (segmentando â†’ identificandoâ€¦) | Evita percepción de bloqueo |
+| **Resultado** | Top-3, evidencia por región, vecinos similares, acciones | RF-05, RF-06 |
+| **Ficha de especie** | Taxonomía, morfología, bioacàºstica, distribución, UICN | RF-10 |
+| **Refutación** | Selección de región, corrección, envío | HU-03 |
+| **Salida de campo** | Sesión, transecto, variables ambientales | HU-04 |
+| **Historial** | Observaciones locales y estado de sincronización | RF-13 |
+| **Ajustes** | Paquetes regionales, sincronización, tema, almacenamiento | |
 
-La pantalla de **resultado** es donde se juega el valor del proyecto: debe mostrar la evidencia contradictoria y lo no observable con el mismo peso visual que lo compatible. Ocultar la duda convertirÃ­a a Anura en el orÃ¡culo que el [[Referente TeÃ³rico]] dice explÃ­citamente que no debe ser.
+La pantalla de **resultado** es donde se juega el valor del proyecto: debe mostrar la evidencia contradictoria y lo no observable con el mismo peso visual que lo compatible. Ocultar la duda convertiría a Anura en el oráculo que el [[Referente Teórico]] dice explícitamente que no debe ser.
 
 ## 7. Pruebas
 
-| Nivel | QuÃ© se prueba | Herramienta |
+| Nivel | Qué se prueba | Herramienta |
 | --- | --- | --- |
-| Unitarias | FusiÃ³n, umbrales, coherencia taxonÃ³mica, estados de carÃ¡cter | JUnit |
-| IntegraciÃ³n | Room, cola de sincronizaciÃ³n, idempotencia | Robolectric |
-| Instrumentadas | Inferencia real, latencia, memoria | Dispositivo fÃ­sico |
+| Unitarias | Fusión, umbrales, coherencia taxonómica, estados de carácter | JUnit |
+| Integración | Room, cola de sincronización, idempotencia | Robolectric |
+| Instrumentadas | Inferencia real, latencia, memoria | Dispositivo físico |
 | UI | Flujos completos | Compose UI Test |
-| Campo | El sistema con personas reales | [[EvaluaciÃ³n en Campo Real]] |
+| Campo | El sistema con personas reales | [[Evaluación en Campo Real]] |
 
-Casos que hay que probar y que se olvidan sistemÃ¡ticamente: sin permisos, sin GPS, sin red durante dÃ­as, baterÃ­a crÃ­tica a mitad de inferencia, almacenamiento lleno, y **cambio de versiÃ³n de modelo con observaciones pendientes de sincronizar**.
+Casos que hay que probar y que se olvidan sistemáticamente: sin permisos, sin GPS, sin red durante días, batería crítica a mitad de inferencia, almacenamiento lleno, y **cambio de versión de modelo con observaciones pendientes de sincronizar**.
 
 
 

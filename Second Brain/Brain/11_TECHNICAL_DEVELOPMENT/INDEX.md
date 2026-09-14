@@ -1,6 +1,6 @@
-# 11_TECHNICAL_DEVELOPMENT: Desarrollo técnico
+# 11_TECHNICAL_DEVELOPMENT: Desarrollo tcnico
 
-Fuentes inventariadas: 502. Consolidación trazable. Fases no evidenciadas: NOT_EXECUTED.
+Fuentes inventariadas: 502. Consolidacin trazable. Fases no evidenciadas: NOT_EXECUTED.
 
 - [PLAN_DESARROLLO](../../../PLAN_DESARROLLO.md)
 - [PLAN_ETIQUETADO_DATOS](../../../PLAN_ETIQUETADO_DATOS.md)

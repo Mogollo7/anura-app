@@ -1,70 +1,70 @@
 ﻿---
-title: "Proceso de Desarrollo â€” Ãndice"
+title: "Proceso de Desarrollo â€” àndice"
 proyecto: Anura
-tipo: Ã­ndice
-tags: [anura, proceso, Ã­ndice]
+tipo: índice
+tags: [anura, proceso, índice]
 ---
 
-# Proceso de Desarrollo â€” Ãndice
+# Proceso de Desarrollo â€” àndice
 
-[[Anura â€” Ãndice General]]
+[[Anura â€” àndice General]]
 
-CÃ³mo se construye la aplicaciÃ³n mÃ³vil Anura: quÃ© se hace, en quÃ© orden, con quÃ© tecnologÃ­as y bajo quÃ© criterios.
+Cómo se construye la aplicación móvil Anura: qué se hace, en qué orden, con qué tecnologías y bajo qué criterios.
 
 ## Notas
 
-| Nota | Responde a | ActualizaciÃ³n |
+| Nota | Responde a | Actualización |
 | --- | --- | --- |
-| [[Roadmap y Fases]] | Â¿QuÃ© se hace primero y por quÃ©? Â¿CuÃ¡l es el mÃ­nimo defendible? | |
-| [[Stack TecnolÃ³gico]] | Â¿Con quÃ© se construye y por quÃ© esa elecciÃ³n? | |
-| [[Arquitectura de la AplicaciÃ³n]] | Â¿CÃ³mo se organiza el cÃ³digo y el dominio? | |
-| [[DiseÃ±o de Interfaz (Penpot)]] | Â¿CÃ³mo se ven las pantallas y quÃ© componentes se reutilizan? | 2026-09-07 |
-| [[ÃNDICE DE DISEÃ‘O â€” Sprint 27 Sep]] | ðŸ“‘ NavegaciÃ³n centralizada de componentes (niveles 1â€“5 completados) | 2026-09-07 â­ NUEVO |
-| [[Componentes de UI â€” EspecificaciÃ³n Detallada]] | TraducciÃ³n tÃ©cnica a Compose: medidas, colores, estados, variantes | 2026-09-07 â­ NUEVO |
-| [[CHEAT SHEET â€” Componentes de UI (Referencia RÃ¡pida)]] | Resumen imprimible para desarrolladores (tira rÃ¡pida) | 2026-09-07 â­ NUEVO |
-| [[Flujo de Datos y SincronizaciÃ³n]] | Â¿CÃ³mo funciona sin red y cÃ³mo se sincroniza despuÃ©s? | |
-| [[Ciclo de Vida del Modelo (MLOps)]] | Â¿CÃ³mo se versiona, reentrena y despliega el modelo? | |
-| [[Entorno de Trabajo y MCP]] | Â¿Con quÃ© herramientas se edita el diseÃ±o y quÃ© trampas tiene? | |
+| [[Roadmap y Fases]] | ¿Qué se hace primero y por qué? ¿Cuál es el mínimo defendible? | |
+| [[Stack Tecnológico]] | ¿Con qué se construye y por qué esa elección? | |
+| [[Arquitectura de la Aplicación]] | ¿Cómo se organiza el código y el dominio? | |
+| [[Diseño de Interfaz (Penpot)]] | ¿Cómo se ven las pantallas y qué componentes se reutilizan? | 2026-09-07 |
+| [[àNDICE DE DISEà‘O â€” Sprint 27 Sep]] | ðŸ“‘ Navegación centralizada de componentes (niveles 1â€“5 completados) | 2026-09-07 â­ NUEVO |
+| [[Componentes de UI â€” Especificación Detallada]] | Traducción técnica a Compose: medidas, colores, estados, variantes | 2026-09-07 â­ NUEVO |
+| [[CHEAT SHEET â€” Componentes de UI (Referencia Rápida)]] | Resumen imprimible para desarrolladores (tira rápida) | 2026-09-07 â­ NUEVO |
+| [[Flujo de Datos y Sincronización]] | ¿Cómo funciona sin red y cómo se sincroniza después? | |
+| [[Ciclo de Vida del Modelo (MLOps)]] | ¿Cómo se versiona, reentrena y despliega el modelo? | |
+| [[Entorno de Trabajo y MCP]] | ¿Con qué herramientas se edita el diseño y qué trampas tiene? | |
 
 ## Recorrido recomendado (Sprint 27 sep)
 
 ```
-1. Roadmap y Fases                 â† quÃ© se construye y en quÃ© orden
+1. Roadmap y Fases                 â† qué se construye y en qué orden
         â†“
-2. Stack TecnolÃ³gico               â† con quÃ©
+2. Stack Tecnológico               â† con qué
         â†“
-3. Arquitectura de la App          â† cÃ³mo se organiza
+3. Arquitectura de la App          â† cómo se organiza
         â†“
-4. DiseÃ±o de Interfaz (Penpot)     â† mockup en Penpot (42 boards)
+4. Diseño de Interfaz (Penpot)     â† mockup en Penpot (42 boards)
         â†“
-5. ÃNDICE DE DISEÃ‘O â­ NUEVO       â† navegaciÃ³n de especificaciones (niveles 1â€“5)
+5. àNDICE DE DISEà‘O â­ NUEVO       â† navegación de especificaciones (niveles 1â€“5)
         â”œâ”€â†’ CHEAT SHEET (imprimible, 5 min)
-        â””â”€â†’ EspecificaciÃ³n Detallada (referencia tÃ©cnica completa)
+        â””â”€â†’ Especificación Detallada (referencia técnica completa)
         â†“
-6. Flujo de Datos                  â† cÃ³mo sobrevive sin conexiÃ³n
+6. Flujo de Datos                  â† cómo sobrevive sin conexión
         â†“
-7. Ciclo de Vida del Modelo        â† cÃ³mo evoluciona
+7. Ciclo de Vida del Modelo        â† cómo evoluciona
 ```
 
 **Para desarrolladores:** Saltarse 1â€“4, empezar en paso 5 (CHEAT SHEET).
 
 ## Los cuatro principios
 
-1. **Offline-first, no "con modo offline".** La base local es la fuente de verdad; la red es una optimizaciÃ³n. Sin esto, la app no sirve para el caso de uso que la justifica.
+1. **Offline-first, no "con modo offline".** La base local es la fuente de verdad; la red es una optimización. Sin esto, la app no sirve para el caso de uso que la justifica.
 2. **Extremo a extremo antes que perfecto.** El riesgo real no es un modelo con 82 % en vez de 88 %; es llegar sin app.
-3. **El dato de campo es sagrado.** Se persiste antes de procesar, nunca se borra sin confirmaciÃ³n, y se respalda fuera del dispositivo. Es lo Ãºnico irreemplazable del proyecto.
-4. **Medir antes de optimizar.** Casi todas las intuiciones sobre quÃ© es lento o quÃ© mejora la precisiÃ³n resultan equivocadas.
+3. **El dato de campo es sagrado.** Se persiste antes de procesar, nunca se borra sin confirmación, y se respalda fuera del dispositivo. Es lo àºnico irreemplazable del proyecto.
+4. **Medir antes de optimizar.** Casi todas las intuiciones sobre qué es lento o qué mejora la precisión resultan equivocadas.
 
-## DÃ³nde encaja con el resto de la bÃ³veda
+## Dónde encaja con el resto de la bóveda
 
 | Necesitasâ€¦ | Ve a |
 | --- | --- |
 | Requisitos que la app debe cumplir | [[Objetivos y Alcance]] |
-| QuÃ© hace el sistema al identificar | [[Pipeline del Sistema]] |
-| Detalle de los modelos | [[Modelo de VisiÃ³n â€” BioCLIP]] Â· [[OptimizaciÃ³n para Inferencia en MÃ³vil]] |
-| CÃ³mo se prueba en campo | [[EvaluaciÃ³n en Campo Real]] |
-| QuÃ© puede salir mal | [[Riesgos del Proyecto]] |
-| QuÃ© falta decidir | [[Inconsistencias y Decisiones Pendientes]] |
+| Qué hace el sistema al identificar | [[Pipeline del Sistema]] |
+| Detalle de los modelos | [[Modelo de Visión â€” BioCLIP]] · [[Optimización para Inferencia en Móvil]] |
+| Cómo se prueba en campo | [[Evaluación en Campo Real]] |
+| Qué puede salir mal | [[Riesgos del Proyecto]] |
+| Qué falta decidir | [[Inconsistencias y Decisiones Pendientes]] |
 
 
 

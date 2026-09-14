@@ -1,17 +1,17 @@
 ﻿---
-title: "Componentes de UI â€” EspecificaciÃ³n Detallada"
+title: "Componentes de UI â€” Especificación Detallada"
 proyecto: Anura
-tipo: especificaciÃ³n-tÃ©cnica
+tipo: especificación-técnica
 estado: draft-07-sep-2026
-tags: [anura, diseÃ±o, componentes, compose, kotlin]
+tags: [anura, diseño, componentes, compose, kotlin]
 ---
 
-# Componentes de UI â€” EspecificaciÃ³n Detallada
+# Componentes de UI â€” Especificación Detallada
 
-[[Anura â€” Ãndice General]] Â· [[DiseÃ±o de Interfaz (Penpot)]] Â· [[App MÃ³vil]] Â· [[Stack TecnolÃ³gico]]
+[[Anura â€” àndice General]] · [[Diseño de Interfaz (Penpot)]] · [[App Móvil]] · [[Stack Tecnológico]]
 
-> [!abstract] QuÃ© es esto
-> TraducciÃ³n de baja fidelidad a especificaciÃ³n tÃ©cnica ejecutable en Compose. Cada componente incluye: nombre, medidas, colores, estados interactivos, trazabilidad contra requisitos y ejemplos de composiciÃ³n.
+> [!abstract] Qué es esto
+> Traducción de baja fidelidad a especificación técnica ejecutable en Compose. Cada componente incluye: nombre, medidas, colores, estados interactivos, trazabilidad contra requisitos y ejemplos de composición.
 >
 > No es un replacement de Penpot; es la **fuente de verdad para implementar en Kotlin** cuando se escriba cada pantalla.
 
@@ -19,26 +19,26 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 
 ## NIVEL 1: Campos y etiquetas (sin estado interactivo)
 
-### Campo de entrada numÃ©rico â€” Altitud
+### Campo de entrada numérico â€” Altitud
 
 | Propiedad | Valor |
 |-----------|-------|
 | **Req** | RF-04 (metadatos) |
-| **Uso** | Paso 2, secciÃ³n de metadatos |
+| **Uso** | Paso 2, sección de metadatos |
 | **Alto** | 60pt |
 | **Ancho** | 320pt (contenedor de 355pt menos margins) |
-| **Tipo** | `TextField` numÃ©rico |
+| **Tipo** | `TextField` numérico |
 | **Placeholder** | "Altitud (msnm)" |
 | **Rango** | 0â€“5000 |
 | **Color fondo** | Degradado suave, adaptado al fondo de la pantalla |
 | **Color borde** | #626264 (medio) |
-| **ValidaciÃ³n** | Acepta solo nÃºmeros; si sale del rango, lo ajusta al lÃ­mite |
-| **Estado vacÃ­o** | Permitido (RNF-06) |
+| **Validación** | Acepta solo nàºmeros; si sale del rango, lo ajusta al límite |
+| **Estado vacío** | Permitido (RNF-06) |
 
-**PatrÃ³n de composiciÃ³n en Paso 2:**
+**Patrón de composición en Paso 2:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Paso 2: CuÃ¡ndo la viste      â”‚
+â”‚ Paso 2: Cuándo la viste      â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ Fecha            [fecha]    â”‚
 â”‚ Hora             [hora]     â”‚
@@ -47,7 +47,7 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-### Campo selector â€” Ecosistema/MicrohÃ¡bitat
+### Campo selector â€” Ecosistema/Microhábitat
 
 | Propiedad | Valor |
 |-----------|-------|
@@ -56,24 +56,24 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 | **Alto** | 60pt |
 | **Ancho** | 320pt |
 | **Tipo** | `DropdownMenu` / `ExposedDropdownMenuBox` |
-| **Opciones** | Bosque Â· Agua Â· Zona abierta Â· Ãrea urbana Â· Otro |
+| **Opciones** | Bosque · Agua · Zona abierta · àrea urbana · Otro |
 | **Placeholder** | "Seleccionar ecosistema..." |
 | **Color fondo** | Igual a campos textuales |
-| **Color de la opciÃ³n activa** | #626264 (realce) |
-| **Estado vacÃ­o** | Permitido (RNF-06) |
+| **Color de la opción activa** | #626264 (realce) |
+| **Estado vacío** | Permitido (RNF-06) |
 
 ---
 
-## NIVEL 2: Pop-ups de interacciÃ³n de sistema
+## NIVEL 2: Pop-ups de interacción de sistema
 
-### Pop-up: Permiso de cÃ¡mara
+### Pop-up: Permiso de cámara
 
 | Propiedad | Valor |
 |-----------|-------|
 | **Req** | RNF-14 (permisos en el momento de uso) |
-| **CuÃ¡ndo aparece** | Usuario presiona "Tomar foto" en Paso 4 |
+| **Cuándo aparece** | Usuario presiona "Tomar foto" en Paso 4 |
 | **Ancho** | 90% (~330pt en viewport 393pt) |
-| **Alto** | Contenido variable, mÃ¡x 400pt |
+| **Alto** | Contenido variable, máx 400pt |
 | **Tipo** | Bottom sheet / Modal |
 | **Fondo** | #373738 (oscuro) |
 | **Radio superior** | 30pt |
@@ -81,11 +81,11 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 **Estructura:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  ðŸ“· Acceso a la cÃ¡mara           â”‚  (tÃ­tulo, 25pt)
+â”‚  ðŸ“· Acceso a la cámara           â”‚  (título, 25pt)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ Anura necesita acceder a tu      â”‚  (descripciÃ³n, 15pt, #626264)
-â”‚ cÃ¡mara para capturar fotos de    â”‚
-â”‚ anuros. PermÃ­telo en el siguienteâ”‚
+â”‚ Anura necesita acceder a tu      â”‚  (descripción, 15pt, #626264)
+â”‚ cámara para capturar fotos de    â”‚
+â”‚ anuros. Permítelo en el siguienteâ”‚
 â”‚ paso.                            â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [ Permitir ]  [ Ahora no ]       â”‚  (botones 60pt alto)
@@ -95,29 +95,29 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 **Estados:**
 - **Permitido:** Cierra el pop-up, avanza a pantalla de captura
 - **Denegado:** Muestra pop-up secundario "Permiso denegado â€” ve a Ajustes"
-  - Botones: "Abrir Ajustes" Â· "Cancelar"
-  - AcciÃ³n: `startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, ...))`
+  - Botones: "Abrir Ajustes" · "Cancelar"
+  - Acción: `startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, ...))`
 - **Cancelado:** Regresa al Paso 4 sin cambios
 
-### Pop-up: Permiso de micrÃ³fono
+### Pop-up: Permiso de micrófono
 
 | Propiedad | Valor |
 |-----------|-------|
 | **Req** | RNF-14 |
-| **CuÃ¡ndo aparece** | Usuario presiona "Grabar audio" en Paso 4 |
-| **Estructura** | IdÃ©ntica a pop-up de cÃ¡mara |
-| **Texto** | "Anura necesita acceder a tu micrÃ³fono para grabar los cantos de los anuros." |
-| **TÃ­tulo** | ðŸŽ¤ Acceso al micrÃ³fono |
+| **Cuándo aparece** | Usuario presiona "Grabar audio" en Paso 4 |
+| **Estructura** | Idéntica a pop-up de cámara |
+| **Texto** | "Anura necesita acceder a tu micrófono para grabar los cantos de los anuros." |
+| **Título** | ðŸŽ¤ Acceso al micrófono |
 
-### Pop-up: Permiso de ubicaciÃ³n
+### Pop-up: Permiso de ubicación
 
 | Propiedad | Valor |
 |-----------|-------|
 | **Req** | RF-04 (metadatos), RNF-14 |
-| **CuÃ¡ndo aparece** | Usuario abre Paso 1 ("DÃ³nde la viste") |
-| **Estructura** | IdÃ©ntica a las anteriores |
-| **Texto** | "Anura registra tu ubicaciÃ³n para ayudarte a recordar dÃ³nde viste el anuro. Puedes editar la ubicaciÃ³n despuÃ©s." |
-| **TÃ­tulo** | ðŸ“ Acceso a la ubicaciÃ³n |
+| **Cuándo aparece** | Usuario abre Paso 1 ("Dónde la viste") |
+| **Estructura** | Idéntica a las anteriores |
+| **Texto** | "Anura registra tu ubicación para ayudarte a recordar dónde viste el anuro. Puedes editar la ubicación después." |
+| **Título** | ðŸ“ Acceso a la ubicación |
 | **Permiso** | `ACCESS_COARSE_LOCATION` + `ACCESS_FINE_LOCATION` |
 
 ---
@@ -127,7 +127,7 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 | Propiedad | Valor |
 |-----------|-------|
 | **Req** | HU-01 caso 2 (captura con mala calidad) |
-| **CuÃ¡ndo aparece** | DespuÃ©s de tomar foto, si modelo detecta desenfoque |
+| **Cuándo aparece** | Después de tomar foto, si modelo detecta desenfoque |
 | **Ancho** | 90% (330pt) |
 | **Alto** | ~350pt |
 | **Tipo** | Bottom sheet |
@@ -137,11 +137,11 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 **Estructura:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  âš ï¸ Foto borrosa                 â”‚  (tÃ­tulo, 25pt)
+â”‚  âš ï¸ Foto borrosa                 â”‚  (título, 25pt)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ La foto estÃ¡ muy borrosa para    â”‚  (descripciÃ³n, 15pt)
+â”‚ La foto está muy borrosa para    â”‚  (descripción, 15pt)
 â”‚ analizar. Prueba:                â”‚
-â”‚ â€¢ Acercarte mÃ¡s                  â”‚
+â”‚ â€¢ Acercarte más                  â”‚
 â”‚ â€¢ Limpiar la lente               â”‚
 â”‚ â€¢ Tomar en un lugar bien         â”‚
 â”‚   iluminado                      â”‚
@@ -160,52 +160,52 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 
 | Propiedad | Valor |
 |-----------|-------|
-| **Req** | HU-01, RF-05, RF-06 (feedback durante anÃ¡lisis) |
-| **CuÃ¡ndo aparece** | Justo despuÃ©s de presionar "Analizar" en Paso 5 |
+| **Req** | HU-01, RF-05, RF-06 (feedback durante análisis) |
+| **Cuándo aparece** | Justo después de presionar "Analizar" en Paso 5 |
 | **Ancho** | 90% (330pt) |
-| **Tipo** | Modal no cancelable (bloquea interacciÃ³n) |
+| **Tipo** | Modal no cancelable (bloquea interacción) |
 | **Fondo** | #373738 con 80% opacidad oscurecida |
-| **Cierre** | AutomÃ¡tico cuando completa, o timeout 30s |
+| **Cierre** | Automático cuando completa, o timeout 30s |
 
 **Estructura:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚   Analizando...                  â”‚  (tÃ­tulo, 20pt, blanco)
+â”‚   Analizando...                  â”‚  (título, 20pt, blanco)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  ðŸ”„ SegmentaciÃ³n        50%  â–ˆâ–ˆâ–ˆ â”‚
-â”‚  ðŸ”„ IdentificaciÃ³n      20%  â–ˆ   â”‚
-â”‚  ðŸ”„ AnÃ¡lisis de audio    0%  â€”   â”‚
+â”‚  ðŸ”„ Segmentación        50%  â–ˆâ–ˆâ–ˆ â”‚
+â”‚  ðŸ”„ Identificación      20%  â–ˆ   â”‚
+â”‚  ðŸ”„ Análisis de audio    0%  â€”   â”‚
 â”‚                                  â”‚
 â”‚  Tiempo: ~3-4 segundos           â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-**Detalles tÃ©cnicos:**
+**Detalles técnicos:**
 - **Barra de progreso:** LinearProgressIndicator de Compose
 - **Etapas:**
-  1. SegmentaciÃ³n (recorte de individuo): ~1s
-  2. ExtracciÃ³n de embeddings BioCLIP: ~1s
-  3. ClasificaciÃ³n jerÃ¡rquica + bÃºsqueda vectorial: ~0.5s
-  4. Open-set + contexto geogrÃ¡fico: ~0.5s
-  5. (Opcional) AnÃ¡lisis de audio si se capturÃ³: ~1-2s
+  1. Segmentación (recorte de individuo): ~1s
+  2. Extracción de embeddings BioCLIP: ~1s
+  3. Clasificación jerárquica + bàºsqueda vectorial: ~0.5s
+  4. Open-set + contexto geográfico: ~0.5s
+  5. (Opcional) Análisis de audio si se capturó: ~1-2s
 - **Color de progreso:** #626264 (gris medio)
-- **CancelaciÃ³n:** Imposible (por diseÃ±o â€” evita estados corruptos)
+- **Cancelación:** Imposible (por diseño â€” evita estados corruptos)
 
 ---
 
 ## NIVEL 3: Variantes de contexto (propio vs. ajeno)
 
-### Tarjeta de observaciÃ³n â€” Variante propia
+### Tarjeta de observación â€” Variante propia
 
-**UbicaciÃ³n:** Listado de "Mis observaciones"
+**Ubicación:** Listado de "Mis observaciones"
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ [ðŸ“· imagen]  [â¤ï¸ guardado]       â”‚  (imagen 167Ã—196, corazÃ³n arriba)
+â”‚ [ðŸ“· imagen]  [â¤ï¸ guardado]       â”‚  (imagen 167à—196, corazón arriba)
 â”‚             [âš ï¸ estado IUCN]      â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ Nombre comÃºn                     â”‚  (15pt, #626264)
-â”‚ Nombre cientÃ­fico                â”‚  (10pt, gris mÃ¡s claro)
+â”‚ Nombre comàºn                     â”‚  (15pt, #626264)
+â”‚ Nombre científico                â”‚  (10pt, gris más claro)
 â”‚ Hace 2 horas                     â”‚  (10pt, timestamp)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [ðŸ“ Editar] [ðŸ—‘ï¸ Eliminar]       â”‚  (botones 60pt, solo en propia)
@@ -213,22 +213,22 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 ```
 
 **Botones en propio:**
-- `Editar`: Abre la observaciÃ³n en modo editable, permite cambiar metadatos, foto, audio
-- `Eliminar`: Pop-up de confirmaciÃ³n "Â¿Eliminar esta observaciÃ³n?"
+- `Editar`: Abre la observación en modo editable, permite cambiar metadatos, foto, audio
+- `Eliminar`: Pop-up de confirmación "¿Eliminar esta observación?"
 - Color botones: #626264 sobre fondo claro
 
-### Tarjeta de observaciÃ³n â€” Variante ajena
+### Tarjeta de observación â€” Variante ajena
 
-**UbicaciÃ³n:** Explorando observaciones de otros usuarios
+**Ubicación:** Explorando observaciones de otros usuarios
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ [ðŸ“· imagen]  [â¤ï¸ no guardado]    â”‚  (imagen 167Ã—196, corazÃ³n vacÃ­o)
+â”‚ [ðŸ“· imagen]  [â¤ï¸ no guardado]    â”‚  (imagen 167à—196, corazón vacío)
 â”‚             [âš ï¸ estado IUCN]      â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ Nombre comÃºn                     â”‚
-â”‚ Nombre cientÃ­fico                â”‚
-â”‚ @usuario Â· Hace 2 horas          â”‚  (username + timestamp)
+â”‚ Nombre comàºn                     â”‚
+â”‚ Nombre científico                â”‚
+â”‚ @usuario · Hace 2 horas          â”‚  (username + timestamp)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [ðŸ’¬ Comentar] [ðŸ‘ Apoyar ID]    â”‚  (botones 60pt, otros en ajena)
 â”‚ [ðŸš© Reportar]                    â”‚
@@ -237,7 +237,7 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 
 **Botones en ajena:**
 - `Comentar`: Abre vista de comentarios
-- `Apoyar ID`: Incrementa contador de apoyo a la identificaciÃ³n propuesta
+- `Apoyar ID`: Incrementa contador de apoyo a la identificación propuesta
 - `Reportar`: Pop-up de denuncias ("Foto inadecuada", "Especie incorrecta", "Otro")
 - Color botones: #626264
 
@@ -245,47 +245,47 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 
 ### Perfil â€” Variante propia
 
-**UbicaciÃ³n:** Mi perfil (accesible desde navbar)
+**Ubicación:** Mi perfil (accesible desde navbar)
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ [ðŸŽ­ avatar]  [âœï¸ Editar perfil] â”‚  (avatar 60pt, botÃ³n derecha)
+â”‚ [ðŸŽ­ avatar]  [âœï¸ Editar perfil] â”‚  (avatar 60pt, botón derecha)
 â”‚ @nombre_usuario                  â”‚
-â”‚ "HerpetÃ³logo aventurero"         â”‚  (bio)
+â”‚ "Herpetólogo aventurero"         â”‚  (bio)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ 42 observaciones  â”‚ 15 seguidos  â”‚
 â”‚ 7 seguidores      â”‚              â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ ðŸ“Œ Observaciones pÃºblicas        â”‚  (pestaÃ±as)
+â”‚ ðŸ“Œ Observaciones pàºblicas        â”‚  (pestañas)
 â”‚ ðŸ“Œ Observaciones privadas        â”‚  (SOLO en propio)
 â”‚ â­ Favoritos                     â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [Listado de observaciones...]    â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ [Ajustes]  [Cerrar sesiÃ³n]       â”‚  (botones inferiores, SOLO en propio)
+â”‚ [Ajustes]  [Cerrar sesión]       â”‚  (botones inferiores, SOLO en propio)
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-**Elementos Ãºnicos en propio:**
-- BotÃ³n "Editar perfil": Abre formulario de nombre, bio, foto
-- PestaÃ±a "Observaciones privadas": Solo visible al propietario
-- Botones "Ajustes" y "Cerrar sesiÃ³n": Acceso a configuraciÃ³n
+**Elementos àºnicos en propio:**
+- Botón "Editar perfil": Abre formulario de nombre, bio, foto
+- Pestaña "Observaciones privadas": Solo visible al propietario
+- Botones "Ajustes" y "Cerrar sesión": Acceso a configuración
 - Color botones: #626264
 
 ### Perfil â€” Variante ajena
 
-**UbicaciÃ³n:** Ver perfil de otro usuario
+**Ubicación:** Ver perfil de otro usuario
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ [ðŸŽ­ avatar]  [âž• Seguir]         â”‚  (botÃ³n "Seguir", no "Editar")
+â”‚ [ðŸŽ­ avatar]  [âž• Seguir]         â”‚  (botón "Seguir", no "Editar")
 â”‚ @nombre_usuario                  â”‚
-â”‚ "HerpetÃ³logo aventurero"         â”‚
+â”‚ "Herpetólogo aventurero"         â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ 42 observaciones  â”‚ 15 seguidos  â”‚
 â”‚ 7 seguidores      â”‚              â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ ðŸ“Œ Observaciones pÃºblicas        â”‚  (solo pÃºblica, sin privadas)
+â”‚ ðŸ“Œ Observaciones pàºblicas        â”‚  (solo pàºblica, sin privadas)
 â”‚ â­ Favoritos                     â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [Listado de observaciones...]    â”‚
@@ -294,9 +294,9 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-**Elementos Ãºnicos en ajena:**
-- BotÃ³n "Seguir" (no "Editar")
-- Sin pestaÃ±a de privadas
+**Elementos àºnicos en ajena:**
+- Botón "Seguir" (no "Editar")
+- Sin pestaña de privadas
 - Botones "Contactar" y "Reportar" al pie
 - Sin acceso a "Ajustes"
 
@@ -306,152 +306,152 @@ tags: [anura, diseÃ±o, componentes, compose, kotlin]
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ðŸ‘¤ TÃº Â· Hace 1 hora              â”‚
-â”‚ "Excelente foto, Â¿dÃ³nde fue?"   â”‚
+â”‚ ðŸ‘¤ Tàº · Hace 1 hora              â”‚
+â”‚ "Excelente foto, ¿dónde fue?"   â”‚
 â”‚ [ âœï¸ Editar ]  [ ðŸ—‘ï¸ Borrar ]    â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-**Botones:** Editar Â· Borrar
+**Botones:** Editar · Borrar
 
 ### Comentario â€” Variante ajena
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ðŸ‘¤ @otro_usuario Â· Hace 1 hora   â”‚
-â”‚ "Excelente foto, Â¿dÃ³nde fue?"   â”‚
+â”‚ ðŸ‘¤ @otro_usuario · Hace 1 hora   â”‚
+â”‚ "Excelente foto, ¿dónde fue?"   â”‚
 â”‚ [ ðŸ’¬ Responder ]  [ ðŸš© Reportar]â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-**Botones:** Responder Â· Reportar
+**Botones:** Responder · Reportar
 
 ---
 
-## NIVEL 4: Estados de sincronizaciÃ³n (distintivos)
+## NIVEL 4: Estados de sincronización (distintivos)
 
-### Distintivo de estado en observaciÃ³n
+### Distintivo de estado en observación
 
-**UbicaciÃ³n:** Esquina inferior derecha de la tarjeta de observaciÃ³n (para RF-13)
+**Ubicación:** Esquina inferior derecha de la tarjeta de observación (para RF-13)
 
 | Estado | Icono | Color | Significado |
 |--------|-------|-------|------------|
-| LOCAL | ðŸ’¾ | #CCCCCC (gris claro) | Guardada localmente, no sincronizada aÃºn |
-| EN_COLA | â³ | #FFC107 (Ã¡mbar) | Esperando sincronizaciÃ³n |
+| LOCAL | ðŸ’¾ | #CCCCCC (gris claro) | Guardada localmente, no sincronizada aàºn |
+| EN_COLA | â³ | #FFC107 (ámbar) | Esperando sincronización |
 | SINCRONIZADA | âœ… | #4CAF50 (verde) | Sincronizada con servidor |
 | VALIDADA | ðŸ”’ | #2196F3 (azul) | Validada por experto (fuera de sprint) |
 
-**TamaÃ±o:** 20Ã—20pt, ubicado en (145, 170) respecto a la esquina superior izquierda de la tarjeta
+**Tamaño:** 20à—20pt, ubicado en (145, 170) respecto a la esquina superior izquierda de la tarjeta
 
 **Comportamiento:** 
 - Tooltip al pasar el dedo: "Sincronizada a las 14:32"
-- Tap: Abre pop-up con detalles de sincronizaciÃ³n
+- Tap: Abre pop-up con detalles de sincronización
 
 ---
 
 ## NIVEL 5: Vistas complejas
 
-### Resultado del anÃ¡lisis â€” Caso open-set (no registrada)
+### Resultado del análisis â€” Caso open-set (no registrada)
 
-**CuÃ¡ndo aparece:** BioCLIP genera embedding, open-set rechaza a umbral, la especie no estÃ¡ en el catÃ¡logo
+**Cuándo aparece:** BioCLIP genera embedding, open-set rechaza a umbral, la especie no está en el catálogo
 
 **Estructura:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚        Resultado del anÃ¡lisis                â”‚
+â”‚        Resultado del análisis                â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  âš ï¸ Especie no registrada en el catÃ¡logo    â”‚  (tÃ­tulo 20pt)
+â”‚  âš ï¸ Especie no registrada en el catálogo    â”‚  (título 20pt)
 â”‚                                              â”‚
-â”‚  Mejor coincidencia: GÃ‰NERO Dendropsophus  â”‚  (15pt)
+â”‚  Mejor coincidencia: GÉNERO Dendropsophus  â”‚  (15pt)
 â”‚  Confianza: 67%                              â”‚
 â”‚                                              â”‚
-â”‚  Las 28 especies del catÃ¡logo actual no     â”‚  (descripciÃ³n 15pt)
-â”‚  incluyen esta. PodrÃ­a ser:                  â”‚
-â”‚  â€¢ Una especie nueva para la regiÃ³n          â”‚
+â”‚  Las 28 especies del catálogo actual no     â”‚  (descripción 15pt)
+â”‚  incluyen esta. Podría ser:                  â”‚
+â”‚  â€¢ Una especie nueva para la región          â”‚
 â”‚  â€¢ Una especie muy rara                      â”‚
-â”‚  â€¢ Merece un segundo anÃ¡lisis                â”‚
+â”‚  â€¢ Merece un segundo análisis                â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  [Ver detalles de anÃ¡lisis]                  â”‚  (expandible)
-â”‚  â€¢ SegmentaciÃ³n: 95%                         â”‚
-â”‚  â€¢ Similitud de contexto geogrÃ¡fico: 12%     â”‚
+â”‚  [Ver detalles de análisis]                  â”‚  (expandible)
+â”‚  â€¢ Segmentación: 95%                         â”‚
+â”‚  â€¢ Similitud de contexto geográfico: 12%     â”‚
 â”‚  â€¢ Audio (si hay): No coincide               â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚  [ Editar y reenviar ]  [ Guardar igual ]   â”‚  (60pt botones)
-â”‚  [ Volver atrÃ¡s ]                            â”‚
+â”‚  [ Volver atrás ]                            â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Botones:**
 - `Editar y reenviar`: Regresa a Paso 4, permite cambiar foto/audio
-- `Guardar igual`: Guarda con etiqueta "GENERO" en lugar de especie especÃ­fica
-- `Volver atrÃ¡s`: Regresa al listado sin guardar
+- `Guardar igual`: Guarda con etiqueta "GENERO" en lugar de especie específica
+- `Volver atrás`: Regresa al listado sin guardar
 
 ---
 
-### Ficha de especie â€” Cuatro pestaÃ±as tÃ©cnicas
+### Ficha de especie â€” Cuatro pestañas técnicas
 
-**Requisito:** RF-10 (ficha tÃ©cnica completa)
+**Requisito:** RF-10 (ficha técnica completa)
 
-**UbicaciÃ³n:** Accesible desde "Detalles de observaciÃ³n" o desde "Explorar â†’ Especies"
+**Ubicación:** Accesible desde "Detalles de observación" o desde "Explorar â†’ Especies"
 
 **Barra de secciones:** Desplazable horizontalmente (HorizontalPager o LazyRow)
 
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ [Recuento] [MorfologÃ­a] [BioacÃºstica]   â”‚  (tabs desplazables)
-â”‚             [EcologÃ­a]                  â”‚
+â”‚ [Recuento] [Morfología] [Bioacàºstica]   â”‚  (tabs desplazables)
+â”‚             [Ecología]                  â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ Contenido de la pestaÃ±a activa...       â”‚
-â”‚ [DescripciÃ³n larga, imÃ¡genes, datos]    â”‚
+â”‚ Contenido de la pestaña activa...       â”‚
+â”‚ [Descripción larga, imágenes, datos]    â”‚
 â”‚                                         â”‚
-â”‚ [Mostrar mÃ¡s]                           â”‚
+â”‚ [Mostrar más]                           â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-#### PestaÃ±a 1: Recuento (ya existe)
+#### Pestaña 1: Recuento (ya existe)
 - Carrusel de fotos
-- Ãrbol taxonÃ³mico
-- EstadÃ­sticas de capturas (nÃºmero de registros)
+- àrbol taxonómico
+- Estadísticas de capturas (nàºmero de registros)
 
-#### PestaÃ±a 2: MorfologÃ­a
+#### Pestaña 2: Morfología
 
 **Contenido:**
-- **TamaÃ±o:** Rango de longitud rostro-cloaca (mm), con diagrama
+- **Tamaño:** Rango de longitud rostro-cloaca (mm), con diagrama
 - **Peso:** Rango en gramos
-- **ColoraciÃ³n:** DescripciÃ³n + mini-galerÃ­a de patrones dorsales/ventrales
-- **Crestas y membranas:** Presencia/ausencia, con etiquetas anatÃ³micas
-- **ReproducciÃ³n:** Amplexo tipo (axial/inguinal), tamaÃ±o de huevo
-- **Dimorfismo sexual:** DescripciÃ³n y fotos comparativas
-- **Fuente:** Referencia bibliogrÃ¡fica o link a Amphibiaweb/IUCN
+- **Coloración:** Descripción + mini-galería de patrones dorsales/ventrales
+- **Crestas y membranas:** Presencia/ausencia, con etiquetas anatómicas
+- **Reproducción:** Amplexo tipo (axial/inguinal), tamaño de huevo
+- **Dimorfismo sexual:** Descripción y fotos comparativas
+- **Fuente:** Referencia bibliográfica o link a Amphibiaweb/IUCN
 
 **Estructura de UI:**
 ```
-Cada atributo morfolÃ³gico:
+Cada atributo morfológico:
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ðŸ“ TamaÃ±o (LSC)            â”‚  (icono + label)
+â”‚ ðŸ“ Tamaño (LSC)            â”‚  (icono + label)
 â”‚ 18â€“25 mm                   â”‚  (valor)
-â”‚ [Mostrar diagrama]         â”‚  (botÃ³n expandible)
+â”‚ [Mostrar diagrama]         â”‚  (botón expandible)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [Diagrama de medida LSC]   â”‚  (imagen expandida)
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-#### PestaÃ±a 3: BioacÃºstica
+#### Pestaña 3: Bioacàºstica
 
 **Contenido:**
-- **Tipo de canto:** ReproducciÃ³n, territorial, cortejo
+- **Tipo de canto:** Reproducción, territorial, cortejo
 - **Frecuencia dominante:** Rango en Hz con espectrograma
-- **DuraciÃ³n de nota:** Milisegundos, con waveform
-- **Tasa de repeticiÃ³n:** Notas/segundo
-- **Ejemplo de audio:** Widget de reproducciÃ³n (botÃ³n play, barra de progreso)
-- **Contexto temporal:** CuÃ¡ndo canta (Ã©poca del aÃ±o, hora del dÃ­a)
+- **Duración de nota:** Milisegundos, con waveform
+- **Tasa de repetición:** Notas/segundo
+- **Ejemplo de audio:** Widget de reproducción (botón play, barra de progreso)
+- **Contexto temporal:** Cuándo canta (época del año, hora del día)
 
 **Estructura de UI:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ðŸŽµ Canto de reproducciÃ³n   â”‚
+â”‚ ðŸŽµ Canto de reproducción   â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ [â–¶ï¸ Reproducir ejemplo]    â”‚  (botÃ³n play)
+â”‚ [â–¶ï¸ Reproducir ejemplo]    â”‚  (botón play)
 â”‚ â–“â–“â–“â–‘â–‘â–‘â–‘â–‘  0:45 / 1:20     â”‚  (barra de progreso)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ Frecuencia dominante       â”‚
@@ -462,75 +462,75 @@ Cada atributo morfolÃ³gico:
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-#### PestaÃ±a 4: EcologÃ­a
+#### Pestaña 4: Ecología
 
 **Contenido:**
-- **HÃ¡bitat:** Tipos de ecosistema (bosque hÃºmedo, sabana, etc.), altitud (msnm)
-- **MicrohÃ¡bitat:** Dosel, sotobosque, suelo, agua
+- **Hábitat:** Tipos de ecosistema (bosque hàºmedo, sabana, etc.), altitud (msnm)
+- **Microhábitat:** Dosel, sotobosque, suelo, agua
 - **Actividad:** Nocturno, diurno, crepuscular
-- **ReproducciÃ³n:** Tipo de amplexo, lugar de reproducciÃ³n (charco, arroyo, Ã¡rbol)
-- **Dieta:** QuÃ© come (insectos, otros anuros, etc.)
-- **DistribuciÃ³n:** Mapa simplificado de rango geogrÃ¡fico
-- **Amenazas:** PÃ©rdida de hÃ¡bitat, hongos, contaminaciÃ³n
-- **Estado IUCN:** CategorÃ­a con icono
+- **Reproducción:** Tipo de amplexo, lugar de reproducción (charco, arroyo, árbol)
+- **Dieta:** Qué come (insectos, otros anuros, etc.)
+- **Distribución:** Mapa simplificado de rango geográfico
+- **Amenazas:** Pérdida de hábitat, hongos, contaminación
+- **Estado IUCN:** Categoría con icono
 
 **Estructura de UI:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ðŸŒ³ HÃ¡bitat                 â”‚
-â”‚ Bosque hÃºmedo 800â€“1800m    â”‚  (valor + rango altitud)
+â”‚ ðŸŒ³ Hábitat                 â”‚
+â”‚ Bosque hàºmedo 800â€“1800m    â”‚  (valor + rango altitud)
 â”‚ [Mapa simplificado]        â”‚  (expandible)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ ðŸ—ºï¸ DistribuciÃ³n            â”‚
-â”‚ [Mapa de rango]            â”‚  (imagen de distribuciÃ³n)
+â”‚ ðŸ—ºï¸ Distribución            â”‚
+â”‚ [Mapa de rango]            â”‚  (imagen de distribución)
 â”‚ Colombia (endemismo regional)
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ ðŸ”´ Estado IUCN             â”‚
-â”‚ Vulnerable (VU)            â”‚  (icono + categorÃ­a)
+â”‚ Vulnerable (VU)            â”‚  (icono + categoría)
 â”‚ [Ver en IUCN Red List]     â”‚  (link externo)
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
 
-### SecciÃ³n "Mis publicaciones" (con variantes pÃºblica/privada)
+### Sección "Mis publicaciones" (con variantes pàºblica/privada)
 
-**UbicaciÃ³n:** En el perfil propio (no en ajena)
+**Ubicación:** En el perfil propio (no en ajena)
 
 **Estructura:**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
 â”‚ Mis observaciones                 â”‚
-â”‚ [ðŸ“Œ Todas] [ðŸŒ PÃºblicas] [ðŸ”’ Privadas]
+â”‚ [ðŸ“Œ Todas] [ðŸŒ Pàºblicas] [ðŸ”’ Privadas]
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [ Listado de tarjetas ]           â”‚
 â”‚                                   â”‚
-â”‚ [ BotÃ³n de compartir/visibilidad] â”‚
+â”‚ [ Botón de compartir/visibilidad] â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-**PestaÃ±as:**
-- **Todas:** Muestra pÃºblicas + privadas (solo tÃº ves esto)
-- **PÃºblicas:** Visibles para otros usuarios
-- **Privadas:** Solo tÃº las ves (marcadas con ðŸ”’)
+**Pestañas:**
+- **Todas:** Muestra pàºblicas + privadas (solo tàº ves esto)
+- **Pàºblicas:** Visibles para otros usuarios
+- **Privadas:** Solo tàº las ves (marcadas con ðŸ”’)
 
 **Pop-up de visibilidad:**
 
-Cuando el usuario guarda una observaciÃ³n nueva, aparece:
+Cuando el usuario guarda una observación nueva, aparece:
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Visibilidad de la observaciÃ³n    â”‚
+â”‚ Visibilidad de la observación    â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ â—‹ Privada (solo tÃº)             â”‚  (seleccionable)
-â”‚ â—‹ PÃºblica                        â”‚  (seleccionable)
+â”‚ â—‹ Privada (solo tàº)             â”‚  (seleccionable)
+â”‚ â—‹ Pàºblica                        â”‚  (seleccionable)
 â”‚                                  â”‚
-â”‚ Las pÃºblicas ayudan a otros a    â”‚
-â”‚ aprender; la ubicaciÃ³n exacta    â”‚
+â”‚ Las pàºblicas ayudan a otros a    â”‚
+â”‚ aprender; la ubicación exacta    â”‚
 â”‚ se ofusca para especies          â”‚
 â”‚ amenazadas.                      â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [ Guardar como privada ]         â”‚  (60pt botones)
-â”‚ [ Guardar como pÃºblica ]         â”‚
+â”‚ [ Guardar como pàºblica ]         â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
@@ -541,22 +541,22 @@ Cuando el usuario guarda una observaciÃ³n nueva, aparece:
 | Req | Nivel | Componente | Estado |
 |-----|-------|-----------|--------|
 | RF-04 | 1 | Campos de altitud + ecosistema | âœ… Especificado |
-| RF-13 | 4 | Distintivos de sincronizaciÃ³n | âœ… Especificado |
-| RNF-06 | 1 | BotÃ³n "Omitir" en pasos | âœ… Especificado |
+| RF-13 | 4 | Distintivos de sincronización | âœ… Especificado |
+| RNF-06 | 1 | Botón "Omitir" en pasos | âœ… Especificado |
 | RNF-14 | 2 | Pop-ups de permisos (3) | âœ… Especificado |
 | HU-01 caso 2 | 2 | Pop-up de foto borrosa | âœ… Especificado |
 | HU-02 caso 3 | 4 | Resultado open-set | âœ… Especificado |
-| RF-10 | 5 | Cuatro pestaÃ±as de ficha | âœ… Especificado |
-| Â§ Variantes | 3 | Propio vs. ajeno (4 elementos) | âœ… Especificado |
+| RF-10 | 5 | Cuatro pestañas de ficha | âœ… Especificado |
+| § Variantes | 3 | Propio vs. ajeno (4 elementos) | âœ… Especificado |
 
 ---
 
-## GuÃ­a de implementaciÃ³n en Compose
+## Guía de implementación en Compose
 
-### PatrÃ³n para reutilizar componentes
+### Patrón para reutilizar componentes
 
 ```kotlin
-// Componente genÃ©rico de tarjeta de observaciÃ³n
+// Componente genérico de tarjeta de observación
 @Composable
 fun ObservationCard(
     observation: Observacion,
@@ -566,7 +566,7 @@ fun ObservationCard(
     onComment: () -> Unit,
     onLike: () -> Unit
 ) {
-    // Renderiza diferente segÃºn isOwn
+    // Renderiza diferente segàºn isOwn
     if (isOwn) {
         // Botones: Editar, Eliminar
     } else {
@@ -575,10 +575,10 @@ fun ObservationCard(
 }
 ```
 
-### PatrÃ³n para pop-ups de permisos
+### Patrón para pop-ups de permisos
 
 ```kotlin
-// GenÃ©rico para cualquier permiso
+// Genérico para cualquier permiso
 @Composable
 fun PermissionRequestBottomSheet(
     title: String,
@@ -598,23 +598,23 @@ fun PermissionRequestBottomSheet(
 
 **Requisito:** HU-04 (salidas de campo comunitarias)
 
-**CuÃ¡ndo aparece:** Usuario presiona "Cerrar salida" en una sesiÃ³n de campo activa
+**Cuándo aparece:** Usuario presiona "Cerrar salida" en una sesión de campo activa
 
 **Pantalla previa: Salida de campo en curso**
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Salida de campo: PÃ¡ramo La BreÃ±a â”‚
-â”‚ Iniciada: 14:30 Â· DuraciÃ³n: 4h   â”‚
+â”‚ Salida de campo: Páramo La Breña â”‚
+â”‚ Iniciada: 14:30 · Duración: 4h   â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ ðŸ“Š Resumen                       â”‚
-â”‚ Observaciones: 12                â”‚  (nÃºmero de registros)
+â”‚ Observaciones: 12                â”‚  (nàºmero de registros)
 â”‚ Especies: 7                      â”‚
-â”‚ Ubicaciones Ãºnicas: 8            â”‚
+â”‚ Ubicaciones àºnicas: 8            â”‚
 â”‚ Audio capturado: 340 MB          â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ [Editar detalles] [Mostrar mapa] â”‚
 â”‚                                  â”‚
-â”‚ [Cerrar salida]                  â”‚  (botÃ³n 60pt)
+â”‚ [Cerrar salida]                  â”‚  (botón 60pt)
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
@@ -624,22 +624,22 @@ fun PermissionRequestBottomSheet(
 â”‚ Cerrar salida de campo           â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ âœ… 12 observaciones registradas  â”‚
-â”‚ âœ… 7 especies Ãºnicas             â”‚
+â”‚ âœ… 7 especies àºnicas             â”‚
 â”‚ âœ… Fecha: 07 sep 2026            â”‚
-â”‚ âœ… DuraciÃ³n: 4 horas 23 minutos  â”‚
+â”‚ âœ… Duración: 4 horas 23 minutos  â”‚
 â”‚ âš ï¸  10 observaciones sin audio    â”‚
 â”‚                                  â”‚
-â”‚ Â¿Quieres hacerla pÃºblica?        â”‚
+â”‚ ¿Quieres hacerla pàºblica?        â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ [ Privada ]  [ PÃºblica ]         â”‚  (60pt botones)
+â”‚ [ Privada ]  [ Pàºblica ]         â”‚  (60pt botones)
 â”‚ [ Editar notas ]                 â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Estados finales:**
-- **Privada:** Guardada en dispositivo, solo visible para tÃ­
-- **PÃºblica:** Sincronizada con servidor, contribuye a mapa comunitario
-- **Editar notas:** Abre campo de texto para agregar observaciones (contexto, condiciones climÃ¡ticas, equipo)
+- **Privada:** Guardada en dispositivo, solo visible para tí
+- **Pàºblica:** Sincronizada con servidor, contribuye a mapa comunitario
+- **Editar notas:** Abre campo de texto para agregar observaciones (contexto, condiciones climáticas, equipo)
 
 **Persistencia:**
 - La salida queda en el historial
@@ -650,8 +650,8 @@ fun PermissionRequestBottomSheet(
 
 ## Siguientes pasos
 
-1. **HILO DE VALIDACIÃ“N:** Revisar esta especificaciÃ³n en Penpot, confirmar medidas y colores
-2. **IMPLEMENTACIÃ“N:** Pasar cada nivel a Compose siguiendo los patrones de reutilizaciÃ³n
+1. **HILO DE VALIDACIà“N:** Revisar esta especificación en Penpot, confirmar medidas y colores
+2. **IMPLEMENTACIà“N:** Pasar cada nivel a Compose siguiendo los patrones de reutilización
 3. **TESTING:** Verificar variantes propio/ajeno en dispositivo real antes de mergear
 
 

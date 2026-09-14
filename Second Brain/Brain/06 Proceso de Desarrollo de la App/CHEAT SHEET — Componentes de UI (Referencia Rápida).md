@@ -1,18 +1,18 @@
 ﻿---
-title: "CHEAT SHEET â€” Componentes de UI (Referencia RÃ¡pida)"
+title: "CHEAT SHEET â€” Componentes de UI (Referencia Rápida)"
 proyecto: Anura
 tipo: referencia
 estado: v1-07-sep-2026
-tags: [anura, diseÃ±o, cheat-sheet, compose, kotlin, referencia-rapida]
+tags: [anura, diseño, cheat-sheet, compose, kotlin, referencia-rapida]
 ---
 
-# CHEAT SHEET â€” Componentes de UI (Referencia RÃ¡pida)
+# CHEAT SHEET â€” Componentes de UI (Referencia Rápida)
 
-**Imprime esto o pinlo en tu monitor.** Fuente de verdad: [[Componentes de UI â€” EspecificaciÃ³n Detallada]]
+**Imprime esto o pinlo en tu monitor.** Fuente de verdad: [[Componentes de UI â€” Especificación Detallada]]
 
 ---
 
-## PALETA (CÃ³pialo en colors.kt)
+## PALETA (Cópialo en colors.kt)
 
 ```kotlin
 object AnuraColors {
@@ -30,20 +30,20 @@ object AnuraColors {
 | Propiedad | Valor |
 |-----------|-------|
 | **Radio borde** | 30pt |
-| **Alto botÃ³n** | 60pt |
+| **Alto botón** | 60pt |
 | **Ancho pantalla** | 393pt |
 | **Alto pantalla** | 852pt |
-| **Escala texto** | 25 (tÃ­tulo) Â· 20 (normal) Â· 15 (descriptivo) Â· 10 (mÃ­nimo) |
+| **Escala texto** | 25 (título) · 20 (normal) · 15 (descriptivo) · 10 (mínimo) |
 
 ---
 
 ## COMPONENTES NUEVOS (Nivel 1 = Hoy)
 
-### Campo numÃ©rico â€” Altitud
-- **UbicaciÃ³n:** Paso 2 (metadatos)
+### Campo numérico â€” Altitud
+- **Ubicación:** Paso 2 (metadatos)
 - **Placeholder:** "Altitud (msnm)"
 - **Rango:** 0â€“5000
-- **Opcional:** âœ… SÃ­ (RNF-06)
+- **Opcional:** âœ… Sí (RNF-06)
 
 ```kotlin
 TextField(
@@ -55,12 +55,12 @@ TextField(
 ```
 
 ### Selector â€” Ecosistema
-- **UbicaciÃ³n:** Paso 2, bajo Altitud
-- **Opciones:** Bosque Â· Agua Â· Zona abierta Â· Ãrea urbana Â· Otro
-- **Opcional:** âœ… SÃ­
+- **Ubicación:** Paso 2, bajo Altitud
+- **Opciones:** Bosque · Agua · Zona abierta · àrea urbana · Otro
+- **Opcional:** âœ… Sí
 
-### BotÃ³n "Omitir"
-- **UbicaciÃ³n:** Pie de cada paso (1, 2, 4)
+### Botón "Omitir"
+- **Ubicación:** Pie de cada paso (1, 2, 4)
 - **Etiqueta:** "Omitir este paso"
 - **Alto:** 60pt
 - **Color:** #626264
@@ -71,25 +71,25 @@ ull` (no `""`)
 
 ## POP-UPS (Nivel 2)
 
-### Permiso de cÃ¡mara
+### Permiso de cámara
 ```
 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ðŸ“· Acceso a cÃ¡mara  â”‚
+â”‚ ðŸ“· Acceso a cámara  â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ Anura necesita      â”‚
 â”‚ acceder a tu        â”‚
-â”‚ cÃ¡mara...           â”‚
+â”‚ cámara...           â”‚
 â”‚ [ Permitir ] [ No ] â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
-- **CuÃ¡ndo:** Usuario toca "Tomar foto" en Paso 4
+- **Cuándo:** Usuario toca "Tomar foto" en Paso 4
 - **Denegado:** Pop-up secundario â†’ "Abre Ajustes"
 
-### Permiso de micrÃ³fono
-- IdÃ©ntico a cÃ¡mara, pero: "ðŸŽ¤ Acceso al micrÃ³fono"
+### Permiso de micrófono
+- Idéntico a cámara, pero: "ðŸŽ¤ Acceso al micrófono"
 
-### Permiso de ubicaciÃ³n
-- IdÃ©ntico, pero: "ðŸ“ Acceso a la ubicaciÃ³n"
+### Permiso de ubicación
+- Idéntico, pero: "ðŸ“ Acceso a la ubicación"
 
 ### Foto borrosa
 ```
@@ -97,15 +97,15 @@ ull` (no `""`)
 â”‚ âš ï¸ Foto borrosa     â”‚
 â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
 â”‚ Prueba:             â”‚
-â”‚ â€¢ Acercarte mÃ¡s     â”‚
+â”‚ â€¢ Acercarte más     â”‚
 â”‚ â€¢ Limpiar lente     â”‚
 â”‚ â€¢ Mejor luz         â”‚
 â”‚ [ Tomar otra ]      â”‚
 â”‚ [ Aceptar ]         â”‚
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
-- **CuÃ¡ndo:** Post-captura si desenfoque > umbral
-- **Acciones:** Retomar Â· Guardar igual
+- **Cuándo:** Post-captura si desenfoque > umbral
+- **Acciones:** Retomar · Guardar igual
 
 ### Analizando (progreso)
 ```
@@ -118,49 +118,49 @@ ull` (no `""`)
 â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 - **No cancelable**
-- **Etapas:** SegmentaciÃ³n â†’ BioCLIP â†’ ClasificaciÃ³n â†’ Open-set
+- **Etapas:** Segmentación â†’ BioCLIP â†’ Clasificación â†’ Open-set
 
 ---
 
 ## VARIANTES (Nivel 3)
 
-### ObservaciÃ³n PROPIA
+### Observación PROPIA
 ```
 [ Foto ]  [â¤ï¸] [âš ï¸]
-Nombre comÃºn
-Nombre cientÃ­fico
+Nombre comàºn
+Nombre científico
 [ ðŸ“ Editar ] [ ðŸ—‘ï¸ Borrar ]
 ```
 
-### ObservaciÃ³n AJENA
+### Observación AJENA
 ```
 [ Foto ]  [ðŸ¤] [âš ï¸]
-Nombre comÃºn
-Nombre cientÃ­fico
-@usuario Â· Hace 2h
+Nombre comàºn
+Nombre científico
+@usuario · Hace 2h
 [ ðŸ’¬ Comentar ] [ ðŸ‘ Apoyar ] [ ðŸš© Reportar ]
 ```
 
 ### Perfil PROPIO
 - Avatar + **Editar perfil**
 - Privadas â†’ **visible**
-- Botones: Ajustes Â· Cerrar sesiÃ³n
+- Botones: Ajustes · Cerrar sesión
 
 ### Perfil AJENO
 - Avatar + **Seguir**
 - Privadas â†’ **ocultas**
-- Botones: Contactar Â· Reportar
+- Botones: Contactar · Reportar
 
 ### Comentario PROPIO
 ```
-TÃº Â· Hace 1h
+Tàº · Hace 1h
 "Texto..."
 [ âœï¸ Editar ] [ ðŸ—‘ï¸ Borrar ]
 ```
 
 ### Comentario AJENO
 ```
-@usuario Â· Hace 1h
+@usuario · Hace 1h
 "Texto..."
 [ ðŸ’¬ Responder ] [ ðŸš© Reportar ]
 ```
@@ -169,11 +169,11 @@ TÃº Â· Hace 1h
 
 ## DISTINTIVOS (Nivel 4)
 
-### Estado de sincronizaciÃ³n (esquina tarjeta)
+### Estado de sincronización (esquina tarjeta)
 | Estado | Icono | Color | Significado |
 |--------|-------|-------|------------|
 | LOCAL | ðŸ’¾ | Gris | No sincronizado |
-| EN_COLA | â³ | Ãmbar | Esperando |
+| EN_COLA | â³ | àmbar | Esperando |
 | SINCRONIZADA | âœ… | Verde | OK servidor |
 | VALIDADA | ðŸ”’ | Azul | Experto OK |
 
@@ -184,23 +184,23 @@ TÃº Â· Hace 1h
 ### Open-set: No registrada
 ```
 âš ï¸ Especie no registrada
-Mejor: GÃ©nero Dendropsophus (67%)
+Mejor: Género Dendropsophus (67%)
 [ Ver detalles ]
 [ Editar ] [ Guardar igual ]
 ```
 
-### Ficha de especie: 4 pestaÃ±as
-1. **Recuento** â€” Fotos, Ã¡rbol, estadÃ­sticas
-2. **MorfologÃ­a** â€” TamaÃ±o, coloraciÃ³n, dimorfismo
-3. **BioacÃºstica** â€” Canto, Hz, espectrograma, ejemplo audio
-4. **EcologÃ­a** â€” HÃ¡bitat, distribuciÃ³n, amenazas, IUCN
+### Ficha de especie: 4 pestañas
+1. **Recuento** â€” Fotos, árbol, estadísticas
+2. **Morfología** â€” Tamaño, coloración, dimorfismo
+3. **Bioacàºstica** â€” Canto, Hz, espectrograma, ejemplo audio
+4. **Ecología** â€” Hábitat, distribución, amenazas, IUCN
 
 ### Mis observaciones: Visibilidad
 - **Pop-up al guardar:**
   ```
-  â—‹ Privada (solo tÃº)
-  â—‹ PÃºblica
-  [ Guardar privada ] [ Guardar pÃºblica ]
+  â—‹ Privada (solo tàº)
+  â—‹ Pàºblica
+  [ Guardar privada ] [ Guardar pàºblica ]
   ```
 
 ### Salida de campo: Cierre
@@ -208,13 +208,13 @@ Mejor: GÃ©nero Dendropsophus (67%)
 âœ… 12 observaciones
 âœ… 7 especies
 âš ï¸ 10 sin audio
-Â¿Privada o pÃºblica?
+¿Privada o pàºblica?
 [ Editar notas ]
 ```
 
 ---
 
-## PATRONES DE CÃ“DIGO
+## PATRONES DE Cà“DIGO
 
 ### Componente con variante propio/ajeno
 
@@ -225,7 +225,7 @@ fun ObservationCard(
     isOwn: Boolean
 ) {
     Column {
-        // Encabezado comÃºn
+        // Encabezado comàºn
         
         if (isOwn) {
             // Botones: Editar, Eliminar
@@ -245,7 +245,7 @@ fun ObservationCard(
 }
 ```
 
-### Pop-up de permiso genÃ©rico
+### Pop-up de permiso genérico
 
 ```kotlin
 @Composable
@@ -264,19 +264,19 @@ fun PermissionSheet(
 
 ---
 
-## CHECKLIST DE IMPLEMENTACIÃ“N
+## CHECKLIST DE IMPLEMENTACIà“N
 
 - [ ] Paso 2: Altitud + Ecosistema + Omitir
 - [ ] Pop-up: Permisos (3)
 - [ ] Pop-up: Foto borrosa
 - [ ] Pop-up: Analizando con progreso
-- [ ] Tarjeta observaciÃ³n: variante propia + ajena
+- [ ] Tarjeta observación: variante propia + ajena
 - [ ] Perfil: variante propia + ajena
 - [ ] Comentario: variante propia + ajena
-- [ ] Distintivo: Estado de sincronizaciÃ³n
+- [ ] Distintivo: Estado de sincronización
 - [ ] Resultado: Open-set
-- [ ] Ficha: 4 pestaÃ±as (Recuento, Morfo, Bio, Eco)
-- [ ] Perfil: "Mis publicaciones" con privada/pÃºblica
+- [ ] Ficha: 4 pestañas (Recuento, Morfo, Bio, Eco)
+- [ ] Perfil: "Mis publicaciones" con privada/pàºblica
 - [ ] Salida de campo: Cierre con pop-up
 
 ---
@@ -293,7 +293,7 @@ fun PermissionSheet(
 - Validar 
 ull` separado de `""` en Paso 1, 2, 4
 - Reutilizar `ActionButtons()` en todas las variantes
-- Guardar estado de sincronizaciÃ³n antes de pop-up de anÃ¡lisis
+- Guardar estado de sincronización antes de pop-up de análisis
 - Testear variantes propio/ajeno con dos usuarios reales
 
 ---
@@ -303,15 +303,15 @@ ull` separado de `""` en Paso 1, 2, 4
 | Req | Componente |
 |-----|-----------|
 | RF-04 | Altitud, Ecosistema |
-| RF-10 | 4 pestaÃ±as ficha |
-| RF-13 | Distintivos de sincronizaciÃ³n |
-| RNF-06 | BotÃ³n "Omitir" |
+| RF-10 | 4 pestañas ficha |
+| RF-13 | Distintivos de sincronización |
+| RNF-06 | Botón "Omitir" |
 | RNF-14 | Pop-ups de permisos |
 | HU-01 caso 2 | Pop-up foto borrosa |
 | HU-02 caso 3 | Resultado open-set |
 | HU-04 | Resumen salida de campo |
 
-**Fuente de verdad:** [[Componentes de UI â€” EspecificaciÃ³n Detallada]]
+**Fuente de verdad:** [[Componentes de UI â€” Especificación Detallada]]
 
 
 

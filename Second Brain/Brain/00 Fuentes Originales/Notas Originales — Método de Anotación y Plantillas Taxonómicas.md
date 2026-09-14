@@ -1,40 +1,40 @@
 ﻿---
-title: "Notas Originales â€” MÃ©todo de AnotaciÃ³n y Plantillas TaxonÃ³micas"
+title: "Notas Originales â€” Método de Anotación y Plantillas Taxonómicas"
 proyecto: Anura
 tipo: fuente-original
-descripcion: "Notas de trabajo originales: separaciÃ³n entre segmentaciÃ³n universal, extractor de atributos y plantillas taxonÃ³micas por especie."
+descripcion: "Notas de trabajo originales: separación entre segmentación universal, extractor de atributos y plantillas taxonómicas por especie."
 tags: [anura, fuente-original, notas]
 ---
 
-nota dice roboflow Ã©rp todo quedo para cvat esta es la porpiesta en la guia cvat quedo todo lo final 
+nota dice roboflow érp todo quedo para cvat esta es la porpiesta en la guia cvat quedo todo lo final 
 
 
 
-SÃ­. Te lo dejarÃ­a como un mÃ©todo completo y ordenado para Anura, separando claramente lo que se entrena en Roboflow de lo que se construye como conocimiento mediante plantillas.
+Sí. Te lo dejaría como un método completo y ordenado para Anura, separando claramente lo que se entrena en Roboflow de lo que se construye como conocimiento mediante plantillas.
 
 1. Objetivo general
 
-El sistema tendrÃ¡ un modelo universal de segmentaciÃ³n anatÃ³mica de anuros.
+El sistema tendrá un modelo universal de segmentación anatómica de anuros.
 
-Su funciÃ³n no serÃ¡ identificar especies, sino responder:
+Su función no será identificar especies, sino responder:
 
-> Â¿DÃ³nde estÃ¡n las regiones anatÃ³micas de la rana?
+> ¿Dónde están las regiones anatómicas de la rana?
 
-DespuÃ©s, otro sistema utilizarÃ¡ esas regiones para obtener caracterÃ­sticas morfolÃ³gicas y compararlas con las plantillas de las especies.
+Después, otro sistema utilizará esas regiones para obtener características morfológicas y compararlas con las plantillas de las especies.
 
 Imagen
   â†“
-SegmentaciÃ³n universal
+Segmentación universal
   â†“
-Regiones anatÃ³micas
+Regiones anatómicas
   â†“
-CaracterÃ­sticas morfolÃ³gicas
+Características morfológicas
   â†“
 BioCLIP + base vectorial
   +
-Plantilla taxonÃ³mica
+Plantilla taxonómica
   â†“
-IdentificaciÃ³n + explicaciÃ³n
+Identificación + explicación
 
 ---
 
@@ -46,7 +46,7 @@ Utilizas individuos de tus 23 especies, pero las especies no son las clases del 
 
 Como objetivo:
 
-20 individuos/especie: mÃ­nimo
+20 individuos/especie: mínimo
 
 30 individuos/especie: recomendado
 
@@ -54,13 +54,13 @@ Como objetivo:
 
 Con 30:
 
-23 Ã— 30 = 690 individuos.
+23 à— 30 = 690 individuos.
 
-Cada individuo puede tener varias fotografÃ­as.
+Cada individuo puede tener varias fotografías.
 
 Muy importante
 
-Todas las fotografÃ­as del mismo individuo deben permanecer en el mismo conjunto:
+Todas las fotografías del mismo individuo deben permanecer en el mismo conjunto:
 
 IND_001
  â”œâ”€â”€ dorsal
@@ -72,15 +72,15 @@ No:
 dorsal â†’ train
 lateral â†’ test
 
-porque producirÃ­a fuga de informaciÃ³n.
+porque produciría fuga de información.
 
 ---
 
-3. Clases de segmentaciÃ³n
+3. Clases de segmentación
 
-No utilizarÃ­a las 18 regiones originales como 18 clases obligatorias.
+No utilizaría las 18 regiones originales como 18 clases obligatorias.
 
-Para una primera versiÃ³n universal utilizarÃ­a aproximadamente:
+Para una primera versión universal utilizaría aproximadamente:
 
 Regiones principales
 
@@ -88,15 +88,15 @@ Regiones principales
 2. Cabeza
 3. Hocico
 4. Ojos
-5. RegiÃ³n timpÃ¡nica
+5. Región timpánica
 6. Dorso y flancos
 7. Vientre
-8. GlÃ¡ndulas y pliegues
+8. Glándulas y pliegues
 9. Extremidades anteriores
 10. Extremidades posteriores
 11. Dedos
 12. Palmeadura
-13. RegiÃ³n cloacal
+13. Región cloacal
 
 Algunas pueden posteriormente dividirse en subregiones.
 
@@ -106,32 +106,32 @@ Extremidad posterior
 â”œâ”€â”€ pie
 â”œâ”€â”€ dedos
 â”œâ”€â”€ palmeadura
-â”œâ”€â”€ tubÃ©rculos
-â””â”€â”€ tarso/talÃ³n
+â”œâ”€â”€ tubérculos
+â””â”€â”€ tarso/talón
 
 Pero no necesitas convertir cada detalle en una clase desde el principio.
 
 ---
 
-4. Â¿QuÃ© haces con cada fotografÃ­a?
+4. ¿Qué haces con cada fotografía?
 
-En Roboflow dibujas mÃ¡scaras, no simplemente cajas.
+En Roboflow dibujas máscaras, no simplemente cajas.
 
 Ejemplo:
 
-FotografÃ­a
+Fotografía
    â†“
-MÃ¡scara ANURO
+Máscara ANURO
    â†“
-MÃ¡scara CABEZA
+Máscara CABEZA
    â†“
-MÃ¡scara OJOS
+Máscara OJOS
    â†“
-MÃ¡scara TÃMPANO
+Máscara TàMPANO
    â†“
-MÃ¡scara DORSO
+Máscara DORSO
    â†“
-MÃ¡scara EXTREMIDADES
+Máscara EXTREMIDADES
 
 Solo etiquetas lo que realmente es observable.
 
@@ -147,39 +147,39 @@ vientre = ausente
 
 5. Estrategia de entrenamiento
 
-No empezarÃ­a anotando las 1.800 imÃ¡genes manualmente.
+No empezaría anotando las 1.800 imágenes manualmente.
 
-HarÃ­a:
+Haría:
 
-400â€“600 imÃ¡genes
+400â€“600 imágenes
         â†“
-AnotaciÃ³n manual de alta calidad
+Anotación manual de alta calidad
         â†“
 Entrenamiento V1
         â†“
-EvaluaciÃ³n
+Evaluación
         â†“
-PreanotaciÃ³n del resto
+Preanotación del resto
         â†“
-CorrecciÃ³n manual
+Corrección manual
         â†“
 Dataset V2
         â†“
 Entrenamiento final
 
-Esto reduce muchÃ­simo el trabajo.
+Esto reduce muchísimo el trabajo.
 
-AdemÃ¡s, seleccionarÃ­a imÃ¡genes de diferentes:
+Además, seleccionaría imágenes de diferentes:
 
 especies
 
 individuos
 
-familias/gÃ©neros
+familias/géneros
 
 vistas
 
-tamaÃ±os
+tamaños
 
 fondos
 
@@ -187,32 +187,32 @@ iluminaciones
 
 posiciones
 
-condiciones de fotografÃ­a
+condiciones de fotografía
 
 Porque quieres que sea un segmentador universal de anuros, no un segmentador especializado en tus 23 especies.
 
 ---
 
-6. Â¿DÃ³nde entran los atributos?
+6. ¿Dónde entran los atributos?
 
-AquÃ­ estÃ¡ la separaciÃ³n fundamental:
+Aquí está la separación fundamental:
 
 Roboflow aprende:
 
-> DÃ³nde estÃ¡ el ojo.
+> Dónde está el ojo.
 
 Modelo de atributos aprende:
 
-> CÃ³mo es ese ojo.
+> Cómo es ese ojo.
 
 Por ejemplo:
 
 OJO
  â†“
-orientaciÃ³n
+orientación
 forma
 color
-tamaÃ±o relativo
+tamaño relativo
 
 Y:
 
@@ -220,15 +220,15 @@ PALMEADURA
  â†“
 presencia
 grado
-extensiÃ³n
+extensión
 
-No convertirÃ­a:
+No convertiría:
 
 ojo_vertical
 ojo_horizontal
 ojo_azul
 
-en clases de segmentaciÃ³n.
+en clases de segmentación.
 
 ---
 
@@ -244,8 +244,8 @@ ESPECIE X
 
 Cabeza
  â”œâ”€â”€ hocico: redondeado
- â”œâ”€â”€ ojos: orientaciÃ³n horizontal
- â””â”€â”€ tÃ­mpano: visible
+ â”œâ”€â”€ ojos: orientación horizontal
+ â””â”€â”€ tímpano: visible
 
 Piel
  â”œâ”€â”€ textura: lisa
@@ -256,18 +256,18 @@ Extremidades
  â”œâ”€â”€ dedos: ...
  â””â”€â”€ palmeadura: alta
 
-GlÃ¡ndulas
+Glándulas
  â””â”€â”€ presentes
 
-Estos valores deben provenir de fuentes taxonÃ³micas confiables, no de una estimaciÃ³n inventada por el modelo.
+Estos valores deben provenir de fuentes taxonómicas confiables, no de una estimación inventada por el modelo.
 
 ---
 
-8. Cada caracterÃ­stica debe tener informaciÃ³n adicional
+8. Cada característica debe tener información adicional
 
 Por ejemplo:
 
-caracterÃ­stica:
+característica:
   ojos.orientacion
 
 valor esperado:
@@ -280,34 +280,34 @@ variabilidad:
   baja
 
 fuente:
-  literatura taxonÃ³mica
+  literatura taxonómica
 
-Esto permite diferenciar caracterÃ­sticas muy diagnÃ³sticas de caracterÃ­sticas variables.
+Esto permite diferenciar características muy diagnósticas de características variables.
 
 ---
 
-9. La comparaciÃ³n con la plantilla
+9. La comparación con la plantilla
 
 El sistema obtiene:
 
-FOTOGRAFÃA
+FOTOGRAFàA
    â†“
-SegmentaciÃ³n
+Segmentación
    â†“
 Ojos
    â†“
-orientaciÃ³n = vertical
+orientación = vertical
 
 La plantilla dice:
 
 Especie X
-ojos.orientaciÃ³n = horizontal
+ojos.orientación = horizontal
 
 Entonces:
 
-âŒ ContradicciÃ³n
+âŒ Contradicción
 
-Pero si la regiÃ³n no es visible:
+Pero si la región no es visible:
 
 ojos â†’ no observable
 
@@ -315,31 +315,31 @@ el resultado es:
 
 â“ No evaluable
 
-No debe considerarse una contradicciÃ³n.
+No debe considerarse una contradicción.
 
 ---
 
 10. Tres/cuatro tipos de evidencia
 
-Para cada caracterÃ­stica:
+Para cada característica:
 
 âœ… Compatible
 
-La observaciÃ³n coincide con la plantilla.
+La observación coincide con la plantilla.
 
 âŒ Contradictoria
 
-La observaciÃ³n es incompatible.
+La observación es incompatible.
 
 â“ No observable
 
-La fotografÃ­a no permite evaluarla.
+La fotografía no permite evaluarla.
 
 âš ï¸ Variable
 
-La caracterÃ­stica puede variar dentro de la especie y, por tanto, tiene poco peso como contradicciÃ³n.
+La característica puede variar dentro de la especie y, por tanto, tiene poco peso como contradicción.
 
-Esto es especialmente importante para coloraciÃ³n, porque iluminaciÃ³n, edad, sexo, estado reproductivo y otros factores pueden modificar la apariencia.
+Esto es especialmente importante para coloración, porque iluminación, edad, sexo, estado reproductivo y otros factores pueden modificar la apariencia.
 
 ---
 
@@ -351,27 +351,27 @@ Boana X â†’ 87%
 Boana Y â†’ 8%
 Otra â†’ 5%
 
-La plantilla aÃ±ade:
+La plantilla añade:
 
 Boana X
 
-âœ“ TÃ­mpano compatible
+âœ“ Tímpano compatible
 âœ“ Hocico compatible
 âœ“ Palmeadura compatible
-âŒ OrientaciÃ³n ocular incompatible
-? RegiÃ³n cloacal no observable
+âŒ Orientación ocular incompatible
+? Región cloacal no observable
 
-Entonces Anura podrÃ­a presentar:
+Entonces Anura podría presentar:
 
 > Boana X â€” 87%
 
-Evidencia compatible: tÃ­mpano, hocico y palmeadura.
+Evidencia compatible: tímpano, hocico y palmeadura.
 
-Evidencia contradictoria: orientaciÃ³n de los ojos.
+Evidencia contradictoria: orientación de los ojos.
 
-No evaluable: regiÃ³n cloacal.
+No evaluable: región cloacal.
 
-AsÃ­ no dependes Ãºnicamente de la probabilidad de BioCLIP.
+Así no dependes àºnicamente de la probabilidad de BioCLIP.
 
 ---
 
@@ -383,7 +383,7 @@ AsÃ­ no dependes Ãºnicamente de la probabilidad de BioCLIP.
               SEGMENTADOR UNIVERSAL
                          â”‚
                          â–¼
-                REGIONES ANATÃ“MICAS
+                REGIONES ANATà“MICAS
                          â”‚
                          â–¼
                EXTRACTOR DE ATRIBUTOS
@@ -393,45 +393,45 @@ AsÃ­ no dependes Ãºnicamente de la probabilidad de BioCLIP.
            BioCLIP              PLANTILLA
               â”‚                     â”‚
               â–¼                     â–¼
-       Embedding visual       Evidencia anatÃ³mica
+       Embedding visual       Evidencia anatómica
               â”‚                     â”‚
               â–¼                     â”‚
        Base vectorial               â”‚
               â”‚                     â”‚
               â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
                          â–¼
-                  FUSIÃ“N DE EVIDENCIA
+                  FUSIà“N DE EVIDENCIA
                          â”‚
                          â–¼
-             Familia â†’ GÃ©nero â†’ Especie
+             Familia â†’ Género â†’ Especie
                          â”‚
                          â–¼
-                   EXPLICACIÃ“N
+                   EXPLICACIà“N
 
 13. Y cuando agregues una especie nueva
 
-Esta es la ventaja principal de todo el diseÃ±o:
+Esta es la ventaja principal de todo el diseño:
 
 ESPECIE 24
    â”‚
-   â”œâ”€â”€ ImÃ¡genes
+   â”œâ”€â”€ Imágenes
    â”œâ”€â”€ Embeddings
-   â””â”€â”€ Plantilla morfolÃ³gica
+   â””â”€â”€ Plantilla morfológica
              â”‚
              â–¼
         Base vectorial
 
 No tienes que crear otro segmentador.
 
-El segmentador continÃºa siendo:
+El segmentador continàºa siendo:
 
 > "universal para anuros".
 
-La nueva especie solamente necesita incorporarse al conocimiento taxonÃ³mico y al sistema de identificaciÃ³n.
+La nueva especie solamente necesita incorporarse al conocimiento taxonómico y al sistema de identificación.
 
 En una frase
 
-**Roboflow aprende la anatomÃ­a; el modelo de atributos aprende las caracterÃ­sticas; BioCLIP aprende la representaciÃ³n visual; la base vectorial aporta memoria de ejemplares; y las plantillas aportan conocimiento taxonÃ³mico explÃ­cito para explicar y verificar la predicciÃ³n.**
+**Roboflow aprende la anatomía; el modelo de atributos aprende las características; BioCLIP aprende la representación visual; la base vectorial aporta memoria de ejemplares; y las plantillas aportan conocimiento taxonómico explícito para explicar y verificar la predicción.**
 
 
 

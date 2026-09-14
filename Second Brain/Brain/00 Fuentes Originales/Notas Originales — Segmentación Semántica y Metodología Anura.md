@@ -1,42 +1,42 @@
 ﻿---
-title: "Notas Originales â€” SegmentaciÃ³n SemÃ¡ntica y MetodologÃ­a Anura"
+title: "Notas Originales â€” Segmentación Semántica y Metodología Anura"
 proyecto: Anura
 tipo: fuente-original
-descripcion: "Notas de trabajo originales del autor: modelo lÃ³gico de segmentaciÃ³n semÃ¡ntica por regiones anatÃ³micas y metodologÃ­a multimodal completa de Anura."
+descripcion: "Notas de trabajo originales del autor: modelo lógico de segmentación semántica por regiones anatómicas y metodología multimodal completa de Anura."
 tags: [anura, fuente-original, notas]
 ---
 
-Claro. Para Anura, la segmentaciÃ³n semÃ¡ntica quedarÃ­a como un componente de razonamiento visual, no simplemente como una herramienta para pintar la rana.
+Claro. Para Anura, la segmentación semántica quedaría como un componente de razonamiento visual, no simplemente como una herramienta para pintar la rana.
 
-ðŸ¸ SegmentaciÃ³n semÃ¡ntica â€” modelo lÃ³gico de Anura
+ðŸ¸ Segmentación semántica â€” modelo lógico de Anura
 
 1. Objetivo
 
-El objetivo es dividir la rana en regiones anatÃ³micas relevantes para que el sistema pueda determinar quÃ© caracterÃ­sticas morfolÃ³gicas estÃ¡n presentes y cuÃ¡les contribuyen a la identificaciÃ³n.
+El objetivo es dividir la rana en regiones anatómicas relevantes para que el sistema pueda determinar qué características morfológicas están presentes y cuáles contribuyen a la identificación.
 
-La lÃ³gica general:
+La lógica general:
 
 Imagen
   â†“
-LocalizaciÃ³n de la rana
+Localización de la rana
   â†“
-SegmentaciÃ³n semÃ¡ntica
+Segmentación semántica
   â†“
-Regiones anatÃ³micas
+Regiones anatómicas
   â†“
-CaracterÃ­sticas morfolÃ³gicas
+Características morfológicas
   â†“
-Evidencia para la identificaciÃ³n
+Evidencia para la identificación
 
 ---
 
-2. Regiones anatÃ³micas
+2. Regiones anatómicas
 
-Se mantienen las 18 categorÃ­as:
+Se mantienen las 18 categorías:
 
-RegiÃ³n general
+Región general
 
-1. HÃ¡bitus general
+1. Hábitus general
 2. Cabeza
 3. Piel y textura
 4. Dorso y flancos
@@ -45,42 +45,42 @@ RegiÃ³n general
 Cabeza
 
 3. Hocico
-4. Ojos y pÃ¡rpados
-5. RegiÃ³n timpÃ¡nica
-6. GlÃ¡ndulas y pliegues
+4. Ojos y párpados
+5. Región timpánica
+6. Glándulas y pliegues
 
 Extremidades anteriores
 
 10. Extremidades anteriores
 11. Dedos de la mano
-12. TubÃ©rculos de la mano
+12. Tubérculos de la mano
 
 Extremidades posteriores
 
 13. Extremidades posteriores
 14. Dedos del pie
 15. Palmeadura
-16. TubÃ©rculos del pie
-17. Tarso y talÃ³n
+16. Tubérculos del pie
+17. Tarso y talón
 
-RegiÃ³n posterior
+Región posterior
 
-18. RegiÃ³n cloacal
+18. Región cloacal
 
 ---
 
-3. SegmentaciÃ³n jerÃ¡rquica
+3. Segmentación jerárquica
 
 No se plantea como 18 clases independientes.
 
-Se utiliza una estructura anatÃ³mica:
+Se utiliza una estructura anatómica:
 
 RANA
 â”‚
 â”œâ”€â”€ Cabeza
 â”‚   â”œâ”€â”€ Hocico
 â”‚   â”œâ”€â”€ Ojos
-â”‚   â””â”€â”€ TÃ­mpano
+â”‚   â””â”€â”€ Tímpano
 â”‚
 â”œâ”€â”€ Tronco
 â”‚   â”œâ”€â”€ Dorso/flancos
@@ -89,21 +89,21 @@ RANA
 â”‚
 â”œâ”€â”€ Extremidades anteriores
 â”‚   â”œâ”€â”€ Dedos
-â”‚   â””â”€â”€ TubÃ©rculos
+â”‚   â””â”€â”€ Tubérculos
 â”‚
 â””â”€â”€ Extremidades posteriores
     â”œâ”€â”€ Dedos
     â”œâ”€â”€ Palmeadura
-    â”œâ”€â”€ TubÃ©rculos
-    â””â”€â”€ Tarso/talÃ³n
+    â”œâ”€â”€ Tubérculos
+    â””â”€â”€ Tarso/talón
 
-Esto permite que el modelo respete las relaciones anatÃ³micas.
+Esto permite que el modelo respete las relaciones anatómicas.
 
 ---
 
 4. No observable â‰  ausencia
 
-Una caracterÃ­stica puede no aparecer en la fotografÃ­a.
+Una característica puede no aparecer en la fotografía.
 
 Por eso el sistema debe distinguir:
 
@@ -115,23 +115,23 @@ Ejemplo:
 
 > Palmeadura: No observable
 
-No significa que la rana no tenga palmeadura; simplemente la fotografÃ­a no permite evaluarla.
+No significa que la rana no tenga palmeadura; simplemente la fotografía no permite evaluarla.
 
 ---
 
-5. De regiÃ³n a atributo
+5. De región a atributo
 
-La segmentaciÃ³n no termina en obtener una mÃ¡scara.
+La segmentación no termina en obtener una máscara.
 
-El modelo continÃºa:
+El modelo continàºa:
 
-RegiÃ³n anatÃ³mica
+Región anatómica
        â†“
-CaracterÃ­sticas
+Características
        â†“
-Atributos morfolÃ³gicos
+Atributos morfológicos
        â†“
-IdentificaciÃ³n
+Identificación
 
 Por ejemplo:
 
@@ -139,15 +139,15 @@ Dedos
  â†“
 Palmeadura
  â†“
-MorfologÃ­a de la palmeadura
+Morfología de la palmeadura
  â†“
-Evidencia taxonÃ³mica
+Evidencia taxonómica
 
-Esto convierte la segmentaciÃ³n en parte del razonamiento del modelo.
+Esto convierte la segmentación en parte del razonamiento del modelo.
 
 ---
 
-6. AtenciÃ³n anatÃ³mica
+6. Atención anatómica
 
 No todas las regiones tienen la misma importancia para todas las especies.
 
@@ -155,7 +155,7 @@ El modelo aprende:
 
 Especie X
 
-TÃ­mpano       â†’ alta importancia
+Tímpano       â†’ alta importancia
 Dedos         â†’ alta importancia
 Hocico        â†’ media
 Dorso         â†’ baja
@@ -166,41 +166,41 @@ Mientras que para otra especie puede ser:
 Especie Y
 
 Palmeadura    â†’ alta importancia
-TubÃ©rculos    â†’ alta importancia
+Tubérculos    â†’ alta importancia
 Hocico        â†’ media
-TÃ­mpano       â†’ baja
+Tímpano       â†’ baja
 
-Esto permite que el modelo determine quÃ© evidencia anatÃ³mica es relevante para cada identificaciÃ³n.
+Esto permite que el modelo determine qué evidencia anatómica es relevante para cada identificación.
 
 ---
 
-7. IntegraciÃ³n con BioCLIP
+7. Integración con BioCLIP
 
-La segmentaciÃ³n alimenta el proceso visual:
+La segmentación alimenta el proceso visual:
 
 IMAGEN
                      â†“
-              SegmentaciÃ³n
+              Segmentación
                      â†“
              18 regiones
                      â†“
-           AtenciÃ³n anatÃ³mica
+           Atención anatómica
                      â†“
-         CaracterÃ­sticas relevantes
+         Características relevantes
                      â†“
                   BioCLIP
                      â†“
                Embedding
                      â†“
-        Familia â†’ GÃ©nero â†’ Especie
+        Familia â†’ Género â†’ Especie
 
-BioCLIP proporciona la representaciÃ³n visual general, mientras que las regiones anatÃ³micas aportan informaciÃ³n especÃ­fica y explicable.
+BioCLIP proporciona la representación visual general, mientras que las regiones anatómicas aportan información específica y explicable.
 
 ---
 
 8. Apertura de la caja negra
 
-DespuÃ©s de la predicciÃ³n, Anura puede mostrar quÃ© partes de la rana influyeron en la decisiÃ³n.
+Después de la predicción, Anura puede mostrar qué partes de la rana influyeron en la decisión.
 
 Ejemplo:
 
@@ -208,128 +208,128 @@ Ejemplo:
 
 Evidencia visual:
 
-RegiÃ³n timpÃ¡nica     â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+Región timpánica     â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
 Dedos                â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
 Hocico               â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
 Ojos                 â–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
 Dorso                â–ˆâ–ˆâ–ˆ
 
-Esto se puede complementar con Grad-CAM, mapas de atenciÃ³n u occlusion sensitivity.
+Esto se puede complementar con Grad-CAM, mapas de atención u occlusion sensitivity.
 
 La idea es combinar:
 
-Â¿DÃ³nde estÃ¡ la caracterÃ­stica? â†’ segmentaciÃ³n
+¿Dónde está la característica? â†’ segmentación
 
 con:
 
-Â¿CuÃ¡nto influyÃ³? â†’ interpretabilidad
+¿Cuánto influyó? â†’ interpretabilidad
 
 ---
 
-9. MÃºltiples fotografÃ­as
+9. Màºltiples fotografías
 
-Si existen varias vistas de una misma observaciÃ³n:
+Si existen varias vistas de una misma observación:
 
 Dorsal â”€â”€â”€â”€â”€â”€â”
 Lateral â”€â”€â”€â”€â”€â”¤
-Ventral â”€â”€â”€â”€â”€â”¼â†’ SegmentaciÃ³n â†’ Evidencia conjunta
+Ventral â”€â”€â”€â”€â”€â”¼â†’ Segmentación â†’ Evidencia conjunta
 Extremidades â”¤
               â”‚
 Audio â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
-Una caracterÃ­stica no observable en una vista puede estar disponible en otra.
+Una característica no observable en una vista puede estar disponible en otra.
 
-Esto evita perder informaciÃ³n por una Ãºnica fotografÃ­a.
+Esto evita perder información por una àºnica fotografía.
 
 ---
 
-Modelo lÃ³gico final
+Modelo lógico final
 
 ðŸ“· IMAGEN
                          â†“
-                 DETECCIÃ“N DE RANA
+                 DETECCIà“N DE RANA
                          â†“
-              SEGMENTACIÃ“N SEMÃNTICA
+              SEGMENTACIà“N SEMàNTICA
                          â†“
                   18 REGIONES
                          â†“
-                ESTRUCTURA ANATÃ“MICA
+                ESTRUCTURA ANATà“MICA
                          â†“
-                ATRIBUTOS MORFOLÃ“GICOS
+                ATRIBUTOS MORFOLà“GICOS
                          â†“
-                ATENCIÃ“N ANATÃ“MICA
+                ATENCIà“N ANATà“MICA
                          â†“
                      BioCLIP
                          â†“
                     EMBEDDING
                          â†“
-             CLASIFICACIÃ“N JERÃRQUICA
+             CLASIFICACIà“N JERàRQUICA
                   â†“       â†“       â†“
-               Familia  GÃ©nero  Especie
+               Familia  Género  Especie
                          â†“
-                   VERIFICACIÃ“N
+                   VERIFICACIà“N
                          â†“
                â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
                â†“                   â†“
-          IdentificaciÃ³n        Incertidumbre
+          Identificación        Incertidumbre
                â†“                   â†“
         Evidencia visual       Top-K alternativas
                â†“
           ðŸ¸ RESULTADO
 
-En tÃ©rminos metodolÃ³gicos
+En términos metodológicos
 
-La propuesta serÃ­a:
+La propuesta sería:
 
-> Implementar una segmentaciÃ³n semÃ¡ntica jerÃ¡rquica de la anatomÃ­a externa de los anuros para identificar regiones morfolÃ³gicamente relevantes. Estas regiones serÃ¡n utilizadas para extraer atributos diagnÃ³sticos y establecer mecanismos de atenciÃ³n e interpretabilidad que permitan relacionar las caracterÃ­sticas anatÃ³micas observadas con la predicciÃ³n taxonÃ³mica generada mediante BioCLIP. El sistema diferenciarÃ¡ entre caracterÃ­sticas presentes, ausentes y no observables, permitiendo ademÃ¡s integrar mÃºltiples vistas de un mismo individuo y proporcionar retroalimentaciÃ³n visual sobre las regiones que contribuyeron a la identificaciÃ³n.
+> Implementar una segmentación semántica jerárquica de la anatomía externa de los anuros para identificar regiones morfológicamente relevantes. Estas regiones serán utilizadas para extraer atributos diagnósticos y establecer mecanismos de atención e interpretabilidad que permitan relacionar las características anatómicas observadas con la predicción taxonómica generada mediante BioCLIP. El sistema diferenciará entre características presentes, ausentes y no observables, permitiendo además integrar màºltiples vistas de un mismo individuo y proporcionar retroalimentación visual sobre las regiones que contribuyeron a la identificación.
 
-Esta formulaciÃ³n hace que la segmentaciÃ³n tenga una funciÃ³n real dentro del modelo, en lugar de ser Ãºnicamente una visualizaciÃ³n posterior.
+Esta formulación hace que la segmentación tenga una función real dentro del modelo, en lugar de ser àºnicamente una visualización posterior.
 
-SÃ­. Para Anura, tomando todo lo que hemos definido â€”BioCLIP, base de datos vectorial real, clasificaciÃ³n taxonÃ³mica jerÃ¡rquica, audio, ubicaciÃ³n, contexto ambiental y funcionamiento offlineâ€” la metodologÃ­a puede resumirse asÃ­:
+Sí. Para Anura, tomando todo lo que hemos definido â€”BioCLIP, base de datos vectorial real, clasificación taxonómica jerárquica, audio, ubicación, contexto ambiental y funcionamiento offlineâ€” la metodología puede resumirse así:
 
-ðŸ¸ MetodologÃ­a y estrategia de Anura
+ðŸ¸ Metodología y estrategia de Anura
 
-1. ConstrucciÃ³n y curaciÃ³n del dataset
+1. Construcción y curación del dataset
 
-Partir del conjunto de imÃ¡genes de las 23 especies y realizar:
+Partir del conjunto de imágenes de las 23 especies y realizar:
 
-Control manual de las imÃ¡genes.
+Control manual de las imágenes.
 
-EliminaciÃ³n de imÃ¡genes incorrectas o ambiguas.
+Eliminación de imágenes incorrectas o ambiguas.
 
-VerificaciÃ³n taxonÃ³mica.
+Verificación taxonómica.
 
-OrganizaciÃ³n jerÃ¡rquica:
+Organización jerárquica:
 
 Familia
- â””â”€â”€ GÃ©nero
+ â””â”€â”€ Género
       â””â”€â”€ Especie
 
-SeparaciÃ³n train / validation / test.
+Separación train / validation / test.
 
-Aumento de datos Ãºnicamente en entrenamiento.
+Aumento de datos àºnicamente en entrenamiento.
 
-Evitar que fotografÃ­as del mismo individuo aparezcan en conjuntos diferentes.
+Evitar que fotografías del mismo individuo aparezcan en conjuntos diferentes.
 
-Esto Ãºltimo es importante para evitar que el modelo simplemente "memorice" individuos.
+Esto àºltimo es importante para evitar que el modelo simplemente "memorice" individuos.
 
 ---
 
 2. Procesamiento visual
 
-La imagen pasa inicialmente por un modelo de segmentaciÃ³n para localizar la rana.
+La imagen pasa inicialmente por un modelo de segmentación para localizar la rana.
 
 Imagen
    â†“
-SegmentaciÃ³n
+Segmentación
    â†“
-RegiÃ³n de interÃ©s (rana)
+Región de interés (rana)
    â†“
 BioCLIP
 
-La segmentaciÃ³n ayuda a reducir la influencia de:
+La segmentación ayuda a reducir la influencia de:
 
-vegetaciÃ³n,
+vegetación,
 
 suelo,
 
@@ -351,21 +351,21 @@ Imagen de rana
       â†“
 Embedding visual
 
-El embedding representa las caracterÃ­sticas visuales de la rana.
+El embedding representa las características visuales de la rana.
 
 Puedes utilizarlo para:
 
-clasificaciÃ³n,
+clasificación,
 
-bÃºsqueda por similitud,
+bàºsqueda por similitud,
 
-comparaciÃ³n entre individuos,
+comparación entre individuos,
 
-detecciÃ³n de especies desconocidas.
+detección de especies desconocidas.
 
 ---
 
-4. ClasificaciÃ³n taxonÃ³mica jerÃ¡rquica
+4. Clasificación taxonómica jerárquica
 
 El embedding alimenta tres tareas:
 
@@ -375,15 +375,15 @@ BioCLIP
                  â†“
        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
        â†“         â†“         â†“
-    Familia    GÃ©nero    Especie
+    Familia    Género    Especie
 
-La ventaja es que el sistema aprende simultÃ¡neamente las relaciones taxonÃ³micas.
+La ventaja es que el sistema aprende simultáneamente las relaciones taxonómicas.
 
 No tienes que hacer necesariamente:
 
-Modelo familia â†’ modelo gÃ©nero â†’ modelo especie
+Modelo familia â†’ modelo género â†’ modelo especie
 
-sino utilizar un modelo compartido con mÃºltiples cabezas de clasificaciÃ³n.
+sino utilizar un modelo compartido con màºltiples cabezas de clasificación.
 
 ---
 
@@ -391,9 +391,9 @@ sino utilizar un modelo compartido con mÃºltiples cabezas de clasificaciÃ³n.
 
 Esta es una parte fundamental de tu propuesta.
 
-Cada observaciÃ³n validada genera un embedding y se almacena en una base vectorial, por ejemplo Qdrant.
+Cada observación validada genera un embedding y se almacena en una base vectorial, por ejemplo Qdrant.
 
-No guardarÃ­as Ãºnicamente:
+No guardarías àºnicamente:
 
 vector â†’ especie
 
@@ -401,22 +401,22 @@ sino:
 
 Vector
  â”œâ”€â”€ Familia
- â”œâ”€â”€ GÃ©nero
+ â”œâ”€â”€ Género
  â”œâ”€â”€ Especie
  â”œâ”€â”€ Imagen
- â”œâ”€â”€ UbicaciÃ³n
+ â”œâ”€â”€ Ubicación
  â”œâ”€â”€ Fecha
  â”œâ”€â”€ Altitud
  â”œâ”€â”€ Audio
- â””â”€â”€ InformaciÃ³n ambiental
+ â””â”€â”€ Información ambiental
 
-AsÃ­ la base vectorial se convierte en la memoria visual y multimodal de Anura.
+Así la base vectorial se convierte en la memoria visual y multimodal de Anura.
 
 ---
 
-6. RecuperaciÃ³n por similitud
+6. Recuperación por similitud
 
-Cuando el usuario toma una fotografÃ­a:
+Cuando el usuario toma una fotografía:
 
 Foto
  â†“
@@ -424,7 +424,7 @@ BioCLIP
  â†“
 Embedding
  â†“
-BÃºsqueda vectorial
+Bàºsqueda vectorial
  â†“
 Top-K observaciones similares
 
@@ -436,13 +436,13 @@ Por ejemplo:
 4. Boana cinerea       0.88
 5. Boana xerophylla    0.86
 
-Esto proporciona evidencia basada en ejemplos reales, ademÃ¡s de la clasificaciÃ³n neuronal.
+Esto proporciona evidencia basada en ejemplos reales, además de la clasificación neuronal.
 
 ---
 
-7. BÃºsqueda jerÃ¡rquica adaptativa
+7. Bàºsqueda jerárquica adaptativa
 
-No obligarÃ­a al sistema a seguir una Ãºnica ruta.
+No obligaría al sistema a seguir una àºnica ruta.
 
 Si obtiene:
 
@@ -456,19 +456,19 @@ Pero si obtiene:
 Hylidae            96%
 Leptodactylidae      2%
 
-continÃºa principalmente con Hylidae.
+continàºa principalmente con Hylidae.
 
 Esto puede implementarse mediante Top-K / beam search o una estrategia de candidatos adaptativa.
 
-AsÃ­ se busca un equilibrio entre:
+Así se busca un equilibrio entre:
 
-precisiÃ³n â†” tiempo de inferencia.
+precisión â†” tiempo de inferencia.
 
 ---
 
-8. IdentificaciÃ³n acÃºstica ðŸŽ™ï¸
+8. Identificación acàºstica ðŸŽ™ï¸
 
-El sonido tendrÃ­a un modelo independiente:
+El sonido tendría un modelo independiente:
 
 Audio
  â†“
@@ -476,63 +476,63 @@ Preprocesamiento
  â†“
 Espectrograma
  â†“
-Modelo acÃºstico
+Modelo acàºstico
  â†“
-Embedding acÃºstico
+Embedding acàºstico
 
-La base vectorial tambiÃ©n puede almacenar esos embeddings.
+La base vectorial también puede almacenar esos embeddings.
 
-AsÃ­ una observaciÃ³n puede contener:
+Así una observación puede contener:
 
 Embedding visual
 +
-Embedding acÃºstico
+Embedding acàºstico
 
 ---
 
-9. FusiÃ³n multimodal
+9. Fusión multimodal
 
-La identificaciÃ³n final no dependerÃ­a Ãºnicamente de la fotografÃ­a.
+La identificación final no dependería àºnicamente de la fotografía.
 
 El sistema combina:
 
 ðŸ“· Visual
 
-BioCLIP + segmentaciÃ³n + similitud vectorial.
+BioCLIP + segmentación + similitud vectorial.
 
-ðŸŽ™ï¸ AcÃºstico
+ðŸŽ™ï¸ Acàºstico
 
-CaracterÃ­sticas del canto.
+Características del canto.
 
-ðŸ“ GeogrÃ¡fico
+ðŸ“ Geográfico
 
-Latitud, longitud y distribuciÃ³n conocida.
+Latitud, longitud y distribución conocida.
 
 â›°ï¸ Ambiental
 
-Altitud, temperatura, humedad, precipitaciÃ³n, fecha y hora.
+Altitud, temperatura, humedad, precipitación, fecha y hora.
 
 Conceptualmente:
 
 â”Œâ”€â”€ Imagen â”€â”€â†’ BioCLIP
                  â”‚
-ObservaciÃ³n â”€â”€â”€â”€â”€â”¼â”€â”€ Audio â”€â”€â”€â†’ Modelo acÃºstico
+Observación â”€â”€â”€â”€â”€â”¼â”€â”€ Audio â”€â”€â”€â†’ Modelo acàºstico
                  â”‚
                  â”œâ”€â”€ GPS
                  â”‚
                  â””â”€â”€ Ambiente
                          â†“
-                  FusiÃ³n multimodal
+                  Fusión multimodal
                          â†“
                     Ranking final
 
-No se deberÃ­an sumar porcentajes directamente; las contribuciones de cada modalidad deben calibrarse y validarse experimentalmente.
+No se deberían sumar porcentajes directamente; las contribuciones de cada modalidad deben calibrarse y validarse experimentalmente.
 
 ---
 
-10. Contexto geogrÃ¡fico como prior
+10. Contexto geográfico como prior
 
-La ubicaciÃ³n no debe convertirse en una regla absoluta.
+La ubicación no debe convertirse en una regla absoluta.
 
 Por ejemplo:
 
@@ -540,37 +540,37 @@ Visual:
 Especie A â†’ 55%
 Especie B â†’ 40%
 
-Contexto geogrÃ¡fico:
+Contexto geográfico:
 A â†’ muy compatible
 B â†’ poco compatible
 
-La ubicaciÃ³n puede aumentar o disminuir la puntuaciÃ³n, pero no deberÃ­a eliminar automÃ¡ticamente una especie.
+La ubicación puede aumentar o disminuir la puntuación, pero no debería eliminar automáticamente una especie.
 
-Esto es importante porque los mapas de distribuciÃ³n pueden estar incompletos.
+Esto es importante porque los mapas de distribución pueden estar incompletos.
 
 ---
 
-11. DetecciÃ³n de especies desconocidas
+11. Detección de especies desconocidas
 
 El sistema debe tener una salida:
 
-> Especie no registrada / identificaciÃ³n incierta
+> Especie no registrada / identificación incierta
 
 No se debe obligar al modelo a escoger una de las 23 especies.
 
 Se puede utilizar:
 
-distancia al embedding mÃ¡s cercano,
+distancia al embedding más cercano,
 
-distribuciÃ³n de similitudes,
+distribución de similitudes,
 
 confianza calibrada,
 
-clasificaciÃ³n,
+clasificación,
 
-evidencia acÃºstica,
+evidencia acàºstica,
 
-contexto geogrÃ¡fico.
+contexto geográfico.
 
 Si ninguna evidencia es suficientemente fuerte:
 
@@ -590,8 +590,8 @@ Confianza: Alta
 
 Evidencia:
 ðŸ“· Visual             Alta
-ðŸŽ™ï¸ AcÃºstica           Muy alta
-ðŸ“ DistribuciÃ³n       Compatible
+ðŸŽ™ï¸ Acàºstica           Muy alta
+ðŸ“ Distribución       Compatible
 â›°ï¸ Altitud            Compatible
 ðŸŒ¡ï¸ Ambiente           Compatible
 
@@ -600,30 +600,30 @@ Y mostrar las alternativas:
 Boana xerophylla      12%
 Scinax ruber           5%
 
-Esto tambiÃ©n alimenta el modo herpetÃ³logo.
+Esto también alimenta el modo herpetólogo.
 
 ---
 
 13. Funcionamiento completamente offline
 
-Todo el nÃºcleo puede estar dentro de la aplicaciÃ³n:
+Todo el nàºcleo puede estar dentro de la aplicación:
 
 ðŸ“± ANURA OFFLINE
 
-â”œâ”€â”€ Modelo de segmentaciÃ³n
+â”œâ”€â”€ Modelo de segmentación
 â”œâ”€â”€ BioCLIP optimizado
-â”œâ”€â”€ Modelo acÃºstico
-â”œâ”€â”€ Clasificador taxonÃ³mico
+â”œâ”€â”€ Modelo acàºstico
+â”œâ”€â”€ Clasificador taxonómico
 â”œâ”€â”€ Base vectorial local
-â”œâ”€â”€ TaxonomÃ­a
-â”œâ”€â”€ InformaciÃ³n geogrÃ¡fica
-â””â”€â”€ Datos ambientales histÃ³ricos
+â”œâ”€â”€ Taxonomía
+â”œâ”€â”€ Información geográfica
+â””â”€â”€ Datos ambientales históricos
 
-La aplicaciÃ³n puede identificar una rana sin Internet.
+La aplicación puede identificar una rana sin Internet.
 
-Cuando vuelva la conexiÃ³n:
+Cuando vuelva la conexión:
 
-ðŸ“± AplicaciÃ³n
+ðŸ“± Aplicación
       â†•
 â˜ï¸ Servidor Anura
       â”‚
@@ -636,13 +636,13 @@ Se sincronizan los datos.
 
 ---
 
-14. Estrategia de actualizaciÃ³n
+14. Estrategia de actualización
 
 Una de las mayores ventajas de la arquitectura es que puedes agregar observaciones:
 
-Nueva observaciÃ³n
+Nueva observación
       â†“
-ValidaciÃ³n
+Validación
       â†“
 BioCLIP
       â†“
@@ -650,15 +650,15 @@ Embedding
       â†“
 Base vectorial
 
-Por lo tanto, la base vectorial puede crecer sin tener que reentrenar el modelo ante cada nueva observaciÃ³n.
+Por lo tanto, la base vectorial puede crecer sin tener que reentrenar el modelo ante cada nueva observación.
 
-El reentrenamiento se reserva para cuando tengas suficiente informaciÃ³n para mejorar realmente el modelo.
+El reentrenamiento se reserva para cuando tengas suficiente información para mejorar realmente el modelo.
 
 ---
 
-15. EvaluaciÃ³n experimental
+15. Evaluación experimental
 
-Yo medirÃ­a el sistema en diferentes niveles:
+Yo mediría el sistema en diferentes niveles:
 
 Modelo visual
 
@@ -674,17 +674,17 @@ Top-1
 
 Top-3
 
-Matriz de confusiÃ³n
+Matriz de confusión
 
-ClasificaciÃ³n jerÃ¡rquica
+Clasificación jerárquica
 
 Accuracy de familia
 
-Accuracy de gÃ©nero
+Accuracy de género
 
 Accuracy de especie
 
-Consistencia taxonÃ³mica
+Consistencia taxonómica
 
 Base vectorial
 
@@ -700,7 +700,7 @@ AUROC
 
 FPR95
 
-tasa de detecciÃ³n de desconocidos
+tasa de detección de desconocidos
 
 Multimodal
 
@@ -708,19 +708,19 @@ Comparar:
 
 Solo imagen
        vs
-Imagen + ubicaciÃ³n
+Imagen + ubicación
        vs
 Imagen + audio
        vs
-Imagen + audio + ubicaciÃ³n
+Imagen + audio + ubicación
        vs
-Imagen + audio + ubicaciÃ³n + ambiente
+Imagen + audio + ubicación + ambiente
 
-AsÃ­ puedes demostrar cuÃ¡nto aporta realmente cada modalidad.
+Así puedes demostrar cuánto aporta realmente cada modalidad.
 
-AplicaciÃ³n mÃ³vil
+Aplicación móvil
 
-TambiÃ©n medir:
+También medir:
 
 tiempo de inferencia,
 
@@ -728,7 +728,7 @@ consumo de RAM,
 
 almacenamiento,
 
-consumo energÃ©tico,
+consumo energético,
 
 funcionamiento sin Internet.
 
@@ -742,9 +742,9 @@ Arquitectura final resumida
                  â”‚                     â”‚
               ðŸ“· FOTO                ðŸŽ™ï¸ AUDIO
                  â”‚                     â”‚
-          SEGMENTACIÃ“N             ESPECTROGRAMA
+          SEGMENTACIà“N             ESPECTROGRAMA
                  â”‚                     â”‚
-              BioCLIP             MODELO ACÃšSTICO
+              BioCLIP             MODELO ACàšSTICO
                  â”‚                     â”‚
           EMBEDDING VISUAL       EMBEDDING AUDIO
                  â”‚                     â”‚
@@ -754,12 +754,12 @@ Arquitectura final resumida
                             â”‚
                   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
                   â”‚                   â”‚
-             TAXONOMÃA             CONTEXTO
+             TAXONOMàA             CONTEXTO
                   â”‚              ðŸ“ GPS / â›°ï¸ / ðŸŒ¡ï¸
                   â”‚                   â”‚
                   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
                             â†“
-                    FUSIÃ“N MULTIMODAL
+                    FUSIà“N MULTIMODAL
                             â†“
                      RANKING TOP-K
                             â†“
@@ -769,11 +769,11 @@ Arquitectura final resumida
                             â†“
                      ðŸ¸ RESULTADO
 
-En una frase, la metodologÃ­a serÃ­a:
+En una frase, la metodología sería:
 
-> Anura emplearÃ¡ una arquitectura multimodal y jerÃ¡rquica basada en BioCLIP para la extracciÃ³n de caracterÃ­sticas visuales, embeddings acÃºsticos para la identificaciÃ³n mediante vocalizaciones, informaciÃ³n geogrÃ¡fica y ambiental como contexto probabilÃ­stico, y una base de datos vectorial local para recuperar observaciones similares y permitir la expansiÃ³n del conocimiento sin depender del reentrenamiento constante del modelo, todo optimizado para inferencia offline en dispositivos mÃ³viles.
+> Anura empleará una arquitectura multimodal y jerárquica basada en BioCLIP para la extracción de características visuales, embeddings acàºsticos para la identificación mediante vocalizaciones, información geográfica y ambiental como contexto probabilístico, y una base de datos vectorial local para recuperar observaciones similares y permitir la expansión del conocimiento sin depender del reentrenamiento constante del modelo, todo optimizado para inferencia offline en dispositivos móviles.
 
-Esta arquitectura me parece mucho mÃ¡s fuerte para un proyecto de grado que simplemente entrenar un modelo que diga "esta imagen es la especie X", porque puedes evaluar experimentalmente quÃ© aporta cada fuente de informaciÃ³n y cÃ³mo funciona el sistema cuando la especie ni siquiera pertenece al conjunto conocido.
+Esta arquitectura me parece mucho más fuerte para un proyecto de grado que simplemente entrenar un modelo que diga "esta imagen es la especie X", porque puedes evaluar experimentalmente qué aporta cada fuente de información y cómo funciona el sistema cuando la especie ni siquiera pertenece al conjunto conocido.
 
 
 

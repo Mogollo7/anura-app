@@ -1,156 +1,156 @@
 ﻿---
-title: "Anura â€” Ãndice General"
+title: "Anura â€” àndice General"
 proyecto: Anura
-tipo: Ã­ndice
-tags: [anura, moc, Ã­ndice]
+tipo: índice
+tags: [anura, moc, índice]
 ---
 
-# ðŸ¸ Anura â€” Ãndice General
+# ðŸ¸ Anura â€” àndice General
 
-AplicaciÃ³n mÃ³vil con IA para la identificaciÃ³n de anfibios del orden *Anura* en Colombia, mediante visiÃ³n por computador, segmentaciÃ³n anatÃ³mica, bioacÃºstica y contexto geogrÃ¡fico, con funcionamiento **offline** en campo.
+Aplicación móvil con IA para la identificación de anfibios del orden *Anura* en Colombia, mediante visión por computador, segmentación anatómica, bioacàºstica y contexto geográfico, con funcionamiento **offline** en campo.
 
-> [!tip] Por dÃ³nde empezar
-> - Â¿QuÃ© es el proyecto? â†’ [[IntroducciÃ³n y JustificaciÃ³n]] Â· [[Objetivos y Alcance]]
-> - Â¿CÃ³mo se construye la app? â†’ [[Roadmap y Fases]]
-> - Â¿QuÃ© hay que decidir ya? â†’ [[Inconsistencias y Decisiones Pendientes]] ðŸ”´
-> - Â¿CÃ³mo se anotan las imÃ¡genes? â†’ [[GuÃ­a CVAT â€” Ãndice]]
+> [!tip] Por dónde empezar
+> - ¿Qué es el proyecto? â†’ [[Introducción y Justificación]] · [[Objetivos y Alcance]]
+> - ¿Cómo se construye la app? â†’ [[Roadmap y Fases]]
+> - ¿Qué hay que decidir ya? â†’ [[Inconsistencias y Decisiones Pendientes]] ðŸ”´
+> - ¿Cómo se anotan las imágenes? â†’ [[Guía CVAT â€” àndice]]
 
 > [!important] Prototipo debido el 27 de septiembre de 2026
-> Sprint de 22 dÃ­as fijado el 2026-09-05, desde hoy hasta un APK + demo web funcionando de extremo a extremo sobre el catÃ¡logo de **28 especies**. Ruta semana a semana en [[Cronograma y Plan de Trabajo]] Â§0. El piloto de campo, el documento final y la sustentaciÃ³n quedan secuenciados despuÃ©s del 27.
+> Sprint de 22 días fijado el 2026-09-05, desde hoy hasta un APK + demo web funcionando de extremo a extremo sobre el catálogo de **28 especies**. Ruta semana a semana en [[Cronograma y Plan de Trabajo]] §0. El piloto de campo, el documento final y la sustentación quedan secuenciados después del 27.
 
 ---
 
-## 01 Â· Proyecto
+## 01 · Proyecto
 
-Fundamentos, alcance y gestiÃ³n.
+Fundamentos, alcance y gestión.
 
 | Nota | Contenido |
 | --- | --- |
-| [[IntroducciÃ³n y JustificaciÃ³n]] | Contexto ecolÃ³gico, problema y justificaciÃ³n |
-| [[Referente TeÃ³rico]] | Anfibios, bioacÃºstica, IA, visiÃ³n por computador, BioCLIP |
+| [[Introducción y Justificación]] | Contexto ecológico, problema y justificación |
+| [[Referente Teórico]] | Anfibios, bioacàºstica, IA, visión por computador, BioCLIP |
 | [[Objetivos y Alcance]] | Objetivos, requisitos funcionales y no funcionales, delimitaciones |
-| [[Historias de Usuario]] | HU-01 a HU-05 con criterios de aceptaciÃ³n |
-| [[Cronograma y Plan de Trabajo]] | Hitos, ruta crÃ­tica, puntos de decisiÃ³n |
-| [[Riesgos del Proyecto]] | Riesgos tÃ©cnicos, de datos, de alcance y Ã©ticos |
-| [[Consideraciones EcolÃ³gicas y Ã‰ticas]] | Bioseguridad, manejo, permisos, datos sensibles |
-| [[BibliografÃ­a]] | Referencias del proyecto |
+| [[Historias de Usuario]] | HU-01 a HU-05 con criterios de aceptación |
+| [[Cronograma y Plan de Trabajo]] | Hitos, ruta crítica, puntos de decisión |
+| [[Riesgos del Proyecto]] | Riesgos técnicos, de datos, de alcance y éticos |
+| [[Consideraciones Ecológicas y Éticas]] | Bioseguridad, manejo, permisos, datos sensibles |
+| [[Bibliografía]] | Referencias del proyecto |
 
-## 02 Â· MetodologÃ­a
+## 02 · Metodología
 
-CÃ³mo funciona el sistema. â†’ [[MetodologÃ­a â€” Ãndice]]
-
-| Nota | Contenido |
-| --- | --- |
-| [[Estrategia de ConstrucciÃ³n del Dataset]] | Fuentes, calidad, augmentaciÃ³n, splits, open-set |
-| [[Dataset JerÃ¡rquico de Colombia â€” Paquetes Departamentales]] | Colombiaâ†’Departamentoâ†’Especieâ†’Zonas Â· `taxon_id` estables Â· point-in-polygon DANE |
-| [[Listado de Individuos y Arreglo TaxonÃ³mico]] | Familias, gÃ©neros y especies del dataset |
-| [[Pipeline del Sistema]] | Recorrido completo de una observaciÃ³n |
-| [[Arquitectura Multimodal]] | VisiÃ³n + audio + contexto y su fusiÃ³n |
-| [[Open-Set Recognition]] | DetecciÃ³n de especies no registradas |
-| [[Infraestructura]] | Servidor vs. dispositivo, entornos, monitorizaciÃ³n |
-| [[Escalabilidad]] | AÃ±adir especies, versionado, crecimiento del Ã­ndice |
-
-## 03 Â· AnotaciÃ³n y SegmentaciÃ³n
-
-El esquema que enseÃ±a al modelo quÃ© mirar.
+Cómo funciona el sistema. â†’ [[Metodología â€” àndice]]
 
 | Nota | Contenido |
 | --- | --- |
-| [[GuÃ­a CVAT â€” Ãndice]] | **Manual completo de anotaciÃ³n (v1.0)** â€” 11 secciones, 44 figuras |
-| [[GuÃ­a de AnotaciÃ³n Roboflow (histÃ³rico)]] | Esquema anterior de 8 clases (sustituido) |
+| [[Estrategia de Construcción del Dataset]] | Fuentes, calidad, augmentación, splits, open-set |
+| [[Dataset Jerárquico de Colombia â€” Paquetes Departamentales]] | Colombiaâ†’Departamentoâ†’Especieâ†’Zonas · `taxon_id` estables · point-in-polygon DANE |
+| [[Listado de Individuos y Arreglo Taxonómico]] | Familias, géneros y especies del dataset |
+| [[Pipeline del Sistema]] | Recorrido completo de una observación |
+| [[Arquitectura Multimodal]] | Visión + audio + contexto y su fusión |
+| [[Open-Set Recognition]] | Detección de especies no registradas |
+| [[Infraestructura]] | Servidor vs. dispositivo, entornos, monitorización |
+| [[Escalabilidad]] | Añadir especies, versionado, crecimiento del índice |
 
-## 04 Â· Desarrollo TÃ©cnico
+## 03 · Anotación y Segmentación
+
+El esquema que enseña al modelo qué mirar.
+
+| Nota | Contenido |
+| --- | --- |
+| [[Guía CVAT â€” àndice]] | **Manual completo de anotación (v1.0)** â€” 11 secciones, 44 figuras |
+| [[Guía de Anotación Roboflow (histórico)]] | Esquema anterior de 8 clases (sustituido) |
+
+## 04 · Desarrollo Técnico
 
 Los modelos y servicios.
 
 | Nota | Contenido |
 | --- | --- |
-| [[Plan de AcciÃ³n y Arquitectura Conceptual]] | Idea general y tecnologÃ­as (documento original, parcialmente superado) |
-| [[Modelo de VisiÃ³n â€” BioCLIP]] | **Ãšnico backbone del proyecto** â€” visiÃ³n y, reutilizado, audio |
-| [[ImplementaciÃ³n de Triplet Loss]] | Metric learning sobre el espacio de embeddings |
-| [[Base Vectorial (SQLite-vec)]] | Memoria de ejemplares Â· motor mÃ³vil firmado: k-NN + SQLite-vec (C-15, patrÃ³n Merlin) |
-| [[API Backend]] | Endpoints, modelo de datos, sincronizaciÃ³n |
-| [[App MÃ³vil]] | Android, offline, presupuestos |
-| [[OptimizaciÃ³n para Inferencia en MÃ³vil]] | CuantizaciÃ³n, LiteRT, latencia |
-| [[AutomatizaciÃ³n del Entrenamiento de SegmentaciÃ³n]] | Pipeline con supervisiÃ³n, sin entrenamiento manual |
+| [[Plan de Acción y Arquitectura Conceptual]] | Idea general y tecnologías (documento original, parcialmente superado) |
+| [[Modelo de Visión â€” BioCLIP]] | **àšnico backbone del proyecto** â€” visión y, reutilizado, audio |
+| [[Implementación de Triplet Loss]] | Metric learning sobre el espacio de embeddings |
+| [[Base Vectorial (SQLite-vec)]] | Memoria de ejemplares · motor móvil firmado: k-NN + SQLite-vec (C-15, patrón Merlin) |
+| [[API Backend]] | Endpoints, modelo de datos, sincronización |
+| [[App Móvil]] | Android, offline, presupuestos |
+| [[Optimización para Inferencia en Móvil]] | Cuantización, LiteRT, latencia |
+| [[Automatización del Entrenamiento de Segmentación]] | Pipeline con supervisión, sin entrenamiento manual |
 
-## 05 Â· EvaluaciÃ³n y MÃ©tricas
+## 05 · Evaluación y Métricas
 
-â†’ [[EvaluaciÃ³n y MÃ©tricas â€” Ãndice]]
+â†’ [[Evaluación y Métricas â€” àndice]]
 
 | Nota | Contenido |
 | --- | --- |
-| [[MÃ©tricas Offline]] | Tablas de resultados en test |
-| [[Matrices de ConfusiÃ³n]] | AnÃ¡lisis de errores por nivel taxonÃ³mico |
-| [[EvaluaciÃ³n en Campo Real]] | Protocolo del piloto |
+| [[Métricas Offline]] | Tablas de resultados en test |
+| [[Matrices de Confusión]] | Análisis de errores por nivel taxonómico |
+| [[Evaluación en Campo Real]] | Protocolo del piloto |
 | [[Reportes de Pruebas Piloto]] | Plantilla y consolidado por salida |
-| [[Experimentos y Resultados]] | BitÃ¡cora y cola de experimentos |
+| [[Experimentos y Resultados]] | Bitácora y cola de experimentos |
 
-## 06 Â· Proceso de Desarrollo de la App
+## 06 · Proceso de Desarrollo de la App
 
-â†’ [[Proceso de Desarrollo â€” Ãndice]]
+â†’ [[Proceso de Desarrollo â€” àndice]]
 
 | Nota | Contenido |
 | --- | --- |
 | [[Roadmap y Fases]] | De hoy a la app en campo |
-| [[Stack TecnolÃ³gico]] | Todas las tecnologÃ­as y por quÃ© |
-| [[Arquitectura de la AplicaciÃ³n]] | Capas, mÃ³dulos, dominio, pantallas |
-| [[DiseÃ±o de Interfaz (Penpot)]] | Sistema de componentes, pantallas, navegaciÃ³n, trazabilidad RF/RNF |
-| [[Flujo de Datos y SincronizaciÃ³n]] | Offline-first, colas, paquetes regionales |
+| [[Stack Tecnológico]] | Todas las tecnologías y por qué |
+| [[Arquitectura de la Aplicación]] | Capas, módulos, dominio, pantallas |
+| [[Diseño de Interfaz (Penpot)]] | Sistema de componentes, pantallas, navegación, trazabilidad RF/RNF |
+| [[Flujo de Datos y Sincronización]] | Offline-first, colas, paquetes regionales |
 | [[Ciclo de Vida del Modelo (MLOps)]] | Versionado, trazabilidad, reentrenamiento |
-| [[Entorno de Trabajo y MCP]] | Penpot vÃ­a MCP, mÃ©todo de trabajo y trampas del API |
+| [[Entorno de Trabajo y MCP]] | Penpot vía MCP, método de trabajo y trampas del API |
 
-## 07 Â· Notas de Trabajo
+## 07 · Notas de Trabajo
 
 | Nota | Contenido |
 | --- | --- |
 | [[Inconsistencias y Decisiones Pendientes]] | ðŸ”´ Contradicciones detectadas entre documentos |
 
-## 00 Â· Fuentes Originales
+## 00 · Fuentes Originales
 
 Material del autor, conservado sin modificar.
 
-- [[Notas Originales â€” SegmentaciÃ³n SemÃ¡ntica y MetodologÃ­a Anura]]
-- [[Notas Originales â€” MÃ©todo de AnotaciÃ³n y Plantillas TaxonÃ³micas]]
-- [[Notas Originales â€” AÃ±adir Nueva InformaciÃ³n]]
+- [[Notas Originales â€” Segmentación Semántica y Metodología Anura]]
+- [[Notas Originales â€” Método de Anotación y Plantillas Taxonómicas]]
+- [[Notas Originales â€” Añadir Nueva Información]]
 
-## 99 Â· Recursos
+## 99 · Recursos
 
-`99 Recursos/Attachments/` â€” 45 imÃ¡genes (44 figuras de la guÃ­a CVAT + esquema conceptual)
+`99 Recursos/Attachments/` â€” 45 imágenes (44 figuras de la guía CVAT + esquema conceptual)
 `99 Recursos/Guia_CVAT_Anuro v1.0.docx` â€” documento original
 
 ---
 
 ## Estado del proyecto de un vistazo
 
-| Ãrea | Estado |
+| àrea | Estado |
 | --- | --- |
-| Marco teÃ³rico y metodolÃ³gico | âœ… Muy avanzado |
+| Marco teórico y metodológico | âœ… Muy avanzado |
 | Requisitos e historias de usuario | âœ… Definidos |
-| Esquema de anotaciÃ³n (16 etiquetas) | âœ… GuÃ­a v1.0 completa |
-| Dataset | ðŸŸ¡ En construcciÃ³n; split por reevaluar |
-| AnotaciÃ³n en volumen | ðŸ”´ Por ejecutar |
+| Esquema de anotación (16 etiquetas) | âœ… Guía v1.0 completa |
+| Dataset | ðŸŸ¡ En construcción; split por reevaluar |
+| Anotación en volumen | ðŸ”´ Por ejecutar |
 | Modelos | ðŸ”´ Por entrenar |
-| DiseÃ±o de interfaz (mockup) | ðŸŸ¢ ~42 pantallas en Penpot, navegaciÃ³n cableada â†’ [[DiseÃ±o de Interfaz (Penpot)]] |
-| Backend / App | ðŸ”´ DiseÃ±ados, no implementados |
-| Decisiones de arquitectura | ðŸŸ¢ 6 resueltas, 1 parcial (segmentaciÃ³n concreta), 1 abierta (Qdrant vs. pgvector en servidor) |
+| Diseño de interfaz (mockup) | ðŸŸ¢ ~42 pantallas en Penpot, navegación cableada â†’ [[Diseño de Interfaz (Penpot)]] |
+| Backend / App | ðŸ”´ Diseñados, no implementados |
+| Decisiones de arquitectura | ðŸŸ¢ 6 resueltas, 1 parcial (segmentación concreta), 1 abierta (Qdrant vs. pgvector en servidor) |
 
 ## Decisiones ya resueltas
 
-- âœ… **BioCLIP es el Ãºnico modelo del proyecto** â€” visiÃ³n y audio (mismo codificador reutilizado sobre el espectrograma). Se retirÃ³ EfficientNet como alternativa de arquitectura.
-- âœ… **BioCLIP v1 (ViT-B/16), en dispositivo y servidor**, para el sprint del prototipo â€” evita el problema de espacios de embedding incompatibles entre v1/v2 dentro de los 22 dÃ­as.
-- âœ… **Motor vectorial embebido para el mÃ³vil: ObjectBox** â€” Qdrant sigue en el servidor; el dispositivo usa ObjectBox (HNSW nativo para Android/Kotlin).
-- âœ… **El ~99 % de la Etapa I es un resultado legÃ­timo**, no fuga de informaciÃ³n: se explica por segmentaciÃ³n binaria (individuo vs. fondo) antes de BioCLIP + `GroupSplit` por individuo. Ver [[Modelo de VisiÃ³n â€” BioCLIP]] Â§7.
-- âœ… **CatÃ¡logo oficial: 28 especies** para el prototipo â€” coincide con la recolecciÃ³n de campo ya organizada por equipos y con `anuro_labels.json`.
-- âœ… **Alcance mÃ­nimo del prototipo (27 sep) fijado** â†’ [[Cronograma y Plan de Trabajo]] Â§0.
+- âœ… **BioCLIP es el àºnico modelo del proyecto** â€” visión y audio (mismo codificador reutilizado sobre el espectrograma). Se retiró EfficientNet como alternativa de arquitectura.
+- âœ… **BioCLIP v1 (ViT-B/16), en dispositivo y servidor**, para el sprint del prototipo â€” evita el problema de espacios de embedding incompatibles entre v1/v2 dentro de los 22 días.
+- âœ… **Motor vectorial embebido para el móvil: ObjectBox** â€” Qdrant sigue en el servidor; el dispositivo usa ObjectBox (HNSW nativo para Android/Kotlin).
+- âœ… **El ~99 % de la Etapa I es un resultado legítimo**, no fuga de información: se explica por segmentación binaria (individuo vs. fondo) antes de BioCLIP + `GroupSplit` por individuo. Ver [[Modelo de Visión â€” BioCLIP]] §7.
+- âœ… **Catálogo oficial: 28 especies** para el prototipo â€” coincide con la recolección de campo ya organizada por equipos y con `anuro_labels.json`.
+- âœ… **Alcance mínimo del prototipo (27 sep) fijado** â†’ [[Cronograma y Plan de Trabajo]] §0.
 
 ## Los frentes que siguen abiertos
 
 1. **Copias de seguridad** de fotos y anotaciones (riesgo sin plan B)
-2. **Validar ObjectBox empÃ­ricamente** en el dispositivo de referencia (latencia, memoria)
-3. **Modelo de segmentaciÃ³n concreto** â€” tamaÃ±o de YOLO-seg (n vs. s) por confirmar con los datos reales de la semana del 9â€“11 sep
-4. **Cobertura real de audio** en AnuraSet/Xeno-canto para las 28 especies â€” decide si la rama acÃºstica entra al prototipo o queda como trabajo futuro
-5. **Alcance mÃ­nimo defendible del trabajo de grado completo** (distinto del alcance del prototipo, ya resuelto) â€” sigue pendiente para cuando se fije la fecha de sustentaciÃ³n
+2. **Validar ObjectBox empíricamente** en el dispositivo de referencia (latencia, memoria)
+3. **Modelo de segmentación concreto** â€” tamaño de YOLO-seg (n vs. s) por confirmar con los datos reales de la semana del 9â€“11 sep
+4. **Cobertura real de audio** en AnuraSet/Xeno-canto para las 28 especies â€” decide si la rama acàºstica entra al prototipo o queda como trabajo futuro
+5. **Alcance mínimo defendible del trabajo de grado completo** (distinto del alcance del prototipo, ya resuelto) â€” sigue pendiente para cuando se fije la fecha de sustentación
 
 Detalle en [[Inconsistencias y Decisiones Pendientes]] y [[Riesgos del Proyecto]].
 

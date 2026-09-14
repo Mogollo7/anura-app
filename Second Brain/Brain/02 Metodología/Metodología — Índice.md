@@ -1,56 +1,56 @@
 ﻿---
-title: "MetodologÃ­a â€” Ãndice"
+title: "Metodología â€” àndice"
 proyecto: Anura
-tipo: Ã­ndice
-tags: [anura, metodologÃ­a, Ã­ndice]
+tipo: índice
+tags: [anura, metodología, índice]
 ---
 
-# MetodologÃ­a â€” Ãndice
+# Metodología â€” àndice
 
-[[Anura â€” Ãndice General]]
+[[Anura â€” àndice General]]
 
-CÃ³mo funciona Anura: del dato de campo a la identificaciÃ³n explicada.
+Cómo funciona Anura: del dato de campo a la identificación explicada.
 
 ## Datos
 
-| Nota | QuÃ© cubre |
+| Nota | Qué cubre |
 | --- | --- |
-| [[Estrategia de ConstrucciÃ³n del Dataset]] | Objetivos del dataset, fuentes primarias y secundarias, criterios de calidad y exclusiÃ³n, augmentaciÃ³n, splits sin fuga, conjunto open-set |
-| [[Listado de Individuos y Arreglo TaxonÃ³mico]] | JerarquÃ­a Familia â†’ GÃ©nero â†’ Especie del dataset y su procedencia geogrÃ¡fica |
-| [[Estrategia para Especies con Cobertura Insuficiente]] | QuÃ© hacer con las 8 especies por debajo de 70 individuos: techo de resoluciÃ³n por especie, cascada Familia â†’ GÃ©nero â†’ Especie y reparto entre cabezas softmax y k-NN en sqlite-vec |
+| [[Estrategia de Construcción del Dataset]] | Objetivos del dataset, fuentes primarias y secundarias, criterios de calidad y exclusión, augmentación, splits sin fuga, conjunto open-set |
+| [[Listado de Individuos y Arreglo Taxonómico]] | Jerarquía Familia â†’ Género â†’ Especie del dataset y su procedencia geográfica |
+| [[Estrategia para Especies con Cobertura Insuficiente]] | Qué hacer con las 8 especies por debajo de 70 individuos: techo de resolución por especie, cascada Familia â†’ Género â†’ Especie y reparto entre cabezas softmax y k-NN en sqlite-vec |
 
 ## Sistema
 
-| Nota | QuÃ© cubre |
+| Nota | Qué cubre |
 | --- | --- |
-| [[Pipeline del Sistema]] | Recorrido completo: captura â†’ segmentaciÃ³n â†’ embedding â†’ evidencia â†’ fusiÃ³n â†’ open-set â†’ resultado |
-| [[Arquitectura Multimodal]] | Las tres ramas (visiÃ³n, audio, contexto) y cÃ³mo se fusionan |
-| [[Open-Set Recognition]] | CÃ³mo se responde "no estÃ¡ en mi catÃ¡logo" y cÃ³mo se evalÃºa |
+| [[Pipeline del Sistema]] | Recorrido completo: captura â†’ segmentación â†’ embedding â†’ evidencia â†’ fusión â†’ open-set â†’ resultado |
+| [[Arquitectura Multimodal]] | Las tres ramas (visión, audio, contexto) y cómo se fusionan |
+| [[Open-Set Recognition]] | Cómo se responde "no está en mi catálogo" y cómo se evalàºa |
 
-## OperaciÃ³n
+## Operación
 
-| Nota | QuÃ© cubre |
+| Nota | Qué cubre |
 | --- | --- |
-| [[Infraestructura]] | Servidor vs. dispositivo, entornos, costes, monitorizaciÃ³n, copias de seguridad |
-| [[Escalabilidad]] | AÃ±adir especies sin reentrenar, versionado, crecimiento del Ã­ndice y del catÃ¡logo |
+| [[Infraestructura]] | Servidor vs. dispositivo, entornos, costes, monitorización, copias de seguridad |
+| [[Escalabilidad]] | Añadir especies sin reentrenar, versionado, crecimiento del índice y del catálogo |
 
 ## Hilo conductor
 
 ```
-Dataset â”€â”€â–¶ AnotaciÃ³n â”€â”€â–¶ SegmentaciÃ³n â”€â”€â–¶ Embedding â”€â”€â–¶ ClasificaciÃ³n
+Dataset â”€â”€â–¶ Anotación â”€â”€â–¶ Segmentación â”€â”€â–¶ Embedding â”€â”€â–¶ Clasificación
    â”‚                                            â”‚              â”‚
    â”‚                                            â–¼              â–¼
-   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¶ Base vectorial â—€â”€â”€â”€â”€â”€ BÃºsqueda        Open-set
+   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¶ Base vectorial â—€â”€â”€â”€â”€â”€ Bàºsqueda        Open-set
                                        por similitud
                                             â”‚
                                             â–¼
-                                   FusiÃ³n multimodal
+                                   Fusión multimodal
                                             â–¼
-                                    IdentificaciÃ³n
+                                    Identificación
                                        explicada
 ```
 
-Las decisiones metodolÃ³gicas que siguen abiertas estÃ¡n recogidas en [[Inconsistencias y Decisiones Pendientes]].
+Las decisiones metodológicas que siguen abiertas están recogidas en [[Inconsistencias y Decisiones Pendientes]].
 
 
 

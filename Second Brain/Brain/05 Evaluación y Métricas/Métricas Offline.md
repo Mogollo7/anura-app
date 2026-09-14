@@ -1,116 +1,116 @@
 ﻿---
-title: "MÃ©tricas Offline"
+title: "Métricas Offline"
 proyecto: Anura
-tipo: evaluaciÃ³n
+tipo: evaluación
 estado: plantilla-lista-para-resultados
-tags: [anura, evaluaciÃ³n, mÃ©tricas, experimentos]
+tags: [anura, evaluación, métricas, experimentos]
 ---
 
-# MÃ©tricas Offline
+# Métricas Offline
 
-[[Anura â€” Ãndice General]] Â· [[EvaluaciÃ³n y MÃ©tricas â€” Ãndice]] Â· [[Matrices de ConfusiÃ³n]] Â· [[Experimentos y Resultados]] Â· [[Open-Set Recognition]]
+[[Anura â€” àndice General]] · [[Evaluación y Métricas â€” àndice]] · [[Matrices de Confusión]] · [[Experimentos y Resultados]] · [[Open-Set Recognition]]
 
-> [!abstract] QuÃ© se mide aquÃ­
-> Rendimiento en condiciones controladas, sobre el conjunto de test congelado. Es la evaluaciÃ³n que sostiene las afirmaciones del documento de grado; la evaluaciÃ³n en condiciones reales estÃ¡ en [[EvaluaciÃ³n en Campo Real]] y suele dar nÃºmeros peores â€” eso es normal y hay que reportarlo, no esconderlo.
+> [!abstract] Qué se mide aquí
+> Rendimiento en condiciones controladas, sobre el conjunto de test congelado. Es la evaluación que sostiene las afirmaciones del documento de grado; la evaluación en condiciones reales está en [[Evaluación en Campo Real]] y suele dar nàºmeros peores â€” eso es normal y hay que reportarlo, no esconderlo.
 
-## 1. ConfiguraciÃ³n de la evaluaciÃ³n
+## 1. Configuración de la evaluación
 
-Se rellena una vez y se congela. Cambiarla invalida la comparaciÃ³n entre experimentos.
+Se rellena una vez y se congela. Cambiarla invalida la comparación entre experimentos.
 
 | Campo | Valor |
 | --- | --- |
-| Conjunto de test | 120 imÃ¡genes originales, sin augmentaciÃ³n |
+| Conjunto de test | 120 imágenes originales, sin augmentación |
 | Estrategia de split | `GroupSplit` por individuo y localidad |
-| NÂº de clases | *(pendiente de fijar â€” ver [[Inconsistencias y Decisiones Pendientes]])* |
-| Balance de clases | Desbalanceado (ver [[Listado de Individuos y Arreglo TaxonÃ³mico]]) |
-| **MÃ©trica principal** | **F1 macro** |
-| MÃ©tricas secundarias | Top-1, Top-3, precisiÃ³n, sensibilidad, consistencia taxonÃ³mica |
-| MÃ©trica del objetivo | **Top-3 Accuracy â‰¥ 85 %** (RNF-04) |
+| Nº de clases | *(pendiente de fijar â€” ver [[Inconsistencias y Decisiones Pendientes]])* |
+| Balance de clases | Desbalanceado (ver [[Listado de Individuos y Arreglo Taxonómico]]) |
+| **Métrica principal** | **F1 macro** |
+| Métricas secundarias | Top-1, Top-3, precisión, sensibilidad, consistencia taxonómica |
+| Métrica del objetivo | **Top-3 Accuracy â‰¥ 85 %** (RNF-04) |
 
-> [!important] Por quÃ© F1 macro y no accuracy
-> Con clases desbalanceadas, la accuracy premia acertar las especies abundantes. Un modelo que ignore por completo las especies raras â€” que son las que mÃ¡s importan en conservaciÃ³n â€” puede tener buena accuracy y ser inÃºtil. **F1 macro pondera todas las especies por igual** y penaliza el abandono de las minoritarias. La accuracy se reporta igualmente, pero no se optimiza contra ella.
+> [!important] Por qué F1 macro y no accuracy
+> Con clases desbalanceadas, la accuracy premia acertar las especies abundantes. Un modelo que ignore por completo las especies raras â€” que son las que más importan en conservación â€” puede tener buena accuracy y ser inàºtil. **F1 macro pondera todas las especies por igual** y penaliza el abandono de las minoritarias. La accuracy se reporta igualmente, pero no se optimiza contra ella.
 
 ## 2. Resultados globales
 
-Rellenar por cada versiÃ³n evaluada. No sobrescribir filas anteriores: el histÃ³rico es lo que permite ver si se avanza.
+Rellenar por cada versión evaluada. No sobrescribir filas anteriores: el histórico es lo que permite ver si se avanza.
 
-| Fecha | VersiÃ³n modelo | VersiÃ³n dataset | Top-1 | Top-3 | F1 macro | PrecisiÃ³n macro | Recall macro | Notas |
+| Fecha | Versión modelo | Versión dataset | Top-1 | Top-3 | F1 macro | Precisión macro | Recall macro | Notas |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | | |
 
-## 3. Resultados por nivel taxonÃ³mico
+## 3. Resultados por nivel taxonómico
 
-La clasificaciÃ³n es jerÃ¡rquica, asÃ­ que reportar solo especie oculta informaciÃ³n Ãºtil. Las metas fijadas en [[Estrategia de ConstrucciÃ³n del Dataset]]:
+La clasificación es jerárquica, así que reportar solo especie oculta información àºtil. Las metas fijadas en [[Estrategia de Construcción del Dataset]]:
 
 | Nivel | Meta | Top-1 | Top-3 | F1 macro |
 | --- | --- | --- | --- | --- |
 | Familia | 90â€“95 % | | | |
-| GÃ©nero | 80â€“85 % | | | |
+| Género | 80â€“85 % | | | |
 | Especie | â‰¥ 80 % | | | |
 
-Y una mÃ©trica propia de este diseÃ±o:
+Y una métrica propia de este diseño:
 
-| MÃ©trica | Valor | DefiniciÃ³n |
+| Métrica | Valor | Definición |
 | --- | --- | --- |
-| **Consistencia taxonÃ³mica** | | % de predicciones donde especie â†’ gÃ©nero â†’ familia son coherentes entre sÃ­ |
+| **Consistencia taxonómica** | | % de predicciones donde especie â†’ género â†’ familia son coherentes entre sí |
 
 ## 4. Resultados por especie
 
-La tabla que revela dÃ³nde estÃ¡ el problema real. Ordenar por F1 ascendente: las primeras filas son la lista de trabajo.
+La tabla que revela dónde está el problema real. Ordenar por F1 ascendente: las primeras filas son la lista de trabajo.
 
-| Especie | N test | PrecisiÃ³n | Recall | F1 | ConfusiÃ³n principal |
+| Especie | N test | Precisión | Recall | F1 | Confusión principal |
 | --- | --- | --- | --- | --- | --- |
 | | | | | | |
 
-**Referencia de la Etapa I: 10 especies, exactitud global ~99 %**, con segmentaciÃ³n binaria (individuo vs. fondo) antes de BioCLIP y `GroupSplit` por individuo â€” detalle metodolÃ³gico completo en [[Modelo de VisiÃ³n â€” BioCLIP]] Â§7 y en [[Estrategia de ConstrucciÃ³n del Dataset]]. No es fuga de informaciÃ³n: es el resultado de un pipeline correctamente diseÃ±ado. Pendiente: repetir el mismo protocolo al escalar el catÃ¡logo, para confirmar que se sostiene.
+**Referencia de la Etapa I: 10 especies, exactitud global ~99 %**, con segmentación binaria (individuo vs. fondo) antes de BioCLIP y `GroupSplit` por individuo â€” detalle metodológico completo en [[Modelo de Visión â€” BioCLIP]] §7 y en [[Estrategia de Construcción del Dataset]]. No es fuga de información: es el resultado de un pipeline correctamente diseñado. Pendiente: repetir el mismo protocolo al escalar el catálogo, para confirmar que se sostiene.
 
-## 5. AblaciÃ³n por modalidad
+## 5. Ablación por modalidad
 
-El experimento clave de [[Arquitectura Multimodal]] Â§4. Todas las filas sobre el **mismo subconjunto** con todas las modalidades disponibles.
+El experimento clave de [[Arquitectura Multimodal]] §4. Todas las filas sobre el **mismo subconjunto** con todas las modalidades disponibles.
 
-| ConfiguraciÃ³n | N | Top-1 | Top-3 | F1 macro | Î” F1 |
+| Configuración | N | Top-1 | Top-3 | F1 macro | Î” F1 |
 | --- | --- | --- | --- | --- | --- |
 | Solo imagen | | | | | â€” |
-| + contexto geogrÃ¡fico | | | | | |
+| + contexto geográfico | | | | | |
 | + audio | | | | | |
 | + audio + contexto | | | | | |
-| + morfologÃ­a (plantillas) | | | | | |
+| + morfología (plantillas) | | | | | |
 
-## 6. Estrategias de uso de BioCLIP (Ãºnico backbone del proyecto)
+## 6. Estrategias de uso de BioCLIP (àºnico backbone del proyecto)
 
-BioCLIP es el Ãºnico modelo del proyecto ([[Modelo de VisiÃ³n â€” BioCLIP]]); esta tabla no compara arquitecturas distintas, compara **cuÃ¡nto se le pide a BioCLIP** â€” de menor a mayor coste de entrenamiento.
+BioCLIP es el àºnico modelo del proyecto ([[Modelo de Visión â€” BioCLIP]]); esta tabla no compara arquitecturas distintas, compara **cuánto se le pide a BioCLIP** â€” de menor a mayor coste de entrenamiento.
 
-| ConfiguraciÃ³n | TamaÃ±o | Top-1 | Top-3 | F1 macro | Latencia |
+| Configuración | Tamaño | Top-1 | Top-3 | F1 macro | Latencia |
 | --- | --- | --- | --- | --- | --- |
 | BioCLIP zero-shot (sin entrenar nada) | | | | | |
-| BioCLIP congelado + cabezas jerÃ¡rquicas | | | | | |
+| BioCLIP congelado + cabezas jerárquicas | | | | | |
 | BioCLIP + triplet loss (fine-tuning parcial) | | | | | |
-| **Etapa I (segmentaciÃ³n binaria + BioCLIP + cabezas)** | | ~99 % | | | |
+| **Etapa I (segmentación binaria + BioCLIP + cabezas)** | | ~99 % | | | |
 
-### ComparaciÃ³n de entrada al modelo (variantes A/B/C)
+### Comparación de entrada al modelo (variantes A/B/C)
 
-Definida en [[Modelo de VisiÃ³n â€” BioCLIP]] Â§5. La variante C (recorte + mÃ¡scara binaria) es la que ya produjo el resultado de la Etapa I.
+Definida en [[Modelo de Visión â€” BioCLIP]] §5. La variante C (recorte + máscara binaria) es la que ya produjo el resultado de la Etapa I.
 
 | Variante de entrada | Top-1 | Top-3 | F1 macro |
 | --- | --- | --- | --- |
 | A â€” Imagen completa | | | |
 | B â€” Recorte del individuo | | | |
-| **C â€” Recorte + mÃ¡scara binaria** âœ… | ~99 % (Etapa I) | | |
+| **C â€” Recorte + máscara binaria** âœ… | ~99 % (Etapa I) | | |
 
-### Rama de audio: BioCLIP compartido vs. modelo acÃºstico dedicado
+### Rama de audio: BioCLIP compartido vs. modelo acàºstico dedicado
 
-Definida en [[Modelo de VisiÃ³n â€” BioCLIP]] Â§9. Determina si reutilizar el mismo codificador para audio es viable o si hace falta reconsiderarlo.
+Definida en [[Modelo de Visión â€” BioCLIP]] §9. Determina si reutilizar el mismo codificador para audio es viable o si hace falta reconsiderarlo.
 
-| ConfiguraciÃ³n | Top-1 (audio) | Recall@5 |
+| Configuración | Top-1 (audio) | Recall@5 |
 | --- | --- | --- |
 | BioCLIP compartido sobre espectrograma | | |
-| Modelo acÃºstico dedicado (BirdNET / PANNs / AnuraSet) | | |
+| Modelo acàºstico dedicado (BirdNET / PANNs / AnuraSet) | | |
 
-## 7. RecuperaciÃ³n vectorial
+## 7. Recuperación vectorial
 
-MÃ©tricas de [[Base Vectorial (SQLite-vec)]] e [[ImplementaciÃ³n de Triplet Loss]].
+Métricas de [[Base Vectorial (SQLite-vec)]] e [[Implementación de Triplet Loss]].
 
-| MÃ©trica | Valor |
+| Métrica | Valor |
 | --- | --- |
 | Recall@1 / @5 / @10 | |
 | Precision@5 | |
@@ -120,34 +120,34 @@ MÃ©tricas de [[Base Vectorial (SQLite-vec)]] e [[ImplementaciÃ³n de Triplet 
 
 ## 8. Open-set
 
-Detalle del protocolo en [[Open-Set Recognition]] Â§4. **Near-OOD y far-OOD separados**, nunca promediados.
+Detalle del protocolo en [[Open-Set Recognition]] §4. **Near-OOD y far-OOD separados**, nunca promediados.
 
-| MÃ©todo | AUROC near | AUROC far | FPR@95TPR near | FPR@95TPR far | Acc. en conocidos |
+| Método | AUROC near | AUROC far | FPR@95TPR near | FPR@95TPR far | Acc. en conocidos |
 | --- | --- | --- | --- | --- | --- |
-| MSP (lÃ­nea base) | | | | | |
+| MSP (línea base) | | | | | |
 | + temperature scaling | | | | | |
 | Energy score | | | | | |
 | Mahalanobis | | | | | |
 
-## 9. Impacto de la cuantizaciÃ³n
+## 9. Impacto de la cuantización
 
-Requisito de [[OptimizaciÃ³n para Inferencia en MÃ³vil]]: la degradaciÃ³n debe medirse, no suponerse.
+Requisito de [[Optimización para Inferencia en Móvil]]: la degradación debe medirse, no suponerse.
 
-| Modelo | TamaÃ±o | Top-1 | Top-3 | F1 macro | Latencia p95 | Î” F1 |
+| Modelo | Tamaño | Top-1 | Top-3 | F1 macro | Latencia p95 | Î” F1 |
 | --- | --- | --- | --- | --- | --- | --- |
 | FP32 (referencia) | | | | | | â€” |
 | FP16 | | | | | | |
 | INT8 | | | | | | |
 
-Criterio de aceptaciÃ³n: Î” F1 â‰¤ 2 %.
+Criterio de aceptación: Î” F1 â‰¤ 2 %.
 
 ## 10. Reglas de higiene experimental
 
-1. El test se toca **lo mÃ­nimo posible**. Los hiperparÃ¡metros y umbrales se eligen en validaciÃ³n.
-2. Cada fila registra versiÃ³n de modelo y de dataset. Sin eso el nÃºmero no significa nada.
-3. Ninguna cifra se cita en el documento sin su configuraciÃ³n asociada.
-4. Los resultados peores tambiÃ©n se registran. Un experimento que fallÃ³ es informaciÃ³n, y omitirlo sesga las conclusiones.
-5. Semilla aleatoria fijada y anotada; idealmente, media Â± desviaciÃ³n de 3 ejecuciones.
+1. El test se toca **lo mínimo posible**. Los hiperparámetros y umbrales se eligen en validación.
+2. Cada fila registra versión de modelo y de dataset. Sin eso el nàºmero no significa nada.
+3. Ninguna cifra se cita en el documento sin su configuración asociada.
+4. Los resultados peores también se registran. Un experimento que falló es información, y omitirlo sesga las conclusiones.
+5. Semilla aleatoria fijada y anotada; idealmente, media ± desviación de 3 ejecuciones.
 
 
 
