@@ -1,0 +1,180 @@
+{
+  "date": "2026-09-15",
+  "purpose": "Regresion post-fix OPEN_SET_PACKAGE_ISOLATION",
+  "volatile_keys_ignored": [
+    "created_at",
+    "elapsed_s",
+    "generated_at",
+    "inference_ms",
+    "installed_at",
+    "timestamp",
+    "updated_at"
+  ],
+  "historical_artifacts_restored_byte_identical": true,
+  "files": {
+    "test_execution_result.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "2b3f27fb55563e7b2654e879c89d5b1ad40452b648d0320743b09d6b63defe07",
+      "sha256_rerun": "2b3f27fb55563e7b2654e879c89d5b1ad40452b648d0320743b09d6b63defe07",
+      "archived_rerun_output": "test_execution_result.json"
+    },
+    "package_lifecycle_result.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "8f94b484c79db5502c182285633c64ed24e95b2aeb13f9e0770fa20ab970d9ae",
+      "sha256_rerun": "8f94b484c79db5502c182285633c64ed24e95b2aeb13f9e0770fa20ab970d9ae",
+      "archived_rerun_output": "package_lifecycle_result.json"
+    },
+    "package_offline_integrity_result.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "567da4f9087efa1003540395ba65183d499ca6a62cd82da510dcbf1821d77414",
+      "sha256_rerun": "567da4f9087efa1003540395ba65183d499ca6a62cd82da510dcbf1821d77414",
+      "archived_rerun_output": "package_offline_integrity_result.json"
+    },
+    "CONTEXT_USAGE_AUDIT_20260914.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "3c6168ceb95abeb02478fe9a5651f6a6a71f54a480552ba43e097801d1cba419",
+      "sha256_rerun": "3c6168ceb95abeb02478fe9a5651f6a6a71f54a480552ba43e097801d1cba419",
+      "archived_rerun_output": "CONTEXT_USAGE_AUDIT_20260914.json"
+    },
+    "open_set_post_bugfix_metrics.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "b9f42081fa7a902572123d1a577f583960c6f7680126bf9f1f7eca6f2c513496",
+      "sha256_rerun": "b9f42081fa7a902572123d1a577f583960c6f7680126bf9f1f7eca6f2c513496",
+      "archived_rerun_output": "open_set_post_bugfix_metrics.json"
+    },
+    "runtime_e2e_catalog_result.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "47765c89cfeb98ef7bfe655b457a3ca5b1d45f16a97258a69c9d988e239d6a56",
+      "sha256_rerun": "47765c89cfeb98ef7bfe655b457a3ca5b1d45f16a97258a69c9d988e239d6a56",
+      "archived_rerun_output": "runtime_e2e_catalog_result.json"
+    },
+    "context_package_species_test_20260914.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "d9c95da9d645bce75a83b8aa2523d171c14f713263de338b689b0fa92c12a419",
+      "sha256_rerun": "d9c95da9d645bce75a83b8aa2523d171c14f713263de338b689b0fa92c12a419",
+      "archived_rerun_output": "context_package_species_test_20260914.json"
+    },
+    "runtime_e2e_result.json": {
+      "identical_ignoring_volatile_keys": false,
+      "difference_count": 12,
+      "differences": [
+        "ADDED   $.catalog_state",
+        "ADDED   $.input_metadata.runtime.bioclip.runtime_code_version",
+        "ADDED   $.input_metadata.runtime.visual_ranking.pool_scope",
+        "ADDED   $.input_metadata.runtime.visual_ranking.release_pool_size",
+        "ADDED   $.open_set_evidence.active_centroid_count",
+        "ADDED   $.open_set_evidence.catalog_membership",
+        "ADDED   $.open_set_evidence.centroid_source",
+        "CHANGED $.open_set_evidence.decision_basis: Mahalanobis min-distance to nearest release centroid -> Mahalanobis min-distance to nearest ACTIVE catalog centroid",
+        "ADDED   $.open_set_evidence.excluded_centroid_count",
+        "ADDED   $.open_set_evidence.nearest_species_id",
+        "ADDED   $.open_set_evidence.release_centroid_count",
+        "ADDED   $.visual_similarity_warnings"
+      ],
+      "note": "La linea base es de 13:22, ANTERIOR al bugfix DYNAMIC_REMOVE_SPECIES_FAIL (16:00); casi todas las claves ADDED y el texto de decision_basis vienen de ese bugfix. Atribuible a este fix: solo open_set_evidence.catalog_membership. decision/score/candidatos sin cambios.",
+      "sha256_historical": "981faeeeafce42ebff1ac6def12dc0be4d959d33de3ee4fe9dd5ac7cd9a41122",
+      "sha256_rerun": "4c3f75ab9ffecb57f70e21448b56114e7eaf3afd42ed45107a7b7461480cba57",
+      "archived_rerun_output": "runtime_e2e_result.json"
+    },
+    "runtime_e2e_suite_result.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "79a5b0b0e32c729cc5325603862ee53746a84b85468b531d548cecd599657050",
+      "sha256_rerun": "79a5b0b0e32c729cc5325603862ee53746a84b85468b531d548cecd599657050",
+      "archived_rerun_output": "runtime_e2e_suite_result.json"
+    },
+    "all_packages_random_topk_test_20260914.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "2f1c9745be9fd24fa0d6139e06bd80c93faf3f2a77c2982ba0833eee99af9bc5",
+      "sha256_rerun": "2f1c9745be9fd24fa0d6139e06bd80c93faf3f2a77c2982ba0833eee99af9bc5",
+      "archived_rerun_output": "all_packages_random_topk_test_20260914.json"
+    },
+    "stress_test_v1/openset_regression_metrics.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "86121cc8eba8617ecc8d02eba4456991eb4cc6b64f2cd6389abd92162272833c",
+      "sha256_rerun": "86121cc8eba8617ecc8d02eba4456991eb4cc6b64f2cd6389abd92162272833c",
+      "archived_rerun_output": "stress_test_v1__openset_regression_metrics.json"
+    },
+    "stress_test_v1/package_stress_test_results.json": {
+      "identical_ignoring_volatile_keys": false,
+      "difference_count": 6,
+      "differences": [
+        "REMOVED $.results[8].detail.overlap_provenance_sample.ANU_COL_BOAN_PLA_001",
+        "ADDED   $.results[8].detail.overlap_provenance_sample.ANU_COL_ENGY_PUS_001",
+        "ADDED   $.results[8].detail.overlap_provenance_sample.ANU_COL_PRIS_ACH_001",
+        "REMOVED $.results[8].detail.overlap_provenance_sample.ANU_COL_PRIS_PAL_001",
+        "REMOVED $.results[8].detail.overlap_provenance_sample.ANU_COL_RHIN_ALA_001",
+        "ADDED   $.results[8].detail.overlap_provenance_sample.ANU_COL_SCIN_RUB_001"
+      ],
+      "note": "Solo cambia overlap_provenance_sample: muestra de 3 elementos tomada de un set() de Python (orden por hash, varia entre procesos). overlap=11 y procedencia=anura_antioquia_visual@v1.0.0 en ambas corridas.",
+      "sha256_historical": "b0055314c099dfee0d28025e61079545846aa233038ca0eb08017c97f7d6a555",
+      "sha256_rerun": "db2955c75ac877fe1e2dccb7fe4cca9b947effa38e667595e9fcf7b8974a98e7",
+      "archived_rerun_output": "stress_test_v1__package_stress_test_results.json"
+    },
+    "stress_test_v1/determinism_results.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "c711be16683ec5b1fda2c88e07b0b0e3513801ffb4b82b7428205b35d9fb6022",
+      "sha256_rerun": "c711be16683ec5b1fda2c88e07b0b0e3513801ffb4b82b7428205b35d9fb6022",
+      "archived_rerun_output": "stress_test_v1__determinism_results.json"
+    },
+    "stress_test_v1/rmarina_exclusion_test.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "421b09eea06f5ff136eb272149b0fafcc6979e6e393ed8d2978e621a58eb831e",
+      "sha256_rerun": "421b09eea06f5ff136eb272149b0fafcc6979e6e393ed8d2978e621a58eb831e",
+      "archived_rerun_output": "stress_test_v1__rmarina_exclusion_test.json"
+    },
+    "stress_test_v1/context_ablation_results.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": null,
+      "sha256_historical": "8215af1e8222411fccf5e933565aacc6b9553657a060512a0b2b41dd38f98362",
+      "sha256_rerun": "8215af1e8222411fccf5e933565aacc6b9553657a060512a0b2b41dd38f98362",
+      "archived_rerun_output": "stress_test_v1__context_ablation_results.json"
+    },
+    "stress_test_v1/adversarial_inputs_results.json": {
+      "identical_ignoring_volatile_keys": true,
+      "difference_count": 0,
+      "differences": [],
+      "note": "Ejecutado con envoltorio pathlib.Path.rename=Path.replace (fallo preexistente del script en Windows cuando actually_bmp_renamed.jpg ya existe); el script no se modifico.",
+      "sha256_historical": "c2525a53e73b22117083954401246b3fa116b08f9a3bbbde861632e1443235e0",
+      "sha256_rerun": "c2525a53e73b22117083954401246b3fa116b08f9a3bbbde861632e1443235e0",
+      "archived_rerun_output": "stress_test_v1__adversarial_inputs_results.json"
+    }
+  }
+}

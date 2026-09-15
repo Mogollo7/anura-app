@@ -1,0 +1,20 @@
+{
+  "sample_criterion": "300 imagenes reales: 240 KNOWN muestreadas round-robin determinista sobre las 43 carpetas de especie en 'data cleaned/', 60 UNKNOWN round-robin determinista sobre 5 subcarpetas de 'data/unknown_open_set_v2/images/'. Sin aleatoriedad (reproducible).",
+  "total_images": 300,
+  "successful_inference": 300,
+  "failed_inference": 0,
+  "timeouts": 0,
+  "nan_or_inf_embedding": 0,
+  "empty_embeddings": 0,
+  "invalid_dimensions": 0,
+  "invalid_scores": 0,
+  "contract_errors": 0,
+  "failure_examples": [],
+  "timing_ms": {
+    "mean": 181.597,
+    "p50": 184.409,
+    "p95": 209.393,
+    "max": 249.626,
+    "min": 144.881
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_RESIDUAL",
+  "pass": 7,
+  "residual": 2,
+  "fail": 0,
+  "threshold_used": 39.35406371422803,
+  "threshold_recalibrated": false,
+  "cases": [
+    {
+      "case": "01_active_species_can_be_known",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "score": 25.012601852416992,
+      "nearest_species_id": "ANU_COL_DEND_TRU_001",
+      "active_centroid_count": 34,
+      "top1": "Dendrobates truncatus"
+    },
+    {
+      "case": "02_species_deactivated",
+      "status": "RESIDUAL",
+      "decision": "ESPECIE_CONOCIDA",
+      "score": 38.83302307128906,
+      "score_when_active": 25.012601852416992,
+      "nearest_species_id": "ANU_COL_DEND_TRI_001",
+      "own_centroid_removed": true,
+      "absent_from_ranking": true,
+      "active_centroid_count": 33,
+      "residual_cause": "Aceptado por el centroide de OTRA especie activa: threshold 39.354 demasiado permisivo."
+    },
+    {
+      "case": "03_package_deactivated",
+      "status": "RESIDUAL",
+      "decision": "ESPECIE_CONOCIDA",
+      "score": 38.83302307128906,
+      "nearest_species_id": "ANU_COL_DEND_TRI_001",
+      "active_centroid_count": 17,
+      "absent_from_ranking": true,
+      "residual_cause": "Threshold historico acepta un centroide ajeno; no es fuga de catalogo."
+    },
+    {
+      "case": "04_package_reactivated",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "score": 25.012601852416992,
+      "deterministic_vs_case_01": true
+    },
+    {
+      "case": "05_bug_repro_dendrobates_truncatus",
+      "status": "PASS",
+      "before_bugfix_behaviour": "centroide congelado del release siempre presente -> 25.0126 < 39.354 -> ESPECIE_CONOCIDA",
+      "mahalanobis_species_active": 25.012601852416992,
+      "mahalanobis_species_deactivated": 38.83302307128906,
+      "delta": 13.8204,
+      "catalog_leakage_fixed": true,
+      "decision_after_deactivation": "ESPECIE_CONOCIDA",
+      "honest_note": "La fuga de catalogo esta corregida (score sube 13.8). La decision sigue siendo ESPECIE_CONOCIDA porque el threshold congelado acepta otro centroide."
+    },
+    {
+      "case": "06_visually_similar_species",
+      "status": "PASS",
+      "warning_count": 1,
+      "group_ids": [
+        "VSG_RHINELLA_07"
+      ],
+      "matched": [
+        [
+          "Rhinella alata",
+          "Rhinella margaritifera"
+        ]
+      ],
+      "top3": [
+        "Rhinella alata",
+        "Rhinella margaritifera",
+        "Rhinella horribilis"
+      ],
+      "scores_identical_with_and_without_rule": true,
+      "decision_identical": true,
+      "groups_available_from_packages": 7
+    },
+    {
+      "case": "07_outside_geographic_coverage",
+      "status": "PASS",
+      "geo_available": false,
+      "reason": "LOCATION_OUTSIDE_GEO_COVERAGE",
+      "geographic_scores": [
+        null,
+        null,
+        null
+      ],
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "VISUALLY_SIMILAR_SPECIES_IN_TOP_CANDIDATES"
+      ]
+    },
+    {
+      "case": "08_unknown_rejected",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "score": 44.40593719482422,
+      "threshold": 39.35406371422803,
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "09_empty_active_catalog",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "reason": "NO_ACTIVE_SPECIES_IN_CATALOG",
+      "candidate_count": 0
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "status": "COMPLETED",
+  "date": "2026-09-14",
+  "summary": {
+    "signals": {
+      "familia": "NO usado en score (solo metadata)",
+      "genero": "NO usado en score (solo metadata / similitud visual interpretativa)",
+      "especie": "SI — unidad de visual + prior geo + open-set",
+      "ubicacion": "SI condicional — lat/lon → zona Antioquia → prior especie w=0.3",
+      "altura": "NO — datos en paquetes, no cableados al pipeline"
+    },
+    "fixture_tests": {
+      "passed": 10,
+      "failed": 0,
+      "total": 10
+    },
+    "logical_error_count": 2,
+    "gap_count": 2
+  },
+  "code_wiring": {
+    "identify_image_parameters": [
+      "self",
+      "image_path",
+      "observation_id",
+      "is_anuran",
+      "anuran_evidence",
+      "latitude",
+      "longitude",
+      "top_k"
+    ],
+    "has_latitude_longitude_params": true,
+    "has_elevation_param": false,
+    "pipeline_calls_active_geography": false,
+    "pipeline_calls_active_elevation": false,
+    "ranking_formula_uses_geo_weight_0_3": true,
+    "ranking_attaches_genus_family_as_metadata": true,
+    "ranking_formula_includes_genus_or_family": false,
+    "geographic_adapter_requires_lat_lon": true,
+    "geographic_adapter_uses_species_prior_only": true,
+    "pipeline_src_mentions": {
+      "elevation": false,
+      "altitude": false,
+      "family": false,
+      "genus": false,
+      "geography": false
+    }
+  },
+  "packages": {
+    "packages": [
+      {
+        "package": "anura_antioquia_visual@v1.0.0",
+        "species_count": 28,
+        "taxonomy_entries": 28,
+        "taxonomy_with_family": 28,
+        "taxonomy_with_genus": 28,
+        "families_listed": 6,
+        "genera_listed": 12,
+        "has_geography_json": false,
+        "has_elevation_json": false
+      },
+      {
+        "package": "anura_antioquia_visual@v1.0.1",
+        "species_count": 27,
+        "taxonomy_entries": 27,
+        "taxonomy_with_family": 27,
+        "taxonomy_with_genus": 27,
+        "families_listed": 6,
+        "genera_listed": 11,
+        "has_geography_json": false,
+        "has_elevation_json": false
+      },
+      {
+        "package": "anura_antioquia_visual@v1.0.2",
+        "species_count": 28,
+        "taxonomy_entries": 28,
+        "taxonomy_with_family": 28,
+        "taxonomy_with_genus": 28,
+        "families_listed": 6,
+        "genera_listed": 12,
+        "has_geography_json": true,
+        "has_elevation_json": true
+      },
+      {
+        "package": "anura_antioquia_visual@v1.1.0",
+        "species_count": 28,
+        "taxonomy_entries": 28,
+        "taxonomy_with_family": 28,
+        "taxonomy_with_genus": 28,
+        "families_listed": 6,
+        "genera_listed": 12,
+        "has_geography_json": true,
+        "has_elevation_json": true
+      },
+      {
+        "package": "anura_antioquia_visual@v1.2.0",
+        "species_count": 28,
+        "taxonomy_entries": 28,
+        "taxonomy_with_family": 28,
+        "taxonomy_with_genus": 28,
+        "families_listed": 6,
+        "genera_listed": 12,
+        "has_geography_json": true,
+        "has_elevation_json": true
+      },
+      {
+        "package": "anura_cauca_visual@v1.0.0",
+        "species_count": 17,
+        "taxonomy_entries": 17,
+        "taxonomy_with_family": 17,
+        "taxonomy_with_genus": 17,
+        "families_listed": 4,
+        "genera_listed": 8,
+        "has_geography_json": false,
+        "has_elevation_json": false
+      },
+      {
+        "package": "anura_cauca_visual@v1.1.0",
+        "species_count": 17,
+        "taxonomy_entries": 17,
+        "taxonomy_with_family": 17,
+        "taxonomy_with_genus": 17,
+        "families_listed": 4,
+        "genera_listed": 8,
+        "has_geography_json": true,
+        "has_elevation_json": true
+      },
+      {
+        "package": "anura_cauca_visual@v1.2.0",
+        "species_count": 17,
+        "taxonomy_entries": 17,
+        "taxonomy_with_family": 17,
+        "taxonomy_with_genus": 17,
+        "families_listed": 4,
+        "genera_listed": 8,
+        "has_geography_json": true,
+        "has_elevation_json": true
+      }
+    ]
+  },
+  "functional_probe": {
+    "top1_without_geo": "Dendrobates truncatus",
+    "top1_with_species_geo_prior": "Boana boans",
+    "geo_reranks_when_species_prior_strong": true,
+    "genus_family_present_in_candidates": true,
+    "without_geo_ranking_equals_visual": true,
+    "geographic_adapter_no_location": {
+      "scores": {},
+      "meta": {
+        "available": false,
+        "reason": "LOCATION_UNAVAILABLE"
+      }
+    },
+    "geographic_adapter_medellin": {
+      "available": true,
+      "zone_id": "ZONE_006",
+      "scores": {
+        "Boana boans": 0.0,
+        "Dendrobates truncatus": 0.025316455696202528,
+        "Pristimantis paisa": 1.0
+      },
+      "meta": {
+        "available": true,
+        "zone_id": "ZONE_006",
+        "cell_id": "G025_25_-302",
+        "prior": "prior_zone_taxon_v2_clean",
+        "normalization": "GEO6_row_minmax"
+      }
+    },
+    "geographic_adapter_outside_coverage": {
+      "scores": {},
+      "meta": {
+        "available": false,
+        "reason": "LOCATION_OUTSIDE_GEO_COVERAGE",
+        "cell_id": "G025_-132_-280"
+      }
+    },
+    "package_context_readable": {
+      "geography_entries": 28,
+      "elevation_entries": 28,
+      "catalog_state_keys": [
+        "active_packages",
+        "active_species_count",
+        "disabled_species",
+        "families",
+        "genera",
+        "installed",
+        "manager_version",
+        "network_required",
+        "packages_root"
+      ],
+      "families_in_state": [
+        "Aromobatidae",
+        "Bufonidae",
+        "Craugastoridae",
+        "Dendrobatidae",
+        "Hylidae",
+        "Leptodactylidae"
+      ],
+      "genera_in_state": [
+        "Boana",
+        "Craugastor",
+        "Dendrobates",
+        "Dendropsophus",
+        "Engystomops",
+        "Hyloscirtus",
+        "Leptodactylus",
+        "Phyllomedusa",
+        "Pristimantis",
+        "Rheobates",
+        "Rhinella",
+        "Scinax"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "CTX-SPECIES",
+      "signal": "especie",
+      "used_as_context": true,
+      "role": "unidad de ranking visual, prior geográfico (especie×zona) y open-set centroids",
+      "severity": "info"
+    },
+    {
+      "id": "CTX-LOCATION",
+      "signal": "ubicacion (lat/lon)",
+      "used_as_context": true,
+      "role": "GeographicAdapter → zona → prior especie; entra a ranking con w=0.3 SOLO si lat/lon presentes y dentro de cobertura Antioquia",
+      "severity": "info",
+      "evidence": {
+        "has_params": true,
+        "medellin_available": true,
+        "rerank_works": true
+      }
+    },
+    {
+      "id": "CTX-FAMILY",
+      "signal": "familia",
+      "used_as_context": false,
+      "role": "metadata de salida + taxonomía de paquete; NO entra a ranking_score. Priors jerárquicos GEO4 existen como experimento, no cableados al runtime",
+      "severity": "gap",
+      "evidence": {
+        "in_candidates": true,
+        "in_ranking_formula": false,
+        "geo_adapter_species_only": true
+      }
+    },
+    {
+      "id": "CTX-GENUS",
+      "signal": "genero",
+      "used_as_context": false,
+      "role": "metadata de salida + grupos de similitud visual (interpretación); NO entra a ranking_score",
+      "severity": "gap",
+      "evidence": {
+        "in_candidates": true,
+        "in_ranking_formula": false
+      }
+    },
+    {
+      "id": "CTX-ELEVATION",
+      "signal": "altura/elevacion",
+      "used_as_context": false,
+      "role": "elevation.json en paquetes v1.1+ es legible vía PackageManager, pero identify_image no acepta altitude y no consulta active_elevation()",
+      "severity": "logical_error",
+      "evidence": {
+        "packages_with_elevation": 5,
+        "pipeline_has_elevation_param": false,
+        "pipeline_calls_active_elevation": false,
+        "elevation_entries_active_package": 28
+      }
+    },
+    {
+      "id": "CTX-PACKAGE-GEO-DISCONNECT",
+      "signal": "geography.json de paquete",
+      "used_as_context": false,
+      "role": "paquetes declaran geography.json pero el score geográfico runtime usa prior_zone_taxon_v2_clean (Antioquia), NO geography.json del paquete",
+      "severity": "logical_error",
+      "evidence": {
+        "packages_with_geography": 5,
+        "pipeline_calls_active_geography": false,
+        "geo_entries_active_package": 28
+      }
+    },
+    {
+      "id": "CTX-CAUCA-GEO-COVERAGE",
+      "signal": "ubicacion fuera de Antioquia",
+      "used_as_context": false,
+      "role": "GeographicAdapter solo tiene cell_zone_map de Antioquia; coordenadas fuera → LOCATION_OUTSIDE_GEO_COVERAGE y ranking queda solo visual",
+      "severity": "limitation",
+      "evidence": {
+        "available": false,
+        "reason": "LOCATION_OUTSIDE_GEO_COVERAGE",
+        "cell_id": "G025_-132_-280"
+      }
+    },
+    {
+      "id": "OPENSET-THRESHOLD-RESIDUAL",
+      "signal": "open_set",
+      "used_as_context": null,
+      "role": "Al desactivar un paquete, ESPECIE_CONOCIDA puede persistir por un centroide ajeno bajo el threshold histórico permisivo (no fuga de catálogo)",
+      "severity": "known_defect"
+    }
+  ],
+  "fixture_test_results": [
+    {
+      "id": "clear_candidate",
+      "status": "PASS"
+    },
+    {
+      "id": "near_candidates",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "no_geographic_context",
+      "status": "PASS"
+    },
+    {
+      "id": "with_geographic_context",
+      "status": "PASS"
+    },
+    {
+      "id": "incompatible_geographic_context",
+      "status": "PASS"
+    },
+    {
+      "id": "open_set_inconclusive",
+      "status": "PASS"
+    },
+    {
+      "id": "taxonomy_metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "scores_not_probabilities",
+      "status": "PASS"
+    },
+    {
+      "id": "top1_not_automatic_acceptance",
+      "status": "PASS"
+    }
+  ]
+}

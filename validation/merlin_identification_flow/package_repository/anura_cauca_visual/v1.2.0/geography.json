@@ -1,0 +1,356 @@
+{
+  "schema_version": "anura.species-package-geography/1.1.0",
+  "source": "iNaturalist observation cache keyed by observation_id",
+  "department": "CAUCA",
+  "species": {
+    "ANU_COL_BOAN_BOA_001": {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "scientific_name": "Boana boans",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-306": 1
+      },
+      "observation_ids": [
+        "287233517"
+      ]
+    },
+    "ANU_COL_BOAN_CIN_001": {
+      "species_id": "ANU_COL_BOAN_CIN_001",
+      "scientific_name": "Boana cinerascens",
+      "n_observations": 6,
+      "n_unique_cells": 4,
+      "cells": {
+        "G025_4_-306": 1,
+        "G025_4_-305": 3,
+        "G025_6_-306": 1,
+        "G025_6_-305": 1
+      },
+      "observation_ids": [
+        "384594573",
+        "383699689",
+        "356315034",
+        "325604654",
+        "251461711",
+        "201554542"
+      ]
+    },
+    "ANU_COL_BOAN_LAN_001": {
+      "species_id": "ANU_COL_BOAN_LAN_001",
+      "scientific_name": "Boana lanciformis",
+      "n_observations": 3,
+      "n_unique_cells": 2,
+      "cells": {
+        "G025_6_-305": 2,
+        "G025_6_-306": 1
+      },
+      "observation_ids": [
+        "230916133",
+        "216940292",
+        "201554577"
+      ]
+    },
+    "ANU_COL_BOAN_PLA_001": {
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "scientific_name": "Boana platanera",
+      "n_observations": 8,
+      "n_unique_cells": 4,
+      "cells": {
+        "G025_12_-306": 4,
+        "G025_13_-306": 1,
+        "G025_11_-306": 2,
+        "G025_11_-307": 1
+      },
+      "observation_ids": [
+        "321820421",
+        "282550936",
+        "217835333",
+        "214202851",
+        "196291130",
+        "183580040",
+        "148445130",
+        "147157351"
+      ]
+    },
+    "ANU_COL_BOAN_PUN_001": {
+      "species_id": "ANU_COL_BOAN_PUN_001",
+      "scientific_name": "Boana punctata",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-306": 1
+      },
+      "observation_ids": [
+        "384594367"
+      ]
+    },
+    "ANU_COL_BOAN_ROS_001": {
+      "species_id": "ANU_COL_BOAN_ROS_001",
+      "scientific_name": "Boana rosenbergi",
+      "n_observations": 4,
+      "n_unique_cells": 2,
+      "cells": {
+        "G025_11_-311": 3,
+        "G025_11_-310": 1
+      },
+      "observation_ids": [
+        "349815389",
+        "312529208",
+        "88771354",
+        "75581169"
+      ]
+    },
+    "ANU_COL_CRAU_RAN_001": {
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "scientific_name": "Craugastor raniformis",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_10_-312": 1
+      },
+      "observation_ids": [
+        "87926257"
+      ]
+    },
+    "ANU_COL_DEND_COL_001": {
+      "species_id": "ANU_COL_DEND_COL_001",
+      "scientific_name": "Dendropsophus columbianus",
+      "n_observations": 26,
+      "n_unique_cells": 9,
+      "cells": {
+        "G025_10_-306": 13,
+        "G025_11_-305": 1,
+        "G025_13_-306": 1,
+        "G025_11_-307": 1,
+        "G025_9_-307": 3,
+        "G025_12_-306": 1,
+        "G025_10_-307": 3,
+        "G025_11_-306": 2,
+        "G025_10_-305": 1
+      },
+      "observation_ids": [
+        "360089644",
+        "342101601",
+        "319173511",
+        "263399309",
+        "249106581",
+        "220075129",
+        "212751190",
+        "203596962",
+        "196946571",
+        "196946286",
+        "181085475",
+        "179768164",
+        "179743959",
+        "147437193",
+        "141434633",
+        "124485582",
+        "107836974",
+        "105536296",
+        "103939744",
+        "100743008",
+        "86817617",
+        "62580770",
+        "52167707",
+        "46341899",
+        "286359",
+        "35031"
+      ]
+    },
+    "ANU_COL_DEND_TRI_001": {
+      "species_id": "ANU_COL_DEND_TRI_001",
+      "scientific_name": "Dendropsophus triangulum",
+      "n_observations": 2,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-305": 2
+      },
+      "observation_ids": [
+        "378231427",
+        "118368419"
+      ]
+    },
+    "ANU_COL_ENGY_PUS_001": {
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "scientific_name": "Engystomops pustulosus",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_11_-311": 1
+      },
+      "observation_ids": [
+        "349854038"
+      ]
+    },
+    "ANU_COL_PHYL_TAR_001": {
+      "species_id": "ANU_COL_PHYL_TAR_001",
+      "scientific_name": "Phyllomedusa tarsius",
+      "n_observations": 2,
+      "n_unique_cells": 2,
+      "cells": {
+        "G025_4_-305": 1,
+        "G025_5_-305": 1
+      },
+      "observation_ids": [
+        "356318287",
+        "344564253"
+      ]
+    },
+    "ANU_COL_PRIS_ACH_001": {
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "scientific_name": "Pristimantis achatinus",
+      "n_observations": 12,
+      "n_unique_cells": 7,
+      "cells": {
+        "G025_9_-309": 1,
+        "G025_13_-305": 1,
+        "G025_10_-305": 1,
+        "G025_10_-306": 5,
+        "G025_11_-306": 2,
+        "G025_11_-310": 1,
+        "G025_12_-305": 1
+      },
+      "observation_ids": [
+        "363836230",
+        "329683782",
+        "319173295",
+        "253004970",
+        "253004341",
+        "253002528",
+        "253002527",
+        "148673030",
+        "88769336",
+        "61805808",
+        "39029728",
+        "40067"
+      ]
+    },
+    "ANU_COL_PRIS_PAL_001": {
+      "species_id": "ANU_COL_PRIS_PAL_001",
+      "scientific_name": "Pristimantis palmeri",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_10_-306": 1
+      },
+      "observation_ids": [
+        "218373095"
+      ]
+    },
+    "ANU_COL_PRIS_THE_001": {
+      "species_id": "ANU_COL_PRIS_THE_001",
+      "scientific_name": "Pristimantis thectopternus",
+      "n_observations": 6,
+      "n_unique_cells": 3,
+      "cells": {
+        "G025_7_-306": 1,
+        "G025_10_-306": 3,
+        "G025_12_-305": 2
+      },
+      "observation_ids": [
+        "339766574",
+        "120770693",
+        "83665861",
+        "39858786",
+        "39029745",
+        "14095187"
+      ]
+    },
+    "ANU_COL_RHIN_ALA_001": {
+      "species_id": "ANU_COL_RHIN_ALA_001",
+      "scientific_name": "Rhinella alata",
+      "n_observations": 58,
+      "n_unique_cells": 4,
+      "cells": {
+        "G025_11_-311": 53,
+        "G025_4_-305": 1,
+        "G025_10_-312": 2,
+        "G025_10_-304": 2
+      },
+      "observation_ids": [
+        "399141459",
+        "399141450",
+        "398315280",
+        "398315270",
+        "398315264",
+        "398315252",
+        "395309143",
+        "394289020",
+        "394289014",
+        "394289012",
+        "394289005",
+        "394287236",
+        "394285247",
+        "394285240",
+        "394285238",
+        "394285236",
+        "394285235",
+        "394285229",
+        "389881798",
+        "388297062",
+        "384400986",
+        "384400981",
+        "384400971",
+        "383743083",
+        "383743056",
+        "383738654",
+        "383738652",
+        "380783137",
+        "380779264",
+        "380779257",
+        "377017643",
+        "377017627",
+        "377017626",
+        "377017616",
+        "377013172",
+        "374335060",
+        "374335041",
+        "374335040",
+        "374335039",
+        "371936273",
+        "368975912",
+        "349854106",
+        "349854105",
+        "349854104",
+        "349854103",
+        "349815393",
+        "341020921",
+        "330767601",
+        "313102682",
+        "265291389",
+        "264893364",
+        "156464446",
+        "110689333",
+        "76182248",
+        "66678179",
+        "45743075",
+        "40454961",
+        "35328002"
+      ]
+    },
+    "ANU_COL_RHIN_MAR_001": {
+      "species_id": "ANU_COL_RHIN_MAR_001",
+      "scientific_name": "Rhinella margaritifera",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-305": 1
+      },
+      "observation_ids": [
+        "310308774"
+      ]
+    },
+    "ANU_COL_SCIN_RUB_001": {
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "scientific_name": "Scinax ruber",
+      "n_observations": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_8_-308": 1
+      },
+      "observation_ids": [
+        "296441785"
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "n_runs": 5,
+  "tolerance_embedding_atol": 1e-06,
+  "images": {
+    "data cleaned\\Boana_boans\\col_obs_330607060_photo_599545088.jpg": {
+      "embedding_bit_identical_across_runs": true,
+      "embedding_max_abs_diff_vs_run0": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "within_tolerance": true,
+      "decisions": [
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA"
+      ],
+      "decisions_identical": true,
+      "open_set_scores": [
+        20.646228790283203,
+        20.646228790283203,
+        20.646228790283203,
+        20.646228790283203,
+        20.646228790283203
+      ],
+      "open_set_scores_identical": true,
+      "top1_species": [
+        "Boana boans",
+        "Boana boans",
+        "Boana boans",
+        "Boana boans",
+        "Boana boans"
+      ],
+      "top1_identical": true,
+      "ranking_order_identical": true,
+      "ranking_scores_identical": true,
+      "full_result_json_identical": false,
+      "full_result_json_identical_excluding_observation_id_and_timing": true,
+      "note": "full_result_json_identical es False SOLO por observation_id (deliberadamente distinto por corrida, ej. determinism-run-0..4) e inference_ms (timing, no determinista por diseno). Todos los campos sustantivos -- embedding, decision, score Open Set, ranking, top1 -- son bit-identicos en las 5 corridas."
+    },
+    "data cleaned\\Dendrobates_truncatus\\col_obs_135615735_photo_231331908.jpg": {
+      "embedding_bit_identical_across_runs": true,
+      "embedding_max_abs_diff_vs_run0": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "within_tolerance": true,
+      "decisions": [
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA",
+        "ESPECIE_CONOCIDA"
+      ],
+      "decisions_identical": true,
+      "open_set_scores": [
+        25.012601852416992,
+        25.012601852416992,
+        25.012601852416992,
+        25.012601852416992,
+        25.012601852416992
+      ],
+      "open_set_scores_identical": true,
+      "top1_species": [
+        "Dendrobates truncatus",
+        "Dendrobates truncatus",
+        "Dendrobates truncatus",
+        "Dendrobates truncatus",
+        "Dendrobates truncatus"
+      ],
+      "top1_identical": true,
+      "ranking_order_identical": true,
+      "ranking_scores_identical": true,
+      "full_result_json_identical": false,
+      "full_result_json_identical_excluding_observation_id_and_timing": true,
+      "note": "full_result_json_identical es False SOLO por observation_id (deliberadamente distinto por corrida, ej. determinism-run-0..4) e inference_ms (timing, no determinista por diseno). Todos los campos sustantivos -- embedding, decision, score Open Set, ranking, top1 -- son bit-identicos en las 5 corridas."
+    }
+  },
+  "verdict": {
+    "fully_deterministic_all_images": false
+  }
+}

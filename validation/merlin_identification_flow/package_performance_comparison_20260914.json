@@ -1,0 +1,2022 @@
+{
+  "status": "COMPLETED",
+  "date": "2026-09-14",
+  "protocol": {
+    "same_first_image_per_species": true,
+    "same_encoder_and_threshold": true,
+    "ground_truth_used_for_inference": false,
+    "context_used_in_score": false,
+    "comparison_scope": "visual ranking + Open Set; metadata coverage separately"
+  },
+  "releases": {
+    "antioquia": {
+      "v1.0.0": {
+        "package": "anura_antioquia_visual@v1.0.0",
+        "images_tested": 28,
+        "images_missing": [],
+        "top1_matches": 16,
+        "top1_accuracy": 0.5714285714285714,
+        "elapsed_seconds": 28.512,
+        "seconds_per_image": 1.0183,
+        "active_species": 28,
+        "context": {
+          "geography_entries": 0,
+          "elevation_entries": 0,
+          "observations": 0,
+          "inat_cache_coordinates": 0,
+          "elevations": 0
+        },
+        "results": [
+          {
+            "species_id": "ANU_COL_BOAN_BOA_001",
+            "expected": "Boana boans",
+            "top1": "Boana boans",
+            "top3": [
+              "Boana boans",
+              "Boana platanera",
+              "Boana rosenbergi"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.549556732177734,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PLA_001",
+            "expected": "Boana platanera",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Boana pugnax",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.04358673095703,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PUG_001",
+            "expected": "Boana pugnax",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus columbianus",
+              "Dendropsophus bogerti"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 37.26453399658203,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_ROS_001",
+            "expected": "Boana rosenbergi",
+            "top1": "Boana rosenbergi",
+            "top3": [
+              "Boana rosenbergi",
+              "Boana pugnax",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.79376792907715,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_CRAU_RAN_001",
+            "expected": "Craugastor raniformis",
+            "top1": "Craugastor raniformis",
+            "top3": [
+              "Craugastor raniformis",
+              "Pristimantis thectopternus",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.664113998413086,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_BOG_001",
+            "expected": "Dendropsophus bogerti",
+            "top1": "Dendropsophus columbianus",
+            "top3": [
+              "Dendropsophus columbianus",
+              "Dendropsophus microcephalus",
+              "Dendropsophus bogerti"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.529932022094727,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_COL_001",
+            "expected": "Dendropsophus columbianus",
+            "top1": "Dendropsophus bogerti",
+            "top3": [
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus",
+              "Scinax ruber"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 28.049745559692383,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_EBR_001",
+            "expected": "Dendropsophus ebraccatus",
+            "top1": "Dendropsophus ebraccatus",
+            "top3": [
+              "Dendropsophus ebraccatus",
+              "Dendropsophus columbianus",
+              "Dendropsophus microcephalus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.41504669189453,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_MIC_001",
+            "expected": "Dendropsophus microcephalus",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Dendropsophus microcephalus",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.37683868408203,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_NOR_001",
+            "expected": "Dendropsophus norandinus",
+            "top1": "Pristimantis gaigei",
+            "top3": [
+              "Pristimantis gaigei",
+              "Boana boans",
+              "Boana pugnax"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 36.70796585083008,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_TRU_001",
+            "expected": "Dendrobates truncatus",
+            "top1": "Dendrobates truncatus",
+            "top3": [
+              "Dendrobates truncatus",
+              "Phyllomedusa venusta",
+              "Rheobates palmatus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 25.012601852416992,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_ENGY_PUS_001",
+            "expected": "Engystomops pustulosus",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis paisa",
+              "Pristimantis taeniatus"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 47.55894470214844,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_HYLO_PAL_001",
+            "expected": "Hyloscirtus palmeri",
+            "top1": "Hyloscirtus palmeri",
+            "top3": [
+              "Hyloscirtus palmeri",
+              "Boana boans",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 19.14063835144043,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_LEPT_COL_001",
+            "expected": "Leptodactylus colombiensis",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis paisa",
+              "Pristimantis erythropleura"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.16378402709961,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PHYL_VEN_001",
+            "expected": "Phyllomedusa venusta",
+            "top1": "Rheobates palmatus",
+            "top3": [
+              "Rheobates palmatus",
+              "Hyloscirtus palmeri",
+              "Leptodactylus colombiensis"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 40.78572082519531,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ACH_001",
+            "expected": "Pristimantis achatinus",
+            "top1": "Pristimantis achatinus",
+            "top3": [
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.061105728149414,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ERY_001",
+            "expected": "Pristimantis erythropleura",
+            "top1": "Pristimantis erythropleura",
+            "top3": [
+              "Pristimantis erythropleura",
+              "Pristimantis taeniatus",
+              "Pristimantis palmeri"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 25.768646240234375,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_GAI_001",
+            "expected": "Pristimantis gaigei",
+            "top1": "Pristimantis gaigei",
+            "top3": [
+              "Pristimantis gaigei",
+              "Pristimantis paisa",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.178380966186523,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAI_001",
+            "expected": "Pristimantis paisa",
+            "top1": "Pristimantis taeniatus",
+            "top3": [
+              "Pristimantis taeniatus",
+              "Pristimantis paisa",
+              "Pristimantis palmeri"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 18.31671142578125,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAL_001",
+            "expected": "Pristimantis palmeri",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus",
+              "Pristimantis penelopus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.604393005371094,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PEN_001",
+            "expected": "Pristimantis penelopus",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.939790725708008,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PER_001",
+            "expected": "Pristimantis permixtus",
+            "top1": "Pristimantis taeniatus",
+            "top3": [
+              "Pristimantis taeniatus",
+              "Pristimantis paisa",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.7106876373291,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_TAE_001",
+            "expected": "Pristimantis taeniatus",
+            "top1": "Pristimantis paisa",
+            "top3": [
+              "Pristimantis paisa",
+              "Pristimantis taeniatus",
+              "Pristimantis penelopus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.891094207763672,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_THE_001",
+            "expected": "Pristimantis thectopternus",
+            "top1": "Pristimantis thectopternus",
+            "top3": [
+              "Pristimantis thectopternus",
+              "Craugastor raniformis",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.411144256591797,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHEO_PAL_001",
+            "expected": "Rheobates palmatus",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.84016799926758,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_ALA_001",
+            "expected": "Rhinella alata",
+            "top1": "Rhinella alata",
+            "top3": [
+              "Rhinella alata",
+              "Rhinella horribilis",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.161684036254883,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_HOR_001",
+            "expected": "Rhinella horribilis",
+            "top1": "Rhinella horribilis",
+            "top3": [
+              "Rhinella horribilis",
+              "Rhinella alata",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 18.70347023010254,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_SCIN_RUB_001",
+            "expected": "Scinax ruber",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 31.150028228759766,
+            "active_species": null
+          }
+        ]
+      },
+      "v1.1.0": {
+        "package": "anura_antioquia_visual@v1.1.0",
+        "images_tested": 28,
+        "images_missing": [],
+        "top1_matches": 16,
+        "top1_accuracy": 0.5714285714285714,
+        "elapsed_seconds": 12.987,
+        "seconds_per_image": 0.4638,
+        "active_species": 28,
+        "context": {
+          "geography_entries": 28,
+          "elevation_entries": 28,
+          "observations": 0,
+          "inat_cache_coordinates": 0,
+          "elevations": 0
+        },
+        "results": [
+          {
+            "species_id": "ANU_COL_BOAN_BOA_001",
+            "expected": "Boana boans",
+            "top1": "Boana boans",
+            "top3": [
+              "Boana boans",
+              "Boana platanera",
+              "Boana rosenbergi"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.549556732177734,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PLA_001",
+            "expected": "Boana platanera",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Boana pugnax",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.04358673095703,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PUG_001",
+            "expected": "Boana pugnax",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus columbianus",
+              "Dendropsophus bogerti"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 37.26453399658203,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_ROS_001",
+            "expected": "Boana rosenbergi",
+            "top1": "Boana rosenbergi",
+            "top3": [
+              "Boana rosenbergi",
+              "Boana pugnax",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.79376792907715,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_CRAU_RAN_001",
+            "expected": "Craugastor raniformis",
+            "top1": "Craugastor raniformis",
+            "top3": [
+              "Craugastor raniformis",
+              "Pristimantis thectopternus",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.664113998413086,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_BOG_001",
+            "expected": "Dendropsophus bogerti",
+            "top1": "Dendropsophus columbianus",
+            "top3": [
+              "Dendropsophus columbianus",
+              "Dendropsophus microcephalus",
+              "Dendropsophus bogerti"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.529932022094727,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_COL_001",
+            "expected": "Dendropsophus columbianus",
+            "top1": "Dendropsophus bogerti",
+            "top3": [
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus",
+              "Scinax ruber"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 28.049745559692383,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_EBR_001",
+            "expected": "Dendropsophus ebraccatus",
+            "top1": "Dendropsophus ebraccatus",
+            "top3": [
+              "Dendropsophus ebraccatus",
+              "Dendropsophus columbianus",
+              "Dendropsophus microcephalus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.41504669189453,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_MIC_001",
+            "expected": "Dendropsophus microcephalus",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Dendropsophus microcephalus",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.37683868408203,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_NOR_001",
+            "expected": "Dendropsophus norandinus",
+            "top1": "Pristimantis gaigei",
+            "top3": [
+              "Pristimantis gaigei",
+              "Boana boans",
+              "Boana pugnax"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 36.70796585083008,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_TRU_001",
+            "expected": "Dendrobates truncatus",
+            "top1": "Dendrobates truncatus",
+            "top3": [
+              "Dendrobates truncatus",
+              "Phyllomedusa venusta",
+              "Rheobates palmatus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 25.012601852416992,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_ENGY_PUS_001",
+            "expected": "Engystomops pustulosus",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis paisa",
+              "Pristimantis taeniatus"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 47.55894470214844,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_HYLO_PAL_001",
+            "expected": "Hyloscirtus palmeri",
+            "top1": "Hyloscirtus palmeri",
+            "top3": [
+              "Hyloscirtus palmeri",
+              "Boana boans",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 19.14063835144043,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_LEPT_COL_001",
+            "expected": "Leptodactylus colombiensis",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis paisa",
+              "Pristimantis erythropleura"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.16378402709961,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PHYL_VEN_001",
+            "expected": "Phyllomedusa venusta",
+            "top1": "Rheobates palmatus",
+            "top3": [
+              "Rheobates palmatus",
+              "Hyloscirtus palmeri",
+              "Leptodactylus colombiensis"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 40.78572082519531,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ACH_001",
+            "expected": "Pristimantis achatinus",
+            "top1": "Pristimantis achatinus",
+            "top3": [
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.061105728149414,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ERY_001",
+            "expected": "Pristimantis erythropleura",
+            "top1": "Pristimantis erythropleura",
+            "top3": [
+              "Pristimantis erythropleura",
+              "Pristimantis taeniatus",
+              "Pristimantis palmeri"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 25.768646240234375,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_GAI_001",
+            "expected": "Pristimantis gaigei",
+            "top1": "Pristimantis gaigei",
+            "top3": [
+              "Pristimantis gaigei",
+              "Pristimantis paisa",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.178380966186523,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAI_001",
+            "expected": "Pristimantis paisa",
+            "top1": "Pristimantis taeniatus",
+            "top3": [
+              "Pristimantis taeniatus",
+              "Pristimantis paisa",
+              "Pristimantis palmeri"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 18.31671142578125,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAL_001",
+            "expected": "Pristimantis palmeri",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus",
+              "Pristimantis penelopus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.604393005371094,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PEN_001",
+            "expected": "Pristimantis penelopus",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.939790725708008,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PER_001",
+            "expected": "Pristimantis permixtus",
+            "top1": "Pristimantis taeniatus",
+            "top3": [
+              "Pristimantis taeniatus",
+              "Pristimantis paisa",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.7106876373291,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_TAE_001",
+            "expected": "Pristimantis taeniatus",
+            "top1": "Pristimantis paisa",
+            "top3": [
+              "Pristimantis paisa",
+              "Pristimantis taeniatus",
+              "Pristimantis penelopus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.891094207763672,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_THE_001",
+            "expected": "Pristimantis thectopternus",
+            "top1": "Pristimantis thectopternus",
+            "top3": [
+              "Pristimantis thectopternus",
+              "Craugastor raniformis",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.411144256591797,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHEO_PAL_001",
+            "expected": "Rheobates palmatus",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.84016799926758,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_ALA_001",
+            "expected": "Rhinella alata",
+            "top1": "Rhinella alata",
+            "top3": [
+              "Rhinella alata",
+              "Rhinella horribilis",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.161684036254883,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_HOR_001",
+            "expected": "Rhinella horribilis",
+            "top1": "Rhinella horribilis",
+            "top3": [
+              "Rhinella horribilis",
+              "Rhinella alata",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 18.70347023010254,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_SCIN_RUB_001",
+            "expected": "Scinax ruber",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 31.150028228759766,
+            "active_species": null
+          }
+        ]
+      },
+      "v1.2.0": {
+        "package": "anura_antioquia_visual@v1.2.0",
+        "images_tested": 28,
+        "images_missing": [],
+        "top1_matches": 16,
+        "top1_accuracy": 0.5714285714285714,
+        "elapsed_seconds": 13.298,
+        "seconds_per_image": 0.4749,
+        "active_species": 28,
+        "context": {
+          "geography_entries": 28,
+          "elevation_entries": 28,
+          "observations": 3960,
+          "inat_cache_coordinates": 1313,
+          "elevations": 1271
+        },
+        "results": [
+          {
+            "species_id": "ANU_COL_BOAN_BOA_001",
+            "expected": "Boana boans",
+            "top1": "Boana boans",
+            "top3": [
+              "Boana boans",
+              "Boana platanera",
+              "Boana rosenbergi"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.549556732177734,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PLA_001",
+            "expected": "Boana platanera",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Boana pugnax",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.04358673095703,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PUG_001",
+            "expected": "Boana pugnax",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus columbianus",
+              "Dendropsophus bogerti"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 37.26453399658203,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_ROS_001",
+            "expected": "Boana rosenbergi",
+            "top1": "Boana rosenbergi",
+            "top3": [
+              "Boana rosenbergi",
+              "Boana pugnax",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.79376792907715,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_CRAU_RAN_001",
+            "expected": "Craugastor raniformis",
+            "top1": "Craugastor raniformis",
+            "top3": [
+              "Craugastor raniformis",
+              "Pristimantis thectopternus",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.664113998413086,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_BOG_001",
+            "expected": "Dendropsophus bogerti",
+            "top1": "Dendropsophus columbianus",
+            "top3": [
+              "Dendropsophus columbianus",
+              "Dendropsophus microcephalus",
+              "Dendropsophus bogerti"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.529932022094727,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_COL_001",
+            "expected": "Dendropsophus columbianus",
+            "top1": "Dendropsophus bogerti",
+            "top3": [
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus",
+              "Scinax ruber"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 28.049745559692383,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_EBR_001",
+            "expected": "Dendropsophus ebraccatus",
+            "top1": "Dendropsophus ebraccatus",
+            "top3": [
+              "Dendropsophus ebraccatus",
+              "Dendropsophus columbianus",
+              "Dendropsophus microcephalus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.41504669189453,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_MIC_001",
+            "expected": "Dendropsophus microcephalus",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Dendropsophus microcephalus",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.37683868408203,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_NOR_001",
+            "expected": "Dendropsophus norandinus",
+            "top1": "Pristimantis gaigei",
+            "top3": [
+              "Pristimantis gaigei",
+              "Boana boans",
+              "Boana pugnax"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 36.70796585083008,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_TRU_001",
+            "expected": "Dendrobates truncatus",
+            "top1": "Dendrobates truncatus",
+            "top3": [
+              "Dendrobates truncatus",
+              "Phyllomedusa venusta",
+              "Rheobates palmatus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 25.012601852416992,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_ENGY_PUS_001",
+            "expected": "Engystomops pustulosus",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis paisa",
+              "Pristimantis taeniatus"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 47.55894470214844,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_HYLO_PAL_001",
+            "expected": "Hyloscirtus palmeri",
+            "top1": "Hyloscirtus palmeri",
+            "top3": [
+              "Hyloscirtus palmeri",
+              "Boana boans",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 19.14063835144043,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_LEPT_COL_001",
+            "expected": "Leptodactylus colombiensis",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis paisa",
+              "Pristimantis erythropleura"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.16378402709961,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PHYL_VEN_001",
+            "expected": "Phyllomedusa venusta",
+            "top1": "Rheobates palmatus",
+            "top3": [
+              "Rheobates palmatus",
+              "Hyloscirtus palmeri",
+              "Leptodactylus colombiensis"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 40.78572082519531,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ACH_001",
+            "expected": "Pristimantis achatinus",
+            "top1": "Pristimantis achatinus",
+            "top3": [
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.061105728149414,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ERY_001",
+            "expected": "Pristimantis erythropleura",
+            "top1": "Pristimantis erythropleura",
+            "top3": [
+              "Pristimantis erythropleura",
+              "Pristimantis taeniatus",
+              "Pristimantis palmeri"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 25.768646240234375,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_GAI_001",
+            "expected": "Pristimantis gaigei",
+            "top1": "Pristimantis gaigei",
+            "top3": [
+              "Pristimantis gaigei",
+              "Pristimantis paisa",
+              "Pristimantis permixtus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.178380966186523,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAI_001",
+            "expected": "Pristimantis paisa",
+            "top1": "Pristimantis taeniatus",
+            "top3": [
+              "Pristimantis taeniatus",
+              "Pristimantis paisa",
+              "Pristimantis palmeri"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 18.31671142578125,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAL_001",
+            "expected": "Pristimantis palmeri",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus",
+              "Pristimantis penelopus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.604393005371094,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PEN_001",
+            "expected": "Pristimantis penelopus",
+            "top1": "Pristimantis penelopus",
+            "top3": [
+              "Pristimantis penelopus",
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.939790725708008,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PER_001",
+            "expected": "Pristimantis permixtus",
+            "top1": "Pristimantis taeniatus",
+            "top3": [
+              "Pristimantis taeniatus",
+              "Pristimantis paisa",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.7106876373291,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_TAE_001",
+            "expected": "Pristimantis taeniatus",
+            "top1": "Pristimantis paisa",
+            "top3": [
+              "Pristimantis paisa",
+              "Pristimantis taeniatus",
+              "Pristimantis penelopus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.891094207763672,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_THE_001",
+            "expected": "Pristimantis thectopternus",
+            "top1": "Pristimantis thectopternus",
+            "top3": [
+              "Pristimantis thectopternus",
+              "Craugastor raniformis",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.411144256591797,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHEO_PAL_001",
+            "expected": "Rheobates palmatus",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.84016799926758,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_ALA_001",
+            "expected": "Rhinella alata",
+            "top1": "Rhinella alata",
+            "top3": [
+              "Rhinella alata",
+              "Rhinella horribilis",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.161684036254883,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_HOR_001",
+            "expected": "Rhinella horribilis",
+            "top1": "Rhinella horribilis",
+            "top3": [
+              "Rhinella horribilis",
+              "Rhinella alata",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 18.70347023010254,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_SCIN_RUB_001",
+            "expected": "Scinax ruber",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 31.150028228759766,
+            "active_species": null
+          }
+        ]
+      }
+    },
+    "cauca": {
+      "v1.0.0": {
+        "package": "anura_cauca_visual@v1.0.0",
+        "images_tested": 17,
+        "images_missing": [],
+        "top1_matches": 14,
+        "top1_accuracy": 0.8235294117647058,
+        "elapsed_seconds": 11.576,
+        "seconds_per_image": 0.681,
+        "active_species": 17,
+        "context": {
+          "geography_entries": 0,
+          "elevation_entries": 0,
+          "observations": 0,
+          "inat_cache_coordinates": 0,
+          "elevations": 0
+        },
+        "results": [
+          {
+            "species_id": "ANU_COL_BOAN_BOA_001",
+            "expected": "Boana boans",
+            "top1": "Boana boans",
+            "top3": [
+              "Boana boans",
+              "Boana platanera",
+              "Boana rosenbergi"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.549556732177734,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_CIN_001",
+            "expected": "Boana cinerascens",
+            "top1": "Boana cinerascens",
+            "top3": [
+              "Boana cinerascens",
+              "Boana punctata",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 24.571212768554688,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_LAN_001",
+            "expected": "Boana lanciformis",
+            "top1": "Boana lanciformis",
+            "top3": [
+              "Boana lanciformis",
+              "Boana boans",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.39539909362793,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PLA_001",
+            "expected": "Boana platanera",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Boana lanciformis",
+              "Boana punctata"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.04358673095703,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PUN_001",
+            "expected": "Boana punctata",
+            "top1": "Boana punctata",
+            "top3": [
+              "Boana punctata",
+              "Boana platanera",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.31285285949707,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_ROS_001",
+            "expected": "Boana rosenbergi",
+            "top1": "Boana rosenbergi",
+            "top3": [
+              "Boana rosenbergi",
+              "Boana platanera",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.79376792907715,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_CRAU_RAN_001",
+            "expected": "Craugastor raniformis",
+            "top1": "Craugastor raniformis",
+            "top3": [
+              "Craugastor raniformis",
+              "Pristimantis thectopternus",
+              "Boana lanciformis"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.664113998413086,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_COL_001",
+            "expected": "Dendropsophus columbianus",
+            "top1": "Dendropsophus columbianus",
+            "top3": [
+              "Dendropsophus columbianus",
+              "Scinax ruber",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.11604118347168,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_TRI_001",
+            "expected": "Dendropsophus triangulum",
+            "top1": "Dendropsophus triangulum",
+            "top3": [
+              "Dendropsophus triangulum",
+              "Dendropsophus columbianus",
+              "Boana punctata"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 39.03398513793945,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_ENGY_PUS_001",
+            "expected": "Engystomops pustulosus",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Engystomops pustulosus",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 47.645606994628906,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PHYL_TAR_001",
+            "expected": "Phyllomedusa tarsius",
+            "top1": "Phyllomedusa tarsius",
+            "top3": [
+              "Phyllomedusa tarsius",
+              "Boana lanciformis",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.53632926940918,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ACH_001",
+            "expected": "Pristimantis achatinus",
+            "top1": "Pristimantis achatinus",
+            "top3": [
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus",
+              "Craugastor raniformis"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.061105728149414,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAL_001",
+            "expected": "Pristimantis palmeri",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.604393005371094,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_THE_001",
+            "expected": "Pristimantis thectopternus",
+            "top1": "Pristimantis thectopternus",
+            "top3": [
+              "Pristimantis thectopternus",
+              "Craugastor raniformis",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.411144256591797,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_ALA_001",
+            "expected": "Rhinella alata",
+            "top1": "Rhinella margaritifera",
+            "top3": [
+              "Rhinella margaritifera",
+              "Rhinella alata",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.161684036254883,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_MAR_001",
+            "expected": "Rhinella margaritifera",
+            "top1": "Rhinella alata",
+            "top3": [
+              "Rhinella alata",
+              "Rhinella margaritifera",
+              "Pristimantis thectopternus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 19.72411346435547,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_SCIN_RUB_001",
+            "expected": "Scinax ruber",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus columbianus",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 31.150028228759766,
+            "active_species": null
+          }
+        ]
+      },
+      "v1.1.0": {
+        "package": "anura_cauca_visual@v1.1.0",
+        "images_tested": 17,
+        "images_missing": [],
+        "top1_matches": 14,
+        "top1_accuracy": 0.8235294117647058,
+        "elapsed_seconds": 11.285,
+        "seconds_per_image": 0.6638,
+        "active_species": 17,
+        "context": {
+          "geography_entries": 17,
+          "elevation_entries": 17,
+          "observations": 0,
+          "inat_cache_coordinates": 0,
+          "elevations": 0
+        },
+        "results": [
+          {
+            "species_id": "ANU_COL_BOAN_BOA_001",
+            "expected": "Boana boans",
+            "top1": "Boana boans",
+            "top3": [
+              "Boana boans",
+              "Boana platanera",
+              "Boana rosenbergi"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.549556732177734,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_CIN_001",
+            "expected": "Boana cinerascens",
+            "top1": "Boana cinerascens",
+            "top3": [
+              "Boana cinerascens",
+              "Boana punctata",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 24.571212768554688,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_LAN_001",
+            "expected": "Boana lanciformis",
+            "top1": "Boana lanciformis",
+            "top3": [
+              "Boana lanciformis",
+              "Boana boans",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.39539909362793,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PLA_001",
+            "expected": "Boana platanera",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Boana lanciformis",
+              "Boana punctata"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.04358673095703,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PUN_001",
+            "expected": "Boana punctata",
+            "top1": "Boana punctata",
+            "top3": [
+              "Boana punctata",
+              "Boana platanera",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.31285285949707,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_ROS_001",
+            "expected": "Boana rosenbergi",
+            "top1": "Boana rosenbergi",
+            "top3": [
+              "Boana rosenbergi",
+              "Boana platanera",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.79376792907715,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_CRAU_RAN_001",
+            "expected": "Craugastor raniformis",
+            "top1": "Craugastor raniformis",
+            "top3": [
+              "Craugastor raniformis",
+              "Pristimantis thectopternus",
+              "Boana lanciformis"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.664113998413086,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_COL_001",
+            "expected": "Dendropsophus columbianus",
+            "top1": "Dendropsophus columbianus",
+            "top3": [
+              "Dendropsophus columbianus",
+              "Scinax ruber",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.11604118347168,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_TRI_001",
+            "expected": "Dendropsophus triangulum",
+            "top1": "Dendropsophus triangulum",
+            "top3": [
+              "Dendropsophus triangulum",
+              "Dendropsophus columbianus",
+              "Boana punctata"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 39.03398513793945,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_ENGY_PUS_001",
+            "expected": "Engystomops pustulosus",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Engystomops pustulosus",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 47.645606994628906,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PHYL_TAR_001",
+            "expected": "Phyllomedusa tarsius",
+            "top1": "Phyllomedusa tarsius",
+            "top3": [
+              "Phyllomedusa tarsius",
+              "Boana lanciformis",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.53632926940918,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ACH_001",
+            "expected": "Pristimantis achatinus",
+            "top1": "Pristimantis achatinus",
+            "top3": [
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus",
+              "Craugastor raniformis"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.061105728149414,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAL_001",
+            "expected": "Pristimantis palmeri",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.604393005371094,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_THE_001",
+            "expected": "Pristimantis thectopternus",
+            "top1": "Pristimantis thectopternus",
+            "top3": [
+              "Pristimantis thectopternus",
+              "Craugastor raniformis",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.411144256591797,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_ALA_001",
+            "expected": "Rhinella alata",
+            "top1": "Rhinella margaritifera",
+            "top3": [
+              "Rhinella margaritifera",
+              "Rhinella alata",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.161684036254883,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_MAR_001",
+            "expected": "Rhinella margaritifera",
+            "top1": "Rhinella alata",
+            "top3": [
+              "Rhinella alata",
+              "Rhinella margaritifera",
+              "Pristimantis thectopternus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 19.72411346435547,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_SCIN_RUB_001",
+            "expected": "Scinax ruber",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus columbianus",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 31.150028228759766,
+            "active_species": null
+          }
+        ]
+      },
+      "v1.2.0": {
+        "package": "anura_cauca_visual@v1.2.0",
+        "images_tested": 17,
+        "images_missing": [],
+        "top1_matches": 14,
+        "top1_accuracy": 0.8235294117647058,
+        "elapsed_seconds": 10.472,
+        "seconds_per_image": 0.616,
+        "active_species": 17,
+        "context": {
+          "geography_entries": 17,
+          "elevation_entries": 17,
+          "observations": 134,
+          "inat_cache_coordinates": 15,
+          "elevations": 13
+        },
+        "results": [
+          {
+            "species_id": "ANU_COL_BOAN_BOA_001",
+            "expected": "Boana boans",
+            "top1": "Boana boans",
+            "top3": [
+              "Boana boans",
+              "Boana platanera",
+              "Boana rosenbergi"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.549556732177734,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_CIN_001",
+            "expected": "Boana cinerascens",
+            "top1": "Boana cinerascens",
+            "top3": [
+              "Boana cinerascens",
+              "Boana punctata",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 24.571212768554688,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_LAN_001",
+            "expected": "Boana lanciformis",
+            "top1": "Boana lanciformis",
+            "top3": [
+              "Boana lanciformis",
+              "Boana boans",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.39539909362793,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PLA_001",
+            "expected": "Boana platanera",
+            "top1": "Boana platanera",
+            "top3": [
+              "Boana platanera",
+              "Boana lanciformis",
+              "Boana punctata"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.04358673095703,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_PUN_001",
+            "expected": "Boana punctata",
+            "top1": "Boana punctata",
+            "top3": [
+              "Boana punctata",
+              "Boana platanera",
+              "Dendropsophus columbianus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.31285285949707,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_BOAN_ROS_001",
+            "expected": "Boana rosenbergi",
+            "top1": "Boana rosenbergi",
+            "top3": [
+              "Boana rosenbergi",
+              "Boana platanera",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.79376792907715,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_CRAU_RAN_001",
+            "expected": "Craugastor raniformis",
+            "top1": "Craugastor raniformis",
+            "top3": [
+              "Craugastor raniformis",
+              "Pristimantis thectopternus",
+              "Boana lanciformis"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 21.664113998413086,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_COL_001",
+            "expected": "Dendropsophus columbianus",
+            "top1": "Dendropsophus columbianus",
+            "top3": [
+              "Dendropsophus columbianus",
+              "Scinax ruber",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 29.11604118347168,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_DEND_TRI_001",
+            "expected": "Dendropsophus triangulum",
+            "top1": "Dendropsophus triangulum",
+            "top3": [
+              "Dendropsophus triangulum",
+              "Dendropsophus columbianus",
+              "Boana punctata"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 39.03398513793945,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_ENGY_PUS_001",
+            "expected": "Engystomops pustulosus",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Engystomops pustulosus",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": false,
+            "decision": "NO_CONCLUYENTE",
+            "open_set_score": 47.645606994628906,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PHYL_TAR_001",
+            "expected": "Phyllomedusa tarsius",
+            "top1": "Phyllomedusa tarsius",
+            "top3": [
+              "Phyllomedusa tarsius",
+              "Boana lanciformis",
+              "Boana boans"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 30.53632926940918,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_ACH_001",
+            "expected": "Pristimantis achatinus",
+            "top1": "Pristimantis achatinus",
+            "top3": [
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus",
+              "Craugastor raniformis"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 22.061105728149414,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_PAL_001",
+            "expected": "Pristimantis palmeri",
+            "top1": "Pristimantis palmeri",
+            "top3": [
+              "Pristimantis palmeri",
+              "Pristimantis achatinus",
+              "Pristimantis thectopternus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 32.604393005371094,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_PRIS_THE_001",
+            "expected": "Pristimantis thectopternus",
+            "top1": "Pristimantis thectopternus",
+            "top3": [
+              "Pristimantis thectopternus",
+              "Craugastor raniformis",
+              "Pristimantis achatinus"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 20.411144256591797,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_ALA_001",
+            "expected": "Rhinella alata",
+            "top1": "Rhinella margaritifera",
+            "top3": [
+              "Rhinella margaritifera",
+              "Rhinella alata",
+              "Engystomops pustulosus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 27.161684036254883,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_RHIN_MAR_001",
+            "expected": "Rhinella margaritifera",
+            "top1": "Rhinella alata",
+            "top3": [
+              "Rhinella alata",
+              "Rhinella margaritifera",
+              "Pristimantis thectopternus"
+            ],
+            "top1_match": false,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 19.72411346435547,
+            "active_species": null
+          },
+          {
+            "species_id": "ANU_COL_SCIN_RUB_001",
+            "expected": "Scinax ruber",
+            "top1": "Scinax ruber",
+            "top3": [
+              "Scinax ruber",
+              "Dendropsophus columbianus",
+              "Boana platanera"
+            ],
+            "top1_match": true,
+            "decision": "ESPECIE_CONOCIDA",
+            "open_set_score": 31.150028228759766,
+            "active_species": null
+          }
+        ]
+      }
+    }
+  },
+  "historical_artifacts_modified": false
+}

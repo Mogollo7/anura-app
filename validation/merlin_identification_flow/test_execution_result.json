@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "test_count": 10,
+  "results": [
+    {
+      "id": "clear_candidate",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "near_candidates",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "unknown",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "no_geographic_context",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "with_geographic_context",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "incompatible_geographic_context",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana cinerascens"
+    },
+    {
+      "id": "open_set_inconclusive",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "taxonomy_metadata",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Rhinella alata"
+    },
+    {
+      "id": "scores_not_probabilities",
+      "status": "PASS",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans"
+    },
+    {
+      "id": "top1_not_automatic_acceptance",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana boans"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "test_count": 6,
+  "results": [
+    {
+      "case": "A_known_geo_compatible",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans",
+      "geo_available": true,
+      "open_set_score": 20.646228790283203,
+      "open_set_threshold": 39.35406371422803,
+      "boana_boans_geographic_score": 0.3963730569948186
+    },
+    {
+      "case": "B_known_geo_incompatible",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans",
+      "geo_available": true,
+      "open_set_score": 20.646228790283203,
+      "open_set_threshold": 39.35406371422803,
+      "boana_boans_geographic_score": 0.017543859649122813
+    },
+    {
+      "case": "C_unknown_image",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana lanciformis",
+      "geo_available": false,
+      "open_set_score": 44.40593719482422,
+      "open_set_threshold": 39.35406371422803,
+      "boana_boans_geographic_score": null
+    },
+    {
+      "case": "D_multiple_real_candidates",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans",
+      "geo_available": false,
+      "open_set_score": 20.646228790283203,
+      "open_set_threshold": 39.35406371422803,
+      "boana_boans_geographic_score": null
+    },
+    {
+      "case": "E_no_location",
+      "decision": "ESPECIE_CONOCIDA",
+      "top1": "Boana boans",
+      "geo_available": false,
+      "open_set_score": 20.646228790283203,
+      "open_set_threshold": 39.35406371422803,
+      "boana_boans_geographic_score": null
+    },
+    {
+      "case": "F_top1_not_automatic",
+      "decision": "NO_CONCLUYENTE",
+      "top1": "Boana lanciformis",
+      "geo_available": true,
+      "open_set_score": 44.40593719482422,
+      "open_set_threshold": 39.35406371422803,
+      "boana_boans_geographic_score": 0.13744075829383887
+    }
+  ]
+}

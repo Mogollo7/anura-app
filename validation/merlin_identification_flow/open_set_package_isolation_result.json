@@ -1,0 +1,739 @@
+{
+  "status": "PASS",
+  "pass": 17,
+  "fail": 0,
+  "observed": 2,
+  "threshold_used": 39.35406371422803,
+  "threshold_recalibrated": false,
+  "preconditions": {
+    "X_only_in_A": true,
+    "Y_only_in_B": true,
+    "S_in_A_and_B": true
+  },
+  "results": [
+    {
+      "test": "1_enable_A_identify_X (Caso A)",
+      "expected": "ESPECIE_CONOCIDA aceptada como X; X en candidatos, catalogo y centroides",
+      "actual": {
+        "decision": "ESPECIE_CONOCIDA",
+        "accepted_species_id": "ANU_COL_DEND_TRU_001",
+        "open_set_score": 25.012601852416992,
+        "nearest_species_id": "ANU_COL_DEND_TRU_001",
+        "active_centroid_count": 28,
+        "candidate_ids": [
+          "ANU_COL_DEND_TRU_001",
+          "ANU_COL_PHYL_VEN_001",
+          "ANU_COL_RHEO_PAL_001"
+        ],
+        "species_in_candidates": true,
+        "species_centroid_participates": true,
+        "species_in_true_active_catalog": true,
+        "species_known": true,
+        "accepted_in_true_active_catalog": true,
+        "all_candidates_in_true_active_catalog": true,
+        "runtime_reported_active_packages": [
+          "anura_antioquia_visual@v1.0.0"
+        ],
+        "limitations": [
+          "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "2_disable_A_identify_X_same_instance (Caso B)",
+      "expected": "X no conocida; sin catalogo activo -> NO_CONCLUYENTE, 0 centroides",
+      "actual": {
+        "decision": "NO_CONCLUYENTE",
+        "accepted_species_id": null,
+        "open_set_score": null,
+        "nearest_species_id": null,
+        "active_centroid_count": 0,
+        "candidate_ids": [],
+        "species_in_candidates": false,
+        "species_centroid_participates": false,
+        "species_in_true_active_catalog": false,
+        "species_known": false,
+        "accepted_in_true_active_catalog": null,
+        "all_candidates_in_true_active_catalog": true,
+        "runtime_reported_active_packages": [],
+        "limitations": [
+          "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+          "NO_REGISTRADA_NOT_ASSERTED"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "3a_disable_A_from_other_instance_long_lived_runtime (reload de estado)",
+      "expected": "El runtime vivo refleja el estado persistido: X no conocida, catalog_state sin A",
+      "actual": {
+        "before": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRU_001",
+          "active_centroid_count": 34
+        },
+        "after": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRI_001",
+          "open_set_score": 38.83302307128906,
+          "nearest_species_id": "ANU_COL_DEND_TRI_001",
+          "active_centroid_count": 17,
+          "candidate_ids": [
+            "ANU_COL_PHYL_TAR_001",
+            "ANU_COL_DEND_TRI_001",
+            "ANU_COL_ENGY_PUS_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "3b_disable_A_rebuild_runtime_identify_X (Caso B rebuild)",
+      "expected": "Runtime reconstruido desde disco: X no conocida",
+      "actual": {
+        "decision": "ESPECIE_CONOCIDA",
+        "accepted_species_id": "ANU_COL_DEND_TRI_001",
+        "open_set_score": 38.83302307128906,
+        "nearest_species_id": "ANU_COL_DEND_TRI_001",
+        "active_centroid_count": 17,
+        "candidate_ids": [
+          "ANU_COL_PHYL_TAR_001",
+          "ANU_COL_DEND_TRI_001",
+          "ANU_COL_ENGY_PUS_001"
+        ],
+        "species_in_candidates": false,
+        "species_centroid_participates": false,
+        "species_in_true_active_catalog": false,
+        "species_known": false,
+        "accepted_in_true_active_catalog": true,
+        "all_candidates_in_true_active_catalog": true,
+        "runtime_reported_active_packages": [
+          "anura_cauca_visual@v1.0.0"
+        ],
+        "limitations": [
+          "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "3c_stale_instance_write_does_not_reactivate_A",
+      "expected": "state.json conserva A inactivo tras escribir desde la instancia vieja; X no conocida",
+      "actual": {
+        "state_json_A_active_version": null,
+        "observation": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRI_001",
+          "open_set_score": 38.83302307128906,
+          "nearest_species_id": "ANU_COL_DEND_TRI_001",
+          "active_centroid_count": 17,
+          "candidate_ids": [
+            "ANU_COL_PHYL_TAR_001",
+            "ANU_COL_DEND_TRI_001",
+            "ANU_COL_ENGY_PUS_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "4_switch_A+B_to_only_A",
+      "expected": "Y (solo B) no conocida; X (A) sigue conocida como X",
+      "actual": {
+        "Y": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_HYLO_PAL_001",
+          "open_set_score": 28.882001876831055,
+          "nearest_species_id": "ANU_COL_HYLO_PAL_001",
+          "active_centroid_count": 28,
+          "candidate_ids": [
+            "ANU_COL_HYLO_PAL_001",
+            "ANU_COL_BOAN_BOA_001",
+            "ANU_COL_BOAN_PLA_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_antioquia_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        },
+        "X": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRU_001",
+          "open_set_score": 25.012601852416992,
+          "nearest_species_id": "ANU_COL_DEND_TRU_001",
+          "active_centroid_count": 28,
+          "candidate_ids": [
+            "ANU_COL_DEND_TRU_001",
+            "ANU_COL_PHYL_VEN_001",
+            "ANU_COL_RHEO_PAL_001"
+          ],
+          "species_in_candidates": true,
+          "species_centroid_participates": true,
+          "species_in_true_active_catalog": true,
+          "species_known": true,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_antioquia_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "5_switch_A_to_only_B (Caso E: especie legitima de B sigue funcionando)",
+      "expected": "X no conocida; Y conocida como Y",
+      "actual": {
+        "X": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRI_001",
+          "open_set_score": 38.83302307128906,
+          "nearest_species_id": "ANU_COL_DEND_TRI_001",
+          "active_centroid_count": 17,
+          "candidate_ids": [
+            "ANU_COL_PHYL_TAR_001",
+            "ANU_COL_DEND_TRI_001",
+            "ANU_COL_ENGY_PUS_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        },
+        "Y": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_BOAN_CIN_001",
+          "open_set_score": 24.571212768554688,
+          "nearest_species_id": "ANU_COL_BOAN_CIN_001",
+          "active_centroid_count": 17,
+          "candidate_ids": [
+            "ANU_COL_BOAN_CIN_001",
+            "ANU_COL_BOAN_PUN_001",
+            "ANU_COL_BOAN_BOA_001"
+          ],
+          "species_in_candidates": true,
+          "species_centroid_participates": true,
+          "species_in_true_active_catalog": true,
+          "species_known": true,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "5b_X_image_accepted_as_other_active_species (threshold, no pertenencia)",
+      "expected": "Si la imagen de X se acepta, la especie aceptada pertenece al catalogo activo y no es X",
+      "actual": {
+        "decision": "ESPECIE_CONOCIDA",
+        "accepted_species_id": "ANU_COL_DEND_TRI_001",
+        "open_set_score": 38.83302307128906,
+        "threshold": 39.35406371422803
+      },
+      "status": "OBSERVED"
+    },
+    {
+      "test": "6_no_active_packages (Caso D)",
+      "expected": "Ninguna especie conocida: NO_CONCLUYENTE, 0 candidatos, 0 centroides",
+      "actual": {
+        "ANU_COL_DEND_TRU_001": {
+          "decision": "NO_CONCLUYENTE",
+          "accepted_species_id": null,
+          "open_set_score": null,
+          "nearest_species_id": null,
+          "active_centroid_count": 0,
+          "candidate_ids": [],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": null,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+            "NO_REGISTRADA_NOT_ASSERTED"
+          ]
+        },
+        "ANU_COL_BOAN_CIN_001": {
+          "decision": "NO_CONCLUYENTE",
+          "accepted_species_id": null,
+          "open_set_score": null,
+          "nearest_species_id": null,
+          "active_centroid_count": 0,
+          "candidate_ids": [],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": null,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+            "NO_REGISTRADA_NOT_ASSERTED"
+          ]
+        },
+        "ANU_COL_BOAN_BOA_001": {
+          "decision": "NO_CONCLUYENTE",
+          "accepted_species_id": null,
+          "open_set_score": null,
+          "nearest_species_id": null,
+          "active_centroid_count": 0,
+          "candidate_ids": [],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": null,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+            "NO_REGISTRADA_NOT_ASSERTED"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "7_reactivate_A",
+      "expected": "X vuelve a ser conocida como X con score bit-identico al caso 1",
+      "actual": {
+        "decision": "ESPECIE_CONOCIDA",
+        "accepted_species_id": "ANU_COL_DEND_TRU_001",
+        "open_set_score": 25.012601852416992,
+        "nearest_species_id": "ANU_COL_DEND_TRU_001",
+        "active_centroid_count": 28,
+        "candidate_ids": [
+          "ANU_COL_DEND_TRU_001",
+          "ANU_COL_PHYL_VEN_001",
+          "ANU_COL_RHEO_PAL_001"
+        ],
+        "species_in_candidates": true,
+        "species_centroid_participates": true,
+        "species_in_true_active_catalog": true,
+        "species_known": true,
+        "accepted_in_true_active_catalog": true,
+        "all_candidates_in_true_active_catalog": true,
+        "runtime_reported_active_packages": [
+          "anura_antioquia_visual@v1.0.0"
+        ],
+        "limitations": [
+          "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+        ],
+        "score_case_1": 25.012601852416992
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "8_multiple_active_A+B_then_disable_A (Caso C)",
+      "expected": "A+B: X, Y y compartida conocidas como si mismas (34 centroides); sin A: X no conocida, Y y compartida siguen",
+      "actual": {
+        "A+B": {
+          "ANU_COL_DEND_TRU_001": {
+            "decision": "ESPECIE_CONOCIDA",
+            "accepted_species_id": "ANU_COL_DEND_TRU_001",
+            "open_set_score": 25.012601852416992,
+            "nearest_species_id": "ANU_COL_DEND_TRU_001",
+            "active_centroid_count": 34,
+            "candidate_ids": [
+              "ANU_COL_DEND_TRU_001",
+              "ANU_COL_PHYL_TAR_001",
+              "ANU_COL_PHYL_VEN_001"
+            ],
+            "species_in_candidates": true,
+            "species_centroid_participates": true,
+            "species_in_true_active_catalog": true,
+            "species_known": true,
+            "accepted_in_true_active_catalog": true,
+            "all_candidates_in_true_active_catalog": true,
+            "runtime_reported_active_packages": [
+              "anura_antioquia_visual@v1.0.0",
+              "anura_cauca_visual@v1.0.0"
+            ],
+            "limitations": [
+              "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+              "VISUALLY_SIMILAR_SPECIES_IN_TOP_CANDIDATES"
+            ]
+          },
+          "ANU_COL_BOAN_CIN_001": {
+            "decision": "ESPECIE_CONOCIDA",
+            "accepted_species_id": "ANU_COL_BOAN_CIN_001",
+            "open_set_score": 24.571212768554688,
+            "nearest_species_id": "ANU_COL_BOAN_CIN_001",
+            "active_centroid_count": 34,
+            "candidate_ids": [
+              "ANU_COL_BOAN_CIN_001",
+              "ANU_COL_BOAN_PUN_001",
+              "ANU_COL_HYLO_PAL_001"
+            ],
+            "species_in_candidates": true,
+            "species_centroid_participates": true,
+            "species_in_true_active_catalog": true,
+            "species_known": true,
+            "accepted_in_true_active_catalog": true,
+            "all_candidates_in_true_active_catalog": true,
+            "runtime_reported_active_packages": [
+              "anura_antioquia_visual@v1.0.0",
+              "anura_cauca_visual@v1.0.0"
+            ],
+            "limitations": [
+              "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+            ]
+          },
+          "ANU_COL_BOAN_BOA_001": {
+            "decision": "ESPECIE_CONOCIDA",
+            "accepted_species_id": "ANU_COL_BOAN_BOA_001",
+            "open_set_score": 29.549556732177734,
+            "nearest_species_id": "ANU_COL_BOAN_BOA_001",
+            "active_centroid_count": 34,
+            "candidate_ids": [
+              "ANU_COL_BOAN_BOA_001",
+              "ANU_COL_BOAN_PLA_001",
+              "ANU_COL_BOAN_ROS_001"
+            ],
+            "species_in_candidates": true,
+            "species_centroid_participates": true,
+            "species_in_true_active_catalog": true,
+            "species_known": true,
+            "accepted_in_true_active_catalog": true,
+            "all_candidates_in_true_active_catalog": true,
+            "runtime_reported_active_packages": [
+              "anura_antioquia_visual@v1.0.0",
+              "anura_cauca_visual@v1.0.0"
+            ],
+            "limitations": [
+              "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+              "VISUALLY_SIMILAR_SPECIES_IN_TOP_CANDIDATES"
+            ]
+          }
+        },
+        "B_only": {
+          "X": {
+            "decision": "ESPECIE_CONOCIDA",
+            "accepted_species_id": "ANU_COL_DEND_TRI_001",
+            "open_set_score": 38.83302307128906,
+            "nearest_species_id": "ANU_COL_DEND_TRI_001",
+            "active_centroid_count": 17,
+            "candidate_ids": [
+              "ANU_COL_PHYL_TAR_001",
+              "ANU_COL_DEND_TRI_001",
+              "ANU_COL_ENGY_PUS_001"
+            ],
+            "species_in_candidates": false,
+            "species_centroid_participates": false,
+            "species_in_true_active_catalog": false,
+            "species_known": false,
+            "accepted_in_true_active_catalog": true,
+            "all_candidates_in_true_active_catalog": true,
+            "runtime_reported_active_packages": [
+              "anura_cauca_visual@v1.0.0"
+            ],
+            "limitations": [
+              "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+            ]
+          },
+          "Y": {
+            "decision": "ESPECIE_CONOCIDA",
+            "accepted_species_id": "ANU_COL_BOAN_CIN_001",
+            "open_set_score": 24.571212768554688,
+            "nearest_species_id": "ANU_COL_BOAN_CIN_001",
+            "active_centroid_count": 17,
+            "candidate_ids": [
+              "ANU_COL_BOAN_CIN_001",
+              "ANU_COL_BOAN_PUN_001",
+              "ANU_COL_BOAN_BOA_001"
+            ],
+            "species_in_candidates": true,
+            "species_centroid_participates": true,
+            "species_in_true_active_catalog": true,
+            "species_known": true,
+            "accepted_in_true_active_catalog": true,
+            "all_candidates_in_true_active_catalog": true,
+            "runtime_reported_active_packages": [
+              "anura_cauca_visual@v1.0.0"
+            ],
+            "limitations": [
+              "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+            ]
+          },
+          "shared": {
+            "decision": "ESPECIE_CONOCIDA",
+            "accepted_species_id": "ANU_COL_BOAN_BOA_001",
+            "open_set_score": 29.549556732177734,
+            "nearest_species_id": "ANU_COL_BOAN_BOA_001",
+            "active_centroid_count": 17,
+            "candidate_ids": [
+              "ANU_COL_BOAN_BOA_001",
+              "ANU_COL_BOAN_PLA_001",
+              "ANU_COL_BOAN_ROS_001"
+            ],
+            "species_in_candidates": true,
+            "species_centroid_participates": true,
+            "species_in_true_active_catalog": true,
+            "species_known": true,
+            "accepted_in_true_active_catalog": true,
+            "all_candidates_in_true_active_catalog": true,
+            "runtime_reported_active_packages": [
+              "anura_cauca_visual@v1.0.0"
+            ],
+            "limitations": [
+              "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+              "VISUALLY_SIMILAR_SPECIES_IN_TOP_CANDIDATES"
+            ]
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L1_residual_release_centroid_injected_into_open_set_matrix",
+      "expected": "El centroide residual de X (mas cercano, bajo threshold) NO produce ESPECIE_CONOCIDA",
+      "actual": {
+        "pipeline": {
+          "decision": "NO_CONCLUYENTE",
+          "accepted_species_id": null,
+          "open_set_score": null,
+          "nearest_species_id": null,
+          "active_centroid_count": 18,
+          "candidate_ids": [
+            "ANU_COL_PHYL_TAR_001",
+            "ANU_COL_DEND_TRI_001",
+            "ANU_COL_ENGY_PUS_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": null,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+            "NO_REGISTRADA_NOT_ASSERTED"
+          ]
+        },
+        "adapter_direct": {
+          "decision": "NO_CONCLUYENTE",
+          "nearest_species_id": null,
+          "score": null,
+          "reason": "NEAREST_CENTROID_NOT_IN_ACTIVE_CATALOG"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L2_stale_open_set_decision_for_inactive_species_reaches_flow",
+      "expected": "MerlinFlow rechaza aceptar una especie fuera del catalogo activo",
+      "actual": {
+        "decision": "NO_CONCLUYENTE",
+        "accepted_species_id": null,
+        "open_set_score": null,
+        "nearest_species_id": null,
+        "active_centroid_count": 34,
+        "candidate_ids": [
+          "ANU_COL_PHYL_TAR_001",
+          "ANU_COL_DEND_TRI_001",
+          "ANU_COL_ENGY_PUS_001"
+        ],
+        "species_in_candidates": false,
+        "species_centroid_participates": null,
+        "species_in_true_active_catalog": false,
+        "species_known": false,
+        "accepted_in_true_active_catalog": null,
+        "all_candidates_in_true_active_catalog": true,
+        "runtime_reported_active_packages": [
+          "anura_cauca_visual@v1.0.0"
+        ],
+        "limitations": [
+          "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+          "NO_REGISTRADA_NOT_ASSERTED",
+          "OPEN_SET_ACCEPTED_SPECIES_NOT_IN_ACTIVE_CATALOG"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L3_stale_visual_index_full_pool_ignores_active_catalog",
+      "expected": "Ningun candidato fuera del catalogo activo llega al resultado",
+      "actual": {
+        "decision": "ESPECIE_CONOCIDA",
+        "accepted_species_id": "ANU_COL_DEND_TRI_001",
+        "open_set_score": 38.83302307128906,
+        "nearest_species_id": "ANU_COL_DEND_TRI_001",
+        "active_centroid_count": 17,
+        "candidate_ids": [
+          "ANU_COL_PHYL_TAR_001",
+          "ANU_COL_DEND_TRI_001",
+          "ANU_COL_ENGY_PUS_001"
+        ],
+        "species_in_candidates": false,
+        "species_centroid_participates": false,
+        "species_in_true_active_catalog": false,
+        "species_known": false,
+        "accepted_in_true_active_catalog": true,
+        "all_candidates_in_true_active_catalog": true,
+        "runtime_reported_active_packages": [
+          "anura_cauca_visual@v1.0.0"
+        ],
+        "limitations": [
+          "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L4_adapter_stale_prototypes_without_declared_catalog",
+      "expected": "Prototipos sin catalogo activo declarado nunca producen ESPECIE_CONOCIDA",
+      "actual": {
+        "decision": "NO_CONCLUYENTE",
+        "nearest_species_id": null,
+        "reason": "CATALOG_MEMBERSHIP_UNDECLARED"
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L5_deactivated_and_orphan_files_on_disk_do_not_participate",
+      "expected": "Archivos de A (desactivado, huerfano v9.9.9 y staging) presentes en disco pero X no conocida",
+      "actual": {
+        "deactivated_install_dir_on_disk": true,
+        "orphan_dir": "packages_root\\installed\\anura_antioquia_visual\\v9.9.9",
+        "observation": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRI_001",
+          "open_set_score": 38.83302307128906,
+          "nearest_species_id": "ANU_COL_DEND_TRI_001",
+          "active_centroid_count": 17,
+          "candidate_ids": [
+            "ANU_COL_PHYL_TAR_001",
+            "ANU_COL_DEND_TRI_001",
+            "ANU_COL_ENGY_PUS_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L6_cached_package_objects_and_previous_results_do_not_leak",
+      "expected": "Objeto InstalledPackage con cache viva y estado previo retenido no reintroducen X; el pipeline no guarda estado por inferencia",
+      "actual": {
+        "pipeline_attributes": [
+          "bioclip",
+          "flow",
+          "geographic",
+          "open_set",
+          "packages",
+          "ranking"
+        ],
+        "observation": {
+          "decision": "ESPECIE_CONOCIDA",
+          "accepted_species_id": "ANU_COL_DEND_TRI_001",
+          "open_set_score": 38.83302307128906,
+          "nearest_species_id": "ANU_COL_DEND_TRI_001",
+          "active_centroid_count": 17,
+          "candidate_ids": [
+            "ANU_COL_PHYL_TAR_001",
+            "ANU_COL_DEND_TRI_001",
+            "ANU_COL_ENGY_PUS_001"
+          ],
+          "species_in_candidates": false,
+          "species_centroid_participates": false,
+          "species_in_true_active_catalog": false,
+          "species_known": false,
+          "accepted_in_true_active_catalog": true,
+          "all_candidates_in_true_active_catalog": true,
+          "runtime_reported_active_packages": [
+            "anura_cauca_visual@v1.0.0"
+          ],
+          "limitations": [
+            "GEOGRAPHIC_CONTEXT_UNAVAILABLE"
+          ]
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L7_no_module_level_catalog_state",
+      "expected": "Ningun global de modulo contiene la especie/catalogo",
+      "actual": {
+        "globals_referencing_X": {}
+      },
+      "status": "PASS"
+    },
+    {
+      "test": "L8_frozen_release_structures_still_in_memory",
+      "expected": "Documentar residuos congelados que contienen X",
+      "actual": {
+        "open_set.centroid_by_species_has_X": true,
+        "ranking.names_has_X": true,
+        "flow.catalog_registry_has_X": true
+      },
+      "status": "OBSERVED"
+    }
+  ]
+}

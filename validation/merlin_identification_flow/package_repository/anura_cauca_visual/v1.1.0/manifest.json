@@ -1,0 +1,63 @@
+{
+  "package_id": "anura_cauca_visual",
+  "package_version": "v1.1.0",
+  "schema_version": "anura.species-package/1.0.0",
+  "species_ids": [
+    "ANU_COL_BOAN_BOA_001",
+    "ANU_COL_BOAN_CIN_001",
+    "ANU_COL_BOAN_LAN_001",
+    "ANU_COL_BOAN_PLA_001",
+    "ANU_COL_BOAN_PUN_001",
+    "ANU_COL_BOAN_ROS_001",
+    "ANU_COL_CRAU_RAN_001",
+    "ANU_COL_DEND_COL_001",
+    "ANU_COL_DEND_TRI_001",
+    "ANU_COL_ENGY_PUS_001",
+    "ANU_COL_PHYL_TAR_001",
+    "ANU_COL_PRIS_ACH_001",
+    "ANU_COL_PRIS_PAL_001",
+    "ANU_COL_PRIS_THE_001",
+    "ANU_COL_RHIN_ALA_001",
+    "ANU_COL_RHIN_MAR_001",
+    "ANU_COL_SCIN_RUB_001"
+  ],
+  "species_count": 17,
+  "prototype_version": "fase13_geo6_centroids/v1.0.0",
+  "encoder_contract": {
+    "encoder_id": "bioclip_anura_v1",
+    "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+    "embedding_dim": 512,
+    "normalization": "L2"
+  },
+  "contains_encoder": false,
+  "encoder_distribution_note": "El encoder BioCLIP NO viaja en el paquete; es compartido e independiente.",
+  "dependencies": [],
+  "minimum_app_version": "0.1.0",
+  "checksum": {
+    "algorithm": "sha256",
+    "payload_sha256": "32b4d7356353580c1a16f03efd1ecbdb2c5b747fdfb0b968aeba8c3e560fc67c",
+    "files": {
+      "elevation.json": "b4c4dff06151552afdefbef8c2816777f2a92cc683d2ffc8ae51dc8cc12a2c9e",
+      "geography.json": "ae0fa48678aefbbf2e319a1d9b4520577a45f2411fdbe82bf2971121c19b4e25",
+      "prototypes.npz": "41b19f4a032ca7c6abb6186d00124c9e010dc072a760907cbb9087364f828550",
+      "species.json": "ed293d61a0bf3eae9d7dcd012f9cd17c7df52e4fe223ccd95e4b8157f0770d86",
+      "taxonomy.json": "ee28844d51139be31a927ce3b5b19ceee0a677b10a362f8836f8fad5e935eae1",
+      "visual_similarity_groups.json": "046dd56184ca2928c81505d824aa8715b35732d6409d0560ccb9bdcf7f520605"
+    }
+  },
+  "created_at": "2026-09-14T21:06:22Z",
+  "source_artifacts": {
+    "regional_scope": "regional_packages/CAUCA/v1.0.0/manifest.json",
+    "catalog_release": "visual_catalog/v1.0.0/manifest.json",
+    "centroids": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz",
+    "species_metadata": "taxonomy/species/species_registry.json"
+  },
+  "context_extension": {
+    "geography_json": true,
+    "elevation_json": true,
+    "geography_species_count": 17,
+    "elevation_species_count": 17,
+    "source_version_untouched": "v1.0.0",
+    "note": "Contexto opcional por especie; no modifica ranking ni Open Set automáticamente."
+  }
+}

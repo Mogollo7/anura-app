@@ -1,0 +1,1515 @@
+{
+  "schema_version": "anura.species-package-observations/1.0.0",
+  "source": "iNaturalist observation IDs and cached coordinates",
+  "department": "CAUCA",
+  "species": {
+    "ANU_COL_BOAN_BOA_001": [
+      {
+        "observation_id": "287233517",
+        "latitude": 1.0307582237,
+        "longitude": -76.4421116933,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 213,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/287233517"
+      }
+    ],
+    "ANU_COL_BOAN_CIN_001": [
+      {
+        "observation_id": "384594573",
+        "latitude": 1.0240583333,
+        "longitude": -76.4673083333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 13,
+        "elevation_m": 294.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/384594573"
+      },
+      {
+        "observation_id": "383699689",
+        "latitude": 1.0083527833,
+        "longitude": -76.2860116667,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": 255.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/383699689"
+      },
+      {
+        "observation_id": "356315034",
+        "latitude": 1.1236260262,
+        "longitude": -76.3196393475,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 236,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/356315034"
+      },
+      {
+        "observation_id": "325604654",
+        "latitude": 1.0078861167,
+        "longitude": -76.28527,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/325604654"
+      },
+      {
+        "observation_id": "251461711",
+        "latitude": 1.4788283333,
+        "longitude": -76.3893133333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 8,
+        "elevation_m": 1327.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/251461711"
+      },
+      {
+        "observation_id": "201554542",
+        "latitude": 1.530963,
+        "longitude": -76.3244368,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 28,
+        "elevation_m": 1645.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/201554542"
+      }
+    ],
+    "ANU_COL_BOAN_LAN_001": [
+      {
+        "observation_id": "230916133",
+        "latitude": 1.530963,
+        "longitude": -76.3244368,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 28,
+        "elevation_m": 1645.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/230916133"
+      },
+      {
+        "observation_id": "216940292",
+        "latitude": 1.4975820056,
+        "longitude": -76.3842748851,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 68,
+        "elevation_m": 1388.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/216940292"
+      },
+      {
+        "observation_id": "201554577",
+        "latitude": 1.4939916667,
+        "longitude": -76.3724666667,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 70,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/201554577"
+      }
+    ],
+    "ANU_COL_BOAN_PLA_001": [
+      {
+        "observation_id": "321820421",
+        "latitude": 3.0094040069,
+        "longitude": -76.477028355,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 12,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/321820421"
+      },
+      {
+        "observation_id": "282550936",
+        "latitude": 3.204335859,
+        "longitude": -76.4133543894,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 142,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/282550936"
+      },
+      {
+        "observation_id": "217835333",
+        "latitude": 2.8443156816,
+        "longitude": -76.5436439069,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/217835333"
+      },
+      {
+        "observation_id": "214202851",
+        "latitude": 2.7264710316,
+        "longitude": -76.5497858219,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 19,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/214202851"
+      },
+      {
+        "observation_id": "196291130",
+        "latitude": 2.7667499107,
+        "longitude": -76.7499699444,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 2169,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/196291130"
+      },
+      {
+        "observation_id": "183580040",
+        "latitude": 3.0343416667,
+        "longitude": -76.5126633333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/183580040"
+      },
+      {
+        "observation_id": "148445130",
+        "latitude": 3.0074287155,
+        "longitude": -76.4802331786,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 15,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/148445130"
+      },
+      {
+        "observation_id": "147157351",
+        "latitude": 3.0090129444,
+        "longitude": -76.4863047749,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 2846,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/147157351"
+      }
+    ],
+    "ANU_COL_BOAN_PUN_001": [
+      {
+        "observation_id": "384594367",
+        "latitude": 1.0241695,
+        "longitude": -76.4674833333,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 17,
+        "elevation_m": 294.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/384594367"
+      }
+    ],
+    "ANU_COL_BOAN_ROS_001": [
+      {
+        "observation_id": "349815389",
+        "latitude": 2.769369,
+        "longitude": -77.66973,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": 18.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/349815389"
+      },
+      {
+        "observation_id": "312529208",
+        "latitude": 2.7690133333,
+        "longitude": -77.6700216667,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 60,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/312529208"
+      },
+      {
+        "observation_id": "88771354",
+        "latitude": 2.659348,
+        "longitude": -77.624031,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/88771354"
+      },
+      {
+        "observation_id": "75581169",
+        "latitude": 2.7680555556,
+        "longitude": -77.6705555556,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/75581169"
+      }
+    ],
+    "ANU_COL_CRAU_RAN_001": [
+      {
+        "observation_id": "87926257",
+        "latitude": 2.5776866667,
+        "longitude": -77.9058533333,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 5,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/87926257"
+      }
+    ],
+    "ANU_COL_DEND_COL_001": [
+      {
+        "observation_id": "360089644",
+        "latitude": 2.453655,
+        "longitude": -76.5164233333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/360089644"
+      },
+      {
+        "observation_id": "342101601",
+        "latitude": 2.4535638895,
+        "longitude": -76.6086852551,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 207,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/342101601"
+      },
+      {
+        "observation_id": "319173511",
+        "latitude": 2.6323790695,
+        "longitude": -76.3404499367,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 38,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/319173511"
+      },
+      {
+        "observation_id": "263399309",
+        "latitude": 3.1333263744,
+        "longitude": -76.3919672043,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1953,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/263399309"
+      },
+      {
+        "observation_id": "249106581",
+        "latitude": 2.4135063885,
+        "longitude": -76.5651439503,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 567,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/249106581"
+      },
+      {
+        "observation_id": "220075129",
+        "latitude": 2.5626694444,
+        "longitude": -76.5724805556,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/220075129"
+      },
+      {
+        "observation_id": "212751190",
+        "latitude": 2.65392,
+        "longitude": -76.686421,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 9776,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/212751190"
+      },
+      {
+        "observation_id": "203596962",
+        "latitude": 2.4687716667,
+        "longitude": -76.5504383333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/203596962"
+      },
+      {
+        "observation_id": "196946571",
+        "latitude": 2.3555133333,
+        "longitude": -76.6560666667,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 8,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/196946571"
+      },
+      {
+        "observation_id": "196946286",
+        "latitude": 2.355255,
+        "longitude": -76.655975,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/196946286"
+      },
+      {
+        "observation_id": "181085475",
+        "latitude": 2.355375,
+        "longitude": -76.6560883333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 15,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/181085475"
+      },
+      {
+        "observation_id": "179768164",
+        "latitude": 2.4537179752,
+        "longitude": -76.516610384,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 39,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/179768164"
+      },
+      {
+        "observation_id": "179743959",
+        "latitude": 2.453708596,
+        "longitude": -76.516614072,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 32,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/179743959"
+      },
+      {
+        "observation_id": "147437193",
+        "latitude": 2.8907333333,
+        "longitude": -76.5001916667,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/147437193"
+      },
+      {
+        "observation_id": "141434633",
+        "latitude": 2.4961291746,
+        "longitude": -76.6238711797,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 171,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/141434633"
+      },
+      {
+        "observation_id": "124485582",
+        "latitude": 2.4589582156,
+        "longitude": -76.6376390308,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 35,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/124485582"
+      },
+      {
+        "observation_id": "107836974",
+        "latitude": 2.4848697019,
+        "longitude": -76.5767766908,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 54,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/107836974"
+      },
+      {
+        "observation_id": "105536296",
+        "latitude": 2.6377954217,
+        "longitude": -76.5224964917,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 35,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/105536296"
+      },
+      {
+        "observation_id": "103939744",
+        "latitude": 2.61672,
+        "longitude": -76.30005,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1166,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/103939744"
+      },
+      {
+        "observation_id": "100743008",
+        "latitude": 2.45298274,
+        "longitude": -76.51703438,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 17,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/100743008"
+      },
+      {
+        "observation_id": "86817617",
+        "latitude": 2.648268234,
+        "longitude": -76.5386324151,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 9,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/86817617"
+      },
+      {
+        "observation_id": "62580770",
+        "latitude": 2.5555315606,
+        "longitude": -76.5696211004,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 69,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/62580770"
+      },
+      {
+        "observation_id": "52167707",
+        "latitude": 2.4765482428,
+        "longitude": -76.6444391012,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 120,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/52167707"
+      },
+      {
+        "observation_id": "46341899",
+        "latitude": 2.4431949983,
+        "longitude": -76.4494349122,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 2511,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/46341899"
+      },
+      {
+        "observation_id": "286359",
+        "latitude": 2.457073,
+        "longitude": -76.732571,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 132,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "http://www.inaturalist.org/observations/286359"
+      },
+      {
+        "observation_id": "35031",
+        "latitude": 2.4941383715,
+        "longitude": -76.5894699097,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "http://www.inaturalist.org/observations/35031"
+      }
+    ],
+    "ANU_COL_DEND_TRI_001": [
+      {
+        "observation_id": "378231427",
+        "latitude": 1.00815,
+        "longitude": -76.284125,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/378231427"
+      },
+      {
+        "observation_id": "118368419",
+        "latitude": 1.06528991,
+        "longitude": -76.1973101646,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 499,
+        "elevation_m": 248.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/118368419"
+      }
+    ],
+    "ANU_COL_ENGY_PUS_001": [
+      {
+        "observation_id": "349854038",
+        "latitude": 2.7693,
+        "longitude": -77.669921,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/349854038"
+      }
+    ],
+    "ANU_COL_PHYL_TAR_001": [
+      {
+        "observation_id": "356318287",
+        "latitude": 1.1231527073,
+        "longitude": -76.3189755008,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 212,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/356318287"
+      },
+      {
+        "observation_id": "344564253",
+        "latitude": 1.1416361667,
+        "longitude": -76.350975,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 3,
+        "elevation_m": 536.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/344564253"
+      }
+    ],
+    "ANU_COL_PRIS_ACH_001": [
+      {
+        "observation_id": "363836230",
+        "latitude": 2.3182167227,
+        "longitude": -77.2987552732,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1328,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/363836230"
+      },
+      {
+        "observation_id": "329683782",
+        "latitude": 3.2684437517,
+        "longitude": -76.3158469454,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 295,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/329683782"
+      },
+      {
+        "observation_id": "319173295",
+        "latitude": 2.4526417202,
+        "longitude": -76.1681837216,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 2706,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/319173295"
+      },
+      {
+        "observation_id": "253004970",
+        "latitude": 2.5553139747,
+        "longitude": -76.5687463752,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 15,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/253004970"
+      },
+      {
+        "observation_id": "253004341",
+        "latitude": 2.5382032674,
+        "longitude": -76.5618685378,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 15,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/253004341"
+      },
+      {
+        "observation_id": "253002528",
+        "latitude": 2.6149992007,
+        "longitude": -76.5098080926,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 8,
+        "elevation_m": 1853.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/253002528"
+      },
+      {
+        "observation_id": "253002527",
+        "latitude": 2.6149986564,
+        "longitude": -76.509775948,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 61,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/253002527"
+      },
+      {
+        "observation_id": "148673030",
+        "latitude": 2.6542288756,
+        "longitude": -76.5416833386,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 92,
+        "elevation_m": 1823.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/148673030"
+      },
+      {
+        "observation_id": "88769336",
+        "latitude": 2.6499598845,
+        "longitude": -77.6140104153,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 262,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/88769336"
+      },
+      {
+        "observation_id": "61805808",
+        "latitude": 2.5556835368,
+        "longitude": -76.56863451,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": 78,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/61805808"
+      },
+      {
+        "observation_id": "39029728",
+        "latitude": 2.96628,
+        "longitude": -76.2338483333,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/39029728"
+      },
+      {
+        "observation_id": "40067",
+        "latitude": 2.8624635891,
+        "longitude": -76.4459609985,
+        "coordinate_source": "inat_observations_cache",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "http://www.inaturalist.org/observations/40067"
+      }
+    ],
+    "ANU_COL_PRIS_PAL_001": [
+      {
+        "observation_id": "218373095",
+        "latitude": 2.4613313712,
+        "longitude": -76.6191461406,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 9834,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/218373095"
+      }
+    ],
+    "ANU_COL_PRIS_THE_001": [
+      {
+        "observation_id": "339766574",
+        "latitude": 1.6718666667,
+        "longitude": -76.564105,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/339766574"
+      },
+      {
+        "observation_id": "120770693",
+        "latitude": 2.458375,
+        "longitude": -76.5131033333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/120770693"
+      },
+      {
+        "observation_id": "83665861",
+        "latitude": 2.4138312921,
+        "longitude": -76.4271680903,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 604,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/83665861"
+      },
+      {
+        "observation_id": "39858786",
+        "latitude": 2.9678033333,
+        "longitude": -76.2268216667,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/39858786"
+      },
+      {
+        "observation_id": "39029745",
+        "latitude": 2.9662983333,
+        "longitude": -76.23383,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/39029745"
+      },
+      {
+        "observation_id": "14095187",
+        "latitude": 2.4448143,
+        "longitude": -76.6147395,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 9171,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/14095187"
+      }
+    ],
+    "ANU_COL_RHIN_ALA_001": [
+      {
+        "observation_id": "399141459",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/399141459"
+      },
+      {
+        "observation_id": "399141450",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/399141450"
+      },
+      {
+        "observation_id": "398315280",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/398315280"
+      },
+      {
+        "observation_id": "398315270",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/398315270"
+      },
+      {
+        "observation_id": "398315264",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/398315264"
+      },
+      {
+        "observation_id": "398315252",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/398315252"
+      },
+      {
+        "observation_id": "395309143",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/395309143"
+      },
+      {
+        "observation_id": "394289020",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394289020"
+      },
+      {
+        "observation_id": "394289014",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394289014"
+      },
+      {
+        "observation_id": "394289012",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394289012"
+      },
+      {
+        "observation_id": "394289005",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394289005"
+      },
+      {
+        "observation_id": "394287236",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394287236"
+      },
+      {
+        "observation_id": "394285247",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394285247"
+      },
+      {
+        "observation_id": "394285240",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394285240"
+      },
+      {
+        "observation_id": "394285238",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394285238"
+      },
+      {
+        "observation_id": "394285236",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394285236"
+      },
+      {
+        "observation_id": "394285235",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394285235"
+      },
+      {
+        "observation_id": "394285229",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/394285229"
+      },
+      {
+        "observation_id": "389881798",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/389881798"
+      },
+      {
+        "observation_id": "388297062",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/388297062"
+      },
+      {
+        "observation_id": "384400986",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/384400986"
+      },
+      {
+        "observation_id": "384400981",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/384400981"
+      },
+      {
+        "observation_id": "384400971",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/384400971"
+      },
+      {
+        "observation_id": "383743083",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/383743083"
+      },
+      {
+        "observation_id": "383743056",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/383743056"
+      },
+      {
+        "observation_id": "383738654",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/383738654"
+      },
+      {
+        "observation_id": "383738652",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/383738652"
+      },
+      {
+        "observation_id": "380783137",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/380783137"
+      },
+      {
+        "observation_id": "380779264",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/380779264"
+      },
+      {
+        "observation_id": "380779257",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/380779257"
+      },
+      {
+        "observation_id": "377017643",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/377017643"
+      },
+      {
+        "observation_id": "377017627",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/377017627"
+      },
+      {
+        "observation_id": "377017626",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/377017626"
+      },
+      {
+        "observation_id": "377017616",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/377017616"
+      },
+      {
+        "observation_id": "377013172",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/377013172"
+      },
+      {
+        "observation_id": "374335060",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/374335060"
+      },
+      {
+        "observation_id": "374335041",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/374335041"
+      },
+      {
+        "observation_id": "374335040",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/374335040"
+      },
+      {
+        "observation_id": "374335039",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/374335039"
+      },
+      {
+        "observation_id": "371936273",
+        "latitude": 2.7702214433,
+        "longitude": -77.66936548,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 31,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/371936273"
+      },
+      {
+        "observation_id": "368975912",
+        "latitude": 1.1198615969,
+        "longitude": -76.3241555169,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 212,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/368975912"
+      },
+      {
+        "observation_id": "349854106",
+        "latitude": 2.770318,
+        "longitude": -77.669309,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/349854106"
+      },
+      {
+        "observation_id": "349854105",
+        "latitude": 2.770361,
+        "longitude": -77.669127,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/349854105"
+      },
+      {
+        "observation_id": "349854104",
+        "latitude": 2.770216,
+        "longitude": -77.669333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/349854104"
+      },
+      {
+        "observation_id": "349854103",
+        "latitude": 2.770371,
+        "longitude": -77.669084,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/349854103"
+      },
+      {
+        "observation_id": "349815393",
+        "latitude": 2.769578,
+        "longitude": -77.669516,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/349815393"
+      },
+      {
+        "observation_id": "341020921",
+        "latitude": 2.54832979,
+        "longitude": -77.90007717,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/341020921"
+      },
+      {
+        "observation_id": "330767601",
+        "latitude": 2.5007631951,
+        "longitude": -76.0447301649,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 977,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/330767601"
+      },
+      {
+        "observation_id": "313102682",
+        "latitude": 2.76919009,
+        "longitude": -77.67182917,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 7,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/313102682"
+      },
+      {
+        "observation_id": "265291389",
+        "latitude": 2.7713678672,
+        "longitude": -77.6742626863,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 251,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/265291389"
+      },
+      {
+        "observation_id": "264893364",
+        "latitude": 2.7681455162,
+        "longitude": -77.6749876718,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 4,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/264893364"
+      },
+      {
+        "observation_id": "156464446",
+        "latitude": 2.773033012,
+        "longitude": -77.6640872285,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 44,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/156464446"
+      },
+      {
+        "observation_id": "110689333",
+        "latitude": 2.5773873014,
+        "longitude": -76.0579781234,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 490,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/110689333"
+      },
+      {
+        "observation_id": "76182248",
+        "latitude": 2.7705555556,
+        "longitude": -77.6758333333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/76182248"
+      },
+      {
+        "observation_id": "66678179",
+        "latitude": 2.7672312876,
+        "longitude": -77.6682841818,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 122,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/66678179"
+      },
+      {
+        "observation_id": "45743075",
+        "latitude": 2.7857043578,
+        "longitude": -77.6553404078,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 330,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/45743075"
+      },
+      {
+        "observation_id": "40454961",
+        "latitude": 2.5728709,
+        "longitude": -77.8889378,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1428,
+        "elevation_m": 5.0,
+        "elevation_source": "opentopodata_cache",
+        "observation_url": "https://www.inaturalist.org/observations/40454961"
+      },
+      {
+        "observation_id": "35328002",
+        "latitude": 2.777744,
+        "longitude": -77.667606,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1133,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/35328002"
+      }
+    ],
+    "ANU_COL_RHIN_MAR_001": [
+      {
+        "observation_id": "310308774",
+        "latitude": 1.0056083333,
+        "longitude": -76.2792527778,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": null,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/310308774"
+      }
+    ],
+    "ANU_COL_SCIN_RUB_001": [
+      {
+        "observation_id": "296441785",
+        "latitude": 2.1156416667,
+        "longitude": -76.9891783333,
+        "coordinate_source": "occurrence_manifest",
+        "geoprivacy": null,
+        "positional_accuracy_m": 1,
+        "elevation_m": null,
+        "elevation_source": null,
+        "observation_url": "https://www.inaturalist.org/observations/296441785"
+      }
+    ]
+  }
+}

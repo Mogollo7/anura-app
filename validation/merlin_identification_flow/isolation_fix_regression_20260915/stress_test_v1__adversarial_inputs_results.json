@@ -1,0 +1,226 @@
+{
+  "method": "Imagenes sinteticas generadas con PIL/numpy (semilla=42): tamano extremo (4x4, 6000x4000), aspect ratio extremo (5000x40 y 40x5000), subexpuesta, sobreexpuesta, borrosa (GaussianBlur r=25), sujeto minusculo en esquina, sin sujeto (fondo plano), archivo truncado (1/3 de bytes validos), archivo de bytes aleatorios con extension .jpg, BMP valido renombrado a .jpg, TIFF real (formato no probado por el pipeline), archivo vacio (0 bytes), escala de grises, RGBA con canal alfa.",
+  "contract_gap": {
+    "ERROR_DE_ENTRADA_exists_in_schema": false,
+    "evidence": "IDENTIFICATION_RESULT_SCHEMA.json solo permite decision in {ESPECIE_CONOCIDA, NO_CONCLUYENTE} (ver merlin_flow.py linea ~79-81, que levanta ValueError si open_set_decision no es uno de esos dos). merlin_runtime_pipeline.identify_image NO envuelve bioclip.embed_image en try/except: una imagen corrupta o formato no soportado no produce NO_CONCLUYENTE, produce una excepcion Python cruda que el llamador debe manejar.",
+    "proposed_placement_not_implemented": "Anadir ERROR_DE_ENTRADA como TERCER valor de decision (junto a ESPECIE_CONOCIDA/NO_CONCLUYENTE) es compatible hacia atras si el schema lo declara como valor adicional del enum y el campo sigue siendo string -- un cliente v0.2.0 que solo espera los dos valores existentes se rompe si no maneja el default; por eso NO se implementa aqui sin decision explicita del responsable del contrato (mismo principio que el threshold: cambios de contrato no se hacen unilateralmente en una fase de stress test). La ubicacion natural es en merlin_runtime_pipeline.identify_image, envolviendo bioclip.embed_image en un try/except que capture errores de decodificacion/lectura de imagen (PIL UnidentifiedImageError, OSError) y retorne un IdentificationResult con decision=ERROR_DE_ENTRADA y candidates=[] en vez de propagar la excepcion."
+  },
+  "summary": {
+    "total_cases": 16,
+    "controlled_result": 13,
+    "uncaught_exception": 3
+  },
+  "crash_cases": [
+    {
+      "case": "corrupted_random_bytes.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\corrupted_random_bytes.jpg",
+      "outcome": "UNCAUGHT_EXCEPTION",
+      "exception_type": "UnidentifiedImageError",
+      "exception_message": "cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\corrupted_random_bytes.jpg'",
+      "traceback_last_frame": [
+        "    raise UnidentifiedImageError(msg)",
+        "PIL.UnidentifiedImageError: cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\corrupted_random_bytes.jpg'"
+      ]
+    },
+    {
+      "case": "corrupted_truncated.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\corrupted_truncated.jpg",
+      "outcome": "UNCAUGHT_EXCEPTION",
+      "exception_type": "OSError",
+      "exception_message": "image file is truncated (5 bytes not processed)",
+      "traceback_last_frame": [
+        "    raise OSError(msg)",
+        "OSError: image file is truncated (5 bytes not processed)"
+      ]
+    },
+    {
+      "case": "empty_file.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\empty_file.jpg",
+      "outcome": "UNCAUGHT_EXCEPTION",
+      "exception_type": "UnidentifiedImageError",
+      "exception_message": "cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\empty_file.jpg'",
+      "traceback_last_frame": [
+        "    raise UnidentifiedImageError(msg)",
+        "PIL.UnidentifiedImageError: cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\empty_file.jpg'"
+      ]
+    }
+  ],
+  "all_results": [
+    {
+      "case": "actually_bmp_renamed.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\actually_bmp_renamed.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "blurry.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\blurry.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Dendropsophus norandinus",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "corrupted_random_bytes.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\corrupted_random_bytes.jpg",
+      "outcome": "UNCAUGHT_EXCEPTION",
+      "exception_type": "UnidentifiedImageError",
+      "exception_message": "cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\corrupted_random_bytes.jpg'",
+      "traceback_last_frame": [
+        "    raise UnidentifiedImageError(msg)",
+        "PIL.UnidentifiedImageError: cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\corrupted_random_bytes.jpg'"
+      ]
+    },
+    {
+      "case": "corrupted_truncated.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\corrupted_truncated.jpg",
+      "outcome": "UNCAUGHT_EXCEPTION",
+      "exception_type": "OSError",
+      "exception_message": "image file is truncated (5 bytes not processed)",
+      "traceback_last_frame": [
+        "    raise OSError(msg)",
+        "OSError: image file is truncated (5 bytes not processed)"
+      ]
+    },
+    {
+      "case": "empty_file.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\empty_file.jpg",
+      "outcome": "UNCAUGHT_EXCEPTION",
+      "exception_type": "UnidentifiedImageError",
+      "exception_message": "cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\empty_file.jpg'",
+      "traceback_last_frame": [
+        "    raise UnidentifiedImageError(msg)",
+        "PIL.UnidentifiedImageError: cannot identify image file 'D:\\\\Anura\\\\validation\\\\merlin_identification_flow\\\\stress_test_v1\\\\adversarial_images\\\\empty_file.jpg'"
+      ]
+    },
+    {
+      "case": "extreme_aspect_40x5000.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\extreme_aspect_40x5000.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Dendropsophus molitor",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "extreme_aspect_5000x40.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\extreme_aspect_5000x40.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "grayscale_L.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\grayscale_L.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Dendropsophus molitor",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "huge_6000x4000.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\huge_6000x4000.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Dendropsophus molitor",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "no_subject_flat_green.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\no_subject_flat_green.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "overexposed.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\overexposed.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "partial_subject_tiny_corner.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\partial_subject_tiny_corner.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "rgba_with_alpha.png",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\rgba_with_alpha.png",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "tiny_4x4.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\tiny_4x4.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Dendropsophus norandinus",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "unsupported_format.tiff",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\unsupported_format.tiff",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    },
+    {
+      "case": "very_dark.jpg",
+      "path": "D:\\Anura\\validation\\merlin_identification_flow\\stress_test_v1\\adversarial_images\\very_dark.jpg",
+      "outcome": "CONTROLLED_RESULT",
+      "decision": "NO_CONCLUYENTE",
+      "candidates_top1": "Pristimantis bogotensis",
+      "limitations": [
+        "GEOGRAPHIC_CONTEXT_UNAVAILABLE",
+        "NO_REGISTRADA_NOT_ASSERTED"
+      ]
+    }
+  ]
+}

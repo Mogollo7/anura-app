@@ -1,0 +1,66 @@
+{
+  "package_id": "anura_cauca_visual",
+  "package_version": "v1.2.0",
+  "schema_version": "anura.species-package/1.0.0",
+  "species_ids": [
+    "ANU_COL_BOAN_BOA_001",
+    "ANU_COL_BOAN_CIN_001",
+    "ANU_COL_BOAN_LAN_001",
+    "ANU_COL_BOAN_PLA_001",
+    "ANU_COL_BOAN_PUN_001",
+    "ANU_COL_BOAN_ROS_001",
+    "ANU_COL_CRAU_RAN_001",
+    "ANU_COL_DEND_COL_001",
+    "ANU_COL_DEND_TRI_001",
+    "ANU_COL_ENGY_PUS_001",
+    "ANU_COL_PHYL_TAR_001",
+    "ANU_COL_PRIS_ACH_001",
+    "ANU_COL_PRIS_PAL_001",
+    "ANU_COL_PRIS_THE_001",
+    "ANU_COL_RHIN_ALA_001",
+    "ANU_COL_RHIN_MAR_001",
+    "ANU_COL_SCIN_RUB_001"
+  ],
+  "species_count": 17,
+  "prototype_version": "fase13_geo6_centroids/v1.0.0",
+  "encoder_contract": {
+    "encoder_id": "bioclip_anura_v1",
+    "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+    "embedding_dim": 512,
+    "normalization": "L2"
+  },
+  "contains_encoder": false,
+  "encoder_distribution_note": "El encoder BioCLIP NO viaja en el paquete; es compartido e independiente.",
+  "dependencies": [],
+  "minimum_app_version": "0.1.0",
+  "checksum": {
+    "algorithm": "sha256",
+    "payload_sha256": "167a7247014c489e322ad4acb7d77287f9b64509708f00d299d66600454e0a31",
+    "files": {
+      "elevation.json": "33a3c2573dbab0c8f1787880a52da26193b9c67dc2694a853a32f098328b714d",
+      "geography.json": "a13695c420463d7bdc0f28594171dde9d64bcf23493534e3787d02a619106d96",
+      "observations.json": "e9ba146df4697a9a91dbc774313234f5099ff2a78a233f8caca15751356b3999",
+      "prototypes.npz": "41b19f4a032ca7c6abb6186d00124c9e010dc072a760907cbb9087364f828550",
+      "species.json": "ed293d61a0bf3eae9d7dcd012f9cd17c7df52e4fe223ccd95e4b8157f0770d86",
+      "taxonomy.json": "ee28844d51139be31a927ce3b5b19ceee0a677b10a362f8836f8fad5e935eae1",
+      "visual_similarity_groups.json": "046dd56184ca2928c81505d824aa8715b35732d6409d0560ccb9bdcf7f520605"
+    }
+  },
+  "created_at": "2026-09-14T21:06:22Z",
+  "source_artifacts": {
+    "regional_scope": "regional_packages/CAUCA/v1.0.0/manifest.json",
+    "catalog_release": "visual_catalog/v1.0.0/manifest.json",
+    "centroids": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz",
+    "species_metadata": "taxonomy/species/species_registry.json"
+  },
+  "context_extension": {
+    "geography_json": true,
+    "elevation_json": true,
+    "observations_json": true,
+    "observation_level_provenance": true,
+    "coordinate_source": "inat_observations_cache",
+    "topography_source": "opentopodata_cache",
+    "source_version_untouched": "v1.1.0",
+    "note": "Contexto por observation_id; no modifica score visual ni Open Set automáticamente."
+  }
+}

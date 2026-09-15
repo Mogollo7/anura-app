@@ -1,0 +1,354 @@
+{
+  "status": "COMPLETED",
+  "date": "2026-09-14",
+  "runtime": {
+    "encoder": "encoder_anura_fp16.onnx",
+    "provider": "CPUExecutionProvider",
+    "active_packages": [
+      "anura_antioquia_visual@v1.2.0",
+      "anura_cauca_visual@v1.2.0"
+    ],
+    "images_tested": 34,
+    "seed": 42
+  },
+  "host_measurement": {
+    "process_rss_baseline_mb": 36.934,
+    "process_rss_after_packages_mb": 37.336,
+    "process_rss_after_runtime_init_mb": 1917.238,
+    "process_rss_peak_mb": 1939.285,
+    "process_rss_peak_over_baseline_mb": 1902.352,
+    "cpu_process_seconds": 75.828,
+    "wall_seconds": 7.834,
+    "cpu_utilization_one_core_equivalent_percent": 967.98,
+    "cpu_times_scope": "this Python process, including model initialization and evaluations excluded from cpu_process_seconds label"
+  },
+  "artifact_storage": {
+    "onnx_bytes": 173414601,
+    "onnx_mib": 165.381,
+    "package_bytes": {
+      "anura_antioquia_visual": 1793387,
+      "anura_cauca_visual": 113798
+    },
+    "package_mib": {
+      "anura_antioquia_visual": 1.71,
+      "anura_cauca_visual": 0.109
+    },
+    "combined_bytes": 175321786,
+    "combined_mib": 167.2
+  },
+  "per_image": [
+    {
+      "image": "data cleaned\\Boana_boans\\col_obs_332302381_photo_603032376.jpg",
+      "elapsed_ms": 354.486,
+      "cpu_ms": 2640.625,
+      "cpu_utilization_one_core_equivalent_percent": 744.92,
+      "rss_before_mb": 1917.238,
+      "rss_after_mb": 1914.426,
+      "rss_delta_mb": -2.812
+    },
+    {
+      "image": "data cleaned\\Boana_cinerascens\\col_obs_121477682_photo_205562162.jpg",
+      "elapsed_ms": 314.27,
+      "cpu_ms": 2312.5,
+      "cpu_utilization_one_core_equivalent_percent": 735.83,
+      "rss_before_mb": 1914.426,
+      "rss_after_mb": 1938.332,
+      "rss_delta_mb": 23.906
+    },
+    {
+      "image": "data cleaned\\Boana_lanciformis\\col_obs_390912890_photo_716221157.jpg",
+      "elapsed_ms": 236.802,
+      "cpu_ms": 2375.0,
+      "cpu_utilization_one_core_equivalent_percent": 1002.95,
+      "rss_before_mb": 1938.332,
+      "rss_after_mb": 1939.254,
+      "rss_delta_mb": 0.922
+    },
+    {
+      "image": "data cleaned\\Boana_platanera\\col_obs_381518680_photo_698098076.jpg",
+      "elapsed_ms": 289.358,
+      "cpu_ms": 2140.625,
+      "cpu_utilization_one_core_equivalent_percent": 739.78,
+      "rss_before_mb": 1939.254,
+      "rss_after_mb": 1939.254,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Boana_pugnax\\col_obs_376027704_photo_689365150.jpg",
+      "elapsed_ms": 229.197,
+      "cpu_ms": 2078.125,
+      "cpu_utilization_one_core_equivalent_percent": 906.7,
+      "rss_before_mb": 1939.254,
+      "rss_after_mb": 1939.266,
+      "rss_delta_mb": 0.012
+    },
+    {
+      "image": "data cleaned\\Boana_punctata\\col_obs_241771313_photo_430937764.jpg",
+      "elapsed_ms": 247.177,
+      "cpu_ms": 2453.125,
+      "cpu_utilization_one_core_equivalent_percent": 992.46,
+      "rss_before_mb": 1939.266,
+      "rss_after_mb": 1939.266,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Boana_rosenbergi\\col_obs_273196224_photo_491402968.jpg",
+      "elapsed_ms": 224.448,
+      "cpu_ms": 1906.25,
+      "cpu_utilization_one_core_equivalent_percent": 849.31,
+      "rss_before_mb": 1939.266,
+      "rss_after_mb": 1939.266,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Craugastor_raniformis\\col_obs_195879935_photo_344718869.jpg",
+      "elapsed_ms": 235.847,
+      "cpu_ms": 1875.0,
+      "cpu_utilization_one_core_equivalent_percent": 795.01,
+      "rss_before_mb": 1939.266,
+      "rss_after_mb": 1939.285,
+      "rss_delta_mb": 0.02
+    },
+    {
+      "image": "data cleaned\\Dendrobates_truncatus\\col_obs_338110894_photo_614799380.jpg",
+      "elapsed_ms": 210.063,
+      "cpu_ms": 2046.875,
+      "cpu_utilization_one_core_equivalent_percent": 974.41,
+      "rss_before_mb": 1939.285,
+      "rss_after_mb": 1912.473,
+      "rss_delta_mb": -26.812
+    },
+    {
+      "image": "data cleaned\\Dendropsophus_bogerti\\col_obs_40790640_photo_64661776.jpg",
+      "elapsed_ms": 180.785,
+      "cpu_ms": 1703.125,
+      "cpu_utilization_one_core_equivalent_percent": 942.07,
+      "rss_before_mb": 1912.473,
+      "rss_after_mb": 1913.098,
+      "rss_delta_mb": 0.625
+    },
+    {
+      "image": "data cleaned\\Dendropsophus_columbianus\\col_obs_396401047_photo_726962192.jpg",
+      "elapsed_ms": 225.005,
+      "cpu_ms": 2406.25,
+      "cpu_utilization_one_core_equivalent_percent": 1069.42,
+      "rss_before_mb": 1913.098,
+      "rss_after_mb": 1913.105,
+      "rss_delta_mb": 0.008
+    },
+    {
+      "image": "data cleaned\\Dendropsophus_ebraccatus\\col_obs_263757478_photo_473889761.jpg",
+      "elapsed_ms": 209.359,
+      "cpu_ms": 2312.5,
+      "cpu_utilization_one_core_equivalent_percent": 1104.56,
+      "rss_before_mb": 1913.105,
+      "rss_after_mb": 1913.117,
+      "rss_delta_mb": 0.012
+    },
+    {
+      "image": "data cleaned\\Dendropsophus_microcephalus\\col_obs_39368_photo_65492.jpg",
+      "elapsed_ms": 208.061,
+      "cpu_ms": 2109.375,
+      "cpu_utilization_one_core_equivalent_percent": 1013.83,
+      "rss_before_mb": 1913.117,
+      "rss_after_mb": 1913.117,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Dendropsophus_norandinus\\col_obs_335286233_photo_609064248.jpg",
+      "elapsed_ms": 216.421,
+      "cpu_ms": 2187.5,
+      "cpu_utilization_one_core_equivalent_percent": 1010.76,
+      "rss_before_mb": 1913.117,
+      "rss_after_mb": 1913.117,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Dendropsophus_triangulum\\col_obs_118862342_photo_200873192.jpg",
+      "elapsed_ms": 206.085,
+      "cpu_ms": 2265.625,
+      "cpu_utilization_one_core_equivalent_percent": 1099.37,
+      "rss_before_mb": 1913.117,
+      "rss_after_mb": 1913.125,
+      "rss_delta_mb": 0.008
+    },
+    {
+      "image": "data cleaned\\Engystomops_pustulosus\\col_obs_107679313_photo_181152962.jpg",
+      "elapsed_ms": 228.694,
+      "cpu_ms": 2203.125,
+      "cpu_utilization_one_core_equivalent_percent": 963.35,
+      "rss_before_mb": 1913.125,
+      "rss_after_mb": 1913.129,
+      "rss_delta_mb": 0.004
+    },
+    {
+      "image": "data cleaned\\Hyloscirtus_palmeri\\col_obs_182771660_photo_318702269.jpg",
+      "elapsed_ms": 257.977,
+      "cpu_ms": 2453.125,
+      "cpu_utilization_one_core_equivalent_percent": 950.91,
+      "rss_before_mb": 1913.129,
+      "rss_after_mb": 1913.133,
+      "rss_delta_mb": 0.004
+    },
+    {
+      "image": "data cleaned\\Leptodactylus_colombiensis\\col_obs_202290333_photo_357244920.jpg",
+      "elapsed_ms": 214.332,
+      "cpu_ms": 2046.875,
+      "cpu_utilization_one_core_equivalent_percent": 955.0,
+      "rss_before_mb": 1913.133,
+      "rss_after_mb": 1913.133,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Phyllomedusa_tarsius\\col_obs_353045568_photo_644227741.jpg",
+      "elapsed_ms": 217.523,
+      "cpu_ms": 2390.625,
+      "cpu_utilization_one_core_equivalent_percent": 1099.02,
+      "rss_before_mb": 1913.133,
+      "rss_after_mb": 1913.141,
+      "rss_delta_mb": 0.008
+    },
+    {
+      "image": "data cleaned\\Phyllomedusa_venusta\\col_obs_366517951_photo_669263489.jpg",
+      "elapsed_ms": 225.636,
+      "cpu_ms": 2593.75,
+      "cpu_utilization_one_core_equivalent_percent": 1149.53,
+      "rss_before_mb": 1913.141,
+      "rss_after_mb": 1913.148,
+      "rss_delta_mb": 0.008
+    },
+    {
+      "image": "data cleaned\\Pristimantis_achatinus\\col_obs_313693381_photo_570200916.jpg",
+      "elapsed_ms": 192.133,
+      "cpu_ms": 1812.5,
+      "cpu_utilization_one_core_equivalent_percent": 943.36,
+      "rss_before_mb": 1913.148,
+      "rss_after_mb": 1913.152,
+      "rss_delta_mb": 0.004
+    },
+    {
+      "image": "data cleaned\\Pristimantis_erythropleura\\col_obs_250661765_photo_448347578.jpg",
+      "elapsed_ms": 252.819,
+      "cpu_ms": 2546.875,
+      "cpu_utilization_one_core_equivalent_percent": 1007.39,
+      "rss_before_mb": 1913.152,
+      "rss_after_mb": 1913.164,
+      "rss_delta_mb": 0.012
+    },
+    {
+      "image": "data cleaned\\Pristimantis_gaigei\\col_obs_358288261_photo_653590423.jpg",
+      "elapsed_ms": 217.177,
+      "cpu_ms": 2000.0,
+      "cpu_utilization_one_core_equivalent_percent": 920.91,
+      "rss_before_mb": 1913.164,
+      "rss_after_mb": 1913.176,
+      "rss_delta_mb": 0.012
+    },
+    {
+      "image": "data cleaned\\Pristimantis_paisa\\col_obs_149792260_photo_258169433.jpg",
+      "elapsed_ms": 220.644,
+      "cpu_ms": 2187.5,
+      "cpu_utilization_one_core_equivalent_percent": 991.41,
+      "rss_before_mb": 1913.176,
+      "rss_after_mb": 1913.18,
+      "rss_delta_mb": 0.004
+    },
+    {
+      "image": "data cleaned\\Pristimantis_palmeri\\col_obs_355824959_photo_648899905.jpg",
+      "elapsed_ms": 240.817,
+      "cpu_ms": 2125.0,
+      "cpu_utilization_one_core_equivalent_percent": 882.41,
+      "rss_before_mb": 1913.18,
+      "rss_after_mb": 1913.184,
+      "rss_delta_mb": 0.004
+    },
+    {
+      "image": "data cleaned\\Pristimantis_penelopus\\col_obs_78767023_photo_128922022.jpg",
+      "elapsed_ms": 194.001,
+      "cpu_ms": 2171.875,
+      "cpu_utilization_one_core_equivalent_percent": 1119.52,
+      "rss_before_mb": 1913.184,
+      "rss_after_mb": 1913.184,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Pristimantis_permixtus\\col_obs_330511711_photo_599349323.jpg",
+      "elapsed_ms": 218.464,
+      "cpu_ms": 2406.25,
+      "cpu_utilization_one_core_equivalent_percent": 1101.44,
+      "rss_before_mb": 1913.184,
+      "rss_after_mb": 1913.188,
+      "rss_delta_mb": 0.004
+    },
+    {
+      "image": "data cleaned\\Pristimantis_taeniatus\\col_obs_200816668_photo_354371087.jpg",
+      "elapsed_ms": 220.932,
+      "cpu_ms": 2218.75,
+      "cpu_utilization_one_core_equivalent_percent": 1004.27,
+      "rss_before_mb": 1913.188,
+      "rss_after_mb": 1913.199,
+      "rss_delta_mb": 0.012
+    },
+    {
+      "image": "data cleaned\\Pristimantis_thectopternus\\col_obs_331448873_photo_601277534.jpg",
+      "elapsed_ms": 221.81,
+      "cpu_ms": 2578.125,
+      "cpu_utilization_one_core_equivalent_percent": 1162.31,
+      "rss_before_mb": 1913.199,
+      "rss_after_mb": 1913.199,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Rheobates_palmatus\\col_obs_151336245_photo_261102224.jpg",
+      "elapsed_ms": 217.081,
+      "cpu_ms": 2171.875,
+      "cpu_utilization_one_core_equivalent_percent": 1000.49,
+      "rss_before_mb": 1913.199,
+      "rss_after_mb": 1913.207,
+      "rss_delta_mb": 0.008
+    },
+    {
+      "image": "data cleaned\\Rhinella_alata\\col_obs_12365225_photo_17812398.jpg",
+      "elapsed_ms": 227.897,
+      "cpu_ms": 2187.5,
+      "cpu_utilization_one_core_equivalent_percent": 959.86,
+      "rss_before_mb": 1913.207,
+      "rss_after_mb": 1913.207,
+      "rss_delta_mb": 0.0
+    },
+    {
+      "image": "data cleaned\\Rhinella_horribilis\\col_obs_334017980_photo_606482684.jpg",
+      "elapsed_ms": 234.984,
+      "cpu_ms": 2296.875,
+      "cpu_utilization_one_core_equivalent_percent": 977.46,
+      "rss_before_mb": 1913.207,
+      "rss_after_mb": 1913.215,
+      "rss_delta_mb": 0.008
+    },
+    {
+      "image": "data cleaned\\Rhinella_margaritifera\\col_obs_332297887_photo_603022856.jpg",
+      "elapsed_ms": 235.429,
+      "cpu_ms": 2437.5,
+      "cpu_utilization_one_core_equivalent_percent": 1035.34,
+      "rss_before_mb": 1913.215,
+      "rss_after_mb": 1913.227,
+      "rss_delta_mb": 0.012
+    },
+    {
+      "image": "data cleaned\\Scinax_ruber\\col_obs_30019937_photo_46879886.jpg",
+      "elapsed_ms": 202.356,
+      "cpu_ms": 2156.25,
+      "cpu_utilization_one_core_equivalent_percent": 1065.57,
+      "rss_before_mb": 1913.227,
+      "rss_after_mb": 1913.227,
+      "rss_delta_mb": 0.0
+    }
+  ],
+  "limitations": [
+    "Medición en Windows/CPU, no en un teléfono Android.",
+    "RSS incluye Python, ONNX Runtime, OpenCLIP/PIL y cachés del proceso.",
+    "No equivale directamente a memoria nativa de una app Android.",
+    "El consumo Android debe confirmarse con Android Profiler en el dispositivo objetivo."
+  ],
+  "historical_artifacts_modified": false
+}

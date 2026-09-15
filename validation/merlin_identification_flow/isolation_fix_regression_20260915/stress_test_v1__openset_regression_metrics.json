@@ -1,0 +1,236 @@
+{
+  "threshold": 39.35406371422803,
+  "threshold_recalibrated": false,
+  "known_source": "validation\\fase16_clean_open_set\\clean_known_embeddings.npz",
+  "unknown_source": "validation\\fase23a_open_set_automatic\\embeddings\\unknown_embeddings.npz",
+  "known_n_total_pool": 7475,
+  "unknown_n_total_pool": 620,
+  "prior_handoff_reference": {
+    "AUROC_full_41": 0.538,
+    "FAR_full_41": 0.85,
+    "source": "AI_TO_ANDROID_HANDOFF.md / OPEN_SET_POST_BUGFIX_AUDIT.md"
+  },
+  "configurations": {
+    "FULL_41": {
+      "active_centroids": 41,
+      "known_evaluated": 7475,
+      "known_excluded_inactive_species": 0,
+      "confusion_matrix": {
+        "KNOWN_ACCEPT": 6159,
+        "KNOWN_REJECT": 1316,
+        "UNKNOWN_ACCEPT": 527,
+        "UNKNOWN_REJECT": 93
+      },
+      "KAR": 0.823946,
+      "FAR": 0.85,
+      "TAR_equals_KAR": 0.823946,
+      "FNR_equals_1_minus_KAR": 0.176054,
+      "UDR_equals_1_minus_FAR": 0.15,
+      "AUROC": 0.538042,
+      "known_distance_percentiles": {
+        "p0": 14.1716,
+        "p1": 17.4148,
+        "p5": 19.7759,
+        "p10": 21.3516,
+        "p25": 25.0311,
+        "p50": 30.9297,
+        "p75": 36.9277,
+        "p90": 42.9078,
+        "p95": 47.7767,
+        "p99": 59.8659,
+        "p100": 75.419
+      },
+      "unknown_distance_percentiles": {
+        "p0": 16.2199,
+        "p1": 17.4757,
+        "p5": 21.8349,
+        "p10": 24.1304,
+        "p25": 27.2392,
+        "p50": 31.7977,
+        "p75": 36.877,
+        "p90": 41.6684,
+        "p95": 45.1658,
+        "p99": 55.9561,
+        "p100": 65.3421
+      }
+    },
+    "ACTIVE_ANTIOQUIA_plus_CAUCA_34": {
+      "active_centroids": 34,
+      "known_evaluated": 7434,
+      "known_excluded_inactive_species": 41,
+      "confusion_matrix": {
+        "KNOWN_ACCEPT": 6112,
+        "KNOWN_REJECT": 1322,
+        "UNKNOWN_ACCEPT": 511,
+        "UNKNOWN_REJECT": 109
+      },
+      "KAR": 0.822168,
+      "FAR": 0.824194,
+      "TAR_equals_KAR": 0.822168,
+      "FNR_equals_1_minus_KAR": 0.177832,
+      "UDR_equals_1_minus_FAR": 0.175806,
+      "AUROC": 0.549085,
+      "known_distance_percentiles": {
+        "p0": 14.1716,
+        "p1": 17.414,
+        "p5": 19.7757,
+        "p10": 21.3439,
+        "p25": 25.0224,
+        "p50": 30.9527,
+        "p75": 36.9711,
+        "p90": 42.9515,
+        "p95": 47.8713,
+        "p99": 59.9006,
+        "p100": 75.419
+      },
+      "unknown_distance_percentiles": {
+        "p0": 16.2199,
+        "p1": 17.4757,
+        "p5": 21.8349,
+        "p10": 24.1304,
+        "p25": 27.3877,
+        "p50": 32.04,
+        "p75": 37.2931,
+        "p90": 42.3112,
+        "p95": 45.485,
+        "p99": 55.9561,
+        "p100": 65.3421
+      }
+    },
+    "ACTIVE_CAUCA_ONLY_17": {
+      "active_centroids": 17,
+      "known_evaluated": 4073,
+      "known_excluded_inactive_species": 3402,
+      "confusion_matrix": {
+        "KNOWN_ACCEPT": 3085,
+        "KNOWN_REJECT": 988,
+        "UNKNOWN_ACCEPT": 503,
+        "UNKNOWN_REJECT": 117
+      },
+      "KAR": 0.757427,
+      "FAR": 0.81129,
+      "TAR_equals_KAR": 0.757427,
+      "FNR_equals_1_minus_KAR": 0.242573,
+      "UDR_equals_1_minus_FAR": 0.18871,
+      "AUROC": 0.461833,
+      "known_distance_percentiles": {
+        "p0": 15.1993,
+        "p1": 20.496,
+        "p5": 22.8245,
+        "p10": 24.6567,
+        "p25": 28.9179,
+        "p50": 34.2957,
+        "p75": 39.1735,
+        "p90": 44.8933,
+        "p95": 49.6335,
+        "p99": 60.8391,
+        "p100": 75.6305
+      },
+      "unknown_distance_percentiles": {
+        "p0": 17.7315,
+        "p1": 21.4375,
+        "p5": 24.0652,
+        "p10": 25.5819,
+        "p25": 28.5093,
+        "p50": 32.7306,
+        "p75": 37.7136,
+        "p90": 42.4516,
+        "p95": 45.8368,
+        "p99": 56.1878,
+        "p100": 65.3421
+      }
+    },
+    "FULL_41_MINUS_TRUNCATUS": {
+      "active_centroids": 40,
+      "known_evaluated": 5791,
+      "known_excluded_inactive_species": 1684,
+      "confusion_matrix": {
+        "KNOWN_ACCEPT": 4574,
+        "KNOWN_REJECT": 1217,
+        "UNKNOWN_ACCEPT": 527,
+        "UNKNOWN_REJECT": 93
+      },
+      "KAR": 0.789846,
+      "FAR": 0.85,
+      "TAR_equals_KAR": 0.789846,
+      "FNR_equals_1_minus_KAR": 0.210154,
+      "UDR_equals_1_minus_FAR": 0.15,
+      "AUROC": 0.46403,
+      "known_distance_percentiles": {
+        "p0": 14.2824,
+        "p1": 18.4755,
+        "p5": 21.686,
+        "p10": 23.7763,
+        "p25": 27.6728,
+        "p50": 33.0192,
+        "p75": 38.3403,
+        "p90": 43.9891,
+        "p95": 48.3328,
+        "p99": 59.7486,
+        "p100": 75.419
+      },
+      "unknown_distance_percentiles": {
+        "p0": 16.2199,
+        "p1": 17.4757,
+        "p5": 21.8349,
+        "p10": 24.1304,
+        "p25": 27.2392,
+        "p50": 31.7977,
+        "p75": 36.877,
+        "p90": 41.6684,
+        "p95": 45.1658,
+        "p99": 55.9561,
+        "p100": 65.3421
+      }
+    },
+    "FULL_41_MINUS_PAISA_TAENIATUS_PAIR": {
+      "active_centroids": 39,
+      "known_evaluated": 7381,
+      "known_excluded_inactive_species": 94,
+      "confusion_matrix": {
+        "KNOWN_ACCEPT": 6068,
+        "KNOWN_REJECT": 1313,
+        "UNKNOWN_ACCEPT": 527,
+        "UNKNOWN_REJECT": 93
+      },
+      "KAR": 0.822111,
+      "FAR": 0.85,
+      "TAR_equals_KAR": 0.822111,
+      "FNR_equals_1_minus_KAR": 0.177889,
+      "UDR_equals_1_minus_FAR": 0.15,
+      "AUROC": 0.537166,
+      "known_distance_percentiles": {
+        "p0": 14.1716,
+        "p1": 17.4149,
+        "p5": 19.79,
+        "p10": 21.3565,
+        "p25": 25.0467,
+        "p50": 30.9924,
+        "p75": 37.0186,
+        "p90": 42.9459,
+        "p95": 47.8344,
+        "p99": 59.8828,
+        "p100": 75.6305
+      },
+      "unknown_distance_percentiles": {
+        "p0": 16.2199,
+        "p1": 17.4757,
+        "p5": 21.8349,
+        "p10": 24.1392,
+        "p25": 27.3687,
+        "p50": 31.854,
+        "p75": 36.8825,
+        "p90": 41.6684,
+        "p95": 45.1658,
+        "p99": 55.9561,
+        "p100": 65.3421
+      }
+    }
+  },
+  "verdict": {
+    "AUROC_full_41_this_run": 0.538042,
+    "FAR_full_41_this_run": 0.85,
+    "matches_handoff_reference": true,
+    "statement": "Metricas recalculadas en esta corrida con el pool completo KNOWN=7475/UNKNOWN=620 y threshold intacto 39.35406371422803. El filtro por catalogo activo se ejercito bajo carga completa (7475+620 embeddings) en 5 configuraciones distintas, no solo en el test aislado de 13 pasos."
+  }
+}

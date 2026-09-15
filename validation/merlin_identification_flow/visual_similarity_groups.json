@@ -1,0 +1,257 @@
+{
+  "schema_version": "anura.visual-similarity-groups/1.0.0",
+  "presentation_rule": {
+    "trigger": "TWO_OR_MORE_GROUP_MEMBERS_IN_TOP_K",
+    "top_k": 3,
+    "effect": "ADVISORY_ONLY",
+    "must_not": [
+      "modify visual_score/geographic_score/ranking_score",
+      "reorder candidates",
+      "select a winner",
+      "change the Open Set decision"
+    ]
+  },
+  "distribution_stats": {
+    "pool_size": 41,
+    "pair_count": 820,
+    "min": 0.194403,
+    "mean": 1.009508,
+    "max": 1.337075,
+    "percentile_used": 1.0,
+    "threshold_value": 0.261652
+  },
+  "notes": [
+    "Rhinella marina NO existe en species_registry.json ni en los embeddings de Fase 13; el catalogo contiene Rhinella alata, Rhinella horribilis y Rhinella margaritifera. El par Rhinella mas cercano medido es alata|margaritifera.",
+    "Rhinella rivularis NO existe en el catalogo; no se inventa."
+  ],
+  "groups": [
+    {
+      "group_id": "VSG_BOANA_01",
+      "species_ids": [
+        "ANU_COL_BOAN_PLA_001",
+        "ANU_COL_BOAN_PUG_001",
+        "ANU_COL_BOAN_ROS_001"
+      ],
+      "scientific_names": [
+        "Boana platanera",
+        "Boana pugnax",
+        "Boana rosenbergi"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Boana pugnax",
+              "Boana rosenbergi"
+            ],
+            "euclidean_centroid_distance": 0.230948
+          },
+          {
+            "species": [
+              "Boana platanera",
+              "Boana pugnax"
+            ],
+            "euclidean_centroid_distance": 0.26028
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_DENDROPSOPHUS_02",
+      "species_ids": [
+        "ANU_COL_DEND_BOG_001",
+        "ANU_COL_DEND_COL_001"
+      ],
+      "scientific_names": [
+        "Dendropsophus bogerti",
+        "Dendropsophus columbianus"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "euclidean_centroid_distance": 0.228293
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_DENDROPSOPHUS_03",
+      "species_ids": [
+        "ANU_COL_DEND_EBR_001",
+        "ANU_COL_DEND_TRI_001"
+      ],
+      "scientific_names": [
+        "Dendropsophus ebraccatus",
+        "Dendropsophus triangulum"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Dendropsophus ebraccatus",
+              "Dendropsophus triangulum"
+            ],
+            "euclidean_centroid_distance": 0.199115
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_DENDROPSOPHUS_04",
+      "species_ids": [
+        "ANU_COL_DEND_MAT_001",
+        "ANU_COL_DEND_MIC_001"
+      ],
+      "scientific_names": [
+        "Dendropsophus mathiassoni",
+        "Dendropsophus microcephalus"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Dendropsophus mathiassoni",
+              "Dendropsophus microcephalus"
+            ],
+            "euclidean_centroid_distance": 0.24382
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_PHYLLOMEDUSA_05",
+      "species_ids": [
+        "ANU_COL_PHYL_TAR_001",
+        "ANU_COL_PHYL_VEN_001"
+      ],
+      "scientific_names": [
+        "Phyllomedusa tarsius",
+        "Phyllomedusa venusta"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Phyllomedusa tarsius",
+              "Phyllomedusa venusta"
+            ],
+            "euclidean_centroid_distance": 0.198304
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_PRISTIMANTIS_06",
+      "species_ids": [
+        "ANU_COL_PRIS_PAI_001",
+        "ANU_COL_PRIS_PAL_001",
+        "ANU_COL_PRIS_TAE_001"
+      ],
+      "scientific_names": [
+        "Pristimantis paisa",
+        "Pristimantis palmeri",
+        "Pristimantis taeniatus"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Pristimantis paisa",
+              "Pristimantis taeniatus"
+            ],
+            "euclidean_centroid_distance": 0.194403
+          },
+          {
+            "species": [
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus"
+            ],
+            "euclidean_centroid_distance": 0.238282
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_RHINELLA_07",
+      "species_ids": [
+        "ANU_COL_RHIN_ALA_001",
+        "ANU_COL_RHIN_MAR_001"
+      ],
+      "scientific_names": [
+        "Rhinella alata",
+        "Rhinella margaritifera"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Rhinella alata",
+              "Rhinella margaritifera"
+            ],
+            "euclidean_centroid_distance": 0.244367
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    }
+  ]
+}

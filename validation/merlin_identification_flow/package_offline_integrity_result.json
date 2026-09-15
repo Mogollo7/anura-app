@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "check_count": 4,
+  "checks": [
+    {
+      "check": "sha256 rejects a silently modified prototype",
+      "status": "PASS",
+      "error": "SHA-256 del payload no coincide: declarado=b3cd94d8dba0efa8f4c9c8227389b20cc83d525197a662ad88080765d9270338 calculado=7fb785e1aa285c7fd30217a9e4f2b177ed72f85a18edd10f2ed41fa5b8f13c1c"
+    },
+    {
+      "check": "payload sha256 is deterministic and matches manifest",
+      "status": "PASS",
+      "payload_sha256": "b3cd94d8dba0efa8f4c9c8227389b20cc83d525197a662ad88080765d9270338"
+    },
+    {
+      "check": "package contains NO encoder artifact",
+      "status": "PASS",
+      "files": [
+        "manifest.json",
+        "prototypes.npz",
+        "species.json",
+        "taxonomy.json",
+        "visual_similarity_groups.json"
+      ],
+      "encoder_contract": "bioclip_anura_v1"
+    },
+    {
+      "check": "all catalog operations run with sockets disabled",
+      "status": "PASS",
+      "installed_count": 2,
+      "active_species_count": 34,
+      "ranking_pool": 34,
+      "groups": 7,
+      "open_set_decision": "NO_CONCLUYENTE",
+      "active_centroid_count": 34,
+      "operations": [
+        "list_installed",
+        "activate",
+        "active_species",
+        "active_prototypes",
+        "active_visual_similarity_groups",
+        "rank_visual",
+        "open_set.assess",
+        "deactivate",
+        "validate"
+      ]
+    }
+  ]
+}

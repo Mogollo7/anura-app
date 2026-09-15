@@ -1,0 +1,63 @@
+{
+  "threshold": 39.35406371422803,
+  "threshold_recalibrated": false,
+  "known_source": "validation\\fase16_clean_open_set\\clean_known_embeddings.npz",
+  "unknown_source": "validation\\fase23a_open_set_automatic\\embeddings\\unknown_embeddings.npz",
+  "known_n": 7475,
+  "unknown_n": 620,
+  "historical_reference": {
+    "fase16_far": 0.939,
+    "fase20_far": 0.911,
+    "fase23a_far": 0.754,
+    "visual_catalog_v1_0_0_evidence": {
+      "auroc": 0.6247668780305856,
+      "kar": 0.8537859007832899,
+      "udr": 0.08928571428571429,
+      "far": 0.9107142857142857
+    }
+  },
+  "configurations": {
+    "FULL_RELEASE_POOL_41 (== comportamiento pre-bugfix)": {
+      "active_centroids": 41,
+      "known_evaluated": 7475,
+      "known_excluded_inactive_species": 0,
+      "KAR": 0.823946,
+      "FAR": 0.85,
+      "UDR": 0.15,
+      "AUROC": 0.538042,
+      "known_score_mean": 31.8534,
+      "unknown_score_mean": 32.5398
+    },
+    "ACTIVE_ANTIOQUIA_plus_CAUCA_34": {
+      "active_centroids": 34,
+      "known_evaluated": 7434,
+      "known_excluded_inactive_species": 41,
+      "KAR": 0.822168,
+      "FAR": 0.824194,
+      "UDR": 0.175806,
+      "AUROC": 0.549085,
+      "known_score_mean": 31.8786,
+      "unknown_score_mean": 32.8741
+    },
+    "ACTIVE_CAUCA_ONLY_17": {
+      "active_centroids": 17,
+      "known_evaluated": 4073,
+      "known_excluded_inactive_species": 3402,
+      "KAR": 0.757427,
+      "FAR": 0.81129,
+      "UDR": 0.18871,
+      "AUROC": 0.461833,
+      "known_score_mean": 34.7814,
+      "unknown_score_mean": 33.6666
+    }
+  },
+  "verdict": {
+    "bugfix_changes_metrics_when_full_catalog_active": false,
+    "auroc_full_vs_partial": [
+      0.538042,
+      0.549085
+    ],
+    "separability_improved": false,
+    "statement": "Con el catalogo completo activo las metricas son IDENTICAS a las previas al bugfix: el bugfix corrige la ARQUITECTURA DE CATALOGO (que centroides participan), no la separabilidad del embedding ni la calidad del threshold. El defecto general de Open Set persiste: FAR sigue siendo altisimo con el threshold historico."
+  }
+}

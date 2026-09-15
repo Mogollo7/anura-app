@@ -1,0 +1,145 @@
+{
+  "pair": [
+    "Pristimantis paisa",
+    "Pristimantis taeniatus"
+  ],
+  "prior_measurement_confirmed": {
+    "distance_prior_phase": 0.1944,
+    "distance_this_run": 0.194403,
+    "matches": true
+  },
+  "pairwise_distance_percentile": {
+    "n_pairs": 820,
+    "min": 0.19440272450447083,
+    "mean": 1.009508413130917,
+    "max": 1.3370747566223145,
+    "ab_distance": 0.19440272450447083,
+    "ab_percentile": 0.0
+  },
+  "intra_species_variance": {
+    "Pristimantis paisa": {
+      "n": 189,
+      "mean_dist_to_centroid": 0.648063063621521,
+      "std_dist_to_centroid": 0.14415572583675385,
+      "max_dist_to_centroid": 1.299068808555603
+    },
+    "Pristimantis taeniatus": {
+      "n": 73,
+      "mean_dist_to_centroid": 0.6287965774536133,
+      "std_dist_to_centroid": 0.13191388547420502,
+      "max_dist_to_centroid": 0.9323211908340454
+    }
+  },
+  "cross_species_nearest_neighbor_overlap": {
+    "Pristimantis paisa_closer_to_other": {
+      "n": 189,
+      "n_closer_to_other_species": 41,
+      "fraction_misassigned": 0.21693121693121692
+    },
+    "Pristimantis taeniatus_closer_to_other": {
+      "n": 73,
+      "n_closer_to_other_species": 16,
+      "fraction_misassigned": 0.2191780821917808
+    }
+  },
+  "kmeans_k2_silhouette": {
+    "Pristimantis paisa": {
+      "silhouette_score": 0.1077,
+      "cluster_sizes": [
+        112,
+        77
+      ],
+      "full_centroid_dist_to_other_species": 0.1944,
+      "closest_sub_centroid_dist_to_other_species": 0.2563,
+      "splitting_improves_separation": true,
+      "justified": false
+    },
+    "Pristimantis taeniatus": {
+      "silhouette_score": 0.122,
+      "cluster_sizes": [
+        25,
+        48
+      ],
+      "full_centroid_dist_to_other_species": 0.1944,
+      "closest_sub_centroid_dist_to_other_species": 0.2628,
+      "splitting_improves_separation": true,
+      "justified": false
+    }
+  },
+  "geography_altitude_overlap": {
+    "geography": {
+      "species_a_cells": 21,
+      "species_b_cells": 30,
+      "cell_overlap_count": 14,
+      "distinguishable_by_geography": false
+    },
+    "elevation": {
+      "species_a_p5_p95": [
+        1279.0,
+        2659.0
+      ],
+      "species_b_p5_p95": [
+        603.7,
+        2066.3
+      ],
+      "overlap_range": [
+        1279.0,
+        2066.3
+      ],
+      "distinguishable_by_altitude": false
+    }
+  },
+  "ablation": {
+    "n_eval_samples_with_real_coords": 0,
+    "n_total_pair_samples_in_train_split": 159,
+    "coverage_note": "Solo train_embeddings.npz conserva obs_id en el path para esta pareja; 0/159 tenian coordenadas en el cache de iNaturalist ya existente. Elevacion por muestra NO se recupero en esta pasada (neutral=0.5 en alt_score) -- usar elevation por observacion individual requeriria mas llamadas nuevas a OpenTopoData de las que caben en el presupuesto de esta corrida; el ANALISIS a nivel de POBLACION (rango p5-p95 por especie, calculado arriba) SI esta completo.",
+    "weights": {
+      "w_geo_rank": 0.3,
+      "w_altitude": 0.15,
+      "altitude_weight_note": "conservador, menor que geo por falta de evidencia previa que lo justifique (regla del encargo)"
+    },
+    "accuracy_by_variant": {
+      "A_visual_only": null,
+      "B_visual_geo": null,
+      "C_visual_altitude": null,
+      "D_visual_geo_altitude": null
+    }
+  },
+  "verdict": {
+    "CENTROID_DISTANCE": 0.194403,
+    "CENTROID_DISTANCE_PERCENTILE_AMONG_820_PAIRS": 0.0,
+    "INTRA_SPECIES_VARIANCE": {
+      "Pristimantis paisa": {
+        "n": 189,
+        "mean_dist_to_centroid": 0.648063063621521,
+        "std_dist_to_centroid": 0.14415572583675385,
+        "max_dist_to_centroid": 1.299068808555603
+      },
+      "Pristimantis taeniatus": {
+        "n": 73,
+        "mean_dist_to_centroid": 0.6287965774536133,
+        "std_dist_to_centroid": 0.13191388547420502,
+        "max_dist_to_centroid": 0.9323211908340454
+      }
+    },
+    "CROSS_SPECIES_OVERLAP": {
+      "Pristimantis paisa_embeddings_closer_to_Pristimantis taeniatus_centroid": {
+        "n": 189,
+        "n_closer_to_other_species": 41,
+        "fraction_misassigned": 0.21693121693121692
+      },
+      "Pristimantis taeniatus_embeddings_closer_to_Pristimantis paisa_centroid": {
+        "n": 73,
+        "n_closer_to_other_species": 16,
+        "fraction_misassigned": 0.2191780821917808
+      }
+    },
+    "VISUAL_ONLY_PERFORMANCE": "NOT_VERIFIED",
+    "VISUAL_GEO_PERFORMANCE": "NOT_VERIFIED",
+    "VISUAL_ALTITUDE_PERFORMANCE": "NOT_VERIFIED",
+    "VISUAL_GEO_ALTITUDE_PERFORMANCE": "NOT_VERIFIED",
+    "ablation_not_verified_reason": "0 de 159 muestras de este par en train_embeddings.npz tienen obs_id presente en fase23a_geographic_context/cache/inat_observations_cache.json -- ese cache se construyo especificamente para el pool de evaluacion GEO (KNOWN con coords 0 por diseno, UNKNOWN 412/412), no para el split de entrenamiento general. No se hizo ninguna llamada nueva a la API de iNaturalist para rellenar esto (fuera del alcance de la regla de reutilizar cache de OpenTopoData/iNaturalist ya congelada).",
+    "SEPARATION_CONCLUSION": "SEPARATION_DIFFICULT",
+    "VISUAL_HARD_PAIR": true
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "species": "Dendrobates truncatus",
+  "species_id": "ANU_COL_DEND_TRU_001",
+  "raw_folder": "data cleaned\\Dendrobates_truncatus",
+  "raw_folder_file_count": 1809,
+  "raw_folder_unique_obs_id_by_filename_pattern": 984,
+  "raw_folder_exact_duplicate_groups_sha256": 0,
+  "raw_folder_duplicate_examples": {},
+  "note_raw_vs_pool": "El folder crudo (1809 archivos, 984 obs_id) es la fuente ANTES del tope de 70 individuos/especie documentado en la estrategia de dataset. El pool realmente usado para generar embeddings/centroide (reference+train+calibration) es el que cuenta para elegibilidad, no el folder crudo completo.",
+  "embedding_pool_splits": {
+    "reference_embeddings": {
+      "n_images": 73,
+      "path_has_obs_id_encoded": false,
+      "unique_obs_id_recovered": 0,
+      "obs_ids": []
+    },
+    "train_embeddings": {
+      "n_images": 90,
+      "path_has_obs_id_encoded": true,
+      "unique_obs_id_recovered": 49,
+      "obs_ids": [
+        "137172535",
+        "139585966",
+        "146492947",
+        "153528014",
+        "158917136",
+        "161961451",
+        "177165151",
+        "177980113",
+        "184466865",
+        "191023172",
+        "191717586",
+        "193081002",
+        "193425316",
+        "199938792",
+        "200629048",
+        "209763967",
+        "210536769",
+        "217379958",
+        "225591587",
+        "237635376",
+        "243951721",
+        "244078883",
+        "244923055",
+        "257627512",
+        "258319600",
+        "259021942",
+        "267324845",
+        "273856770",
+        "284927837",
+        "292969334",
+        "299629448",
+        "306635626",
+        "315097806",
+        "319267566",
+        "339208965",
+        "343210802",
+        "343307743",
+        "345341529",
+        "347803142",
+        "350965902",
+        "351333701",
+        "363511728",
+        "365109450",
+        "366330921",
+        "369192707",
+        "381591445",
+        "384632725",
+        "394686202",
+        "398168748"
+      ]
+    },
+    "calibration_embeddings": {
+      "n_images": 18,
+      "path_has_obs_id_encoded": false,
+      "unique_obs_id_recovered": 0,
+      "obs_ids": []
+    }
+  },
+  "embedding_pool_total_images": 181,
+  "embedding_pool_total_unique_individuals_recovered": 49,
+  "individuals_recovery_caveat": "El campo sha256 esta vacio en estos npz para esta especie/split (verificado: train_embeddings['sha256'] son strings vacios), asi que no se pudo usar SHA256 real para mapear embeddings -> archivo original. Solo 'train_embeddings' conserva el path original con obs_id embebido (col_obs_<id>_photo_<id>.jpg); 'reference_embeddings' fue renombrado a un esquema secuencial (Dendrobates_truncatus_NNN.jpg) SIN obs_id recuperable, y 'calibration_embeddings' tampoco lo conserva. Por eso el conteo de individuos por obs_id es SOLO el de train_embeddings (49 de 90 imagenes); es un piso (lower bound) del total real, no el conteo exacto de individuos en todo el pool.",
+  "cross_split_sha256_leakage": {
+    "reference_embeddings__x__train_embeddings": {
+      "n_duplicate_basename": 0,
+      "duplicates": [],
+      "method": "basename_match (sha256 field empty in these npz for this species/split)"
+    },
+    "reference_embeddings__x__calibration_embeddings": {
+      "n_duplicate_basename": 0,
+      "duplicates": [],
+      "method": "basename_match (sha256 field empty in these npz for this species/split)"
+    },
+    "train_embeddings__x__calibration_embeddings": {
+      "n_duplicate_basename": 0,
+      "duplicates": [],
+      "method": "basename_match (sha256 field empty in these npz for this species/split)"
+    }
+  },
+  "any_leakage_detected": false,
+  "tier_classification": {
+    "criterion_source": "Second Brain/Brain/02 Metodologia/Estrategia para Especies con Cobertura Insuficiente.md (Tier A >=70, Tier B 30-69, Tier C <30)",
+    "individuals_used_for_tier": 49,
+    "tier": "B",
+    "tier_reason": "30-69 individuos (49) -> especie, umbral MAS EXIGENTE"
+  },
+  "verdict": {
+    "DENDROBATES_TRUNCATUS_ELIGIBLE": "YES",
+    "reasoning": "Individuos recuperados en el pool de embeddings: 49 (piso, ver caveat). Tier resultante: B. Fuga cruzada entre splits: NO. La especie YA esta DEPLOYED en el catalogo de 41 (species_registry.json, visual_lifecycle_status=DEPLOYED) y YA tiene centroide activo en el release (ANU_COL_DEND_TRU_001 participa en OpenSetReleaseAdapter con 41/41 centroides). Esta auditoria NO encontro evidencia que revierta esa decision ya tomada, pero tampoco pudo confirmar un conteo EXACTO de individuos por la limitacion de recuperacion de obs_id arriba documentada -- de ahi que si el conteo recuperado cae bajo 70 se reporte como Tier B (activable, umbral mas exigente) en vez de bloquear, dado que ya esta desplegada y funcionando en Parte 2 y Parte 4."
+  }
+}

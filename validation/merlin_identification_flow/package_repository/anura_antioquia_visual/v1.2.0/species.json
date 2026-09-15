@@ -1,0 +1,228 @@
+{
+  "species": [
+    {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "scientific_name": "Boana boans",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "scientific_name": "Boana platanera",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_BOAN_PUG_001",
+      "scientific_name": "Boana pugnax",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_BOAN_ROS_001",
+      "scientific_name": "Boana rosenbergi",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "scientific_name": "Craugastor raniformis",
+      "family": "Craugastoridae",
+      "genus": "Craugastor",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_DEND_BOG_001",
+      "scientific_name": "Dendropsophus bogerti",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_DEND_COL_001",
+      "scientific_name": "Dendropsophus columbianus",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_DEND_EBR_001",
+      "scientific_name": "Dendropsophus ebraccatus",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_DEND_MIC_001",
+      "scientific_name": "Dendropsophus microcephalus",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_DEND_NOR_001",
+      "scientific_name": "Dendropsophus norandinus",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_DEND_TRU_001",
+      "scientific_name": "Dendrobates truncatus",
+      "family": "Dendrobatidae",
+      "genus": "Dendrobates",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "scientific_name": "Engystomops pustulosus",
+      "family": "Leptodactylidae",
+      "genus": "Engystomops",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_HYLO_PAL_001",
+      "scientific_name": "Hyloscirtus palmeri",
+      "family": "Hylidae",
+      "genus": "Hyloscirtus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_LEPT_COL_001",
+      "scientific_name": "Leptodactylus colombiensis",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PHYL_VEN_001",
+      "scientific_name": "Phyllomedusa venusta",
+      "family": "Hylidae",
+      "genus": "Phyllomedusa",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "scientific_name": "Pristimantis achatinus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_ERY_001",
+      "scientific_name": "Pristimantis erythropleura",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_GAI_001",
+      "scientific_name": "Pristimantis gaigei",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_PAI_001",
+      "scientific_name": "Pristimantis paisa",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_PAL_001",
+      "scientific_name": "Pristimantis palmeri",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_PEN_001",
+      "scientific_name": "Pristimantis penelopus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_PER_001",
+      "scientific_name": "Pristimantis permixtus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_TAE_001",
+      "scientific_name": "Pristimantis taeniatus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_PRIS_THE_001",
+      "scientific_name": "Pristimantis thectopternus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_RHEO_PAL_001",
+      "scientific_name": "Rheobates palmatus",
+      "family": "Aromobatidae",
+      "genus": "Rheobates",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_RHIN_ALA_001",
+      "scientific_name": "Rhinella alata",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_RHIN_HOR_001",
+      "scientific_name": "Rhinella horribilis",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    },
+    {
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "scientific_name": "Scinax ruber",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "common_name": null,
+      "taxonomic_status": "ACCEPTED"
+    }
+  ]
+}

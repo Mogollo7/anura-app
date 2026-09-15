@@ -1,0 +1,60 @@
+{
+  "package_id": "anura_antioquia_visual",
+  "package_version": "v1.0.1",
+  "schema_version": "anura.species-package/1.0.0",
+  "species_ids": [
+    "ANU_COL_BOAN_BOA_001",
+    "ANU_COL_BOAN_PLA_001",
+    "ANU_COL_BOAN_PUG_001",
+    "ANU_COL_BOAN_ROS_001",
+    "ANU_COL_CRAU_RAN_001",
+    "ANU_COL_DEND_BOG_001",
+    "ANU_COL_DEND_COL_001",
+    "ANU_COL_DEND_EBR_001",
+    "ANU_COL_DEND_MIC_001",
+    "ANU_COL_DEND_NOR_001",
+    "ANU_COL_DEND_TRU_001",
+    "ANU_COL_ENGY_PUS_001",
+    "ANU_COL_HYLO_PAL_001",
+    "ANU_COL_LEPT_COL_001",
+    "ANU_COL_PHYL_VEN_001",
+    "ANU_COL_PRIS_ACH_001",
+    "ANU_COL_PRIS_ERY_001",
+    "ANU_COL_PRIS_GAI_001",
+    "ANU_COL_PRIS_PAI_001",
+    "ANU_COL_PRIS_PAL_001",
+    "ANU_COL_PRIS_PEN_001",
+    "ANU_COL_PRIS_PER_001",
+    "ANU_COL_PRIS_TAE_001",
+    "ANU_COL_PRIS_THE_001",
+    "ANU_COL_RHEO_PAL_001",
+    "ANU_COL_RHIN_ALA_001",
+    "ANU_COL_RHIN_HOR_001"
+  ],
+  "species_count": 27,
+  "prototype_version": "fase13_geo6_centroids/v1.0.0",
+  "encoder_contract": {
+    "encoder_id": "bioclip_anura_v1",
+    "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+    "embedding_dim": 512,
+    "normalization": "L2"
+  },
+  "contains_encoder": false,
+  "encoder_distribution_note": "El encoder BioCLIP NO viaja en el paquete; es compartido e independiente.",
+  "dependencies": [],
+  "minimum_app_version": "0.1.0",
+  "checksum": {
+    "algorithm": "sha256",
+    "payload_sha256": "31a634fd1a41e3876a486eef81617b09387c7ed7747b507ce90e757581fa2e0f",
+    "files": {
+      "prototypes.npz": "6047661f5354374fd98cac21d1b73581c93ad1eb1cf9f8102103c9c35c302d7b",
+      "species.json": "59c38e9e12258c439cb06322b7e23ffdcd72eeed5d5e16d1573f19bbbc4b0264",
+      "taxonomy.json": "1555fe4a95bbb2b487e3ee6c92e861b6f35378c9d1ef7f94969f9eb479361dce",
+      "visual_similarity_groups.json": "82cf9745331f310b0cc3d8eb10904ac23e918fdebc1602b77b0dfc684dc18ddf"
+    }
+  },
+  "created_at": "2026-09-14T21:06:22Z",
+  "source_artifacts": {
+    "note": "v1.0.1 de prueba: v1.0.0 sin Scinax ruber, para validar coexistencia de versiones"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "total_cases": 10,
+  "matches_expectation": 10,
+  "uncontrolled_exceptions": 0,
+  "never_crashed_with_python_level_error_outside_expected_exception_types": true,
+  "results": [
+    {
+      "case": "multi_install_deactivate_reactivate_uninstall_reinstall",
+      "raised": false,
+      "detail": {
+        "active_both": 34,
+        "active_one": 28,
+        "active_after_reinstall": 34
+      },
+      "outcome": "NO_ERROR_RAISED",
+      "matches_expectation": true
+    },
+    {
+      "case": "coexisting_versions_v1.0.0_and_v1.0.1",
+      "raised": false,
+      "detail": {
+        "versions_coexisting": [
+          "v1.0.0",
+          "v1.0.1"
+        ],
+        "active": "v1.0.0"
+      },
+      "outcome": "NO_ERROR_RAISED",
+      "matches_expectation": true
+    },
+    {
+      "case": "corrupted_payload_bytes_altered",
+      "raised": true,
+      "exception_type": "PackageValidationError",
+      "exception_message": "SHA-256 del payload no coincide: declarado=b3cd94d8dba0efa8f4c9c8227389b20cc83d525197a662ad88080765d9270338 calculado=0f5b179145fbae1ebc5a8d2cb99594ac142619672a09fa9bebc726093fe76106",
+      "outcome": "CONTROLLED_REJECTION",
+      "matches_expectation": true
+    },
+    {
+      "case": "wrong_declared_checksum",
+      "raised": true,
+      "exception_type": "PackageValidationError",
+      "exception_message": "SHA-256 del payload no coincide: declarado=0000000000000000000000000000000000000000000000000000000000000000 calculado=b3cd94d8dba0efa8f4c9c8227389b20cc83d525197a662ad88080765d9270338",
+      "outcome": "CONTROLLED_REJECTION",
+      "matches_expectation": true
+    },
+    {
+      "case": "malformed_manifest_json_syntax",
+      "raised": true,
+      "exception_type": "PackageValidationError",
+      "exception_message": "manifest ilegible, package_ref no se pudo construir (rechazo temprano en list_available)",
+      "outcome": "CONTROLLED_REJECTION",
+      "matches_expectation": true
+    },
+    {
+      "case": "manifest_missing_required_field_checksum",
+      "raised": true,
+      "exception_type": "PackageValidationError",
+      "exception_message": "Manifest incompleto, faltan: ['checksum']",
+      "outcome": "CONTROLLED_REJECTION",
+      "matches_expectation": true
+    },
+    {
+      "case": "unknown_species_id_in_manifest_without_prototype",
+      "raised": true,
+      "exception_type": "PackageValidationError",
+      "exception_message": "prototypes.npz no cubre exactamente species_ids del manifest",
+      "outcome": "CONTROLLED_REJECTION",
+      "matches_expectation": true
+    },
+    {
+      "case": "prototype_missing_in_payload_after_checksum_recomputed",
+      "raised": true,
+      "exception_type": "PackageValidationError",
+      "exception_message": "prototypes.npz no cubre exactamente species_ids del manifest",
+      "outcome": "CONTROLLED_REJECTION",
+      "matches_expectation": true
+    },
+    {
+      "case": "duplicate_species_between_two_active_packages",
+      "raised": false,
+      "detail": {
+        "overlap_species_count": 11,
+        "overlap_provenance_sample": {
+          "ANU_COL_BOAN_PLA_001": "anura_antioquia_visual@v1.0.0",
+          "ANU_COL_RHIN_ALA_001": "anura_antioquia_visual@v1.0.0",
+          "ANU_COL_PRIS_PAL_001": "anura_antioquia_visual@v1.0.0"
+        },
+        "no_duplicate_rows_in_active_prototypes": true
+      },
+      "outcome": "NO_ERROR_RAISED",
+      "matches_expectation": true
+    },
+    {
+      "case": "post_install_disk_tampering_detected_on_revalidate",
+      "raised": false,
+      "detail": {
+        "post_install_tamper_detected_on_revalidate": true
+      },
+      "outcome": "NO_ERROR_RAISED",
+      "matches_expectation": true
+    }
+  ]
+}

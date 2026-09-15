@@ -1,0 +1,112 @@
+{
+  "groups": [
+    {
+      "group_id": "VSG_BOANA_01",
+      "species_ids": [
+        "ANU_COL_BOAN_PLA_001",
+        "ANU_COL_BOAN_PUG_001",
+        "ANU_COL_BOAN_ROS_001"
+      ],
+      "scientific_names": [
+        "Boana platanera",
+        "Boana pugnax",
+        "Boana rosenbergi"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Boana pugnax",
+              "Boana rosenbergi"
+            ],
+            "euclidean_centroid_distance": 0.230948
+          },
+          {
+            "species": [
+              "Boana platanera",
+              "Boana pugnax"
+            ],
+            "euclidean_centroid_distance": 0.26028
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_DENDROPSOPHUS_02",
+      "species_ids": [
+        "ANU_COL_DEND_BOG_001",
+        "ANU_COL_DEND_COL_001"
+      ],
+      "scientific_names": [
+        "Dendropsophus bogerti",
+        "Dendropsophus columbianus"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Dendropsophus bogerti",
+              "Dendropsophus columbianus"
+            ],
+            "euclidean_centroid_distance": 0.228293
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    },
+    {
+      "group_id": "VSG_PRISTIMANTIS_06",
+      "species_ids": [
+        "ANU_COL_PRIS_PAI_001",
+        "ANU_COL_PRIS_PAL_001",
+        "ANU_COL_PRIS_TAE_001"
+      ],
+      "scientific_names": [
+        "Pristimantis paisa",
+        "Pristimantis palmeri",
+        "Pristimantis taeniatus"
+      ],
+      "label": "ESPECIES VISUALMENTE MUY PARECIDAS",
+      "description": "Estas especies presentan caracteristicas externas muy similares. La fotografia por si sola puede no ser suficiente para una identificacion concluyente.",
+      "enabled": true,
+      "provenance": {
+        "method": "euclidean distance between GEO-6 Fase-13 centroids (41-species pool)",
+        "criterion": "pairwise distance <= percentile 1.0 of the 820-pair distribution",
+        "threshold_value": 0.261652,
+        "measured_pairs": [
+          {
+            "species": [
+              "Pristimantis paisa",
+              "Pristimantis taeniatus"
+            ],
+            "euclidean_centroid_distance": 0.194403
+          },
+          {
+            "species": [
+              "Pristimantis palmeri",
+              "Pristimantis taeniatus"
+            ],
+            "euclidean_centroid_distance": 0.238282
+          }
+        ],
+        "measured_on": "2026-09-14",
+        "centroid_source": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz"
+      }
+    }
+  ]
+}

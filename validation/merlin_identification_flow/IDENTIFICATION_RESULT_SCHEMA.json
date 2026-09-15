@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "anura://schemas/identification-result/v0.2.0",
+  "title": "IdentificationResult",
+  "description": "v0.2.0 (compatible hacia atras con v0.1.0): añade los campos OPCIONALES `visual_similarity_warnings` y `catalog_state`. Ningun campo de v0.1.0 cambia de tipo ni de semantica; un cliente v0.1.0 puede ignorarlos.",
+  "type": "object",
+  "required": ["observation_id", "input_metadata", "is_anuran", "anuran_evidence", "candidates", "decision", "open_set_evidence", "explanation", "limitations", "model_version", "catalog_version", "geographic_context_used", "geographic_context_available", "experimental_flags"],
+  "properties": {
+    "observation_id": {"type": "string", "minLength": 1},
+    "input_metadata": {"type": "object"},
+    "is_anuran": {"type": ["boolean", "null"]},
+    "anuran_evidence": {"type": "object"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rank", "species_id", "scientific_name", "common_name", "genus", "family", "visual_score", "geographic_score", "ranking_score", "geographic_context_available"],
+        "properties": {
+          "rank": {"type": "integer", "minimum": 1},
+          "species_id": {"type": "string"},
+          "scientific_name": {"type": "string"},
+          "common_name": {"type": ["string", "null"]},
+          "genus": {"type": ["string", "null"]},
+          "family": {"type": ["string", "null"]},
+          "visual_score": {"type": "number", "description": "Similarity score; not a probability."},
+          "geographic_score": {"type": ["number", "null"], "description": "Context score; not a probability."},
+          "ranking_score": {"type": "number", "description": "Experimental ranking score; not a probability."},
+          "geographic_context_available": {"type": "boolean"}
+        }
+      }
+    },
+    "decision": {"enum": ["ESPECIE_CONOCIDA", "NO_CONCLUYENTE", "NO_REGISTRADA"]},
+    "open_set_evidence": {"type": "object"},
+    "explanation": {"type": "object"},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "segmentation_evidence": {"type": "array", "items": {"type": "object", "required": ["feature", "state"], "properties": {"feature": {"type": "string"}, "state": {"enum": ["PRESENTE", "AUSENTE", "NO_EVALUABLE"]}}}},
+    "visual_similarity_warnings": {
+      "type": "array",
+      "description": "Capa de INTERPRETACION, puramente aditiva. No modifica scores, no reordena candidatos, no elige ganador y no cambia `decision`. Se emite cuando dos o mas especies del mismo grupo de similitud visual aparecen en el Top-K (K definido en visual_similarity_groups.json, por defecto 3).",
+      "items": {
+        "type": "object",
+        "required": ["group_id", "label", "description", "matched_species_ids", "advisory_only"],
+        "properties": {
+          "group_id": {"type": "string"},
+          "label": {"type": "string"},
+          "description": {"type": "string"},
+          "matched_species_ids": {"type": "array", "items": {"type": "string"}},
+          "matched_scientific_names": {"type": "array", "items": {"type": "string"}},
+          "trigger": {"type": "string"},
+          "advisory_only": {"const": true},
+          "affects_scores": {"const": false},
+          "affects_ranking": {"const": false},
+          "affects_decision": {"const": false},
+          "provenance": {"type": ["object", "null"], "description": "Distancia medida, metodo y fecha que justifican el grupo."}
+        }
+      }
+    },
+    "catalog_state": {
+      "type": "object",
+      "description": "Trazabilidad del catalogo ACTIVO que produjo este resultado (paquetes instalados/activos, numero de especies activas, especies desactivadas).",
+      "properties": {
+        "source": {"enum": ["PACKAGE_MANAGER", "STATIC_SPECIES_REGISTRY"]},
+        "package_manager_connected": {"type": "boolean"},
+        "active_packages": {"type": "array", "items": {"type": "string"}},
+        "installed": {"type": "array", "items": {"type": "string"}},
+        "active_species_count": {"type": "integer", "minimum": 0},
+        "disabled_species": {"type": "array", "items": {"type": "string"}},
+        "network_required": {"const": false}
+      }
+    },
+    "model_version": {"type": "string"},
+    "catalog_version": {"type": "string"},
+    "geographic_context_used": {"type": "boolean"},
+    "geographic_context_available": {"type": "boolean"},
+    "experimental_flags": {"type": "array", "items": {"type": "string"}}
+  }
+}

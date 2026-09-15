@@ -1,0 +1,297 @@
+{
+  "schema_version": "anura.species-package-elevation/1.1.0",
+  "source": "OpenTopoData cache resolved at iNaturalist observation coordinates",
+  "department": "ANTIOQUIA",
+  "species": {
+    "ANU_COL_BOAN_BOA_001": {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "n_elevation_records": 46,
+      "min": 11.0,
+      "p5": 60.0,
+      "p25": 286.0,
+      "median": 346.5,
+      "p75": 939.0,
+      "p95": 1175.5,
+      "max": 1490.0
+    },
+    "ANU_COL_BOAN_PLA_001": {
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "n_elevation_records": 11,
+      "min": 11.0,
+      "p5": 13.0,
+      "p25": 34.0,
+      "median": 286.0,
+      "p75": 681.5,
+      "p95": 1056.5,
+      "max": 1102.0
+    },
+    "ANU_COL_BOAN_PUG_001": {
+      "species_id": "ANU_COL_BOAN_PUG_001",
+      "n_elevation_records": 39,
+      "min": 1.0,
+      "p5": 3.0,
+      "p25": 33.5,
+      "median": 53.0,
+      "p75": 351.5,
+      "p95": 1010.6000000000008,
+      "max": 1721.0
+    },
+    "ANU_COL_BOAN_ROS_001": {
+      "species_id": "ANU_COL_BOAN_ROS_001",
+      "n_elevation_records": 12,
+      "min": 4.0,
+      "p5": 4.0,
+      "p25": 104.25,
+      "median": 268.5,
+      "p75": 491.75,
+      "p95": 750.9499999999997,
+      "max": 966.0
+    },
+    "ANU_COL_CRAU_RAN_001": {
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "n_elevation_records": 55,
+      "min": 22.0,
+      "p5": 34.1,
+      "p25": 146.0,
+      "median": 358.0,
+      "p75": 755.0,
+      "p95": 2069.9999999999995,
+      "max": 2793.0
+    },
+    "ANU_COL_DEND_BOG_001": {
+      "species_id": "ANU_COL_DEND_BOG_001",
+      "n_elevation_records": 258,
+      "min": 1128.0,
+      "p5": 1423.0,
+      "p25": 1670.0,
+      "median": 1699.0,
+      "p75": 2145.5,
+      "p95": 2568.45,
+      "max": 3261.0
+    },
+    "ANU_COL_DEND_COL_001": {
+      "species_id": "ANU_COL_DEND_COL_001",
+      "n_elevation_records": 8,
+      "min": 1258.0,
+      "p5": 1360.2,
+      "p25": 1561.25,
+      "median": 1623.0,
+      "p75": 1821.25,
+      "p95": 2175.3999999999996,
+      "max": 2356.0
+    },
+    "ANU_COL_DEND_EBR_001": {
+      "species_id": "ANU_COL_DEND_EBR_001",
+      "n_elevation_records": 50,
+      "min": -1.0,
+      "p5": 7.050000000000002,
+      "p25": 35.0,
+      "median": 241.5,
+      "p75": 554.0,
+      "p95": 1132.1499999999994,
+      "max": 1425.0
+    },
+    "ANU_COL_DEND_MIC_001": {
+      "species_id": "ANU_COL_DEND_MIC_001",
+      "n_elevation_records": 29,
+      "min": 1.0,
+      "p5": 3.0,
+      "p25": 23.0,
+      "median": 40.0,
+      "p75": 438.0,
+      "p95": 944.9999999999998,
+      "max": 1128.0
+    },
+    "ANU_COL_DEND_NOR_001": {
+      "species_id": "ANU_COL_DEND_NOR_001",
+      "n_elevation_records": 8,
+      "min": 825.0,
+      "p5": 826.4,
+      "p25": 939.25,
+      "median": 1326.0,
+      "p75": 1572.25,
+      "p95": 1798.35,
+      "max": 1889.0
+    },
+    "ANU_COL_DEND_TRU_001": {
+      "species_id": "ANU_COL_DEND_TRU_001",
+      "n_elevation_records": 91,
+      "min": 2.0,
+      "p5": 29.0,
+      "p25": 106.5,
+      "median": 540.0,
+      "p75": 989.0,
+      "p95": 1187.0,
+      "max": 1494.0
+    },
+    "ANU_COL_ENGY_PUS_001": {
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "n_elevation_records": 79,
+      "min": 4.0,
+      "p5": 31.6,
+      "p25": 90.0,
+      "median": 155.0,
+      "p75": 370.5,
+      "p95": 772.1999999999998,
+      "max": 935.0
+    },
+    "ANU_COL_HYLO_PAL_001": {
+      "species_id": "ANU_COL_HYLO_PAL_001",
+      "n_elevation_records": 44,
+      "min": 293.0,
+      "p5": 340.0,
+      "p25": 801.0,
+      "median": 1028.5,
+      "p75": 1254.25,
+      "p95": 1863.8000000000002,
+      "max": 2789.0
+    },
+    "ANU_COL_LEPT_COL_001": {
+      "species_id": "ANU_COL_LEPT_COL_001",
+      "n_elevation_records": 17,
+      "min": 848.0,
+      "p5": 849.6,
+      "p25": 989.0,
+      "median": 1073.0,
+      "p75": 1440.0,
+      "p95": 1665.6,
+      "max": 1820.0
+    },
+    "ANU_COL_PHYL_VEN_001": {
+      "species_id": "ANU_COL_PHYL_VEN_001",
+      "n_elevation_records": 48,
+      "min": 35.0,
+      "p5": 37.75,
+      "p25": 288.0,
+      "median": 518.5,
+      "p75": 873.75,
+      "p95": 1173.6999999999998,
+      "max": 1322.0
+    },
+    "ANU_COL_PRIS_ACH_001": {
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "n_elevation_records": 153,
+      "min": 15.0,
+      "p5": 1302.0,
+      "p25": 1496.0,
+      "median": 1670.0,
+      "p75": 1963.0,
+      "p95": 2373.000000000001,
+      "max": 3107.0
+    },
+    "ANU_COL_PRIS_ERY_001": {
+      "species_id": "ANU_COL_PRIS_ERY_001",
+      "n_elevation_records": 13,
+      "min": 833.0,
+      "p5": 1312.4,
+      "p25": 1678.0,
+      "median": 1731.0,
+      "p75": 1963.0,
+      "p95": 2244.9999999999995,
+      "max": 2422.0
+    },
+    "ANU_COL_PRIS_GAI_001": {
+      "species_id": "ANU_COL_PRIS_GAI_001",
+      "n_elevation_records": 31,
+      "min": 270.0,
+      "p5": 316.5,
+      "p25": 468.0,
+      "median": 685.0,
+      "p75": 1067.0,
+      "p95": 1367.5,
+      "max": 1516.0
+    },
+    "ANU_COL_PRIS_PAI_001": {
+      "species_id": "ANU_COL_PRIS_PAI_001",
+      "n_elevation_records": 63,
+      "min": 578.0,
+      "p5": 1568.8,
+      "p25": 1992.5,
+      "median": 2155.0,
+      "p75": 2455.5,
+      "p95": 2653.4,
+      "max": 2825.0
+    },
+    "ANU_COL_PRIS_PAL_001": {
+      "species_id": "ANU_COL_PRIS_PAL_001",
+      "n_elevation_records": 2,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_PRIS_PEN_001": {
+      "species_id": "ANU_COL_PRIS_PEN_001",
+      "n_elevation_records": 43,
+      "min": 769.0,
+      "p5": 782.9,
+      "p25": 1024.0,
+      "median": 1145.0,
+      "p75": 1629.5,
+      "p95": 2092.2999999999997,
+      "max": 2579.0
+    },
+    "ANU_COL_PRIS_PER_001": {
+      "species_id": "ANU_COL_PRIS_PER_001",
+      "n_elevation_records": 17,
+      "min": 1665.0,
+      "p5": 1793.0,
+      "p25": 2352.0,
+      "median": 2504.0,
+      "p75": 2655.0,
+      "p95": 2705.0,
+      "max": 2729.0
+    },
+    "ANU_COL_PRIS_TAE_001": {
+      "species_id": "ANU_COL_PRIS_TAE_001",
+      "n_elevation_records": 21,
+      "min": 471.0,
+      "p5": 528.0,
+      "p25": 769.0,
+      "median": 1062.0,
+      "p75": 1235.0,
+      "p95": 1632.0,
+      "max": 1846.0
+    },
+    "ANU_COL_PRIS_THE_001": {
+      "species_id": "ANU_COL_PRIS_THE_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_RHEO_PAL_001": {
+      "species_id": "ANU_COL_RHEO_PAL_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_RHIN_ALA_001": {
+      "species_id": "ANU_COL_RHIN_ALA_001",
+      "n_elevation_records": 36,
+      "min": 101.0,
+      "p5": 126.25,
+      "p25": 538.0,
+      "median": 991.0,
+      "p75": 1352.5,
+      "p95": 1649.0,
+      "max": 1649.0
+    },
+    "ANU_COL_RHIN_HOR_001": {
+      "species_id": "ANU_COL_RHIN_HOR_001",
+      "n_elevation_records": 87,
+      "min": -1.0,
+      "p5": 34.0,
+      "p25": 286.0,
+      "median": 363.0,
+      "p75": 1075.5,
+      "p95": 1699.4,
+      "max": 1946.0
+    },
+    "ANU_COL_SCIN_RUB_001": {
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "n_elevation_records": 10,
+      "min": 33.0,
+      "p5": 64.5,
+      "p25": 295.0,
+      "median": 763.5,
+      "p75": 1320.0,
+      "p95": 1842.999999999999,
+      "max": 2176.0
+    }
+  }
+}

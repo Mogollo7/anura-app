@@ -1,0 +1,46 @@
+{
+  "artifact": "MERLIN_IDENTIFICATION_FLOW",
+  "version": "0.2.0-runtime-integration",
+  "scope": "isolated integration layer; no production changes",
+  "execution": {
+    "command": ".\\.venv-train\\Scripts\\python.exe validation\\merlin_identification_flow\\run_tests.py",
+    "deterministic": true,
+    "network_required": false,
+    "test_fixture": "MERLIN_FLOW_TEST_CASES.json"
+  },
+  "reused_frozen_inputs": [
+    {"path": "taxonomy/species/species_registry.json", "sha256": "03C15CF486AE7198D8D3624DE2B3F79BAA0FADF6829BA265CCFCE7B86E1AC785", "purpose": "species_id and taxonomy metadata"},
+    {"path": "validation/fase23a_geographic_context/GEO6_RANKING_RESULTS.json", "sha256": "C1D029FEE6BC1E16D784A4BA6A7E7812F592821B43A08CA86791C21F24D52E39", "purpose": "experimental ranking weight reference w_geo_rank=0.3"},
+    {"path": "validation/fase23a_geographic_context/GEO6_OPENSET_DECISION_SUMMARY.json", "sha256": "B13414F84B242ADC6692DC0F6789D78204DB50993695D38931E4D37135E59E48", "purpose": "diagnostic Open Set policy reference"},
+    {"path": "validation/fase23a_geographic_context/GEO2_GEO3_CORRECTION_NOTE.md", "sha256": "80206C408E1A1FB352CDAA06B65D50939AB2BB418FEFB2B180759194C47086FD", "purpose": "completed oracle correction; reproducible geographic Open Set reference ≈0.617"}
+  ],
+  "new_artifacts": [
+    "MERLIN_FLOW_AUDIT.md",
+    "IDENTIFICATION_RESULT_SCHEMA.json",
+    "MERLIN_FLOW_ARCHITECTURE.md",
+    "MERLIN_FLOW_TEST_CASES.json",
+    "merlin_flow.py",
+    "run_tests.py",
+    "MERLIN_FLOW_VALIDATION_REPORT.md",
+    "MERLIN_RUNTIME_INTEGRATION_AUDIT.md",
+    "MERLIN_RUNTIME_INTEGRATION_REPORT.md",
+    "MOBILE_IDENTIFICATION_CONTRACT.md",
+    "runtime_adapters.py",
+    "merlin_runtime_pipeline.py",
+    "run_runtime_e2e.py",
+    "run_runtime_e2e_suite.py"
+  ],
+  "invariants": [
+    "No GEO-7 or geographic experiment run",
+    "No BioCLIP modification or embedding regeneration",
+    "No Fase 23A or GEO-2..GEO-6 artifact modified",
+    "Family and genus excluded from ranking_score",
+    "Top-1 is never itself an acceptance decision",
+    "NO_REGISTRADA is not automatically asserted by current Open Set evidence"
+  ],
+  "limitations": [
+    "Android/Kotlin and API projects are absent; only the portable contract is ready",
+    "GEO-6 thresholds are diagnostic and not production-ready",
+    "No stable segmentation feature-inference contract was found"
+  ]
+}

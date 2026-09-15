@@ -1,0 +1,92 @@
+{
+  "protocol_as_specified": {
+    "pool": "7475 KNOWN + 620 UNKNOWN",
+    "bootstrap": "1000 resamples, seed=42, estratificado por individuo",
+    "status": "NOT_VERIFIED",
+    "reason": "ver docstring del script y 'coverage' abajo -- 0% de coordenadas en el pool oficial de regresion Open Set (KNOWN), pool UNKNOWN no aplica a Top1/Top3 catalogo."
+  },
+  "coverage": {
+    "known_official_pool_coordinates_available": 0,
+    "known_official_pool_reason": "clean_known_embeddings.npz usa image_ids anonimos sin obs_id/path (verificado, fields=['embeddings','image_ids','species_ids'])",
+    "unknown_official_pool_coordinates_available": 412,
+    "unknown_official_pool_usable_for_top1_top3": false,
+    "unknown_official_pool_reason": "sus 7 especies no estan en el catalogo de 41 (0 overlap verificado) -- no hay 'top1 correcto' que medir contra el catalogo",
+    "train_split_all_species_coordinates_available": 38,
+    "train_split_all_species_total_with_obs_id": 1802
+  },
+  "fallback_protocol_executed": {
+    "pool": "38 imagenes KNOWN reales (multiples especies del catalogo, train_embeddings.npz) con coordenadas reales cacheadas",
+    "bootstrap": "1000 resamples, seed=42, NO estratificado por individuo (n insuficiente: <70 individuos unicos en 38 imagenes, estratificar dejaria bins vacios)",
+    "elevation_per_sample": "NO disponible en esta pasada (neutral=0.5 para variantes C/D) -- ver PRISTIMANTIS_PAISA_TAENIATUS_AUDIT.json para el mismo caveat",
+    "weights": {
+      "w_geo_rank": 0.3,
+      "w_altitude": 0.15
+    }
+  },
+  "point_estimate_top1_top3": {
+    "n": 38,
+    "top1_accuracy": {
+      "A": 0.8684,
+      "B": 0.8684,
+      "C": 0.8684,
+      "D": 0.8684
+    },
+    "top3_accuracy": {
+      "A": 0.9474,
+      "B": 0.9474,
+      "C": 0.9474,
+      "D": 0.9474
+    }
+  },
+  "bootstrap_1000_seed42": {
+    "A": {
+      "top1_mean": 0.8708,
+      "top1_ci95": [
+        0.7632,
+        0.9737
+      ],
+      "top3_mean": 0.9484,
+      "top3_ci95": [
+        0.8684,
+        1.0
+      ]
+    },
+    "B": {
+      "top1_mean": 0.8708,
+      "top1_ci95": [
+        0.7632,
+        0.9737
+      ],
+      "top3_mean": 0.9484,
+      "top3_ci95": [
+        0.8684,
+        1.0
+      ]
+    },
+    "C": {
+      "top1_mean": 0.8708,
+      "top1_ci95": [
+        0.7632,
+        0.9737
+      ],
+      "top3_mean": 0.9484,
+      "top3_ci95": [
+        0.8684,
+        1.0
+      ]
+    },
+    "D": {
+      "top1_mean": 0.8708,
+      "top1_ci95": [
+        0.7632,
+        0.9737
+      ],
+      "top3_mean": 0.9484,
+      "top3_ci95": [
+        0.8684,
+        1.0
+      ]
+    }
+  },
+  "honest_reading": "Con esta muestra pequena (n=38) y peso geografico w=0.3 (heredado y validado en la linea GEO), agregar geografia (variante B) no mejora (o empeora ligeramente) el Top1 visual solo (variante A) segun la corrida. Esto es consistente con lo que GEO-1..6 y open_set_topography_v1 ya encontraron: la contribucion de contexto geografico/altitudinal es marginal o nula sobre Open Set puro; aqui, medido tambien sobre RANKING (no solo aceptacion binaria), el patron se mantiene -- no hay evidencia de que el contexto aporte una mejora grande y consistente. No se maquilla el resultado en ninguna direccion."
+}

@@ -1,0 +1,290 @@
+{
+  "schema_version": "anura.species-package-geography/1.0.0",
+  "source": "COLOMBIA_ANURA/CAUCA/SPECIES/*/occurrences.json + GEO cache",
+  "method": "Observed points and 0.25-degree cells; no inferred polygons.",
+  "species": {
+    "ANU_COL_BOAN_BOA_001": {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "scientific_name": "Boana boans",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-306": 1
+      },
+      "bbox": {
+        "lat_min": 1.0307582237,
+        "lat_max": 1.0307582237,
+        "lon_min": -76.4421116933,
+        "lon_max": -76.4421116933
+      }
+    },
+    "ANU_COL_BOAN_CIN_001": {
+      "species_id": "ANU_COL_BOAN_CIN_001",
+      "scientific_name": "Boana cinerascens",
+      "n_records": 6,
+      "n_unique_cells": 4,
+      "cells": {
+        "G025_4_-306": 1,
+        "G025_4_-305": 3,
+        "G025_6_-306": 1,
+        "G025_6_-305": 1
+      },
+      "bbox": {
+        "lat_min": 1.0078861167,
+        "lat_max": 1.530963,
+        "lon_min": -76.4673083333,
+        "lon_max": -76.28527
+      }
+    },
+    "ANU_COL_BOAN_LAN_001": {
+      "species_id": "ANU_COL_BOAN_LAN_001",
+      "scientific_name": "Boana lanciformis",
+      "n_records": 3,
+      "n_unique_cells": 2,
+      "cells": {
+        "G025_6_-305": 2,
+        "G025_6_-306": 1
+      },
+      "bbox": {
+        "lat_min": 1.4939916667,
+        "lat_max": 1.530963,
+        "lon_min": -76.3842748851,
+        "lon_max": -76.3244368
+      }
+    },
+    "ANU_COL_BOAN_PLA_001": {
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "scientific_name": "Boana platanera",
+      "n_records": 8,
+      "n_unique_cells": 4,
+      "cells": {
+        "G025_12_-306": 4,
+        "G025_13_-306": 1,
+        "G025_11_-306": 2,
+        "G025_11_-307": 1
+      },
+      "bbox": {
+        "lat_min": 2.7264710316,
+        "lat_max": 3.204335859,
+        "lon_min": -76.7499699444,
+        "lon_max": -76.4133543894
+      }
+    },
+    "ANU_COL_BOAN_PUN_001": {
+      "species_id": "ANU_COL_BOAN_PUN_001",
+      "scientific_name": "Boana punctata",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-306": 1
+      },
+      "bbox": {
+        "lat_min": 1.0241695,
+        "lat_max": 1.0241695,
+        "lon_min": -76.4674833333,
+        "lon_max": -76.4674833333
+      }
+    },
+    "ANU_COL_BOAN_ROS_001": {
+      "species_id": "ANU_COL_BOAN_ROS_001",
+      "scientific_name": "Boana rosenbergi",
+      "n_records": 4,
+      "n_unique_cells": 2,
+      "cells": {
+        "G025_11_-311": 3,
+        "G025_11_-310": 1
+      },
+      "bbox": {
+        "lat_min": 2.659348,
+        "lat_max": 2.769369,
+        "lon_min": -77.6705555556,
+        "lon_max": -77.624031
+      }
+    },
+    "ANU_COL_CRAU_RAN_001": {
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "scientific_name": "Craugastor raniformis",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_10_-312": 1
+      },
+      "bbox": {
+        "lat_min": 2.5776866667,
+        "lat_max": 2.5776866667,
+        "lon_min": -77.9058533333,
+        "lon_max": -77.9058533333
+      }
+    },
+    "ANU_COL_DEND_COL_001": {
+      "species_id": "ANU_COL_DEND_COL_001",
+      "scientific_name": "Dendropsophus columbianus",
+      "n_records": 26,
+      "n_unique_cells": 9,
+      "cells": {
+        "G025_10_-306": 13,
+        "G025_11_-305": 1,
+        "G025_13_-306": 1,
+        "G025_11_-307": 1,
+        "G025_9_-307": 3,
+        "G025_12_-306": 1,
+        "G025_10_-307": 3,
+        "G025_11_-306": 2,
+        "G025_10_-305": 1
+      },
+      "bbox": {
+        "lat_min": 2.355255,
+        "lat_max": 3.1333263744,
+        "lon_min": -76.732571,
+        "lon_max": -76.30005
+      }
+    },
+    "ANU_COL_DEND_TRI_001": {
+      "species_id": "ANU_COL_DEND_TRI_001",
+      "scientific_name": "Dendropsophus triangulum",
+      "n_records": 2,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-305": 2
+      },
+      "bbox": {
+        "lat_min": 1.00815,
+        "lat_max": 1.06528991,
+        "lon_min": -76.284125,
+        "lon_max": -76.1973101646
+      }
+    },
+    "ANU_COL_ENGY_PUS_001": {
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "scientific_name": "Engystomops pustulosus",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_11_-311": 1
+      },
+      "bbox": {
+        "lat_min": 2.7693,
+        "lat_max": 2.7693,
+        "lon_min": -77.669921,
+        "lon_max": -77.669921
+      }
+    },
+    "ANU_COL_PHYL_TAR_001": {
+      "species_id": "ANU_COL_PHYL_TAR_001",
+      "scientific_name": "Phyllomedusa tarsius",
+      "n_records": 2,
+      "n_unique_cells": 2,
+      "cells": {
+        "G025_4_-305": 1,
+        "G025_5_-305": 1
+      },
+      "bbox": {
+        "lat_min": 1.1231527073,
+        "lat_max": 1.1416361667,
+        "lon_min": -76.350975,
+        "lon_max": -76.3189755008
+      }
+    },
+    "ANU_COL_PRIS_ACH_001": {
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "scientific_name": "Pristimantis achatinus",
+      "n_records": 12,
+      "n_unique_cells": 7,
+      "cells": {
+        "G025_9_-309": 1,
+        "G025_13_-305": 1,
+        "G025_10_-305": 1,
+        "G025_10_-306": 5,
+        "G025_11_-306": 2,
+        "G025_11_-310": 1,
+        "G025_12_-305": 1
+      },
+      "bbox": {
+        "lat_min": 2.3182167227,
+        "lat_max": 3.2684437517,
+        "lon_min": -77.6140104153,
+        "lon_max": -76.1681837216
+      }
+    },
+    "ANU_COL_PRIS_PAL_001": {
+      "species_id": "ANU_COL_PRIS_PAL_001",
+      "scientific_name": "Pristimantis palmeri",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_10_-306": 1
+      },
+      "bbox": {
+        "lat_min": 2.4613313712,
+        "lat_max": 2.4613313712,
+        "lon_min": -76.6191461406,
+        "lon_max": -76.6191461406
+      }
+    },
+    "ANU_COL_PRIS_THE_001": {
+      "species_id": "ANU_COL_PRIS_THE_001",
+      "scientific_name": "Pristimantis thectopternus",
+      "n_records": 6,
+      "n_unique_cells": 3,
+      "cells": {
+        "G025_7_-306": 1,
+        "G025_10_-306": 3,
+        "G025_12_-305": 2
+      },
+      "bbox": {
+        "lat_min": 1.6718666667,
+        "lat_max": 2.9678033333,
+        "lon_min": -76.6147395,
+        "lon_max": -76.2268216667
+      }
+    },
+    "ANU_COL_RHIN_ALA_001": {
+      "species_id": "ANU_COL_RHIN_ALA_001",
+      "scientific_name": "Rhinella alata",
+      "n_records": 58,
+      "n_unique_cells": 4,
+      "cells": {
+        "G025_11_-311": 53,
+        "G025_4_-305": 1,
+        "G025_10_-312": 2,
+        "G025_10_-304": 2
+      },
+      "bbox": {
+        "lat_min": 1.1198615969,
+        "lat_max": 2.7857043578,
+        "lon_min": -77.90007717,
+        "lon_max": -76.0447301649
+      }
+    },
+    "ANU_COL_RHIN_MAR_001": {
+      "species_id": "ANU_COL_RHIN_MAR_001",
+      "scientific_name": "Rhinella margaritifera",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_4_-305": 1
+      },
+      "bbox": {
+        "lat_min": 1.0056083333,
+        "lat_max": 1.0056083333,
+        "lon_min": -76.2792527778,
+        "lon_max": -76.2792527778
+      }
+    },
+    "ANU_COL_SCIN_RUB_001": {
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "scientific_name": "Scinax ruber",
+      "n_records": 1,
+      "n_unique_cells": 1,
+      "cells": {
+        "G025_8_-308": 1
+      },
+      "bbox": {
+        "lat_min": 2.1156416667,
+        "lat_max": 2.1156416667,
+        "lon_min": -76.9891783333,
+        "lon_max": -76.9891783333
+      }
+    }
+  }
+}

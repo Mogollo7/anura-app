@@ -1,0 +1,130 @@
+{
+  "observation_id": "runtime-e2e-local-image",
+  "input_metadata": {
+    "image_path": "D:\\Anura\\data cleaned\\Boana_boans\\col_obs_330607060_photo_599545088.jpg",
+    "runtime": {
+      "bioclip": {
+        "encoder_id": "bioclip_anura_v1",
+        "runtime_code_version": "merlin-runtime-adapters/v0.2.0",
+        "encoder_file": "bioclip\\checkpoints\\encoder_anura_fp16.onnx",
+        "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+        "source_checkpoint_sha256": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac",
+        "embedding_dim": 512,
+        "normalization": "L2",
+        "preprocessing": "open_clip.create_model_and_transforms(hf-hub:imageomics/bioclip)",
+        "provider": "CPUExecutionProvider",
+        "dtype": "float32",
+        "inference_ms": 154.171
+      },
+      "visual_ranking": {
+        "candidate_pool": 41,
+        "pool_scope": "FULL_RELEASE_POOL",
+        "release_pool_size": 41,
+        "visual_metric": "negative_euclidean_distance_row_minmax",
+        "nearest_distance": 0.4763866066932678
+      },
+      "geographic": {
+        "available": true,
+        "zone_id": "ZONE_006",
+        "cell_id": "G025_25_-302",
+        "prior": "prior_zone_taxon_v2_clean",
+        "normalization": "GEO6_row_minmax"
+      }
+    }
+  },
+  "is_anuran": true,
+  "anuran_evidence": {
+    "source": "test_harness_manual_anuran_gate",
+    "ground_truth_used": false
+  },
+  "candidates": [
+    {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "scientific_name": "Boana boans",
+      "common_name": null,
+      "genus": "Boana",
+      "family": "Hylidae",
+      "visual_score": 1.0,
+      "geographic_score": 0.13744075829383887,
+      "ranking_score": 0.7412322274881517,
+      "geographic_context_available": true,
+      "rank": 1
+    },
+    {
+      "species_id": "ANU_COL_BOAN_PUG_001",
+      "scientific_name": "Boana pugnax",
+      "common_name": null,
+      "genus": "Boana",
+      "family": "Hylidae",
+      "visual_score": 0.7996093034744263,
+      "geographic_score": 0.2985781990521327,
+      "ranking_score": 0.6492999721477382,
+      "geographic_context_available": true,
+      "rank": 2
+    },
+    {
+      "species_id": "ANU_COL_BOAN_LAN_001",
+      "scientific_name": "Boana lanciformis",
+      "common_name": null,
+      "genus": "Boana",
+      "family": "Hylidae",
+      "visual_score": 0.8813427090644836,
+      "geographic_score": 0.0,
+      "ranking_score": 0.6169398963451385,
+      "geographic_context_available": true,
+      "rank": 3
+    }
+  ],
+  "decision": "ESPECIE_CONOCIDA",
+  "open_set_evidence": {
+    "status": "RELEASE_THRESHOLD",
+    "decision_basis": "Mahalanobis min-distance to nearest ACTIVE catalog centroid",
+    "centroid_source": "FULL_RELEASE_POOL",
+    "active_centroid_count": 41,
+    "release_centroid_count": 41,
+    "threshold": 39.35406371422803,
+    "threshold_release": "threshold_1.0.0",
+    "thresholds_production_ready": false,
+    "rejected_means": "NO_CONCLUYENTE; NO_REGISTRADA is not asserted",
+    "catalog_membership": {
+      "source": "FROZEN_RELEASE_CATALOG_NO_PACKAGE_MANAGER",
+      "declared_species_count": 41,
+      "checked_before_threshold": true,
+      "nearest_in_catalog": true
+    },
+    "score": 20.646228790283203,
+    "nearest_species_id": "ANU_COL_BOAN_BOA_001",
+    "excluded_centroid_count": 0
+  },
+  "explanation": {
+    "candidate_summary": "Candidatos ordenados por compatibilidad; los scores no son probabilidades.",
+    "most_visual_compatible": "Boana boans",
+    "geographic_context": "USED_FOR_RANKING",
+    "information_used": [
+      "visual_similarity",
+      "species_geographic_context",
+      "open_set_evidence"
+    ],
+    "information_unavailable": [],
+    "decision": "ESPECIE_CONOCIDA",
+    "why_top1_not_automatically_accepted": "Ranking ordena candidatos; la aceptación depende de una etapa Open Set separada."
+  },
+  "limitations": [],
+  "segmentation_evidence": [],
+  "visual_similarity_warnings": [],
+  "model_version": "bioclip_anura_v1/encoder_anura_fp16.onnx",
+  "catalog_version": "species_registry.json:42",
+  "catalog_state": {
+    "source": "STATIC_SPECIES_REGISTRY",
+    "package_manager_connected": false,
+    "note": "Sin gestor de paquetes: se usa el pool historico completo."
+  },
+  "geographic_context_used": true,
+  "geographic_context_available": true,
+  "experimental_flags": [
+    "EXPERIMENTAL_GEO6_W_GEO_RANK_0_3",
+    "SCORES_ARE_NOT_PROBABILITIES",
+    "GEOGRAPHIC_CONTEXT_WHEN_AVAILABLE_ONLY",
+    "GEO6_OPEN_SET_NOT_USED_FOR_SINGLE_SAMPLE_INFERENCE"
+  ]
+}

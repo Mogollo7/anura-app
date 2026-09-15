@@ -1,0 +1,98 @@
+{
+  "schema_version": "anura.species-package-elevation/1.0.0",
+  "source": "open_set_topography_v1/opentopodata_cache.json at observed coordinates",
+  "method": "Percentiles of cached SRTM elevation values; missing values remain explicit.",
+  "species": {
+    "ANU_COL_BOAN_BOA_001": {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_BOAN_CIN_001": {
+      "species_id": "ANU_COL_BOAN_CIN_001",
+      "n_elevation_records": 4,
+      "min": 255.0,
+      "p5": 260.85,
+      "p25": 284.25,
+      "median": 810.5,
+      "p75": 1406.5,
+      "p95": 1597.3,
+      "max": 1645.0
+    },
+    "ANU_COL_BOAN_LAN_001": {
+      "species_id": "ANU_COL_BOAN_LAN_001",
+      "n_elevation_records": 2,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_BOAN_PLA_001": {
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_BOAN_PUN_001": {
+      "species_id": "ANU_COL_BOAN_PUN_001",
+      "n_elevation_records": 1,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_BOAN_ROS_001": {
+      "species_id": "ANU_COL_BOAN_ROS_001",
+      "n_elevation_records": 1,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_CRAU_RAN_001": {
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_DEND_COL_001": {
+      "species_id": "ANU_COL_DEND_COL_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_DEND_TRI_001": {
+      "species_id": "ANU_COL_DEND_TRI_001",
+      "n_elevation_records": 1,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_ENGY_PUS_001": {
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_PHYL_TAR_001": {
+      "species_id": "ANU_COL_PHYL_TAR_001",
+      "n_elevation_records": 1,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_PRIS_ACH_001": {
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "n_elevation_records": 2,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_PRIS_PAL_001": {
+      "species_id": "ANU_COL_PRIS_PAL_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_PRIS_THE_001": {
+      "species_id": "ANU_COL_PRIS_THE_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_RHIN_ALA_001": {
+      "species_id": "ANU_COL_RHIN_ALA_001",
+      "n_elevation_records": 1,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_RHIN_MAR_001": {
+      "species_id": "ANU_COL_RHIN_MAR_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    },
+    "ANU_COL_SCIN_RUB_001": {
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "n_elevation_records": 0,
+      "status": "INSUFFICIENT_DATA (<3 records)"
+    }
+  }
+}

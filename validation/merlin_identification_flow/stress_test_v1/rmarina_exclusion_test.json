@@ -1,0 +1,50 @@
+{
+  "in_species_registry": false,
+  "rhinella_species_in_registry": [
+    "Rhinella alata",
+    "Rhinella horribilis",
+    "Rhinella margaritifera"
+  ],
+  "in_fase13_embeddings_any_split": false,
+  "in_visual_ranking_41_pool": false,
+  "ranking_pool_size": 41,
+  "rhinella_marina_species_id_exists": false,
+  "rhinella_marina_has_centroid_in_release": false,
+  "in_any_similarity_group": false,
+  "documented_note_present": true,
+  "unknown_pool_fields": [
+    "embeddings",
+    "species",
+    "paths",
+    "observation_id",
+    "sha256"
+  ],
+  "rhinella_marina_count_in_unknown_pool": 83,
+  "rmarina_embedding_ranking_test": {
+    "candidate_pool_size": 41,
+    "rhinella_marina_appears_as_candidate": false,
+    "top3": [
+      [
+        "Rhinella horribilis",
+        1.0
+      ],
+      [
+        "Rhinella alata",
+        0.7126234769821167
+      ],
+      [
+        "Rhinella margaritifera",
+        0.6816123127937317
+      ]
+    ]
+  },
+  "rmarina_embedding_openset_test": {
+    "decision": "ESPECIE_CONOCIDA",
+    "nearest_species_id": "ANU_COL_RHIN_HOR_001",
+    "nearest_species_is_marina": false
+  },
+  "verdict": {
+    "RMARINA_CORRECTLY_EXCLUDED": true,
+    "reason": "Rhinella marina no tiene species_id en el registro, no tiene centroide en el release de 41, y por lo tanto estructuralmente NO PUEDE aparecer en ranking ni en Open Set ni en advertencias de similitud visual -- no porque una regla la filtre en tiempo de ejecucion, sino porque nunca entro al catalogo de especies disponibles del modelo. Esto es la limitacion intencional ya documentada; no se repara ni se agrega."
+  }
+}

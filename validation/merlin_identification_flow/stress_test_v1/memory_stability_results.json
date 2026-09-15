@@ -1,0 +1,253 @@
+{
+  "n_images": 300,
+  "measurement_method": "psutil.Process().memory_info().rss, sampled every 5 images",
+  "rss_start_mb": 1917.94,
+  "rss_end_mb": 1915.11,
+  "rss_delta_mb": -2.83,
+  "rss_samples": [
+    {
+      "after_n_images": 5,
+      "rss_mb": 1938.77
+    },
+    {
+      "after_n_images": 10,
+      "rss_mb": 1938.77
+    },
+    {
+      "after_n_images": 15,
+      "rss_mb": 1913.41
+    },
+    {
+      "after_n_images": 20,
+      "rss_mb": 1913.41
+    },
+    {
+      "after_n_images": 25,
+      "rss_mb": 1913.42
+    },
+    {
+      "after_n_images": 30,
+      "rss_mb": 1913.55
+    },
+    {
+      "after_n_images": 35,
+      "rss_mb": 1913.55
+    },
+    {
+      "after_n_images": 40,
+      "rss_mb": 1914.11
+    },
+    {
+      "after_n_images": 45,
+      "rss_mb": 1914.11
+    },
+    {
+      "after_n_images": 50,
+      "rss_mb": 1914.11
+    },
+    {
+      "after_n_images": 55,
+      "rss_mb": 1914.11
+    },
+    {
+      "after_n_images": 60,
+      "rss_mb": 1914.11
+    },
+    {
+      "after_n_images": 65,
+      "rss_mb": 1914.33
+    },
+    {
+      "after_n_images": 70,
+      "rss_mb": 1914.33
+    },
+    {
+      "after_n_images": 75,
+      "rss_mb": 1914.33
+    },
+    {
+      "after_n_images": 80,
+      "rss_mb": 1914.33
+    },
+    {
+      "after_n_images": 85,
+      "rss_mb": 1914.33
+    },
+    {
+      "after_n_images": 90,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 95,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 100,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 105,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 110,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 115,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 120,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 125,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 130,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 135,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 140,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 145,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 150,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 155,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 160,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 165,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 170,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 175,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 180,
+      "rss_mb": 1914.34
+    },
+    {
+      "after_n_images": 185,
+      "rss_mb": 1914.38
+    },
+    {
+      "after_n_images": 190,
+      "rss_mb": 1914.38
+    },
+    {
+      "after_n_images": 195,
+      "rss_mb": 1914.38
+    },
+    {
+      "after_n_images": 200,
+      "rss_mb": 1914.38
+    },
+    {
+      "after_n_images": 205,
+      "rss_mb": 1914.38
+    },
+    {
+      "after_n_images": 210,
+      "rss_mb": 1914.39
+    },
+    {
+      "after_n_images": 215,
+      "rss_mb": 1914.39
+    },
+    {
+      "after_n_images": 220,
+      "rss_mb": 1914.39
+    },
+    {
+      "after_n_images": 225,
+      "rss_mb": 1914.39
+    },
+    {
+      "after_n_images": 230,
+      "rss_mb": 1914.4
+    },
+    {
+      "after_n_images": 235,
+      "rss_mb": 1914.4
+    },
+    {
+      "after_n_images": 240,
+      "rss_mb": 1914.4
+    },
+    {
+      "after_n_images": 245,
+      "rss_mb": 1915.12
+    },
+    {
+      "after_n_images": 250,
+      "rss_mb": 1915.13
+    },
+    {
+      "after_n_images": 255,
+      "rss_mb": 1915.13
+    },
+    {
+      "after_n_images": 260,
+      "rss_mb": 1915.13
+    },
+    {
+      "after_n_images": 265,
+      "rss_mb": 1915.08
+    },
+    {
+      "after_n_images": 270,
+      "rss_mb": 1915.09
+    },
+    {
+      "after_n_images": 275,
+      "rss_mb": 1914.94
+    },
+    {
+      "after_n_images": 280,
+      "rss_mb": 1914.32
+    },
+    {
+      "after_n_images": 285,
+      "rss_mb": 1915.09
+    },
+    {
+      "after_n_images": 290,
+      "rss_mb": 1915.1
+    },
+    {
+      "after_n_images": 295,
+      "rss_mb": 1915.11
+    },
+    {
+      "after_n_images": 300,
+      "rss_mb": 1915.11
+    }
+  ],
+  "rss_linear_slope_mb_per_image": -0.01197,
+  "inference_time_linear_slope_ms_per_image": -0.08144,
+  "interpretation": "Pendiente RSS ~0 o negativa => sin crecimiento monotono anomalo. Pendiente de tiempo de inferencia ~0 => sin degradacion progresiva. Ambas medidas SOLO en proceso Python de escritorio (CPU, onnxruntime); NO son cifras de Android -- eso queda NOT_VERIFIED (requiere dispositivo real).",
+  "android_memory_status": "NOT_VERIFIED: requiere dispositivo Android real, no disponible en esta maquina."
+}

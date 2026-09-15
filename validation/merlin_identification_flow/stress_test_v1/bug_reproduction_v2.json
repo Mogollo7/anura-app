@@ -1,0 +1,146 @@
+{
+  "status": "PASS",
+  "image": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_135615735_photo_231331908.jpg",
+  "step_count": 17,
+  "steps": [
+    {
+      "step": 1,
+      "name": "install(A)",
+      "status": "PASS",
+      "installed": [
+        "anura_antioquia_visual@v1.0.0",
+        "anura_cauca_visual@v1.0.0"
+      ],
+      "species_count": 28,
+      "payload_sha256": "b3cd94d8dba0efa8..."
+    },
+    {
+      "step": 1.5,
+      "name": "sha256 integrity rejects tampered payload",
+      "status": "PASS"
+    },
+    {
+      "step": 1.6,
+      "name": "versioning: no silent overwrite",
+      "status": "PASS",
+      "duplicate_rejected": true,
+      "versions_side_by_side": [
+        "v1.0.0",
+        "v1.0.1"
+      ]
+    },
+    {
+      "step": 2,
+      "name": "activate(A)",
+      "status": "PASS",
+      "active_version": "v1.0.0"
+    },
+    {
+      "step": 3,
+      "name": "species of A appear in ranking",
+      "status": "PASS",
+      "ranking_pool": 34,
+      "top1": "Dendrobates truncatus",
+      "active_species_count": 34
+    },
+    {
+      "step": 4,
+      "name": "centroids of A participate in Open Set",
+      "status": "PASS",
+      "open_set_decision": "ESPECIE_CONOCIDA",
+      "score": 25.012601852416992,
+      "nearest_species_id": "ANU_COL_DEND_TRU_001",
+      "active_centroid_count": 34
+    },
+    {
+      "step": 5,
+      "name": "deactivate(A)",
+      "status": "PASS",
+      "active_packages": [
+        "anura_cauca_visual@v1.0.0"
+      ]
+    },
+    {
+      "step": 6,
+      "name": "species of A disappear from ranking",
+      "status": "PASS",
+      "ranking_pool": 17,
+      "top1": "Phyllomedusa tarsius",
+      "active_species_count": 17
+    },
+    {
+      "step": 7,
+      "name": "centroids of A stop participating in Open Set",
+      "status": "PASS",
+      "open_set_score_before_deactivation": 25.012601852416992,
+      "open_set_score_after_deactivation": 38.83302307128906,
+      "score_increase": 13.8204,
+      "nearest_species_id": "ANU_COL_DEND_TRI_001",
+      "active_centroid_count": 17,
+      "truncatus_centroid_participates": false
+    },
+    {
+      "step": 7.1,
+      "name": "decision-level outcome after deactivation (residual Open Set defect)",
+      "status": "OBSERVED",
+      "open_set_decision": "ESPECIE_CONOCIDA",
+      "score": 38.83302307128906,
+      "threshold": 39.35406371422803,
+      "attributed_to_species_id": "ANU_COL_DEND_TRI_001",
+      "verdict": "ESPECIE_CONOCIDA persiste por un centroide AJENO, no por fuga de catalogo",
+      "root_cause": "THRESHOLD_TOO_PERMISSIVE_NOT_CATALOG_LEAKAGE",
+      "note": "No se recalibra el threshold (regla dura del proyecto)."
+    },
+    {
+      "step": 7.5,
+      "name": "empty active catalog -> NO_CONCLUYENTE",
+      "status": "PASS",
+      "decision": "NO_CONCLUYENTE",
+      "active_centroid_count": 0
+    },
+    {
+      "step": 8,
+      "name": "reactivate(A)",
+      "status": "PASS"
+    },
+    {
+      "step": 9,
+      "name": "species and centroids come back",
+      "status": "PASS",
+      "score": 25.012601852416992,
+      "score_when_first_active": 25.012601852416992,
+      "deterministic": true
+    },
+    {
+      "step": 10,
+      "name": "uninstall(A)",
+      "status": "PASS",
+      "removed_versions": [
+        "v1.0.0",
+        "v1.0.1"
+      ]
+    },
+    {
+      "step": 11,
+      "name": "A no longer available locally",
+      "status": "PASS",
+      "dir_removed": true,
+      "state_json_has_package": false,
+      "open_set_decision": "ESPECIE_CONOCIDA"
+    },
+    {
+      "step": 12,
+      "name": "reinstall(A)",
+      "status": "PASS",
+      "active_version": "v1.0.0"
+    },
+    {
+      "step": 13,
+      "name": "A works again identically",
+      "status": "PASS",
+      "score": 25.012601852416992,
+      "decision": "ESPECIE_CONOCIDA",
+      "bit_identical_to_first_activation": true
+    }
+  ]
+}

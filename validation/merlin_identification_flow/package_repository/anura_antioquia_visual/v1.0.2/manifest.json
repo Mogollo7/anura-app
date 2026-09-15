@@ -1,0 +1,72 @@
+{
+  "package_id": "anura_antioquia_visual",
+  "package_version": "v1.0.2",
+  "schema_version": "anura.species-package/1.0.0",
+  "species_ids": [
+    "ANU_COL_BOAN_BOA_001",
+    "ANU_COL_BOAN_PLA_001",
+    "ANU_COL_BOAN_PUG_001",
+    "ANU_COL_BOAN_ROS_001",
+    "ANU_COL_CRAU_RAN_001",
+    "ANU_COL_DEND_BOG_001",
+    "ANU_COL_DEND_COL_001",
+    "ANU_COL_DEND_EBR_001",
+    "ANU_COL_DEND_MIC_001",
+    "ANU_COL_DEND_NOR_001",
+    "ANU_COL_DEND_TRU_001",
+    "ANU_COL_ENGY_PUS_001",
+    "ANU_COL_HYLO_PAL_001",
+    "ANU_COL_LEPT_COL_001",
+    "ANU_COL_PHYL_VEN_001",
+    "ANU_COL_PRIS_ACH_001",
+    "ANU_COL_PRIS_ERY_001",
+    "ANU_COL_PRIS_GAI_001",
+    "ANU_COL_PRIS_PAI_001",
+    "ANU_COL_PRIS_PAL_001",
+    "ANU_COL_PRIS_PEN_001",
+    "ANU_COL_PRIS_PER_001",
+    "ANU_COL_PRIS_TAE_001",
+    "ANU_COL_PRIS_THE_001",
+    "ANU_COL_RHEO_PAL_001",
+    "ANU_COL_RHIN_ALA_001",
+    "ANU_COL_RHIN_HOR_001",
+    "ANU_COL_SCIN_RUB_001"
+  ],
+  "species_count": 28,
+  "prototype_version": "fase13_geo6_centroids/v1.0.0",
+  "encoder_contract": {
+    "encoder_id": "bioclip_anura_v1",
+    "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+    "embedding_dim": 512,
+    "normalization": "L2"
+  },
+  "contains_encoder": false,
+  "encoder_distribution_note": "El encoder BioCLIP NO viaja en el paquete; es compartido e independiente.",
+  "dependencies": [],
+  "minimum_app_version": "0.1.0",
+  "checksum": {
+    "algorithm": "sha256",
+    "payload_sha256": "a5a5d58accf86a6f236782bc39338bf7930d38e8949f483a37f5575405d4f2f1",
+    "files": {
+      "elevation.json": "fe749d16dbcba97d3432e09ce2e02ac628df6342578d87badf39f2ed7f85a333",
+      "geography.json": "b5c2ddb429d5a1db6345b97c0dd8d3d8bb76c42a4f22918966cf50bb73c5c2d0",
+      "prototypes.npz": "b7ce008249c9199a68ce6ecd8815ed37afee2542409bc1801511b830e0ec63d9",
+      "species.json": "c8c1d2324536451825c94953aabdcac7969d285a6f105596621b96fdac22f5bd",
+      "taxonomy.json": "38f4fdc71d0129242e26fd32583de2ec24c7c2fa21a5b71bc7d59a65528fe785",
+      "visual_similarity_groups.json": "82cf9745331f310b0cc3d8eb10904ac23e918fdebc1602b77b0dfc684dc18ddf"
+    }
+  },
+  "created_at": "2026-09-14T21:06:22Z",
+  "source_artifacts": {
+    "regional_scope": "regional_packages/ANTIOQUIA/v1.0.0/manifest.json",
+    "catalog_release": "visual_catalog/v1.0.0/manifest.json",
+    "centroids": "evaluation/fase13/embeddings/{reference,train}_embeddings.npz",
+    "species_metadata": "taxonomy/species/species_registry.json"
+  },
+  "context_extension": {
+    "geography_json": true,
+    "elevation_json": true,
+    "visual_similarity_groups_json": true,
+    "note": "geography.json y elevation.json son OPCIONALES (no en PAYLOAD_FILES); un consumidor v1.0.0 los ignora sin romperse."
+  }
+}

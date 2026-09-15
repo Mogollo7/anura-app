@@ -127,3 +127,15 @@ dataset_cvat_jpg/
 #   - docs_vision_model_plan/, design-system/, COLOMBIA_ANURA/ (manifests)
 #   - AppAnura/ (código de la app móvil)
 # ============================================================================
+
+# Merlin runtime checkpoint - build/cache/regenerable artifacts
+validation/merlin_identification_flow/__pycache__/
+validation/merlin_identification_flow/**/__pycache__/
+validation/merlin_identification_flow/packages_root/
+validation/merlin_identification_flow/stress_test_v1/adversarial_images/
+validation/merlin_identification_flow/android-merlin-identification/.gradle/
+
+# Excepcion a la regla global *.npz: fixtures de paquetes de prueba (~390KB),
+# necesarios para que las pruebas del checkpoint Merlin corran desde un clon limpio.
+!validation/merlin_identification_flow/package_repository/**/
+!validation/merlin_identification_flow/package_repository/**/*.npz
