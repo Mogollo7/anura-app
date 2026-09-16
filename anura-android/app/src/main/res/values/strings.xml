@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ANURA</string>
+
+    <!-- Estado · Cargando (PANTALLA DE CARGA INICIO) — textos exactos de Penpot -->
+    <string name="startup_brand_name">Anura</string>
+    <string name="startup_tagline">Identificación de anuros de Colombia</string>
+    <string name="startup_preparing_model">Cargando el modelo local…</string>
+    <string name="startup_logo_cd">Logo de Anura</string>
+</resources>
