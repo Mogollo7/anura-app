@@ -14,4 +14,38 @@
     <string name="welcome_create_account">Crear cuenta</string>
     <string name="welcome_have_account">Ya tengo cuenta</string>
     <string name="welcome_continue_without_account">Entrar sin cuenta</string>
+
+    <!-- INICIAR SECCION — textos exactos de Penpot -->
+    <string name="sign_in_title">Iniciar sesión</string>
+    <string name="sign_in_heading">Bienvenido de vuelta</string>
+    <string name="sign_in_subtitle">Tus observaciones te esperan sincronizadas.</string>
+    <string name="sign_in_email_label">Correo</string>
+    <string name="sign_in_email_placeholder">sebastian@ejemplo.co</string>
+    <string name="sign_in_password_label">Contraseña</string>
+    <string name="sign_in_forgot_password">¿Olvidaste la contraseña?</string>
+    <string name="sign_in_enter">Entrar</string>
+    <string name="sign_in_or">o</string>
+    <string name="sign_in_google">Continuar con Google</string>
+    <string name="sign_in_offline">Entrar sin conexión</string>
+    <string name="sign_in_no_account">¿No tenés cuenta?  </string>
+    <string name="sign_in_create_one">Crear una</string>
+    <string name="sign_in_show_password_cd">Mostrar contraseña</string>
+    <string name="sign_in_hide_password_cd">Ocultar contraseña</string>
+
+    <!-- crear cuenta — textos exactos de Penpot -->
+    <string name="sign_up_title">Crear cuenta</string>
+    <string name="sign_up_heading">Creá tu cuenta</string>
+    <string name="sign_up_subtitle">Solo hace falta para guardar y sincronizar.</string>
+    <string name="sign_up_name_label">Nombre</string>
+    <string name="sign_up_name_placeholder">Sebastián Martínez</string>
+    <string name="sign_up_email_label">Correo</string>
+    <string name="sign_up_email_placeholder">sebastian@ejemplo.co</string>
+    <string name="sign_up_password_label">Contraseña</string>
+    <string name="sign_up_password_placeholder">Mínimo 8 caracteres</string>
+    <string name="sign_up_usage_label">¿Cómo vas a usar Anura?</string>
+    <string name="sign_up_profile_curiosity">Curiosidad</string>
+    <string name="sign_up_profile_study">Estudio o investigación</string>
+    <string name="sign_up_terms">Acepto los términos y la política de datos. Mis observaciones son privadas hasta que decida publicarlas.</string>
+    <string name="sign_up_create">Crear cuenta</string>
+    <string name="sign_up_guest_note">Podés usar Anura sin cuenta: identificás igual, pero no se guarda.</string>
 </resources>

@@ -87,6 +87,11 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                     }
                 },
                 onGoToSignUp = { navController.navigate(AnuraRoute.SignUp) },
+                onContinueOffline = {
+                    navController.navigate(AnuraRoute.Home) {
+                        popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+                    }
+                },
             )
         }
         composable<AnuraRoute.SignUp> {
