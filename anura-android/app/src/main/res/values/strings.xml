@@ -6,4 +6,12 @@
     <string name="startup_tagline">Identificación de anuros de Colombia</string>
     <string name="startup_preparing_model">Cargando el modelo local…</string>
     <string name="startup_logo_cd">Logo de Anura</string>
+
+    <!-- LOGIN OR SINGUO (bienvenida) — textos exactos de Penpot -->
+    <string name="welcome_hero_cd">Anuro en primer plano</string>
+    <string name="welcome_title">Conoce sobre anuros</string>
+    <string name="welcome_body">Identificá los anuros de Colombia desde el campo, con o sin señal.</string>
+    <string name="welcome_create_account">Crear cuenta</string>
+    <string name="welcome_have_account">Ya tengo cuenta</string>
+    <string name="welcome_continue_without_account">Entrar sin cuenta</string>
 </resources>

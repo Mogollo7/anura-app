@@ -1,0 +1,16 @@
+---
+description: Conservar espaciado entre elementos; el contenedor puede redimensionarse
+globs: anura-android/**/*.kt
+alwaysApply: false
+---
+
+# Espaciado Compose ↔ Penpot
+
+Al implementar o ajustar pantallas ANURA desde Penpot:
+
+1. **Los huecos entre elementos del mismo nivel son fijos** (título↔cuerpo, cuerpo↔botones, botón↔botón, etc.). No comprimirlos ni sustituirlos por `weight` / `Arrangement.SpaceBetween` para “llenar” la pantalla.
+2. **Si la pantalla es pequeña y no cabe el layout**, quien cede espacio es el **contenedor** (p. ej. `Container de bienvenido, botones y texto` / sheet), no los gaps. El contenedor puede reducir altura, padding externo o `minHeight`; el hero puede usar `weight(1f)` y encogerse.
+3. **Nunca** forzar un `minHeight` del sheet tan alto que deje el hero en 0 dp.
+4. CTAs secundarios tipo “Entrar sin cuenta” van al final del contenedor con gap fijo respecto al bloque anterior; no robar espacio de los gaps tipográficos.
+
+Ejemplo bienvenida: conservar `WelcomeTitleToBodyGap`, `WelcomeBodyToButtonsGap`, `WelcomePrimaryToOutlineGap`; el sheet hace wrap del contenido.
