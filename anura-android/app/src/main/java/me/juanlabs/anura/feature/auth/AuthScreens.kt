@@ -23,7 +23,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -45,14 +44,11 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -70,21 +66,17 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
  * `COMP · Botones` (60 / radio 30). Aquí priman las del mockup de pantalla.
  *
  * Regla de layout: gaps entre elementos del sheet son fijos; si no cabe, el
- * contenedor (`Surface` / sheet) cede altura (Spacer del hero) — nunca se
- * comprimen esos gaps. «Entrar sin cuenta» se ancla al bottom como el status
- * del splash (`spaceSection` + `navigationBarsPadding`). Contenedor blanco:
- * radio superior 30 dp.
+ * contenedor (`Surface` / sheet) cede altura (hero con `weight`) — nunca se
+ * comprimen esos gaps. Contenedor blanco: radio superior 30 dp.
  */
 private val WelcomeSheetTopRadius = 30.dp
 private val WelcomeButtonHeight = 50.dp
 private val WelcomeButtonRadius = 12.dp
 private val WelcomeButtonHorizontalInset = 56.dp
 private val WelcomeSheetTopPadding = 47.dp
+private val WelcomeSheetBottomPadding = AnuraDimens.spaceSection
 private val WelcomePrimaryToOutlineGap = 10.dp
-private val WelcomeOutlineToGuestGap = 12.dp
-/** Margen entre «Entrar sin cuenta» y el borde inferior. */
-private val WelcomeGuestBottomMargin = AnuraDimens.spaceSection
-/** Piso del área hero (Spacer sobre la imagen) para que no desaparezca. */
+/** Piso del área hero para que no desaparezca. */
 private val WelcomeHeroMinHeight = 160.dp
 
 /** Huecos tipográficos fijos (nivel sheet). */
@@ -106,21 +98,15 @@ private val WelcomeOutlineStroke = Color(0xFF626264)
 /**
  * `LOGIN OR SINGUO (bienvenida)` (§4.1, grafo `AuthGraph`).
  *
- * Estados: pantalla estática de entrada — sin loading/error propios. Tres acciones
- * de navegación ya cableadas en [me.juanlabs.anura.navigation.AnuraNavHost]:
- * crear cuenta → [AnuraRoute.SignUp], ya tengo cuenta → [AnuraRoute.SignIn],
- * entrar sin cuenta → Home (pop AuthGraph), decisión 6/7.
- *
- * Misma estructura que [StartupLoadingScreen]: bloque superior `weight(1f)` +
- * CTA abajo con margen al borde inferior.
+ * Estados: pantalla estática de entrada — sin loading/error propios. Acciones:
+ * crear cuenta → [AnuraRoute.SignUp], ya tengo cuenta → [AnuraRoute.SignIn].
+ * El acceso sin cuenta vive en Iniciar sesión / Crear cuenta.
  *
  * Altura de la imagen: desde el top hasta donde empieza «Conoce sobre anuros».
- * El sheet se solapa 30 dp sobre la rana (radio superior) sin franja extra entre
- * botones y «Entrar sin cuenta».
+ * El sheet se solapa 30 dp sobre la rana (radio superior) sin franjas extra.
  */
 @Composable
 fun WelcomeScreen(
-    onContinueWithoutAccount: () -> Unit,
     onGoToSignIn: () -> Unit,
     onGoToSignUp: () -> Unit,
 ) {
@@ -132,146 +118,115 @@ fun WelcomeScreen(
             .navigationBarsPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Column(
+        // Hero flexible: al quitar el CTA inferior, el sheet se encoge y la
+        // imagen gana el espacio liberado sin cambiar BiasAlignment/crop.
+        Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .heightIn(min = WelcomeHeroMinHeight),
         ) {
-            // Zona hero: la rana termina donde empieza el sheet / título.
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .heightIn(min = WelcomeHeroMinHeight),
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.welcome_hero),
-                    contentDescription = stringResource(R.string.welcome_hero_cd),
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop,
-                    alignment = WelcomeHeroAlignment,
-                )
-            }
+            Image(
+                painter = painterResource(R.drawable.welcome_hero),
+                contentDescription = stringResource(R.string.welcome_hero_cd),
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+                alignment = WelcomeHeroAlignment,
+            )
+        }
 
-            // Un solo contenedor blanco: solapa 30 dp la imagen (radio) y reduce
-            // su altura de layout para no dejar hueco ni franja lateral.
-            Surface(
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .layout { measurable, constraints ->
+                    val placeable = measurable.measure(constraints)
+                    val overlap = WelcomeSheetTopRadius.roundToPx()
+                    layout(placeable.width, placeable.height - overlap) {
+                        placeable.placeRelative(0, -overlap)
+                    }
+                },
+            shape = RoundedCornerShape(
+                topStart = WelcomeSheetTopRadius,
+                topEnd = WelcomeSheetTopRadius,
+            ),
+            color = surfaceColor,
+        ) {
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .layout { measurable, constraints ->
-                        val placeable = measurable.measure(constraints)
-                        val overlap = WelcomeSheetTopRadius.roundToPx()
-                        layout(placeable.width, placeable.height - overlap) {
-                            placeable.placeRelative(0, -overlap)
-                        }
-                    },
-                shape = RoundedCornerShape(
-                    topStart = WelcomeSheetTopRadius,
-                    topEnd = WelcomeSheetTopRadius,
-                ),
-                color = surfaceColor,
+                    .padding(horizontal = WelcomeButtonHorizontalInset)
+                    .padding(
+                        top = WelcomeSheetTopPadding,
+                        bottom = WelcomeSheetBottomPadding,
+                    ),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Column(
+                Text(
+                    text = stringResource(R.string.welcome_title),
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 28.sp,
+                        lineHeight = 34.sp,
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                )
+
+                Spacer(modifier = Modifier.height(WelcomeTitleToBodyGap))
+
+                Text(
+                    text = stringResource(R.string.welcome_body),
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 15.sp,
+                        lineHeight = 22.sp,
+                    ),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+
+                Spacer(modifier = Modifier.height(WelcomeBodyToButtonsGap))
+
+                Button(
+                    onClick = onGoToSignUp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(WelcomeButtonHeight),
+                    shape = RoundedCornerShape(WelcomeButtonRadius),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = AnuraTheme.extendedColors.accentInk,
+                        contentColor = MaterialTheme.colorScheme.onPrimary,
+                    ),
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = WelcomeButtonHorizontalInset)
-                            .padding(
-                                top = WelcomeSheetTopPadding,
-                                bottom = WelcomeOutlineToGuestGap,
-                            ),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Text(
-                            text = stringResource(R.string.welcome_title),
-                            style = MaterialTheme.typography.headlineMedium.copy(
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 28.sp,
-                                lineHeight = 34.sp,
-                            ),
-                            color = MaterialTheme.colorScheme.onSurface,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth(),
-                        )
+                    Text(
+                        text = stringResource(R.string.welcome_create_account),
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontWeight = FontWeight.SemiBold,
+                        ),
+                    )
+                }
 
-                        Spacer(modifier = Modifier.height(WelcomeTitleToBodyGap))
+                Spacer(modifier = Modifier.height(WelcomePrimaryToOutlineGap))
 
-                        Text(
-                            text = stringResource(R.string.welcome_body),
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 15.sp,
-                                lineHeight = 22.sp,
-                            ),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth(),
-                        )
-
-                        Spacer(modifier = Modifier.height(WelcomeBodyToButtonsGap))
-
-                        Button(
-                            onClick = onGoToSignUp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(WelcomeButtonHeight),
-                            shape = RoundedCornerShape(WelcomeButtonRadius),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = AnuraTheme.extendedColors.accentInk,
-                                contentColor = MaterialTheme.colorScheme.onPrimary,
-                            ),
-                        ) {
-                            Text(
-                                text = stringResource(R.string.welcome_create_account),
-                                style = MaterialTheme.typography.titleLarge.copy(
-                                    fontWeight = FontWeight.SemiBold,
-                                ),
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.height(WelcomePrimaryToOutlineGap))
-
-                        OutlinedButton(
-                            onClick = onGoToSignIn,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(WelcomeButtonHeight),
-                            shape = RoundedCornerShape(WelcomeButtonRadius),
-                            border = BorderStroke(2.dp, WelcomeOutlineStroke),
-                            colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = MaterialTheme.colorScheme.onSurface,
-                            ),
-                        ) {
-                            Text(
-                                text = stringResource(R.string.welcome_have_account),
-                                style = MaterialTheme.typography.titleMedium.copy(
-                                    fontWeight = FontWeight.SemiBold,
-                                ),
-                            )
-                        }
-                    }
-
-                    TextButton(
-                        onClick = onContinueWithoutAccount,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = WelcomeButtonHorizontalInset)
-                            .sizeIn(minHeight = AnuraDimens.sizeTouch)
-                            .padding(bottom = WelcomeGuestBottomMargin),
-                    ) {
-                        Text(
-                            text = stringResource(R.string.welcome_continue_without_account),
-                            style = MaterialTheme.typography.bodySmall.copy(
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = 13.sp,
-                            ),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            textAlign = TextAlign.Center,
-                        )
-                    }
+                OutlinedButton(
+                    onClick = onGoToSignIn,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(WelcomeButtonHeight),
+                    shape = RoundedCornerShape(WelcomeButtonRadius),
+                    border = BorderStroke(2.dp, WelcomeOutlineStroke),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.onSurface,
+                    ),
+                ) {
+                    Text(
+                        text = stringResource(R.string.welcome_have_account),
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.SemiBold,
+                        ),
+                    )
                 }
             }
         }
@@ -290,6 +245,8 @@ private val AuthSecondaryButtonHeight = 56.dp
 private val AuthFieldRadius = 12.dp
 private val AuthContentInset = 19.dp
 private val AuthProfileCardHeight = 72.dp
+/** Misma distancia al borde inferior en Iniciar sesión y Crear cuenta. */
+private val AuthFooterBottomMargin = AnuraDimens.spaceSection
 
 private enum class SignUpUsageProfile {
     Curiosity,
@@ -300,8 +257,8 @@ private enum class SignUpUsageProfile {
  * `INICIAR SECCION` (§4.1).
  *
  * Estados locales mock: texto de correo/contraseña, visibilidad de contraseña.
- * Sin loading/error de red (auth real aún no conectada). Acciones:
- * Entrar / Google / sin conexión → Home; Crear una → SignUp; olvidé contraseña → no-op mock.
+ * Sin loading/error de red. Entrar → Home; Entrar sin cuenta → Home (invitado);
+ * Crear una → SignUp; olvidé contraseña → no-op mock.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -309,7 +266,7 @@ fun SignInScreen(
     onBackClick: () -> Unit,
     onSignedIn: () -> Unit,
     onGoToSignUp: () -> Unit,
-    onContinueOffline: () -> Unit,
+    onContinueWithoutAccount: () -> Unit,
     onForgotPassword: () -> Unit = {},
 ) {
     var email by remember { mutableStateOf("") }
@@ -328,6 +285,7 @@ fun SignInScreen(
             AnuraTopBar(
                 title = stringResource(R.string.sign_in_title),
                 onBackClick = onBackClick,
+                centerTitle = true,
             )
 
             Column(
@@ -414,47 +372,21 @@ fun SignInScreen(
                     onClick = onSignedIn,
                 )
 
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-
-                AuthOrDivider()
-
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
 
                 AuthOutlineButton(
-                    text = stringResource(R.string.sign_in_google),
-                    onClick = onSignedIn,
-                )
-
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-
-                AuthSecondaryIconButton(
-                    text = stringResource(R.string.sign_in_offline),
-                    icon = AnuraIcons.CloudOff,
-                    onClick = onContinueOffline,
+                    text = stringResource(R.string.sign_in_without_account),
+                    onClick = onContinueWithoutAccount,
                 )
             }
 
-            val noAccount = stringResource(R.string.sign_in_no_account)
-            val createOne = stringResource(R.string.sign_in_create_one)
-            Text(
-                text = buildAnnotatedString {
-                    append(noAccount)
-                    withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                        append(createOne)
-                    }
-                },
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 15.sp,
-                ),
-                color = AnuraTheme.extendedColors.accentInk,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable(role = Role.Button, onClick = onGoToSignUp)
-                    .padding(AnuraDimens.spaceSection)
-                    .sizeIn(minHeight = AnuraDimens.sizeTouch),
-            )
+            AuthFormFooter {
+                AuthFooterLinkRow(
+                    prefix = stringResource(R.string.sign_in_no_account),
+                    action = stringResource(R.string.sign_in_create_one),
+                    onActionClick = onGoToSignUp,
+                )
+            }
         }
     }
 }
@@ -470,7 +402,8 @@ fun SignInScreen(
 fun SignUpScreen(
     onBackClick: () -> Unit,
     onSignedUp: () -> Unit,
-    @Suppress("UNUSED_PARAMETER") onGoToSignIn: () -> Unit,
+    onGoToSignIn: () -> Unit,
+    onContinueWithoutAccount: () -> Unit,
 ) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -491,6 +424,7 @@ fun SignUpScreen(
             AnuraTopBar(
                 title = stringResource(R.string.sign_up_title),
                 onBackClick = onBackClick,
+                centerTitle = true,
             )
 
             Column(
@@ -657,22 +591,77 @@ fun SignUpScreen(
                     onClick = onSignedUp,
                     enabled = termsAccepted,
                 )
+
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+
+                AuthOutlineButton(
+                    text = stringResource(R.string.sign_up_without_account),
+                    onClick = onContinueWithoutAccount,
+                )
             }
 
-            Text(
-                text = stringResource(R.string.sign_up_guest_note),
-                style = MaterialTheme.typography.labelLarge.copy(
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 11.sp,
-                ),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = AuthContentInset)
-                    .padding(bottom = AnuraDimens.spaceSection),
-            )
+            AuthFormFooter {
+                AuthFooterLinkRow(
+                    prefix = stringResource(R.string.sign_up_footer_prefix),
+                    action = stringResource(R.string.sign_up_footer_sign_in),
+                    onActionClick = onGoToSignIn,
+                )
+            }
         }
+    }
+}
+
+/** Pie de auth: misma altura y margen inferior en SignIn y SignUp. */
+@Composable
+private fun AuthFormFooter(
+    content: @Composable () -> Unit,
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = AuthContentInset)
+            .padding(bottom = AuthFooterBottomMargin)
+            .sizeIn(minHeight = AnuraDimens.sizeTouch),
+        contentAlignment = Alignment.Center,
+    ) {
+        content()
+    }
+}
+
+/**
+ * Prefijo en color secundario + espacio horizontal + acción en verde, misma baseline.
+ */
+@Composable
+private fun AuthFooterLinkRow(
+    prefix: String,
+    action: String,
+    onActionClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center,
+    ) {
+        Text(
+            text = prefix,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.Normal,
+                fontSize = 15.sp,
+            ),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.alignByBaseline(),
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(
+            text = action,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 15.sp,
+            ),
+            color = AnuraTheme.extendedColors.accentInk,
+            modifier = Modifier
+                .alignByBaseline()
+                .clickable(role = Role.Button, onClick = onActionClick),
+        )
     }
 }
 
@@ -731,66 +720,6 @@ private fun AuthOutlineButton(
 }
 
 @Composable
-private fun AuthSecondaryIconButton(
-    text: String,
-    icon: ImageVector,
-    onClick: () -> Unit,
-) {
-    OutlinedButton(
-        onClick = onClick,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(AuthSecondaryButtonHeight),
-        shape = RoundedCornerShape(AuthFieldRadius),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
-        colors = ButtonDefaults.outlinedButtonColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = AnuraTheme.extendedColors.accentInk,
-        ),
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(24.dp),
-        )
-        Spacer(modifier = Modifier.width(AnuraDimens.spaceGap))
-        Text(
-            text = text,
-            style = MaterialTheme.typography.titleMedium.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 15.sp,
-            ),
-        )
-    }
-}
-
-@Composable
-private fun AuthOrDivider() {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        HorizontalDivider(
-            modifier = Modifier.weight(1f),
-            color = MaterialTheme.colorScheme.outlineVariant,
-        )
-        Text(
-            text = stringResource(R.string.sign_in_or),
-            style = MaterialTheme.typography.labelLarge.copy(
-                fontWeight = FontWeight.Medium,
-                fontSize = 11.sp,
-            ),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = AnuraDimens.spaceGap),
-        )
-        HorizontalDivider(
-            modifier = Modifier.weight(1f),
-            color = MaterialTheme.colorScheme.outlineVariant,
-        )
-    }
-}
-
-@Composable
 private fun SignUpProfileCard(
     label: String,
     icon: ImageVector,
@@ -842,7 +771,6 @@ private fun SignUpProfileCard(
 private fun WelcomeScreenPreview() {
     AnuraTheme {
         WelcomeScreen(
-            onContinueWithoutAccount = {},
             onGoToSignIn = {},
             onGoToSignUp = {},
         )
@@ -854,7 +782,6 @@ private fun WelcomeScreenPreview() {
 private fun WelcomeScreenPreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
         WelcomeScreen(
-            onContinueWithoutAccount = {},
             onGoToSignIn = {},
             onGoToSignUp = {},
         )
@@ -869,7 +796,7 @@ private fun SignInScreenPreview() {
             onBackClick = {},
             onSignedIn = {},
             onGoToSignUp = {},
-            onContinueOffline = {},
+            onContinueWithoutAccount = {},
         )
     }
 }
@@ -882,6 +809,7 @@ private fun SignUpScreenPreview() {
             onBackClick = {},
             onSignedUp = {},
             onGoToSignIn = {},
+            onContinueWithoutAccount = {},
         )
     }
 }

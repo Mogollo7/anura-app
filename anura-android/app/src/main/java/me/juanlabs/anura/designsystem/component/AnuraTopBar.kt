@@ -2,6 +2,7 @@ package me.juanlabs.anura.designsystem.component
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -11,6 +12,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
@@ -20,8 +22,9 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
 /**
  * Barra superior de ANURA (presente en casi todas las pantallas de detalle, §3.9):
- * flecha volver + título. Envuelve `TopAppBar` de Material 3, `scrollBehavior`
- * conectable por quien la use (§3.9).
+ * flecha volver + título. Envuelve `TopAppBar` / `CenterAlignedTopAppBar` de Material 3.
+ *
+ * [centerTitle]: centra el título en el ancho de pantalla (auth Iniciar sesión / Crear cuenta).
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,27 +32,46 @@ fun AnuraTopBar(
     title: String,
     modifier: Modifier = Modifier,
     onBackClick: (() -> Unit)? = null,
+    centerTitle: Boolean = false,
     actions: @Composable RowScope.() -> Unit = {},
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
-    TopAppBar(
-        title = {
-            Text(text = title, style = MaterialTheme.typography.titleLarge)
-        },
-        modifier = modifier,
-        navigationIcon = {
-            if (onBackClick != null) {
-                IconButton(
-                    onClick = onBackClick,
-                    modifier = Modifier.size(AnuraDimens.sizeTouch),
-                ) {
-                    Icon(imageVector = AnuraIcons.Back, contentDescription = "Volver")
-                }
+    val titleContent: @Composable () -> Unit = {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleLarge.copy(
+                fontWeight = if (centerTitle) FontWeight.Bold else FontWeight.Normal,
+            ),
+        )
+    }
+    val navigationIcon: @Composable () -> Unit = {
+        if (onBackClick != null) {
+            IconButton(
+                onClick = onBackClick,
+                modifier = Modifier.size(AnuraDimens.sizeTouch),
+            ) {
+                Icon(imageVector = AnuraIcons.Back, contentDescription = "Volver")
             }
-        },
-        actions = actions,
-        scrollBehavior = scrollBehavior,
-    )
+        }
+    }
+
+    if (centerTitle) {
+        CenterAlignedTopAppBar(
+            title = titleContent,
+            modifier = modifier,
+            navigationIcon = navigationIcon,
+            actions = actions,
+            scrollBehavior = scrollBehavior,
+        )
+    } else {
+        TopAppBar(
+            title = titleContent,
+            modifier = modifier,
+            navigationIcon = navigationIcon,
+            actions = actions,
+            scrollBehavior = scrollBehavior,
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

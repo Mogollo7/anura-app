@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,9 +32,9 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
  * OutlinedTextField M3"), así que se usa la forma por defecto de Material 3
  * ([me.juanlabs.anura.designsystem.theme.AnuraShapes]), sin reinventar el componente.
  *
- * El icono trailing solo es interactivo (`IconButton`, objetivo táctil ≥48dp) cuando
- * se provee [onTrailingIconClick]; de lo contrario es puramente informativo (p.ej. un
- * ícono de error) y no roba foco de TalkBack.
+ * Focus: borde, etiqueta, texto e iconos se mantienen en colores neutros (sin acento
+ * primario). El trailing solo es interactivo (`IconButton`, ≥48dp) cuando se provee
+ * [onTrailingIconClick].
  */
 @Composable
 fun AnuraTextField(
@@ -52,6 +54,13 @@ fun AnuraTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     visualTransformation: VisualTransformation = VisualTransformation.None,
 ) {
+    val scheme = MaterialTheme.colorScheme
+    val neutralBorder = scheme.outline
+    val neutralLabel = scheme.onSurfaceVariant
+    val neutralText = scheme.onSurface
+    val neutralIcon = scheme.onSurfaceVariant
+    val errorColor = scheme.error
+
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
@@ -64,6 +73,33 @@ fun AnuraTextField(
         singleLine = singleLine,
         visualTransformation = visualTransformation,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = if (isError) errorColor else neutralBorder,
+            unfocusedBorderColor = if (isError) errorColor else neutralBorder,
+            disabledBorderColor = neutralBorder.copy(alpha = 0.38f),
+            errorBorderColor = errorColor,
+            focusedLabelColor = if (isError) errorColor else neutralLabel,
+            unfocusedLabelColor = if (isError) errorColor else neutralLabel,
+            disabledLabelColor = neutralLabel.copy(alpha = 0.38f),
+            errorLabelColor = errorColor,
+            focusedTextColor = neutralText,
+            unfocusedTextColor = neutralText,
+            disabledTextColor = neutralText.copy(alpha = 0.38f),
+            errorTextColor = neutralText,
+            cursorColor = neutralText,
+            errorCursorColor = errorColor,
+            focusedPlaceholderColor = neutralLabel,
+            unfocusedPlaceholderColor = neutralLabel,
+            disabledPlaceholderColor = neutralLabel.copy(alpha = 0.38f),
+            focusedLeadingIconColor = if (isError) errorColor else neutralIcon,
+            unfocusedLeadingIconColor = if (isError) errorColor else neutralIcon,
+            disabledLeadingIconColor = neutralIcon.copy(alpha = 0.38f),
+            errorLeadingIconColor = errorColor,
+            focusedTrailingIconColor = if (isError) errorColor else neutralIcon,
+            unfocusedTrailingIconColor = if (isError) errorColor else neutralIcon,
+            disabledTrailingIconColor = neutralIcon.copy(alpha = 0.38f),
+            errorTrailingIconColor = errorColor,
+        ),
         leadingIcon = leadingIcon?.let { icon ->
             { Icon(imageVector = icon, contentDescription = null) }
         },

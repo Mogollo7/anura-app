@@ -69,11 +69,6 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
     navigation<AnuraRoute.AuthGraph>(startDestination = AnuraRoute.Welcome) {
         composable<AnuraRoute.Welcome> {
             WelcomeScreen(
-                onContinueWithoutAccount = {
-                    navController.navigate(AnuraRoute.Home) {
-                        popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
-                    }
-                },
                 onGoToSignIn = { navController.navigate(AnuraRoute.SignIn) },
                 onGoToSignUp = { navController.navigate(AnuraRoute.SignUp) },
             )
@@ -87,7 +82,7 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                     }
                 },
                 onGoToSignUp = { navController.navigate(AnuraRoute.SignUp) },
-                onContinueOffline = {
+                onContinueWithoutAccount = {
                     navController.navigate(AnuraRoute.Home) {
                         popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
                     }
@@ -103,6 +98,11 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                     }
                 },
                 onGoToSignIn = { navController.navigate(AnuraRoute.SignIn) },
+                onContinueWithoutAccount = {
+                    navController.navigate(AnuraRoute.Home) {
+                        popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+                    }
+                },
             )
         }
     }
