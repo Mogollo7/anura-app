@@ -2,7 +2,8 @@ package me.juanlabs.anura.designsystem.icon
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
@@ -15,10 +16,12 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.TravelExplore
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material.icons.filled.Warning
@@ -45,11 +48,11 @@ object AnuraIcons {
     val Info: ImageVector = Icons.Filled.Info
     val Empty: ImageVector = Icons.Filled.Search
 
-    // Navbar (§3.9 AnuraNavBar) + FAB central ("+").
+    // Navbar (§3.9 AnuraNavBar) + FAB central ("+") — glifos Material alineados a Penpot.
     val Home: ImageVector = Icons.Filled.Home
-    val Explore: ImageVector = Icons.Filled.Search
-    val Observations: ImageVector = Icons.AutoMirrored.Filled.List
-    val Settings: ImageVector = Icons.Filled.Settings
+    val Explore: ImageVector = Icons.Filled.TravelExplore
+    val Observations: ImageVector = Icons.AutoMirrored.Filled.FormatListBulleted
+    val Settings: ImageVector = Icons.Filled.Tune
     val Add: ImageVector = Icons.Filled.Add
 
     // Auth — INICIAR SECCION / crear cuenta (Material, no Penpot).
@@ -62,4 +65,10 @@ object AnuraIcons {
     val Check: ImageVector = Icons.Filled.Check
     val Curiosity: ImageVector = Icons.Filled.TravelExplore
     val Study: ImageVector = Icons.Filled.MenuBook
+
+    // home — Foto ID / Audio ID / Paso a paso + chip de salida.
+    val PhotoId: ImageVector = Icons.Filled.PhotoCamera
+    val AudioId: ImageVector = Icons.Filled.Mic
+    val StepByStep: ImageVector = Icons.AutoMirrored.Filled.FormatListBulleted
+    val ChevronRight: ImageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight
 }

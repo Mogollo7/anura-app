@@ -51,4 +51,26 @@
     <string name="sign_up_without_account">Entrar sin cuenta</string>
     <string name="sign_up_footer_prefix">¿Ya tienes cuenta?</string>
     <string name="sign_up_footer_sign_in">Iniciar sesión</string>
+
+    <!-- home — textos exactos de Penpot -->
+    <string name="home_brand_welcome">Bienvenido</string>
+    <string name="home_greeting">Hola, %1$s</string>
+    <string name="home_user_name_mock">Sebastián</string>
+    <string name="home_avatar_cd">Abrir perfil</string>
+    <string name="home_loading">Cargando inicio…</string>
+    <string name="home_carousel_where_to_look">En dónde mirar</string>
+    <string name="home_carousel_featured_photo">Foto destacada</string>
+    <string name="home_carousel_endangered">En peligro de extinción</string>
+    <string name="home_carousel_frog_of_day">Rana del día</string>
+    <string name="home_carousel_card_cd">%1$s. %2$s. %3$s</string>
+    <string name="home_action_step_by_step">Paso a paso</string>
+    <string name="home_action_photo_id">Foto ID</string>
+    <string name="home_action_audio_id">Audio ID</string>
+    <string name="home_field_session_title">Salida de campo en curso</string>
+    <string name="home_field_session_meta">%1$s · %2$s · %3$s</string>
+    <string name="home_field_session_open_cd">Abrir salida de campo</string>
+    <plurals name="home_field_session_registers">
+        <item quantity="one">%d registro</item>
+        <item quantity="other">%d registros</item>
+    </plurals>
 </resources>

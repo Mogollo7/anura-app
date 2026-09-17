@@ -111,9 +111,12 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
 private fun NavGraphBuilder.topLevelDestinations(navController: NavHostController) {
     composable<AnuraRoute.Home> {
         HomeScreen(
-            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
+            onOpenProfile = { navController.navigate(AnuraRoute.Profile(userId = null)) },
             onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
             onOpenFieldSession = { sessionId -> navController.navigate(AnuraRoute.FieldSession(sessionId)) },
+            onPhotoId = { navController.navigate(AnuraRoute.PhotoCapture) },
+            onAudioId = { navController.navigate(AnuraRoute.AudioCapture) },
+            onStepByStep = { navController.navigate(AnuraRoute.CaptureGraph) },
         )
     }
     composable<AnuraRoute.Explore> {

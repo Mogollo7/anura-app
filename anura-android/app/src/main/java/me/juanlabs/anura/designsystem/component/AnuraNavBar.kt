@@ -1,61 +1,209 @@
 package me.juanlabs.anura.designsystem.component
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
+import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
 /**
  * Un destino de la barra inferior. Puramente presentacional: no conoce `AnuraRoute` ni
  * `NavController` (regla de frontera §2 — `designsystem` no depende de `navigation`).
- * Quien la usa (`navigation/AnuraScaffold`) traduce la selección de índice a
- * navegación real.
  */
 data class AnuraNavBarItem(
     val label: String,
     val icon: ImageVector,
 )
 
+/** Medidas Penpot `navbar` en `home`: grupo 350×113, píldora 350×75 @ y=38, FAB 80×80 @ y=0. */
+private val AnuraNavChromeHeight = 113.dp
+private val AnuraNavPillHeight = 75.dp
+private val AnuraNavPillRadius = 38.dp
+private val AnuraNavPillHorizontalInset = 22.dp
+private val AnuraNavFabSize = AnuraDimens.sizeThumb // 80 dp
+private val AnuraNavFabIconSize = 32.dp
+private val AnuraNavItemIconSize = 24.dp
+
 /**
- * Barra de navegación inferior de ANURA (`COMP · Navbar`, §3.9). Se usa el
- * `NavigationBar` de Material 3 (decisión 8/9, §3.7-P2), no la píldora Liquid Glass
- * de Penpot: se conserva la composición (4 destinos con etiqueta) y el acento; se
- * pierde el fondo flotante.
+ * Barra inferior ANURA fiel a Penpot (`COMP · Navbar` / `home` · navbar):
+ * píldora Liquid Glass + FAB central 80×80 tintado de marca integrado en el eje
+ * (no un FAB flotante del Scaffold).
  *
- * §3.7-P5/P9: Penpot especifica que el ítem activo "no crece, cero tween de posición o
- * escala" — se usan los valores por defecto de M3 (solo cambio de color/indicador), sin
- * añadir animación de escala o posición.
- *
- * `material-icons-core` no tiene una pareja filled/outline para estos iconos concretos
- * (sí la tiene `Favorite`/`FavoriteBorder`, pero no `Home`/`Search`/`List`/`Settings`):
- * la diferenciación seleccionado/no-seleccionado se resuelve con el color de M3 por
- * defecto, no con un cambio de glifo. Se documenta como limitación temporal del set de
- * iconos (§3.8), a corregir cuando se importen los SVG reales de Penpot.
+ * Iconos Material; 4 destinos con etiqueta; el hueco central es el FAB.
  */
 @Composable
 fun AnuraNavBar(
     items: List<AnuraNavBarItem>,
     selectedIndex: Int,
     onItemSelected: (Int) -> Unit,
+    onFabClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    NavigationBar(modifier = modifier) {
-        items.forEachIndexed { index, item ->
-            NavigationBarItem(
-                selected = index == selectedIndex,
-                onClick = { onItemSelected(index) },
-                icon = { Icon(imageVector = item.icon, contentDescription = null) },
-                label = { Text(item.label) },
-            )
+    require(items.size == 4) {
+        "AnuraNavBar espera exactamente 4 destinos (Inicio · Explorar · Listado · Ajustes)."
+    }
+
+    val extended = AnuraTheme.extendedColors
+    val pillStroke = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
+
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .navigationBarsPadding()
+            .padding(horizontal = AnuraNavPillHorizontalInset)
+            .height(AnuraNavChromeHeight),
+    ) {
+        // Píldora Liquid Glass (blanca 92%) anclada abajo; el FAB la solapa desde arriba.
+        Surface(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .height(AnuraNavPillHeight),
+            shape = RoundedCornerShape(AnuraNavPillRadius),
+            color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
+            border = BorderStroke(1.dp, pillStroke),
+            shadowElevation = 8.dp,
+            tonalElevation = 0.dp,
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Row(
+                    modifier = Modifier.weight(1f),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    AnuraNavTab(
+                        item = items[0],
+                        selected = selectedIndex == 0,
+                        onClick = { onItemSelected(0) },
+                    )
+                    AnuraNavTab(
+                        item = items[1],
+                        selected = selectedIndex == 1,
+                        onClick = { onItemSelected(1) },
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(AnuraNavFabSize))
+
+                Row(
+                    modifier = Modifier.weight(1f),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    AnuraNavTab(
+                        item = items[2],
+                        selected = selectedIndex == 2,
+                        onClick = { onItemSelected(2) },
+                    )
+                    AnuraNavTab(
+                        item = items[3],
+                        selected = selectedIndex == 3,
+                        onClick = { onItemSelected(3) },
+                    )
+                }
+            }
         }
+
+        // FAB 80×80 · Liquid Glass TINTADO de marca — clickable estático (sin
+        // Surface(onClick), que anima elevation y puede percibirse como salto).
+        Surface(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .size(AnuraNavFabSize)
+                .clickable(role = Role.Button, onClick = onFabClick),
+            shape = CircleShape,
+            color = extended.accentIcon,
+            shadowElevation = 8.dp,
+            tonalElevation = 0.dp,
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    imageVector = AnuraIcons.Add,
+                    contentDescription = "Añadir observación",
+                    tint = MaterialTheme.colorScheme.onPrimary,
+                    modifier = Modifier.size(AnuraNavFabIconSize),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun AnuraNavTab(
+    item: AnuraNavBarItem,
+    selected: Boolean,
+    onClick: () -> Unit,
+) {
+    val tint = if (selected) {
+        AnuraTheme.extendedColors.accentInk
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+
+    Column(
+        modifier = Modifier
+            .sizeIn(minWidth = AnuraDimens.sizeTouch, minHeight = AnuraDimens.sizeTouch)
+            .clickable(role = Role.Button, onClick = onClick),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Icon(
+            imageVector = item.icon,
+            contentDescription = item.label,
+            tint = tint,
+            modifier = Modifier.size(AnuraNavItemIconSize),
+        )
+        Text(
+            text = item.label,
+            style = MaterialTheme.typography.labelMedium.copy(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 11.sp,
+            ),
+            color = tint,
+            textAlign = TextAlign.Center,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
     }
 }
 
@@ -64,10 +212,17 @@ private fun AnuraNavBarPreviewContent() {
     val items = listOf(
         AnuraNavBarItem("Inicio", AnuraIcons.Home),
         AnuraNavBarItem("Explorar", AnuraIcons.Explore),
-        AnuraNavBarItem("Observaciones", AnuraIcons.Observations),
+        AnuraNavBarItem("Listado", AnuraIcons.Observations),
         AnuraNavBarItem("Ajustes", AnuraIcons.Settings),
     )
-    AnuraNavBar(items = items, selectedIndex = 0, onItemSelected = {})
+    Box(modifier = Modifier.padding(top = 24.dp)) {
+        AnuraNavBar(
+            items = items,
+            selectedIndex = 0,
+            onItemSelected = {},
+            onFabClick = {},
+        )
+    }
 }
 
 @AnuraPreviews

@@ -70,7 +70,7 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
  * comprimen esos gaps. Contenedor blanco: radio superior 30 dp.
  */
 private val WelcomeSheetTopRadius = 30.dp
-private val WelcomeButtonHeight = 50.dp
+private val WelcomeButtonHeight = 56.dp
 private val WelcomeButtonRadius = 12.dp
 private val WelcomeButtonHorizontalInset = 56.dp
 private val WelcomeSheetTopPadding = 47.dp
@@ -202,9 +202,7 @@ fun WelcomeScreen(
                 ) {
                     Text(
                         text = stringResource(R.string.welcome_create_account),
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontWeight = FontWeight.SemiBold,
-                        ),
+                        style = authActionButtonTextStyle(),
                     )
                 }
 
@@ -223,9 +221,7 @@ fun WelcomeScreen(
                 ) {
                     Text(
                         text = stringResource(R.string.welcome_have_account),
-                        style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.SemiBold,
-                        ),
+                        style = authActionButtonTextStyle(),
                     )
                 }
             }
@@ -239,15 +235,20 @@ fun WelcomeScreen(
  */
 private val AuthFormBackground = Color(0xFFEFF4F0)
 
-/** Medidas de botones en los boards de auth (radio 12, no el pill 30 de COMP · Botones). */
-private val AuthPrimaryButtonHeight = 60.dp
-private val AuthSecondaryButtonHeight = 56.dp
+/** Medidas unificadas de botones de acción en auth (Iniciar / Crear / Bienvenida). */
+private val AuthActionButtonHeight = 56.dp
 private val AuthFieldRadius = 12.dp
 private val AuthContentInset = 19.dp
 private val AuthProfileCardHeight = 72.dp
 /** Misma distancia al borde inferior en Iniciar sesión y Crear cuenta. */
 private val AuthFooterBottomMargin = AnuraDimens.spaceSection
 
+/** Tipografía idéntica en Entrar / Entrar sin cuenta / Crear cuenta / Ya tengo cuenta. */
+@Composable
+private fun authActionButtonTextStyle() = MaterialTheme.typography.titleMedium.copy(
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 15.sp,
+)
 private enum class SignUpUsageProfile {
     Curiosity,
     Study,
@@ -676,7 +677,7 @@ private fun AuthPrimaryButton(
         enabled = enabled,
         modifier = Modifier
             .fillMaxWidth()
-            .height(AuthPrimaryButtonHeight),
+            .height(AuthActionButtonHeight),
         shape = RoundedCornerShape(AuthFieldRadius),
         colors = ButtonDefaults.buttonColors(
             containerColor = AnuraTheme.extendedColors.accentInk,
@@ -685,10 +686,7 @@ private fun AuthPrimaryButton(
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.titleLarge.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 20.sp,
-            ),
+            style = authActionButtonTextStyle(),
         )
     }
 }
@@ -702,7 +700,7 @@ private fun AuthOutlineButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .height(AuthSecondaryButtonHeight),
+            .height(AuthActionButtonHeight),
         shape = RoundedCornerShape(AuthFieldRadius),
         border = BorderStroke(2.dp, AnuraTheme.extendedColors.accentInk),
         colors = ButtonDefaults.outlinedButtonColors(
@@ -711,10 +709,7 @@ private fun AuthOutlineButton(
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.titleMedium.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 15.sp,
-            ),
+            style = authActionButtonTextStyle(),
         )
     }
 }
