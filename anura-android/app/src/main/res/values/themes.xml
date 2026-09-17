@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Tema post-splash: mismo fondo que `Estado · Cargando` para no parpadear. -->
+    <style name="Theme.ANURA" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/anura_board_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 
-    <style name="Theme.ANURA" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Splash nativo Android 12+: mismo board que Penpot `Estado · Cargando`. -->
+    <style name="Theme.ANURA.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/anura_board_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/anura_board_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.ANURA</item>
+    </style>
 </resources>

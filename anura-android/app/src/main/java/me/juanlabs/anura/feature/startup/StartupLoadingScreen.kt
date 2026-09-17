@@ -18,8 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -34,12 +34,6 @@ import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
-
-/**
- * Fondo exacto del board Penpot `Estado · Cargando (PANTALLA DE CARGA INICIO)` —
- * `#EFF4F0`. No es un token de tema (`bg.base` es `#F2F2F7`); es color de board.
- */
-private val StartupSplashBackground = Color(0xFFEFF4F0)
 
 /** Tamaño del `logoApp` en Penpot (178×181 dp sobre lienzo 393×852). */
 private val LogoWidth = 178.dp
@@ -79,7 +73,7 @@ fun StartupLoadingScreen(
 
     Surface(
         modifier = modifier.fillMaxSize(),
-        color = StartupSplashBackground,
+        color = colorResource(R.color.anura_board_background),
     ) {
         Column(
             modifier = Modifier

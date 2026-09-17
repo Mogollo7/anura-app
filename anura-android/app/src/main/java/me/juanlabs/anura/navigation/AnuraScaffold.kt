@@ -44,10 +44,10 @@ fun AnuraScaffold(navController: NavHostController = rememberNavController()) {
 
     Scaffold(
         bottomBar = {
-            if (showTabChrome && selectedTabIndex != null) {
+            selectedTabIndex?.let { tabIndex ->
                 AnuraNavBar(
                     items = TopLevelItems,
-                    selectedIndex = selectedTabIndex,
+                    selectedIndex = tabIndex,
                     onItemSelected = { index ->
                         navController.navigateToTab(TOP_LEVEL_ROUTES[index])
                     },

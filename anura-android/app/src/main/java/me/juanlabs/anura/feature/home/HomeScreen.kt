@@ -1,8 +1,10 @@
 package me.juanlabs.anura.feature.home
 
+import android.os.Build
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,9 +16,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -29,13 +34,23 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.LayoutCoordinates
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -47,8 +62,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.roundToInt
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraLoadingState
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
@@ -61,8 +78,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
  * Fondo de board Penpot `home` (`#EFF4F0`), igual que splash / auth. No es `bg.base`.
  */
 private val HomeBoardBackground = Color(0xFFEFF4F0)
-/** Panel cristal sobre la foto (Penpot `#1C1C1E` @ 55%). */
-private val HomeCarouselGlass = Color(0xFF1C1C1E)
 
 private val HomeAvatarSize = 40.dp
 private val HomeCarouselHorizontalInset = 28.dp
@@ -70,6 +85,8 @@ private val HomeCarouselAspect = 337f / 300f
 private val HomeCarouselRadius = 20.dp
 private val HomeOverlayInset = 15.dp
 private val HomeOverlayRadius = 12.dp
+/** Radio de desenfoque del vidrio claro (Apple HIG Light Glass / Vibrancy). */
+private val HomeGlassBlurRadius = 20.dp
 private val HomeDotSize = 15.dp
 private val HomeDotGap = 18.dp
 /** Penpot: secundarios 80, Foto ID 92×95. */
@@ -82,8 +99,8 @@ private val HomeChipHorizontalInset = 19.dp
 private val HomeHeaderToCarouselGap = 12.dp
 private val HomeCarouselToDotsGap = 12.dp
 private val HomeActionsToChipGap = 12.dp
-/** Hueco fijo puntos → acciones (Penpot ~66; compactado). No usar weight encima. */
-private val HomeDotsToActionsGap = 24.dp
+/** Hueco puntos → acciones (Penpot: 495 − 429 = 66). Solo este valor baja el grupo. */
+private val HomeDotsToActionsGap = 66.dp
 private val HomeBottomBreathing = 8.dp
 
 /**
@@ -288,64 +305,161 @@ private fun HomeCarouselCard(
         item.curiousFact,
     )
 
+    val painter = painterResource(item.imageRes)
+    var cardCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(HomeCarouselAspect)
             .clip(RoundedCornerShape(HomeCarouselRadius))
+            .onGloballyPositioned { cardCoords = it }
             .clickable(role = Role.Button, onClick = onClick)
             .semantics { contentDescription = cardCd },
     ) {
         Image(
-            painter = painterResource(item.imageRes),
+            painter = painter,
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
         )
 
-        // Degradado + panel cristal (Penpot: text bg + liquid glass).
-        Box(
+        HomeCarouselLightGlass(
+            painter = painter,
+            cardCoords = cardCoords,
+            categoryTitle = categoryTitle,
+            speciesName = item.speciesName,
+            curiousFact = item.curiousFact,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .padding(HomeOverlayInset)
-                .clip(RoundedCornerShape(HomeOverlayRadius))
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Black.copy(alpha = 0.45f),
-                            Color.Black.copy(alpha = 0.60f),
-                        ),
-                    ),
-                )
-                .background(HomeCarouselGlass.copy(alpha = 0.55f))
-                .padding(horizontal = 14.dp, vertical = 10.dp),
+                .padding(HomeOverlayInset),
+        )
+    }
+}
+
+/**
+ * Contenedor translúcido claro estilo Apple HIG (Light Glass / Vibrancy) sobre la foto:
+ * copia alineada de la imagen con blur (API 31+), tinte blanco y texto blanco con sombra.
+ */
+@Composable
+private fun HomeCarouselLightGlass(
+    painter: Painter,
+    cardCoords: LayoutCoordinates?,
+    categoryTitle: String,
+    speciesName: String,
+    curiousFact: String,
+    modifier: Modifier = Modifier,
+) {
+    val density = LocalDensity.current
+    val extended = AnuraTheme.extendedColors
+    val blurSupported = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+    val glassTint = if (blurSupported) extended.glassLight else extended.glassLightFallback
+    val overlayShape = RoundedCornerShape(HomeOverlayRadius)
+    var overlayCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    val onGlassShadow = remember(extended.onGlassShadow) {
+        Shadow(
+            color = extended.onGlassShadow,
+            offset = Offset(0f, 1f),
+            blurRadius = 8f,
+        )
+    }
+
+    Box(
+        modifier = modifier
+            .onGloballyPositioned { overlayCoords = it }
+            .clip(overlayShape)
+            .border(1.dp, extended.glassStroke, overlayShape),
+    ) {
+        val cardLayout = cardCoords
+        val overlayLayout = overlayCoords
+        val cardSize = cardLayout?.size
+        val overlayOrigin = if (
+            cardLayout != null &&
+            overlayLayout != null &&
+            cardLayout.isAttached &&
+            overlayLayout.isAttached
         ) {
-            Column(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = categoryTitle,
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 20.sp,
-                        lineHeight = 24.sp,
-                    ),
-                    color = Color.White,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(
-                    text = item.speciesName,
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        fontStyle = FontStyle.Italic,
-                        fontSize = 13.sp,
-                        lineHeight = 16.sp,
-                    ),
-                    color = Color.White,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+            cardLayout.localPositionOf(overlayLayout, Offset.Zero)
+        } else {
+            Offset.Zero
+        }
+
+        if (blurSupported && cardSize != null && cardSize.width > 0) {
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .wrapContentSize(unbounded = true, align = Alignment.TopStart),
+            ) {
+                Image(
+                    painter = painter,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .requiredSize(
+                            width = with(density) { cardSize.width.toDp() },
+                            height = with(density) { cardSize.height.toDp() },
+                        )
+                        .offset {
+                            IntOffset(
+                                x = -overlayOrigin.x.roundToInt(),
+                                y = -overlayOrigin.y.roundToInt(),
+                            )
+                        }
+                        .blur(HomeGlassBlurRadius),
                 )
             }
+        }
+
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .background(glassTint),
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 14.dp, vertical = 10.dp),
+        ) {
+            Text(
+                text = categoryTitle,
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp,
+                    lineHeight = 24.sp,
+                    shadow = onGlassShadow,
+                ),
+                color = extended.onGlass,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Spacer(modifier = Modifier.height(2.dp))
+            Text(
+                text = speciesName,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontStyle = FontStyle.Italic,
+                    fontSize = 13.sp,
+                    lineHeight = 16.sp,
+                    shadow = onGlassShadow,
+                ),
+                color = extended.onGlass,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Spacer(modifier = Modifier.height(2.dp))
+            Text(
+                text = curiousFact,
+                style = MaterialTheme.typography.bodySmall.copy(
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 12.sp,
+                    lineHeight = 15.sp,
+                    shadow = onGlassShadow,
+                ),
+                color = extended.onGlass,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
     }
 }

@@ -26,6 +26,16 @@ data class AnuraExtendedColors(
     val onWarning: Color,
     val onInfo: Color,
     val onSuccess: Color,
+    /**
+     * Vidrio claro HIG (Light Glass / Vibrancy) sobre media: tinte blanco translúcido.
+     * API 31+ se combina con backdrop blur; por debajo, usar [glassLightFallback].
+     */
+    val glassLight: Color,
+    val glassLightFallback: Color,
+    val glassStroke: Color,
+    /** Texto sobre vidrio claro. Siempre blanco (`Color.White`) para contraste sobre foto. */
+    val onGlass: Color,
+    val onGlassShadow: Color,
 )
 
 internal fun AnuraColorTokens.toExtendedColors(): AnuraExtendedColors = AnuraExtendedColors(
@@ -43,6 +53,12 @@ internal fun AnuraColorTokens.toExtendedColors(): AnuraExtendedColors = AnuraExt
     onWarning = Color(0xFF1C1C1E),
     onInfo = Color(0xFFFFFFFF),
     onSuccess = Color(0xFFFFFFFF),
+    // Light Glass HIG: mismo overlay sobre foto en claro/oscuro/luz roja.
+    glassLight = Color.White.copy(alpha = 0.32f),
+    glassLightFallback = Color.White.copy(alpha = 0.55f),
+    glassStroke = Color.White.copy(alpha = 0.42f),
+    onGlass = Color.White,
+    onGlassShadow = Color.Black.copy(alpha = 0.55f),
 )
 
 /** Valor por defecto sin usar: [AnuraTheme] siempre provee el valor real antes de `content`. */
@@ -59,5 +75,10 @@ internal val LocalAnuraExtendedColors = staticCompositionLocalOf {
         onWarning = Color.Unspecified,
         onInfo = Color.Unspecified,
         onSuccess = Color.Unspecified,
+        glassLight = Color.Unspecified,
+        glassLightFallback = Color.Unspecified,
+        glassStroke = Color.Unspecified,
+        onGlass = Color.Unspecified,
+        onGlassShadow = Color.Unspecified,
     )
 }

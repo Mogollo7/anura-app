@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
@@ -15,7 +16,6 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PhotoCamera
@@ -64,7 +64,7 @@ object AnuraIcons {
     val CloudOff: ImageVector = Icons.Filled.CloudOff
     val Check: ImageVector = Icons.Filled.Check
     val Curiosity: ImageVector = Icons.Filled.TravelExplore
-    val Study: ImageVector = Icons.Filled.MenuBook
+    val Study: ImageVector = Icons.AutoMirrored.Filled.MenuBook
 
     // home — Foto ID / Audio ID / Paso a paso + chip de salida.
     val PhotoId: ImageVector = Icons.Filled.PhotoCamera
