@@ -133,10 +133,10 @@ private fun AnuraStateScaffold(
             )
         }
         if (actionLabel != null && onAction != null) {
-            AnuraButton(
+            AnuraFormButton(
                 text = actionLabel,
                 onClick = onAction,
-                style = AnuraButtonStyle.Outline,
+                style = AnuraFormButtonStyle.Outline,
             )
         }
     }

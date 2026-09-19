@@ -108,6 +108,9 @@ sealed interface AnuraRoute {
     data object CaptureStep5 : AnuraRoute
 
     @Serializable
+    data object CaptureStep6 : AnuraRoute
+
+    @Serializable
     data object PhotoCapture : AnuraRoute
 
     @Serializable

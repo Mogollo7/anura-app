@@ -1,11 +1,15 @@
 package me.juanlabs.anura.feature.home
 
 import android.os.Build
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.indication
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +37,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,7 +48,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -71,13 +75,9 @@ import me.juanlabs.anura.designsystem.component.AnuraLoadingState
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
+import me.juanlabs.anura.designsystem.theme.AnuraMotion
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
-
-/**
- * Fondo de board Penpot `home` (`#EFF4F0`), igual que splash / auth. No es `bg.base`.
- */
-private val HomeBoardBackground = Color(0xFFEFF4F0)
 
 private val HomeAvatarSize = 40.dp
 private val HomeCarouselHorizontalInset = 28.dp
@@ -95,7 +95,6 @@ private val HomeActionPrimarySize = 92.dp
 /** Grupo acciones Penpot 326×117 @ x=29. */
 private val HomeActionsHorizontalInset = 29.dp
 private val HomeActionsHeight = 117.dp
-private val HomeChipHorizontalInset = 19.dp
 private val HomeHeaderToCarouselGap = 12.dp
 private val HomeCarouselToDotsGap = 12.dp
 private val HomeActionsToChipGap = 12.dp
@@ -129,7 +128,7 @@ fun HomeScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(HomeBoardBackground),
+                    .background(AnuraTheme.extendedColors.boardBackground),
                 contentAlignment = Alignment.Center,
             ) {
                 AnuraLoadingState(label = stringResource(R.string.home_loading))
@@ -165,7 +164,7 @@ private fun HomeContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(HomeBoardBackground),
+            .background(AnuraTheme.extendedColors.boardBackground),
     ) {
         HomeHeader(
             userDisplayName = state.userDisplayName,
@@ -222,7 +221,7 @@ private fun HomeContent(
                 onClick = { onOpenFieldSession(session.sessionId) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = HomeChipHorizontalInset),
+                    .padding(horizontal = AnuraDimens.spaceGutter),
             )
         }
 
@@ -244,43 +243,43 @@ private fun HomeHeader(
                 .statusBarsPadding()
                 .height(TopAppBarDefaults.TopAppBarExpandedHeight)
                 .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.92f))
-                .padding(horizontal = 19.dp),
+                .padding(horizontal = AnuraDimens.spaceGutter - 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Box(
                 modifier = Modifier
-                    .size(HomeAvatarSize)
+                    .size(AnuraDimens.sizeTouch)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
                     .clickable(role = Role.Button, onClick = onAvatarClick),
                 contentAlignment = Alignment.Center,
             ) {
-                Icon(
-                    imageVector = AnuraIcons.Person,
-                    contentDescription = stringResource(R.string.home_avatar_cd),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(24.dp),
-                )
+                Box(
+                    modifier = Modifier
+                        .size(HomeAvatarSize)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        imageVector = AnuraIcons.Person,
+                        contentDescription = stringResource(R.string.home_avatar_cd),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(24.dp),
+                    )
+                }
             }
 
-            Spacer(modifier = Modifier.size(33.dp))
+            Spacer(modifier = Modifier.size(29.dp))
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(R.string.home_brand_welcome),
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 22.sp,
-                        lineHeight = 28.sp,
-                    ),
+                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     color = MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     text = stringResource(R.string.home_greeting, userDisplayName),
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        fontSize = 15.sp,
-                        lineHeight = 20.sp,
-                    ),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Normal),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
@@ -477,17 +476,20 @@ private fun HomeCarouselDots(
     ) {
         repeat(count) { index ->
             val selected = index == selectedIndex
+            val dotColor by animateColorAsState(
+                targetValue = if (selected) {
+                    AnuraTheme.extendedColors.accentInk
+                } else {
+                    MaterialTheme.colorScheme.outlineVariant
+                },
+                animationSpec = tween(AnuraMotion.DurationShort),
+                label = "HomeCarouselDot",
+            )
             Box(
                 modifier = Modifier
                     .size(HomeDotSize)
                     .clip(CircleShape)
-                    .background(
-                        if (selected) {
-                            AnuraTheme.extendedColors.accentInk
-                        } else {
-                            MaterialTheme.colorScheme.outlineVariant
-                        },
-                    ),
+                    .background(dotColor),
             )
         }
     }
@@ -540,7 +542,7 @@ private fun HomeCircularAction(
 ) {
     val size = if (primary) HomeActionPrimarySize else HomeActionSecondarySize
     val container = if (primary) {
-        AnuraTheme.extendedColors.accentIcon
+        AnuraTheme.extendedColors.accentInk
     } else {
         MaterialTheme.colorScheme.surface
     }
@@ -549,17 +551,26 @@ private fun HomeCircularAction(
     } else {
         AnuraTheme.extendedColors.accentInk
     }
+    val interaction = remember { MutableInteractionSource() }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.clickable(role = Role.Button, onClick = onClick),
+        modifier = modifier.clickable(
+            interactionSource = interaction,
+            indication = null,
+            role = Role.Button,
+            onClick = onClick,
+        ),
     ) {
         // Secundarios en Penpot empiezan 8 dp más abajo que Foto ID.
         if (!primary) {
             Spacer(modifier = Modifier.height(8.dp))
         }
         Surface(
-            modifier = Modifier.size(size),
+            modifier = Modifier
+                .size(size)
+                .clip(CircleShape)
+                .indication(interaction, ripple()),
             shape = CircleShape,
             color = container,
             shadowElevation = if (primary) 6.dp else 0.dp,
@@ -577,10 +588,7 @@ private fun HomeCircularAction(
         Spacer(modifier = Modifier.height(6.dp))
         Text(
             text = label,
-            style = MaterialTheme.typography.titleMedium.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 15.sp,
-            ),
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
             color = MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center,
             maxLines = 1,
@@ -634,20 +642,14 @@ private fun HomeFieldSessionChip(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(R.string.home_field_session_title),
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 15.sp,
-                    ),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                     color = extended.accentInk,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = meta,
-                    style = MaterialTheme.typography.labelMedium.copy(
-                        fontWeight = FontWeight.Medium,
-                        fontSize = 11.sp,
-                    ),
+                    style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,

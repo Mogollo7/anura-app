@@ -1,5 +1,6 @@
 package me.juanlabs.anura.feature.auth
 
+import android.app.Activity
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -18,18 +19,18 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,10 +38,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -52,7 +53,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
 import me.juanlabs.anura.R
+import me.juanlabs.anura.designsystem.component.AnuraFormButton
+import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
+import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
 import me.juanlabs.anura.designsystem.component.AnuraTextField
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
@@ -69,19 +74,10 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
  * contenedor (`Surface` / sheet) cede altura (hero con `weight`) — nunca se
  * comprimen esos gaps. Contenedor blanco: radio superior 30 dp.
  */
-private val WelcomeSheetTopRadius = 30.dp
-private val WelcomeButtonHeight = 56.dp
-private val WelcomeButtonRadius = 12.dp
-private val WelcomeButtonHorizontalInset = 56.dp
 private val WelcomeSheetTopPadding = 47.dp
 private val WelcomeSheetBottomPadding = AnuraDimens.spaceSection
-private val WelcomePrimaryToOutlineGap = 10.dp
 /** Piso del área hero para que no desaparezca. */
 private val WelcomeHeroMinHeight = 160.dp
-
-/** Huecos tipográficos fijos (nivel sheet). */
-private val WelcomeTitleToBodyGap = 20.dp
-private val WelcomeBodyToButtonsGap = 32.dp
 
 /**
  * Encuadre Penpot: capa `image` 867×611 en (−141, −29); fill real 1024×721.
@@ -91,9 +87,6 @@ private val WelcomeHeroAlignment = BiasAlignment(
     horizontalBias = ((141f * 1024f / 867f + 393f * 1024f / 867f / 2f) - 1024f / 2f) / (1024f / 2f),
     verticalBias = ((29f * 721f / 611f + 520f * 721f / 611f / 2f) - 721f / 2f) / (721f / 2f),
 )
-
-/** Contorno del botón "Ya tengo cuenta" en Penpot (stop #626264 del stroke). */
-private val WelcomeOutlineStroke = Color(0xFF626264)
 
 /**
  * `LOGIN OR SINGUO (bienvenida)` (§4.1, grafo `AuthGraph`).
@@ -111,6 +104,20 @@ fun WelcomeScreen(
     onGoToSignUp: () -> Unit,
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
+
+    // Bug §RNF: `themes.xml` fija iconos oscuros de barra de estado (windowLightStatusBar)
+    // y aquí se pinta una foto casi negra debajo → hora/iconos invisibles. Se fuerzan
+    // iconos claros mientras esta pantalla está en composición.
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        DisposableEffect(view) {
+            val window = (view.context as? Activity)?.window
+            val controller = window?.let { WindowCompat.getInsetsController(it, view) }
+            val previous = controller?.isAppearanceLightStatusBars
+            controller?.isAppearanceLightStatusBars = false
+            onDispose { if (controller != null && previous != null) controller.isAppearanceLightStatusBars = previous }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -140,21 +147,21 @@ fun WelcomeScreen(
                 .fillMaxWidth()
                 .layout { measurable, constraints ->
                     val placeable = measurable.measure(constraints)
-                    val overlap = WelcomeSheetTopRadius.roundToPx()
+                    val overlap = AnuraDimens.radiusSheet.roundToPx()
                     layout(placeable.width, placeable.height - overlap) {
                         placeable.placeRelative(0, -overlap)
                     }
                 },
             shape = RoundedCornerShape(
-                topStart = WelcomeSheetTopRadius,
-                topEnd = WelcomeSheetTopRadius,
+                topStart = AnuraDimens.radiusSheet,
+                topEnd = AnuraDimens.radiusSheet,
             ),
             color = surfaceColor,
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = WelcomeButtonHorizontalInset)
+                    .padding(horizontal = AnuraDimens.spacePopupInset)
                     .padding(
                         top = WelcomeSheetTopPadding,
                         bottom = WelcomeSheetBottomPadding,
@@ -163,23 +170,18 @@ fun WelcomeScreen(
             ) {
                 Text(
                     text = stringResource(R.string.welcome_title),
-                    style = MaterialTheme.typography.headlineMedium.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 28.sp,
-                        lineHeight = 34.sp,
-                    ),
+                    style = MaterialTheme.typography.headlineMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
                 )
 
-                Spacer(modifier = Modifier.height(WelcomeTitleToBodyGap))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetTitleToBody))
 
                 Text(
                     text = stringResource(R.string.welcome_body),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.Normal,
-                        fontSize = 15.sp,
                         lineHeight = 22.sp,
                     ),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -187,68 +189,30 @@ fun WelcomeScreen(
                     modifier = Modifier.fillMaxWidth(),
                 )
 
-                Spacer(modifier = Modifier.height(WelcomeBodyToButtonsGap))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetBodyToActions))
 
-                Button(
+                AnuraFormButton(
+                    text = stringResource(R.string.welcome_create_account),
                     onClick = onGoToSignUp,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(WelcomeButtonHeight),
-                    shape = RoundedCornerShape(WelcomeButtonRadius),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = AnuraTheme.extendedColors.accentInk,
-                        contentColor = MaterialTheme.colorScheme.onPrimary,
-                    ),
-                ) {
-                    Text(
-                        text = stringResource(R.string.welcome_create_account),
-                        style = authActionButtonTextStyle(),
-                    )
-                }
+                    style = AnuraFormButtonStyle.Primary,
+                )
 
-                Spacer(modifier = Modifier.height(WelcomePrimaryToOutlineGap))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
 
-                OutlinedButton(
+                AnuraFormButton(
+                    text = stringResource(R.string.welcome_have_account),
                     onClick = onGoToSignIn,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(WelcomeButtonHeight),
-                    shape = RoundedCornerShape(WelcomeButtonRadius),
-                    border = BorderStroke(2.dp, WelcomeOutlineStroke),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = MaterialTheme.colorScheme.onSurface,
-                    ),
-                ) {
-                    Text(
-                        text = stringResource(R.string.welcome_have_account),
-                        style = authActionButtonTextStyle(),
-                    )
-                }
+                    style = AnuraFormButtonStyle.OutlineNeutral,
+                )
             }
         }
     }
 }
 
-/**
- * Fondo de board Penpot `INICIAR SECCION` / `crear cuenta` (`#EFF4F0`), igual que el splash.
- * No es `bg.base` del tema.
- */
-private val AuthFormBackground = Color(0xFFEFF4F0)
-
-/** Medidas unificadas de botones de acción en auth (Iniciar / Crear / Bienvenida). */
-private val AuthActionButtonHeight = 56.dp
-private val AuthFieldRadius = 12.dp
-private val AuthContentInset = 19.dp
 private val AuthProfileCardHeight = 72.dp
 /** Misma distancia al borde inferior en Iniciar sesión y Crear cuenta. */
 private val AuthFooterBottomMargin = AnuraDimens.spaceSection
 
-/** Tipografía idéntica en Entrar / Entrar sin cuenta / Crear cuenta / Ya tengo cuenta. */
-@Composable
-private fun authActionButtonTextStyle() = MaterialTheme.typography.titleMedium.copy(
-    fontWeight = FontWeight.SemiBold,
-    fontSize = 15.sp,
-)
 private enum class SignUpUsageProfile {
     Curiosity,
     Study,
@@ -276,7 +240,7 @@ fun SignInScreen(
 
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = AuthFormBackground,
+        color = AnuraTheme.extendedColors.boardBackground,
     ) {
         Column(
             modifier = Modifier
@@ -294,24 +258,18 @@ fun SignInScreen(
                     .weight(1f)
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
-                    .padding(horizontal = AuthContentInset)
+                    .padding(horizontal = AnuraDimens.spaceGutter)
                     .padding(top = AnuraDimens.spaceGap),
             ) {
                 Text(
                     text = stringResource(R.string.sign_in_heading),
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 22.sp,
-                    ),
+                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     color = MaterialTheme.colorScheme.onSurface,
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceTitleToSubtitle))
                 Text(
                     text = stringResource(R.string.sign_in_subtitle),
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 15.sp,
-                    ),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Normal),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
 
@@ -358,26 +316,25 @@ fun SignInScreen(
                 ) {
                     Text(
                         text = stringResource(R.string.sign_in_forgot_password),
-                        style = MaterialTheme.typography.labelLarge.copy(
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 11.sp,
-                        ),
+                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
                         color = AnuraTheme.extendedColors.accentInk,
                     )
                 }
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
 
-                AuthPrimaryButton(
+                AnuraFormButton(
                     text = stringResource(R.string.sign_in_enter),
                     onClick = onSignedIn,
+                    style = AnuraFormButtonStyle.Primary,
                 )
 
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
 
-                AuthOutlineButton(
+                AnuraFormButton(
                     text = stringResource(R.string.sign_in_without_account),
                     onClick = onContinueWithoutAccount,
+                    style = AnuraFormButtonStyle.Outline,
                 )
             }
 
@@ -415,7 +372,7 @@ fun SignUpScreen(
 
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = AuthFormBackground,
+        color = AnuraTheme.extendedColors.boardBackground,
     ) {
         Column(
             modifier = Modifier
@@ -433,24 +390,18 @@ fun SignUpScreen(
                     .weight(1f)
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
-                    .padding(horizontal = AuthContentInset)
+                    .padding(horizontal = AnuraDimens.spaceGutter)
                     .padding(top = AnuraDimens.spaceGap),
             ) {
                 Text(
                     text = stringResource(R.string.sign_up_heading),
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 22.sp,
-                    ),
+                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     color = MaterialTheme.colorScheme.onSurface,
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceTitleToSubtitle))
                 Text(
                     text = stringResource(R.string.sign_up_subtitle),
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 15.sp,
-                    ),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Normal),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
 
@@ -505,16 +456,9 @@ fun SignUpScreen(
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
 
-                Text(
-                    text = stringResource(R.string.sign_up_usage_label),
-                    style = MaterialTheme.typography.labelLarge.copy(
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 11.sp,
-                    ),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                AnuraSectionLabel(stringResource(R.string.sign_up_usage_label))
 
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -541,7 +485,11 @@ fun SignUpScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { termsAccepted = !termsAccepted }
+                        .toggleable(
+                            value = termsAccepted,
+                            role = Role.Checkbox,
+                            onValueChange = { termsAccepted = it },
+                        )
                         .sizeIn(minHeight = AnuraDimens.sizeTouch),
                     verticalAlignment = Alignment.Top,
                 ) {
@@ -576,10 +524,7 @@ fun SignUpScreen(
                     Spacer(modifier = Modifier.width(AnuraDimens.spaceGap))
                     Text(
                         text = stringResource(R.string.sign_up_terms),
-                        style = MaterialTheme.typography.bodyMedium.copy(
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 13.sp,
-                        ),
+                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.weight(1f),
                     )
@@ -587,17 +532,19 @@ fun SignUpScreen(
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
 
-                AuthPrimaryButton(
+                AnuraFormButton(
                     text = stringResource(R.string.sign_up_create),
                     onClick = onSignedUp,
+                    style = AnuraFormButtonStyle.Primary,
                     enabled = termsAccepted,
                 )
 
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
 
-                AuthOutlineButton(
+                AnuraFormButton(
                     text = stringResource(R.string.sign_up_without_account),
                     onClick = onContinueWithoutAccount,
+                    style = AnuraFormButtonStyle.Outline,
                 )
             }
 
@@ -620,7 +567,7 @@ private fun AuthFormFooter(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = AuthContentInset)
+            .padding(horizontal = AnuraDimens.spaceGutter)
             .padding(bottom = AuthFooterBottomMargin)
             .sizeIn(minHeight = AnuraDimens.sizeTouch),
         contentAlignment = Alignment.Center,
@@ -644,72 +591,19 @@ private fun AuthFooterLinkRow(
     ) {
         Text(
             text = prefix,
-            style = MaterialTheme.typography.titleMedium.copy(
-                fontWeight = FontWeight.Normal,
-                fontSize = 15.sp,
-            ),
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Normal),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.alignByBaseline(),
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = action,
-            style = MaterialTheme.typography.titleMedium.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 15.sp,
-            ),
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
             color = AnuraTheme.extendedColors.accentInk,
             modifier = Modifier
                 .alignByBaseline()
+                .minimumInteractiveComponentSize()
                 .clickable(role = Role.Button, onClick = onActionClick),
-        )
-    }
-}
-
-@Composable
-private fun AuthPrimaryButton(
-    text: String,
-    onClick: () -> Unit,
-    enabled: Boolean = true,
-) {
-    Button(
-        onClick = onClick,
-        enabled = enabled,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(AuthActionButtonHeight),
-        shape = RoundedCornerShape(AuthFieldRadius),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = AnuraTheme.extendedColors.accentInk,
-            contentColor = MaterialTheme.colorScheme.onPrimary,
-        ),
-    ) {
-        Text(
-            text = text,
-            style = authActionButtonTextStyle(),
-        )
-    }
-}
-
-@Composable
-private fun AuthOutlineButton(
-    text: String,
-    onClick: () -> Unit,
-) {
-    OutlinedButton(
-        onClick = onClick,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(AuthActionButtonHeight),
-        shape = RoundedCornerShape(AuthFieldRadius),
-        border = BorderStroke(2.dp, AnuraTheme.extendedColors.accentInk),
-        colors = ButtonDefaults.outlinedButtonColors(
-            contentColor = AnuraTheme.extendedColors.accentInk,
-        ),
-    ) {
-        Text(
-            text = text,
-            style = authActionButtonTextStyle(),
         )
     }
 }
@@ -730,7 +624,7 @@ private fun SignUpProfileCard(
     Surface(
         onClick = onClick,
         modifier = modifier.height(AuthProfileCardHeight),
-        shape = RoundedCornerShape(AuthFieldRadius),
+        shape = RoundedCornerShape(AnuraDimens.radiusCard),
         color = MaterialTheme.colorScheme.surface,
         border = border,
     ) {
@@ -750,10 +644,7 @@ private fun SignUpProfileCard(
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = label,
-                style = MaterialTheme.typography.labelLarge.copy(
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 13.sp,
-                ),
+                style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )

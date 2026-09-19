@@ -19,7 +19,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -73,7 +72,7 @@ fun StartupLoadingScreen(
 
     Surface(
         modifier = modifier.fillMaxSize(),
-        color = colorResource(R.color.anura_board_background),
+        color = AnuraTheme.extendedColors.boardBackground,
     ) {
         Column(
             modifier = Modifier

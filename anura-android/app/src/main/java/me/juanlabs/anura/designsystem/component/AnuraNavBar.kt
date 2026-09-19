@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -24,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
@@ -31,7 +33,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
@@ -50,9 +51,8 @@ data class AnuraNavBarItem(
 /** Medidas Penpot `navbar` en `home`: grupo 350×113, píldora 350×75 @ y=38, FAB 80×80 @ y=0. */
 private val AnuraNavChromeHeight = 113.dp
 private val AnuraNavPillHeight = 75.dp
-private val AnuraNavPillRadius = 38.dp
 private val AnuraNavPillHorizontalInset = 22.dp
-private val AnuraNavFabSize = AnuraDimens.sizeThumb // 80 dp
+private val AnuraNavFabSize = AnuraDimens.sizeFab // 80 dp
 private val AnuraNavFabIconSize = 32.dp
 private val AnuraNavItemIconSize = 24.dp
 
@@ -76,7 +76,6 @@ fun AnuraNavBar(
     }
 
     val extended = AnuraTheme.extendedColors
-    val pillStroke = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
 
     Box(
         modifier = modifier
@@ -91,10 +90,10 @@ fun AnuraNavBar(
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
                 .height(AnuraNavPillHeight),
-            shape = RoundedCornerShape(AnuraNavPillRadius),
+            shape = RoundedCornerShape(AnuraDimens.radiusCapsule),
             color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
-            border = BorderStroke(1.dp, pillStroke),
-            shadowElevation = 8.dp,
+            border = BorderStroke(1.dp, extended.cardStroke),
+            shadowElevation = 0.dp,
             tonalElevation = 0.dp,
         ) {
             Row(
@@ -147,10 +146,11 @@ fun AnuraNavBar(
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .size(AnuraNavFabSize)
+                .clip(CircleShape)
                 .clickable(role = Role.Button, onClick = onFabClick),
             shape = CircleShape,
-            color = extended.accentIcon,
-            shadowElevation = 8.dp,
+            color = extended.accentInk,
+            shadowElevation = 0.dp,
             tonalElevation = 0.dp,
         ) {
             Box(
@@ -183,22 +183,19 @@ private fun AnuraNavTab(
     Column(
         modifier = Modifier
             .sizeIn(minWidth = AnuraDimens.sizeTouch, minHeight = AnuraDimens.sizeTouch)
-            .clickable(role = Role.Button, onClick = onClick),
+            .selectable(selected = selected, role = Role.Tab, onClick = onClick),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         Icon(
             imageVector = item.icon,
-            contentDescription = item.label,
+            contentDescription = null,
             tint = tint,
             modifier = Modifier.size(AnuraNavItemIconSize),
         )
         Text(
             text = item.label,
-            style = MaterialTheme.typography.labelMedium.copy(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 11.sp,
-            ),
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
             color = tint,
             textAlign = TextAlign.Center,
             maxLines = 1,

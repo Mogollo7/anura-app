@@ -8,11 +8,16 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <!-- Splash nativo Android 12+: mismo board que Penpot `Estado · Cargando`. -->
+    <!--
+      Splash nativo: solo el fondo del board. Sin icono de launcher, para que la
+      primera vista real sea Compose `StartupLoadingScreen` (Estado · Cargando).
+    -->
     <style name="Theme.ANURA.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/anura_board_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_empty</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/anura_board_background</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
+        <item name="android:windowDisablePreview">true</item>
         <item name="postSplashScreenTheme">@style/Theme.ANURA</item>
     </style>
 </resources>

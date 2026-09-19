@@ -1,7 +1,14 @@
 package me.juanlabs.anura.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.window.DialogProperties
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -9,16 +16,20 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.navigation
 import androidx.navigation.toRoute
+import me.juanlabs.anura.designsystem.theme.AnuraMotion
+import me.juanlabs.anura.designsystem.theme.rememberReduceMotion
 import me.juanlabs.anura.feature.auth.SignInScreen
 import me.juanlabs.anura.feature.auth.SignUpScreen
 import me.juanlabs.anura.feature.auth.WelcomeScreen
 import me.juanlabs.anura.feature.capture.AnalyzingScreen
 import me.juanlabs.anura.feature.capture.AudioCaptureScreen
+import me.juanlabs.anura.feature.capture.CaptureDraftPhotoCountKey
 import me.juanlabs.anura.feature.capture.CaptureStep1Screen
 import me.juanlabs.anura.feature.capture.CaptureStep2Screen
 import me.juanlabs.anura.feature.capture.CaptureStep3Screen
 import me.juanlabs.anura.feature.capture.CaptureStep4Screen
 import me.juanlabs.anura.feature.capture.CaptureStep5Screen
+import me.juanlabs.anura.feature.capture.CaptureStep6Screen
 import me.juanlabs.anura.feature.capture.PhotoCaptureScreen
 import me.juanlabs.anura.feature.capture.UnknownResultScreen
 import me.juanlabs.anura.feature.capture.WhatToRegisterContent
@@ -53,10 +64,21 @@ fun AnuraNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
+    val reduceMotion = rememberReduceMotion()
+    val enter = {
+        if (reduceMotion) EnterTransition.None else fadeIn(tween(AnuraMotion.DurationMedium))
+    }
+    val exit = {
+        if (reduceMotion) ExitTransition.None else fadeOut(tween(AnuraMotion.DurationMedium))
+    }
     NavHost(
         navController = navController,
         startDestination = AnuraRoute.AuthGraph,
         modifier = modifier,
+        enterTransition = { enter() },
+        exitTransition = { exit() },
+        popEnterTransition = { enter() },
+        popExitTransition = { exit() },
     ) {
         authGraph(navController)
         topLevelDestinations(navController)
@@ -149,10 +171,14 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
             onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
         )
     }
-    composable<AnuraRoute.SpeciesSheet> { backStackEntry ->
-        val route = backStackEntry.toRoute<AnuraRoute.SpeciesSheet>()
-        SpeciesSheetScreen(speciesId = route.speciesId, onBackClick = { navController.popBackStack() })
-    }
+        composable<AnuraRoute.SpeciesSheet> { backStackEntry ->
+            val route = backStackEntry.toRoute<AnuraRoute.SpeciesSheet>()
+            SpeciesSheetScreen(
+                speciesId = route.speciesId,
+                onBackClick = { navController.popBackStack() },
+                onExploreGenus = { navController.navigate(AnuraRoute.SpeciesByTaxon("Dendrobates")) },
+            )
+        }
     composable<AnuraRoute.Profile> { backStackEntry ->
         val route = backStackEntry.toRoute<AnuraRoute.Profile>()
         ProfileScreen(
@@ -216,23 +242,29 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
     // "Pop-up del botón +": alcanzable desde varias pantallas -> destino de
     // navegación propio (§4.2), presentado como diálogo para que la pantalla de
     // origen quede visible detrás, igual que un bottom sheet real.
-    dialog<AnuraRoute.WhatToRegister> {
+    dialog<AnuraRoute.WhatToRegister>(
+        dialogProperties = DialogProperties(
+            usePlatformDefaultWidth = false,
+            decorFitsSystemWindows = false,
+        ),
+    ) {
         WhatToRegisterContent(
-            onRegisterSighting = {
-                navController.navigate(AnuraRoute.CaptureGraph) {
-                    popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
-                }
-            },
-            onRecordNightSound = {
-                navController.navigate(AnuraRoute.AudioCapture) {
-                    popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
-                }
-            },
             onStartFieldSession = {
                 navController.navigate(AnuraRoute.FieldSession(sessionId = "session-new")) {
                     popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
                 }
             },
+            onTakeQuickSample = {
+                navController.navigate(AnuraRoute.PhotoCapture) {
+                    popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
+                }
+            },
+            onRecordSound = {
+                navController.navigate(AnuraRoute.AudioCapture) {
+                    popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
+                }
+            },
+            onDismiss = { navController.popBackStack() },
         )
     }
 }
@@ -240,42 +272,96 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
 private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
     navigation<AnuraRoute.CaptureGraph>(startDestination = AnuraRoute.CaptureStep1) {
         composable<AnuraRoute.CaptureStep1> {
+            val fromReview = navController.isEditingCaptureReview()
             CaptureStep1Screen(
-                onBackClick = { navController.popBackStack() },
+                onBackClick = { navController.leaveCaptureStep(fromReview) },
                 onNext = { navController.navigate(AnuraRoute.CaptureStep2) },
+                onSkip = { navController.navigate(AnuraRoute.CaptureStep2) },
+                fromReview = fromReview,
+                onSave = { navController.returnToCaptureReview() },
+                onCancel = { navController.returnToCaptureReview() },
+                onCloseClick = { navController.closeCaptureWizard() },
             )
         }
         composable<AnuraRoute.CaptureStep2> {
+            val fromReview = navController.isEditingCaptureReview()
             CaptureStep2Screen(
-                onBackClick = { navController.popBackStack() },
+                onBackClick = { navController.leaveCaptureStep(fromReview) },
                 onNext = { navController.navigate(AnuraRoute.CaptureStep3) },
+                onSkip = { navController.navigate(AnuraRoute.CaptureStep3) },
+                fromReview = fromReview,
+                onSave = { navController.returnToCaptureReview() },
+                onCancel = { navController.returnToCaptureReview() },
+                onCloseClick = { navController.closeCaptureWizard() },
             )
         }
         composable<AnuraRoute.CaptureStep3> {
+            val fromReview = navController.isEditingCaptureReview()
             CaptureStep3Screen(
-                onBackClick = { navController.popBackStack() },
+                onBackClick = { navController.leaveCaptureStep(fromReview) },
                 onNext = { navController.navigate(AnuraRoute.CaptureStep4) },
+                onSkip = { navController.navigate(AnuraRoute.CaptureStep4) },
+                fromReview = fromReview,
+                onSave = { navController.returnToCaptureReview() },
+                onCancel = { navController.returnToCaptureReview() },
+                onCloseClick = { navController.closeCaptureWizard() },
             )
         }
         composable<AnuraRoute.CaptureStep4> {
+            val fromReview = navController.isEditingCaptureReview()
             CaptureStep4Screen(
-                onBackClick = { navController.popBackStack() },
+                onBackClick = { navController.leaveCaptureStep(fromReview) },
                 onNext = { navController.navigate(AnuraRoute.CaptureStep5) },
-                onOpenPhotoCapture = { navController.navigate(AnuraRoute.PhotoCapture) },
-                onOpenAudioCapture = { navController.navigate(AnuraRoute.AudioCapture) },
+                fromReview = fromReview,
+                onSave = { navController.returnToCaptureReview() },
+                onCloseClick = { navController.closeCaptureWizard() },
             )
         }
         composable<AnuraRoute.CaptureStep5> {
+            val fromReview = navController.isEditingCaptureReview()
             CaptureStep5Screen(
+                onBackClick = { navController.leaveCaptureStep(fromReview) },
+                onNext = { navController.navigate(AnuraRoute.CaptureStep6) },
+                onSkip = { navController.navigate(AnuraRoute.CaptureStep6) },
+                fromReview = fromReview,
+                onSave = { navController.returnToCaptureReview() },
+                onCancel = { navController.returnToCaptureReview() },
+                onCloseClick = { navController.closeCaptureWizard() },
+            )
+        }
+        composable<AnuraRoute.CaptureStep6> {
+            CaptureStep6Screen(
                 onBackClick = { navController.popBackStack() },
                 onAnalyze = { navController.navigate(AnuraRoute.Analyzing) },
+                onEditWhere = { navController.navigate(AnuraRoute.CaptureStep1) },
+                onEditWhen = { navController.navigate(AnuraRoute.CaptureStep2) },
+                onEditSize = { navController.navigate(AnuraRoute.CaptureStep3) },
+                onEditPhotos = { navController.navigate(AnuraRoute.CaptureStep4) },
+                onEditAudio = { navController.navigate(AnuraRoute.CaptureStep5) },
+                onCloseClick = { navController.closeCaptureWizard() },
             )
         }
         composable<AnuraRoute.PhotoCapture> {
-            PhotoCaptureScreen(onBackClick = { navController.popBackStack() })
+            PhotoCaptureScreen(
+                onBackClick = { navController.popBackStack() },
+                onPhotoAccepted = {
+                    val previous = navController.previousBackStackEntry
+                    val current = previous?.savedStateHandle?.get<Int>(CaptureDraftPhotoCountKey) ?: 0
+                    previous?.savedStateHandle?.set(
+                        CaptureDraftPhotoCountKey,
+                        (current + 1).coerceAtMost(3),
+                    )
+                    navController.popBackStack()
+                },
+                onCloseClick = { navController.closeCaptureWizard() },
+            )
         }
         composable<AnuraRoute.AudioCapture> {
-            AudioCaptureScreen(onBackClick = { navController.popBackStack() })
+            AudioCaptureScreen(
+                onBackClick = { navController.popBackStack() },
+                onAnalyze = { navController.navigate(AnuraRoute.Analyzing) },
+                onCloseClick = { navController.closeCaptureWizard() },
+            )
         }
         composable<AnuraRoute.Analyzing> {
             AnalyzingScreen(
@@ -284,15 +370,35 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
                 },
-                onUnknownResult = {
-                    navController.navigate(AnuraRoute.UnknownResult) {
-                        popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
-                    }
-                },
             )
         }
         composable<AnuraRoute.UnknownResult> {
-            UnknownResultScreen(onBackClick = { navController.popBackStack() })
+            UnknownResultScreen(
+                onBackClick = { navController.popBackStack() },
+                onOpenGenusSheet = {
+                    navController.navigate(AnuraRoute.SpeciesSheet("ANU_COL_PRIS_PAI_001"))
+                },
+            )
         }
+    }
+}
+
+private fun NavHostController.isEditingCaptureReview(): Boolean =
+    previousBackStackEntry?.destination?.hasRoute<AnuraRoute.CaptureStep6>() == true
+
+private fun NavHostController.returnToCaptureReview() {
+    if (!popBackStack(AnuraRoute.CaptureStep6, inclusive = false)) {
+        popBackStack()
+    }
+}
+
+private fun NavHostController.leaveCaptureStep(fromReview: Boolean) {
+    if (fromReview) returnToCaptureReview() else popBackStack()
+}
+
+private fun NavHostController.closeCaptureWizard() {
+    navigate(AnuraRoute.Home) {
+        popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
+        launchSingleTop = true
     }
 }

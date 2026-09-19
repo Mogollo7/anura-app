@@ -18,6 +18,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,33 +29,35 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
 /**
  * Shell de bottom sheet de ANURA (`COMP · Pop-up (shell)`, §3.9): ancho a sangre, radio
- * superior 20dp ([AnuraDimens.radiusModal]), tirador 48×5dp. Solo la envoltura visual —
- * el contenido (botones, texto, campos) lo decide cada pop-up concreto cuando se
- * implemente esa pantalla; este componente no sabe qué muestra.
+ * superior 20dp ([AnuraDimens.radiusModal]), tirador 48×5dp. Expande de una vez
+ * (`skipPartiallyExpanded`) para que título, cuerpo y acciones queden visibles sin
+ * scroll interno.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AnuraBottomSheet(
     onDismissRequest: () -> Unit,
     modifier: Modifier = Modifier,
-    sheetState: SheetState = rememberModalBottomSheetState(),
+    sheetState: SheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+    containerColor: Color = MaterialTheme.colorScheme.surface,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     ModalBottomSheet(
         onDismissRequest = onDismissRequest,
         modifier = modifier,
         sheetState = sheetState,
+        containerColor = containerColor,
         shape = RoundedCornerShape(
             topStart = AnuraDimens.radiusModal,
             topEnd = AnuraDimens.radiusModal,
         ),
-        dragHandle = { AnuraSheetDragHandle() },
+        dragHandle = { AnuraSheetHandle() },
         content = content,
     )
 }
 
 @Composable
-private fun AnuraSheetDragHandle() {
+fun AnuraSheetHandle() {
     Box(
         modifier = Modifier
             .padding(vertical = 12.dp)
@@ -81,7 +84,7 @@ private fun AnuraBottomSheetPreviewContent() {
         shape = RoundedCornerShape(topStart = AnuraDimens.radiusModal, topEnd = AnuraDimens.radiusModal),
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            AnuraSheetDragHandle()
+            AnuraSheetHandle()
             Text(
                 text = "Contenido del pop-up",
                 modifier = Modifier.padding(bottom = AnuraDimens.spaceSection),

@@ -17,7 +17,8 @@ import me.juanlabs.anura.navigation.AnuraScaffold
  * Punto de entrada único de la app (§4).
  *
  * Orden de arranque fiel a Penpot:
- * 1. Splash nativo (`Theme.ANURA.Splash`) → `Estado · Cargando (PANTALLA DE CARGA INICIO)`.
+ * 1. `StartupLoadingScreen` (`Estado · Cargando`) — primera vista de la app.
+ *    El splash nativo solo pinta el fondo del board y se retira al primer frame.
  * 2. `AnuraScaffold` / `AnuraNavHost` — empieza en `AuthGraph` → `Welcome`.
  *
  * El splash no es ruta de [me.juanlabs.anura.navigation.AnuraRoute] (§4.1); es la
@@ -25,11 +26,15 @@ import me.juanlabs.anura.navigation.AnuraScaffold
  */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+        // Sin zoom/fade del icono nativo: el primer frame visible es StartupLoadingScreen.
+        splashScreen.setOnExitAnimationListener { splashView -> splashView.remove() }
         enableEdgeToEdge()
         setContent {
             AnuraTheme {
+                // Cold start siempre muestra el splash. Rotación/proceso restaurado
+                // no lo repite (rememberSaveable).
                 var startupReady by rememberSaveable { mutableStateOf(false) }
                 if (!startupReady) {
                     StartupLoadingScreen(onReady = { startupReady = true })

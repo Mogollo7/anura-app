@@ -1,10 +1,12 @@
 package me.juanlabs.anura.navigation
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
@@ -14,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import me.juanlabs.anura.designsystem.component.AnuraNavBar
 import me.juanlabs.anura.designsystem.component.AnuraNavBarItem
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
+import me.juanlabs.anura.designsystem.theme.AnuraTheme
 
 private val TopLevelItems = listOf(
     AnuraNavBarItem("Inicio", AnuraIcons.Home),
@@ -43,6 +46,12 @@ fun AnuraScaffold(navController: NavHostController = rememberNavController()) {
     val showTabChrome = selectedTabIndex != null
 
     Scaffold(
+        containerColor = if (showTabChrome) {
+            Color.Transparent
+        } else {
+            AnuraTheme.extendedColors.boardBackground
+        },
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
             selectedTabIndex?.let { tabIndex ->
                 AnuraNavBar(

@@ -1,6 +1,5 @@
 package me.juanlabs.anura.designsystem.component
 
-import android.provider.Settings
 import androidx.compose.animation.core.EaseInOut
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.StartOffset
@@ -18,11 +17,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
@@ -32,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
+import me.juanlabs.anura.designsystem.theme.rememberReduceMotion
 
 private const val AnuraLoaderPeriodMillis = 1200
 private const val AnuraLoaderPhaseOffsetMillis = 200
@@ -61,10 +59,7 @@ fun AnuraLoader(
      */
     color: Color = MaterialTheme.colorScheme.primary,
 ) {
-    val context = LocalContext.current
-    val reduceMotion = remember {
-        Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
-    }
+    val reduceMotion = rememberReduceMotion()
 
     val transition = rememberInfiniteTransition(label = "AnuraLoader")
     val dot1 by transition.animateFloat(

@@ -36,6 +36,10 @@ data class AnuraExtendedColors(
     /** Texto sobre vidrio claro. Siempre blanco (`Color.White`) para contraste sobre foto. */
     val onGlass: Color,
     val onGlassShadow: Color,
+    /** Fondo de board Penpot (splash/home/auth/wizard). Ver [AnuraColorTokens.boardBackground]. */
+    val boardBackground: Color,
+    /** Borde plano de tarjetas y píldoras (§3.9): `label.primary` al 12% de opacidad. */
+    val cardStroke: Color,
 )
 
 internal fun AnuraColorTokens.toExtendedColors(): AnuraExtendedColors = AnuraExtendedColors(
@@ -59,6 +63,8 @@ internal fun AnuraColorTokens.toExtendedColors(): AnuraExtendedColors = AnuraExt
     glassStroke = Color.White.copy(alpha = 0.42f),
     onGlass = Color.White,
     onGlassShadow = Color.Black.copy(alpha = 0.55f),
+    boardBackground = boardBackground,
+    cardStroke = labelPrimary.copy(alpha = 0.12f),
 )
 
 /** Valor por defecto sin usar: [AnuraTheme] siempre provee el valor real antes de `content`. */
@@ -80,5 +86,7 @@ internal val LocalAnuraExtendedColors = staticCompositionLocalOf {
         glassStroke = Color.Unspecified,
         onGlass = Color.Unspecified,
         onGlassShadow = Color.Unspecified,
+        boardBackground = Color.Unspecified,
+        cardStroke = Color.Unspecified,
     )
 }

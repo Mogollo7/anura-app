@@ -13,10 +13,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import me.juanlabs.anura.designsystem.component.AnuraButton
-import me.juanlabs.anura.designsystem.component.AnuraButtonStyle
+import me.juanlabs.anura.designsystem.component.AnuraFormButton
+import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
+import me.juanlabs.anura.designsystem.theme.AnuraTheme
 
 /**
  * Shell temporal para pantallas de esta fase de navegación. Muestra el título real de
@@ -39,6 +40,7 @@ fun MockScreenScaffold(
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = { AnuraTopBar(title = title, onBackClick = onBackClick) },
     ) { innerPadding ->
         Column(
@@ -55,10 +57,10 @@ fun MockScreenScaffold(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             actions.forEach { action ->
-                AnuraButton(
+                AnuraFormButton(
                     text = action.label,
                     onClick = action.onClick,
-                    style = AnuraButtonStyle.Outline,
+                    style = AnuraFormButtonStyle.Outline,
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
