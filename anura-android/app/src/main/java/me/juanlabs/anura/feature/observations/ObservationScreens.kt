@@ -1,5 +1,6 @@
 package me.juanlabs.anura.feature.observations
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -120,7 +123,10 @@ fun ObservationDetailScreen(
                     .fillMaxWidth()
                     .height(ObservationHeroHeight)
                     .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
-                contentScale = ContentScale.Crop,
+                    contentScale = ContentScale.Crop,
+            )
+            ObservationTempoActions(
+                onOpenComments = { onOpenComments(id) },
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             Text(
@@ -257,6 +263,87 @@ fun ObservationDetailScreen(
     }
     if (showJustification) {
         IdentificationJustificationSheet(onDismiss = { showJustification = false })
+    }
+}
+
+@Composable
+private fun ObservationTempoActions(
+    onOpenComments: () -> Unit,
+) {
+    val context = LocalContext.current
+    var liked by rememberSaveable { mutableStateOf(false) }
+    val commonName = stringResource(R.string.observation_detail_common_name)
+    val scientificName = stringResource(R.string.observation_detail_scientific_name)
+    val shareText = stringResource(
+        R.string.observation_detail_share_text,
+        commonName,
+        scientificName,
+    )
+    val chooserTitle = stringResource(R.string.observation_detail_share_chooser)
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        IconButton(
+            onClick = { liked = !liked },
+            modifier = Modifier.size(AnuraDimens.sizeTouch),
+        ) {
+            Icon(
+                imageVector = if (liked) AnuraIcons.Favorite else AnuraIcons.FavoriteBorder,
+                contentDescription = stringResource(
+                    if (liked) {
+                        R.string.observation_detail_unlike_cd
+                    } else {
+                        R.string.observation_detail_like_cd
+                    },
+                ),
+                tint = AnuraTheme.extendedColors.accentInk,
+            )
+        }
+        IconButton(
+            onClick = onOpenComments,
+            modifier = Modifier.size(AnuraDimens.sizeTouch),
+        ) {
+            Icon(
+                imageVector = AnuraIcons.Chat,
+                contentDescription = stringResource(R.string.observation_detail_comments_cd),
+                tint = AnuraTheme.extendedColors.accentInk,
+            )
+        }
+        IconButton(
+            onClick = { },
+            modifier = Modifier.size(AnuraDimens.sizeTouch),
+        ) {
+            Icon(
+                imageVector = AnuraIcons.Download,
+                contentDescription = stringResource(R.string.observation_detail_download_cd),
+                tint = AnuraTheme.extendedColors.accentInk,
+            )
+        }
+        Spacer(modifier = Modifier.weight(1f))
+        IconButton(
+            onClick = {
+                runCatching {
+                    context.startActivity(
+                        Intent.createChooser(
+                            Intent(Intent.ACTION_SEND).apply {
+                                type = "text/plain"
+                                putExtra(Intent.EXTRA_TEXT, shareText)
+                                putExtra(Intent.EXTRA_SUBJECT, commonName)
+                            },
+                            chooserTitle,
+                        ),
+                    )
+                }
+            },
+            modifier = Modifier.size(AnuraDimens.sizeTouch),
+        ) {
+            Icon(
+                imageVector = AnuraIcons.Share,
+                contentDescription = stringResource(R.string.observation_detail_share_cd),
+                tint = AnuraTheme.extendedColors.accentInk,
+            )
+        }
     }
 }
 

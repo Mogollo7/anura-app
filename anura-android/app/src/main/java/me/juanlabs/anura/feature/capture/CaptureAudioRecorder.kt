@@ -67,7 +67,7 @@ internal fun rememberMicWaveform(
                         if (read <= 0) continue
                         if (pausedFlag.get()) continue
                         writer?.write(pcm, read)
-                        val rms = pcmRms(pcm, read)
+                        val rms = boostWaveform(pcmRms(pcm, read))
                         scroll.push(rms)
                         val snapshot = scroll.snapshot()
                         main.post {

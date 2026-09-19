@@ -118,5 +118,11 @@ sealed interface AnuraRoute {
 
     /** No navegable hacia atrás con back normal mientras dura el análisis (§4.1). */
     @Serializable
-    data object Analyzing : AnuraRoute
+    data class Analyzing(val source: String = Wizard) : AnuraRoute {
+        companion object {
+            const val Wizard = "wizard"
+            const val Image = "image"
+            const val Audio = "audio"
+        }
+    }
 }

@@ -1,5 +1,7 @@
 package me.juanlabs.anura.feature.capture
 
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -24,21 +26,37 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.painter.BitmapPainter
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.LayoutCoordinates
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
+import me.juanlabs.anura.designsystem.component.AnuraLightGlass
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
+
+private val CaptureCarouselIndexInset = 16.dp
 
 @Composable
 internal fun CapturePhotoCarousel(
@@ -87,12 +105,10 @@ internal fun CapturePhotoCarousel(
                     contentPadding = PaddingValues(0.dp),
                     pageSpacing = AnuraDimens.spaceGap,
                 ) { page ->
-                    CapturePhotoPreview(
+                    CaptureCarouselPage(
                         token = specimens[page],
-                        processing = false,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
+                        index = page + 1,
+                        total = specimens.size,
                     )
                 }
                 IconButton(
@@ -145,6 +161,81 @@ internal fun CapturePhotoCarousel(
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun CaptureCarouselPage(
+    token: String,
+    index: Int,
+    total: Int,
+) {
+    var hostCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    val backdrop = rememberCaptureBackdropPainter(token)
+    val indexLabel = stringResource(R.string.capture_step4_photo_index, index, total)
+    val indexCd = stringResource(R.string.capture_step4_photo_index_cd, index, total)
+    val extended = AnuraTheme.extendedColors
+    val onGlassShadow = remember(extended.onGlassShadow) {
+        Shadow(
+            color = extended.onGlassShadow,
+            offset = Offset(0f, 1f),
+            blurRadius = 8f,
+        )
+    }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clip(RoundedCornerShape(AnuraDimens.radiusCard))
+            .onGloballyPositioned { hostCoords = it },
+    ) {
+        CapturePhotoPreview(
+            token = token,
+            processing = false,
+            modifier = Modifier.fillMaxSize(),
+        )
+        AnuraLightGlass(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = CaptureCarouselIndexInset)
+                .semantics { contentDescription = indexCd },
+            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
+            backdropPainter = backdrop,
+            hostCoordinates = hostCoords,
+        ) {
+            Text(
+                text = indexLabel,
+                style = MaterialTheme.typography.labelSmall.copy(
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 12.sp,
+                    lineHeight = 14.sp,
+                    shadow = onGlassShadow,
+                ),
+                color = extended.onGlass,
+            )
+        }
+    }
+}
+
+@Composable
+private fun rememberCaptureBackdropPainter(token: String): Painter? {
+    return when {
+        token.startsWith("res:") -> {
+            val resId = token.removePrefix("res:").toIntOrNull()
+                ?: R.drawable.carousel_pristimantis_paisa
+            painterResource(resId)
+        }
+        token.startsWith("uri:") -> {
+            val bitmap = rememberUriImage(Uri.parse(token.removePrefix("uri:")))
+            bitmap?.let { BitmapPainter(it) }
+        }
+        token.startsWith("file:") -> {
+            val path = token.removePrefix("file:")
+            val bitmap = remember(path) {
+                BitmapFactory.decodeFile(path)?.asImageBitmap()
+            }
+            bitmap?.let { BitmapPainter(it) }
+        }
+        else -> null
     }
 }
 

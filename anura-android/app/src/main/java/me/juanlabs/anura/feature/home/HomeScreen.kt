@@ -1,6 +1,5 @@
 package me.juanlabs.anura.feature.home
 
-import android.os.Build
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -20,12 +19,9 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -45,7 +41,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Shadow
@@ -54,7 +49,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -66,11 +60,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlin.math.roundToInt
 import me.juanlabs.anura.R
+import me.juanlabs.anura.designsystem.component.AnuraLightGlass
 import me.juanlabs.anura.designsystem.component.AnuraLoadingState
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
@@ -84,9 +77,6 @@ private val HomeCarouselHorizontalInset = 28.dp
 private val HomeCarouselAspect = 337f / 300f
 private val HomeCarouselRadius = 20.dp
 private val HomeOverlayInset = 15.dp
-private val HomeOverlayRadius = 12.dp
-/** Radio de desenfoque del vidrio claro (Apple HIG Light Glass / Vibrancy). */
-private val HomeGlassBlurRadius = 20.dp
 private val HomeDotSize = 15.dp
 private val HomeDotGap = 18.dp
 /** Penpot: secundarios 80, Foto ID 92×95. */
@@ -338,8 +328,7 @@ private fun HomeCarouselCard(
 }
 
 /**
- * Contenedor translúcido claro estilo Apple HIG (Light Glass / Vibrancy) sobre la foto:
- * copia alineada de la imagen con blur (API 31+), tinte blanco y texto blanco con sombra.
+ * Contenedor translúcido claro estilo Apple HIG (Light Glass / Vibrancy) sobre la foto.
  */
 @Composable
 private fun HomeCarouselLightGlass(
@@ -350,12 +339,7 @@ private fun HomeCarouselLightGlass(
     curiousFact: String,
     modifier: Modifier = Modifier,
 ) {
-    val density = LocalDensity.current
     val extended = AnuraTheme.extendedColors
-    val blurSupported = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-    val glassTint = if (blurSupported) extended.glassLight else extended.glassLightFallback
-    val overlayShape = RoundedCornerShape(HomeOverlayRadius)
-    var overlayCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
     val onGlassShadow = remember(extended.onGlassShadow) {
         Shadow(
             color = extended.onGlassShadow,
@@ -364,63 +348,12 @@ private fun HomeCarouselLightGlass(
         )
     }
 
-    Box(
-        modifier = modifier
-            .onGloballyPositioned { overlayCoords = it }
-            .clip(overlayShape)
-            .border(1.dp, extended.glassStroke, overlayShape),
+    AnuraLightGlass(
+        modifier = modifier,
+        backdropPainter = painter,
+        hostCoordinates = cardCoords,
     ) {
-        val cardLayout = cardCoords
-        val overlayLayout = overlayCoords
-        val cardSize = cardLayout?.size
-        val overlayOrigin = if (
-            cardLayout != null &&
-            overlayLayout != null &&
-            cardLayout.isAttached &&
-            overlayLayout.isAttached
-        ) {
-            cardLayout.localPositionOf(overlayLayout, Offset.Zero)
-        } else {
-            Offset.Zero
-        }
-
-        if (blurSupported && cardSize != null && cardSize.width > 0) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .wrapContentSize(unbounded = true, align = Alignment.TopStart),
-            ) {
-                Image(
-                    painter = painter,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .requiredSize(
-                            width = with(density) { cardSize.width.toDp() },
-                            height = with(density) { cardSize.height.toDp() },
-                        )
-                        .offset {
-                            IntOffset(
-                                x = -overlayOrigin.x.roundToInt(),
-                                y = -overlayOrigin.y.roundToInt(),
-                            )
-                        }
-                        .blur(HomeGlassBlurRadius),
-                )
-            }
-        }
-
-        Box(
-            modifier = Modifier
-                .matchParentSize()
-                .background(glassTint),
-        )
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 14.dp, vertical = 10.dp),
-        ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = categoryTitle,
                 style = MaterialTheme.typography.titleLarge.copy(

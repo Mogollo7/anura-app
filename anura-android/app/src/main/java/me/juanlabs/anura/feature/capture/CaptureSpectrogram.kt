@@ -18,9 +18,13 @@ internal fun CaptureSpectrogram(
     amplitudes: List<Float> = emptyList(),
     amplitude: Float = 0f,
 ) {
-    val idle = phase == CaptureSpectrogramPhase.Idle ||
-        phase == CaptureSpectrogramPhase.Unavailable ||
-        amplitude < WaveformIdleThreshold && amplitudes.all { it < WaveformIdleThreshold }
+    val live = phase == CaptureSpectrogramPhase.Recording ||
+        phase == CaptureSpectrogramPhase.Playing
+    val idle = !live && (
+        phase == CaptureSpectrogramPhase.Idle ||
+            phase == CaptureSpectrogramPhase.Unavailable ||
+            amplitude < WaveformIdleThreshold && amplitudes.all { it < WaveformIdleThreshold }
+        )
     if (idle) {
         AnuraCenteredWaveform(
             amplitudes = List(WaveformBarCount) { 0f },

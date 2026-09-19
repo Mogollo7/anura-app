@@ -23,7 +23,6 @@ import me.juanlabs.anura.feature.auth.SignUpScreen
 import me.juanlabs.anura.feature.auth.WelcomeScreen
 import me.juanlabs.anura.feature.capture.AnalyzingScreen
 import me.juanlabs.anura.feature.capture.AudioCaptureScreen
-import me.juanlabs.anura.feature.capture.CaptureDraftPhotoCountKey
 import me.juanlabs.anura.feature.capture.CaptureStep1Screen
 import me.juanlabs.anura.feature.capture.CaptureStep2Screen
 import me.juanlabs.anura.feature.capture.CaptureStep3Screen
@@ -332,7 +331,7 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
         composable<AnuraRoute.CaptureStep6> {
             CaptureStep6Screen(
                 onBackClick = { navController.popBackStack() },
-                onAnalyze = { navController.navigate(AnuraRoute.Analyzing) },
+                onAnalyze = { navController.navigate(AnuraRoute.Analyzing()) },
                 onEditWhere = { navController.navigate(AnuraRoute.CaptureStep1) },
                 onEditWhen = { navController.navigate(AnuraRoute.CaptureStep2) },
                 onEditSize = { navController.navigate(AnuraRoute.CaptureStep3) },
@@ -345,13 +344,9 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             PhotoCaptureScreen(
                 onBackClick = { navController.popBackStack() },
                 onPhotoAccepted = {
-                    val previous = navController.previousBackStackEntry
-                    val current = previous?.savedStateHandle?.get<Int>(CaptureDraftPhotoCountKey) ?: 0
-                    previous?.savedStateHandle?.set(
-                        CaptureDraftPhotoCountKey,
-                        (current + 1).coerceAtMost(3),
-                    )
-                    navController.popBackStack()
+                    navController.navigate(AnuraRoute.Analyzing(AnuraRoute.Analyzing.Image)) {
+                        popUpTo(AnuraRoute.PhotoCapture) { inclusive = true }
+                    }
                 },
                 onCloseClick = { navController.closeCaptureWizard() },
             )
@@ -359,12 +354,18 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
         composable<AnuraRoute.AudioCapture> {
             AudioCaptureScreen(
                 onBackClick = { navController.popBackStack() },
-                onAnalyze = { navController.navigate(AnuraRoute.Analyzing) },
+                onAnalyze = {
+                    navController.navigate(AnuraRoute.Analyzing(AnuraRoute.Analyzing.Audio)) {
+                        popUpTo(AnuraRoute.AudioCapture) { inclusive = true }
+                    }
+                },
                 onCloseClick = { navController.closeCaptureWizard() },
             )
         }
-        composable<AnuraRoute.Analyzing> {
+        composable<AnuraRoute.Analyzing> { backStackEntry ->
+            val route = backStackEntry.toRoute<AnuraRoute.Analyzing>()
             AnalyzingScreen(
+                source = route.source,
                 onKnownResult = {
                     navController.navigate(AnuraRoute.ObservationDetail(id = "obs-nuevo")) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }

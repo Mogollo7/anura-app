@@ -36,14 +36,24 @@ internal class ScrollingWaveformBuffer(val capacity: Int = WaveformBarCount) {
     }
 }
 
+/** Ganancia visual: el RMS crudo de canto/campo suele ser bajo. */
+internal const val WaveformDisplayGain = 4.2f
+
+internal fun boostWaveform(rms: Float): Float =
+    (rms * WaveformDisplayGain).coerceIn(0f, 1f)
+
 internal fun pcmRms(samples: ShortArray, count: Int): Float {
     val n = count.coerceAtMost(samples.size).coerceAtLeast(1)
     var acc = 0.0
+    var peak = 0.0
     for (i in 0 until n) {
         val v = samples[i] / 32768.0
         acc += v * v
+        val abs = if (v < 0) -v else v
+        if (abs > peak) peak = abs
     }
-    return sqrt(acc / n).toFloat().coerceIn(0f, 1f)
+    val rms = sqrt(acc / n)
+    return maxOf(rms, peak * 0.72).toFloat().coerceIn(0f, 1f)
 }
 
 internal fun waveformBytesRms(waveform: ByteArray): Float {

@@ -53,6 +53,7 @@ import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
+import me.juanlabs.anura.navigation.AnuraRoute
 
 private val AnalyzingPhotoHeight = 220.dp
 private val AnalyzingStageDelayMs = 1_100L
@@ -77,6 +78,7 @@ private val AnalyzingStages = listOf(
 @Composable
 fun AnalyzingScreen(
     onKnownResult: () -> Unit,
+    source: String = AnuraRoute.Analyzing.Wizard,
 ) {
     BackHandler(enabled = true) { }
     var currentStage by rememberSaveable { mutableIntStateOf(0) }
@@ -94,6 +96,14 @@ fun AnalyzingScreen(
         else -> 1f
     }
     val percent = (progress * 100).toInt()
+    val showStages = source == AnuraRoute.Analyzing.Wizard
+    val headline = stringResource(
+        when (source) {
+            AnuraRoute.Analyzing.Image -> R.string.analyzing_via_image
+            AnuraRoute.Analyzing.Audio -> R.string.analyzing_via_audio
+            else -> R.string.analyzing_label
+        },
+    )
 
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
@@ -118,22 +128,37 @@ fun AnalyzingScreen(
                     .fillMaxWidth()
                     .height(AnalyzingPhotoHeight)
                     .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
+                contentAlignment = Alignment.Center,
             ) {
-                Image(
-                    painter = painterResource(R.drawable.carousel_dendrobates_truncatus),
-                    contentDescription = stringResource(R.string.analyzing_photo_cd),
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop,
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.scrim.copy(alpha = 0.28f)),
-                )
+                if (source == AnuraRoute.Analyzing.Audio) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(MaterialTheme.colorScheme.surfaceVariant),
+                    )
+                    Icon(
+                        imageVector = AnuraIcons.AudioId,
+                        contentDescription = stringResource(R.string.analyzing_audio_cd),
+                        tint = AnuraTheme.extendedColors.accentInk,
+                        modifier = Modifier.size(64.dp),
+                    )
+                } else {
+                    Image(
+                        painter = painterResource(R.drawable.carousel_dendrobates_truncatus),
+                        contentDescription = stringResource(R.string.analyzing_photo_cd),
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop,
+                    )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(MaterialTheme.colorScheme.scrim.copy(alpha = 0.28f)),
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             Text(
-                text = stringResource(R.string.analyzing_label),
+                text = headline,
                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
@@ -154,17 +179,19 @@ fun AnalyzingScreen(
                 modifier = Modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-            AnalyzingStages.forEachIndexed { index, stage ->
-                AnalyzingStageRow(
-                    title = stringResource(stage.title),
-                    engine = stage.engine?.let { stringResource(it) },
-                    state = when {
-                        index < currentStage -> AnalyzingStageState.Done
-                        index == currentStage -> AnalyzingStageState.Current
-                        else -> AnalyzingStageState.Pending
-                    },
-                )
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            if (showStages) {
+                AnalyzingStages.forEachIndexed { index, stage ->
+                    AnalyzingStageRow(
+                        title = stringResource(stage.title),
+                        engine = stage.engine?.let { stringResource(it) },
+                        state = when {
+                            index < currentStage -> AnalyzingStageState.Done
+                            index == currentStage -> AnalyzingStageState.Current
+                            else -> AnalyzingStageState.Pending
+                        },
+                    )
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                }
             }
             AnuraCard(modifier = Modifier.fillMaxWidth()) {
                 Row(

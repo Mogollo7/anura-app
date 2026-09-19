@@ -74,17 +74,7 @@ fun CaptureStep5Screen(
     onCancel: () -> Unit = onBackClick,
     onCloseClick: () -> Unit = onBackClick,
 ) {
-    var localUri by rememberSaveable { mutableStateOf<String?>(null) }
     var dirty by rememberSaveable { mutableStateOf(false) }
-    if (localUri != null) {
-        CaptureLocalAudioScreen(
-            uri = Uri.parse(localUri),
-            onBackClick = { localUri = null },
-            onUseAudio = { localUri = null },
-            onCloseClick = onCloseClick,
-        )
-        return
-    }
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.capture_step5_appbar),
         step = 5,
@@ -97,7 +87,7 @@ fun CaptureStep5Screen(
             subtitle = stringResource(R.string.capture_step5_subtitle),
         )
         CaptureLiveSpectrogramSession(
-            onOpenStorage = { localUri = it.toString() },
+            onAnalyzeAudio = onNext,
             onDirtyChange = { dirty = it },
         )
         Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
@@ -113,7 +103,8 @@ fun CaptureStep5Screen(
 
 @Composable
 internal fun CaptureLiveSpectrogramSession(
-    onOpenStorage: (Uri) -> Unit,
+    onAnalyzeAudio: () -> Unit,
+    analyzeLabel: String = stringResource(R.string.audio_capture_analyze),
     onRecordedChange: (Boolean) -> Unit = {},
     onDirtyChange: (Boolean) -> Unit = {},
 ) {
@@ -121,15 +112,17 @@ internal fun CaptureLiveSpectrogramSession(
     val micGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Microphone)
     var phase by rememberSaveable { mutableStateOf(Step5AudioPhase.Idle) }
     var elapsedSeconds by rememberSaveable { mutableIntStateOf(0) }
+    var playbackUri by rememberSaveable { mutableStateOf<String?>(null) }
     val capture = remember { LiveAudioCaptureHandle() }
-    LaunchedEffect(phase) {
-        onDirtyChange(phase != Step5AudioPhase.Idle)
-        onRecordedChange(phase == Step5AudioPhase.Recorded)
+
+    LaunchedEffect(phase, playbackUri) {
+        onDirtyChange(phase != Step5AudioPhase.Idle || playbackUri != null)
+        onRecordedChange(playbackUri != null)
         if (phase == Step5AudioPhase.Recorded) {
             delay(80)
             val file = capture.file
             if (file != null && file.exists() && file.length() > 44L) {
-                onOpenStorage(Uri.fromFile(file))
+                playbackUri = Uri.fromFile(file).toString()
             }
             phase = Step5AudioPhase.Idle
             elapsedSeconds = 0
@@ -145,130 +138,179 @@ internal fun CaptureLiveSpectrogramSession(
                     Intent.FLAG_GRANT_READ_URI_PERMISSION,
                 )
             }
-            onOpenStorage(uri)
+            playbackUri = uri.toString()
+            phase = Step5AudioPhase.Idle
+            elapsedSeconds = 0
         }
     }
 
     val recording = phase == Step5AudioPhase.Recording
     val paused = phase == Step5AudioPhase.Paused
-    val live = rememberMicWaveform(
-        active = (recording || paused) && micGranted,
+    val clipUri = playbackUri?.let { Uri.parse(it) }
+    val micLive = rememberMicWaveform(
+        active = (recording || paused) && micGranted && clipUri == null,
         paused = paused,
         capture = capture,
     )
-    val spectroPhase = when (phase) {
-        Step5AudioPhase.Idle -> CaptureSpectrogramPhase.Idle
-        Step5AudioPhase.Recording -> CaptureSpectrogramPhase.Recording
-        Step5AudioPhase.Paused -> CaptureSpectrogramPhase.Recorded
-        Step5AudioPhase.Recorded -> CaptureSpectrogramPhase.Recorded
-    }
-    val transportMode = when (phase) {
-        Step5AudioPhase.Recording -> Step5TransportMode.Recording
-        Step5AudioPhase.Paused -> Step5TransportMode.Paused
-        Step5AudioPhase.Idle, Step5AudioPhase.Recorded -> Step5TransportMode.Idle
-    }
     val reduceMotion = rememberReduceMotion()
 
-    CaptureAudioRecorderCard(
-        phase = spectroPhase,
-        dominantKhz = live.dominantKhz,
-        elapsedSeconds = elapsedSeconds,
-        amplitudes = live.amplitudes,
-        amplitude = live.level,
-    )
-
-    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-    if (recording) {
-        CaptureRecordingTicker(startAt = elapsedSeconds, onTick = { elapsedSeconds = it })
-    }
-    AnimatedContent(
-        targetState = transportMode,
-        transitionSpec = {
-            if (reduceMotion) {
-                EnterTransition.None togetherWith ExitTransition.None
-            } else {
-                fadeIn(tween(AnuraMotion.DurationShort)) togetherWith fadeOut(tween(AnuraMotion.DurationShort))
-            }
-        },
-        label = "CaptureStep5Transport",
-    ) { mode ->
-        when (mode) {
-            Step5TransportMode.Recording -> Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.Pause,
-                    contentDescription = stringResource(R.string.capture_step5_pause),
-                    filled = true,
-                    large = true,
-                    onClick = { phase = Step5AudioPhase.Paused },
-                )
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.Stop,
-                    contentDescription = stringResource(R.string.capture_step5_use_clip_cd),
-                    filled = false,
-                    large = true,
-                    onClick = { phase = Step5AudioPhase.Recorded },
-                )
-            }
-            Step5TransportMode.Paused -> Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.Pause,
-                    contentDescription = stringResource(R.string.capture_step5_pause),
-                    filled = false,
-                    large = true,
-                    enabled = false,
-                    onClick = { },
-                )
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.Play,
-                    contentDescription = stringResource(R.string.capture_step5_record_cd),
-                    filled = true,
-                    large = true,
-                    enabled = micGranted,
-                    onClick = { phase = Step5AudioPhase.Recording },
-                )
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.Stop,
-                    contentDescription = stringResource(R.string.capture_step5_use_clip_cd),
-                    filled = false,
-                    large = true,
-                    onClick = { phase = Step5AudioPhase.Recorded },
-                )
-            }
-            Step5TransportMode.Idle -> Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.FolderOpen,
-                    contentDescription = stringResource(R.string.capture_step5_storage_cd),
-                    filled = false,
-                    onClick = { filePicker.launch(arrayOf("audio/*")) },
-                )
-                CaptureCircleIconButton(
-                    icon = AnuraIcons.Play,
-                    contentDescription = stringResource(R.string.capture_step5_record_cd),
-                    filled = true,
-                    large = true,
-                    enabled = micGranted,
-                    onClick = {
-                        if (micGranted) {
-                            if (phase != Step5AudioPhase.Recorded) elapsedSeconds = 0
-                            phase = Step5AudioPhase.Recording
-                        }
-                    },
-                )
+    if (clipUri != null) {
+        CaptureReadyClipPlayback(
+            uri = clipUri,
+            analyzeLabel = analyzeLabel,
+            onAnalyzeAudio = onAnalyzeAudio,
+            onReject = {
+                playbackUri = null
+                phase = Step5AudioPhase.Idle
+                elapsedSeconds = 0
+            },
+        )
+    } else {
+        val spectroPhase = when (phase) {
+            Step5AudioPhase.Idle -> CaptureSpectrogramPhase.Idle
+            Step5AudioPhase.Recording -> CaptureSpectrogramPhase.Recording
+            Step5AudioPhase.Paused -> CaptureSpectrogramPhase.Recorded
+            Step5AudioPhase.Recorded -> CaptureSpectrogramPhase.Recorded
+        }
+        val transportMode = when (phase) {
+            Step5AudioPhase.Recording -> Step5TransportMode.Recording
+            Step5AudioPhase.Paused -> Step5TransportMode.Paused
+            Step5AudioPhase.Idle, Step5AudioPhase.Recorded -> Step5TransportMode.Idle
+        }
+        CaptureAudioRecorderCard(
+            phase = spectroPhase,
+            dominantKhz = micLive.dominantKhz,
+            elapsedSeconds = elapsedSeconds,
+            amplitudes = micLive.amplitudes,
+            amplitude = micLive.level,
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+        if (recording) {
+            CaptureRecordingTicker(startAt = elapsedSeconds, onTick = { elapsedSeconds = it })
+        }
+        AnimatedContent(
+            targetState = transportMode,
+            transitionSpec = {
+                if (reduceMotion) {
+                    EnterTransition.None togetherWith ExitTransition.None
+                } else {
+                    fadeIn(tween(AnuraMotion.DurationShort)) togetherWith fadeOut(tween(AnuraMotion.DurationShort))
+                }
+            },
+            label = "CaptureStep5Transport",
+        ) { mode ->
+            when (mode) {
+                Step5TransportMode.Recording -> Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.Pause,
+                        contentDescription = stringResource(R.string.capture_step5_pause),
+                        filled = true,
+                        large = true,
+                        onClick = { phase = Step5AudioPhase.Paused },
+                    )
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.Stop,
+                        contentDescription = stringResource(R.string.capture_step5_use_clip_cd),
+                        filled = false,
+                        large = true,
+                        onClick = { phase = Step5AudioPhase.Recorded },
+                    )
+                }
+                Step5TransportMode.Paused -> Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.Pause,
+                        contentDescription = stringResource(R.string.capture_step5_pause),
+                        filled = false,
+                        large = true,
+                        enabled = false,
+                        onClick = { },
+                    )
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.Play,
+                        contentDescription = stringResource(R.string.capture_step5_record_cd),
+                        filled = true,
+                        large = true,
+                        enabled = micGranted,
+                        onClick = { phase = Step5AudioPhase.Recording },
+                    )
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.Stop,
+                        contentDescription = stringResource(R.string.capture_step5_use_clip_cd),
+                        filled = false,
+                        large = true,
+                        onClick = { phase = Step5AudioPhase.Recorded },
+                    )
+                }
+                Step5TransportMode.Idle -> Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.FolderOpen,
+                        contentDescription = stringResource(R.string.capture_step5_storage_cd),
+                        filled = false,
+                        onClick = { filePicker.launch(arrayOf("audio/*")) },
+                    )
+                    CaptureCircleIconButton(
+                        icon = AnuraIcons.Play,
+                        contentDescription = stringResource(R.string.capture_step5_record_cd),
+                        filled = true,
+                        large = true,
+                        enabled = micGranted,
+                        onClick = {
+                            if (micGranted) {
+                                if (phase != Step5AudioPhase.Recorded) elapsedSeconds = 0
+                                phase = Step5AudioPhase.Recording
+                            }
+                        },
+                    )
+                }
             }
         }
     }
+}
+
+@Composable
+private fun CaptureReadyClipPlayback(
+    uri: Uri,
+    analyzeLabel: String,
+    onAnalyzeAudio: () -> Unit,
+    onReject: () -> Unit,
+) {
+    val player = rememberCaptureAudioPlayer(uri)
+    val live = rememberPlaybackWaveform(
+        uri = uri,
+        playing = player.playing,
+        positionMs = player.positionMs,
+        sessionId = player.sessionId,
+    )
+    CaptureAudioRecorderCard(
+        phase = if (player.playing) {
+            CaptureSpectrogramPhase.Playing
+        } else {
+            CaptureSpectrogramPhase.Recorded
+        },
+        dominantKhz = live.dominantKhz,
+        elapsedSeconds = player.positionMs / 1000,
+        amplitudes = live.amplitudes,
+        amplitude = live.level,
+    )
+    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+    CaptureAudioPlaybackControls(
+        player = player,
+        onAnalyze = onAnalyzeAudio,
+        onReject = onReject,
+        analyzeLabel = analyzeLabel,
+    )
 }
 
 @Composable

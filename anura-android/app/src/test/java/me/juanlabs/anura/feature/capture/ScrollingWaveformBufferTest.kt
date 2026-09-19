@@ -29,4 +29,10 @@ class ScrollingWaveformBufferTest {
         val samples = ShortArray(32) { Short.MAX_VALUE }
         assertTrue(pcmRms(samples, samples.size) > 0.8f)
     }
+
+    @Test
+    fun boostRaisesQuietFieldLevels() {
+        assertTrue(boostWaveform(0.08f) > 0.3f)
+        assertEquals(1f, boostWaveform(0.9f), 0.0001f)
+    }
 }

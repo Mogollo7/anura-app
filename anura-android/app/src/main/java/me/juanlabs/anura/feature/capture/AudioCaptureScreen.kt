@@ -1,6 +1,5 @@
 package me.juanlabs.anura.feature.capture
 
-import android.net.Uri
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
@@ -26,21 +25,7 @@ fun AudioCaptureScreen(
     onAnalyze: () -> Unit = onBackClick,
     onCloseClick: () -> Unit = onBackClick,
 ) {
-    var localUri by rememberSaveable { mutableStateOf<String?>(null) }
     var dirty by rememberSaveable { mutableStateOf(false) }
-    if (localUri != null) {
-        CaptureLocalAudioScreen(
-            uri = Uri.parse(localUri),
-            onBackClick = { localUri = null },
-            useLabel = stringResource(R.string.audio_capture_analyze),
-            onUseAudio = {
-                localUri = null
-                onAnalyze()
-            },
-            onCloseClick = onCloseClick,
-        )
-        return
-    }
     var hasRecording by rememberSaveable { mutableStateOf(false) }
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.audio_capture_title),
@@ -55,17 +40,20 @@ fun AudioCaptureScreen(
             subtitle = stringResource(R.string.audio_capture_subtitle),
         )
         CaptureLiveSpectrogramSession(
-            onOpenStorage = { localUri = it.toString() },
+            onAnalyzeAudio = onAnalyze,
+            analyzeLabel = stringResource(R.string.audio_capture_analyze),
             onRecordedChange = { hasRecording = it },
             onDirtyChange = { dirty = it },
         )
-        Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
-        AnuraFormButton(
-            text = stringResource(R.string.audio_capture_analyze),
-            onClick = onAnalyze,
-            style = AnuraFormButtonStyle.Primary,
-            enabled = hasRecording,
-        )
+        if (!hasRecording) {
+            Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
+            AnuraFormButton(
+                text = stringResource(R.string.audio_capture_analyze),
+                onClick = onAnalyze,
+                style = AnuraFormButtonStyle.Primary,
+                enabled = false,
+            )
+        }
     }
 }
 

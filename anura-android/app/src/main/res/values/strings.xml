@@ -144,6 +144,8 @@
     <string name="capture_step4_shutter_cd">Tomar foto</string>
     <string name="capture_step4_review_cd">Revisar %1$d fotos</string>
     <string name="capture_step4_carousel_cd">Carrusel de fotos capturadas</string>
+    <string name="capture_step4_photo_index">%1$d / %2$d</string>
+    <string name="capture_step4_photo_index_cd">Foto %1$d de %2$d</string>
 
     <string name="capture_step5_appbar">Paso 5 de 6</string>
     <string name="capture_step5_title">Añadir audio</string>
@@ -192,10 +194,14 @@
     <string name="audio_capture_title">Añadir audio</string>
     <string name="audio_capture_subtitle">Grabá el canto con el micrófono o elegí un audio de la memoria.</string>
     <string name="audio_capture_analyze">Analizar audio</string>
+    <string name="audio_capture_reject">Rechazar el audio</string>
 
     <!-- Analizando · progreso por etapas — textos exactos de Penpot -->
     <string name="analyzing_title">Analizando</string>
     <string name="analyzing_label">Identificando especie…</string>
+    <string name="analyzing_via_image">Identificación mediante imagen</string>
+    <string name="analyzing_via_audio">Identificación mediante audio</string>
+    <string name="analyzing_audio_cd">Audio en análisis</string>
     <string name="analyzing_photo_cd">Vista previa de la foto analizada</string>
     <string name="analyzing_progress_pct">%1$d %%</string>
     <string name="analyzing_stage_crop">Recortando el individuo</string>
@@ -246,6 +252,12 @@
     <string name="observation_detail_expert_review">En revisión experta tras una refutación</string>
     <string name="observation_detail_comments">Comentarios recientes</string>
     <string name="observation_detail_comments_cd">Abrir comentarios</string>
+    <string name="observation_detail_like_cd">Me gusta</string>
+    <string name="observation_detail_unlike_cd">Quitar me gusta</string>
+    <string name="observation_detail_download_cd">Descargar la observación</string>
+    <string name="observation_detail_share_cd">Compartir la foto y la observación</string>
+    <string name="observation_detail_share_chooser">Compartir observación</string>
+    <string name="observation_detail_share_text">%1$s (%2$s) — observación en ANURA</string>
 
     <!-- Resultado open-set: especie no registrada — textos exactos de Penpot -->
     <string name="unknown_result_title">Resultado</string>

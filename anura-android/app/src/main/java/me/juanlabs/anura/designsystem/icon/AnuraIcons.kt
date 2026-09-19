@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -34,6 +35,7 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Replay10
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material.icons.filled.TravelExplore
@@ -110,4 +112,6 @@ object AnuraIcons {
     val Stop: ImageVector = Icons.Filled.Stop
     val Chat: ImageVector = Icons.AutoMirrored.Filled.Chat
     val CloudOff: ImageVector = Icons.Filled.CloudOff
+    val Download: ImageVector = Icons.Filled.Download
+    val Share: ImageVector = Icons.Filled.Share
 }

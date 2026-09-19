@@ -33,12 +33,12 @@ internal class DecodedPcm(
     val sampleRate: Int,
     val samples: ShortArray,
 ) {
-    fun rmsAt(positionMs: Int, windowMs: Int = 40): Float {
+    fun rmsAt(positionMs: Int, windowMs: Int = 55): Float {
         if (samples.isEmpty() || sampleRate <= 0) return 0f
         val start = ((positionMs / 1000.0) * sampleRate).toInt().coerceIn(0, samples.lastIndex)
-        val window = ((windowMs / 1000.0) * sampleRate).toInt().coerceAtLeast(32)
+        val window = ((windowMs / 1000.0) * sampleRate).toInt().coerceAtLeast(64)
         val end = min(samples.size, start + window)
-        return pcmRms(samples.copyOfRange(start, end), end - start)
+        return boostWaveform(pcmRms(samples.copyOfRange(start, end), end - start))
     }
 }
 
@@ -126,6 +126,11 @@ internal fun rememberCaptureAudioPlayer(uri: Uri): CaptureAudioPlayerState {
             controller.seekTo(target)
             positionMs = target
         },
+        onSeekTo = { millis ->
+            val target = millis.coerceIn(0, durationMs)
+            controller.seekTo(target)
+            positionMs = target
+        },
         onStopPlayback = { playing = false },
     )
 }
@@ -137,6 +142,7 @@ internal data class CaptureAudioPlayerState(
     val sessionId: Int,
     val onTogglePlay: () -> Unit,
     val onSeekBy: (Int) -> Unit,
+    val onSeekTo: (Int) -> Unit,
     val onStopPlayback: () -> Unit,
 )
 
@@ -177,7 +183,7 @@ internal fun rememberPlaybackWaveform(
                                 samplingRate: Int,
                             ) {
                                 if (waveform == null) return
-                                val rms = waveformBytesRms(waveform)
+                                val rms = boostWaveform(waveformBytesRms(waveform))
                                 scroll.push(rms)
                                 val snapshot = scroll.snapshot()
                                 main.post {
@@ -213,7 +219,7 @@ internal fun rememberPlaybackWaveform(
             amplitudes = scroll.snapshot()
             level = rms
             dominantKhz = (0.4f + rms * 7.6f).coerceIn(0.4f, 8f)
-            delay(45)
+            delay(40)
         }
     }
 
@@ -221,6 +227,7 @@ internal fun rememberPlaybackWaveform(
 }
 
 internal fun decodePcm(context: Context, uri: Uri): DecodedPcm? {
+    decodeWavFile(uri)?.let { return it }
     val extractor = MediaExtractor()
     return try {
         extractor.setDataSource(context, uri, null)
@@ -313,4 +320,52 @@ private fun appendPcm(
         }
         out.add((acc / ch).toShort())
     }
+}
+
+private fun decodeWavFile(uri: Uri): DecodedPcm? {
+    if (uri.scheme != null && uri.scheme != "file") return null
+    val path = uri.path ?: return null
+    val file = java.io.File(path)
+    if (!file.exists() || file.length() < 44L) return null
+    return runCatching {
+        java.io.RandomAccessFile(file, "r").use { raf ->
+            val riff = ByteArray(12)
+            raf.readFully(riff)
+            if (String(riff, 0, 4) != "RIFF" || String(riff, 8, 4) != "WAVE") return@use null
+            var sampleRate = CapturePcmSampleRate
+            while (raf.filePointer <= raf.length() - 8) {
+                val id = ByteArray(4)
+                raf.readFully(id)
+                val sizeBuf = ByteArray(4)
+                raf.readFully(sizeBuf)
+                val size = ByteBuffer.wrap(sizeBuf).order(ByteOrder.LITTLE_ENDIAN).int.coerceAtLeast(0)
+                when (String(id)) {
+                    "fmt " -> {
+                        val fmt = ByteArray(size)
+                        raf.readFully(fmt)
+                        if (fmt.size >= 8) {
+                            sampleRate = ByteBuffer.wrap(fmt).order(ByteOrder.LITTLE_ENDIAN).getInt(4)
+                        }
+                        if (size % 2 == 1) raf.skipBytes(1)
+                    }
+                    "data" -> {
+                        val maxBytes = min(size, sampleRate * 180 * 2)
+                        val bytes = ByteArray(maxBytes)
+                        val read = raf.read(bytes)
+                        val count = (read / 2).coerceAtLeast(0)
+                        val samples = ShortArray(count)
+                        ByteBuffer.wrap(bytes, 0, count * 2)
+                            .order(ByteOrder.LITTLE_ENDIAN)
+                            .asShortBuffer()
+                            .get(samples)
+                        return@use DecodedPcm(sampleRate.coerceAtLeast(8_000), samples)
+                    }
+                    else -> {
+                        raf.skipBytes(size + if (size % 2 == 1) 1 else 0)
+                    }
+                }
+            }
+            null
+        }
+    }.getOrNull()
 }
