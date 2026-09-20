@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.MonetizationOn
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.Person
@@ -118,4 +119,5 @@ object AnuraIcons {
     val Share: ImageVector = Icons.Filled.Share
     val Send: ImageVector = Icons.AutoMirrored.Filled.Send
     val Reply: ImageVector = Icons.AutoMirrored.Filled.Reply
+    val More: ImageVector = Icons.Filled.MoreVert
 }

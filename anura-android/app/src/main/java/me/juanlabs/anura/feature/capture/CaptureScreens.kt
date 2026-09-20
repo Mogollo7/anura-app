@@ -426,12 +426,15 @@ private fun RankRow(
 }
 
 @Composable
-internal fun AnuraReviewChip(text: String) {
+internal fun AnuraReviewChip(
+    text: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = text,
         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
         color = AnuraTheme.extendedColors.onWarning,
-        modifier = Modifier
+        modifier = modifier
             .clip(RoundedCornerShape(AnuraDimens.radiusCapsule))
             .background(AnuraTheme.extendedColors.warning)
             .padding(horizontal = 10.dp, vertical = 4.dp),

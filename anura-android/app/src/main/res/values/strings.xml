@@ -219,6 +219,14 @@
 
     <!-- Detalles de observación (resultado) — textos exactos de Penpot -->
     <string name="observation_detail_title">Detalles</string>
+    <string name="observation_detail_more_cd">Más opciones</string>
+    <string name="observation_detail_edit">Editar</string>
+    <string name="observation_detail_delete">Eliminar</string>
+    <string name="observation_detail_visibility">Visibilidad</string>
+    <string name="observation_detail_visibility_public">Pública</string>
+    <string name="observation_detail_visibility_private">Privada</string>
+    <string name="observation_detail_species_cd">Abrir ficha de %1$s</string>
+    <string name="observation_detail_candidate_thumb_cd">Miniatura de %1$s</string>
     <string name="observation_detail_photo_cd">Foto de la observación</string>
     <string name="observation_media_carousel_cd">Carrusel de fotos y audio de la observación</string>
     <string name="observation_media_index_cd">Medio %1$d de %2$d</string>

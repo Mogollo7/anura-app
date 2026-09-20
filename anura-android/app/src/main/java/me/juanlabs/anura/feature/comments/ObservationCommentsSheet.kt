@@ -35,6 +35,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateListOf
@@ -83,7 +84,7 @@ fun ObservationCommentsOverlay(
     val focusManager = LocalFocusManager.current
     val imeBottom = WindowInsets.ime.getBottom(density)
     val imeVisible = imeBottom > 0
-    var sheetFraction by rememberSaveable(observationId) { mutableFloatStateOf(SheetHalf) }
+    var sheetFraction by rememberSaveable(observationId) { mutableFloatStateOf(0f) }
     var composerFocused by rememberSaveable { mutableStateOf(false) }
     val comments = remember(observationId) {
         mutableStateListOf<ObservationComment>().also { it.addAll(mockObservationComments()) }
@@ -97,6 +98,9 @@ fun ObservationCommentsOverlay(
     BackHandler {
         focusManager.clearFocus()
         onDismiss()
+    }
+    LaunchedEffect(observationId) {
+        sheetFraction = SheetHalf
     }
 
     val target = when {

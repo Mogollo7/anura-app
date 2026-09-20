@@ -101,7 +101,7 @@ fun IdentificationJustificationSheet(
             AnuraFormButton(
                 text = stringResource(R.string.justification_refute_all),
                 onClick = onRefuteAll,
-                style = AnuraFormButtonStyle.Outline,
+                style = AnuraFormButtonStyle.Primary,
             )
         }
     }
