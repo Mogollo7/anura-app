@@ -60,6 +60,7 @@ internal fun CaptureAudioPlaybackControls(
     onAnalyze: () -> Unit,
     onReject: () -> Unit,
     analyzeLabel: String = stringResource(R.string.audio_capture_analyze),
+    showAnalyzeActions: Boolean = true,
 ) {
     var scrubMs by remember { mutableStateOf<Int?>(null) }
     val displayMs = scrubMs ?: player.positionMs
@@ -115,24 +116,26 @@ internal fun CaptureAudioPlaybackControls(
             onClick = { player.onSeekBy(10_000) },
         )
     }
-    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-    AnuraFormButton(
-        text = analyzeLabel,
-        onClick = {
-            player.onStopPlayback()
-            onAnalyze()
-        },
-        style = AnuraFormButtonStyle.Primary,
-    )
-    Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
-    AnuraFormButton(
-        text = stringResource(R.string.audio_capture_reject),
-        onClick = {
-            player.onStopPlayback()
-            onReject()
-        },
-        style = AnuraFormButtonStyle.Outline,
-    )
+    if (showAnalyzeActions) {
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+        AnuraFormButton(
+            text = analyzeLabel,
+            onClick = {
+                player.onStopPlayback()
+                onAnalyze()
+            },
+            style = AnuraFormButtonStyle.Primary,
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+        AnuraFormButton(
+            text = stringResource(R.string.audio_capture_reject),
+            onClick = {
+                player.onStopPlayback()
+                onReject()
+            },
+            style = AnuraFormButtonStyle.Outline,
+        )
+    }
 }
 
 @Composable

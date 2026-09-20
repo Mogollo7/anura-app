@@ -1,17 +1,24 @@
 package me.juanlabs.anura.feature.comments
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import me.juanlabs.anura.navigation.MockScreenScaffold
+import androidx.compose.ui.Modifier
+import me.juanlabs.anura.feature.observations.ObservationMediaCarousel
+import me.juanlabs.anura.feature.observations.mockObservationMedia
 
-/** `COMENTARIOS` (§4.1, argumento `observationId`). Hoja del árbol: solo vuelve atrás. */
+/** Hoja `COMENTARIOS`. El flujo principal abre el sheet desde detalles de observación. */
 @Composable
 fun CommentsScreen(
     observationId: String,
     onBackClick: () -> Unit,
 ) {
-    MockScreenScaffold(
-        title = "Comentarios",
-        onBackClick = onBackClick,
-        description = "Comentarios de la observación $observationId — contenido temporal.",
-    )
+    ObservationCommentsOverlay(
+        observationId = observationId,
+        onDismiss = onBackClick,
+    ) {
+        ObservationMediaCarousel(
+            items = mockObservationMedia(observationId),
+            modifier = Modifier.fillMaxSize(),
+        )
+    }
 }

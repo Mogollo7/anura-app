@@ -83,7 +83,7 @@ data class CaptureStep1UiState(
  * `Paso 1: dónde la viste` (§4.1, grafo `CaptureGraph`).
  *
  * Estados: contenido. El permiso de ubicación se pide con el diálogo del sistema.
- * Skip y Siguiente avanzan al Paso 2; Skip no rellena ubicación.
+ * Skip y Continuar avanzan al Paso 2; Skip no rellena ubicación.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -115,6 +115,7 @@ fun CaptureStep1Screen(
         onBackClick = onBackClick,
         onCloseClick = onCloseClick,
         unsavedChanges = fromReview,
+        showSkipNote = !fromReview,
     ) {
         CaptureWizardHeading(
             title = stringResource(R.string.capture_step1_title),

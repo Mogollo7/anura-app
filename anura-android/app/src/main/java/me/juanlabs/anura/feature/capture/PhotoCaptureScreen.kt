@@ -18,6 +18,7 @@ fun PhotoCaptureScreen(
     CaptureAddPhotoFlow(
         appBarTitle = stringResource(R.string.photo_capture_title),
         showProgress = false,
+        confirmLabel = stringResource(R.string.photo_capture_analyze),
         onBackClick = onBackClick,
         onConfirm = onPhotoAccepted,
         onCloseClick = onCloseClick,

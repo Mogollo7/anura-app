@@ -166,7 +166,6 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
         ObservationDetailScreen(
             id = route.id,
             onBackClick = { navController.popBackStack() },
-            onOpenComments = { observationId -> navController.navigate(AnuraRoute.Comments(observationId)) },
             onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
         )
     }

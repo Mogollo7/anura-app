@@ -75,6 +75,7 @@ internal fun CaptureWizardScaffold(
     scrollable: Boolean = true,
     showProgress: Boolean = true,
     edgeToEdge: Boolean = false,
+    showSkipNote: Boolean = false,
     onCloseClick: (() -> Unit)? = null,
     unsavedChanges: Boolean = false,
     unsavedTitle: String = stringResource(R.string.capture_unsaved_title),
@@ -90,6 +91,11 @@ internal fun CaptureWizardScaffold(
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         contentWindowInsets = WindowInsets.navigationBars,
+        bottomBar = {
+            if (showSkipNote) {
+                CaptureWizardSkipNote()
+            }
+        },
         topBar = {
             AnuraTopBar(
                 title = appBarTitle,
@@ -170,24 +176,31 @@ internal fun CaptureWizardOptionalActions(
     onNext: () -> Unit,
     nextLabel: String = stringResource(R.string.capture_wizard_next),
 ) {
-    Text(
-        text = stringResource(R.string.capture_wizard_optional_note),
-        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth(),
+    AnuraFormButton(
+        text = nextLabel,
+        onClick = onNext,
+        style = AnuraFormButtonStyle.Primary,
     )
-    Spacer(modifier = Modifier.height(CaptureNoteToSkipGap))
+    Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
     AnuraFormButton(
         text = stringResource(R.string.capture_wizard_skip),
         onClick = onSkip,
         style = AnuraFormButtonStyle.Outline,
     )
-    Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
-    AnuraFormButton(
-        text = nextLabel,
-        onClick = onNext,
-        style = AnuraFormButtonStyle.Primary,
+}
+
+@Composable
+private fun CaptureWizardSkipNote() {
+    Text(
+        text = stringResource(R.string.capture_wizard_optional_note),
+        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(AnuraTheme.extendedColors.boardBackground)
+            .padding(horizontal = AnuraDimens.spaceGutter)
+            .padding(bottom = CaptureBottomBreathing),
     )
 }
 

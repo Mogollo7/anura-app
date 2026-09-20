@@ -80,8 +80,8 @@
     <string name="capture_wizard_close_cd">Cerrar e ir al inicio</string>
     <string name="capture_wizard_progress_cd">Paso %1$d de %2$d</string>
     <string name="capture_wizard_skip">Omitir este paso</string>
-    <string name="capture_wizard_optional_note">Este dato es opcional. Podés completarlo después desde la observación.</string>
-    <string name="capture_wizard_next">Siguiente</string>
+    <string name="capture_wizard_optional_note">Se puede omitir este paso, pero la precisión de identificación puede disminuir en consecuencia</string>
+    <string name="capture_wizard_next">Continuar</string>
     <string name="capture_wizard_save">Guardar</string>
     <string name="capture_wizard_cancel_edit_title">¿Cancelar los cambios?</string>
     <string name="capture_wizard_cancel_edit_body">Si cancelás, volvés al resumen sin guardar lo que cambiaste en este paso.</string>
@@ -184,6 +184,7 @@
     <string name="capture_step6_edit_cd">Editar %1$s</string>
 
     <string name="photo_capture_title">Añadir foto</string>
+    <string name="photo_capture_analyze">Analizar</string>
     <string name="photo_capture_preview_cd">Visor de captura</string>
     <string name="photo_capture_processing">Procesando foto…</string>
     <string name="photo_blurry_title">Foto borrosa</string>
@@ -219,6 +220,8 @@
     <!-- Detalles de observación (resultado) — textos exactos de Penpot -->
     <string name="observation_detail_title">Detalles</string>
     <string name="observation_detail_photo_cd">Foto de la observación</string>
+    <string name="observation_media_carousel_cd">Carrusel de fotos y audio de la observación</string>
+    <string name="observation_media_index_cd">Medio %1$d de %2$d</string>
     <string name="observation_detail_common_name">Rana venenosa de Santa Marta</string>
     <string name="observation_detail_scientific_name">Dendrobates truncatus</string>
     <string name="observation_detail_toxic_chip">Tóxica — no manipular</string>
@@ -258,6 +261,26 @@
     <string name="observation_detail_share_cd">Compartir la foto y la observación</string>
     <string name="observation_detail_share_chooser">Compartir observación</string>
     <string name="observation_detail_share_text">%1$s (%2$s) — observación en ANURA</string>
+
+    <string name="comments_title">Comentarios</string>
+    <string name="comments_composer_placeholder">Aportá a la identificación…</string>
+    <string name="comments_composer_reply">Respondé a %1$s…</string>
+    <string name="comments_send_cd">Publicar comentario</string>
+    <string name="comments_reply">Responder</string>
+    <string name="comments_reply_count">Ver %1$d respuestas</string>
+    <string name="comments_hide_replies">Ocultar respuestas</string>
+    <string name="comments_agree_cd">De acuerdo con la observación</string>
+    <string name="comments_disagree_cd">No está de acuerdo con la observación</string>
+    <string name="comments_refute_badge">refuta</string>
+    <string name="comments_proposal_label">Identificación propuesta</string>
+    <string name="comments_proposal_status">En revisión experta</string>
+    <string name="comments_proposal_thumb_cd">Miniatura de %1$s</string>
+    <string name="comments_mention_hint">Mencioná un taxón con @</string>
+    <string name="comments_rank_species">Especie</string>
+    <string name="comments_rank_genus">Género</string>
+    <string name="comments_rank_family">Familia</string>
+    <string name="comments_empty">Todavía no hay comentarios. Aportá a la identificación.</string>
+    <string name="comments_cancel_reply_cd">Cancelar respuesta</string>
 
     <!-- Resultado open-set: especie no registrada — textos exactos de Penpot -->
     <string name="unknown_result_title">Resultado</string>

@@ -81,6 +81,7 @@ fun CaptureStep5Screen(
         onBackClick = onBackClick,
         onCloseClick = onCloseClick,
         unsavedChanges = dirty || fromReview,
+        showSkipNote = !fromReview,
     ) {
         CaptureWizardHeading(
             title = stringResource(R.string.capture_step5_title),
@@ -88,6 +89,7 @@ fun CaptureStep5Screen(
         )
         CaptureLiveSpectrogramSession(
             onAnalyzeAudio = onNext,
+            showAnalyzeActions = false,
             onDirtyChange = { dirty = it },
         )
         Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
@@ -105,6 +107,7 @@ fun CaptureStep5Screen(
 internal fun CaptureLiveSpectrogramSession(
     onAnalyzeAudio: () -> Unit,
     analyzeLabel: String = stringResource(R.string.audio_capture_analyze),
+    showAnalyzeActions: Boolean = true,
     onRecordedChange: (Boolean) -> Unit = {},
     onDirtyChange: (Boolean) -> Unit = {},
 ) {
@@ -158,6 +161,7 @@ internal fun CaptureLiveSpectrogramSession(
         CaptureReadyClipPlayback(
             uri = clipUri,
             analyzeLabel = analyzeLabel,
+            showAnalyzeActions = showAnalyzeActions,
             onAnalyzeAudio = onAnalyzeAudio,
             onReject = {
                 playbackUri = null
@@ -283,6 +287,7 @@ internal fun CaptureLiveSpectrogramSession(
 private fun CaptureReadyClipPlayback(
     uri: Uri,
     analyzeLabel: String,
+    showAnalyzeActions: Boolean,
     onAnalyzeAudio: () -> Unit,
     onReject: () -> Unit,
 ) {
@@ -310,6 +315,7 @@ private fun CaptureReadyClipPlayback(
         onAnalyze = onAnalyzeAudio,
         onReject = onReject,
         analyzeLabel = analyzeLabel,
+        showAnalyzeActions = showAnalyzeActions,
     )
 }
 

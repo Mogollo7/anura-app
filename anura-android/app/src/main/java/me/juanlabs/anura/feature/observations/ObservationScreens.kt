@@ -1,10 +1,10 @@
 package me.juanlabs.anura.feature.observations
 
 import android.content.Intent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,9 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
@@ -52,11 +50,12 @@ import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.capture.AnuraReviewChip
+import me.juanlabs.anura.feature.comments.ObservationCommentsOverlay
 import me.juanlabs.anura.feature.species.IdentificationJustificationSheet
 import me.juanlabs.anura.navigation.MockNavAction
 import me.juanlabs.anura.navigation.MockScreenScaffold
 
-private val ObservationHeroHeight = 200.dp
+private val ObservationHeroHeight = 280.dp
 
 /** `Fotos y observaciones` (§4.1) — top-level, tab 3. */
 @Composable
@@ -67,7 +66,8 @@ fun ObservationsScreen(
     MockScreenScaffold(
         title = "Observaciones",
         actions = listOf(
-            MockNavAction("Abrir observación") { onOpenObservationDetail("obs-001") },
+            MockNavAction("Observación foto + audio") { onOpenObservationDetail("obs-001") },
+            MockNavAction("Observación solo audio") { onOpenObservationDetail("obs-002") },
             MockNavAction("Ver favoritos", onOpenFavorites),
         ),
     )
@@ -94,10 +94,11 @@ fun FavoritesScreen(
 fun ObservationDetailScreen(
     id: String,
     onBackClick: () -> Unit,
-    onOpenComments: (String) -> Unit,
     onOpenSpeciesSheet: (String) -> Unit,
 ) {
     var showJustification by rememberSaveable { mutableStateOf(false) }
+    var showComments by rememberSaveable { mutableStateOf(false) }
+    Box(modifier = Modifier.fillMaxSize()) {
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -116,17 +117,14 @@ fun ObservationDetailScreen(
                 .padding(horizontal = AnuraDimens.spaceGutter)
                 .padding(bottom = 16.dp),
         ) {
-            Image(
-                painter = painterResource(R.drawable.carousel_dendrobates_truncatus),
-                contentDescription = stringResource(R.string.observation_detail_photo_cd),
+            ObservationMediaCarousel(
+                items = mockObservationMedia(id),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(ObservationHeroHeight)
-                    .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
-                    contentScale = ContentScale.Crop,
+                    .height(ObservationHeroHeight),
             )
             ObservationTempoActions(
-                onOpenComments = { onOpenComments(id) },
+                onOpenComments = { showComments = true },
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             Text(
@@ -236,7 +234,7 @@ fun ObservationDetailScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(AnuraDimens.radiusButton))
-                    .clickable { onOpenComments(id) }
+                    .clickable { showComments = true }
                     .padding(vertical = AnuraDimens.spaceGap)
                     .semantics {
                         role = Role.Button
@@ -263,6 +261,18 @@ fun ObservationDetailScreen(
     }
     if (showJustification) {
         IdentificationJustificationSheet(onDismiss = { showJustification = false })
+    }
+    if (showComments) {
+        ObservationCommentsOverlay(
+            observationId = id,
+            onDismiss = { showComments = false },
+        ) {
+            ObservationMediaCarousel(
+                items = mockObservationMedia(id),
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
+    }
     }
 }
 
@@ -406,7 +416,6 @@ private fun ObservationDetailPreview() {
         ObservationDetailScreen(
             id = "obs-nuevo",
             onBackClick = {},
-            onOpenComments = {},
             onOpenSpeciesSheet = {},
         )
     }
@@ -419,7 +428,6 @@ private fun ObservationDetailPreviewRedLight() {
         ObservationDetailScreen(
             id = "obs-nuevo",
             onBackClick = {},
-            onOpenComments = {},
             onOpenSpeciesSheet = {},
         )
     }

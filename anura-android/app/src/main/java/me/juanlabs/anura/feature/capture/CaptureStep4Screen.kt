@@ -31,6 +31,7 @@ fun CaptureStep4Screen(
         appBarTitle = stringResource(R.string.capture_step4_appbar),
         showProgress = true,
         step = 4,
+        confirmLabel = stringResource(R.string.capture_wizard_next),
         onBackClick = onBackClick,
         onConfirm = onNext,
         fromReview = fromReview,
@@ -48,6 +49,7 @@ internal fun CaptureAddPhotoFlow(
     step: Int = 4,
     fromReview: Boolean = false,
     onSave: () -> Unit = onConfirm,
+    confirmLabel: String,
     onCloseClick: () -> Unit = onBackClick,
 ) {
     val cameraGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Camera)
@@ -129,6 +131,7 @@ internal fun CaptureAddPhotoFlow(
                 onDelete = { removeAt(it) },
                 onTakeSamples = { reviewing = false },
                 onSave = if (fromReview) onSave else onConfirm,
+                confirmLabel = confirmLabel,
                 modifier = Modifier.weight(1f),
             )
         } else {

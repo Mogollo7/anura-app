@@ -3,6 +3,8 @@ package me.juanlabs.anura.designsystem.icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Chat
+import androidx.compose.material.icons.automirrored.filled.Reply
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -114,4 +116,6 @@ object AnuraIcons {
     val CloudOff: ImageVector = Icons.Filled.CloudOff
     val Download: ImageVector = Icons.Filled.Download
     val Share: ImageVector = Icons.Filled.Share
+    val Send: ImageVector = Icons.AutoMirrored.Filled.Send
+    val Reply: ImageVector = Icons.AutoMirrored.Filled.Reply
 }

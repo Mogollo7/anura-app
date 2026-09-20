@@ -66,6 +66,7 @@ internal fun CapturePhotoCarousel(
     onDelete: (Int) -> Unit,
     onTakeSamples: () -> Unit,
     onSave: () -> Unit,
+    confirmLabel: String,
     modifier: Modifier = Modifier,
 ) {
     val pageCount = specimens.size.coerceAtLeast(1)
@@ -154,7 +155,7 @@ internal fun CapturePhotoCarousel(
             }
             Box(modifier = Modifier.weight(1f)) {
                 AnuraFormButton(
-                    text = stringResource(R.string.capture_step4_save_photos),
+                    text = confirmLabel,
                     onClick = onSave,
                     style = AnuraFormButtonStyle.Primary,
                     enabled = specimens.isNotEmpty(),

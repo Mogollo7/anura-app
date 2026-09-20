@@ -57,6 +57,7 @@ fun CaptureStep3Screen(
         onBackClick = onBackClick,
         onCloseClick = onCloseClick,
         unsavedChanges = fromReview,
+        showSkipNote = !fromReview,
     ) {
         CaptureWizardHeading(
             title = stringResource(R.string.capture_step3_title),
