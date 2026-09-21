@@ -54,7 +54,7 @@ internal val AnuraLightTokens = AnuraColorTokens(
     placeholderThumb = Color(0xFFE5E5EA),
     placeholderHero = Color(0xFF6E6E73),
     // Fondo de board Penpot (splash/home/auth/wizard). No es bg.base. Mantener sincronizado
-    // con R.color.anura_board_background (themes.xml). Valor oscuro/luz roja pendiente de Penpot.
+    // con R.color.anura_board_background (themes.xml).
     boardBackground = Color(0xFFEFF4F0),
 )
 
@@ -82,9 +82,11 @@ internal val AnuraDarkTokens = AnuraColorTokens(
     // antes de usarlos en un componente real (ObservationCard, etc.).
     placeholderThumb = Color(0xFF2C2C2E),
     placeholderHero = Color(0xFF636366),
-    // Fondo de board Penpot (splash/home/auth/wizard). No es bg.base. Mantener sincronizado
-    // con R.color.anura_board_background (themes.xml). Valor oscuro/luz roja pendiente de Penpot.
-    boardBackground = Color(0xFFEFF4F0),
+    // Fondo de board Penpot (splash/home/auth/wizard) en modo oscuro. Antes quedaba
+    // hardcodeado al mismo valor claro (#EFF4F0) en los 3 temas, por lo que ninguna
+    // pantalla oscurecía su fondo (auditoría Fase 0-9, P0 #12). Se alinea con bg.base
+    // (#000000, ya verificado contra Penpot §3.3) en vez de inventar un tono nuevo.
+    boardBackground = Color(0xFF000000),
 )
 
 /** `anura-luz-roja` — valores reales verificados contra Penpot (§3.4). */
@@ -113,9 +115,12 @@ internal val AnuraRedLightTokens = AnuraColorTokens(
     statusSuccess = Color(0xFFFF453A),
     placeholderThumb = Color(0xFF210605),
     placeholderHero = Color(0xFF5A170F),
-    // Fondo de board Penpot (splash/home/auth/wizard). No es bg.base. Mantener sincronizado
-    // con R.color.anura_board_background (themes.xml). Valor oscuro/luz roja pendiente de Penpot.
-    boardBackground = Color(0xFFEFF4F0),
+    // Fondo de board Penpot (splash/home/auth/wizard) en Luz Roja. Antes quedaba
+    // hardcodeado al mismo valor claro (#EFF4F0) en los 3 temas: el modo Luz Roja
+    // (RNF-07, preservar la adaptación a la oscuridad del observador) no cumplía su
+    // función porque el fondo seguía casi blanco (auditoría Fase 0-9, P0 #12). Se
+    // alinea con bg.base (#000000, ya verificado contra Penpot §3.4).
+    boardBackground = Color(0xFF000000),
 )
 
 /**

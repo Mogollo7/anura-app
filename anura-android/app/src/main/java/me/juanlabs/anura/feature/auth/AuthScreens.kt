@@ -105,9 +105,11 @@ fun WelcomeScreen(
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
 
-    // Bug §RNF: `themes.xml` fija iconos oscuros de barra de estado (windowLightStatusBar)
-    // y aquí se pinta una foto casi negra debajo → hora/iconos invisibles. Se fuerzan
-    // iconos claros mientras esta pantalla está en composición.
+    // `welcome_hero` es la misma foto oscura fija en los 3 temas (no hay variante clara),
+    // así que esta pantalla necesita iconos claros de barra de estado incluso en modo
+    // Claro, al revés del resto de la app. El efecto global de MainActivity fija la
+    // línea base según el tema; este override local la fuerza mientras Welcome está
+    // en composición y la restaura al salir (no depende de en qué tema arrancó).
     val view = LocalView.current
     if (!view.isInEditMode) {
         DisposableEffect(view) {
