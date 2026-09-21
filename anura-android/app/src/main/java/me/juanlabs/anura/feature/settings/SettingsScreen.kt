@@ -24,10 +24,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import me.juanlabs.anura.core.data.AccountKind
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -95,8 +98,21 @@ fun SettingsScreen(
         )
         return
     }
-    val displayName = stringResource(R.string.home_user_name_mock)
-    val username = stringResource(R.string.home_user_username_mock)
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val guestName = stringResource(R.string.profile_guest_name)
+    val guestLabel = stringResource(R.string.settings_guest_label)
+    val displayName = snapshot.session.displayName.ifBlank { guestName }
+    val username = snapshot.session.username.ifBlank {
+        if (snapshot.session.kind == AccountKind.Guest) guestLabel else ""
+    }
+    val signOutLabel = stringResource(
+        if (snapshot.session.kind == AccountKind.Guest) {
+            R.string.settings_sign_out_guest
+        } else {
+            R.string.settings_sign_out
+        },
+    )
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -138,7 +154,7 @@ fun SettingsScreen(
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 AnuraFormButton(
-                    text = stringResource(R.string.settings_sign_out),
+                    text = signOutLabel,
                     onClick = onSignOut,
                     style = AnuraFormButtonStyle.OutlineNeutral,
                 )

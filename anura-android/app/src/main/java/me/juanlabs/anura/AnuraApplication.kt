@@ -1,13 +1,22 @@
 package me.juanlabs.anura
 
 import android.app.Application
+import me.juanlabs.anura.core.data.AnuraRepository
 
 /**
  * Punto de entrada de proceso de ANURA.
  *
- * Sin Hilt en esta fase: no hay todavía ningún `ViewModel` ni repositorio real que
- * inyectar (eso llega con los contratos de dominio y sus implementaciones fake/reales,
- * bloque B4 en adelante del plan de implementación). Añadir el módulo de DI antes de
- * tener algo que inyectar sería dependencia sin justificación (§20).
+ * El repositorio local (Room + archivos en filesDir) se crea aquí para que
+ * sobreviva a la Activity y pueda hidratar el prototipo funcional. Sin Hilt
+ * todavía: un único holder de aplicación es suficiente mientras no haya
+ * grafo de dependencias real.
  */
-class AnuraApplication : Application()
+class AnuraApplication : Application() {
+    lateinit var repository: AnuraRepository
+        private set
+
+    override fun onCreate() {
+        super.onCreate()
+        repository = AnuraRepository.create(this)
+    }
+}

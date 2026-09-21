@@ -6,7 +6,10 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraphBuilder
@@ -16,6 +19,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.navigation
 import androidx.navigation.toRoute
+import me.juanlabs.anura.core.data.AnuraRepository
+import me.juanlabs.anura.core.data.IdentificationKnown
+import me.juanlabs.anura.core.data.IdentificationUnknownFamily
+import me.juanlabs.anura.core.data.IdentificationUnknownGenus
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.theme.AnuraMotion
 import me.juanlabs.anura.designsystem.theme.AnuraAccentRole
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
@@ -127,31 +135,42 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
             )
         }
         composable<AnuraRoute.SignIn> {
+            val repository = rememberAnuraRepository()
+            val needEmail = stringResource(me.juanlabs.anura.R.string.auth_forgot_password_need_email)
+            val sent = stringResource(me.juanlabs.anura.R.string.auth_forgot_password_sent)
             SignInScreen(
                 onBackClick = { navController.popBackStack() },
-                onSignedIn = {
+                onSignedIn = { email ->
+                    repository.signIn(email)
                     navController.navigate(AnuraRoute.Home) {
                         popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
                     }
                 },
                 onGoToSignUp = { navController.navigate(AnuraRoute.SignUp) },
                 onContinueWithoutAccount = {
+                    repository.enterGuest()
                     navController.navigate(AnuraRoute.Home) {
                         popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
                     }
                 },
+                onForgotPassword = { email ->
+                    repository.notify(if (email.isBlank()) needEmail else sent)
+                },
             )
         }
         composable<AnuraRoute.SignUp> {
+            val repository = rememberAnuraRepository()
             SignUpScreen(
                 onBackClick = { navController.popBackStack() },
-                onSignedUp = {
+                onSignedUp = { name, email, usage ->
+                    repository.signUp(name, email, usage)
                     navController.navigate(AnuraRoute.Home) {
                         popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
                     }
                 },
                 onGoToSignIn = { navController.navigate(AnuraRoute.SignIn) },
                 onContinueWithoutAccount = {
+                    repository.enterGuest()
                     navController.navigate(AnuraRoute.Home) {
                         popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
                     }
@@ -174,15 +193,44 @@ private fun NavGraphBuilder.topLevelDestinations(
     activeSessionId: String?,
 ) {
     composable<AnuraRoute.Home> {
+        val repository = rememberAnuraRepository()
         HomeScreen(
             onOpenProfile = { navController.navigate(AnuraRoute.Profile(userId = null)) },
             onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
             onOpenFieldSession = { sessionId -> navController.navigate(AnuraRoute.FieldSession(sessionId)) },
-            onPhotoId = { navController.navigate(AnuraRoute.PhotoCapture) },
-            onAudioId = { navController.navigate(AnuraRoute.AudioCapture) },
-            onStepByStep = { navController.navigate(AnuraRoute.CaptureGraph) },
+            onPhotoId = {
+                repository.beginWizard()
+                navController.navigate(AnuraRoute.PhotoCapture)
+            },
+            onAudioId = {
+                repository.beginWizard()
+                navController.navigate(AnuraRoute.AudioCapture)
+            },
+            onStepByStep = {
+                repository.beginWizard()
+                navController.navigate(AnuraRoute.CaptureGraph)
+            },
             activeFieldSession = activeSessionId?.let { id ->
-                HomeCarouselCatalog.mockActiveFieldSession().copy(sessionId = id)
+                val session = repository.snapshot.fieldSessions.find { it.id == id }
+                val registers = repository.ownObservations().count { it.fieldSessionId == id }
+                me.juanlabs.anura.feature.home.HomeActiveFieldSession(
+                    sessionId = id,
+                    placeName = session?.placeLabel
+                        ?: session?.let { me.juanlabs.anura.core.data.formatCoordinates(it.latitude, it.longitude) }
+                        ?: "",
+                    elapsedLabel = session?.let {
+                        me.juanlabs.anura.core.data.formatElapsedShort(it.startedAtEpochMs)
+                    } ?: "",
+                    registerCount = registers,
+                ).takeUnless { it.placeName.isEmpty() && it.elapsedLabel.isEmpty() }
+                    ?: me.juanlabs.anura.feature.home.HomeActiveFieldSession(
+                        sessionId = id,
+                        placeName = "",
+                        elapsedLabel = session?.let {
+                            me.juanlabs.anura.core.data.formatElapsedShort(it.startedAtEpochMs)
+                        } ?: "",
+                        registerCount = registers,
+                    )
             },
         )
     }
@@ -199,6 +247,7 @@ private fun NavGraphBuilder.topLevelDestinations(
         )
     }
     composable<AnuraRoute.Settings> {
+        val repository = rememberAnuraRepository()
         SettingsScreen(
             themeMode = themeMode,
             onThemeModeChange = onThemeModeChange,
@@ -212,6 +261,7 @@ private fun NavGraphBuilder.topLevelDestinations(
             onOpenProfile = { navController.navigate(AnuraRoute.Profile(userId = null)) },
             onOpenEditProfile = { navController.navigate(AnuraRoute.EditProfile) },
             onSignOut = {
+                repository.signOut()
                 navController.navigate(AnuraRoute.AuthGraph) {
                     popUpTo(AnuraRoute.Home) { inclusive = true }
                 }
@@ -258,9 +308,7 @@ private fun NavGraphBuilder.detailDestinations(
             },
             onOpenOtherProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
             onOpenFavorites = {
-                navController.navigate(
-                    AnuraRoute.Connections(userId = route.userId ?: "me", tab = "favorites"),
-                )
+                navController.navigate(AnuraRoute.Favorites)
             },
             onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
         )
@@ -295,14 +343,24 @@ private fun NavGraphBuilder.detailDestinations(
     }
     composable<AnuraRoute.FieldSession> { backStackEntry ->
         val route = backStackEntry.toRoute<AnuraRoute.FieldSession>()
+        val repository = rememberAnuraRepository()
         FieldSessionScreen(
             sessionId = route.sessionId,
             onBackClick = { navController.popBackStack() },
             onOpenNightSounds = { sessionId -> navController.navigate(AnuraRoute.NightSounds(sessionId)) },
             onOpenNotes = { sessionId -> navController.navigate(AnuraRoute.FieldSessionNotes(sessionId)) },
-            onPhotoId = { navController.navigate(AnuraRoute.PhotoCapture) },
-            onAudioId = { navController.navigate(AnuraRoute.AudioCapture) },
-            onStepByStep = { navController.navigate(AnuraRoute.CaptureGraph) },
+            onPhotoId = {
+                repository.beginWizard()
+                navController.navigate(AnuraRoute.PhotoCapture)
+            },
+            onAudioId = {
+                repository.beginWizard()
+                navController.navigate(AnuraRoute.AudioCapture)
+            },
+            onStepByStep = {
+                repository.beginWizard()
+                navController.navigate(AnuraRoute.CaptureGraph)
+            },
             onOpenRegister = { observationId ->
                 navController.navigate(AnuraRoute.ObservationDetail(observationId))
             },
@@ -347,25 +405,30 @@ private fun NavGraphBuilder.detailDestinations(
             decorFitsSystemWindows = false,
         ),
     ) {
+        val repository = rememberAnuraRepository()
+        val snapshot by repository.state.collectAsState()
         WhatToRegisterContent(
+            hasActiveSession = snapshot.activeSessionId != null,
             onStartFieldSession = {
-                onFieldSessionActivated("session-new")
-                navController.navigate(AnuraRoute.FieldSession(sessionId = "session-new")) {
+                val id = repository.startFieldSession()
+                navController.navigate(AnuraRoute.FieldSession(sessionId = id)) {
                     popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
                 }
             },
             onContinueFieldSession = {
-                onFieldSessionActivated("session-001")
-                navController.navigate(AnuraRoute.FieldSession(sessionId = "session-001")) {
+                val id = repository.snapshot.activeSessionId ?: return@WhatToRegisterContent
+                navController.navigate(AnuraRoute.FieldSession(sessionId = id)) {
                     popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
                 }
             },
             onTakeQuickSample = {
+                repository.beginWizard()
                 navController.navigate(AnuraRoute.PhotoCapture) {
                     popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
                 }
             },
             onRecordSound = {
+                repository.beginWizard()
                 navController.navigate(AnuraRoute.AudioCapture) {
                     popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
                 }
@@ -471,19 +534,22 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
         }
         composable<AnuraRoute.Analyzing> { backStackEntry ->
             val route = backStackEntry.toRoute<AnuraRoute.Analyzing>()
+            val repository = rememberAnuraRepository()
             AnalyzingScreen(
                 source = route.source,
                 onKnownResult = {
-                    // Limpia el borrador de fotos: si no, la próxima observación (wizard
-                    // o identificación rápida) puede arrancar precargada con las fotos
-                    // de esta (auditoría Fase 0-9, P0 #4).
-                    CapturePhotoDraft.reset()
-                    navController.navigate(AnuraRoute.ObservationDetail(id = "obs-nuevo")) {
+                    val id = repository.commitObservation(IdentificationKnown)
+                    navController.navigate(AnuraRoute.ObservationDetail(id = id)) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
                 },
                 onUnknownResult = { reached ->
-                    CapturePhotoDraft.reset()
+                    val status = if (reached == "family") {
+                        IdentificationUnknownFamily
+                    } else {
+                        IdentificationUnknownGenus
+                    }
+                    repository.commitObservation(status)
                     navController.navigate(AnuraRoute.UnknownResult(reached)) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
@@ -492,12 +558,18 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
         }
         composable<AnuraRoute.UnknownResult> { backStackEntry ->
             val resultRoute = backStackEntry.toRoute<AnuraRoute.UnknownResult>()
+            val repository = rememberAnuraRepository()
+            val reviewSent = stringResource(me.juanlabs.anura.R.string.expert_review_sent)
             val result = MockOpenSetUnknownResults.forReached(resultRoute.reached)
             UnknownResultScreen(
                 result = result,
                 onBackClick = { navController.popBackStack() },
                 onOpenTaxonSheet = { taxonId ->
                     navController.navigate(AnuraRoute.SpeciesSheet(taxonId))
+                },
+                onRequestExpertReview = {
+                    repository.requestExpertReview(null)
+                    repository.notify(reviewSent)
                 },
             )
         }

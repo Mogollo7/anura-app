@@ -47,7 +47,7 @@ internal class CaptureCameraShutter(
             onError()
             return
         }
-        val dir = File(context.cacheDir, "anura_batch").apply { mkdirs() }
+        val dir = File(context.filesDir, "anura_media/photos").apply { mkdirs() }
         val file = File(dir, "specimen_${System.currentTimeMillis()}.jpg")
         val options = ImageCapture.OutputFileOptions.Builder(file).build()
         capture.takePicture(

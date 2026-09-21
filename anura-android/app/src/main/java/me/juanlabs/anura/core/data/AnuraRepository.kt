@@ -1,0 +1,505 @@
+package me.juanlabs.anura.core.data
+
+import android.app.Application
+import android.net.Uri
+import androidx.room.Room
+import java.io.File
+import java.util.UUID
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
+
+class AnuraRepository(
+    private val dao: SnapshotDao?,
+    val media: MediaPersistence?,
+    private val persistEnabled: Boolean,
+) {
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val json = Json {
+        ignoreUnknownKeys = true
+        encodeDefaults = true
+    }
+    private val _state = MutableStateFlow(AnuraSnapshot())
+    val state: StateFlow<AnuraSnapshot> = _state.asStateFlow()
+    val snapshot: AnuraSnapshot get() = _state.value
+
+    private val _messages = MutableSharedFlow<String>(extraBufferCapacity = 4)
+    val messages: SharedFlow<String> = _messages.asSharedFlow()
+
+    fun notify(message: String) {
+        _messages.tryEmit(message)
+    }
+
+    fun hydrate(initial: AnuraSnapshot) {
+        _state.value = initial
+    }
+
+    fun update(transform: (AnuraSnapshot) -> AnuraSnapshot) {
+        var next: AnuraSnapshot? = null
+        _state.update { current ->
+            transform(current).also { next = it }
+        }
+        val payload = next ?: return
+        if (persistEnabled && dao != null) {
+            scope.launch {
+                runCatching {
+                    dao.save(SnapshotEntity(payload = json.encodeToString(AnuraSnapshot.serializer(), payload)))
+                }
+            }
+        }
+    }
+
+    fun enterGuest() {
+        update { current ->
+            val session = if (current.session.enteredApp && current.session.kind == AccountKind.Guest) {
+                current.session
+            } else {
+                current.session.copy(
+                    kind = AccountKind.Guest,
+                    userId = current.session.userId.ifBlank { GuestUserId },
+                    enteredApp = true,
+                )
+            }
+            current.copy(session = session)
+        }
+    }
+
+    fun signIn(email: String) {
+        update { current ->
+            val existing = current.session.takeIf {
+                it.email.equals(email.trim(), ignoreCase = true) && it.email.isNotBlank()
+            }
+            val session = (existing ?: current.session).copy(
+                kind = AccountKind.Authenticated,
+                email = email.trim(),
+                enteredApp = true,
+                userId = existing?.userId?.takeIf { it != GuestUserId } ?: UUID.randomUUID().toString(),
+            )
+            current.copy(session = session)
+        }
+    }
+
+    fun signUp(name: String, email: String, usage: String?) {
+        update { current ->
+            val oldId = current.session.userId
+            val newId = UUID.randomUUID().toString()
+            val migrated = current.observations.map { observation ->
+                if (observation.ownerUserId == oldId) {
+                    observation.copy(ownerUserId = newId, ownerDisplayName = name.trim())
+                } else {
+                    observation
+                }
+            }
+            current.copy(
+                session = UserSession(
+                    kind = AccountKind.Authenticated,
+                    userId = newId,
+                    displayName = name.trim(),
+                    email = email.trim(),
+                    usageProfile = usage,
+                    enteredApp = true,
+                ),
+                observations = migrated,
+            )
+        }
+    }
+
+    fun signOut() {
+        update { current ->
+            current.copy(
+                session = current.session.copy(enteredApp = false),
+            )
+        }
+    }
+
+    fun updateProfile(
+        displayName: String? = null,
+        username: String? = null,
+        bio: String? = null,
+        location: String? = null,
+        photoToken: String? = UNCHANGED,
+    ) {
+        update { current ->
+            val persistedPhoto = if (photoToken != null && photoToken != UNCHANGED && media != null) {
+                media.persistPhotoToken(photoToken)
+            } else if (photoToken == UNCHANGED) {
+                current.session.photoToken
+            } else {
+                null
+            }
+            current.copy(
+                session = current.session.copy(
+                    displayName = displayName ?: current.session.displayName,
+                    username = username ?: current.session.username,
+                    bio = bio ?: current.session.bio,
+                    location = location ?: current.session.location,
+                    photoToken = persistedPhoto,
+                ),
+            )
+        }
+    }
+
+    fun updateDraft(transform: (CaptureDraft) -> CaptureDraft) {
+        update { current -> current.copy(draft = transform(current.draft)) }
+    }
+
+    fun resetDraft() {
+        val sessionId = snapshot.activeSessionId
+        update { it.copy(draft = CaptureDraft(fieldSessionId = sessionId)) }
+    }
+
+    fun beginWizard() {
+        resetDraft()
+        val now = System.currentTimeMillis()
+        val hour = java.time.LocalDateTime.now().hour
+        updateDraft {
+            it.copy(
+                observedAtEpochMs = now,
+                period = dayPeriodFromHour(hour),
+            )
+        }
+    }
+
+    fun setDraftPhotos(tokens: List<String>) {
+        val persisted = tokens.map { token ->
+            media?.persistPhotoToken(token) ?: token
+        }
+        updateDraft { it.copy(photoTokens = persisted) }
+    }
+
+    fun setDraftAudio(path: String?, durationMs: Long?) {
+        val persisted = when {
+            path == null -> null
+            path.startsWith("file:") -> media?.persistAudioFile(File(path.removePrefix("file:"))) ?: path
+            path.startsWith("content:") || path.startsWith("uri:") -> {
+                val uri = Uri.parse(path.removePrefix("uri:"))
+                media?.persistAudioUri(uri) ?: path
+            }
+            else -> media?.persistAudioFile(File(path)) ?: path
+        }
+        updateDraft { it.copy(audioPath = persisted, audioDurationMs = durationMs) }
+    }
+
+    fun commitObservation(identificationStatus: String): String {
+        val draft = snapshot.draft
+        val session = snapshot.session
+        val id = "obs-${UUID.randomUUID().toString().take(8)}"
+        val species = when (identificationStatus) {
+            IdentificationKnown -> SpeciesCatalog.find(SimulatedKnownSpeciesId)
+            else -> null
+        }
+        val photos = draft.photoTokens.map { token ->
+            media?.persistPhotoToken(token) ?: token
+        }
+        val audio = draft.audioPath?.let { path ->
+            val file = MediaPersistence.fileFromToken(path)
+            if (file != null) media?.persistAudioFile(file) ?: path else path
+        }
+        val record = ObservationRecord(
+            id = id,
+            ownerUserId = session.userId,
+            ownerDisplayName = session.displayName.ifBlank { "" },
+            speciesId = species?.id,
+            commonName = species?.commonName,
+            scientificName = species?.scientificName,
+            photoTokens = photos,
+            audioPath = audio,
+            audioDurationMs = draft.audioDurationMs,
+            latitude = draft.latitude,
+            longitude = draft.longitude,
+            placeLabel = formatCoordinates(draft.latitude, draft.longitude),
+            observedAtEpochMs = draft.observedAtEpochMs,
+            svlMm = draft.svlMm,
+            habitat = draft.habitat,
+            altitudeLabel = draft.altitudeLabel,
+            visibilityPublic = false,
+            fieldSessionId = draft.fieldSessionId ?: snapshot.activeSessionId,
+            identificationStatus = identificationStatus,
+            createdAtEpochMs = System.currentTimeMillis(),
+        )
+        update { current -> current.copy(observations = listOf(record) + current.observations) }
+        resetDraft()
+        return id
+    }
+
+    fun observationById(id: String): ObservationRecord? =
+        snapshot.observations.find { it.id == id } ?: CommunityCatalog.observation(id)
+
+    fun ownObservations(): List<ObservationRecord> =
+        snapshot.observations.filter { it.ownerUserId == snapshot.session.userId }
+
+    fun toggleFavorite(id: String) {
+        update { current ->
+            val next = if (current.favorites.contains(id)) {
+                current.favorites - id
+            } else {
+                current.favorites + id
+            }
+            current.copy(favorites = next)
+        }
+    }
+
+    fun isFavorite(id: String): Boolean = snapshot.favorites.contains(id)
+
+    fun toggleFollow(userId: String) {
+        update { current ->
+            val next = if (current.followingIds.contains(userId)) {
+                current.followingIds - userId
+            } else {
+                current.followingIds + userId
+            }
+            current.copy(followingIds = next)
+        }
+    }
+
+    fun isFollowing(userId: String): Boolean = snapshot.followingIds.contains(userId)
+
+    fun deleteObservation(id: String) {
+        if (!isOwnObservation(id)) return
+        update { current ->
+            current.copy(
+                observations = current.observations.filterNot { it.id == id },
+                favorites = current.favorites.filterNot { it == id },
+                comments = current.comments.filterNot { it.observationId == id },
+            )
+        }
+    }
+
+    fun setObservationVisibility(id: String, public: Boolean) {
+        if (!isOwnObservation(id)) return
+        update { current ->
+            current.copy(
+                observations = current.observations.map { observation ->
+                    if (observation.id == id) observation.copy(visibilityPublic = public) else observation
+                },
+            )
+        }
+    }
+
+    fun isOwnObservation(id: String): Boolean {
+        val observation = snapshot.observations.find { it.id == id } ?: return false
+        return observation.ownerUserId == snapshot.session.userId
+    }
+
+    fun requestExpertReview(observationId: String?) {
+        val id = observationId ?: snapshot.observations.firstOrNull {
+            it.ownerUserId == snapshot.session.userId
+        }?.id ?: return
+        update { current ->
+            current.copy(
+                observations = current.observations.map { observation ->
+                    if (observation.id == id) observation.copy(expertReviewRequested = true) else observation
+                },
+            )
+        }
+    }
+
+    fun startFieldSession(): String {
+        val id = "session-${UUID.randomUUID().toString().take(8)}"
+        val record = FieldSessionRecord(
+            id = id,
+            startedAtEpochMs = System.currentTimeMillis(),
+        )
+        update { current ->
+            current.copy(
+                fieldSessions = listOf(record) + current.fieldSessions,
+                activeSessionId = id,
+                draft = current.draft.copy(fieldSessionId = id),
+            )
+        }
+        return id
+    }
+
+    fun closeFieldSession() {
+        val activeId = snapshot.activeSessionId ?: return
+        val now = System.currentTimeMillis()
+        update { current ->
+            current.copy(
+                activeSessionId = null,
+                fieldSessions = current.fieldSessions.map { session ->
+                    if (session.id == activeId) session.copy(closedAtEpochMs = now) else session
+                },
+                draft = current.draft.copy(fieldSessionId = null),
+            )
+        }
+    }
+
+    fun addComment(observationId: String, body: String) {
+        val trimmed = body.trim()
+        if (trimmed.isEmpty()) return
+        val session = snapshot.session
+        val record = CommentRecord(
+            id = "c-${UUID.randomUUID().toString().take(8)}",
+            observationId = observationId,
+            authorUserId = session.userId,
+            authorName = session.displayName.ifBlank { if (session.isGuest) "Invitado" else "Tú" },
+            body = trimmed,
+            createdAtEpochMs = System.currentTimeMillis(),
+        )
+        update { current -> current.copy(comments = current.comments + record) }
+    }
+
+    fun commentsFor(observationId: String): List<CommentRecord> =
+        snapshot.comments.filter { it.observationId == observationId }
+
+    fun addSessionNote(sessionId: String, body: String, observationId: String? = null) {
+        val trimmed = body.trim()
+        if (trimmed.isEmpty()) return
+        val record = SessionNoteRecord(
+            id = "n-${UUID.randomUUID().toString().take(8)}",
+            sessionId = sessionId,
+            observationId = observationId,
+            body = trimmed,
+            createdAtEpochMs = System.currentTimeMillis(),
+        )
+        update { current -> current.copy(sessionNotes = current.sessionNotes + record) }
+    }
+
+    fun reportUser(userId: String) {
+        update { current ->
+            current.copy(reportedUserIds = (current.reportedUserIds + userId).distinct())
+        }
+    }
+
+    fun blockUser(userId: String) {
+        update { current ->
+            current.copy(
+                blockedUserIds = (current.blockedUserIds + userId).distinct(),
+                followingIds = current.followingIds.filterNot { it == userId },
+            )
+        }
+    }
+
+    fun setPackageDownloading(id: String) {
+        update { current ->
+            current.copy(
+                packages = current.packages.map { pack ->
+                    if (pack.id == id) {
+                        pack.copy(status = RegionalPackageStatus.Downloading, progress = 0.08f)
+                    } else {
+                        pack
+                    }
+                },
+            )
+        }
+        scope.launch {
+            for (step in 1..8) {
+                delay(280)
+                update { current ->
+                    current.copy(
+                        packages = current.packages.map { pack ->
+                            if (pack.id == id && pack.status == RegionalPackageStatus.Downloading) {
+                                pack.copy(progress = (step / 8f).coerceAtMost(0.96f))
+                            } else {
+                                pack
+                            }
+                        },
+                    )
+                }
+            }
+            update { current ->
+                current.copy(
+                    packages = current.packages.map { pack ->
+                        if (pack.id == id) {
+                            pack.copy(status = RegionalPackageStatus.Installed, progress = 1f)
+                        } else {
+                            pack
+                        }
+                    },
+                )
+            }
+        }
+    }
+
+    fun failPackage(id: String) {
+        update { current ->
+            current.copy(
+                packages = current.packages.map { pack ->
+                    if (pack.id == id) {
+                        pack.copy(status = RegionalPackageStatus.Error, progress = 0f)
+                    } else {
+                        pack
+                    }
+                },
+            )
+        }
+    }
+
+    fun cancelPackage(id: String) {
+        update { current ->
+            current.copy(
+                packages = current.packages.map { pack ->
+                    if (pack.id == id) {
+                        pack.copy(status = RegionalPackageStatus.Available, progress = 0f)
+                    } else {
+                        pack
+                    }
+                },
+            )
+        }
+    }
+
+    fun uninstallPackage(id: String) {
+        update { current ->
+            current.copy(
+                packages = current.packages.map { pack ->
+                    if (pack.id == id) {
+                        pack.copy(status = RegionalPackageStatus.Available, progress = 0f)
+                    } else {
+                        pack
+                    }
+                },
+            )
+        }
+    }
+
+    companion object {
+        const val UNCHANGED = "__unchanged__"
+
+        @Volatile
+        lateinit var instance: AnuraRepository
+            private set
+
+        val isInitialized: Boolean get() = ::instance.isInitialized
+
+        fun create(application: Application): AnuraRepository {
+            val db = Room.databaseBuilder(
+                application,
+                AnuraDatabase::class.java,
+                "anura.db",
+            ).fallbackToDestructiveMigration(dropAllTables = true).build()
+            val repo = AnuraRepository(
+                dao = db.snapshotDao(),
+                media = MediaPersistence(application),
+                persistEnabled = true,
+            )
+            instance = repo
+            repo.scope.launch {
+                val stored = runCatching { db.snapshotDao().load() }.getOrNull()
+                if (stored != null) {
+                    val parsed = runCatching {
+                        repo.json.decodeFromString(AnuraSnapshot.serializer(), stored.payload)
+                    }.getOrNull()
+                    if (parsed != null) {
+                        repo._state.value = parsed
+                    }
+                }
+            }
+            return repo
+        }
+
+        fun preview(): AnuraRepository {
+            return AnuraRepository(dao = null, media = null, persistEnabled = false)
+        }
+    }
+}

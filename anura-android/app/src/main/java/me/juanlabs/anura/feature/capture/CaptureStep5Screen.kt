@@ -38,6 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraPermissionKind
 import me.juanlabs.anura.designsystem.component.rememberSystemPermissionGranted
@@ -114,6 +115,7 @@ internal fun CaptureLiveSpectrogramSession(
     onSaveClip: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
+    val repository = rememberAnuraRepository()
     val micGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Microphone)
     var phase by rememberSaveable { mutableStateOf(Step5AudioPhase.Idle) }
     var elapsedSeconds by rememberSaveable { mutableIntStateOf(0) }
@@ -126,8 +128,10 @@ internal fun CaptureLiveSpectrogramSession(
         if (phase == Step5AudioPhase.Recorded) {
             delay(80)
             val file = capture.file
+            val durationMs = elapsedSeconds * 1000L
             if (file != null && file.exists() && file.length() > 44L) {
                 playbackUri = Uri.fromFile(file).toString()
+                repository.setDraftAudio("file:${file.absolutePath}", durationMs)
             }
             phase = Step5AudioPhase.Idle
             elapsedSeconds = 0
@@ -144,6 +148,7 @@ internal fun CaptureLiveSpectrogramSession(
                 )
             }
             playbackUri = uri.toString()
+            repository.setDraftAudio(uri.toString(), null)
             phase = Step5AudioPhase.Idle
             elapsedSeconds = 0
         }

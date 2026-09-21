@@ -26,11 +26,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import me.juanlabs.anura.core.data.AccountKind
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -69,15 +72,19 @@ fun EditProfileScreen(
     onBackClick: () -> Unit,
 ) {
     val context = LocalContext.current
-    val mockUsername = stringResource(R.string.home_user_username_mock)
-    val mockName = stringResource(R.string.edit_profile_full_name_mock)
-    var username by rememberSaveable { mutableStateOf(mockUsername) }
-    var name by rememberSaveable { mutableStateOf(mockName) }
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val session = snapshot.session
+    val savedMessage = stringResource(R.string.profile_saved)
+    val mismatchMessage = stringResource(R.string.profile_password_mismatch)
+    var username by rememberSaveable(session.username) { mutableStateOf(session.username) }
+    var name by rememberSaveable(session.displayName) { mutableStateOf(session.displayName) }
     var currentPassword by rememberSaveable { mutableStateOf("") }
     var newPassword by rememberSaveable { mutableStateOf("") }
     var confirmPassword by rememberSaveable { mutableStateOf("") }
-    var photoUri by rememberSaveable { mutableStateOf<String?>(null) }
+    var photoUri by rememberSaveable(session.photoToken) { mutableStateOf(session.photoToken) }
     val photoBitmap = rememberProfilePhoto(photoUri)
+    val isAuthenticated = session.kind == AccountKind.Authenticated
 
     val gallery = rememberLauncherForActivityResult(
         ActivityResultContracts.PickVisualMedia(),
@@ -135,6 +142,7 @@ fun EditProfileScreen(
                             contentDescription = stringResource(R.string.edit_profile_photo_cd),
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop,
+                            colorFilter = AnuraTheme.mediaColorFilter,
                         )
                     } else {
                         Icon(
@@ -184,35 +192,51 @@ fun EditProfileScreen(
                 modifier = Modifier.fillMaxWidth(),
                 leadingIcon = AnuraIcons.Person,
             )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-            AnuraSectionLabel(
-                text = stringResource(R.string.edit_profile_password_section),
-                modifier = Modifier.fillMaxWidth(),
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
-            EditPasswordField(
-                value = currentPassword,
-                onValueChange = { currentPassword = it },
-                label = stringResource(R.string.edit_profile_current_password),
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-            EditPasswordField(
-                value = newPassword,
-                onValueChange = { newPassword = it },
-                label = stringResource(R.string.edit_profile_new_password),
-                placeholder = stringResource(R.string.sign_up_password_placeholder),
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-            EditPasswordField(
-                value = confirmPassword,
-                onValueChange = { confirmPassword = it },
-                label = stringResource(R.string.edit_profile_confirm_password),
-                placeholder = stringResource(R.string.edit_profile_confirm_placeholder),
-            )
+            if (isAuthenticated) {
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+                AnuraSectionLabel(
+                    text = stringResource(R.string.edit_profile_password_section),
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+                EditPasswordField(
+                    value = currentPassword,
+                    onValueChange = { currentPassword = it },
+                    label = stringResource(R.string.edit_profile_current_password),
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                EditPasswordField(
+                    value = newPassword,
+                    onValueChange = { newPassword = it },
+                    label = stringResource(R.string.edit_profile_new_password),
+                    placeholder = stringResource(R.string.sign_up_password_placeholder),
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                EditPasswordField(
+                    value = confirmPassword,
+                    onValueChange = { confirmPassword = it },
+                    label = stringResource(R.string.edit_profile_confirm_password),
+                    placeholder = stringResource(R.string.edit_profile_confirm_placeholder),
+                )
+            }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             AnuraFormButton(
                 text = stringResource(R.string.edit_profile_save),
-                onClick = onBackClick,
+                onClick = {
+                    if (isAuthenticated && (newPassword.isNotBlank() || confirmPassword.isNotBlank())) {
+                        if (newPassword != confirmPassword || newPassword.isBlank()) {
+                            repository.notify(mismatchMessage)
+                            return@AnuraFormButton
+                        }
+                    }
+                    repository.updateProfile(
+                        displayName = name,
+                        username = username,
+                        photoToken = photoUri,
+                    )
+                    repository.notify(savedMessage)
+                    onBackClick()
+                },
                 style = AnuraFormButtonStyle.Primary,
             )
         }

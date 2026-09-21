@@ -23,10 +23,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import androidx.compose.ui.platform.LocalContext
+import me.juanlabs.anura.core.data.RegionalPackageStatus
+import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.designsystem.component.AnuraErrorState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -63,6 +71,7 @@ private enum class PackageUiStatus {
     Installed,
     Downloading,
     Available,
+    Error,
 }
 
 private data class RegionalPackage(
@@ -87,13 +96,24 @@ fun RegionalPackagesScreen(
     onBackClick: () -> Unit,
     onOpenObservationDetail: (String) -> Unit = {},
 ) {
-    var installedIds by rememberSaveable { mutableStateOf(listOf(EjePackageId)) }
-    var downloadingIds by rememberSaveable { mutableStateOf(listOf(ChocoPackageId)) }
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val context = LocalContext.current
     var pendingDownloadId by rememberSaveable { mutableStateOf<String?>(null) }
     var pendingDeleteId by rememberSaveable { mutableStateOf<String?>(null) }
+    var pendingCancelId by rememberSaveable { mutableStateOf<String?>(null) }
     var openedZoneId by rememberSaveable { mutableStateOf<String?>(null) }
+    fun statusOf(id: String): PackageUiStatus {
+        val record = snapshot.packages.find { it.id == id }
+        return when (record?.status) {
+            RegionalPackageStatus.Installed -> PackageUiStatus.Installed
+            RegionalPackageStatus.Downloading -> PackageUiStatus.Downloading
+            RegionalPackageStatus.Error -> PackageUiStatus.Error
+            else -> PackageUiStatus.Available
+        }
+    }
     val openedZone = CatalogPackages.firstOrNull { pack ->
-        pack.id == openedZoneId && statusOf(pack.id, installedIds, downloadingIds) == PackageUiStatus.Installed
+        pack.id == openedZoneId && statusOf(pack.id) == PackageUiStatus.Installed
     }
     if (openedZone != null) {
         ObservationCatalogScreen(
@@ -138,14 +158,29 @@ fun RegionalPackagesScreen(
                     SpaceUsedCard()
                 }
                 items(CatalogPackages, key = { it.id }) { pack ->
-                    val status = statusOf(pack.id, installedIds, downloadingIds)
+                    val record = snapshot.packages.find { it.id == pack.id }
+                    val status = statusOf(pack.id)
                     PackageRow(
                         name = stringResource(pack.nameRes),
                         meta = stringResource(pack.metaRes),
                         status = status,
+                        progress = record?.progress ?: 0f,
                         onOpenClick = { openedZoneId = pack.id },
                         onDownloadClick = { pendingDownloadId = pack.id },
-                        onDeleteClick = { pendingDeleteId = pack.id },
+                        onDeleteClick = {
+                            if (status == PackageUiStatus.Downloading) {
+                                pendingCancelId = pack.id
+                            } else {
+                                pendingDeleteId = pack.id
+                            }
+                        },
+                        onRetryClick = {
+                            if (isNetworkAvailable(context)) {
+                                repository.setPackageDownloading(pack.id)
+                            } else {
+                                repository.failPackage(pack.id)
+                            }
+                        },
                     )
                 }
                 item(key = "coverage-note") {
@@ -162,8 +197,11 @@ fun RegionalPackagesScreen(
             body = stringResource(R.string.packages_download_body, stringResource(name)),
             confirmLabel = stringResource(R.string.packages_download),
             onConfirm = {
-                installedIds = (installedIds + id).distinct()
-                downloadingIds = downloadingIds - id
+                if (isNetworkAvailable(context)) {
+                    repository.setPackageDownloading(id)
+                } else {
+                    repository.failPackage(id)
+                }
                 pendingDownloadId = null
             },
             onDismiss = { pendingDownloadId = null },
@@ -176,23 +214,32 @@ fun RegionalPackagesScreen(
             body = stringResource(R.string.packages_delete_body, stringResource(name)),
             confirmLabel = stringResource(R.string.packages_delete),
             onConfirm = {
-                installedIds = installedIds - id
-                downloadingIds = downloadingIds - id
+                repository.uninstallPackage(id)
                 pendingDeleteId = null
             },
             onDismiss = { pendingDeleteId = null },
         )
     }
+    pendingCancelId?.let { id ->
+        val name = CatalogPackages.first { it.id == id }.nameRes
+        PackageConfirmSheet(
+            title = stringResource(R.string.packages_cancel_title),
+            body = stringResource(R.string.packages_cancel_body, stringResource(name)),
+            confirmLabel = stringResource(R.string.packages_cancel),
+            onConfirm = {
+                repository.cancelPackage(id)
+                pendingCancelId = null
+            },
+            onDismiss = { pendingCancelId = null },
+        )
+    }
 }
 
-private fun statusOf(
-    id: String,
-    installedIds: List<String>,
-    downloadingIds: List<String>,
-): PackageUiStatus = when {
-    downloadingIds.contains(id) -> PackageUiStatus.Downloading
-    installedIds.contains(id) -> PackageUiStatus.Installed
-    else -> PackageUiStatus.Available
+private fun isNetworkAvailable(context: Context): Boolean {
+    val cm = context.getSystemService(ConnectivityManager::class.java) ?: return false
+    val network = cm.activeNetwork ?: return false
+    val caps = cm.getNetworkCapabilities(network) ?: return false
+    return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
 }
 
 @Composable
@@ -294,11 +341,13 @@ private fun PackageRow(
     name: String,
     meta: String,
     status: PackageUiStatus,
+    progress: Float,
     onOpenClick: () -> Unit,
     onDownloadClick: () -> Unit,
     onDeleteClick: () -> Unit,
+    onRetryClick: () -> Unit,
 ) {
-    val pinActive = status != PackageUiStatus.Available
+    val pinActive = status != PackageUiStatus.Available && status != PackageUiStatus.Error
     AnuraCard(
         modifier = Modifier.fillMaxWidth(),
         bordered = true,
@@ -348,11 +397,18 @@ private fun PackageRow(
                     OfflineReadyChip()
                 }
                 if (status == PackageUiStatus.Downloading) {
-                    ZoneProgressBar(progress = DownloadProgressFraction)
+                    ZoneProgressBar(progress = progress)
                     Text(
                         text = stringResource(R.string.packages_download_progress),
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                if (status == PackageUiStatus.Error) {
+                    Text(
+                        text = stringResource(R.string.packages_error_title),
+                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                        color = MaterialTheme.colorScheme.error,
                     )
                 }
             }
@@ -390,6 +446,18 @@ private fun PackageRow(
                             imageVector = AnuraIcons.Download,
                             contentDescription = stringResource(R.string.packages_download_cd, name),
                             tint = AnuraTheme.extendedColors.accentInk,
+                        )
+                    }
+                }
+                PackageUiStatus.Error -> {
+                    IconButton(
+                        onClick = onRetryClick,
+                        modifier = Modifier.size(AnuraDimens.sizeTouch),
+                    ) {
+                        Icon(
+                            imageVector = AnuraIcons.Download,
+                            contentDescription = stringResource(R.string.packages_retry),
+                            tint = MaterialTheme.colorScheme.error,
                         )
                     }
                 }

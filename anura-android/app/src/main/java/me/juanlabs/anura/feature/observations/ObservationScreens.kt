@@ -37,6 +37,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -58,8 +59,16 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.ObservationRecord
+import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.formatCoordinates
+import me.juanlabs.anura.core.data.formatObservationWhen
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
+import me.juanlabs.anura.designsystem.component.AnuraConservationChip
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
+import me.juanlabs.anura.designsystem.component.AnuraToxicityChip
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
@@ -116,22 +125,22 @@ fun ObservationsScreen(
     onOpenObservationDetail: (String) -> Unit,
     onOpenFavorites: () -> Unit,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
     var query by rememberSaveable { mutableStateOf("") }
-    var favoriteIds by rememberSaveable { mutableStateOf(listOf<String>()) }
-    val ownNamed = MockOwnObservations.map { item ->
-        item to (stringResource(item.commonRes) to stringResource(item.scientificRes))
-    }
-    val nearbyNamed = MockNearbyObservations.map { item ->
-        item to (stringResource(item.commonRes) to stringResource(item.scientificRes))
-    }
-    fun matches(names: Pair<String, String>): Boolean {
+    val own = repository.ownObservations()
+    val nearby = CommunityCatalog.observations
+    fun matches(observation: ObservationRecord): Boolean {
         val needle = query.trim()
         if (needle.isEmpty()) return true
-        return names.first.contains(needle, ignoreCase = true) ||
-            names.second.contains(needle, ignoreCase = true)
+        val species = SpeciesCatalog.find(observation.speciesId)
+        val common = observation.commonName ?: species?.commonName.orEmpty()
+        val scientific = observation.scientificName ?: species?.scientificName.orEmpty()
+        return common.contains(needle, ignoreCase = true) ||
+            scientific.contains(needle, ignoreCase = true)
     }
-    val ownFiltered = ownNamed.filter { matches(it.second) }
-    val nearbyFiltered = nearbyNamed.filter { matches(it.second) }
+    val ownFiltered = own.filter(::matches)
+    val nearbyFiltered = nearby.filter(::matches)
     val showNearby = ownFiltered.isEmpty()
 
     Scaffold(
@@ -140,6 +149,17 @@ fun ObservationsScreen(
             AnuraTopBar(
                 title = stringResource(R.string.observations_title),
                 centerTitle = true,
+                actions = {
+                    IconButton(
+                        onClick = onOpenFavorites,
+                        modifier = Modifier.size(AnuraDimens.sizeTouch),
+                    ) {
+                        Icon(
+                            imageVector = AnuraIcons.FavoriteBorder,
+                            contentDescription = stringResource(R.string.observations_favorites_cd),
+                        )
+                    }
+                },
             )
         },
     ) { innerPadding ->
@@ -189,37 +209,21 @@ fun ObservationsScreen(
                                 ),
                             )
                         }
-                        items(nearbyFiltered, key = { it.first.id }) { entry ->
-                            ListedObservationCard(
-                                item = entry.first,
-                                names = entry.second,
-                                favorite = favoriteIds.contains(entry.first.id),
-                                onFavoriteClick = {
-                                    val id = entry.first.id
-                                    favoriteIds = if (favoriteIds.contains(id)) {
-                                        favoriteIds - id
-                                    } else {
-                                        favoriteIds + id
-                                    }
-                                },
-                                onClick = { onOpenObservationDetail(entry.first.id) },
+                        items(nearbyFiltered, key = { it.id }) { observation ->
+                            StoredObservationCard(
+                                observation = observation,
+                                favorite = snapshot.favorites.contains(observation.id),
+                                onFavoriteClick = { repository.toggleFavorite(observation.id) },
+                                onClick = { onOpenObservationDetail(observation.id) },
                             )
                         }
                     } else {
-                        items(ownFiltered, key = { it.first.id }) { entry ->
-                            ListedObservationCard(
-                                item = entry.first,
-                                names = entry.second,
-                                favorite = favoriteIds.contains(entry.first.id),
-                                onFavoriteClick = {
-                                    val id = entry.first.id
-                                    favoriteIds = if (favoriteIds.contains(id)) {
-                                        favoriteIds - id
-                                    } else {
-                                        favoriteIds + id
-                                    }
-                                },
-                                onClick = { onOpenObservationDetail(entry.first.id) },
+                        items(ownFiltered, key = { it.id }) { observation ->
+                            StoredObservationCard(
+                                observation = observation,
+                                favorite = snapshot.favorites.contains(observation.id),
+                                onFavoriteClick = { repository.toggleFavorite(observation.id) },
+                                onClick = { onOpenObservationDetail(observation.id) },
                             )
                         }
                     }
@@ -277,6 +281,35 @@ private fun ListedObservationCard(
 }
 
 @Composable
+internal fun StoredObservationCard(
+    observation: ObservationRecord,
+    favorite: Boolean,
+    onFavoriteClick: () -> Unit,
+    onClick: () -> Unit,
+) {
+    val species = SpeciesCatalog.find(observation.speciesId)
+    val unidentifiedCommon = stringResource(R.string.observation_unidentified_common)
+    val unidentifiedScientific = stringResource(R.string.observation_unidentified_scientific)
+    val common = observation.commonName ?: species?.commonName ?: unidentifiedCommon
+    val scientific = observation.scientificName ?: species?.scientificName ?: unidentifiedScientific
+    val isOwn = rememberAnuraRepository().isOwnObservation(observation.id)
+    ObservationCard(
+        commonName = common,
+        scientificName = scientific,
+        isFavorite = favorite,
+        onFavoriteClick = onFavoriteClick,
+        modifier = Modifier.fillMaxWidth(),
+        statusChip = if (isOwn) {
+            { VisibilityChip(isPublic = observation.visibilityPublic) }
+        } else {
+            null
+        },
+        thumbnail = { ObservationPhoto(observation) },
+        onClick = onClick,
+    )
+}
+
+@Composable
 private fun VisibilityChip(isPublic: Boolean) {
     val label = stringResource(
         if (isPublic) {
@@ -318,17 +351,54 @@ private fun VisibilityChip(isPublic: Boolean) {
 }
 
 /** `favoritos (listado)` (§4.1). */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FavoritesScreen(
     onBackClick: () -> Unit,
     onOpenObservationDetail: (String) -> Unit,
 ) {
-    ObservationCatalogScreen(
-        title = stringResource(R.string.favorites_title),
-        onBackClick = onBackClick,
-        onOpenObservationDetail = onOpenObservationDetail,
-        showQuickFilters = true,
-    )
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val items = snapshot.favorites.mapNotNull { id -> repository.observationById(id) }
+    Scaffold(
+        containerColor = AnuraTheme.extendedColors.boardBackground,
+        topBar = {
+            AnuraTopBar(
+                title = stringResource(R.string.favorites_title),
+                onBackClick = onBackClick,
+                centerTitle = true,
+            )
+        },
+    ) { innerPadding ->
+        if (items.isEmpty()) {
+            AnuraEmptyState(
+                title = stringResource(R.string.observations_empty_title),
+                description = stringResource(R.string.observations_empty_body),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            )
+        } else {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                contentPadding = PaddingValues(AnuraDimens.spaceGutter),
+                horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+                verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+            ) {
+                items(items, key = { it.id }) { observation ->
+                    StoredObservationCard(
+                        observation = observation,
+                        favorite = true,
+                        onFavoriteClick = { repository.toggleFavorite(observation.id) },
+                        onClick = { onOpenObservationDetail(observation.id) },
+                    )
+                }
+            }
+        }
+    }
 }
 
 /** `Detalles de observación (resultado)` (§4.1, argumento `id`). */
@@ -340,24 +410,24 @@ fun ObservationDetailScreen(
     onOpenSpeciesSheet: (String) -> Unit,
     onOpenProfile: (String?) -> Unit,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
     var showJustification by rememberSaveable { mutableStateOf(false) }
     var showComments by rememberSaveable { mutableStateOf(false) }
     var moreMenu by rememberSaveable { mutableStateOf(false) }
-    var visibilityPublic by rememberSaveable { mutableStateOf(true) }
-    val listed = MockOwnObservations.find { it.id == id }
-        ?: MockNearbyObservations.find { it.id == id }
-    val fieldRegister = fieldSessionRegister(id)
-    val scientificName = if (listed != null) {
-        stringResource(listed.scientificRes)
-    } else {
-        stringResource(R.string.observation_detail_scientific_name)
-    }
-    val commonName = if (listed != null) {
-        stringResource(listed.commonRes)
-    } else {
-        stringResource(R.string.observation_detail_common_name)
-    }
-    val speciesId = fieldRegister?.speciesId ?: "ANU_COL_DEND_TRU_001"
+    var confirmDelete by rememberSaveable { mutableStateOf(false) }
+    val observation = repository.observationById(id)
+    val species = SpeciesCatalog.find(observation?.speciesId)
+    val isOwn = observation?.let { repository.isOwnObservation(it.id) } == true
+    val missing = stringResource(R.string.anura_value_missing)
+    val unidentifiedCommon = stringResource(R.string.observation_unidentified_common)
+    val unidentifiedScientific = stringResource(R.string.observation_unidentified_scientific)
+    val visibilityUpdated = stringResource(R.string.observation_visibility_updated)
+    val deletedMessage = stringResource(R.string.observation_deleted)
+    val scientificName = observation?.scientificName ?: species?.scientificName ?: unidentifiedScientific
+    val commonName = observation?.commonName ?: species?.commonName ?: unidentifiedCommon
+    val speciesId = observation?.speciesId ?: species?.id
+    val visibilityPublic = observation?.visibilityPublic == true
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -366,6 +436,7 @@ fun ObservationDetailScreen(
                 onBackClick = onBackClick,
                 centerTitle = true,
                 actions = {
+                    if (isOwn) {
                     Box {
                         IconButton(
                             onClick = { moreMenu = true },
@@ -381,15 +452,11 @@ fun ObservationDetailScreen(
                             onDismissRequest = { moreMenu = false },
                         ) {
                             DropdownMenuItem(
-                                text = { Text(stringResource(R.string.observation_detail_edit)) },
-                                onClick = { moreMenu = false },
-                                leadingIcon = {
-                                    Icon(AnuraIcons.Edit, contentDescription = null)
-                                },
-                            )
-                            DropdownMenuItem(
                                 text = { Text(stringResource(R.string.observation_detail_delete)) },
-                                onClick = { moreMenu = false },
+                                onClick = {
+                                    moreMenu = false
+                                    confirmDelete = true
+                                },
                                 leadingIcon = {
                                     Icon(AnuraIcons.Delete, contentDescription = null)
                                 },
@@ -407,7 +474,8 @@ fun ObservationDetailScreen(
                                     )
                                 },
                                 onClick = {
-                                    visibilityPublic = !visibilityPublic
+                                    repository.setObservationVisibility(id, !visibilityPublic)
+                                    repository.notify(visibilityUpdated)
                                     moreMenu = false
                                 },
                                 leadingIcon = {
@@ -422,6 +490,7 @@ fun ObservationDetailScreen(
                                 },
                             )
                         }
+                    }
                     }
                 },
             )
@@ -445,9 +514,10 @@ fun ObservationDetailScreen(
                         .height(ObservationHeroHeight),
                 ) {
                     ObservationMediaCarousel(
-                        items = mockObservationMedia(id),
+                        items = observation?.let { mediaForObservation(it) } ?: emptyList(),
                         modifier = Modifier.fillMaxSize(),
                     )
+                    if (observation?.expertReviewRequested == true) {
                     AnuraReviewChip(
                         text = stringResource(R.string.observation_detail_expert_review),
                         modifier = Modifier
@@ -455,6 +525,7 @@ fun ObservationDetailScreen(
                             .padding(AnuraDimens.spaceGap)
                             .fillMaxWidth(0.58f),
                     )
+                    }
                 }
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 Text(
@@ -462,7 +533,9 @@ fun ObservationDetailScreen(
                     style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier
                         .clip(RoundedCornerShape(AnuraDimens.radiusButton))
-                        .clickable { onOpenSpeciesSheet(speciesId) }
+                        .clickable(enabled = speciesId != null) {
+                            speciesId?.let(onOpenSpeciesSheet)
+                        }
                         .semantics { role = Role.Button },
                 )
                 Text(
@@ -471,7 +544,9 @@ fun ObservationDetailScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier
                         .clip(RoundedCornerShape(AnuraDimens.radiusButton))
-                        .clickable { onOpenSpeciesSheet(speciesId) }
+                        .clickable(enabled = speciesId != null) {
+                            speciesId?.let(onOpenSpeciesSheet)
+                        }
                         .semantics {
                             role = Role.Button
                         },
@@ -479,22 +554,23 @@ fun ObservationDetailScreen(
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 ObservationAuthorRow(
                     observationId = id,
+                    ownerUserId = observation?.ownerUserId,
+                    ownerDisplayName = observation?.ownerDisplayName.orEmpty(),
+                    isOwn = isOwn,
                     onOpenProfile = onOpenProfile,
                 )
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 Row(horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
-                    if (fieldRegister == null || fieldRegister.toxic) {
-                        StatusPill(
-                            text = stringResource(R.string.observation_detail_toxic_chip),
-                            warning = true,
-                        )
+                    species?.let {
+                        AnuraToxicityChip(variant = it.toxicity)
+                        AnuraConservationChip(variant = it.iucn)
                     }
-                    StatusPill(
-                        text = stringResource(R.string.observation_detail_iucn_chip),
-                        warning = false,
-                    )
                 }
                 ObservationTempoActions(
+                    observationId = id,
+                    commonName = commonName,
+                    scientificName = scientificName,
+                    photoToken = observation?.photoTokens?.firstOrNull(),
                     onOpenComments = { showComments = true },
                 )
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
@@ -544,27 +620,23 @@ fun ObservationDetailScreen(
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_where),
-                    value = if (fieldRegister != null) {
-                        stringResource(R.string.field_session_location)
-                    } else {
-                        stringResource(R.string.observation_detail_where_value)
-                    },
+                    value = observation?.placeLabel
+                        ?: formatCoordinates(observation?.latitude, observation?.longitude)
+                        ?: missing,
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_when),
-                    value = if (fieldRegister != null) {
-                        "${stringResource(fieldRegister.timeRes)} · ${stringResource(R.string.field_session_elapsed)}"
-                    } else {
-                        stringResource(R.string.observation_detail_when_value)
-                    },
+                    value = formatObservationWhen(observation?.observedAtEpochMs) ?: missing,
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_size),
-                    value = stringResource(R.string.observation_detail_size_value),
+                    value = observation?.svlMm?.let { "$it mm" } ?: missing,
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_audio),
-                    value = stringResource(R.string.observation_detail_audio_value),
+                    value = observation?.audioPath?.let {
+                        me.juanlabs.anura.core.data.formatAudioDuration(observation.audioDurationMs) ?: "Audio"
+                    } ?: missing,
                 )
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 StatusPill(
@@ -577,7 +649,7 @@ fun ObservationDetailScreen(
                     ),
                     warning = false,
                 )
-                if (fieldRegister != null) {
+                if (observation?.fieldSessionId != null) {
                     Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
                     FieldSessionRecordNotes(observationId = id)
                 }
@@ -588,12 +660,36 @@ fun ObservationDetailScreen(
                     onDismiss = { showComments = false },
                 ) {
                     ObservationMediaCarousel(
-                        items = mockObservationMedia(id),
+                        items = observation?.let { mediaForObservation(it) } ?: emptyList(),
                         modifier = Modifier.fillMaxSize(),
                     )
                 }
             }
         }
+    }
+    if (confirmDelete) {
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirmDelete = false },
+            title = { Text(stringResource(R.string.observation_delete_confirm_title)) },
+            text = { Text(stringResource(R.string.observation_delete_confirm_body)) },
+            confirmButton = {
+                androidx.compose.material3.TextButton(
+                    onClick = {
+                        repository.deleteObservation(id)
+                        repository.notify(deletedMessage)
+                        confirmDelete = false
+                        onBackClick()
+                    },
+                ) {
+                    Text(stringResource(R.string.observation_delete_confirm_action))
+                }
+            },
+            dismissButton = {
+                androidx.compose.material3.TextButton(onClick = { confirmDelete = false }) {
+                    Text(stringResource(R.string.anura_cancel))
+                }
+            },
+        )
     }
     if (showJustification) {
         IdentificationJustificationSheet(onDismiss = { showJustification = false })
@@ -603,14 +699,22 @@ fun ObservationDetailScreen(
 @Composable
 private fun ObservationAuthorRow(
     observationId: String,
+    ownerUserId: String?,
+    ownerDisplayName: String,
+    isOwn: Boolean,
     onOpenProfile: (String?) -> Unit,
 ) {
-    val isOwn = !observationId.startsWith("near-")
-    val displayName = stringResource(
-        if (isOwn) R.string.home_user_name_mock else R.string.observation_author_other,
-    )
-    val profileUserId = if (isOwn) null else "user-002"
-    var following by rememberSaveable { mutableStateOf(false) }
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val session = snapshot.session
+    val displayName = when {
+        isOwn && session.displayName.isNotBlank() -> session.displayName
+        isOwn -> stringResource(R.string.profile_guest_name)
+        ownerDisplayName.isNotBlank() -> ownerDisplayName
+        else -> CommunityCatalog.person(ownerUserId)?.displayName.orEmpty()
+    }
+    val profileUserId = if (isOwn) null else ownerUserId
+    val following = ownerUserId != null && repository.isFollowing(ownerUserId)
     val openProfile = { onOpenProfile(profileUserId) }
     val profileCd = stringResource(R.string.observation_author_cd, displayName)
 
@@ -652,11 +756,21 @@ private fun ObservationAuthorRow(
                     .clickable(role = Role.Button, onClick = openProfile)
                     .semantics { contentDescription = profileCd },
             )
-            if (!isOwn) {
+            if (!isOwn && ownerUserId != null) {
                 FilterChip(
                     selected = following,
-                    onClick = { following = !following },
-                    label = { Text(stringResource(R.string.observation_author_follow)) },
+                    onClick = { repository.toggleFollow(ownerUserId) },
+                    label = {
+                        Text(
+                            stringResource(
+                                if (following) {
+                                    R.string.observation_author_following
+                                } else {
+                                    R.string.observation_author_follow
+                                },
+                            ),
+                        )
+                    },
                     colors = FilterChipDefaults.filterChipColors(
                         selectedContainerColor = AnuraTheme.extendedColors.accentInk,
                         selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
@@ -669,12 +783,18 @@ private fun ObservationAuthorRow(
 
 @Composable
 private fun ObservationTempoActions(
+    observationId: String,
+    commonName: String,
+    scientificName: String,
+    photoToken: String?,
     onOpenComments: () -> Unit,
 ) {
     val context = LocalContext.current
-    var liked by rememberSaveable { mutableStateOf(false) }
-    val commonName = stringResource(R.string.observation_detail_common_name)
-    val scientificName = stringResource(R.string.observation_detail_scientific_name)
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val liked = snapshot.favorites.contains(observationId)
+    val downloadedMessage = stringResource(R.string.observation_downloaded)
+    val downloadFailed = stringResource(R.string.observation_download_failed)
     val shareText = stringResource(
         R.string.observation_detail_share_text,
         commonName,
@@ -686,7 +806,7 @@ private fun ObservationTempoActions(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(
-            onClick = { liked = !liked },
+            onClick = { repository.toggleFavorite(observationId) },
             modifier = Modifier.size(AnuraDimens.sizeTouch),
         ) {
             Icon(
@@ -712,7 +832,11 @@ private fun ObservationTempoActions(
             )
         }
         IconButton(
-            onClick = { },
+            onClick = {
+                val token = photoToken
+                val ok = token != null && repository.media?.exportPhotoToGallery(token) == true
+                repository.notify(if (ok) downloadedMessage else downloadFailed)
+            },
             modifier = Modifier.size(AnuraDimens.sizeTouch),
         ) {
             Icon(
@@ -851,6 +975,7 @@ private fun CandidateCard(
                         .size(56.dp)
                         .clip(RoundedCornerShape(AnuraDimens.radiusThumb)),
                     contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
                 )
                 Spacer(modifier = Modifier.width(AnuraDimens.spaceGap))
                 Column(modifier = Modifier.weight(1f)) {

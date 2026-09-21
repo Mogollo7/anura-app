@@ -39,6 +39,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
@@ -63,6 +64,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.GuestUserId
+import me.juanlabs.anura.core.data.ObservationRecord
+import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
@@ -78,6 +84,8 @@ import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.explore.ObservationCatalogScreen
+import me.juanlabs.anura.feature.observations.ObservationPhoto
+import me.juanlabs.anura.feature.observations.StoredObservationCard
 
 private val ProfileAvatarSize = 80.dp
 private val ProfileEditBadgeSize = 28.dp
@@ -142,30 +150,74 @@ fun ProfileScreen(
     onOpenFavorites: () -> Unit,
     onOpenObservationDetail: (String) -> Unit,
 ) {
-    val isOwn = userId == null
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val session = snapshot.session
+    val isOwn = userId.isNullOrBlank() || userId == "me" || userId == session.userId
+    val other = if (isOwn) null else CommunityCatalog.person(userId)
     val context = LocalContext.current
-    val displayName = stringResource(
-        if (isOwn) R.string.profile_display_name_own else R.string.profile_display_name_other,
-    )
-    val username = stringResource(
-        if (isOwn) R.string.home_user_username_mock else R.string.observation_author_other,
-    )
-    val location = stringResource(R.string.profile_location_own)
-    val bio = stringResource(
-        if (isOwn) R.string.edit_profile_bio_mock else R.string.profile_bio_other,
-    )
-    val connectionsId = userId ?: "me"
-    val shareText = stringResource(R.string.profile_share_text, displayName, username)
+    val guestName = stringResource(R.string.profile_guest_name)
+    val missing = stringResource(R.string.profile_value_missing)
+    val displayName = if (isOwn) {
+        session.displayName.ifBlank { guestName }
+    } else {
+        other?.displayName ?: stringResource(R.string.profile_display_name_other)
+    }
+    val username = if (isOwn) {
+        session.username
+    } else {
+        other?.handle.orEmpty()
+    }
+    val location = if (isOwn) {
+        session.location.ifBlank { missing }
+    } else {
+        other?.location?.ifBlank { missing } ?: missing
+    }
+    val bio = if (isOwn) {
+        session.bio.ifBlank { missing }
+    } else {
+        missing
+    }
+    val connectionsId = if (isOwn) session.userId.ifBlank { GuestUserId } else userId.orEmpty()
+    val shareText = stringResource(R.string.profile_share_text, displayName, username.ifBlank { guestName })
     val shareChooser = stringResource(R.string.profile_share_chooser)
-    val profileLink = stringResource(R.string.profile_link_mock, username.removePrefix("@"))
+    val profileLink = stringResource(
+        R.string.profile_link_mock,
+        username.removePrefix("@").ifBlank { "invitado" },
+    )
     val copyLinkLabel = stringResource(R.string.profile_copy_link)
+    val followLabel = stringResource(
+        if (!isOwn && repository.isFollowing(userId.orEmpty())) {
+            R.string.observation_author_following
+        } else {
+            R.string.observation_author_follow
+        },
+    )
 
     var showActions by rememberSaveable { mutableStateOf(false) }
     var showReport by rememberSaveable { mutableStateOf(false) }
     var showObservationsCatalog by rememberSaveable { mutableStateOf(false) }
-    var following by rememberSaveable { mutableStateOf(false) }
-    var favoriteIds by rememberSaveable { mutableStateOf(listOf("obs-001", "near-001")) }
     var ownTab by rememberSaveable { mutableStateOf(ProfileOwnTab.Public) }
+    val following = !isOwn && repository.isFollowing(userId.orEmpty())
+    val ownObservations = repository.ownObservations()
+    val otherObservations = if (isOwn) emptyList() else CommunityCatalog.observationsOf(userId.orEmpty())
+        .filter { it.visibilityPublic && !snapshot.blockedUserIds.contains(it.ownerUserId) }
+    val gridItems = if (isOwn) {
+        when (ownTab) {
+            ProfileOwnTab.Public -> ownObservations.filter { it.visibilityPublic && !it.isDraft }
+            ProfileOwnTab.Private -> ownObservations.filter { !it.visibilityPublic && !it.isDraft }
+            ProfileOwnTab.Drafts -> ownObservations.filter { it.isDraft }
+        }
+    } else {
+        otherObservations
+    }
+    val featuredFavorite = snapshot.favorites.firstNotNullOfOrNull { id -> repository.observationById(id) }
+    val observationsCount = if (isOwn) ownObservations.size else otherObservations.size
+    val speciesCount = (if (isOwn) ownObservations else otherObservations)
+        .mapNotNull { it.speciesId }
+        .distinct()
+        .size
+    val followersCount = if (isOwn) 0 else CommunityCatalog.people.size
 
     if (showObservationsCatalog) {
         ObservationCatalogScreen(
@@ -176,17 +228,6 @@ fun ProfileScreen(
         )
         return
     }
-
-    val gridItems = if (isOwn) {
-        when (ownTab) {
-            ProfileOwnTab.Public -> OwnPublicObservations
-            ProfileOwnTab.Private -> OwnPrivateObservations
-            ProfileOwnTab.Drafts -> OwnDraftObservations
-        }
-    } else {
-        OtherPublicObservations
-    }
-    val featuredFavorite = OwnPublicObservations.first()
 
     fun shareProfile() {
         runCatching {
@@ -256,14 +297,14 @@ fun ProfileScreen(
                     bio = bio,
                     isOwn = isOwn,
                     following = following,
-                    onFollowClick = { following = !following },
+                    followLabel = followLabel,
+                    observationsValue = observationsCount.toString(),
+                    speciesValue = speciesCount.toString(),
+                    followersValue = followersCount.toString(),
+                    onFollowClick = { userId?.let(repository::toggleFollow) },
                     onReportClick = { showReport = true },
                     onOpenFollowers = { onOpenConnections(connectionsId, "followers") },
-                    onOpenSecondStat = {
-                        if (isOwn) {
-                            onOpenConnections(connectionsId, "favorites")
-                        }
-                    },
+                    onOpenSecondStat = {},
                     onOpenObservations = { showObservationsCatalog = true },
                     onEditAvatar = onOpenEditProfile,
                 )
@@ -320,19 +361,12 @@ fun ProfileScreen(
                     )
                 }
             } else {
-                items(gridItems, key = { it.id }) { item ->
-                    ProfileObservationCard(
-                        item = item,
-                        showVisibility = isOwn && ownTab != ProfileOwnTab.Public,
-                        favorite = favoriteIds.contains(item.id),
-                        onFavoriteClick = {
-                            favoriteIds = if (favoriteIds.contains(item.id)) {
-                                favoriteIds - item.id
-                            } else {
-                                favoriteIds + item.id
-                            }
-                        },
-                        onClick = { onOpenObservationDetail(item.id) },
+                items(gridItems, key = { it.id }) { observation ->
+                    StoredObservationCard(
+                        observation = observation,
+                        favorite = snapshot.favorites.contains(observation.id),
+                        onFavoriteClick = { repository.toggleFavorite(observation.id) },
+                        onClick = { onOpenObservationDetail(observation.id) },
                     )
                 }
             }
@@ -342,7 +376,7 @@ fun ProfileScreen(
             ) {
                 ProfileFavoritesSection(
                     featured = featuredFavorite,
-                    onOpenFeatured = { onOpenObservationDetail(featuredFavorite.id) },
+                    onOpenFeatured = { featuredFavorite?.let { onOpenObservationDetail(it.id) } },
                     onSeeMore = onOpenFavorites,
                 )
             }
@@ -367,7 +401,24 @@ fun ProfileScreen(
         )
     }
     if (showReport) {
-        ProfileReportSheet(onDismiss = { showReport = false })
+        ProfileReportSheet(
+            onDismiss = { showReport = false },
+            onReport = {
+                userId?.let {
+                    repository.reportUser(it)
+                    repository.notify(context.getString(R.string.profile_report_sent))
+                }
+                showReport = false
+            },
+            onBlock = {
+                userId?.let {
+                    repository.blockUser(it)
+                    repository.notify(context.getString(R.string.profile_blocked))
+                }
+                showReport = false
+                onBackClick()
+            },
+        )
     }
 }
 
@@ -379,6 +430,10 @@ private fun ProfileHeader(
     bio: String,
     isOwn: Boolean,
     following: Boolean,
+    followLabel: String,
+    observationsValue: String,
+    speciesValue: String,
+    followersValue: String,
     onFollowClick: () -> Unit,
     onReportClick: () -> Unit,
     onOpenFollowers: () -> Unit,
@@ -445,37 +500,19 @@ private fun ProfileHeader(
             horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
         ) {
             ProfileStatCard(
-                value = stringResource(
-                    if (isOwn) {
-                        R.string.profile_stat_observations_own_value
-                    } else {
-                        R.string.profile_stat_observations_other_value
-                    },
-                ),
+                value = observationsValue,
                 label = stringResource(R.string.profile_stat_observations),
                 onClick = onOpenObservations,
                 modifier = Modifier.weight(1f),
             )
             ProfileStatCard(
-                value = stringResource(
-                    if (isOwn) {
-                        R.string.profile_stat_species_value
-                    } else {
-                        R.string.profile_stat_species_other_value
-                    },
-                ),
+                value = speciesValue,
                 label = stringResource(R.string.profile_stat_species),
                 onClick = onOpenSecondStat,
                 modifier = Modifier.weight(1f),
             )
             ProfileStatCard(
-                value = stringResource(
-                    if (isOwn) {
-                        R.string.profile_stat_followers_own_value
-                    } else {
-                        R.string.profile_stat_followers_other_value
-                    },
-                ),
+                value = followersValue,
                 label = stringResource(R.string.profile_stat_followers),
                 onClick = onOpenFollowers,
                 modifier = Modifier.weight(1f),
@@ -487,7 +524,7 @@ private fun ProfileHeader(
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
             ) {
                 AnuraFormButton(
-                    text = stringResource(R.string.observation_author_follow),
+                    text = followLabel,
                     onClick = onFollowClick,
                     modifier = Modifier.weight(1f),
                     style = if (following) {
@@ -735,10 +772,28 @@ private fun ProfileVisibilityChip(isPublic: Boolean) {
 
 @Composable
 private fun ProfileFavoritesSection(
-    featured: ProfileObservation,
+    featured: ObservationRecord?,
     onOpenFeatured: () -> Unit,
     onSeeMore: () -> Unit,
 ) {
+    if (featured == null) {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            AnuraEmptyState(
+                title = stringResource(R.string.profile_favorites_empty),
+                description = stringResource(R.string.observations_empty_body),
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            AnuraFormButton(
+                text = stringResource(R.string.profile_see_more_favorites),
+                onClick = onSeeMore,
+                style = AnuraFormButtonStyle.Secondary,
+            )
+        }
+        return
+    }
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -746,11 +801,9 @@ private fun ProfileFavoritesSection(
             .clip(RoundedCornerShape(AnuraDimens.radiusCard))
             .clickable(role = Role.Button, onClick = onOpenFeatured),
     ) {
-        Image(
-            painter = painterResource(featured.photoRes),
-            contentDescription = stringResource(featured.commonRes),
+        ObservationPhoto(
+            observation = featured,
             modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop,
         )
         AnuraFormButton(
             text = stringResource(R.string.profile_see_more_favorites),
@@ -818,7 +871,11 @@ private fun ProfileActionsSheet(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ProfileReportSheet(onDismiss: () -> Unit) {
+private fun ProfileReportSheet(
+    onDismiss: () -> Unit,
+    onReport: () -> Unit,
+    onBlock: () -> Unit,
+) {
     AnuraBottomSheet(onDismissRequest = onDismiss) {
         Column(
             modifier = Modifier
@@ -833,6 +890,18 @@ private fun ProfileReportSheet(onDismiss: () -> Unit) {
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(vertical = AnuraDimens.spaceGap),
             )
+            AnuraFormButton(
+                text = stringResource(R.string.profile_report_action),
+                onClick = onReport,
+                style = AnuraFormButtonStyle.Primary,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+            AnuraFormButton(
+                text = stringResource(R.string.profile_block_action),
+                onClick = onBlock,
+                style = AnuraFormButtonStyle.Outline,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
             AnuraFormButton(
                 text = stringResource(R.string.anura_cancel),
                 onClick = onDismiss,
@@ -943,6 +1012,16 @@ fun ConnectionsScreen(
     onOpenProfile: (String) -> Unit,
     onOpenObservationDetail: (String) -> Unit,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val session = snapshot.session
+    val isOwn = userId == "me" || userId == session.userId || userId == GuestUserId || userId.isBlank()
+    val other = if (isOwn) null else CommunityCatalog.person(userId)
+    val title = if (isOwn) {
+        session.displayName.ifBlank { stringResource(R.string.profile_guest_name) }
+    } else {
+        other?.displayName ?: stringResource(R.string.profile_title)
+    }
     var tab by rememberSaveable(initialTab) {
         mutableStateOf(
             when (initialTab) {
@@ -953,31 +1032,36 @@ fun ConnectionsScreen(
         )
     }
     var query by rememberSaveable { mutableStateOf("") }
-    val followingById = remember {
-        mutableStateMapOf<String, Boolean>().apply {
-            ConnectionPeople.forEach { put(it.id, true) }
-        }
-    }
     val followingQuery = query.trim()
-    val people = ConnectionPeople.filter { person ->
-        if (followingQuery.isEmpty()) {
-            true
+    val sourcePeople = if (isOwn) {
+        if (tab == ConnectionsTab.Following) {
+            CommunityCatalog.people.filter { repository.isFollowing(it.userId) }
         } else {
-            val name = stringResource(person.nameRes)
-            val handle = stringResource(person.handleRes)
-            name.contains(followingQuery, ignoreCase = true) ||
-                handle.contains(followingQuery, ignoreCase = true)
+            emptyList()
         }
+    } else {
+        CommunityCatalog.people.filter { it.userId != userId }
+    }
+    val people = sourcePeople.filter { person ->
+        followingQuery.isEmpty() ||
+            person.displayName.contains(followingQuery, ignoreCase = true) ||
+            person.handle.contains(followingQuery, ignoreCase = true)
     }
     val favoriteQuery = query.trim()
-    val favorites = OwnPublicObservations.filter { item ->
+    val favorites = snapshot.favorites.mapNotNull { id -> repository.observationById(id) }.filter { observation ->
         if (favoriteQuery.isEmpty()) {
             true
         } else {
-            stringResource(item.commonRes).contains(favoriteQuery, ignoreCase = true) ||
-                stringResource(item.scientificRes).contains(favoriteQuery, ignoreCase = true)
+            val species = SpeciesCatalog.find(observation.speciesId)
+            val common = observation.commonName ?: species?.commonName.orEmpty()
+            val scientific = observation.scientificName ?: species?.scientificName.orEmpty()
+            common.contains(favoriteQuery, ignoreCase = true) ||
+                scientific.contains(favoriteQuery, ignoreCase = true)
         }
     }
+    val followersCount = if (isOwn) 0 else sourcePeople.size
+    val followingCount = CommunityCatalog.people.count { repository.isFollowing(it.userId) }
+    val favoritesCount = snapshot.favorites.size
     val searchHint = stringResource(
         when (tab) {
             ConnectionsTab.Followers -> R.string.connections_search_followers
@@ -989,7 +1073,7 @@ fun ConnectionsScreen(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             AnuraTopBar(
-                title = stringResource(R.string.profile_display_name_own),
+                title = title,
                 onBackClick = onBackClick,
             )
         },
@@ -1002,6 +1086,9 @@ fun ConnectionsScreen(
         ) {
             ConnectionsTabRow(
                 selected = tab,
+                followersCount = followersCount,
+                followingCount = followingCount,
+                favoritesCount = favoritesCount,
                 onSelect = { tab = it },
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
@@ -1052,6 +1139,13 @@ fun ConnectionsScreen(
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             when (tab) {
                 ConnectionsTab.Favorites -> {
+                    if (favorites.isEmpty()) {
+                        AnuraEmptyState(
+                            title = stringResource(R.string.connections_empty_favorites),
+                            description = stringResource(R.string.observations_empty_body),
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    } else {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(2),
                         modifier = Modifier.fillMaxSize(),
@@ -1059,34 +1153,46 @@ fun ConnectionsScreen(
                         horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                         verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                     ) {
-                        items(favorites, key = { it.id }) { item ->
-                            ProfileObservationCard(
-                                item = item,
-                                showVisibility = false,
+                        items(favorites, key = { it.id }) { observation ->
+                            StoredObservationCard(
+                                observation = observation,
                                 favorite = true,
-                                onFavoriteClick = {},
-                                onClick = { onOpenObservationDetail(item.id) },
+                                onFavoriteClick = { repository.toggleFavorite(observation.id) },
+                                onClick = { onOpenObservationDetail(observation.id) },
                             )
                         }
+                    }
                     }
                 }
                 ConnectionsTab.Followers,
                 ConnectionsTab.Following -> {
+                    if (people.isEmpty()) {
+                        AnuraEmptyState(
+                            title = stringResource(
+                                if (tab == ConnectionsTab.Followers) {
+                                    R.string.connections_empty_followers
+                                } else {
+                                    R.string.connections_empty_following
+                                },
+                            ),
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    } else {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(bottom = AnuraDimens.spaceSection),
                         verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                     ) {
-                        items(people, key = { it.id }) { person ->
+                        items(people, key = { it.userId }) { person ->
                             ConnectionPersonRow(
-                                person = person,
-                                following = followingById[person.id] == true,
-                                onFollowClick = {
-                                    followingById[person.id] = followingById[person.id] != true
-                                },
-                                onOpenProfile = { onOpenProfile(person.id) },
+                                name = person.displayName,
+                                handle = person.handle,
+                                following = repository.isFollowing(person.userId),
+                                onFollowClick = { repository.toggleFollow(person.userId) },
+                                onOpenProfile = { onOpenProfile(person.userId) },
                             )
                         }
+                    }
                     }
                 }
             }
@@ -1097,6 +1203,9 @@ fun ConnectionsScreen(
 @Composable
 private fun ConnectionsTabRow(
     selected: ConnectionsTab,
+    followersCount: Int,
+    followingCount: Int,
+    favoritesCount: Int,
     onSelect: (ConnectionsTab) -> Unit,
 ) {
     Row(modifier = Modifier.fillMaxWidth()) {
@@ -1108,9 +1217,9 @@ private fun ConnectionsTabRow(
                     ConnectionsTab.Favorites -> R.string.connections_tab_favorites
                 },
                 when (tab) {
-                    ConnectionsTab.Followers -> ConnectionsFollowersCount
-                    ConnectionsTab.Following -> ConnectionsFollowingCount
-                    ConnectionsTab.Favorites -> ConnectionsFavoritesCount
+                    ConnectionsTab.Followers -> followersCount
+                    ConnectionsTab.Following -> followingCount
+                    ConnectionsTab.Favorites -> favoritesCount
                 },
             )
             val isSelected = tab == selected
@@ -1156,7 +1265,8 @@ private fun ConnectionsTabRow(
 
 @Composable
 private fun ConnectionPersonRow(
-    person: ConnectionPerson,
+    name: String,
+    handle: String,
     following: Boolean,
     onFollowClick: () -> Unit,
     onOpenProfile: () -> Unit,
@@ -1171,14 +1281,14 @@ private fun ConnectionPersonRow(
         ProfileAvatar(size = ConnectionsAvatarSize)
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = stringResource(person.nameRes),
+                text = name,
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                text = stringResource(person.handleRes),
+                text = handle,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 1,

@@ -12,6 +12,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -22,6 +24,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.formatAudioDuration
+import me.juanlabs.anura.core.data.formatCoordinates
+import me.juanlabs.anura.core.data.formatObservationWhen
+import me.juanlabs.anura.core.data.habitatLabel
+import me.juanlabs.anura.core.data.periodLabel
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
@@ -48,6 +56,34 @@ fun CaptureStep6Screen(
     onEditAudio: () -> Unit = {},
     onCloseClick: () -> Unit = onBackClick,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val draft = snapshot.draft
+    val whereParts = listOfNotNull(
+        formatCoordinates(draft.latitude, draft.longitude),
+        draft.altitudeLabel,
+        habitatLabel(draft.habitat),
+    )
+    val whereValue = whereParts.joinToString(" · ").ifBlank {
+        stringResource(R.string.capture_step6_where_empty)
+    }
+    val whenParts = listOfNotNull(
+        formatObservationWhen(draft.observedAtEpochMs),
+        periodLabel(draft.period),
+    )
+    val whenValue = whenParts.joinToString(" · ").ifBlank {
+        stringResource(R.string.capture_step6_when_empty)
+    }
+    val sizeValue = draft.svlMm?.let { stringResource(R.string.capture_step6_size_mm, it) }
+        ?: stringResource(R.string.capture_step6_size_empty)
+    val photosValue = if (draft.photoTokens.isEmpty()) {
+        stringResource(R.string.capture_step6_photos_empty)
+    } else {
+        stringResource(R.string.capture_step6_photos_count, draft.photoTokens.size)
+    }
+    val audioValue = formatAudioDuration(draft.audioDurationMs)
+        ?: stringResource(R.string.capture_step6_audio_empty)
+
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.capture_step6_appbar),
         step = 6,
@@ -62,35 +98,35 @@ fun CaptureStep6Screen(
         CaptureSummaryRow(
             icon = AnuraIcons.FieldSession,
             label = stringResource(R.string.capture_step6_where),
-            value = stringResource(R.string.capture_step6_where_value),
+            value = whereValue,
             onEdit = onEditWhere,
         )
         Spacer(modifier = Modifier.height(CaptureSummaryRowGap))
         CaptureSummaryRow(
             icon = AnuraIcons.Schedule,
             label = stringResource(R.string.capture_step6_when),
-            value = stringResource(R.string.capture_step6_when_value),
+            value = whenValue,
             onEdit = onEditWhen,
         )
         Spacer(modifier = Modifier.height(CaptureSummaryRowGap))
         CaptureSummaryRow(
             icon = AnuraIcons.Straighten,
             label = stringResource(R.string.capture_step6_size),
-            value = stringResource(R.string.capture_step6_size_value),
+            value = sizeValue,
             onEdit = onEditSize,
         )
         Spacer(modifier = Modifier.height(CaptureSummaryRowGap))
         CaptureSummaryRow(
             icon = AnuraIcons.PhotoId,
             label = stringResource(R.string.capture_step6_photos),
-            value = stringResource(R.string.capture_step6_photos_value),
+            value = photosValue,
             onEdit = onEditPhotos,
         )
         Spacer(modifier = Modifier.height(CaptureSummaryRowGap))
         CaptureSummaryRow(
             icon = AnuraIcons.AudioId,
             label = stringResource(R.string.capture_step6_audio),
-            value = stringResource(R.string.capture_step6_audio_value),
+            value = audioValue,
             onEdit = onEditAudio,
         )
 

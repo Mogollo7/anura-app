@@ -7,6 +7,7 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 
@@ -62,6 +63,10 @@ object AnuraTheme {
         @Composable
         get() = LocalAnuraSwatchColors.current
 
+    val mediaColorFilter: ColorFilter?
+        @Composable
+        get() = LocalAnuraMediaColorFilter.current
+
     val colorScheme: ColorScheme
         @Composable
         get() = MaterialTheme.colorScheme
@@ -114,6 +119,11 @@ object AnuraTheme {
                 ),
                 LocalAnuraSwatchColors provides tokens.toSwatchColors(),
                 LocalPreferReduceMotion provides preferReduceMotion,
+                LocalAnuraMediaColorFilter provides if (resolvedMode == AnuraThemeMode.LuzRoja) {
+                    AnuraRedLightMediaColorFilter
+                } else {
+                    null
+                },
             ) {
                 MaterialTheme(
                     colorScheme = tokens.toColorScheme(isDark).copy(

@@ -54,7 +54,7 @@ internal fun rememberMicWaveform(
                 val scroll = ScrollingWaveformBuffer(barCount)
                 val main = Handler(Looper.getMainLooper())
                 val writer = runCatching {
-                    val dir = File(context.cacheDir, "anura_audio").apply { mkdirs() }
+                    val dir = File(context.filesDir, "anura_media/audio").apply { mkdirs() }
                     val file = File(dir, "clip_${System.currentTimeMillis()}.wav")
                     capture?.file = file
                     WavPcmWriter(file, CapturePcmSampleRate)

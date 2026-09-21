@@ -20,6 +20,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,10 +38,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import java.time.Instant
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.PeriodDawn
+import me.juanlabs.anura.core.data.PeriodDay
+import me.juanlabs.anura.core.data.PeriodDusk
+import me.juanlabs.anura.core.data.PeriodNight
+import me.juanlabs.anura.core.data.dayPeriodFromHour
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraDatePicker
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
@@ -53,7 +62,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
 private val CaptureEsCo = Locale.forLanguageTag("es-CO")
-private val CaptureMockDateTime = LocalDateTime.of(2026, 9, 7, 21, 47)
 private val CaptureDayChipSize = 80.dp
 
 private enum class CaptureDayPeriod {
@@ -75,11 +83,50 @@ fun CaptureStep2Screen(
     onCancel: () -> Unit = onBackClick,
     onCloseClick: () -> Unit = onBackClick,
 ) {
-    var dateTime by rememberSaveable { mutableStateOf(CaptureMockDateTime.toString()) }
+    val repository = rememberAnuraRepository()
+    val draft = repository.snapshot.draft
+    val initialDateTime = remember {
+        draft.observedAtEpochMs?.let {
+            LocalDateTime.ofInstant(Instant.ofEpochMilli(it), ZoneId.systemDefault())
+        } ?: LocalDateTime.now()
+    }
+    var dateTime by rememberSaveable { mutableStateOf(initialDateTime.toString()) }
     val parsed = remember(dateTime) { LocalDateTime.parse(dateTime) }
-    var period by rememberSaveable { mutableStateOf(CaptureDayPeriod.Night) }
+    var period by rememberSaveable {
+        mutableStateOf(
+            when (draft.period ?: dayPeriodFromHour(initialDateTime.hour)) {
+                PeriodDawn -> CaptureDayPeriod.Dawn
+                PeriodDay -> CaptureDayPeriod.Day
+                PeriodDusk -> CaptureDayPeriod.Dusk
+                else -> CaptureDayPeriod.Night
+            },
+        )
+    }
     var showDatePicker by remember { mutableStateOf(false) }
     var showTimePicker by remember { mutableStateOf(false) }
+
+    LaunchedEffect(parsed.hour) {
+        period = when (dayPeriodFromHour(parsed.hour)) {
+            PeriodDawn -> CaptureDayPeriod.Dawn
+            PeriodDay -> CaptureDayPeriod.Day
+            PeriodDusk -> CaptureDayPeriod.Dusk
+            else -> CaptureDayPeriod.Night
+        }
+    }
+    LaunchedEffect(dateTime, period) {
+        val epoch = parsed.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        repository.updateDraft { current ->
+            current.copy(
+                observedAtEpochMs = epoch,
+                period = when (period) {
+                    CaptureDayPeriod.Dawn -> PeriodDawn
+                    CaptureDayPeriod.Day -> PeriodDay
+                    CaptureDayPeriod.Dusk -> PeriodDusk
+                    CaptureDayPeriod.Night -> PeriodNight
+                },
+            )
+        }
+    }
 
     val dateLine = remember(parsed) {
         parsed.format(DateTimeFormatter.ofPattern("EEEE d 'de' MMMM", CaptureEsCo))

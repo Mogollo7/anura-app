@@ -46,6 +46,7 @@ import me.juanlabs.anura.designsystem.component.AnuraLightGlass
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.feature.capture.CaptureAudioPlaybackControls
+import me.juanlabs.anura.feature.capture.rememberCaptureBackdropPainter
 import me.juanlabs.anura.feature.capture.CaptureAudioPlayerState
 import me.juanlabs.anura.feature.capture.CaptureSpectrogram
 import me.juanlabs.anura.feature.capture.CaptureSpectrogramPhase
@@ -103,6 +104,7 @@ private fun ObservationMediaPage(
     }
     val backdrop: Painter? = when (item) {
         is ObservationMediaItem.Photo -> painterResource(item.imageRes)
+        is ObservationMediaItem.FilePhoto -> rememberCaptureBackdropPainter(item.token)
         is ObservationMediaItem.Audio -> null
     }
     Box(
@@ -118,6 +120,18 @@ private fun ObservationMediaPage(
                     contentDescription = stringResource(R.string.observation_detail_photo_cd),
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
+                )
+            }
+            is ObservationMediaItem.FilePhoto -> {
+                val painter = rememberCaptureBackdropPainter(item.token)
+                    ?: painterResource(R.drawable.carousel_dendrobates_truncatus)
+                Image(
+                    painter = painter,
+                    contentDescription = stringResource(R.string.observation_detail_photo_cd),
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
                 )
             }
             is ObservationMediaItem.Audio -> {

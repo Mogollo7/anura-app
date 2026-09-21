@@ -40,6 +40,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.AnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
@@ -52,17 +53,22 @@ internal const val CaptureWizardTotalSteps = 6
 const val CaptureDraftPhotoCountKey = "capture_photo_count"
 
 internal object CapturePhotoDraft {
-    var tokens: List<String> = emptyList()
+    var tokens: List<String>
+        get() = if (AnuraRepository.isInitialized) {
+            AnuraRepository.instance.snapshot.draft.photoTokens
+        } else {
+            emptyList()
+        }
+        set(value) {
+            if (AnuraRepository.isInitialized) {
+                AnuraRepository.instance.setDraftPhotos(value)
+            }
+        }
 
-    /**
-     * Se llama al confirmar o cancelar una observación (`closeCaptureWizard`,
-     * `onKnownResult`, `onUnknownResult` en [me.juanlabs.anura.navigation.AnuraNavHost]).
-     * Antes este singleton de proceso nunca se limpiaba: empezar una observación nueva
-     * podía arrancar precargada con las fotos de la observación anterior — riesgo de
-     * atribuir fotos a la especie/observación equivocada (auditoría Fase 0-9, P0 #4).
-     */
     fun reset() {
-        tokens = emptyList()
+        if (AnuraRepository.isInitialized) {
+            AnuraRepository.instance.resetDraft()
+        }
     }
 }
 

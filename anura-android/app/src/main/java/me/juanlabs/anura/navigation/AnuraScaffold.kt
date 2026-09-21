@@ -4,20 +4,25 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import me.juanlabs.anura.AnuraApplication
+import me.juanlabs.anura.core.data.LocalAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraNavBar
 import me.juanlabs.anura.designsystem.component.AnuraNavBarItem
 import me.juanlabs.anura.designsystem.component.AnuraNavBarStackHeight
@@ -53,7 +58,15 @@ fun AnuraScaffold(
     preferLargeText: Boolean = false,
     onPreferLargeTextChange: (Boolean) -> Unit = {},
 ) {
-    var activeSessionId by rememberSaveable { mutableStateOf<String?>(null) }
+    val context = LocalContext.current
+    val repository = (context.applicationContext as AnuraApplication).repository
+    val snapshot by repository.state.collectAsState()
+    val snackbarHostState = remember { SnackbarHostState() }
+    LaunchedEffect(repository) {
+        repository.messages.collect { message ->
+            snackbarHostState.showSnackbar(message)
+        }
+    }
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination
     val previousDestination = navController.previousBackStackEntry?.destination
@@ -65,40 +78,43 @@ fun AnuraScaffold(
 
     val showTabChrome = selectedTabIndex != null
 
-    Scaffold(
-        containerColor = AnuraTheme.extendedColors.boardBackground,
-        contentWindowInsets = WindowInsets(0, 0, 0, 0),
-    ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            CompositionLocalProvider(
-                LocalAnuraTabBarInset provides if (showTabChrome) AnuraNavBarStackHeight else 0.dp,
-            ) {
-                AnuraNavHost(
-                    navController = navController,
-                    themeMode = themeMode,
-                    onThemeModeChange = onThemeModeChange,
-                    accentRole = accentRole,
-                    onAccentRoleChange = onAccentRoleChange,
-                    preferReduceMotion = preferReduceMotion,
-                    onPreferReduceMotionChange = onPreferReduceMotionChange,
-                    preferLargeText = preferLargeText,
-                    onPreferLargeTextChange = onPreferLargeTextChange,
-                    activeSessionId = activeSessionId,
-                    onFieldSessionActivated = { activeSessionId = it },
-                    onFieldSessionClosed = { activeSessionId = null },
-                    modifier = Modifier.fillMaxSize(),
-                )
-            }
-            selectedTabIndex?.let { tabIndex ->
-                AnuraNavBar(
-                    items = TopLevelItems,
-                    selectedIndex = tabIndex,
-                    onItemSelected = { index ->
-                        navController.navigateToTab(TOP_LEVEL_ROUTES[index])
-                    },
-                    onFabClick = { navController.navigate(AnuraRoute.WhatToRegister) },
-                    modifier = Modifier.align(Alignment.BottomCenter),
-                )
+    CompositionLocalProvider(LocalAnuraRepository provides repository) {
+        Scaffold(
+            containerColor = AnuraTheme.extendedColors.boardBackground,
+            contentWindowInsets = WindowInsets(0, 0, 0, 0),
+            snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
+        ) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                CompositionLocalProvider(
+                    LocalAnuraTabBarInset provides if (showTabChrome) AnuraNavBarStackHeight else 0.dp,
+                ) {
+                    AnuraNavHost(
+                        navController = navController,
+                        themeMode = themeMode,
+                        onThemeModeChange = onThemeModeChange,
+                        accentRole = accentRole,
+                        onAccentRoleChange = onAccentRoleChange,
+                        preferReduceMotion = preferReduceMotion,
+                        onPreferReduceMotionChange = onPreferReduceMotionChange,
+                        preferLargeText = preferLargeText,
+                        onPreferLargeTextChange = onPreferLargeTextChange,
+                        activeSessionId = snapshot.activeSessionId,
+                        onFieldSessionActivated = { },
+                        onFieldSessionClosed = { repository.closeFieldSession() },
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                }
+                selectedTabIndex?.let { tabIndex ->
+                    AnuraNavBar(
+                        items = TopLevelItems,
+                        selectedIndex = tabIndex,
+                        onItemSelected = { index ->
+                            navController.navigateToTab(TOP_LEVEL_ROUTES[index])
+                        },
+                        onFabClick = { navController.navigate(AnuraRoute.WhatToRegister) },
+                        modifier = Modifier.align(Alignment.BottomCenter),
+                    )
+                }
             }
         }
     }

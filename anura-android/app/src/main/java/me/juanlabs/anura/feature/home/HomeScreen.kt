@@ -35,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -63,6 +64,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraLightGlass
 import me.juanlabs.anura.designsystem.component.AnuraLoadingState
 import me.juanlabs.anura.designsystem.component.LocalAnuraTabBarInset
@@ -110,8 +112,10 @@ fun HomeScreen(
     uiState: HomeUiState? = null,
     activeFieldSession: HomeActiveFieldSession? = null,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
     val resolvedState = uiState ?: HomeUiState.Content(
-        userDisplayName = stringResource(R.string.home_user_name_mock),
+        userDisplayName = snapshot.session.greetingName(),
         carouselItems = HomeCarouselCatalog.items(),
         activeFieldSession = activeFieldSession,
     )
@@ -270,7 +274,11 @@ private fun HomeHeader(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
-                    text = stringResource(R.string.home_greeting, userDisplayName),
+                    text = if (userDisplayName.isBlank()) {
+                        stringResource(R.string.home_greeting_guest)
+                    } else {
+                        stringResource(R.string.home_greeting, userDisplayName)
+                    },
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Normal),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -313,6 +321,7 @@ private fun HomeCarouselCard(
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
+            colorFilter = AnuraTheme.mediaColorFilter,
         )
 
         HomeCarouselLightGlass(

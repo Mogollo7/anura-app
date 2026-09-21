@@ -105,10 +105,10 @@ internal val AnuraRedLightTokens = AnuraColorTokens(
     labelSecondary = Color(0xFFB3352C),
     // label.tertiary no está listado en §3.4; se reutiliza label.secondary — verificar.
     labelTertiary = Color(0xFFB3352C),
-    // label.on-accent y los status.* no están listados en §3.4 (tema monocromático rojo,
-    // sin semántica de estado propia). Se fuerzan al rojo del tema para no introducir
-    // otro matiz que rompa la adaptación nocturna. Verificar contra Penpot.
-    labelOnAccent = Color(0xFFFF453A),
+    // Sobre acento relleno (`accentInk` = #FF453A) el contenido tiene que contrastar.
+    // El token Penpot no lista `label.on-accent`; si se iguala al rojo del tema, los
+    // botones primarios, el FAB y Foto ID quedan sin texto ni icono.
+    labelOnAccent = Color(0xFF000000),
     statusDanger = Color(0xFFFF453A),
     statusWarning = Color(0xFFFF453A),
     statusInfo = Color(0xFFFF453A),

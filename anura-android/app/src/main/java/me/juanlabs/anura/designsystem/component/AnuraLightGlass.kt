@@ -93,6 +93,7 @@ fun AnuraLightGlass(
                     painter = backdropPainter,
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
                     modifier = Modifier
                         .requiredSize(
                             width = with(density) { cardSize.width.toDp() },

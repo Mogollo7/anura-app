@@ -11,6 +11,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -24,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraMeasureSlider
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
@@ -47,8 +49,13 @@ fun CaptureStep3Screen(
     onCancel: () -> Unit = onBackClick,
     onCloseClick: () -> Unit = onBackClick,
 ) {
-    var svl by rememberSaveable { mutableFloatStateOf(CaptureSvlMock) }
+    val repository = rememberAnuraRepository()
+    val draftSvl = repository.snapshot.draft.svlMm?.toFloat() ?: CaptureSvlMock
+    var svl by rememberSaveable { mutableFloatStateOf(draftSvl) }
     val svlMm = svl.toInt()
+    LaunchedEffect(svlMm) {
+        repository.updateDraft { it.copy(svlMm = svlMm) }
+    }
 
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.capture_step3_appbar),

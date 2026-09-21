@@ -38,6 +38,7 @@ import me.juanlabs.anura.designsystem.preview.SampleData
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
+import me.juanlabs.anura.designsystem.theme.anuraMediaTint
 
 /**
  * Tarjeta de observación (`COMP · Tarjeta de observación`, 167×196, §3.9). Se conserva
@@ -79,7 +80,8 @@ fun ObservationCard(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(extended.placeholderThumb),
+                .background(extended.placeholderThumb)
+                .anuraMediaTint(),
         ) {
             thumbnail()
         }

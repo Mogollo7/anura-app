@@ -265,6 +265,7 @@ private fun SegmentationMask(onSelectRegion: (JustificationRegion) -> Unit) {
             contentDescription = stringResource(R.string.justification_photo_cd),
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
+            colorFilter = AnuraTheme.mediaColorFilter,
         )
         JustificationRegions.forEach { region ->
             val name = stringResource(region.nameRes)
@@ -540,6 +541,7 @@ private fun RefuteRegionThumb(region: JustificationRegion) {
             contentDescription = stringResource(R.string.justification_photo_cd),
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
+            colorFilter = AnuraTheme.mediaColorFilter,
         )
         Box(
             modifier = Modifier

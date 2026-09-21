@@ -1,5 +1,8 @@
 package me.juanlabs.anura.feature.explore
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.horizontalScroll
@@ -33,6 +36,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -43,6 +47,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -53,6 +58,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.ObservationRecord
+import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraConservationChip
@@ -101,6 +110,8 @@ private data class ExploreObservation(
     val iucn: AnuraConservationChipVariant,
     val traits: Set<String>,
     val unsynced: Boolean = false,
+    val commonName: String? = null,
+    val scientificName: String? = null,
 )
 
 private val MockExploreObservations = listOf(
@@ -237,17 +248,21 @@ fun ExploreScreen(
     onOpenObservationDetail: (String) -> Unit,
     onOpenExploreMore: () -> Unit,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val context = LocalContext.current
+    val online = isNetworkAvailable(context)
     var query by rememberSaveable { mutableStateOf("") }
-    var favoriteIds by rememberSaveable { mutableStateOf(listOf<String>()) }
     var selectedFilters by rememberSaveable { mutableStateOf(listOf<String>()) }
     var altitudeMin by rememberSaveable { mutableStateOf("") }
     var altitudeMax by rememberSaveable { mutableStateOf("") }
     var svlMm by rememberSaveable { mutableFloatStateOf(ExploreSvlMock) }
     var svlActive by rememberSaveable { mutableStateOf(false) }
     var showFilters by rememberSaveable { mutableStateOf(false) }
-    val named = MockExploreObservations.map { item ->
-        item to (stringResource(item.commonRes) to stringResource(item.scientificRes))
-    }
+    val catalog = (snapshot.observations.filter { it.visibilityPublic } + CommunityCatalog.observations)
+        .distinctBy { it.id }
+        .mapNotNull { it.toExploreObservation() }
+    val named = catalog.map { item -> item to item.displayNames() }
     val needle = query.trim()
     val filtered = named.filter { (item, names) ->
         val textOk = needle.isEmpty() ||
@@ -334,6 +349,18 @@ fun ExploreScreen(
                         .semantics { contentDescription = mapCd },
                 )
             }
+            if (!online) {
+                item(
+                    key = "explore-offline",
+                    span = { GridItemSpan(maxLineSpan) },
+                ) {
+                    Text(
+                        text = stringResource(R.string.explore_map_offline),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
             item(
                 key = "explore-stats",
                 span = { GridItemSpan(maxLineSpan) },
@@ -400,14 +427,8 @@ fun ExploreScreen(
                     ExploreObservationCard(
                         item = item,
                         names = names,
-                        favorite = favoriteIds.contains(item.id),
-                        onFavoriteClick = {
-                            favoriteIds = if (favoriteIds.contains(item.id)) {
-                                favoriteIds - item.id
-                            } else {
-                                favoriteIds + item.id
-                            }
-                        },
+                        favorite = snapshot.favorites.contains(item.id),
+                        onFavoriteClick = { repository.toggleFavorite(item.id) },
                         onClick = { onOpenObservationDetail(item.id) },
                     )
                 }
@@ -470,7 +491,21 @@ fun ObservationCatalogScreen(
     searchHint: String? = null,
     taxonFilter: String? = null,
 ) {
-    val catalog = MockExploreObservations + MockExploreMoreObservations
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val catalog = (snapshot.observations.filter { it.visibilityPublic } + CommunityCatalog.observations)
+        .distinctBy { it.id }
+        .mapNotNull { it.toExploreObservation() }
+        .let { items ->
+            if (taxonFilter.isNullOrBlank()) {
+                items
+            } else {
+                items.filter { item ->
+                    item.family.equals(taxonFilter, ignoreCase = true) ||
+                        item.genus.equals(taxonFilter, ignoreCase = true)
+                }
+            }
+        }
     var query by rememberSaveable { mutableStateOf("") }
     var sortByScientific by rememberSaveable { mutableStateOf(false) }
     var quickFilter by rememberSaveable { mutableStateOf(CatalogQuickFilter.All.name) }
@@ -480,12 +515,7 @@ fun ObservationCatalogScreen(
     var svlMm by rememberSaveable { mutableFloatStateOf(ExploreSvlMock) }
     var svlActive by rememberSaveable { mutableStateOf(false) }
     var showFilters by rememberSaveable { mutableStateOf(false) }
-    var favoriteIds by rememberSaveable {
-        mutableStateOf(catalog.map { it.id })
-    }
-    val named = catalog.map { item ->
-        item to (stringResource(item.commonRes) to stringResource(item.scientificRes))
-    }
+    val named = catalog.map { item -> item to item.displayNames() }
     val needle = query.trim()
     val taxon = taxonFilter?.trim().orEmpty()
     val searched = named.filter { (item, names) ->
@@ -656,14 +686,8 @@ fun ObservationCatalogScreen(
                 ExploreObservationCard(
                     item = item,
                     names = names,
-                    favorite = favoriteIds.contains(item.id),
-                    onFavoriteClick = {
-                        favoriteIds = if (favoriteIds.contains(item.id)) {
-                            favoriteIds - item.id
-                        } else {
-                            favoriteIds + item.id
-                        }
-                    },
+                    favorite = snapshot.favorites.contains(item.id),
+                    onFavoriteClick = { repository.toggleFavorite(item.id) },
                     onClick = { onOpenObservationDetail(item.id) },
                 )
             }
@@ -999,12 +1023,16 @@ private fun ExplorePreviewRedLight() {
 }
 
 /** `explorar → Especies del género o familia` (§4.1, argumento `taxonId`). */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SpeciesByTaxonScreen(
     taxonId: String,
     onBackClick: () -> Unit,
     onOpenSpeciesSheet: (String) -> Unit,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val species = SpeciesCatalog.byTaxon(taxonId)
     val searchHint = stringResource(
         if (taxonId.endsWith("idae", ignoreCase = true) || taxonId.equals("Anura", ignoreCase = true)) {
             R.string.species_by_taxon_search_family
@@ -1012,12 +1040,90 @@ fun SpeciesByTaxonScreen(
             R.string.species_by_taxon_search_genus
         },
     )
-    ObservationCatalogScreen(
-        title = taxonId,
-        onBackClick = onBackClick,
-        onOpenObservationDetail = onOpenSpeciesSheet,
-        showSheetFilters = true,
-        searchHint = searchHint,
-        taxonFilter = taxonId,
+    Scaffold(
+        containerColor = AnuraTheme.extendedColors.boardBackground,
+        topBar = {
+            AnuraTopBar(
+                title = taxonId,
+                onBackClick = onBackClick,
+                centerTitle = true,
+            )
+        },
+    ) { innerPadding ->
+        if (species.isEmpty()) {
+            AnuraEmptyState(
+                title = stringResource(R.string.observations_empty_title),
+                description = searchHint,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            )
+        } else {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                contentPadding = PaddingValues(AnuraDimens.spaceGutter),
+                horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+                verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+            ) {
+                items(species, key = { it.id }) { record ->
+                    ObservationCard(
+                        commonName = record.commonName,
+                        scientificName = record.scientificName,
+                        isFavorite = snapshot.favorites.contains(record.id),
+                        onFavoriteClick = { repository.toggleFavorite(record.id) },
+                        modifier = Modifier.fillMaxWidth(),
+                        thumbnail = {
+                            Image(
+                                painter = painterResource(record.photoRes),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop,
+                            )
+                        },
+                        onClick = { onOpenSpeciesSheet(record.id) },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ExploreObservation.displayNames(): Pair<String, String> {
+    val common = commonName ?: if (commonRes != 0) stringResource(commonRes) else ""
+    val scientific = scientificName ?: if (scientificRes != 0) stringResource(scientificRes) else ""
+    return common to scientific
+}
+
+private fun ObservationRecord.toExploreObservation(): ExploreObservation? {
+    val lat = latitude ?: return null
+    val lon = longitude ?: return null
+    val species = SpeciesCatalog.find(speciesId)
+    return ExploreObservation(
+        id = id,
+        commonRes = 0,
+        scientificRes = 0,
+        photoRes = photoRes ?: species?.photoRes ?: R.drawable.carousel_dendrobates_truncatus,
+        latitude = lat,
+        longitude = lon,
+        family = species?.family.orEmpty(),
+        genus = species?.genus.orEmpty(),
+        altitude = species?.altitudeRange.orEmpty(),
+        size = svlMm?.let { "$it mm" } ?: species?.sizeRange.orEmpty(),
+        toxic = species?.toxicity == AnuraToxicityChipVariant.Toxic,
+        iucn = species?.iucn ?: AnuraConservationChipVariant.LC,
+        traits = emptySet(),
+        commonName = commonName ?: species?.commonName,
+        scientificName = scientificName ?: species?.scientificName,
     )
+}
+
+private fun isNetworkAvailable(context: Context): Boolean {
+    val cm = context.getSystemService(ConnectivityManager::class.java) ?: return false
+    val network = cm.activeNetwork ?: return false
+    val caps = cm.getNetworkCapabilities(network) ?: return false
+    return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
 }

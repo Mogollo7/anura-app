@@ -20,6 +20,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -41,6 +42,11 @@ import androidx.compose.ui.unit.dp
 import java.text.NumberFormat
 import java.util.Locale
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.HabitatLeafLitter
+import me.juanlabs.anura.core.data.HabitatLowVegetation
+import me.juanlabs.anura.core.data.HabitatRock
+import me.juanlabs.anura.core.data.HabitatWaterBody
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraPermissionKind
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
@@ -97,24 +103,43 @@ fun CaptureStep1Screen(
     onCloseClick: () -> Unit = onBackClick,
     uiState: CaptureStep1UiState = CaptureStep1UiState(),
 ) {
+    val repository = rememberAnuraRepository()
+    val draft = repository.snapshot.draft
     val locationGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Location)
-    val mockAltitude = stringResource(R.string.capture_step1_altitude_mock)
-    val ecosystem = uiState.ecosystemLabel.ifEmpty {
-        stringResource(R.string.capture_step1_ecosystem_mock)
-    }
+    val missing = stringResource(R.string.anura_value_missing)
+    val ecosystem = uiState.ecosystemLabel.ifEmpty { draft.ecosystemLabel.orEmpty() }
     var selectedHabitat by rememberSaveable {
-        mutableStateOf(CaptureMicrohabitat.LeafLitter)
+        mutableStateOf(
+            when (draft.habitat) {
+                HabitatLowVegetation -> CaptureMicrohabitat.LowVegetation
+                HabitatWaterBody -> CaptureMicrohabitat.WaterBody
+                HabitatRock -> CaptureMicrohabitat.Rock
+                else -> CaptureMicrohabitat.LeafLitter
+            },
+        )
     }
-    var precisionMeters by rememberSaveable { mutableIntStateOf(-1) }
-    var altitudeLabel by rememberSaveable { mutableStateOf(uiState.altitudeLabel) }
-    // Antes se descartaban: el callback solo leía accuracy/altitude, nunca lat/lon —
-    // el dato más elemental de "dónde la viste" no llegaba a ningún estado de la app
-    // (auditoría Fase 0-9, P0 #1). Con esto el dato existe y es visible en pantalla;
-    // propagarlo al resto del wizard es un cambio de mayor alcance (P0 #3, bloque
-    // aparte: requiere un modelo de datos compartido entre los 6 pasos).
-    var latitude by rememberSaveable { mutableStateOf<Double?>(null) }
-    var longitude by rememberSaveable { mutableStateOf<Double?>(null) }
-    val altitude = altitudeLabel.ifEmpty { mockAltitude }
+    var precisionMeters by rememberSaveable { mutableIntStateOf(draft.precisionMeters ?: -1) }
+    var altitudeLabel by rememberSaveable { mutableStateOf(draft.altitudeLabel.orEmpty()) }
+    var latitude by rememberSaveable { mutableStateOf(draft.latitude) }
+    var longitude by rememberSaveable { mutableStateOf(draft.longitude) }
+    val altitude = altitudeLabel.ifEmpty { missing }
+
+    LaunchedEffect(selectedHabitat, precisionMeters, altitudeLabel, latitude, longitude) {
+        repository.updateDraft { current ->
+            current.copy(
+                habitat = when (selectedHabitat) {
+                    CaptureMicrohabitat.LeafLitter -> HabitatLeafLitter
+                    CaptureMicrohabitat.LowVegetation -> HabitatLowVegetation
+                    CaptureMicrohabitat.WaterBody -> HabitatWaterBody
+                    CaptureMicrohabitat.Rock -> HabitatRock
+                },
+                precisionMeters = precisionMeters.takeIf { it >= 0 },
+                altitudeLabel = altitudeLabel.ifBlank { null },
+                latitude = latitude,
+                longitude = longitude,
+            )
+        }
+    }
 
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.capture_step1_appbar),

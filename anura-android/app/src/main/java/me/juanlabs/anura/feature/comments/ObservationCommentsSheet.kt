@@ -36,13 +36,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -83,10 +84,18 @@ fun ObservationCommentsOverlay(
     val focusManager = LocalFocusManager.current
     val imeBottom = WindowInsets.ime.getBottom(density)
     val imeVisible = imeBottom > 0
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
     var sheetFraction by rememberSaveable(observationId) { mutableFloatStateOf(0f) }
     var composerFocused by rememberSaveable { mutableStateOf(false) }
-    val comments = remember(observationId) {
-        mutableStateListOf<ObservationComment>().also { it.addAll(mockObservationComments()) }
+    val comments = snapshot.comments.filter { it.observationId == observationId }.map { record ->
+        ObservationComment(
+            id = record.id,
+            username = record.authorName,
+            body = record.body,
+            stance = CommentStance.Neutral,
+            own = record.authorUserId == snapshot.session.userId,
+        )
     }
     var draft by rememberSaveable { mutableStateOf("") }
     var replyTo by remember { mutableStateOf<ObservationComment?>(null) }
@@ -236,36 +245,14 @@ fun ObservationCommentsOverlay(
                     onCancelReply = { replyTo = null },
                     onSend = {
                         val text = draft.trim()
-                        if (text.isEmpty() && pendingProposal == null) return@CommentComposer
-                        val next = ObservationComment(
-                            id = "local-${comments.size}-${text.hashCode()}",
-                            username = "@vos",
-                            body = text.ifEmpty { "@${pendingProposal?.taxon?.scientificName.orEmpty()}" },
-                            stance = if (pendingProposal != null) {
-                                CommentStance.Disagree
-                            } else {
-                                CommentStance.Neutral
-                            },
-                            own = true,
-                            proposal = pendingProposal,
-                        )
-                        val parent = replyTo
-                        if (parent == null) {
-                            comments.add(next)
-                        } else {
-                            val index = comments.indexOfFirst { thread ->
-                                thread.id == parent.id || thread.replies.any { it.id == parent.id }
-                            }
-                            if (index >= 0) {
-                                val current = comments[index]
-                                comments[index] = current.copy(replies = current.replies + next)
-                                if (!expandedThreadIds.contains(current.id)) {
-                                    expandedThreadIds = expandedThreadIds + current.id
-                                }
-                            } else {
-                                comments.add(next)
-                            }
-                        }
+                        val mention = pendingProposal?.taxon?.scientificName
+                        val payload = buildString {
+                            if (replyTo != null) append("@${replyTo?.username} ")
+                            if (!mention.isNullOrBlank()) append("@$mention ")
+                            append(text)
+                        }.trim()
+                        if (payload.isEmpty()) return@CommentComposer
+                        repository.addComment(observationId, payload)
                         draft = ""
                         pendingProposal = null
                         replyTo = null
@@ -435,6 +422,7 @@ private fun DisagreementProposalCard(proposal: TaxonProposal) {
                     .size(56.dp)
                     .clip(RoundedCornerShape(AnuraDimens.radiusThumb)),
                 contentScale = ContentScale.Crop,
+                colorFilter = AnuraTheme.mediaColorFilter,
             )
             Column(modifier = Modifier.weight(1f)) {
                 Text(
@@ -499,6 +487,7 @@ private fun TaxonMentionList(
                         .size(40.dp)
                         .clip(RoundedCornerShape(AnuraDimens.radiusThumb)),
                     contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
                 )
                 Column(modifier = Modifier.weight(1f)) {
                     Text(

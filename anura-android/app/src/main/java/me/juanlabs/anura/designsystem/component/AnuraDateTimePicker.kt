@@ -81,7 +81,14 @@ fun AnuraDatePicker(
             .toInstant()
             .toEpochMilli(),
         selectableDates = object : SelectableDates {
-            override fun isSelectableDate(utcTimeMillis: Long): Boolean = true
+            override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                val todayEnd = LocalDate.now()
+                    .plusDays(1)
+                    .atStartOfDay(ZoneOffset.UTC)
+                    .toInstant()
+                    .toEpochMilli()
+                return utcTimeMillis < todayEnd
+            }
         },
     )
     AnuraPickerSheet(

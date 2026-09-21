@@ -46,6 +46,7 @@ import me.juanlabs.anura.designsystem.component.AnuraLoadingState
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
+import me.juanlabs.anura.designsystem.theme.anuraMediaTint
 
 private val MockPoseDrawables = intArrayOf(
     R.drawable.carousel_pristimantis_paisa,
@@ -122,7 +123,9 @@ internal fun CapturePhotoPreview(
     blurred: Boolean = false,
 ) {
     Box(
-        modifier = modifier.clip(RoundedCornerShape(AnuraDimens.radiusCard)),
+        modifier = modifier
+            .clip(RoundedCornerShape(AnuraDimens.radiusCard))
+            .anuraMediaTint(),
         contentAlignment = Alignment.Center,
     ) {
         val imageModifier = Modifier

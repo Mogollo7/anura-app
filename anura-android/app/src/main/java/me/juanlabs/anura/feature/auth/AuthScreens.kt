@@ -141,6 +141,7 @@ fun WelcomeScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop,
                 alignment = WelcomeHeroAlignment,
+                colorFilter = AnuraTheme.mediaColorFilter,
             )
         }
 
@@ -231,10 +232,10 @@ private enum class SignUpUsageProfile {
 @Composable
 fun SignInScreen(
     onBackClick: () -> Unit,
-    onSignedIn: () -> Unit,
+    onSignedIn: (String) -> Unit,
     onGoToSignUp: () -> Unit,
     onContinueWithoutAccount: () -> Unit,
-    onForgotPassword: () -> Unit = {},
+    onForgotPassword: (String) -> Unit = {},
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -312,7 +313,7 @@ fun SignInScreen(
                 )
 
                 TextButton(
-                    onClick = onForgotPassword,
+                    onClick = { onForgotPassword(email) },
                     modifier = Modifier.align(Alignment.End),
                 ) {
                     Text(
@@ -326,7 +327,10 @@ fun SignInScreen(
 
                 AnuraFormButton(
                     text = stringResource(R.string.sign_in_enter),
-                    onClick = onSignedIn,
+                    onClick = {
+                        if (email.isBlank()) return@AnuraFormButton
+                        onSignedIn(email.trim())
+                    },
                     style = AnuraFormButtonStyle.Primary,
                 )
 
@@ -360,7 +364,7 @@ fun SignInScreen(
 @Composable
 fun SignUpScreen(
     onBackClick: () -> Unit,
-    onSignedUp: () -> Unit,
+    onSignedUp: (String, String, String) -> Unit,
     onGoToSignIn: () -> Unit,
     onContinueWithoutAccount: () -> Unit,
 ) {
@@ -369,7 +373,7 @@ fun SignUpScreen(
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
     var usageProfile by remember { mutableStateOf(SignUpUsageProfile.Curiosity) }
-    var termsAccepted by remember { mutableStateOf(true) }
+    var termsAccepted by remember { mutableStateOf(false) }
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -534,9 +538,17 @@ fun SignUpScreen(
 
                 AnuraFormButton(
                     text = stringResource(R.string.sign_up_create),
-                    onClick = onSignedUp,
+                    onClick = {
+                        if (name.isBlank()) return@AnuraFormButton
+                        val usage = if (usageProfile == SignUpUsageProfile.Study) {
+                            me.juanlabs.anura.core.data.UsageStudy
+                        } else {
+                            me.juanlabs.anura.core.data.UsageCuriosity
+                        }
+                        onSignedUp(name.trim(), email.trim(), usage)
+                    },
                     style = AnuraFormButtonStyle.Primary,
-                    enabled = termsAccepted,
+                    enabled = termsAccepted && name.isNotBlank(),
                 )
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
@@ -680,7 +692,7 @@ private fun SignInScreenPreview() {
     AnuraTheme {
         SignInScreen(
             onBackClick = {},
-            onSignedIn = {},
+            onSignedIn = { _ -> },
             onGoToSignUp = {},
             onContinueWithoutAccount = {},
         )
@@ -693,7 +705,7 @@ private fun SignUpScreenPreview() {
     AnuraTheme {
         SignUpScreen(
             onBackClick = {},
-            onSignedUp = {},
+            onSignedUp = { _, _, _ -> },
             onGoToSignIn = {},
             onContinueWithoutAccount = {},
         )

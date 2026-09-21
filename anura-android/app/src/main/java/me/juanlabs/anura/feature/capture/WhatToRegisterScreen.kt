@@ -62,6 +62,7 @@ fun WhatToRegisterContent(
     onTakeQuickSample: () -> Unit,
     onRecordSound: () -> Unit,
     onDismiss: () -> Unit,
+    hasActiveSession: Boolean = false,
 ) {
     val view = LocalView.current
     SideEffect {
@@ -92,6 +93,7 @@ fun WhatToRegisterContent(
             onTakeQuickSample = onTakeQuickSample,
             onRecordSound = onRecordSound,
             onDismiss = onDismiss,
+            hasActiveSession = hasActiveSession,
         )
     }
 }
@@ -103,6 +105,7 @@ private fun WhatToRegisterSheet(
     onTakeQuickSample: () -> Unit,
     onRecordSound: () -> Unit,
     onDismiss: () -> Unit,
+    hasActiveSession: Boolean = false,
 ) {
     var choosingFieldSession by rememberSaveable { mutableStateOf(false) }
     Surface(
@@ -166,12 +169,14 @@ private fun WhatToRegisterSheet(
                         style = AnuraFormButtonStyle.Primary,
                         icon = AnuraIcons.FieldSession,
                     )
+                    if (hasActiveSession) {
                     AnuraFormButton(
                         text = stringResource(R.string.what_to_register_continue_field_session),
                         onClick = onContinueFieldSession,
                         style = AnuraFormButtonStyle.Secondary,
                         icon = AnuraIcons.FieldSession,
                     )
+                    }
                     AnuraFormButton(
                         text = stringResource(R.string.what_to_register_cancel),
                         onClick = { choosingFieldSession = false },
@@ -180,7 +185,13 @@ private fun WhatToRegisterSheet(
                 } else {
                     AnuraFormButton(
                         text = stringResource(R.string.what_to_register_start_field_session),
-                        onClick = { choosingFieldSession = true },
+                        onClick = {
+                            if (hasActiveSession) {
+                                choosingFieldSession = true
+                            } else {
+                                onStartFieldSession()
+                            }
+                        },
                         style = AnuraFormButtonStyle.Primary,
                         icon = AnuraIcons.FieldSession,
                     )

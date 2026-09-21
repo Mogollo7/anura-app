@@ -37,6 +37,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateMapOf
@@ -66,11 +67,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.SpeciesRecord
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
+import me.juanlabs.anura.designsystem.component.AnuraConservationChip
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
+import me.juanlabs.anura.designsystem.component.AnuraToxicityChip
 import me.juanlabs.anura.designsystem.component.ObservationCard
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
@@ -136,18 +142,17 @@ fun SpeciesSheetScreen(
 ) {
     var tab by rememberSaveable(speciesId) { mutableStateOf(SpeciesSheetTab.Distribution) }
     var showIdentifiers by rememberSaveable { mutableStateOf(false) }
+    val species = SpeciesCatalog.find(speciesId) ?: SpeciesCatalog.requireOrTruncatus(speciesId)
     val rank = speciesTaxonRank(speciesId)
     val speciesTaxonId = when (rank) {
-        SpeciesTaxonRank.Species -> stringResource(R.string.species_sheet_taxon_genus)
-            .removePrefix("Género ")
+        SpeciesTaxonRank.Species -> species.genus
         SpeciesTaxonRank.Genus -> speciesId
         SpeciesTaxonRank.Family,
         SpeciesTaxonRank.Order -> speciesId
     }
     val groupTaxonId = when (rank) {
         SpeciesTaxonRank.Species,
-        SpeciesTaxonRank.Genus -> stringResource(R.string.species_sheet_taxon_family)
-            .removePrefix("Familia ")
+        SpeciesTaxonRank.Genus -> species.family
         SpeciesTaxonRank.Family -> speciesId
         SpeciesTaxonRank.Order -> speciesId
     }
@@ -179,45 +184,50 @@ fun SpeciesSheetScreen(
                 .padding(bottom = 16.dp),
         ) {
             ObservationMediaCarousel(
-                items = speciesPhotoItems(),
+                items = speciesPhotoItems(species),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(220.dp),
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             Text(
-                text = stringResource(R.string.species_sheet_common_name),
+                text = species.commonName,
                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
             )
             Text(
-                text = stringResource(R.string.species_sheet_scientific_name),
+                text = species.scientificName,
                 style = MaterialTheme.typography.titleMedium.copy(fontStyle = FontStyle.Italic),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             Row(horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
-                SheetPill(stringResource(R.string.species_sheet_toxic), warning = true)
-                SheetPill(stringResource(R.string.species_sheet_iucn), warning = false)
+                AnuraToxicityChip(variant = species.toxicity)
+                AnuraConservationChip(variant = species.iucn)
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-            TaxonomyBreadcrumb(onOpenTaxon = onOpenTaxon)
+            TaxonomyBreadcrumb(
+                order = species.order,
+                family = species.family,
+                genus = species.genus,
+                onOpenTaxon = onOpenTaxon,
+            )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceActionGap),
             ) {
                 SpeciesStatCard(
-                    value = stringResource(R.string.species_sheet_stat_observations),
+                    value = species.catalogObservationCount,
                     label = stringResource(R.string.species_sheet_stat_observations_label),
                     modifier = Modifier.weight(1f),
                 )
                 SpeciesStatCard(
-                    value = stringResource(R.string.species_sheet_stat_altitude),
+                    value = species.altitudeRange,
                     label = stringResource(R.string.species_sheet_stat_altitude_label),
                     modifier = Modifier.weight(1f),
                 )
                 SpeciesStatCard(
-                    value = stringResource(R.string.species_sheet_stat_size),
+                    value = species.sizeRange,
                     label = stringResource(R.string.species_sheet_stat_size_label),
                     modifier = Modifier.weight(1f),
                 )
@@ -228,13 +238,13 @@ fun SpeciesSheetScreen(
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceActionGap),
             ) {
                 SpeciesStatCard(
-                    value = stringResource(R.string.species_sheet_stat_observers),
+                    value = species.catalogObserverCount,
                     label = stringResource(R.string.species_sheet_stat_observers_label),
                     onClick = { showIdentifiers = true },
                     modifier = Modifier.weight(1f),
                 )
                 SpeciesStatCard(
-                    value = stringResource(R.string.species_sheet_stat_species),
+                    value = SpeciesCatalog.byTaxon(speciesTaxonId).size.toString(),
                     label = stringResource(R.string.species_sheet_stat_species_label),
                     onClick = { onOpenSpeciesByTaxon(speciesTaxonId) },
                     modifier = Modifier.weight(1f),
@@ -289,26 +299,34 @@ fun SpeciesSheetScreen(
                 SpeciesSheetTab.Distribution -> DistributionSection()
                 SpeciesSheetTab.Morphology -> MorphologySection()
                 SpeciesSheetTab.Bioacoustics -> BioacousticsSection()
-                SpeciesSheetTab.Similars -> SimilarsSection(onOpenSpeciesSheet = onOpenSpeciesSheet)
+                SpeciesSheetTab.Similars -> SimilarsSection(
+                    species = species,
+                    onOpenSpeciesSheet = onOpenSpeciesSheet,
+                )
             }
         }
     }
 }
 
-private fun speciesPhotoItems(): List<ObservationMediaItem> = listOf(
-    ObservationMediaItem.Photo("dorsal", R.drawable.carousel_dendrobates_truncatus),
-    ObservationMediaItem.Photo("ventral", R.drawable.carousel_pristimantis_paisa),
-    ObservationMediaItem.Photo("lateral", R.drawable.carousel_dendropsophus_bogerti),
-    ObservationMediaItem.Photo("plantar", R.drawable.carousel_sachatamia_electrops),
-)
+private fun speciesPhotoItems(species: SpeciesRecord): List<ObservationMediaItem> {
+    val extras = species.similarIds.mapNotNull { SpeciesCatalog.find(it) }.mapIndexed { index, record ->
+        ObservationMediaItem.Photo("similar-$index", record.photoRes)
+    }
+    return listOf(ObservationMediaItem.Photo("hero", species.photoRes)) + extras
+}
 
 @Composable
-private fun TaxonomyBreadcrumb(onOpenTaxon: (String) -> Unit) {
+private fun TaxonomyBreadcrumb(
+    order: String,
+    family: String,
+    genus: String,
+    onOpenTaxon: (String) -> Unit,
+) {
     val sep = stringResource(R.string.species_sheet_taxon_sep)
     Row(modifier = Modifier.fillMaxWidth()) {
         TaxonLink(
-            label = stringResource(R.string.species_sheet_taxon_order),
-            onClick = { onOpenTaxon("Anura") },
+            label = order,
+            onClick = { onOpenTaxon(order) },
         )
         Text(
             text = sep,
@@ -316,8 +334,8 @@ private fun TaxonomyBreadcrumb(onOpenTaxon: (String) -> Unit) {
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         TaxonLink(
-            label = stringResource(R.string.species_sheet_taxon_family),
-            onClick = { onOpenTaxon("Dendrobatidae") },
+            label = family,
+            onClick = { onOpenTaxon(family) },
         )
         Text(
             text = sep,
@@ -325,8 +343,8 @@ private fun TaxonomyBreadcrumb(onOpenTaxon: (String) -> Unit) {
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         TaxonLink(
-            label = stringResource(R.string.species_sheet_taxon_genus),
-            onClick = { onOpenTaxon("Dendrobates") },
+            label = genus,
+            onClick = { onOpenTaxon(genus) },
         )
     }
 }
@@ -346,11 +364,13 @@ private fun TaxonLink(label: String, onClick: () -> Unit) {
 
 @Composable
 private fun DistributionSection() {
+    val repository = rememberAnuraRepository()
+    val queued = stringResource(R.string.species_range_queued)
     GeographicLocationSection()
     Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
     AnuraFormButton(
         text = stringResource(R.string.species_sheet_download_range),
-        onClick = { },
+        onClick = { repository.notify(queued) },
         style = AnuraFormButtonStyle.Outline,
         icon = AnuraIcons.Download,
     )
@@ -358,6 +378,8 @@ private fun DistributionSection() {
 
 @Composable
 private fun MorphologySection() {
+    val repository = rememberAnuraRepository()
+    val exported = stringResource(R.string.species_export_ready)
     Text(
         text = stringResource(R.string.species_sheet_morphology_title),
         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
@@ -393,7 +415,7 @@ private fun MorphologySection() {
     Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
     AnuraFormButton(
         text = stringResource(R.string.species_sheet_export),
-        onClick = { },
+        onClick = { repository.notify(exported) },
         style = AnuraFormButtonStyle.Outline,
     )
 }
@@ -523,57 +545,42 @@ private fun AudioRingButton(
 }
 
 @Composable
-private fun SimilarsSection(onOpenSpeciesSheet: (String) -> Unit) {
-    var fav1 by rememberSaveable { mutableStateOf(false) }
-    var fav2 by rememberSaveable { mutableStateOf(false) }
-    var fav3 by rememberSaveable { mutableStateOf(true) }
-    var fav4 by rememberSaveable { mutableStateOf(false) }
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
-    ) {
-        SimilarCard(
-            common = stringResource(R.string.species_sheet_similar_1_common),
-            scientific = stringResource(R.string.species_sheet_similar_1_sci),
-            imageRes = R.drawable.carousel_dendrobates_truncatus,
-            favorite = fav1,
-            onFavorite = { fav1 = !fav1 },
-            onClick = { onOpenSpeciesSheet("ANU_COL_DEND_AUR_001") },
-            modifier = Modifier.weight(1f),
+private fun SimilarsSection(
+    species: SpeciesRecord,
+    onOpenSpeciesSheet: (String) -> Unit,
+) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val similars = species.similarIds.mapNotNull { SpeciesCatalog.find(it) }
+    if (similars.isEmpty()) {
+        Text(
+            text = stringResource(R.string.anura_value_missing),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        SimilarCard(
-            common = stringResource(R.string.species_sheet_similar_2_common),
-            scientific = stringResource(R.string.species_sheet_similar_2_sci),
-            imageRes = R.drawable.carousel_sachatamia_electrops,
-            favorite = fav2,
-            onFavorite = { fav2 = !fav2 },
-            onClick = { onOpenSpeciesSheet("ANU_COL_PHYL_TER_001") },
-            modifier = Modifier.weight(1f),
-        )
+        return
     }
-    Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
-    ) {
-        SimilarCard(
-            common = stringResource(R.string.species_sheet_similar_3_common),
-            scientific = stringResource(R.string.species_sheet_similar_3_sci),
-            imageRes = R.drawable.carousel_pristimantis_paisa,
-            favorite = fav3,
-            onFavorite = { fav3 = !fav3 },
-            onClick = { onOpenSpeciesSheet("ANU_COL_PRIS_PAI_001") },
-            modifier = Modifier.weight(1f),
-        )
-        SimilarCard(
-            common = stringResource(R.string.species_sheet_similar_4_common),
-            scientific = stringResource(R.string.species_sheet_similar_4_sci),
-            imageRes = R.drawable.carousel_dendropsophus_bogerti,
-            favorite = fav4,
-            onFavorite = { fav4 = !fav4 },
-            onClick = { onOpenSpeciesSheet("ANU_COL_DEND_BOG_001") },
-            modifier = Modifier.weight(1f),
-        )
+    similars.chunked(2).forEach { row ->
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+        ) {
+            row.forEach { record ->
+                SimilarCard(
+                    common = record.commonName,
+                    scientific = record.scientificName,
+                    imageRes = record.photoRes,
+                    favorite = snapshot.favorites.contains(record.id),
+                    onFavorite = { repository.toggleFavorite(record.id) },
+                    onClick = { onOpenSpeciesSheet(record.id) },
+                    modifier = Modifier.weight(1f),
+                )
+            }
+            if (row.size == 1) {
+                Spacer(modifier = Modifier.weight(1f))
+            }
+        }
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
     }
 }
 

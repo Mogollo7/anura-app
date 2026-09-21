@@ -161,6 +161,7 @@ fun AnalyzingScreen(
                         contentDescription = stringResource(R.string.analyzing_photo_cd),
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop,
+                        colorFilter = AnuraTheme.mediaColorFilter,
                     )
                     Box(
                         modifier = Modifier
@@ -335,6 +336,7 @@ fun UnknownResultScreen(
                     .height(AnalyzingPhotoHeight)
                     .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
                 contentScale = ContentScale.Crop,
+                colorFilter = AnuraTheme.mediaColorFilter,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             Text(
