@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
  * Inventario cerrado contra el `Mockup Final` de Penpot (70 boards) — no se agregan
  * rutas fuera de esta lista. Las pantallas de detalle sin ruta propia (Fotos,
  * Ubicación geográfica, Identificadores destacados, Especies del género o familia,
- * Notas de la salida, Explora más…) NO están aquí a propósito: reciben datos del
+ * Notas de la salida) NO están aquí a propósito: reciben datos del
  * ViewModel/composable padre (`Profile`/`SpeciesSheet`/`FieldSession`), no son
  * destinos de navegación (§4.1).
  */
@@ -43,8 +43,9 @@ sealed interface AnuraRoute {
     @Serializable
     data class Comments(val observationId: String) : AnuraRoute
 
+    /** `tab`: followers | following | favorites — board Seguidos, seguidores y favoritos. */
     @Serializable
-    data class Connections(val userId: String) : AnuraRoute
+    data class Connections(val userId: String, val tab: String = "followers") : AnuraRoute
 
     @Serializable
     data class SpeciesByTaxon(val taxonId: String) : AnuraRoute
@@ -68,8 +69,13 @@ sealed interface AnuraRoute {
     @Serializable
     data object RegionalPackages : AnuraRoute
 
+    /** `Explora más.` — listado 2×2 del board Penpot, desde explorar. */
     @Serializable
-    data object UnknownResult : AnuraRoute
+    data object ExploreMore : AnuraRoute
+
+    /** `reached`: genus | family | order — resultado open-set (§4.1). */
+    @Serializable
+    data class UnknownResult(val reached: String = "genus") : AnuraRoute
 
     /** Sheet del FAB — ruta real, alcanzable desde varias pantallas (§4.2). */
     @Serializable

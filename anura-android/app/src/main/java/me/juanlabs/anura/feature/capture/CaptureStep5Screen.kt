@@ -81,7 +81,6 @@ fun CaptureStep5Screen(
         onBackClick = onBackClick,
         onCloseClick = onCloseClick,
         unsavedChanges = dirty || fromReview,
-        showSkipNote = !fromReview,
     ) {
         CaptureWizardHeading(
             title = stringResource(R.string.capture_step5_title),
@@ -110,6 +109,9 @@ internal fun CaptureLiveSpectrogramSession(
     showAnalyzeActions: Boolean = true,
     onRecordedChange: (Boolean) -> Unit = {},
     onDirtyChange: (Boolean) -> Unit = {},
+    recordingHint: String? = null,
+    saveLabel: String? = null,
+    onSaveClip: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
     val micGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Microphone)
@@ -168,6 +170,9 @@ internal fun CaptureLiveSpectrogramSession(
                 phase = Step5AudioPhase.Idle
                 elapsedSeconds = 0
             },
+            recordingHint = recordingHint,
+            saveLabel = saveLabel,
+            onSaveClip = onSaveClip,
         )
     } else {
         val spectroPhase = when (phase) {
@@ -188,6 +193,10 @@ internal fun CaptureLiveSpectrogramSession(
             amplitudes = micLive.amplitudes,
             amplitude = micLive.level,
         )
+        if (recordingHint != null) {
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            CaptureRecordingHint(recordingHint)
+        }
         Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
         if (recording) {
             CaptureRecordingTicker(startAt = elapsedSeconds, onTick = { elapsedSeconds = it })
@@ -290,6 +299,9 @@ private fun CaptureReadyClipPlayback(
     showAnalyzeActions: Boolean,
     onAnalyzeAudio: () -> Unit,
     onReject: () -> Unit,
+    recordingHint: String? = null,
+    saveLabel: String? = null,
+    onSaveClip: (() -> Unit)? = null,
 ) {
     val player = rememberCaptureAudioPlayer(uri)
     val live = rememberPlaybackWaveform(
@@ -309,6 +321,10 @@ private fun CaptureReadyClipPlayback(
         amplitudes = live.amplitudes,
         amplitude = live.level,
     )
+    if (recordingHint != null) {
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+        CaptureRecordingHint(recordingHint)
+    }
     Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
     CaptureAudioPlaybackControls(
         player = player,
@@ -316,7 +332,26 @@ private fun CaptureReadyClipPlayback(
         onReject = onReject,
         analyzeLabel = analyzeLabel,
         showAnalyzeActions = showAnalyzeActions,
+        saveLabel = saveLabel,
+        onSave = onSaveClip,
     )
+}
+
+@Composable
+internal fun CaptureRecordingHint(text: String) {
+    AnuraTheme(AnuraThemeMode.Claro) {
+        AnuraCard(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.padding(
+                    horizontal = AnuraDimens.spaceCardInsetHorizontal,
+                    vertical = AnuraDimens.spaceCardInsetVertical,
+                ),
+            )
+        }
+    }
 }
 
 @Composable

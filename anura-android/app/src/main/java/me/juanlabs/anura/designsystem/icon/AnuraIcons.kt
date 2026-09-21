@@ -5,11 +5,14 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material.icons.automirrored.filled.Reply
 import androidx.compose.material.icons.automirrored.filled.Send
+import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Animation
+import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
@@ -21,6 +24,7 @@ import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Forward10
 import androidx.compose.material.icons.filled.Home
@@ -28,6 +32,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material.icons.automirrored.filled.Notes
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.MonetizationOn
 import androidx.compose.material.icons.filled.Pause
@@ -39,7 +44,9 @@ import androidx.compose.material.icons.filled.Replay10
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.filled.ThumbDown
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material.icons.filled.TextFields
 import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material.icons.filled.TravelExplore
 import androidx.compose.material.icons.filled.Tune
@@ -71,6 +78,8 @@ object AnuraIcons {
     val Success: ImageVector = Icons.Filled.CheckCircle
     val Info: ImageVector = Icons.Filled.Info
     val Empty: ImageVector = Icons.Filled.Search
+    val Filter: ImageVector = Icons.Filled.FilterList
+    val Sort: ImageVector = Icons.AutoMirrored.Filled.Sort
 
     // Navbar (§3.9 AnuraNavBar) + FAB central ("+") — glifos Material alineados a Penpot.
     val Home: ImageVector = Icons.Filled.Home
@@ -94,6 +103,7 @@ object AnuraIcons {
     val PhotoLibrary: ImageVector = Icons.Filled.PhotoLibrary
     val AudioId: ImageVector = Icons.Filled.Mic
     val FieldSession: ImageVector = Icons.Filled.LocationOn
+    val Notes: ImageVector = Icons.AutoMirrored.Filled.Notes
     val StepByStep: ImageVector = Icons.AutoMirrored.Filled.FormatListBulleted
     val ChevronRight: ImageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight
 
@@ -110,6 +120,9 @@ object AnuraIcons {
     val Day: ImageVector = Icons.Filled.WbSunny
     val Dusk: ImageVector = Icons.Filled.WbCloudy
     val Night: ImageVector = Icons.Filled.DarkMode
+    val ThemeSystem: ImageVector = Icons.Filled.BrightnessAuto
+    val ReduceMotion: ImageVector = Icons.Filled.Animation
+    val TextSize: ImageVector = Icons.Filled.TextFields
     val Straighten: ImageVector = Icons.Filled.Straighten
     val Coin: ImageVector = Icons.Filled.MonetizationOn
     val Stop: ImageVector = Icons.Filled.Stop
@@ -120,4 +133,5 @@ object AnuraIcons {
     val Send: ImageVector = Icons.AutoMirrored.Filled.Send
     val Reply: ImageVector = Icons.AutoMirrored.Filled.Reply
     val More: ImageVector = Icons.Filled.MoreVert
+    val Refute: ImageVector = Icons.Filled.ThumbDown
 }

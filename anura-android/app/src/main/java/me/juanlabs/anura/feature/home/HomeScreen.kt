@@ -65,6 +65,7 @@ import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraLightGlass
 import me.juanlabs.anura.designsystem.component.AnuraLoadingState
+import me.juanlabs.anura.designsystem.component.LocalAnuraTabBarInset
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
@@ -107,11 +108,12 @@ fun HomeScreen(
     onAudioId: () -> Unit,
     onStepByStep: () -> Unit,
     uiState: HomeUiState? = null,
+    activeFieldSession: HomeActiveFieldSession? = null,
 ) {
     val resolvedState = uiState ?: HomeUiState.Content(
         userDisplayName = stringResource(R.string.home_user_name_mock),
         carouselItems = HomeCarouselCatalog.items(),
-        activeFieldSession = HomeCarouselCatalog.mockActiveFieldSession(),
+        activeFieldSession = activeFieldSession,
     )
     when (resolvedState) {
         HomeUiState.Loading -> {
@@ -215,7 +217,7 @@ private fun HomeContent(
             )
         }
 
-        Spacer(modifier = Modifier.height(HomeBottomBreathing))
+        Spacer(modifier = Modifier.height(HomeBottomBreathing + LocalAnuraTabBarInset.current))
         Spacer(modifier = Modifier.weight(1f))
     }
 }
@@ -429,7 +431,7 @@ private fun HomeCarouselDots(
 }
 
 @Composable
-private fun HomeQuickActions(
+fun HomeQuickActions(
     onStepByStep: () -> Unit,
     onPhotoId: () -> Unit,
     onAudioId: () -> Unit,
@@ -629,6 +631,22 @@ private fun HomeScreenPreviewNoSession() {
                 carouselItems = HomeCarouselCatalog.items(),
                 activeFieldSession = null,
             ),
+        )
+    }
+}
+
+@Preview(name = "Con salida", group = "estado", showBackground = true)
+@Composable
+private fun HomeScreenPreviewWithSession() {
+    AnuraTheme {
+        HomeScreen(
+            onOpenProfile = {},
+            onOpenSpeciesSheet = {},
+            onOpenFieldSession = {},
+            onPhotoId = {},
+            onAudioId = {},
+            onStepByStep = {},
+            activeFieldSession = HomeCarouselCatalog.mockActiveFieldSession(),
         )
     }
 }

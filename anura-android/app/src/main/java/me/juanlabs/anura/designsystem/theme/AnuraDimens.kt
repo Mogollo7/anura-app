@@ -38,6 +38,12 @@ object AnuraDimens {
     /** Espaciado entre secciones. */
     val spaceSection: Dp = 24.dp
 
+    /**
+     * Hueco entre la barra superior y el primer contenido
+     * (Penpot `ajustes`: cabecera de perfil ~y=100).
+     */
+    val spaceTopBarToContent: Dp = 24.dp
+
     /** Tamaño del FAB central de la navbar (tamaño real del diseño). */
     val sizeFab: Dp = 80.dp
 

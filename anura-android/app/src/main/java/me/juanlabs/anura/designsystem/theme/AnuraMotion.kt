@@ -3,6 +3,7 @@ package me.juanlabs.anura.designsystem.theme
 import android.provider.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalContext
 
 /**
@@ -17,11 +18,19 @@ object AnuraMotion {
     const val DurationMedium = 250
 }
 
-/** true si el sistema tiene "Quitar animaciones" (ANIMATOR_DURATION_SCALE == 0). */
+internal val LocalPreferReduceMotion = staticCompositionLocalOf { false }
+
+/** true si el sistema tiene "Quitar animaciones" o el usuario lo pidió en Apariencia. */
 @Composable
 fun rememberReduceMotion(): Boolean {
     val context = LocalContext.current
-    return remember {
-        Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
+    val prefer = LocalPreferReduceMotion.current
+    val system = remember(context) {
+        Settings.Global.getFloat(
+            context.contentResolver,
+            Settings.Global.ANIMATOR_DURATION_SCALE,
+            1f,
+        ) == 0f
     }
+    return system || prefer
 }

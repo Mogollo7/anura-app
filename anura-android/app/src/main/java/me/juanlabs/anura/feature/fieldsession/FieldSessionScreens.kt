@@ -1,49 +1,670 @@
 package me.juanlabs.anura.feature.fieldsession
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import me.juanlabs.anura.navigation.MockNavAction
-import me.juanlabs.anura.navigation.MockScreenScaffold
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
+import me.juanlabs.anura.R
+import me.juanlabs.anura.designsystem.component.AnuraCard
+import me.juanlabs.anura.designsystem.component.AnuraFormButton
+import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
+import me.juanlabs.anura.designsystem.component.AnuraTopBar
+import me.juanlabs.anura.designsystem.component.AnuraToxicityChip
+import me.juanlabs.anura.designsystem.component.AnuraToxicityChipVariant
+import me.juanlabs.anura.designsystem.icon.AnuraIcons
+import me.juanlabs.anura.designsystem.preview.AnuraPreviews
+import me.juanlabs.anura.designsystem.theme.AnuraDimens
+import me.juanlabs.anura.designsystem.theme.AnuraTheme
+import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
+import me.juanlabs.anura.feature.home.HomeQuickActions
 
-/** `Salida de campo en curso` (§4.1, argumento `sessionId`). */
+internal data class FieldSessionRegister(
+    val observationId: String,
+    val speciesId: String,
+    val timeRes: Int,
+    val speciesRes: Int,
+    val mediaRes: Int,
+    val toxic: Boolean,
+)
+
+internal val FieldSessionRegisters = listOf(
+    FieldSessionRegister(
+        observationId = "obs-001",
+        speciesId = "ANU_COL_DEND_TRU_001",
+        timeRes = R.string.field_session_time_truncatus,
+        speciesRes = R.string.field_session_sp_truncatus,
+        mediaRes = R.string.field_session_media_photo_audio,
+        toxic = true,
+    ),
+    FieldSessionRegister(
+        observationId = "obs-003",
+        speciesId = "ANU_COL_DEND_TRU_001",
+        timeRes = R.string.field_session_time_punctata,
+        speciesRes = R.string.field_session_sp_punctata,
+        mediaRes = R.string.field_session_media_photo,
+        toxic = false,
+    ),
+    FieldSessionRegister(
+        observationId = "obs-005",
+        speciesId = "ANU_COL_PRIS_PAI_001",
+        timeRes = R.string.field_session_time_pristimantis,
+        speciesRes = R.string.field_session_sp_pristimantis,
+        mediaRes = R.string.field_session_media_audio_unconfirmed,
+        toxic = false,
+    ),
+    FieldSessionRegister(
+        observationId = "obs-002",
+        speciesId = "ANU_COL_DEND_BOG_001",
+        timeRes = R.string.field_session_time_rhinella,
+        speciesRes = R.string.field_session_sp_rhinella,
+        mediaRes = R.string.field_session_media_photo,
+        toxic = false,
+    ),
+)
+
+internal fun fieldSessionRegister(observationId: String): FieldSessionRegister? =
+    FieldSessionRegisters.find { it.observationId == observationId }
+
+internal data class FieldSessionNote(
+    val time: String,
+    val body: String,
+)
+
+private const val FieldSessionNoteMaxChars = 500
+
+internal object FieldSessionNotesCatalog {
+    private val notesByObservation = mutableStateMapOf<String, List<FieldSessionNote>>()
+    private var seeded = false
+
+    fun notes(observationId: String): List<FieldSessionNote> =
+        notesByObservation[observationId].orEmpty()
+
+    fun seedIfNeeded(truncatusNotes: List<FieldSessionNote>) {
+        if (seeded) return
+        seeded = true
+        notesByObservation["obs-001"] = truncatusNotes
+    }
+
+    fun add(observationId: String, note: FieldSessionNote) {
+        notesByObservation[observationId] = notes(observationId) + note
+    }
+}
+
+/**
+ * `Salida de campo en curso` (§4.1, argumento `sessionId`).
+ *
+ * Board Penpot: cronómetro, variables ambientales, registros, identificación
+ * y sonidos nocturnos. Datos mock.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FieldSessionScreen(
     sessionId: String,
     onBackClick: () -> Unit,
     onOpenNightSounds: (String) -> Unit,
     onOpenNotes: (String) -> Unit,
+    onPhotoId: () -> Unit,
+    onAudioId: () -> Unit,
+    onStepByStep: () -> Unit,
+    onOpenRegister: (String) -> Unit,
+    onCloseSession: () -> Unit,
 ) {
-    MockScreenScaffold(
-        title = "Salida de campo $sessionId",
-        onBackClick = onBackClick,
-        actions = listOf(
-            MockNavAction("Sonidos nocturnos") { onOpenNightSounds(sessionId) },
-            MockNavAction("Notas de la salida") { onOpenNotes(sessionId) },
-        ),
-    )
+    Scaffold(
+        containerColor = AnuraTheme.extendedColors.boardBackground,
+        topBar = {
+            AnuraTopBar(
+                title = stringResource(R.string.field_session_title),
+                onBackClick = onBackClick,
+                centerTitle = true,
+                actions = {
+                    IconButton(
+                        onClick = { onOpenNotes(sessionId) },
+                        modifier = Modifier.size(AnuraDimens.sizeTouch),
+                    ) {
+                        Icon(
+                            imageVector = AnuraIcons.Notes,
+                            contentDescription = stringResource(R.string.field_session_notes_cd),
+                            tint = AnuraTheme.extendedColors.accentInk,
+                        )
+                    }
+                },
+            )
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = AnuraDimens.spaceGutter)
+                .padding(bottom = AnuraDimens.spaceSection),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(12.dp)
+                        .clip(CircleShape)
+                        .background(AnuraTheme.extendedColors.accentInk),
+                )
+                Text(
+                    text = stringResource(R.string.field_session_location),
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent),
+            ) {
+                Text(
+                    text = stringResource(R.string.field_session_elapsed),
+                    style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.weight(1f),
+                )
+                Button(
+                    onClick = onCloseSession,
+                    modifier = Modifier.heightIn(min = AnuraDimens.sizeTouch),
+                    shape = RoundedCornerShape(AnuraDimens.radiusButton),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = AnuraTheme.extendedColors.accentInk,
+                        contentColor = MaterialTheme.colorScheme.onPrimary,
+                    ),
+                    contentPadding = PaddingValues(horizontal = AnuraDimens.spaceGap),
+                ) {
+                    Text(
+                        text = stringResource(R.string.field_session_end),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent),
+            ) {
+                FieldSessionVariableCard(
+                    value = stringResource(R.string.field_session_temp),
+                    label = stringResource(R.string.field_session_temp_label),
+                    modifier = Modifier.weight(1f),
+                )
+                FieldSessionVariableCard(
+                    value = stringResource(R.string.field_session_humidity),
+                    label = stringResource(R.string.field_session_humidity_label),
+                    modifier = Modifier.weight(1f),
+                )
+                FieldSessionVariableCard(
+                    value = stringResource(R.string.field_session_altitude),
+                    label = stringResource(R.string.field_session_altitude_label),
+                    modifier = Modifier.weight(1f),
+                )
+                FieldSessionVariableCard(
+                    value = stringResource(R.string.field_session_rain),
+                    label = stringResource(R.string.field_session_rain_label),
+                    modifier = Modifier.weight(1f),
+                )
+            }
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(R.string.field_session_registers),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = stringResource(R.string.field_session_register_count),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    color = AnuraTheme.extendedColors.accentInk,
+                    textAlign = TextAlign.End,
+                )
+            }
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            Column(verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
+                FieldSessionRegisters.forEach { register ->
+                    FieldSessionRegisterRow(
+                        register = register,
+                        onOpen = { onOpenRegister(register.observationId) },
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            HomeQuickActions(
+                onStepByStep = onStepByStep,
+                onPhotoId = onPhotoId,
+                onAudioId = onAudioId,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+            AnuraFormButton(
+                text = stringResource(R.string.field_session_night_sounds),
+                onClick = { onOpenNightSounds(sessionId) },
+                style = AnuraFormButtonStyle.Outline,
+                icon = AnuraIcons.AudioId,
+            )
+        }
+    }
 }
 
-/** `Sonidos nocturnos de la salida` (§4.1, argumento `sessionId`). Hoja del árbol. */
 @Composable
-fun NightSoundsScreen(
-    sessionId: String,
-    onBackClick: () -> Unit,
+private fun FieldSessionVariableCard(
+    value: String,
+    label: String,
+    modifier: Modifier = Modifier,
 ) {
-    MockScreenScaffold(
-        title = "Sonidos nocturnos",
-        onBackClick = onBackClick,
-        description = "Sonidos nocturnos de la salida $sessionId — contenido temporal.",
-    )
+    AnuraCard(
+        modifier = modifier,
+        shape = RoundedCornerShape(AnuraDimens.radiusModal),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = AnuraDimens.spaceLabelToContent,
+                    vertical = AnuraDimens.spaceGap,
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = value,
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+    }
 }
 
-/** `Notas de la salida de campo` (§4.1, argumento `sessionId`). Hoja del árbol. */
+@Composable
+private fun FieldSessionRegisterRow(
+    register: FieldSessionRegister,
+    onOpen: () -> Unit,
+) {
+    val openCd = stringResource(R.string.field_session_register_open_cd)
+    AnuraCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(
+                role = Role.Button,
+                onClickLabel = openCd,
+                onClick = onOpen,
+            ),
+        shape = RoundedCornerShape(AnuraDimens.radiusButton),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = AnuraDimens.spaceCardInsetHorizontal,
+                    vertical = AnuraDimens.spaceCardInsetVertical,
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+        ) {
+            Text(
+                text = stringResource(register.timeRes),
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                color = AnuraTheme.extendedColors.accentInk,
+            )
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(register.speciesRes),
+                    style = MaterialTheme.typography.titleMedium.copy(fontStyle = FontStyle.Italic),
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = stringResource(register.mediaRes),
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            if (register.toxic) {
+                AnuraToxicityChip(variant = AnuraToxicityChipVariant.Toxic)
+            }
+            Icon(
+                imageVector = AnuraIcons.ChevronRight,
+                contentDescription = null,
+                tint = AnuraTheme.extendedColors.accentInk,
+                modifier = Modifier.size(24.dp),
+            )
+        }
+    }
+}
+
+@AnuraPreviews
+@Composable
+private fun FieldSessionPreview() {
+    AnuraTheme {
+        FieldSessionScreen(
+            sessionId = "session-001",
+            onBackClick = {},
+            onOpenNightSounds = {},
+            onOpenNotes = {},
+            onPhotoId = {},
+            onAudioId = {},
+            onStepByStep = {},
+            onOpenRegister = {},
+            onCloseSession = {},
+        )
+    }
+}
+
+@Preview(name = "Luz roja", group = "modo", showBackground = true)
+@Composable
+private fun FieldSessionPreviewRedLight() {
+    AnuraTheme(AnuraThemeMode.LuzRoja) {
+        FieldSessionScreen(
+            sessionId = "session-001",
+            onBackClick = {},
+            onOpenNightSounds = {},
+            onOpenNotes = {},
+            onPhotoId = {},
+            onAudioId = {},
+            onStepByStep = {},
+            onOpenRegister = {},
+            onCloseSession = {},
+        )
+    }
+}
+
+/** `Notas de la salida de campo` (§4.1, argumento `sessionId`). */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FieldSessionNotesScreen(
     sessionId: String,
     onBackClick: () -> Unit,
 ) {
-    MockScreenScaffold(
-        title = "Notas de la salida",
-        onBackClick = onBackClick,
-        description = "Notas de la salida $sessionId — contenido temporal.",
-    )
+    var selectedObservationId by rememberSaveable(sessionId) { mutableStateOf<String?>(null) }
+    val selected = selectedObservationId?.let(::fieldSessionRegister)
+    BackHandler(enabled = selected != null) { selectedObservationId = null }
+    val imeVisible = WindowInsets.ime.getBottom(LocalDensity.current) > 0
+    Scaffold(
+        containerColor = AnuraTheme.extendedColors.boardBackground,
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
+        topBar = {
+            AnuraTopBar(
+                title = stringResource(R.string.field_session_notes_title),
+                onBackClick = {
+                    if (selectedObservationId != null) {
+                        selectedObservationId = null
+                    } else {
+                        onBackClick()
+                    }
+                },
+                centerTitle = true,
+            )
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .then(
+                    if (imeVisible) {
+                        Modifier.imePadding()
+                    } else {
+                        Modifier.navigationBarsPadding()
+                    },
+                )
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = AnuraDimens.spaceGutter)
+                .padding(top = AnuraDimens.spaceTopBarToContent)
+                .padding(bottom = if (imeVisible) 0.dp else AnuraDimens.spaceSection),
+        ) {
+            if (selected == null) {
+                Text(
+                    text = stringResource(R.string.field_session_notes_pick),
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+                Column(verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
+                    FieldSessionRegisters.forEach { register ->
+                        FieldSessionRegisterRow(
+                            register = register,
+                            onOpen = { selectedObservationId = register.observationId },
+                        )
+                    }
+                }
+            } else {
+                FieldSessionRegisterRow(
+                    register = selected,
+                    onOpen = { selectedObservationId = null },
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+                Text(
+                    text = stringResource(R.string.field_session_notes_change),
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                    color = AnuraTheme.extendedColors.accentInk,
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+                FieldSessionRecordNotes(observationId = selected.observationId)
+            }
+        }
+    }
+}
+
+@Composable
+internal fun FieldSessionRecordNotes(
+    observationId: String,
+    modifier: Modifier = Modifier,
+) {
+    var draft by rememberSaveable(observationId) { mutableStateOf("") }
+    val seedTime1 = stringResource(R.string.field_session_note_time_1)
+    val seedBody1 = stringResource(R.string.field_session_note_body_1)
+    val seedTime2 = stringResource(R.string.field_session_note_time_2)
+    val seedBody2 = stringResource(R.string.field_session_note_body_2)
+    val seedTime3 = stringResource(R.string.field_session_note_time_3)
+    val seedBody3 = stringResource(R.string.field_session_note_body_3)
+    remember(seedTime1, seedBody1, seedTime2, seedBody2, seedTime3, seedBody3) {
+        FieldSessionNotesCatalog.seedIfNeeded(
+            listOf(
+                FieldSessionNote(seedTime1, seedBody1),
+                FieldSessionNote(seedTime2, seedBody2),
+                FieldSessionNote(seedTime3, seedBody3),
+            ),
+        )
+    }
+    val notes = FieldSessionNotesCatalog.notes(observationId)
+    val placeholder = stringResource(R.string.field_session_notes_placeholder)
+    Column(modifier = modifier.fillMaxWidth()) {
+        AnuraCard(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(AnuraDimens.radiusCard),
+        ) {
+            BasicTextField(
+                value = draft,
+                onValueChange = { if (it.length <= FieldSessionNoteMaxChars) draft = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 140.dp)
+                    .padding(
+                        horizontal = AnuraDimens.spaceCardInsetHorizontal,
+                        vertical = AnuraDimens.spaceCardInsetVertical,
+                    ),
+                textStyle = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Normal,
+                    color = MaterialTheme.colorScheme.onSurface,
+                ),
+                cursorBrush = SolidColor(MaterialTheme.colorScheme.onSurface),
+                decorationBox = { inner ->
+                    if (draft.isEmpty()) {
+                        Text(
+                            text = placeholder,
+                            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Normal),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    inner()
+                },
+            )
+        }
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+        Text(
+            text = stringResource(
+                R.string.field_session_notes_counter,
+                draft.length,
+                FieldSessionNoteMaxChars,
+            ),
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Normal),
+            color = MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.End,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+        AnuraFormButton(
+            text = stringResource(R.string.field_session_notes_save),
+            onClick = {
+                val body = draft.trim()
+                if (body.isEmpty()) return@AnuraFormButton
+                val time = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"))
+                FieldSessionNotesCatalog.add(
+                    observationId,
+                    FieldSessionNote(time = time, body = body),
+                )
+                draft = ""
+            },
+            enabled = draft.trim().isNotEmpty(),
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+        Text(
+            text = stringResource(R.string.field_session_notes_saved),
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+        if (notes.isEmpty()) {
+            Text(
+                text = stringResource(R.string.field_session_notes_empty),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        } else {
+            Column(verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
+                notes.forEach { note ->
+                    FieldSessionSavedNoteCard(note = note)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun FieldSessionSavedNoteCard(note: FieldSessionNote) {
+    AnuraCard(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(AnuraDimens.radiusButton),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = AnuraDimens.spaceCardInsetHorizontal,
+                    vertical = AnuraDimens.spaceGap,
+                ),
+        ) {
+            Text(
+                text = note.time,
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Normal),
+                color = AnuraTheme.extendedColors.accentInk,
+            )
+            Text(
+                text = note.body,
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Normal),
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+        }
+    }
+}
+
+@AnuraPreviews
+@Composable
+private fun FieldSessionNotesPreview() {
+    AnuraTheme {
+        FieldSessionNotesScreen(sessionId = "session-001", onBackClick = {})
+    }
+}
+
+@Preview(name = "Luz roja", group = "modo", showBackground = true)
+@Composable
+private fun FieldSessionNotesPreviewRedLight() {
+    AnuraTheme(AnuraThemeMode.LuzRoja) {
+        FieldSessionNotesScreen(sessionId = "session-001", onBackClick = {})
+    }
 }

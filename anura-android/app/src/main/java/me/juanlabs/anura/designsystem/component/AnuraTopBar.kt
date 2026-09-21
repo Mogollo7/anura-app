@@ -1,6 +1,9 @@
 package me.juanlabs.anura.designsystem.component
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +28,7 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
  * flecha volver + título. Envuelve `TopAppBar` / `CenterAlignedTopAppBar` de Material 3.
  *
  * [centerTitle]: centra el título en el ancho de pantalla (auth Iniciar sesión / Crear cuenta).
+ * Debajo deja [AnuraDimens.spaceTopBarToContent] para separar el título del contenido.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -55,22 +59,23 @@ fun AnuraTopBar(
         }
     }
 
-    if (centerTitle) {
-        CenterAlignedTopAppBar(
-            title = titleContent,
-            modifier = modifier,
-            navigationIcon = navigationIcon,
-            actions = actions,
-            scrollBehavior = scrollBehavior,
-        )
-    } else {
-        TopAppBar(
-            title = titleContent,
-            modifier = modifier,
-            navigationIcon = navigationIcon,
-            actions = actions,
-            scrollBehavior = scrollBehavior,
-        )
+    Column(modifier = modifier) {
+        if (centerTitle) {
+            CenterAlignedTopAppBar(
+                title = titleContent,
+                navigationIcon = navigationIcon,
+                actions = actions,
+                scrollBehavior = scrollBehavior,
+            )
+        } else {
+            TopAppBar(
+                title = titleContent,
+                navigationIcon = navigationIcon,
+                actions = actions,
+                scrollBehavior = scrollBehavior,
+            )
+        }
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceTopBarToContent))
     }
 }
 

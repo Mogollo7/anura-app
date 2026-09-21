@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraCard
+import me.juanlabs.anura.designsystem.component.AnuraMeasureSlider
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
@@ -57,7 +56,6 @@ fun CaptureStep3Screen(
         onBackClick = onBackClick,
         onCloseClick = onCloseClick,
         unsavedChanges = fromReview,
-        showSkipNote = !fromReview,
     ) {
         CaptureWizardHeading(
             title = stringResource(R.string.capture_step3_title),
@@ -90,15 +88,10 @@ fun CaptureStep3Screen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-                Slider(
+                AnuraMeasureSlider(
                     value = svl,
                     onValueChange = { svl = it },
                     valueRange = CaptureSvlMin..CaptureSvlMax,
-                    colors = SliderDefaults.colors(
-                        thumbColor = MaterialTheme.colorScheme.outlineVariant,
-                        activeTrackColor = AnuraTheme.extendedColors.accentInk,
-                        inactiveTrackColor = MaterialTheme.colorScheme.surfaceVariant,
-                    ),
                 )
                 Row(modifier = Modifier.fillMaxWidth()) {
                     Text(

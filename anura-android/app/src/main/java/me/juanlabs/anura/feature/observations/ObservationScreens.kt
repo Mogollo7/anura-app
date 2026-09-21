@@ -10,21 +10,29 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -46,14 +54,19 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraCard
+import me.juanlabs.anura.designsystem.component.AnuraEmptyState
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
+import me.juanlabs.anura.designsystem.component.AnuraTextField
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
+import me.juanlabs.anura.designsystem.component.LocalAnuraTabBarInset
+import me.juanlabs.anura.designsystem.component.ObservationCard
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
@@ -61,26 +74,247 @@ import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.capture.AnuraReviewChip
 import me.juanlabs.anura.feature.comments.ObservationCommentsOverlay
+import me.juanlabs.anura.feature.fieldsession.FieldSessionRecordNotes
+import me.juanlabs.anura.feature.fieldsession.fieldSessionRegister
+import me.juanlabs.anura.feature.explore.ObservationCatalogScreen
 import me.juanlabs.anura.feature.species.IdentificationJustificationSheet
-import me.juanlabs.anura.navigation.MockNavAction
-import me.juanlabs.anura.navigation.MockScreenScaffold
 
 private val ObservationHeroHeight = 280.dp
 
+private data class ListedObservation(
+    val id: String,
+    val commonRes: Int,
+    val scientificRes: Int,
+    @param:DrawableRes val photoRes: Int,
+    val isPublic: Boolean,
+    val own: Boolean,
+)
+
+private val MockOwnObservations = listOf(
+    ListedObservation("obs-001", R.string.observations_item_1_common, R.string.observations_item_1_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = true, own = true),
+    ListedObservation("obs-002", R.string.observations_item_2_common, R.string.observations_item_2_sci, R.drawable.carousel_dendropsophus_bogerti, isPublic = false, own = true),
+    ListedObservation("obs-003", R.string.observations_item_3_common, R.string.observations_item_3_sci, R.drawable.carousel_sachatamia_electrops, isPublic = true, own = true),
+    ListedObservation("obs-004", R.string.observations_item_4_common, R.string.observations_item_4_sci, R.drawable.carousel_pristimantis_paisa, isPublic = false, own = true),
+    ListedObservation("obs-005", R.string.observations_item_5_common, R.string.observations_item_5_sci, R.drawable.carousel_dendropsophus_bogerti, isPublic = true, own = true),
+    ListedObservation("obs-006", R.string.observations_item_6_common, R.string.observations_item_6_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = false, own = true),
+    ListedObservation("obs-007", R.string.observations_item_7_common, R.string.observations_item_7_sci, R.drawable.carousel_pristimantis_paisa, isPublic = true, own = true),
+    ListedObservation("obs-008", R.string.observations_item_8_common, R.string.observations_item_8_sci, R.drawable.carousel_sachatamia_electrops, isPublic = false, own = true),
+)
+
+private val MockNearbyObservations = listOf(
+    ListedObservation("near-001", R.string.observations_item_1_common, R.string.observations_item_1_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = true, own = false),
+    ListedObservation("near-002", R.string.observations_item_4_common, R.string.observations_item_4_sci, R.drawable.carousel_pristimantis_paisa, isPublic = true, own = false),
+    ListedObservation("near-003", R.string.observations_item_5_common, R.string.observations_item_5_sci, R.drawable.carousel_dendropsophus_bogerti, isPublic = true, own = false),
+    ListedObservation("near-004", R.string.observations_item_6_common, R.string.observations_item_6_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = true, own = false),
+    ListedObservation("near-005", R.string.observations_nearby_paisa, R.string.observations_nearby_paisa, R.drawable.carousel_pristimantis_paisa, isPublic = true, own = false),
+)
+
 /** `Fotos y observaciones` (§4.1) — top-level, tab 3. */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ObservationsScreen(
     onOpenObservationDetail: (String) -> Unit,
     onOpenFavorites: () -> Unit,
 ) {
-    MockScreenScaffold(
-        title = "Observaciones",
-        actions = listOf(
-            MockNavAction("Observación foto + audio") { onOpenObservationDetail("obs-001") },
-            MockNavAction("Observación solo audio") { onOpenObservationDetail("obs-002") },
-            MockNavAction("Ver favoritos", onOpenFavorites),
-        ),
+    var query by rememberSaveable { mutableStateOf("") }
+    var favoriteIds by rememberSaveable { mutableStateOf(listOf<String>()) }
+    val ownNamed = MockOwnObservations.map { item ->
+        item to (stringResource(item.commonRes) to stringResource(item.scientificRes))
+    }
+    val nearbyNamed = MockNearbyObservations.map { item ->
+        item to (stringResource(item.commonRes) to stringResource(item.scientificRes))
+    }
+    fun matches(names: Pair<String, String>): Boolean {
+        val needle = query.trim()
+        if (needle.isEmpty()) return true
+        return names.first.contains(needle, ignoreCase = true) ||
+            names.second.contains(needle, ignoreCase = true)
+    }
+    val ownFiltered = ownNamed.filter { matches(it.second) }
+    val nearbyFiltered = nearbyNamed.filter { matches(it.second) }
+    val showNearby = ownFiltered.isEmpty()
+
+    Scaffold(
+        containerColor = AnuraTheme.extendedColors.boardBackground,
+        topBar = {
+            AnuraTopBar(
+                title = stringResource(R.string.observations_title),
+                centerTitle = true,
+            )
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+        ) {
+            AnuraTextField(
+                value = query,
+                onValueChange = { query = it },
+                label = stringResource(R.string.observations_search),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AnuraDimens.spaceGutter)
+                    .padding(bottom = AnuraDimens.spaceGap),
+                leadingIcon = AnuraIcons.Empty,
+                singleLine = true,
+            )
+            if (showNearby && nearbyFiltered.isEmpty()) {
+                AnuraEmptyState(
+                    title = stringResource(R.string.observations_empty_title),
+                    description = stringResource(R.string.observations_empty_body),
+                    modifier = Modifier.fillMaxSize(),
+                )
+            } else {
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(2),
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(
+                        start = AnuraDimens.spaceGutter,
+                        end = AnuraDimens.spaceGutter,
+                        bottom = AnuraDimens.spaceSection + LocalAnuraTabBarInset.current,
+                    ),
+                    horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+                    verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+                ) {
+                    if (showNearby) {
+                        item(
+                            key = "nearby-title",
+                            span = { GridItemSpan(maxLineSpan) },
+                        ) {
+                            Text(
+                                text = stringResource(R.string.observations_nearby_title),
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontWeight = FontWeight.SemiBold,
+                                ),
+                            )
+                        }
+                        items(nearbyFiltered, key = { it.first.id }) { entry ->
+                            ListedObservationCard(
+                                item = entry.first,
+                                names = entry.second,
+                                favorite = favoriteIds.contains(entry.first.id),
+                                onFavoriteClick = {
+                                    val id = entry.first.id
+                                    favoriteIds = if (favoriteIds.contains(id)) {
+                                        favoriteIds - id
+                                    } else {
+                                        favoriteIds + id
+                                    }
+                                },
+                                onClick = { onOpenObservationDetail(entry.first.id) },
+                            )
+                        }
+                    } else {
+                        items(ownFiltered, key = { it.first.id }) { entry ->
+                            ListedObservationCard(
+                                item = entry.first,
+                                names = entry.second,
+                                favorite = favoriteIds.contains(entry.first.id),
+                                onFavoriteClick = {
+                                    val id = entry.first.id
+                                    favoriteIds = if (favoriteIds.contains(id)) {
+                                        favoriteIds - id
+                                    } else {
+                                        favoriteIds + id
+                                    }
+                                },
+                                onClick = { onOpenObservationDetail(entry.first.id) },
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@AnuraPreviews
+@Composable
+private fun ObservationsPreview() {
+    AnuraTheme {
+        ObservationsScreen(onOpenObservationDetail = {}, onOpenFavorites = {})
+    }
+}
+
+@Preview(name = "Luz roja", group = "modo", showBackground = true)
+@Composable
+private fun ObservationsPreviewRedLight() {
+    AnuraTheme(AnuraThemeMode.LuzRoja) {
+        ObservationsScreen(onOpenObservationDetail = {}, onOpenFavorites = {})
+    }
+}
+
+@Composable
+private fun ListedObservationCard(
+    item: ListedObservation,
+    names: Pair<String, String>,
+    favorite: Boolean,
+    onFavoriteClick: () -> Unit,
+    onClick: () -> Unit,
+) {
+    ObservationCard(
+        commonName = names.first,
+        scientificName = names.second,
+        isFavorite = favorite,
+        onFavoriteClick = onFavoriteClick,
+        modifier = Modifier.fillMaxWidth(),
+        statusChip = if (item.own) {
+            { VisibilityChip(isPublic = item.isPublic) }
+        } else {
+            null
+        },
+        thumbnail = {
+            Image(
+                painter = painterResource(item.photoRes),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+            )
+        },
+        onClick = onClick,
     )
+}
+
+@Composable
+private fun VisibilityChip(isPublic: Boolean) {
+    val label = stringResource(
+        if (isPublic) {
+            R.string.observation_detail_visibility_public
+        } else {
+            R.string.observation_detail_visibility_private
+        },
+    )
+    val bg = if (isPublic) {
+        AnuraTheme.extendedColors.success
+    } else {
+        MaterialTheme.colorScheme.surfaceVariant
+    }
+    val fg = if (isPublic) {
+        AnuraTheme.extendedColors.onSuccess
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(AnuraDimens.radiusCapsule))
+            .background(bg)
+            .padding(horizontal = 10.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Icon(
+            imageVector = if (isPublic) AnuraIcons.Visibility else AnuraIcons.Lock,
+            contentDescription = null,
+            tint = fg,
+            modifier = Modifier.size(14.dp),
+        )
+        Text(
+            text = label,
+            color = fg,
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+        )
+    }
 }
 
 /** `favoritos (listado)` (§4.1). */
@@ -89,12 +323,11 @@ fun FavoritesScreen(
     onBackClick: () -> Unit,
     onOpenObservationDetail: (String) -> Unit,
 ) {
-    MockScreenScaffold(
-        title = "Favoritos",
+    ObservationCatalogScreen(
+        title = stringResource(R.string.favorites_title),
         onBackClick = onBackClick,
-        actions = listOf(
-            MockNavAction("Abrir observación favorita") { onOpenObservationDetail("obs-002") },
-        ),
+        onOpenObservationDetail = onOpenObservationDetail,
+        showQuickFilters = true,
     )
 }
 
@@ -105,12 +338,26 @@ fun ObservationDetailScreen(
     id: String,
     onBackClick: () -> Unit,
     onOpenSpeciesSheet: (String) -> Unit,
+    onOpenProfile: (String?) -> Unit,
 ) {
     var showJustification by rememberSaveable { mutableStateOf(false) }
     var showComments by rememberSaveable { mutableStateOf(false) }
     var moreMenu by rememberSaveable { mutableStateOf(false) }
     var visibilityPublic by rememberSaveable { mutableStateOf(true) }
-    val scientificName = stringResource(R.string.observation_detail_scientific_name)
+    val listed = MockOwnObservations.find { it.id == id }
+        ?: MockNearbyObservations.find { it.id == id }
+    val fieldRegister = fieldSessionRegister(id)
+    val scientificName = if (listed != null) {
+        stringResource(listed.scientificRes)
+    } else {
+        stringResource(R.string.observation_detail_scientific_name)
+    }
+    val commonName = if (listed != null) {
+        stringResource(listed.commonRes)
+    } else {
+        stringResource(R.string.observation_detail_common_name)
+    }
+    val speciesId = fieldRegister?.speciesId ?: "ANU_COL_DEND_TRU_001"
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -211,11 +458,11 @@ fun ObservationDetailScreen(
                 }
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 Text(
-                    text = stringResource(R.string.observation_detail_common_name),
+                    text = commonName,
                     style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier
                         .clip(RoundedCornerShape(AnuraDimens.radiusButton))
-                        .clickable { onOpenSpeciesSheet("ANU_COL_DEND_TRU_001") }
+                        .clickable { onOpenSpeciesSheet(speciesId) }
                         .semantics { role = Role.Button },
                 )
                 Text(
@@ -224,17 +471,24 @@ fun ObservationDetailScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier
                         .clip(RoundedCornerShape(AnuraDimens.radiusButton))
-                        .clickable { onOpenSpeciesSheet("ANU_COL_DEND_TRU_001") }
+                        .clickable { onOpenSpeciesSheet(speciesId) }
                         .semantics {
                             role = Role.Button
                         },
                 )
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                ObservationAuthorRow(
+                    observationId = id,
+                    onOpenProfile = onOpenProfile,
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 Row(horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
-                    StatusPill(
-                        text = stringResource(R.string.observation_detail_toxic_chip),
-                        warning = true,
-                    )
+                    if (fieldRegister == null || fieldRegister.toxic) {
+                        StatusPill(
+                            text = stringResource(R.string.observation_detail_toxic_chip),
+                            warning = true,
+                        )
+                    }
                     StatusPill(
                         text = stringResource(R.string.observation_detail_iucn_chip),
                         warning = false,
@@ -290,11 +544,19 @@ fun ObservationDetailScreen(
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_where),
-                    value = stringResource(R.string.observation_detail_where_value),
+                    value = if (fieldRegister != null) {
+                        stringResource(R.string.field_session_location)
+                    } else {
+                        stringResource(R.string.observation_detail_where_value)
+                    },
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_when),
-                    value = stringResource(R.string.observation_detail_when_value),
+                    value = if (fieldRegister != null) {
+                        "${stringResource(fieldRegister.timeRes)} · ${stringResource(R.string.field_session_elapsed)}"
+                    } else {
+                        stringResource(R.string.observation_detail_when_value)
+                    },
                 )
                 RecordFact(
                     label = stringResource(R.string.observation_detail_size),
@@ -306,9 +568,19 @@ fun ObservationDetailScreen(
                 )
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 StatusPill(
-                    text = stringResource(R.string.observation_detail_synced),
+                    text = stringResource(
+                        if (id.endsWith("002")) {
+                            R.string.observation_detail_model_cloud
+                        } else {
+                            R.string.observation_detail_model_local
+                        },
+                    ),
                     warning = false,
                 )
+                if (fieldRegister != null) {
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+                    FieldSessionRecordNotes(observationId = id)
+                }
             }
             if (showComments) {
                 ObservationCommentsOverlay(
@@ -325,6 +597,73 @@ fun ObservationDetailScreen(
     }
     if (showJustification) {
         IdentificationJustificationSheet(onDismiss = { showJustification = false })
+    }
+}
+
+@Composable
+private fun ObservationAuthorRow(
+    observationId: String,
+    onOpenProfile: (String?) -> Unit,
+) {
+    val isOwn = !observationId.startsWith("near-")
+    val displayName = stringResource(
+        if (isOwn) R.string.home_user_name_mock else R.string.observation_author_other,
+    )
+    val profileUserId = if (isOwn) null else "user-002"
+    var following by rememberSaveable { mutableStateOf(false) }
+    val openProfile = { onOpenProfile(profileUserId) }
+    val profileCd = stringResource(R.string.observation_author_cd, displayName)
+
+    AnuraCard(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = AnuraDimens.spaceCardInsetHorizontal,
+                    vertical = AnuraDimens.spaceCardInsetVertical,
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(AnuraDimens.sizeTouch)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                    .clickable(role = Role.Button, onClick = openProfile)
+                    .semantics { contentDescription = profileCd },
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    imageVector = AnuraIcons.Person,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(24.dp),
+                )
+            }
+            Text(
+                text = displayName,
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurface,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable(role = Role.Button, onClick = openProfile)
+                    .semantics { contentDescription = profileCd },
+            )
+            if (!isOwn) {
+                FilterChip(
+                    selected = following,
+                    onClick = { following = !following },
+                    label = { Text(stringResource(R.string.observation_author_follow)) },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = AnuraTheme.extendedColors.accentInk,
+                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                    ),
+                )
+            }
+        }
     }
 }
 
@@ -457,15 +796,23 @@ private fun ConfidenceCard() {
 
 @Composable
 private fun ConfidenceBar(progress: Float) {
-    LinearProgressIndicator(
-        progress = { progress.coerceIn(0f, 1f) },
+    val fraction = progress.coerceIn(0f, 1f)
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(8.dp)
-            .clip(RoundedCornerShape(AnuraDimens.radiusCapsule)),
-        color = AnuraTheme.extendedColors.accentInk,
-        trackColor = MaterialTheme.colorScheme.surfaceVariant,
-    )
+            .clip(RoundedCornerShape(AnuraDimens.radiusCapsule))
+            .background(MaterialTheme.colorScheme.surfaceVariant),
+    ) {
+        if (fraction > 0f) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(fraction)
+                    .fillMaxHeight()
+                    .background(AnuraTheme.extendedColors.accentInk),
+            )
+        }
+    }
 }
 
 @Composable
@@ -547,6 +894,7 @@ private fun ObservationDetailPreview() {
             id = "obs-nuevo",
             onBackClick = {},
             onOpenSpeciesSheet = {},
+            onOpenProfile = {},
         )
     }
 }
@@ -559,6 +907,20 @@ private fun ObservationDetailPreviewRedLight() {
             id = "obs-nuevo",
             onBackClick = {},
             onOpenSpeciesSheet = {},
+            onOpenProfile = {},
+        )
+    }
+}
+
+@Preview(name = "Ajena", group = "modo", showBackground = true)
+@Composable
+private fun ObservationDetailPreviewOther() {
+    AnuraTheme {
+        ObservationDetailScreen(
+            id = "near-001",
+            onBackClick = {},
+            onOpenSpeciesSheet = {},
+            onOpenProfile = {},
         )
     }
 }

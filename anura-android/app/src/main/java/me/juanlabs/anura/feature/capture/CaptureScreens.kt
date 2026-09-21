@@ -72,12 +72,13 @@ private val AnalyzingStages = listOf(
 
 /**
  * `Analizando · progreso por etapas` (§4.1). El sistema no retrocede mientras corre
- * el mock de etapas; al terminar navega al resultado conocido.
+ * el mock de etapas; al terminar navega al resultado conocido o al open-set.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AnalyzingScreen(
     onKnownResult: () -> Unit,
+    onUnknownResult: (String) -> Unit = {},
     source: String = AnuraRoute.Analyzing.Wizard,
 ) {
     BackHandler(enabled = true) { }
@@ -87,7 +88,11 @@ fun AnalyzingScreen(
             currentStage = index
             delay(AnalyzingStageDelayMs)
         }
-        onKnownResult()
+        when (source) {
+            AnuraRoute.Analyzing.Image -> onUnknownResult("genus")
+            AnuraRoute.Analyzing.Audio -> onUnknownResult("family")
+            else -> onKnownResult()
+        }
     }
     val progress = when (currentStage) {
         0 -> 0.25f
@@ -170,6 +175,7 @@ fun AnalyzingScreen(
                 modifier = Modifier.fillMaxWidth(),
                 color = AnuraTheme.extendedColors.accentInk,
                 trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                drawStopIndicator = {},
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
             Text(
@@ -289,9 +295,12 @@ private fun AnalyzingStageRow(
 @Composable
 fun UnknownResultScreen(
     onBackClick: () -> Unit,
-    onOpenGenusSheet: () -> Unit = {},
+    result: OpenSetUnknownResult = MockOpenSetUnknownResults.Genus,
+    onOpenTaxonSheet: (String) -> Unit = {},
     onRequestExpertReview: () -> Unit = {},
 ) {
+    val unconfirmed = stringResource(R.string.unknown_result_unconfirmed)
+    val nonePct = stringResource(R.string.unknown_result_pct_none)
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -311,7 +320,7 @@ fun UnknownResultScreen(
                 .padding(bottom = CaptureBottomBreathing),
         ) {
             Image(
-                painter = painterResource(R.drawable.carousel_pristimantis_paisa),
+                painter = painterResource(result.photoRes),
                 contentDescription = stringResource(R.string.analyzing_photo_cd),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -321,7 +330,7 @@ fun UnknownResultScreen(
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             Text(
-                text = stringResource(R.string.unknown_result_genus_name),
+                text = result.headline,
                 style = MaterialTheme.typography.headlineSmall.copy(
                     fontWeight = FontWeight.Bold,
                     fontStyle = FontStyle.Italic,
@@ -330,7 +339,7 @@ fun UnknownResultScreen(
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceTitleToSubtitle))
             Text(
-                text = stringResource(R.string.unknown_result_subtitle),
+                text = stringResource(result.subtitleRes),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -348,7 +357,7 @@ fun UnknownResultScreen(
                     )
                     Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
                     Text(
-                        text = stringResource(R.string.unknown_result_body),
+                        text = stringResource(result.bodyRes, result.bodyName),
                         style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -362,30 +371,34 @@ fun UnknownResultScreen(
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             RankRow(
                 label = stringResource(R.string.unknown_result_order),
-                value = stringResource(R.string.unknown_result_order_value),
-                percent = stringResource(R.string.unknown_result_order_pct),
+                line = result.order,
+                unconfirmed = unconfirmed,
+                nonePct = nonePct,
             )
             RankRow(
                 label = stringResource(R.string.unknown_result_family),
-                value = stringResource(R.string.unknown_result_family_value),
-                percent = stringResource(R.string.unknown_result_family_pct),
+                line = result.family,
+                unconfirmed = unconfirmed,
+                nonePct = nonePct,
             )
             RankRow(
                 label = stringResource(R.string.unknown_result_genus),
-                value = stringResource(R.string.unknown_result_genus_value),
-                percent = stringResource(R.string.unknown_result_genus_pct),
+                line = result.genus,
+                unconfirmed = unconfirmed,
+                nonePct = nonePct,
             )
             RankRow(
                 label = stringResource(R.string.unknown_result_species),
-                value = stringResource(R.string.unknown_result_species_value),
-                percent = stringResource(R.string.unknown_result_species_pct),
+                line = result.species,
+                unconfirmed = unconfirmed,
+                nonePct = nonePct,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             AnuraReviewChip(text = stringResource(R.string.unknown_result_needs_review))
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             AnuraFormButton(
-                text = stringResource(R.string.unknown_result_genus_sheet),
-                onClick = onOpenGenusSheet,
+                text = stringResource(result.sheetActionRes),
+                onClick = { onOpenTaxonSheet(result.taxonId) },
                 style = AnuraFormButtonStyle.Primary,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
@@ -401,9 +414,15 @@ fun UnknownResultScreen(
 @Composable
 private fun RankRow(
     label: String,
-    value: String,
-    percent: String,
+    line: OpenSetRankLine,
+    unconfirmed: String,
+    nonePct: String,
 ) {
+    val valueColor = if (line.confirmed) {
+        MaterialTheme.colorScheme.onSurface
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -413,14 +432,18 @@ private fun RankRow(
         Column(modifier = Modifier.weight(1f)) {
             AnuraSectionLabel(text = label)
             Text(
-                text = value,
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                text = if (line.confirmed) line.value else unconfirmed,
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.SemiBold,
+                    fontStyle = if (line.confirmed) FontStyle.Normal else FontStyle.Italic,
+                ),
+                color = valueColor,
             )
         }
         Text(
-            text = percent,
+            text = if (line.confirmed) line.percent else nonePct,
             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
-            color = MaterialTheme.colorScheme.onSurface,
+            color = valueColor,
         )
     }
 }
@@ -461,6 +484,28 @@ private fun AnalyzingPreviewRedLight() {
 @Composable
 private fun UnknownResultPreview() {
     AnuraTheme { UnknownResultScreen(onBackClick = {}) }
+}
+
+@AnuraPreviews
+@Composable
+private fun UnknownResultFamilyPreview() {
+    AnuraTheme {
+        UnknownResultScreen(
+            onBackClick = {},
+            result = MockOpenSetUnknownResults.Family,
+        )
+    }
+}
+
+@AnuraPreviews
+@Composable
+private fun UnknownResultOrderPreview() {
+    AnuraTheme {
+        UnknownResultScreen(
+            onBackClick = {},
+            result = MockOpenSetUnknownResults.Order,
+        )
+    }
 }
 
 @Preview(name = "Luz roja", group = "modo", showBackground = true)

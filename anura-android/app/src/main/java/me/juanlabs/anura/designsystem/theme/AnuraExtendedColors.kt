@@ -90,3 +90,32 @@ internal val LocalAnuraExtendedColors = staticCompositionLocalOf {
         cardStroke = Color.Unspecified,
     )
 }
+
+data class AnuraSwatchColors(
+    val tint: Color,
+    val icon: Color,
+    val ink: Color,
+    val danger: Color,
+    val warning: Color,
+    val info: Color,
+)
+
+internal fun AnuraColorTokens.toSwatchColors() = AnuraSwatchColors(
+    tint = accentTint,
+    icon = accentIcon,
+    ink = accentInk,
+    danger = statusDanger,
+    warning = statusWarning,
+    info = statusInfo,
+)
+
+internal val LocalAnuraSwatchColors = staticCompositionLocalOf {
+    AnuraSwatchColors(
+        tint = Color.Unspecified,
+        icon = Color.Unspecified,
+        ink = Color.Unspecified,
+        danger = Color.Unspecified,
+        warning = Color.Unspecified,
+        info = Color.Unspecified,
+    )
+}

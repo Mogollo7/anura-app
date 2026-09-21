@@ -17,6 +17,8 @@ import androidx.navigation.compose.dialog
 import androidx.navigation.compose.navigation
 import androidx.navigation.toRoute
 import me.juanlabs.anura.designsystem.theme.AnuraMotion
+import me.juanlabs.anura.designsystem.theme.AnuraAccentRole
+import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.designsystem.theme.rememberReduceMotion
 import me.juanlabs.anura.feature.auth.SignInScreen
 import me.juanlabs.anura.feature.auth.SignUpScreen
@@ -30,14 +32,17 @@ import me.juanlabs.anura.feature.capture.CaptureStep4Screen
 import me.juanlabs.anura.feature.capture.CaptureStep5Screen
 import me.juanlabs.anura.feature.capture.CaptureStep6Screen
 import me.juanlabs.anura.feature.capture.PhotoCaptureScreen
+import me.juanlabs.anura.feature.capture.MockOpenSetUnknownResults
 import me.juanlabs.anura.feature.capture.UnknownResultScreen
 import me.juanlabs.anura.feature.capture.WhatToRegisterContent
 import me.juanlabs.anura.feature.comments.CommentsScreen
+import me.juanlabs.anura.feature.explore.ExploreMoreScreen
 import me.juanlabs.anura.feature.explore.ExploreScreen
 import me.juanlabs.anura.feature.explore.SpeciesByTaxonScreen
 import me.juanlabs.anura.feature.fieldsession.FieldSessionNotesScreen
 import me.juanlabs.anura.feature.fieldsession.FieldSessionScreen
 import me.juanlabs.anura.feature.fieldsession.NightSoundsScreen
+import me.juanlabs.anura.feature.home.HomeCarouselCatalog
 import me.juanlabs.anura.feature.home.HomeScreen
 import me.juanlabs.anura.feature.observations.FavoritesScreen
 import me.juanlabs.anura.feature.observations.ObservationDetailScreen
@@ -62,6 +67,17 @@ import me.juanlabs.anura.feature.species.SpeciesSheetScreen
 fun AnuraNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
+    themeMode: AnuraThemeMode = AnuraThemeMode.Sistema,
+    onThemeModeChange: (AnuraThemeMode) -> Unit = {},
+    accentRole: AnuraAccentRole = AnuraAccentRole.Ink,
+    onAccentRoleChange: (AnuraAccentRole) -> Unit = {},
+    preferReduceMotion: Boolean = false,
+    onPreferReduceMotionChange: (Boolean) -> Unit = {},
+    preferLargeText: Boolean = false,
+    onPreferLargeTextChange: (Boolean) -> Unit = {},
+    activeSessionId: String? = null,
+    onFieldSessionActivated: (String) -> Unit = {},
+    onFieldSessionClosed: () -> Unit = {},
 ) {
     val reduceMotion = rememberReduceMotion()
     val enter = {
@@ -80,8 +96,23 @@ fun AnuraNavHost(
         popExitTransition = { exit() },
     ) {
         authGraph(navController)
-        topLevelDestinations(navController)
-        detailDestinations(navController)
+        topLevelDestinations(
+            navController,
+            themeMode,
+            onThemeModeChange,
+            accentRole,
+            onAccentRoleChange,
+            preferReduceMotion,
+            onPreferReduceMotionChange,
+            preferLargeText,
+            onPreferLargeTextChange,
+            activeSessionId,
+        )
+        detailDestinations(
+            navController,
+            onFieldSessionActivated,
+            onFieldSessionClosed,
+        )
         captureGraph(navController)
     }
 }
@@ -129,7 +160,18 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
     }
 }
 
-private fun NavGraphBuilder.topLevelDestinations(navController: NavHostController) {
+private fun NavGraphBuilder.topLevelDestinations(
+    navController: NavHostController,
+    themeMode: AnuraThemeMode,
+    onThemeModeChange: (AnuraThemeMode) -> Unit,
+    accentRole: AnuraAccentRole,
+    onAccentRoleChange: (AnuraAccentRole) -> Unit,
+    preferReduceMotion: Boolean,
+    onPreferReduceMotionChange: (Boolean) -> Unit,
+    preferLargeText: Boolean,
+    onPreferLargeTextChange: (Boolean) -> Unit,
+    activeSessionId: String?,
+) {
     composable<AnuraRoute.Home> {
         HomeScreen(
             onOpenProfile = { navController.navigate(AnuraRoute.Profile(userId = null)) },
@@ -138,12 +180,15 @@ private fun NavGraphBuilder.topLevelDestinations(navController: NavHostControlle
             onPhotoId = { navController.navigate(AnuraRoute.PhotoCapture) },
             onAudioId = { navController.navigate(AnuraRoute.AudioCapture) },
             onStepByStep = { navController.navigate(AnuraRoute.CaptureGraph) },
+            activeFieldSession = activeSessionId?.let { id ->
+                HomeCarouselCatalog.mockActiveFieldSession().copy(sessionId = id)
+            },
         )
     }
     composable<AnuraRoute.Explore> {
         ExploreScreen(
-            onOpenSpeciesByTaxon = { taxonId -> navController.navigate(AnuraRoute.SpeciesByTaxon(taxonId)) },
-            onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
+            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
+            onOpenExploreMore = { navController.navigate(AnuraRoute.ExploreMore) },
         )
     }
     composable<AnuraRoute.Observations> {
@@ -154,19 +199,38 @@ private fun NavGraphBuilder.topLevelDestinations(navController: NavHostControlle
     }
     composable<AnuraRoute.Settings> {
         SettingsScreen(
+            themeMode = themeMode,
+            onThemeModeChange = onThemeModeChange,
+            accentRole = accentRole,
+            onAccentRoleChange = onAccentRoleChange,
+            preferReduceMotion = preferReduceMotion,
+            onPreferReduceMotionChange = onPreferReduceMotionChange,
+            preferLargeText = preferLargeText,
+            onPreferLargeTextChange = onPreferLargeTextChange,
             onOpenRegionalPackages = { navController.navigate(AnuraRoute.RegionalPackages) },
             onOpenProfile = { navController.navigate(AnuraRoute.Profile(userId = null)) },
+            onOpenEditProfile = { navController.navigate(AnuraRoute.EditProfile) },
+            onSignOut = {
+                navController.navigate(AnuraRoute.AuthGraph) {
+                    popUpTo(AnuraRoute.Home) { inclusive = true }
+                }
+            },
         )
     }
 }
 
-private fun NavGraphBuilder.detailDestinations(navController: NavHostController) {
+private fun NavGraphBuilder.detailDestinations(
+    navController: NavHostController,
+    onFieldSessionActivated: (String) -> Unit,
+    onFieldSessionClosed: () -> Unit,
+) {
     composable<AnuraRoute.ObservationDetail> { backStackEntry ->
         val route = backStackEntry.toRoute<AnuraRoute.ObservationDetail>()
         ObservationDetailScreen(
             id = route.id,
             onBackClick = { navController.popBackStack() },
             onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
+            onOpenProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId = userId)) },
         )
     }
         composable<AnuraRoute.SpeciesSheet> { backStackEntry ->
@@ -174,7 +238,12 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
             SpeciesSheetScreen(
                 speciesId = route.speciesId,
                 onBackClick = { navController.popBackStack() },
-                onExploreGenus = { navController.navigate(AnuraRoute.SpeciesByTaxon("Dendrobates")) },
+                onOpenTaxon = { taxonId -> navController.navigate(AnuraRoute.SpeciesSheet(taxonId)) },
+                onOpenSpeciesSheet = { id -> navController.navigate(AnuraRoute.SpeciesSheet(id)) },
+                onOpenSpeciesByTaxon = { taxonId ->
+                    navController.navigate(AnuraRoute.SpeciesByTaxon(taxonId))
+                },
+                onOpenProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
             )
         }
     composable<AnuraRoute.Profile> { backStackEntry ->
@@ -183,8 +252,16 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
             userId = route.userId,
             onBackClick = { navController.popBackStack() },
             onOpenEditProfile = { navController.navigate(AnuraRoute.EditProfile) },
-            onOpenConnections = { userId -> navController.navigate(AnuraRoute.Connections(userId)) },
+            onOpenConnections = { userId, tab ->
+                navController.navigate(AnuraRoute.Connections(userId = userId, tab = tab))
+            },
             onOpenOtherProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
+            onOpenFavorites = {
+                navController.navigate(
+                    AnuraRoute.Connections(userId = route.userId ?: "me", tab = "favorites"),
+                )
+            },
+            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
         )
     }
     composable<AnuraRoute.Comments> { backStackEntry ->
@@ -195,8 +272,16 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
         val route = backStackEntry.toRoute<AnuraRoute.Connections>()
         ConnectionsScreen(
             userId = route.userId,
+            initialTab = route.tab,
             onBackClick = { navController.popBackStack() },
             onOpenProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
+            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
+        )
+    }
+    composable<AnuraRoute.ExploreMore> {
+        ExploreMoreScreen(
+            onBackClick = { navController.popBackStack() },
+            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
         )
     }
     composable<AnuraRoute.SpeciesByTaxon> { backStackEntry ->
@@ -214,6 +299,16 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
             onBackClick = { navController.popBackStack() },
             onOpenNightSounds = { sessionId -> navController.navigate(AnuraRoute.NightSounds(sessionId)) },
             onOpenNotes = { sessionId -> navController.navigate(AnuraRoute.FieldSessionNotes(sessionId)) },
+            onPhotoId = { navController.navigate(AnuraRoute.PhotoCapture) },
+            onAudioId = { navController.navigate(AnuraRoute.AudioCapture) },
+            onStepByStep = { navController.navigate(AnuraRoute.CaptureGraph) },
+            onOpenRegister = { observationId ->
+                navController.navigate(AnuraRoute.ObservationDetail(observationId))
+            },
+            onCloseSession = {
+                onFieldSessionClosed()
+                navController.popBackStack()
+            },
         )
     }
     composable<AnuraRoute.NightSounds> { backStackEntry ->
@@ -233,8 +328,13 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
     composable<AnuraRoute.EditProfile> {
         EditProfileScreen(onBackClick = { navController.popBackStack() })
     }
-    composable<AnuraRoute.RegionalPackages> {
-        RegionalPackagesScreen(onBackClick = { navController.popBackStack() })
+            composable<AnuraRoute.RegionalPackages> {
+        RegionalPackagesScreen(
+            onBackClick = { navController.popBackStack() },
+            onOpenObservationDetail = { id ->
+                navController.navigate(AnuraRoute.ObservationDetail(id))
+            },
+        )
     }
 
     // "Pop-up del botón +": alcanzable desde varias pantallas -> destino de
@@ -248,7 +348,14 @@ private fun NavGraphBuilder.detailDestinations(navController: NavHostController)
     ) {
         WhatToRegisterContent(
             onStartFieldSession = {
+                onFieldSessionActivated("session-new")
                 navController.navigate(AnuraRoute.FieldSession(sessionId = "session-new")) {
+                    popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
+                }
+            },
+            onContinueFieldSession = {
+                onFieldSessionActivated("session-001")
+                navController.navigate(AnuraRoute.FieldSession(sessionId = "session-001")) {
                     popUpTo(AnuraRoute.WhatToRegister) { inclusive = true }
                 }
             },
@@ -370,13 +477,21 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
                 },
+                onUnknownResult = { reached ->
+                    navController.navigate(AnuraRoute.UnknownResult(reached)) {
+                        popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
+                    }
+                },
             )
         }
-        composable<AnuraRoute.UnknownResult> {
+        composable<AnuraRoute.UnknownResult> { backStackEntry ->
+            val resultRoute = backStackEntry.toRoute<AnuraRoute.UnknownResult>()
+            val result = MockOpenSetUnknownResults.forReached(resultRoute.reached)
             UnknownResultScreen(
+                result = result,
                 onBackClick = { navController.popBackStack() },
-                onOpenGenusSheet = {
-                    navController.navigate(AnuraRoute.SpeciesSheet("ANU_COL_PRIS_PAI_001"))
+                onOpenTaxonSheet = { taxonId ->
+                    navController.navigate(AnuraRoute.SpeciesSheet(taxonId))
                 },
             )
         }

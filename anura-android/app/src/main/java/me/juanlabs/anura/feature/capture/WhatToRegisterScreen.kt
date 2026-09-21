@@ -22,7 +22,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalView
@@ -49,16 +53,12 @@ private val WhatToRegisterContentBottomPadding = AnuraDimens.spaceSection
 /**
  * `Pop-up del botón "+": qué registrar` (§4.1/§4.2).
  *
- * El contenedor blanco reutiliza el átomo de sheet de auth (radio superior 30 dp) y
- * [AnuraFormButton] (56 dp / radio 12 / 15 sp). El panel se pinta hasta el borde
- * físico de la pantalla (detrás de la navbar del sistema) para no dejar franja
- * gris del scrim; Cancelar queda por encima de esos botones de sistema.
- *
- * Estados de Penpot: solo contenido. Dismiss: Cancelar, scrim o back.
+ * Tras «Iniciar salida de campo» el mismo sheet pide iniciar o continuar.
  */
 @Composable
 fun WhatToRegisterContent(
     onStartFieldSession: () -> Unit,
+    onContinueFieldSession: () -> Unit,
     onTakeQuickSample: () -> Unit,
     onRecordSound: () -> Unit,
     onDismiss: () -> Unit,
@@ -88,6 +88,7 @@ fun WhatToRegisterContent(
         )
         WhatToRegisterSheet(
             onStartFieldSession = onStartFieldSession,
+            onContinueFieldSession = onContinueFieldSession,
             onTakeQuickSample = onTakeQuickSample,
             onRecordSound = onRecordSound,
             onDismiss = onDismiss,
@@ -98,10 +99,12 @@ fun WhatToRegisterContent(
 @Composable
 private fun WhatToRegisterSheet(
     onStartFieldSession: () -> Unit,
+    onContinueFieldSession: () -> Unit,
     onTakeQuickSample: () -> Unit,
     onRecordSound: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    var choosingFieldSession by rememberSaveable { mutableStateOf(false) }
     Surface(
         modifier = Modifier.fillMaxWidth(),
         color = MaterialTheme.colorScheme.surface,
@@ -119,7 +122,13 @@ private fun WhatToRegisterSheet(
             AnuraSheetHandle()
 
             Text(
-                text = stringResource(R.string.what_to_register_title),
+                text = stringResource(
+                    if (choosingFieldSession) {
+                        R.string.what_to_register_field_session_choice_title
+                    } else {
+                        R.string.what_to_register_title
+                    },
+                ),
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier
@@ -129,19 +138,20 @@ private fun WhatToRegisterSheet(
 
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetTitleToBody))
 
-            Text(
-                text = stringResource(R.string.what_to_register_body),
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Normal,
-                    lineHeight = 22.sp,
-                ),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = AnuraDimens.spacePopupInset),
-            )
-
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetBodyToActions))
+            if (!choosingFieldSession) {
+                Text(
+                    text = stringResource(R.string.what_to_register_body),
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Normal,
+                        lineHeight = 22.sp,
+                    ),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = AnuraDimens.spacePopupInset),
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetBodyToActions))
+            }
 
             Column(
                 modifier = Modifier
@@ -149,29 +159,49 @@ private fun WhatToRegisterSheet(
                     .padding(horizontal = AnuraDimens.spacePopupInset),
                 verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceActionGap),
             ) {
-                AnuraFormButton(
-                    text = stringResource(R.string.what_to_register_start_field_session),
-                    onClick = onStartFieldSession,
-                    style = AnuraFormButtonStyle.Primary,
-                    icon = AnuraIcons.FieldSession,
-                )
-                AnuraFormButton(
-                    text = stringResource(R.string.what_to_register_quick_sample),
-                    onClick = onTakeQuickSample,
-                    style = AnuraFormButtonStyle.Secondary,
-                    icon = AnuraIcons.PhotoId,
-                )
-                AnuraFormButton(
-                    text = stringResource(R.string.what_to_register_record_sound),
-                    onClick = onRecordSound,
-                    style = AnuraFormButtonStyle.Secondary,
-                    icon = AnuraIcons.AudioId,
-                )
-                AnuraFormButton(
-                    text = stringResource(R.string.what_to_register_cancel),
-                    onClick = onDismiss,
-                    style = AnuraFormButtonStyle.Outline,
-                )
+                if (choosingFieldSession) {
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_start_field_session),
+                        onClick = onStartFieldSession,
+                        style = AnuraFormButtonStyle.Primary,
+                        icon = AnuraIcons.FieldSession,
+                    )
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_continue_field_session),
+                        onClick = onContinueFieldSession,
+                        style = AnuraFormButtonStyle.Secondary,
+                        icon = AnuraIcons.FieldSession,
+                    )
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_cancel),
+                        onClick = { choosingFieldSession = false },
+                        style = AnuraFormButtonStyle.Outline,
+                    )
+                } else {
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_start_field_session),
+                        onClick = { choosingFieldSession = true },
+                        style = AnuraFormButtonStyle.Primary,
+                        icon = AnuraIcons.FieldSession,
+                    )
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_quick_sample),
+                        onClick = onTakeQuickSample,
+                        style = AnuraFormButtonStyle.Secondary,
+                        icon = AnuraIcons.PhotoId,
+                    )
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_record_sound),
+                        onClick = onRecordSound,
+                        style = AnuraFormButtonStyle.Secondary,
+                        icon = AnuraIcons.AudioId,
+                    )
+                    AnuraFormButton(
+                        text = stringResource(R.string.what_to_register_cancel),
+                        onClick = onDismiss,
+                        style = AnuraFormButtonStyle.Outline,
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(WhatToRegisterContentBottomPadding))
@@ -186,6 +216,7 @@ private fun WhatToRegisterPreview() {
     AnuraTheme {
         WhatToRegisterSheet(
             onStartFieldSession = {},
+            onContinueFieldSession = {},
             onTakeQuickSample = {},
             onRecordSound = {},
             onDismiss = {},
@@ -199,6 +230,7 @@ private fun WhatToRegisterPreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
         WhatToRegisterSheet(
             onStartFieldSession = {},
+            onContinueFieldSession = {},
             onTakeQuickSample = {},
             onRecordSound = {},
             onDismiss = {},

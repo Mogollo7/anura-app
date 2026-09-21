@@ -258,8 +258,7 @@ fun SignInScreen(
                     .weight(1f)
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
-                    .padding(horizontal = AnuraDimens.spaceGutter)
-                    .padding(top = AnuraDimens.spaceGap),
+                    .padding(horizontal = AnuraDimens.spaceGutter),
             ) {
                 Text(
                     text = stringResource(R.string.sign_in_heading),
@@ -390,8 +389,7 @@ fun SignUpScreen(
                     .weight(1f)
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
-                    .padding(horizontal = AnuraDimens.spaceGutter)
-                    .padding(top = AnuraDimens.spaceGap),
+                    .padding(horizontal = AnuraDimens.spaceGutter),
             ) {
                 Text(
                     text = stringResource(R.string.sign_up_heading),

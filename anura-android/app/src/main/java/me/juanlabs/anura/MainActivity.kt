@@ -10,6 +10,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
+import me.juanlabs.anura.designsystem.theme.AnuraAccentRole
+import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.startup.StartupLoadingScreen
 import me.juanlabs.anura.navigation.AnuraScaffold
 
@@ -32,14 +34,32 @@ class MainActivity : ComponentActivity() {
         splashScreen.setOnExitAnimationListener { splashView -> splashView.remove() }
         enableEdgeToEdge()
         setContent {
-            AnuraTheme {
+            var themeMode by rememberSaveable { mutableStateOf(AnuraThemeMode.Sistema) }
+            var accentRole by rememberSaveable { mutableStateOf(AnuraAccentRole.Ink) }
+            var preferReduceMotion by rememberSaveable { mutableStateOf(false) }
+            var preferLargeText by rememberSaveable { mutableStateOf(false) }
+            AnuraTheme(
+                themeMode = themeMode,
+                accentRole = accentRole,
+                preferReduceMotion = preferReduceMotion,
+                preferLargeText = preferLargeText,
+            ) {
                 // Cold start siempre muestra el splash. Rotación/proceso restaurado
                 // no lo repite (rememberSaveable).
                 var startupReady by rememberSaveable { mutableStateOf(false) }
                 if (!startupReady) {
                     StartupLoadingScreen(onReady = { startupReady = true })
                 } else {
-                    AnuraScaffold()
+                    AnuraScaffold(
+                        themeMode = themeMode,
+                        onThemeModeChange = { themeMode = it },
+                        accentRole = accentRole,
+                        onAccentRoleChange = { accentRole = it },
+                        preferReduceMotion = preferReduceMotion,
+                        onPreferReduceMotionChange = { preferReduceMotion = it },
+                        preferLargeText = preferLargeText,
+                        onPreferLargeTextChange = { preferLargeText = it },
+                    )
                 }
             }
         }

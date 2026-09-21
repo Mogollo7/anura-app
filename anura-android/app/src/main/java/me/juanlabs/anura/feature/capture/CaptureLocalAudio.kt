@@ -61,6 +61,8 @@ internal fun CaptureAudioPlaybackControls(
     onReject: () -> Unit,
     analyzeLabel: String = stringResource(R.string.audio_capture_analyze),
     showAnalyzeActions: Boolean = true,
+    saveLabel: String? = null,
+    onSave: (() -> Unit)? = null,
 ) {
     var scrubMs by remember { mutableStateOf<Int?>(null) }
     val displayMs = scrubMs ?: player.positionMs
@@ -116,7 +118,27 @@ internal fun CaptureAudioPlaybackControls(
             onClick = { player.onSeekBy(10_000) },
         )
     }
-    if (showAnalyzeActions) {
+    if (saveLabel != null && onSave != null) {
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+        AnuraFormButton(
+            text = saveLabel,
+            onClick = {
+                player.onStopPlayback()
+                onSave()
+            },
+            style = AnuraFormButtonStyle.Primary,
+            icon = AnuraIcons.Check,
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+        AnuraFormButton(
+            text = stringResource(R.string.night_sounds_retry),
+            onClick = {
+                player.onStopPlayback()
+                onReject()
+            },
+            style = AnuraFormButtonStyle.Outline,
+        )
+    } else if (showAnalyzeActions) {
         Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
         AnuraFormButton(
             text = analyzeLabel,

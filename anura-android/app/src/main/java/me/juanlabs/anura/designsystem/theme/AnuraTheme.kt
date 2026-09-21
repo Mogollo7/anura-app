@@ -7,6 +7,8 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 
 /**
  * Modo de tema de ANURA. No es lo mismo que `light/dark` de Android: [LuzRoja] es un
@@ -19,6 +21,25 @@ enum class AnuraThemeMode {
     Oscuro,
     LuzRoja,
     Sistema,
+}
+
+/** Muestra de acento en Apariencia: pinta botones y `accentInk` / `primary`. */
+enum class AnuraAccentRole {
+    Tint,
+    Icon,
+    Ink,
+    Danger,
+    Warning,
+    Info,
+}
+
+internal fun AnuraColorTokens.colorFor(role: AnuraAccentRole) = when (role) {
+    AnuraAccentRole.Tint -> accentTint
+    AnuraAccentRole.Icon -> accentIcon
+    AnuraAccentRole.Ink -> accentInk
+    AnuraAccentRole.Danger -> statusDanger
+    AnuraAccentRole.Warning -> statusWarning
+    AnuraAccentRole.Info -> statusInfo
 }
 
 /**
@@ -37,6 +58,10 @@ object AnuraTheme {
         @Composable
         get() = LocalAnuraExtendedColors.current
 
+    val swatchColors: AnuraSwatchColors
+        @Composable
+        get() = LocalAnuraSwatchColors.current
+
     val colorScheme: ColorScheme
         @Composable
         get() = MaterialTheme.colorScheme
@@ -52,6 +77,9 @@ object AnuraTheme {
     @Composable
     operator fun invoke(
         themeMode: AnuraThemeMode = AnuraThemeMode.Sistema,
+        accentRole: AnuraAccentRole = AnuraAccentRole.Ink,
+        preferReduceMotion: Boolean = false,
+        preferLargeText: Boolean = false,
         content: @Composable () -> Unit,
     ) {
         val systemDark = isSystemInDarkTheme()
@@ -65,17 +93,52 @@ object AnuraTheme {
             AnuraThemeMode.Claro -> AnuraLightTokens
             AnuraThemeMode.Oscuro -> AnuraDarkTokens
             AnuraThemeMode.LuzRoja -> AnuraRedLightTokens
-            AnuraThemeMode.Sistema -> AnuraLightTokens // inalcanzable, resuelto arriba
+            AnuraThemeMode.Sistema -> AnuraLightTokens
         }
         val isDark = resolvedMode == AnuraThemeMode.Oscuro || resolvedMode == AnuraThemeMode.LuzRoja
+        val accent = tokens.colorFor(accentRole)
+        val extended = tokens.toExtendedColors()
+        val onAccent = if (accentRole == AnuraAccentRole.Warning) {
+            extended.onWarning
+        } else {
+            tokens.labelOnAccent
+        }
 
-        CompositionLocalProvider(LocalAnuraExtendedColors provides tokens.toExtendedColors()) {
-            MaterialTheme(
-                colorScheme = tokens.toColorScheme(isDark),
-                typography = AnuraTypography,
-                shapes = AnuraShapes,
-                content = content,
-            )
+        val density = LocalDensity.current
+        val themedContent: @Composable () -> Unit = {
+            CompositionLocalProvider(
+                LocalAnuraExtendedColors provides extended.copy(
+                    accentIcon = accent,
+                    accentInk = accent,
+                    accentPressed = accent,
+                ),
+                LocalAnuraSwatchColors provides tokens.toSwatchColors(),
+                LocalPreferReduceMotion provides preferReduceMotion,
+            ) {
+                MaterialTheme(
+                    colorScheme = tokens.toColorScheme(isDark).copy(
+                        primary = accent,
+                        primaryContainer = accent,
+                        onPrimary = onAccent,
+                        onPrimaryContainer = onAccent,
+                    ),
+                    typography = AnuraTypography,
+                    shapes = AnuraShapes,
+                    content = content,
+                )
+            }
+        }
+        if (preferLargeText) {
+            CompositionLocalProvider(
+                LocalDensity provides Density(
+                    density = density.density,
+                    fontScale = density.fontScale * 1.15f,
+                ),
+            ) {
+                themedContent()
+            }
+        } else {
+            themedContent()
         }
     }
 }

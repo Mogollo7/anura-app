@@ -23,6 +23,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -48,8 +49,12 @@ data class AnuraNavBarItem(
     val icon: ImageVector,
 )
 
+/** Inset inferior cuando la navbar flota sobre el contenido (sin recortar el board). */
+val LocalAnuraTabBarInset = compositionLocalOf { 0.dp }
+
 /** Medidas Penpot `navbar` en `home`: grupo 350×113, píldora 350×75 @ y=38, FAB 80×80 @ y=0. */
-private val AnuraNavChromeHeight = 113.dp
+val AnuraNavBarStackHeight = 113.dp
+private val AnuraNavChromeHeight = AnuraNavBarStackHeight
 private val AnuraNavPillHeight = 75.dp
 private val AnuraNavPillHorizontalInset = 22.dp
 private val AnuraNavFabSize = AnuraDimens.sizeFab // 80 dp

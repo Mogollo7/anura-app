@@ -70,7 +70,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraTheme
 
 private const val SheetHalf = 0.50f
 private const val SheetFull = 0.92f
-private const val SheetKeyboard = 2f / 3f
 private const val SheetDismissBelow = 0.36f
 private const val SheetSnapFullAbove = 0.72f
 
@@ -92,6 +91,7 @@ fun ObservationCommentsOverlay(
     var draft by rememberSaveable { mutableStateOf("") }
     var replyTo by remember { mutableStateOf<ObservationComment?>(null) }
     var pendingProposal by remember { mutableStateOf<TaxonProposal?>(null) }
+    var expandedThreadIds by rememberSaveable { mutableStateOf(listOf<String>()) }
     val query = mentionQuery(draft)
     val suggestions = if (query != null) filterTaxa(query) else emptyList()
 
@@ -104,7 +104,7 @@ fun ObservationCommentsOverlay(
     }
 
     val target = when {
-        imeVisible || composerFocused -> SheetKeyboard
+        imeVisible || composerFocused -> 1f
         else -> sheetFraction
     }
     val animated by animateFloatAsState(targetValue = target, label = "comment-sheet")
@@ -142,7 +142,13 @@ fun ObservationCommentsOverlay(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .navigationBarsPadding(),
+                    .then(
+                        if (imeVisible) {
+                            Modifier
+                        } else {
+                            Modifier.navigationBarsPadding()
+                        },
+                    ),
             ) {
                 Box(
                     modifier = Modifier
@@ -197,6 +203,14 @@ fun ObservationCommentsOverlay(
                     items(comments, key = { it.id }) { comment ->
                         CommentThread(
                             comment = comment,
+                            expanded = expandedThreadIds.contains(comment.id),
+                            onToggleReplies = {
+                                expandedThreadIds = if (expandedThreadIds.contains(comment.id)) {
+                                    expandedThreadIds - comment.id
+                                } else {
+                                    expandedThreadIds + comment.id
+                                }
+                            },
                             onReply = { target ->
                                 replyTo = target
                                 pendingProposal = null
@@ -245,6 +259,9 @@ fun ObservationCommentsOverlay(
                             if (index >= 0) {
                                 val current = comments[index]
                                 comments[index] = current.copy(replies = current.replies + next)
+                                if (!expandedThreadIds.contains(current.id)) {
+                                    expandedThreadIds = expandedThreadIds + current.id
+                                }
                             } else {
                                 comments.add(next)
                             }
@@ -262,24 +279,20 @@ fun ObservationCommentsOverlay(
 @Composable
 private fun CommentThread(
     comment: ObservationComment,
+    expanded: Boolean,
+    onToggleReplies: () -> Unit,
     onReply: (ObservationComment) -> Unit,
 ) {
-    var expanded by rememberSaveable(comment.id) {
-        mutableStateOf(comment.replies.isNotEmpty())
-    }
     Column(modifier = Modifier.fillMaxWidth()) {
         CommentRow(comment = comment, onReply = { onReply(comment) })
         if (comment.replies.isNotEmpty()) {
-            TextButton(onClick = { expanded = !expanded }) {
+            TextButton(onClick = onToggleReplies) {
                 Text(
-                    text = stringResource(
-                        if (expanded) {
-                            R.string.comments_hide_replies
-                        } else {
-                            R.string.comments_reply_count
-                        },
-                        comment.replies.size,
-                    ),
+                    text = if (expanded) {
+                        stringResource(R.string.comments_hide_replies)
+                    } else {
+                        stringResource(R.string.comments_reply_count, comment.replies.size)
+                    },
                 )
             }
             if (expanded) {
@@ -524,7 +537,11 @@ private fun CommentComposer(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = AnuraDimens.spaceGutter, vertical = AnuraDimens.spaceGap),
+            .padding(
+                start = AnuraDimens.spaceGutter,
+                end = AnuraDimens.spaceGutter,
+                top = AnuraDimens.spaceGap,
+            ),
     ) {
         if (replyTo != null) {
             Row(verticalAlignment = Alignment.CenterVertically) {

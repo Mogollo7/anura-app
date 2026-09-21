@@ -60,7 +60,7 @@ internal val CaptureProgressGap = 12.dp
 internal val CaptureProgressToTitleGap = 14.dp
 internal val CaptureTitleToSubtitleGap = 4.dp
 internal val CaptureSubtitleToContentGap = 16.dp
-internal val CaptureNoteToSkipGap = 8.dp
+internal val CaptureNoteToSkipGap = AnuraDimens.spaceGap
 internal val CaptureBottomBreathing = 16.dp
 
 /** Contenido → pie de botones del wizard (Step1 microhábitat, Step2/3/5, AudioCapture). */
@@ -75,7 +75,6 @@ internal fun CaptureWizardScaffold(
     scrollable: Boolean = true,
     showProgress: Boolean = true,
     edgeToEdge: Boolean = false,
-    showSkipNote: Boolean = false,
     onCloseClick: (() -> Unit)? = null,
     unsavedChanges: Boolean = false,
     unsavedTitle: String = stringResource(R.string.capture_unsaved_title),
@@ -91,11 +90,6 @@ internal fun CaptureWizardScaffold(
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         contentWindowInsets = WindowInsets.navigationBars,
-        bottomBar = {
-            if (showSkipNote) {
-                CaptureWizardSkipNote()
-            }
-        },
         topBar = {
             AnuraTopBar(
                 title = appBarTitle,
@@ -187,6 +181,8 @@ internal fun CaptureWizardOptionalActions(
         onClick = onSkip,
         style = AnuraFormButtonStyle.Outline,
     )
+    Spacer(modifier = Modifier.height(CaptureNoteToSkipGap))
+    CaptureWizardSkipNote()
 }
 
 @Composable
@@ -196,11 +192,7 @@ private fun CaptureWizardSkipNote() {
         style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(AnuraTheme.extendedColors.boardBackground)
-            .padding(horizontal = AnuraDimens.spaceGutter)
-            .padding(bottom = CaptureBottomBreathing),
+        modifier = Modifier.fillMaxWidth(),
     )
 }
 
