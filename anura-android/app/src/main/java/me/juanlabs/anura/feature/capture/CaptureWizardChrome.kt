@@ -53,6 +53,17 @@ const val CaptureDraftPhotoCountKey = "capture_photo_count"
 
 internal object CapturePhotoDraft {
     var tokens: List<String> = emptyList()
+
+    /**
+     * Se llama al confirmar o cancelar una observación (`closeCaptureWizard`,
+     * `onKnownResult`, `onUnknownResult` en [me.juanlabs.anura.navigation.AnuraNavHost]).
+     * Antes este singleton de proceso nunca se limpiaba: empezar una observación nueva
+     * podía arrancar precargada con las fotos de la observación anterior — riesgo de
+     * atribuir fotos a la especie/observación equivocada (auditoría Fase 0-9, P0 #4).
+     */
+    fun reset() {
+        tokens = emptyList()
+    }
 }
 
 internal val CaptureProgressHeight = 6.dp

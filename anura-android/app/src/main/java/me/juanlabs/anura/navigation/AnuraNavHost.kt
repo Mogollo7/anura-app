@@ -25,6 +25,7 @@ import me.juanlabs.anura.feature.auth.SignUpScreen
 import me.juanlabs.anura.feature.auth.WelcomeScreen
 import me.juanlabs.anura.feature.capture.AnalyzingScreen
 import me.juanlabs.anura.feature.capture.AudioCaptureScreen
+import me.juanlabs.anura.feature.capture.CapturePhotoDraft
 import me.juanlabs.anura.feature.capture.CaptureStep1Screen
 import me.juanlabs.anura.feature.capture.CaptureStep2Screen
 import me.juanlabs.anura.feature.capture.CaptureStep3Screen
@@ -473,11 +474,16 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             AnalyzingScreen(
                 source = route.source,
                 onKnownResult = {
+                    // Limpia el borrador de fotos: si no, la próxima observación (wizard
+                    // o identificación rápida) puede arrancar precargada con las fotos
+                    // de esta (auditoría Fase 0-9, P0 #4).
+                    CapturePhotoDraft.reset()
                     navController.navigate(AnuraRoute.ObservationDetail(id = "obs-nuevo")) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
                 },
                 onUnknownResult = { reached ->
+                    CapturePhotoDraft.reset()
                     navController.navigate(AnuraRoute.UnknownResult(reached)) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
@@ -512,6 +518,9 @@ private fun NavHostController.leaveCaptureStep(fromReview: Boolean) {
 }
 
 private fun NavHostController.closeCaptureWizard() {
+    // Cancelar (botón "X" en cualquier paso/foto/audio) también debe limpiar el
+    // borrador de fotos, no solo terminar con éxito (P0 #4).
+    CapturePhotoDraft.reset()
     navigate(AnuraRoute.Home) {
         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
         launchSingleTop = true

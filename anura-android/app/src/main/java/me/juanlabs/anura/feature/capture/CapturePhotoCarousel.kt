@@ -217,8 +217,10 @@ private fun CaptureCarouselPage(
     }
 }
 
+/** Visible dentro del módulo: reusado por [AnalyzingScreen] para mostrar la foto real
+ * capturada en vez de una imagen de archivo fija (auditoría Fase 0-9, P0 #6). */
 @Composable
-private fun rememberCaptureBackdropPainter(token: String): Painter? {
+internal fun rememberCaptureBackdropPainter(token: String): Painter? {
     return when {
         token.startsWith("res:") -> {
             val resId = token.removePrefix("res:").toIntOrNull()

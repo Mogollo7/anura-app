@@ -148,8 +148,16 @@ fun AnalyzingScreen(
                         modifier = Modifier.size(64.dp),
                     )
                 } else {
+                    // Antes mostraba siempre la misma foto de archivo, sin importar la
+                    // foto real capturada por el usuario (auditoría Fase 0-9, P0 #6).
+                    // El fallback a la foto de archivo solo aplica si no hay ninguna foto
+                    // capturada (no debería ocurrir en un flujo real, pero evita una
+                    // pantalla en blanco si algún caller llega aquí sin fotos).
+                    val capturedToken = CapturePhotoDraft.tokens.firstOrNull()
+                    val capturedPainter = capturedToken?.let { rememberCaptureBackdropPainter(it) }
                     Image(
-                        painter = painterResource(R.drawable.carousel_dendrobates_truncatus),
+                        painter = capturedPainter
+                            ?: painterResource(R.drawable.carousel_dendrobates_truncatus),
                         contentDescription = stringResource(R.string.analyzing_photo_cd),
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop,
