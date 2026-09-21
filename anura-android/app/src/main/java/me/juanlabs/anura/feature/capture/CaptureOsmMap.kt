@@ -61,6 +61,25 @@ fun CaptureOsmMap(
         }.also { mapView.overlays.add(it) }
     }
 
+    // El marcador es arrastrable (isDraggable=true arriba) pero, sin este listener, el
+    // ajuste manual del usuario no tenía ningún efecto en el estado de la app (auditoría
+    // Fase 0-9, P1 #11). Se reporta como un `Location` sintético para reusar el mismo
+    // callback que ya consume el GPS real, sin cambiar su firma.
+    DisposableEffect(marker, onLocationChanged) {
+        marker.setOnMarkerDragListener(object : Marker.OnMarkerDragListener {
+            override fun onMarkerDrag(marker: Marker) = Unit
+            override fun onMarkerDragStart(marker: Marker) = Unit
+            override fun onMarkerDragEnd(marker: Marker) {
+                val dragged = Location("manual-drag").apply {
+                    latitude = marker.position.latitude
+                    longitude = marker.position.longitude
+                }
+                onLocationChanged(dragged)
+            }
+        })
+        onDispose { marker.setOnMarkerDragListener(null) }
+    }
+
     DisposableEffect(mapView) {
         mapView.onResume()
         onDispose { mapView.onPause() }

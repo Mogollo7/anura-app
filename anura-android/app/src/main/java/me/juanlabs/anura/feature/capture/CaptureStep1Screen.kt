@@ -107,6 +107,13 @@ fun CaptureStep1Screen(
     }
     var precisionMeters by rememberSaveable { mutableIntStateOf(-1) }
     var altitudeLabel by rememberSaveable { mutableStateOf(uiState.altitudeLabel) }
+    // Antes se descartaban: el callback solo leía accuracy/altitude, nunca lat/lon —
+    // el dato más elemental de "dónde la viste" no llegaba a ningún estado de la app
+    // (auditoría Fase 0-9, P0 #1). Con esto el dato existe y es visible en pantalla;
+    // propagarlo al resto del wizard es un cambio de mayor alcance (P0 #3, bloque
+    // aparte: requiere un modelo de datos compartido entre los 6 pasos).
+    var latitude by rememberSaveable { mutableStateOf<Double?>(null) }
+    var longitude by rememberSaveable { mutableStateOf<Double?>(null) }
     val altitude = altitudeLabel.ifEmpty { mockAltitude }
 
     CaptureWizardScaffold(
@@ -124,6 +131,7 @@ fun CaptureStep1Screen(
         CaptureLocationMap(
             locationEnabled = locationGranted,
             precisionMeters = precisionMeters.takeIf { it >= 0 },
+            coordinates = latitude?.let { lat -> longitude?.let { lon -> lat to lon } },
             onLocationChanged = { location ->
                 if (location.hasAccuracy()) {
                     precisionMeters = location.accuracy.toInt().coerceAtLeast(0)
@@ -133,6 +141,8 @@ fun CaptureStep1Screen(
                         .format(location.altitude.toInt())
                     altitudeLabel = formatted + " msnm"
                 }
+                latitude = location.latitude
+                longitude = location.longitude
             },
         )
 
@@ -183,6 +193,7 @@ fun CaptureStep1Screen(
 private fun CaptureLocationMap(
     locationEnabled: Boolean,
     precisionMeters: Int?,
+    coordinates: Pair<Double, Double>?,
     onLocationChanged: (android.location.Location) -> Unit,
 ) {
     val mapCd = stringResource(R.string.capture_step1_map_cd)
@@ -221,6 +232,39 @@ private fun CaptureLocationMap(
                 ) {
                     Text(
                         text = stringResource(R.string.capture_step1_precision, precisionMeters),
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontWeight = FontWeight.SemiBold,
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+        }
+        if (coordinates != null) {
+            val (lat, lon) = coordinates
+            Surface(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(end = 14.dp, bottom = 14.dp)
+                    .height(CapturePrecisionChipHeight),
+                shape = RoundedCornerShape(AnuraDimens.radiusCapsule),
+                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
+                border = BorderStroke(1.dp, AnuraTheme.extendedColors.cardStroke),
+                shadowElevation = 0.dp,
+                tonalElevation = 0.dp,
+            ) {
+                Box(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        text = stringResource(
+                            R.string.capture_step1_coordinates,
+                            String.format(CaptureAltitudeLocale, "%.4f", lat),
+                            String.format(CaptureAltitudeLocale, "%.4f", lon),
+                        ),
                         style = MaterialTheme.typography.labelSmall.copy(
                             fontWeight = FontWeight.SemiBold,
                         ),
