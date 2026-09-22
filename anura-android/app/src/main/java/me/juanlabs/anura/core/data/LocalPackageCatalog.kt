@@ -14,8 +14,14 @@ object LocalPackageCatalog {
             region = "Antioquia",
             version = "1.0.0",
             speciesCount = 30,
-            sizeBytes = 9_117_696L,
-            sha256 = "618372700d27c8d951651d21c9607daf3ddd50c50e127f16c222d0c164fbda83",
+            sizeBytes = 9_154_560L,
+            // Incluye zone_prior/zone_prior_meta (prior geográfico) y weather_prior/weather_prior_meta
+            // (prior de clima) horneadas en el paquete esta sesión — ver Arquitectura Multimodal §5.1.
+            // Bug real que este valor causó: quedó desactualizado tras hornear las tablas nuevas, así
+            // que un teléfono con el paquete ya "instalado" (estado persistido) nunca detectaba que el
+            // asset había cambiado y seguía usando una copia vieja sin esas tablas — crash real en
+            // campo ("no such table: zone_prior_meta") en vez de simplemente actualizar el paquete.
+            sha256 = "ef32050262ca37dc7b08892ec93c418153a264befc0060ec20afacea44ecae9e",
             assetPath = "packages/antioquia/package.sqlite",
         ),
     )

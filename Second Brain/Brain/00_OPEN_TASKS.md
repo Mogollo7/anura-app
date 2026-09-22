@@ -6,6 +6,16 @@ Prioridad solo según urgencia explícita, dependencia bloqueante o riesgo docum
 - [ ] Crear copias de seguridad externas de fotos y anotaciones CVAT antes de la próxima salida; D-6 no tiene plan B. Fuente: [Riesgos](./01 Proyecto/Riesgos del Proyecto.md).
 - [ ] Mantener congelado y auditar el split `GroupSplit` por individuo/localidad al escalar el catálogo; una fuga invalidaría las cifras. Fuente: [Estrategia de dataset](./02 Metodología/Estrategia de Construcción del Dataset.md).
 
+## URGENTE (añadido 2026-09-22)
+- [ ] `LocalPackageCatalog` no tiene forma de detectar que un paquete regional ya "instalado"
+  quedó desactualizado (sha256 cambió en assets, pero el registro persistido sigue apuntando a
+  la copia vieja en `filesDir`). Causó un incidente real: horneé `zone_prior`/`weather_prior` en
+  `package.sqlite` dos veces esta sesión, pero el teléfono siguió usando la copia original
+  (verificado por sha256), lo que provocó un crash real (`no such table: zone_prior_meta`) al
+  resolver una zona con GPS. Corregido puntualmente (sha256 del catálogo actualizado + copia
+  forzada al dispositivo vía adb), pero el mecanismo de auto-detección/reinstalación sigue sin
+  existir — se repetirá con el próximo cambio de paquete si no se construye.
+
 ## ALTA
 - [x] Implementar el prior GPS `w=0,75` en Kotlin y validar que no actúe como filtro — hecho
   2026-09-22 (`KnnVote.candidates(neighbors, geoPrior)`, `PackageVectorIndex.zoneIdFor/zonePrior`).
@@ -13,6 +23,9 @@ Prioridad solo según urgencia explícita, dependencia bloqueante o riesgo docum
   167 imágenes de prueba, `COLOMBIA_ANURA/ANTIOQUIA/reports/packages_v1.0.0.json`), distinto del
   +24,9pp de EXP-007 citado aquí antes — EXP-007 midió sobre otro conjunto/condición, no se
   reconcilió cuál es la cifra "oficial" a citar de aquí en adelante.
+  **Corrección 2026-09-22 (mismo día)**: aplicarlo a la decisión oficial fue un error — volteó una
+  identificación visual correcta en campo (ver [[02 Metodología/Arquitectura Multimodal]] §5.2).
+  Ahora el prior de zona/clima solo afecta candidatas mostradas, nunca qué especie se identifica.
 - [x] Integrar `encoder_anura_fp16.onnx` y `antioquia_v1.sqlite` (ONNX + sqlite-vec) en el
   dispositivo — hecho en sesiones previas (`AnuraIdentifier`/`PackageVectorIndex`/`ImageEncoder`).
   Falta medir latencia/RAM en dispositivo real (pendiente al 2026-09-22, teléfono no siempre
