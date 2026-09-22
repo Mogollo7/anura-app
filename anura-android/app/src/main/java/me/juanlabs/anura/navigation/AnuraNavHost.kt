@@ -8,7 +8,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
@@ -542,7 +541,6 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             val route = backStackEntry.toRoute<AnuraRoute.Analyzing>()
             val repository = rememberAnuraRepository()
             val context = androidx.compose.ui.platform.LocalContext.current
-            var showNotAnuroDialog by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
             AnalyzingScreen(
                 source = route.source,
                 identifyPhoto = if (route.source != AnuraRoute.Analyzing.Audio) {
@@ -572,7 +570,7 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                         }
                     }
                 },
-                onNotAnuro = { showNotAnuroDialog = true },
+                onNotAnuro = { navController.popBackStack() },
                 onIdentificationFailed = { reason ->
                     repository.notify(
                         context.getString(
@@ -603,26 +601,6 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                     }
                 },
             )
-            if (showNotAnuroDialog) {
-                androidx.compose.material3.AlertDialog(
-                    onDismissRequest = {
-                        showNotAnuroDialog = false
-                        navController.popBackStack()
-                    },
-                    title = { androidx.compose.material3.Text(stringResource(me.juanlabs.anura.R.string.identification_not_anuro_title)) },
-                    text = { androidx.compose.material3.Text(stringResource(me.juanlabs.anura.R.string.identification_not_anuro)) },
-                    confirmButton = {
-                        androidx.compose.material3.TextButton(
-                            onClick = {
-                                showNotAnuroDialog = false
-                                navController.popBackStack()
-                            },
-                        ) {
-                            androidx.compose.material3.Text(stringResource(me.juanlabs.anura.R.string.identification_not_anuro_action))
-                        }
-                    },
-                )
-            }
         }
         composable<AnuraRoute.UnknownResult> { backStackEntry ->
             val resultRoute = backStackEntry.toRoute<AnuraRoute.UnknownResult>()

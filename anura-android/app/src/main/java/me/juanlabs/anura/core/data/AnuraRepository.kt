@@ -205,7 +205,13 @@ class AnuraRepository(
         val pack = snapshot.packages.firstOrNull {
             it.active && it.status == RegionalPackageStatus.Installed && it.localPath != null
         } ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
-        return engine.identify(photo, requireNotNull(pack.localPath), pack.id)
+        return engine.identify(
+            photo,
+            requireNotNull(pack.localPath),
+            pack.id,
+            latitude = snapshot.draft.latitude,
+            longitude = snapshot.draft.longitude,
+        )
     }
 
     fun commitObservation(

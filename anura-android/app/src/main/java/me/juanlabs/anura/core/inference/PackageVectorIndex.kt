@@ -43,11 +43,49 @@ class PackageVectorIndex private constructor(
 
     fun vecVersion(): String = connection.prepare("select vec_version()").use { st -> st.step(); st.getText(0) }
 
+    /**
+     * Zona geográfica de una coordenada (celda 0.25°, redondeo al par más cercano — igual regla
+     * que `package_info.cell_rule` y `pipeline_dataset/paquetes_zonales.py`). Null si la celda no
+     * tiene zona asignada en este paquete (fuera de cobertura): la decisión visual no se descarta,
+     * solo no recibe ajuste geográfico.
+     */
+    fun zoneIdFor(latitude: Double, longitude: Double): String? {
+        val row = Math.rint(latitude / CellSizeDegrees).toLong()
+        val col = Math.rint(longitude / CellSizeDegrees).toLong()
+        return connection.prepare("select zone_id from grid_cells where row = ? and col = ?").use { st ->
+            st.bindLong(1, row)
+            st.bindLong(2, col)
+            if (st.step()) st.getText(0) else null
+        }
+    }
+
+    /**
+     * Prior geográfico P(especie|zona) horneado en el paquete (`pipeline_dataset/paquetes_zonales.py`,
+     * validado con control de fuga: Top-1 62.9%→72.5% sobre 167 imágenes de prueba —
+     * `COLOMBIA_ANURA/ANTIOQUIA/reports/packages_v1.0.0.json`). Especies sin fila propia en la zona
+     * usan `p_unobserved` (Laplace), nunca cero. Null si la zona no existe en este paquete.
+     */
+    fun zonePrior(zoneId: String): GeoZonePrior? {
+        val (weight, unobserved) = connection.prepare(
+            "select prior_weight, p_unobserved from zone_prior_meta where zone_id = ?",
+        ).use { st ->
+            st.bindText(1, zoneId)
+            if (!st.step()) return null
+            st.getDouble(0) to st.getDouble(1)
+        }
+        val byTaxon = connection.prepare("select taxon_id, p from zone_prior where zone_id = ?").use { st ->
+            st.bindText(1, zoneId)
+            buildMap { while (st.step()) put(st.getText(0), st.getDouble(1)) }
+        }
+        return GeoZonePrior(zoneId, weight, unobserved, byTaxon)
+    }
+
     override fun close() = connection.close()
 
     companion object {
         private const val ExtensionLibrary = "libvec0.so"
         private const val EntryPoint = "sqlite3_vec_init"
+        private const val CellSizeDegrees = 0.25
 
         fun open(context: Context, packagePath: String): PackageVectorIndex {
             val library = File(context.applicationInfo.nativeLibraryDir, ExtensionLibrary)

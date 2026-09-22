@@ -141,6 +141,10 @@ Tres decisiones de diseño en esa pantalla:
 
 ## 6. Qué falta por decidir o medir
 
+- [x] Primera evaluación exploratoria far-OOD ("otro organismo u objeto"): 30 negativos
+  genéricos vs. la única especie near-OOD con datos — hueco limpio, sin solape. Ver
+  [[05_OPEN_SET/PRIMERA_EVALUACION_UMBRAL_NO_RANA|Primera evaluación — Umbral rana/no-rana]].
+  Sigue pendiente el caso "otro anfibio" (salamandra, cecilia) de la tabla del §1.
 - [ ] Recolectar y versionar el conjunto open-set (near-OOD y far-OOD por separado).
 - [ ] Implementar temperature scaling y reportar el error de calibración antes/después.
 - [ ] Comparar MSP vs. Energy vs. Mahalanobis sobre los mismos conjuntos.

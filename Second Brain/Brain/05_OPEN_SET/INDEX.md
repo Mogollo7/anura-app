@@ -29,6 +29,16 @@ El sistema debe distinguir especies conocidas de observaciones que no pertenecen
 - `antioquia_v1.sqlite` contiene 2.073 vectores y 25 especies; su filtrado regional reduce candidatos plausibles y mejora el reconocimiento, pero no reemplaza el umbral explícito de desconocido: [Base Vectorial](../05_OPEN_SET/INDEX.md).
 - El prior GPS puede elevar Top-1 de 57 % a 81 %, pero está definido como prior, nunca como filtro. Un lugar no debe convertir una especie fuera de rango en imposible: [Arquitectura multimodal](../02 Metodología/Arquitectura Multimodal.md).
 
+## ACTUALIZACIÓN 2026-09-22 — Primera evaluación far-OOD (no-rana)
+Primer intento de cerrar la brecha near-OOD/far-OOD señalada arriba, acotado al caso
+far-OOD "no hay ningún anuro en la foto": 30 negativos genéricos (Wikimedia Commons)
+contra el único punto near-OOD con datos (*Hyloxalus picachos*, Fase 13). Resultado:
+hueco limpio entre ambos grupos (no-rana min=49.99 vs. rana-desconocida max=46.65); el
+τ=39.35 congelado ya rechaza el 100% de los negativos sin cambios. Se integró un segundo
+umbral provisional (`NotAnuroTau=48.0`, sin calibración formal) en el pipeline Android para
+distinguir el mensaje al usuario. Ver nota completa:
+[[05_OPEN_SET/PRIMERA_EVALUACION_UMBRAL_NO_RANA|Primera evaluación — Umbral rana/no-rana]].
+
 ## Resultado y limitaciones
 **Resultado actual (post-Fase 13):** AUROC=0.6248 y umbral operativo congelado
 τ=39.35 (@95%KAR) medidos ciegamente sobre F3+F4. Persisten limitaciones reales:

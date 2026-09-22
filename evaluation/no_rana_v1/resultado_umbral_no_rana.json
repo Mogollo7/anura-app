@@ -1,0 +1,170 @@
+{
+  "tau": 39.35406371422803,
+  "negativos": [
+    {
+      "file": "00_domestic_dog_photo.jpg",
+      "score": 63.25081701357071,
+      "decision": "REJECT"
+    },
+    {
+      "file": "01_domestic_cat_photo.jpg",
+      "score": 62.64146472133829,
+      "decision": "REJECT"
+    },
+    {
+      "file": "02_green_leaf_plant.jpg",
+      "score": 61.931225924325275,
+      "decision": "REJECT"
+    },
+    {
+      "file": "03_butterfly_insect.jpg",
+      "score": 57.41614312695886,
+      "decision": "REJECT"
+    },
+    {
+      "file": "04_songbird_photo.jpg",
+      "score": 49.9948027618551,
+      "decision": "REJECT"
+    },
+    {
+      "file": "07_brick_building_facade.jpg",
+      "score": 68.78679128093263,
+      "decision": "REJECT"
+    },
+    {
+      "file": "08_sliced_bread_food.jpg",
+      "score": 63.99665445094004,
+      "decision": "REJECT"
+    },
+    {
+      "file": "09_human_face_portrait.jpg",
+      "score": 63.67866193908304,
+      "decision": "REJECT"
+    },
+    {
+      "file": "10_red_rose_flower.jpg",
+      "score": 67.55893074046448,
+      "decision": "REJECT"
+    },
+    {
+      "file": "11_pine_forest_photo.jpg",
+      "score": 74.102194198533,
+      "decision": "REJECT"
+    },
+    {
+      "file": "13_blue_sky_clouds.jpg",
+      "score": 68.45760364243189,
+      "decision": "REJECT"
+    },
+    {
+      "file": "14_open_book_pages.png",
+      "score": 74.03625224807362,
+      "decision": "REJECT"
+    },
+    {
+      "file": "15_wooden_chair_photo.jpg",
+      "score": 72.85128137448766,
+      "decision": "REJECT"
+    },
+    {
+      "file": "16_laptop_computer_photo.jpg",
+      "score": 59.54651101687626,
+      "decision": "REJECT"
+    },
+    {
+      "file": "17_acoustic_guitar_photo.jpg",
+      "score": 73.8554154282421,
+      "decision": "REJECT"
+    },
+    {
+      "file": "20_baseball_cap_hat.jpg",
+      "score": 63.46171949512641,
+      "decision": "REJECT"
+    },
+    {
+      "file": "21_leather_shoe_photo.jpg",
+      "score": 68.89965786737532,
+      "decision": "REJECT"
+    },
+    {
+      "file": "22_coffee_cup_photo.JPG",
+      "score": 68.97359645264682,
+      "decision": "REJECT"
+    },
+    {
+      "file": "23_glass_bottle_photo.jpg",
+      "score": 68.44647214299742,
+      "decision": "REJECT"
+    },
+    {
+      "file": "24_bicycle_photo.jpg",
+      "score": 69.90926162514363,
+      "decision": "REJECT"
+    },
+    {
+      "file": "27_monarch_butterfly.jpg",
+      "score": 58.52810400213803,
+      "decision": "REJECT"
+    },
+    {
+      "file": "28_goldfish_aquarium_photo.jpg",
+      "score": 73.32333402942024,
+      "decision": "REJECT"
+    },
+    {
+      "file": "29_red-eared_slider_turtle.jpg",
+      "score": 58.175962646693954,
+      "decision": "REJECT"
+    },
+    {
+      "file": "30_green_lizard_photo.jpg",
+      "score": 63.88045441132779,
+      "decision": "REJECT"
+    },
+    {
+      "file": "31_garden_spider_photo.jpg",
+      "score": 58.15909657184544,
+      "decision": "REJECT"
+    },
+    {
+      "file": "33_wild_rabbit_photo.jpg",
+      "score": 69.05823806643316,
+      "decision": "REJECT"
+    },
+    {
+      "file": "34_brown_horse_photo.jpg",
+      "score": 66.07135563308798,
+      "decision": "REJECT"
+    },
+    {
+      "file": "35_dairy_cow_photo.jpg",
+      "score": 61.00345037469893,
+      "decision": "REJECT"
+    },
+    {
+      "file": "36_domestic_sheep_photo.jpg",
+      "score": 68.70608321245754,
+      "decision": "REJECT"
+    },
+    {
+      "file": "37_african_elephant_photo.jpg",
+      "score": 59.28951319890443,
+      "decision": "REJECT"
+    }
+  ],
+  "resumen_no_rana": {
+    "n": 30,
+    "media": 65.266368319947,
+    "min": 49.9948027618551,
+    "max": 74.102194198533,
+    "reject_rate": 1.0
+  },
+  "resumen_rana_desconocida_fase13": {
+    "Hyloxalus_picachos": {
+      "media": 32.64228630564795,
+      "min": 27.215121214010814,
+      "max": 46.64891122021613,
+      "reject_rate": 0.13333333333333333
+    }
+  }
+}

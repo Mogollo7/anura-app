@@ -132,13 +132,46 @@ Los motivos son biológicos, no técnicos: los mapas de distribución están inc
 
 Implementación segura: el prior geográfico se aplica como un factor acotado (por ejemplo, multiplicador en [0,5 â€“ 1,5]) y se muestra al usuario cuando contradice a la evidencia visual: *"morfológicamente compatible con X, pero fuera de su distribución conocida â€” verificar"*.
 
+## 5.1 Integrado en producción (Antioquia, 2026-09-22)
+
+El prior geográfico de §5 **ya está integrado en la app Android**, no solo diseñado. Ruta real:
+
+- **Origen del prior**: `pipeline_dataset/paquetes_zonales.py` — `P(especie|zona)` con suavizado
+  de Laplace sobre ocurrencias reales, `zona` = celda de 0.25° agregada (point-in-polygon DANE,
+  [[Dataset Jerárquico de Colombia — Paquetes Departamentales]]). Validado con **control de
+  fuga real** (las observaciones de prueba se retiran del conteo del prior antes de evaluar):
+  Top-1 **62.9%→72.5%** (+9.6pp), Top-3 82.0%→83.2%, sobre 167 imágenes de prueba de Antioquia
+  (`COLOMBIA_ANURA/ANTIOQUIA/reports/packages_v1.0.0.json`).
+- **Combinación** (nunca filtro duro, cumple la regla de §5): `score(s) = voto_kNN(s) · P(s|z)^0.75`
+  — un multiplicador acotado por la ley de potencia, no una eliminación. Especies sin registro en
+  la zona usan `p_unobserved` (Laplace), nunca cero.
+- **Dónde vive el código**: los 4 paquetes de prior por zona (`antioquia_zone_00X_v1.0.0.sqlite`,
+  ya construidos en `COLOMBIA_ANURA/ANTIOQUIA/packages/v1.0.0/zones/`, 16-24 KB cada uno) se
+  fusionaron dentro del `package.sqlite` que ya se empaqueta en la app (tablas `zone_prior_meta` +
+  `zone_prior`), en vez de enviarse como archivos separados — evita tocar el instalador de
+  paquetes. Lectura en `PackageVectorIndex.zoneIdFor()`/`zonePrior()`, combinación en
+  `KnnVote.candidates(neighbors, geoPrior)`, hilado desde las coordenadas GPS ya capturadas en el
+  Paso 1 del wizard (`AnuraRepository.identifyDraftPhoto()` → `AnuraIdentifier.identify(...)`).
+- **Qué NO se tocó**: el rechazo Open Set (Mahalanobis, τ=39.35 congelado en Fase 13) es
+  independiente de este prior — decide sobre la distancia al centroide más cercano, no sobre el
+  ganador del voto k-NN. Sin coordenadas o fuera de la cobertura del paquete (4 zonas de
+  Antioquia), el resultado es idéntico al voto puramente visual de siempre.
+
+⚠️ Nota importante para no repetir un experimento ya cerrado: usar **OpenTopoData por punto
+exacto** (elevación/pendiente/orientación en tiempo real) para mejorar el *rechazo* Open Set
+**ya se probó y dio `NO_GO`** (`validation/open_set_topography_v1/TOPOGRAPHIC_CONTEXT_REPORT.md`):
+FAR 36.94%→36.77%, "un único caso", sin evidencia suficiente. El prior de zona de arriba es
+distinto — mejora el *ranking* de especies (Top-1), no el rechazo — y por eso sí se integró.
+
 ## 6. Qué falta por decidir o medir
 
 - [ ] Elegir backbone acàºstico (B0 propio vs. preentrenado vs. AnuraSet).
 - [ ] Definir cómo se agregan màºltiples vistas del mismo individuo.
-- [ ] Construir la fuente de verosimilitud geográfica (GBIF/SiB) por especie.
+- [x] Construir la fuente de verosimilitud geográfica (GBIF/SiB) por especie — hecho para
+  Antioquia (§5.1), pendiente para el resto de departamentos.
 - [ ] Calibrar las puntuaciones de cada rama antes de fusionar.
 - [ ] Ejecutar la tabla de ablación de §4.
+- [ ] Validar en dispositivo real la integración de §5.1 (pendiente al momento de esta nota).
 
 
 

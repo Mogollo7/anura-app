@@ -4,6 +4,7 @@ import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.math.max
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 data class OpenSetScore(val mahalanobis: Double, val nearestCentroidId: String, val accepted: Boolean)
@@ -104,13 +105,30 @@ object KnnVote {
         return best
     }
 
-    /** Candidatas ordenadas por voto; la primera es siempre [winner] (mismo desempate por orden de llegada). */
-    fun candidates(neighbors: List<Neighbor>): List<Candidate> {
+    /**
+     * Candidatas ordenadas por voto; la primera es siempre [winner] (mismo desempate por orden de
+     * llegada) — salvo que [geoPrior] reordene el voto ponderado (ver más abajo), en cuyo caso el
+     * ganador es quien gane la votación ya ajustada por geografía.
+     *
+     * Con [geoPrior] no nulo, cada voto se multiplica por `P(especie|zona)^peso` antes de
+     * normalizar — la misma combinación `score(s) = voto_knn(s) · P(s|z)^w` validada en PC
+     * (`pipeline_dataset/paquetes_zonales.py`, Top-1 62.9%→72.5% con control de fuga). Sin
+     * [geoPrior] (sin ubicación o sin zona en el paquete) el resultado es idéntico al voto
+     * puramente visual de siempre.
+     */
+    fun candidates(neighbors: List<Neighbor>, geoPrior: GeoZonePrior? = null): List<Candidate> {
         val votes = votes(neighbors)
-        val total = votes.values.sum()
+        val weighted = if (geoPrior == null) {
+            votes
+        } else {
+            votes.mapValuesTo(LinkedHashMap()) { (taxonId, vote) ->
+                vote * geoPrior.priorFor(taxonId).pow(geoPrior.weight)
+            }
+        }
+        val total = weighted.values.sum()
         if (total <= 0.0) return emptyList()
         val byTaxon = neighbors.associateBy { it.taxonId }
-        return votes.entries
+        return weighted.entries
             .withIndex()
             .sortedWith(compareByDescending<IndexedValue<Map.Entry<String, Double>>> { it.value.value }.thenBy { it.index })
             .map { (_, entry) ->

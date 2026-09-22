@@ -5,6 +5,36 @@ import org.junit.Test
 
 class KnnVoteTest {
     private fun candidate(id: String, share: Double) = Candidate(id, id, share)
+    private fun neighbor(id: String, distance: Double) = Neighbor(id, id, distance)
+
+    @Test
+    fun candidates_withoutGeoPrior_isPureVisualVote() {
+        // A vota más que B (menor distancia = mayor voto): visual puro decide A.
+        val neighbors = listOf(neighbor("A", 0.5), neighbor("B", 0.3))
+
+        val result = KnnVote.candidates(neighbors)
+
+        assertEquals("B", result.first().taxonId) // 1-0.3=0.7 > 1-0.5=0.5
+        assertEquals(1.0, result.sumOf { it.share }, 1e-9)
+    }
+
+    @Test
+    fun candidates_withGeoPrior_reweightsAndCanFlipWinner() {
+        // Visual puro favorece a B (voto 0.7 vs 0.5), pero la zona favorece fuertemente a A.
+        val neighbors = listOf(neighbor("A", 0.5), neighbor("B", 0.3))
+        val geoPrior = GeoZonePrior(
+            zoneId = "ZONE_TEST",
+            weight = 1.0,
+            unobservedP = 0.01,
+            byTaxon = mapOf("A" to 0.9, "B" to 0.1),
+        )
+
+        val result = KnnVote.candidates(neighbors, geoPrior)
+
+        // combinado: A=0.5*0.9=0.45, B=0.7*0.1=0.07 -> A gana ahora
+        assertEquals("A", result.first().taxonId)
+        assertEquals(1.0, result.sumOf { it.share }, 1e-9)
+    }
 
     @Test
     fun displayCandidates_keepsWinnerFirstEvenIfNotTopOfBroaderSet() {

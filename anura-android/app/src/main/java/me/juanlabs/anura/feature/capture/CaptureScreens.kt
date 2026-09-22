@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -46,6 +47,7 @@ import kotlinx.coroutines.delay
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.inference.IdentificationFailure
 import me.juanlabs.anura.core.inference.IdentificationOutcome
+import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
@@ -91,6 +93,7 @@ fun AnalyzingScreen(
 ) {
     BackHandler(enabled = true) { }
     var currentStage by rememberSaveable { mutableIntStateOf(0) }
+    var showNotAnuro by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(Unit) {
         val pending = identifyPhoto?.let { identify -> async { identify() } }
         AnalyzingStages.indices.forEach { index ->
@@ -100,7 +103,7 @@ fun AnalyzingScreen(
         if (pending != null) {
             when (val outcome = pending.await()) {
                 is IdentificationOutcome.Identified -> onIdentified(outcome)
-                is IdentificationOutcome.NotAnuro -> onNotAnuro()
+                is IdentificationOutcome.NotAnuro -> showNotAnuro = true
                 is IdentificationOutcome.Failed -> onIdentificationFailed(outcome.reason)
             }
             return@LaunchedEffect
@@ -247,6 +250,46 @@ fun AnalyzingScreen(
                     )
                 }
             }
+        }
+    }
+    if (showNotAnuro) {
+        NotAnuroSheet(onDismiss = { showNotAnuro = false; onNotAnuro() })
+    }
+}
+
+/** Pop-up (`AnuraBottomSheet`, mismo shell que `CaptureConfirmSheet`) cuando el rechazo Open Set
+ * supera [me.juanlabs.anura.core.inference.AnuraIdentifier.NotAnuroTau]: no es un rechazo de
+ * especie desconocida, es que la foto no parece contener ningún anuro. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun NotAnuroSheet(onDismiss: () -> Unit) {
+    AnuraBottomSheet(onDismissRequest = onDismiss) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = AnuraDimens.spacePopupInset),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = stringResource(R.string.identification_not_anuro_title),
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(vertical = AnuraDimens.spaceGap),
+            )
+            Text(
+                text = stringResource(R.string.identification_not_anuro),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            AnuraFormButton(
+                text = stringResource(R.string.identification_not_anuro_action),
+                onClick = onDismiss,
+                style = AnuraFormButtonStyle.Primary,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
         }
     }
 }

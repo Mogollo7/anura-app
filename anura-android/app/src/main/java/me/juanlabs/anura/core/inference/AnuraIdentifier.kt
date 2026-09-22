@@ -55,17 +55,29 @@ class AnuraIdentifier(private val context: Context) {
     private var allowedByPackage: Map<String, Set<String>>? = null
     private val debuggable = context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
 
-    suspend fun identify(photo: File, packagePath: String, packageId: String): IdentificationOutcome =
+    suspend fun identify(
+        photo: File,
+        packagePath: String,
+        packageId: String,
+        latitude: Double? = null,
+        longitude: Double? = null,
+    ): IdentificationOutcome =
         withContext(Dispatchers.Default) {
             mutex.withLock {
-                runCatching { identifyLocked(photo, packagePath, packageId) }.getOrElse { error ->
+                runCatching { identifyLocked(photo, packagePath, packageId, latitude, longitude) }.getOrElse { error ->
                     Log.e(Tag, "Fallo en la identificación", error)
                     IdentificationOutcome.Failed(IdentificationFailure.EngineError, error.message ?: error.javaClass.simpleName)
                 }
             }
         }
 
-    private fun identifyLocked(photo: File, packagePath: String, packageId: String): IdentificationOutcome {
+    private fun identifyLocked(
+        photo: File,
+        packagePath: String,
+        packageId: String,
+        latitude: Double?,
+        longitude: Double?,
+    ): IdentificationOutcome {
         val encoder = encoder ?: loadEncoder().also { encoder = it }
         val openSet = openSet ?: context.assets.open(OpenSetAsset).use(OpenSetModel::read).also { openSet = it }
         val allowed = (allowedByPackage ?: loadAllowedByPackage().also { allowedByPackage = it })[packageId]
@@ -92,10 +104,18 @@ class AnuraIdentifier(private val context: Context) {
         val t1 = SystemClock.elapsedRealtime()
         val embedding = encoder.encode(chw)
         val t2 = SystemClock.elapsedRealtime()
+        // Prior geográfico por zona (pipeline_dataset/paquetes_zonales.py, validado con control de
+        // fuga: Top-1 62.9%→72.5%). Sin coordenadas o fuera de la cobertura del paquete, geoPrior
+        // queda null y el voto es puramente visual — la decisión nunca se descarta por esto.
+        val geoPrior = if (latitude != null && longitude != null) {
+            index.zoneIdFor(latitude, longitude)?.let(index::zonePrior)
+        } else {
+            null
+        }
         // k=5: la misma cantidad de vecinos con la que PC calibró y congeló el método (Fase 8/13).
         // La decisión (especie + aceptar/rechazar) sale de aquí, no del k más amplio de abajo.
         val neighbors = index.nearest(embedding, KNeighbors)
-        val official = KnnVote.candidates(neighbors)
+        val official = KnnVote.candidates(neighbors, geoPrior)
         val top = official.firstOrNull()
             ?: return IdentificationOutcome.Failed(IdentificationFailure.EngineError, "El paquete no devolvió vecinos")
         val taxonId = top.taxonId
@@ -111,13 +131,14 @@ class AnuraIdentifier(private val context: Context) {
         // Candidatas para mostrar: mismo ganador oficial (k=5) + hasta 3 alternativas de un vecindario
         // más amplio, solo para que la UI tenga con qué comparar — no cambia la decisión de arriba.
         val broader = if (DisplayNeighbors > KNeighbors) index.nearest(embedding, DisplayNeighbors) else neighbors
-        val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader), DisplayCandidateCount)
+        val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader, geoPrior), DisplayCandidateCount)
 
         val name = top.scientificName
         Log.i(
             Tag,
             "identify ${photo.name} ${width}x$height pred=$name share=${"%.3f".format(top.share)} maha=${"%.3f".format(score.mahalanobis)} " +
                 "tau=${"%.3f".format(openSet.tau)} allowed=${allowed?.size ?: "todas"} ${if (score.accepted) "ACCEPT" else "REJECT"} " +
+                "geoZone=${geoPrior?.zoneId ?: "sin_ubicacion_o_fuera_de_cobertura"} " +
                 "preprocess=${t1 - t0}ms encode=${t2 - t1}ms knn=${t3 - t2}ms openset=${t4 - t3}ms",
         )
         logMemory("after_identify")
