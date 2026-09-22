@@ -246,7 +246,7 @@
     <string name="capture_step6_analyze">Analizar</string>
     <string name="capture_step6_edit_cd">Editar %1$s</string>
 
-    <string name="photo_capture_title">Añadir foto</string>
+    <string name="photo_capture_title">Fotos del mismo individuo</string>
     <string name="photo_capture_analyze">Analizar</string>
     <string name="photo_capture_preview_cd">Visor de captura</string>
     <string name="photo_capture_processing">Procesando foto…</string>
@@ -264,11 +264,13 @@
     <string name="analyzing_title">Analizando</string>
     <string name="analyzing_label">Identificando especie…</string>
     <string name="analyzing_via_image">Identificación mediante imagen</string>
+    <string name="analyzing_multi_photos">Combinando %d vistas del mismo individuo</string>
     <string name="analyzing_via_audio">Identificación mediante audio</string>
     <string name="analyzing_audio_cd">Audio en análisis</string>
     <string name="analyzing_photo_cd">Vista previa de la foto analizada</string>
     <string name="analyzing_progress_pct">%1$d %%</string>
     <string name="analyzing_stage_crop">Preparando la foto</string>
+    <string name="analyzing_stage_crop_multi">Preparando las fotos del mismo individuo</string>
     <string name="analyzing_stage_compare">Comparando con las referencias del paquete</string>
     <string name="analyzing_stage_compare_engine">BioCLIP · sqlite-vec</string>
     <string name="analyzing_stage_context">Descartando especies desconocidas</string>
@@ -353,6 +355,7 @@
     <string name="observation_detail_toxic_chip">Tóxica — no manipular</string>
     <string name="observation_detail_iucn_chip">LC · Preocupación menor</string>
     <string name="observation_detail_confidence_label">Coincidencia con las referencias del paquete</string>
+    <string name="observation_detail_multi_photo_hint">Resultado con %d fotos del mismo individuo</string>
     <string name="observation_detail_share_pct">%1$d %%</string>
     <string name="observation_detail_other_candidates">Otras candidatas</string>
     <string name="observation_detail_justification">Ver justificación de identificación</string>
@@ -583,6 +586,10 @@
     <string name="identification_error_no_photo">No hay foto para analizar.</string>
     <string name="identification_error_no_package">Activa un paquete regional en Zonas descargadas para identificar.</string>
     <string name="identification_error_engine">No se pudo analizar la foto. Intenta de nuevo.</string>
+    <string name="photo_id_location_prompt_title">¿Usar la ubicación actual?</string>
+    <string name="photo_id_location_prompt_body">Ayuda a comparar candidatas por zona y no cambia qué especie se identifica.</string>
+    <string name="photo_id_location_prompt_confirm">Usar ubicación</string>
+    <string name="photo_id_location_prompt_dismiss">Omitir</string>
     <string name="identification_not_anuro_title">No parece un anuro</string>
     <string name="identification_not_anuro">No detectamos un anfibio anuro en esta foto. Intenta con otra imagen más cercana o mejor enfocada.</string>
     <string name="identification_not_anuro_action">Entendido</string>
@@ -697,7 +704,7 @@
     <string name="capture_step6_where_empty">Sin ubicación</string>
     <string name="capture_step6_when_empty">Sin fecha</string>
     <string name="capture_step6_size_empty">Sin medida</string>
-    <string name="capture_step6_photos_count">%d foto(s)</string>
+    <string name="capture_step6_photos_count">%d fotos del mismo individuo</string>
     <string name="capture_step6_photos_empty">Sin fotos</string>
     <string name="capture_step6_audio_empty">Sin audio</string>
     <string name="capture_step6_size_mm">%d mm hocico–cloaca</string>

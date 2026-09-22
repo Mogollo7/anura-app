@@ -1,8 +1,11 @@
 package me.juanlabs.anura.designsystem.component
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
@@ -10,6 +13,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
@@ -82,4 +86,49 @@ fun rememberSystemPermissionGranted(kind: AnuraPermissionKind): Boolean {
     }
 
     return granted
+}
+
+/**
+ * Última ubicación conocida (GPS o red, la más reciente de las dos), sin pedir una lectura nueva.
+ * Requiere permiso ya concedido; null si no hay permiso, no hay proveedor disponible, o nunca se
+ * registró una ubicación en el dispositivo.
+ */
+@SuppressLint("MissingPermission")
+fun lastKnownLocation(context: Context): Location? {
+    if (!AnuraPermissionKind.Location.isGranted(context)) return null
+    val manager = context.getSystemService(Context.LOCATION_SERVICE) as? LocationManager ?: return null
+    val gps = runCatching { manager.getLastKnownLocation(LocationManager.GPS_PROVIDER) }.getOrNull()
+    val network = runCatching { manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER) }.getOrNull()
+    return when {
+        gps != null && network != null -> if (gps.time >= network.time) gps else network
+        else -> gps ?: network
+    }
+}
+
+/**
+ * Para pedir el permiso de ubicación una sola vez, disparado por una acción explícita del usuario
+ * (p. ej. confirmar un pop-up) en vez de automáticamente al entrar a la pantalla — a diferencia de
+ * [rememberSystemPermissionGranted]. Devuelve una función: llamarla entrega la última ubicación
+ * conocida por [onResult] (pidiendo el permiso del sistema primero si hace falta); null si el
+ * usuario lo niega o no hay ubicación disponible — nunca bloquea, nunca lanza.
+ */
+@Composable
+fun rememberRequestLocationOnce(): (onResult: (Location?) -> Unit) -> Unit {
+    val context = LocalContext.current
+    var pendingCallback by remember { mutableStateOf<((Location?) -> Unit)?>(null) }
+    val launcher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions(),
+    ) {
+        val callback = pendingCallback
+        pendingCallback = null
+        callback?.invoke(lastKnownLocation(context))
+    }
+    return { onResult ->
+        if (AnuraPermissionKind.Location.isGranted(context)) {
+            onResult(lastKnownLocation(context))
+        } else {
+            pendingCallback = onResult
+            launcher.launch(AnuraPermissionKind.Location.manifestPermissions())
+        }
+    }
 }

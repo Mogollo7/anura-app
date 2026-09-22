@@ -8,6 +8,9 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
@@ -516,15 +519,40 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             )
         }
         composable<AnuraRoute.PhotoCapture> {
+            val repository = rememberAnuraRepository()
+            val requestLocation = me.juanlabs.anura.designsystem.component.rememberRequestLocationOnce()
+            var showLocationPrompt by remember { mutableStateOf(false) }
+            fun goToAnalyzing() {
+                navController.navigate(AnuraRoute.Analyzing(AnuraRoute.Analyzing.Image)) {
+                    popUpTo(AnuraRoute.PhotoCapture) { inclusive = true }
+                }
+            }
             PhotoCaptureScreen(
                 onBackClick = { navController.popBackStack() },
-                onPhotoAccepted = {
-                    navController.navigate(AnuraRoute.Analyzing(AnuraRoute.Analyzing.Image)) {
-                        popUpTo(AnuraRoute.PhotoCapture) { inclusive = true }
-                    }
-                },
+                onPhotoAccepted = { showLocationPrompt = true },
                 onCloseClick = { navController.closeCaptureWizard() },
             )
+            if (showLocationPrompt) {
+                me.juanlabs.anura.feature.capture.CaptureConfirmSheet(
+                    title = stringResource(me.juanlabs.anura.R.string.photo_id_location_prompt_title),
+                    body = stringResource(me.juanlabs.anura.R.string.photo_id_location_prompt_body),
+                    confirmLabel = stringResource(me.juanlabs.anura.R.string.photo_id_location_prompt_confirm),
+                    dismissLabel = stringResource(me.juanlabs.anura.R.string.photo_id_location_prompt_dismiss),
+                    onConfirm = {
+                        showLocationPrompt = false
+                        requestLocation { location ->
+                            if (location != null) {
+                                repository.updateDraft { it.copy(latitude = location.latitude, longitude = location.longitude) }
+                            }
+                            goToAnalyzing()
+                        }
+                    },
+                    onDismiss = {
+                        showLocationPrompt = false
+                        goToAnalyzing()
+                    },
+                )
+            }
         }
         composable<AnuraRoute.AudioCapture> {
             AudioCaptureScreen(
