@@ -107,23 +107,29 @@ object KnnVote {
 
     /**
      * Candidatas ordenadas por voto; la primera es siempre [winner] (mismo desempate por orden de
-     * llegada) — salvo que [geoPrior] reordene el voto ponderado (ver más abajo), en cuyo caso el
-     * ganador es quien gane la votación ya ajustada por geografía.
+     * llegada) — salvo que [geoPrior]/[weatherMultiplier] reordenen el voto ponderado (ver más
+     * abajo), en cuyo caso el ganador es quien gane la votación ya ajustada por contexto.
      *
      * Con [geoPrior] no nulo, cada voto se multiplica por `P(especie|zona)^peso` antes de
      * normalizar — la misma combinación `score(s) = voto_knn(s) · P(s|z)^w` validada en PC
      * (`pipeline_dataset/paquetes_zonales.py`, Top-1 62.9%→72.5% con control de fuga). Sin
      * [geoPrior] (sin ubicación o sin zona en el paquete) el resultado es idéntico al voto
      * puramente visual de siempre.
+     *
+     * [weatherMultiplier] es un factor adicional por especie ya elevado a su peso (el llamador lo
+     * arma, `KnnVote` no conoce clima) — mismo principio de "nunca eliminar, solo reponderar":
+     * especies sin fila en el mapa quedan con multiplicador 1 (neutro).
      */
-    fun candidates(neighbors: List<Neighbor>, geoPrior: GeoZonePrior? = null): List<Candidate> {
+    fun candidates(
+        neighbors: List<Neighbor>,
+        geoPrior: GeoZonePrior? = null,
+        weatherMultiplier: Map<String, Double>? = null,
+    ): List<Candidate> {
         val votes = votes(neighbors)
-        val weighted = if (geoPrior == null) {
-            votes
-        } else {
-            votes.mapValuesTo(LinkedHashMap()) { (taxonId, vote) ->
-                vote * geoPrior.priorFor(taxonId).pow(geoPrior.weight)
-            }
+        val weighted = votes.mapValuesTo(LinkedHashMap()) { (taxonId, vote) ->
+            val geo = geoPrior?.let { it.priorFor(taxonId).pow(it.weight) } ?: 1.0
+            val clima = weatherMultiplier?.get(taxonId) ?: 1.0
+            vote * geo * clima
         }
         val total = weighted.values.sum()
         if (total <= 0.0) return emptyList()

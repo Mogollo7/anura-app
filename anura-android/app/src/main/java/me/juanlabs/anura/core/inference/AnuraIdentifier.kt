@@ -8,6 +8,7 @@ import android.os.Debug
 import android.os.SystemClock
 import android.util.Log
 import java.io.File
+import kotlin.math.pow
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -112,10 +113,15 @@ class AnuraIdentifier(private val context: Context) {
         } else {
             null
         }
+        // Clima actual vía Open-Meteo (evaluation/geo_weather_v1: Top-1 61.2%→65.1%, n=129, peso
+        // congelado en el paquete). Llamada de red bloqueante con timeout corto (4s): si falla o
+        // no hay ubicación, weatherMultiplier queda null y el voto sigue siendo puramente visual —
+        // igual que sin coordenadas, nunca bloquea la identificación offline.
+        val weatherMultiplier = buildWeatherMultiplier(index, latitude, longitude)
         // k=5: la misma cantidad de vecinos con la que PC calibró y congeló el método (Fase 8/13).
         // La decisión (especie + aceptar/rechazar) sale de aquí, no del k más amplio de abajo.
         val neighbors = index.nearest(embedding, KNeighbors)
-        val official = KnnVote.candidates(neighbors, geoPrior)
+        val official = KnnVote.candidates(neighbors, geoPrior, weatherMultiplier)
         val top = official.firstOrNull()
             ?: return IdentificationOutcome.Failed(IdentificationFailure.EngineError, "El paquete no devolvió vecinos")
         val taxonId = top.taxonId
@@ -131,7 +137,7 @@ class AnuraIdentifier(private val context: Context) {
         // Candidatas para mostrar: mismo ganador oficial (k=5) + hasta 3 alternativas de un vecindario
         // más amplio, solo para que la UI tenga con qué comparar — no cambia la decisión de arriba.
         val broader = if (DisplayNeighbors > KNeighbors) index.nearest(embedding, DisplayNeighbors) else neighbors
-        val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader, geoPrior), DisplayCandidateCount)
+        val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader, geoPrior, weatherMultiplier), DisplayCandidateCount)
 
         val name = top.scientificName
         Log.i(
@@ -139,11 +145,26 @@ class AnuraIdentifier(private val context: Context) {
             "identify ${photo.name} ${width}x$height pred=$name share=${"%.3f".format(top.share)} maha=${"%.3f".format(score.mahalanobis)} " +
                 "tau=${"%.3f".format(openSet.tau)} allowed=${allowed?.size ?: "todas"} ${if (score.accepted) "ACCEPT" else "REJECT"} " +
                 "geoZone=${geoPrior?.zoneId ?: "sin_ubicacion_o_fuera_de_cobertura"} " +
+                "clima=${if (weatherMultiplier != null) "ok" else "sin_dato"} " +
                 "preprocess=${t1 - t0}ms encode=${t2 - t1}ms knn=${t3 - t2}ms openset=${t4 - t3}ms",
         )
         logMemory("after_identify")
         if (debuggable) writeDebugRecord(photo, width, height, embedding, neighbors, taxonId, score, longArrayOf(t1 - t0, t2 - t1, t3 - t2, t4 - t3))
         return IdentificationOutcome.Identified(taxonId, name, score.accepted, score, neighbors, candidates)
+    }
+
+    /**
+     * Clima actual (Open-Meteo) × peso congelado en el paquete (`weather_prior_meta`), ya elevado
+     * a la potencia y listo para multiplicar el voto — ver [KnnVote.candidates]. Cualquier fallo
+     * (sin ubicación, sin red, sin tabla en el paquete, especie sin cobertura de clima en train)
+     * devuelve null/omite esa especie: nunca bloquea ni penaliza por falta de dato.
+     */
+    private fun buildWeatherMultiplier(index: PackageVectorIndex, latitude: Double?, longitude: Double?): Map<String, Double>? {
+        if (latitude == null || longitude == null) return null
+        val stats = index.weatherPrior() ?: return null
+        val weight = index.weatherPriorWeight() ?: return null
+        val obs = OpenMeteoClient.fetchCurrent(latitude, longitude) ?: return null
+        return stats.mapValues { (_, s) -> s.likelihood(obs).pow(weight) }
     }
 
     private fun loadAllowedByPackage(): Map<String, Set<String>> = runCatching {

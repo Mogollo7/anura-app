@@ -1,0 +1,6 @@
+referencias=4028 prueba=547
+observaciones con fecha+coords resueltas: 1023
+pares de clima: 972  en cache: 933  a consultar: 39
+  20/39  (14s, 0.71s/consulta)
+  39/39  (28s, 0.71s/consulta)
+observaciones con clima real resuelto: 1023 -> D:\Anura\evaluation\geo_weather_v1\obs_clima.json

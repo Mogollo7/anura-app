@@ -37,6 +37,28 @@ class KnnVoteTest {
     }
 
     @Test
+    fun candidates_withWeatherMultiplier_reweightsIndependentlyOfGeo() {
+        val neighbors = listOf(neighbor("A", 0.5), neighbor("B", 0.3))
+        val clima = mapOf("A" to 2.0, "B" to 0.5) // A favorecido por clima, B penalizado
+
+        val result = KnnVote.candidates(neighbors, weatherMultiplier = clima)
+
+        // combinado: A=0.5*2.0=1.0, B=0.7*0.5=0.35 -> A gana
+        assertEquals("A", result.first().taxonId)
+        assertEquals(1.0, result.sumOf { it.share }, 1e-9)
+    }
+
+    @Test
+    fun candidates_taxonWithoutWeatherEntry_staysNeutral() {
+        val neighbors = listOf(neighbor("A", 0.5), neighbor("B", 0.3))
+        val clima = mapOf("B" to 0.01) // solo B tiene fila; A queda neutro (multiplicador 1)
+
+        val result = KnnVote.candidates(neighbors, weatherMultiplier = clima)
+
+        assertEquals("A", result.first().taxonId) // B penalizado, A sin cambios sigue ganando
+    }
+
+    @Test
     fun displayCandidates_keepsWinnerFirstEvenIfNotTopOfBroaderSet() {
         val winner = candidate("A", 0.9)
         // en el k más amplio B superó a A en votos (vecindario distinto) — igual A debe ir primero:

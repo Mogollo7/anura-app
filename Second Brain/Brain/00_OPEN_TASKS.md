@@ -7,8 +7,22 @@ Prioridad solo según urgencia explícita, dependencia bloqueante o riesgo docum
 - [ ] Mantener congelado y auditar el split `GroupSplit` por individuo/localidad al escalar el catálogo; una fuga invalidaría las cifras. Fuente: [Estrategia de dataset](./02 Metodología/Estrategia de Construcción del Dataset.md).
 
 ## ALTA
-- [ ] Implementar el prior GPS `w=0,75` en Kotlin y validar que no actúe como filtro. EXP-007 ya midió +24,9 pp global y +15,3 pp en aislado.
-- [ ] Integrar `encoder_anura_fp16.onnx` y `antioquia_v1.sqlite` en el dispositivo; medir latencia, RAM, tamaño y sincronización de versión.
+- [x] Implementar el prior GPS `w=0,75` en Kotlin y validar que no actúe como filtro — hecho
+  2026-09-22 (`KnnVote.candidates(neighbors, geoPrior)`, `PackageVectorIndex.zoneIdFor/zonePrior`).
+  Nota: el número medido en el paquete real fue Top-1 **62.9%→72.5%** (+9.6pp, control de fuga,
+  167 imágenes de prueba, `COLOMBIA_ANURA/ANTIOQUIA/reports/packages_v1.0.0.json`), distinto del
+  +24,9pp de EXP-007 citado aquí antes — EXP-007 midió sobre otro conjunto/condición, no se
+  reconcilió cuál es la cifra "oficial" a citar de aquí en adelante.
+- [x] Integrar `encoder_anura_fp16.onnx` y `antioquia_v1.sqlite` (ONNX + sqlite-vec) en el
+  dispositivo — hecho en sesiones previas (`AnuraIdentifier`/`PackageVectorIndex`/`ImageEncoder`).
+  Falta medir latencia/RAM en dispositivo real (pendiente al 2026-09-22, teléfono no siempre
+  disponible durante el desarrollo).
+- [x] Prior de clima (temperatura/humedad) por especie vía Open-Meteo — integrado 2026-09-22
+  pese a evidencia débil (+3.9pp Top-1, n=129, señal frágil) por pedido explícito, no por pasar
+  la barra de confiabilidad del prior de zona. Introduce una dependencia de red en tiempo de
+  identificación (rompe el diseño offline-first parcialmente). Ver
+  [[02 Metodología/Contexto del Paso a Paso — Datos Faltantes]] §Temperatura/Humedad.
+  Validar en campo si de verdad ayuda o si conviene revertir.
 - [ ] Reentrenar la variante C desde cero con componente conexo mayor y fondo negro; EXP-011–013 solo evaluaron transformaciones en un modelo entrenado con variante A.
 - [ ] Revisar manualmente las 50 candidatas de alta confianza de manejo/amplexo generadas por EXP-004.
 - [ ] Ejecutar evaluación open-set near/far y congelar umbral en validación; reportar AUROC y FPR@95TPR.

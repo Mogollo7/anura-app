@@ -80,6 +80,24 @@ class PackageVectorIndex private constructor(
         return GeoZonePrior(zoneId, weight, unobserved, byTaxon)
     }
 
+    /**
+     * Prior de clima por especie (`weather_prior`, ver `evaluation/geo_weather_v1/`, control de
+     * fuga: Top-1 61.2%→65.1%, n=129). Especies sin fila (visual pero poca cobertura de clima en
+     * train) quedan fuera del mapa — sin ajuste, nunca penalizadas. Null si el paquete no trae la
+     * tabla (paquetes más antiguos sin esta hornada).
+     */
+    fun weatherPrior(): Map<String, WeatherStats>? = runCatching {
+        connection.prepare("select taxon_id, n, temp_mean, temp_std, hum_mean, hum_std from weather_prior").use { st ->
+            buildMap { while (st.step()) put(st.getText(0), WeatherStats(st.getLong(1).toInt(), st.getDouble(2), st.getDouble(3), st.getDouble(4), st.getDouble(5))) }
+        }
+    }.getOrNull()
+
+    fun weatherPriorWeight(): Double? = runCatching {
+        connection.prepare("select value from weather_prior_meta where key = 'weight'").use { st ->
+            if (st.step()) st.getText(0).toDouble() else null
+        }
+    }.getOrNull()
+
     override fun close() = connection.close()
 
     companion object {
