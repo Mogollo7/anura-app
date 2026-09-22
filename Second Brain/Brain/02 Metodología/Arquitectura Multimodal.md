@@ -163,6 +163,34 @@ exacto** (elevación/pendiente/orientación en tiempo real) para mejorar el *rec
 FAR 36.94%→36.77%, "un único caso", sin evidencia suficiente. El prior de zona de arriba es
 distinto — mejora el *ranking* de especies (Top-1), no el rechazo — y por eso sí se integró.
 
+## 5.2 Incidente real en campo y corrección (2026-09-22)
+
+**Lo que pasó**: §5.1 aplicó el prior de zona (y luego el de clima, §5.1 clima) directamente a la
+**decisión oficial** (qué especie queda identificada), no solo a la visualización. Esto violó la
+regla de §5 ("factor acotado, p. ej. [0.5–1.5]") sin que nadie lo notara en su momento: el
+multiplicador real `P(s|z)^0.75` no está acotado — para *Dendropsophus bogerti* vs. *Dendrobates
+truncatus* en la zona de tierras bajas la razón de prior es ~5× (0.0455 vs. 0.0090), suficiente
+para voltear un voto visual correcto y seguro. Caso real reportado: la misma foto de una *D.
+bogerti* identificada correctamente por Foto ID (voto puramente visual) dio *D. truncatus* al
+pasar por el paso a paso completo (con coordenadas → prior de zona aplicado a la decisión).
+
+**Corrección**: la especie identificada (`taxonId`, lo que decide aceptar/rechazar y lo que se
+guarda en la observación) sale **siempre** del voto k-NN puramente visual — sin excepción, sin
+importar contexto disponible. El prior de zona y el de clima **solo** reordenan/matizan las
+candidatas alternativas mostradas y el porcentaje de confianza mostrado — nunca la identidad de
+la especie. Esto es literalmente la regla que §5 ya pedía; la implementación de §5.1 simplemente
+no la siguió al pie de la letra. Código: `AnuraIdentifier.kt`, `official = KnnVote.candidates(neighbors)`
+sin `geoPrior`/`weatherMultiplier` — esos dos parámetros solo entran en la lista de candidatas de
+visualización (`broader`), nunca en `official`.
+
+**Lección para futuros priors de contexto** (SVL, ecosistema, microhábitat, hora — ver
+[[Contexto del Paso a Paso — Datos Faltantes]]): cualquier prior nuevo debe evaluarse no solo por
+Top-1 agregado (que puede mejorar en conjunto aunque falle en casos individuales confiados), sino
+por si puede voltear una identificación visual de alta confianza — y si puede, debe limitarse a
+afectar solo candidatas/porcentajes mostrados, no la decisión oficial, hasta que se demuestre
+explícitamente que acotarlo (factor en rango fijo, o solo activarse cuando el margen visual es
+estrecho) no pierde la mejora medida en PC.
+
 ## 6. Qué falta por decidir o medir
 
 - [ ] Elegir backbone acàºstico (B0 propio vs. preentrenado vs. AnuraSet).

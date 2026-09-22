@@ -106,22 +106,28 @@ class AnuraIdentifier(private val context: Context) {
         val embedding = encoder.encode(chw)
         val t2 = SystemClock.elapsedRealtime()
         // Prior geográfico por zona (pipeline_dataset/paquetes_zonales.py, validado con control de
-        // fuga: Top-1 62.9%→72.5%). Sin coordenadas o fuera de la cobertura del paquete, geoPrior
-        // queda null y el voto es puramente visual — la decisión nunca se descarta por esto.
+        // fuga: Top-1 62.9%→72.5%) y clima actual vía Open-Meteo (evaluation/geo_weather_v1: n=129,
+        // Top-1 61.2%→65.1%). Sin coordenadas o fuera de la cobertura del paquete, quedan null.
+        //
+        // IMPORTANTE: ninguno de los dos decide QUÉ especie es — solo se usan para reordenar/matizar
+        // las candidatas mostradas (más abajo). Se probó aplicarlos también a la decisión oficial y
+        // se revirtió: en campo, un prior de zona fuerte (peso 0.75) alcanzó a voltear una
+        // identificación visual correcta y segura a una especie equivocada solo porque esa zona
+        // tiene pocos registros de la especie correcta (caso real: Dendropsophus bogerti visualmente
+        // claro, volteado a Dendrobates truncatus por contexto). El contexto debe ser "mejora de
+        // porcentaje menor", nunca "cambia el resultado" — así que la especie identificada sale
+        // siempre del voto puramente visual, sin excepción.
         val geoPrior = if (latitude != null && longitude != null) {
             index.zoneIdFor(latitude, longitude)?.let(index::zonePrior)
         } else {
             null
         }
-        // Clima actual vía Open-Meteo (evaluation/geo_weather_v1: Top-1 61.2%→65.1%, n=129, peso
-        // congelado en el paquete). Llamada de red bloqueante con timeout corto (4s): si falla o
-        // no hay ubicación, weatherMultiplier queda null y el voto sigue siendo puramente visual —
-        // igual que sin coordenadas, nunca bloquea la identificación offline.
         val weatherMultiplier = buildWeatherMultiplier(index, latitude, longitude)
         // k=5: la misma cantidad de vecinos con la que PC calibró y congeló el método (Fase 8/13).
-        // La decisión (especie + aceptar/rechazar) sale de aquí, no del k más amplio de abajo.
+        // La decisión (especie + aceptar/rechazar) sale de aquí, puramente visual — no del k más
+        // amplio de abajo ni del contexto geográfico/clima.
         val neighbors = index.nearest(embedding, KNeighbors)
-        val official = KnnVote.candidates(neighbors, geoPrior, weatherMultiplier)
+        val official = KnnVote.candidates(neighbors)
         val top = official.firstOrNull()
             ?: return IdentificationOutcome.Failed(IdentificationFailure.EngineError, "El paquete no devolvió vecinos")
         val taxonId = top.taxonId
