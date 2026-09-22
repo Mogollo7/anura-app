@@ -741,7 +741,11 @@
     <string name="sign_up_need_name">Escribí tu nombre para crear la cuenta</string>
     <string name="comments_empty_title">Sin comentarios</string>
     <string name="comments_empty_body">Sé la primera persona en comentar.</string>
-    <string name="explore_map_offline">El mapa necesita red o teselas descargadas. Podés seguir viendo el listado.</string>
+    <string name="explore_offline_title">Sin conexión</string>
+    <string name="explore_offline_body">El mapa y el recuento de especies no están disponibles. Podés ver el buscador, pero no se puede buscar sin internet.</string>
+    <string name="explore_search_offline">Sin internet no se puede buscar</string>
+    <string name="explore_suggestion_genus">Género</string>
+    <string name="explore_suggestion_family">Familia</string>
     <string name="observation_author_following">Siguiendo</string>
     <string name="packages_cancel_title">¿Cancelar la descarga?</string>
     <string name="packages_cancel_body">%1$s no se instalará en el dispositivo.</string>

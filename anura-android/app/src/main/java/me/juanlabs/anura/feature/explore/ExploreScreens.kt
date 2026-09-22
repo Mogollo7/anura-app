@@ -2,9 +2,11 @@ package me.juanlabs.anura.feature.explore
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.Network
 import android.net.NetworkCapabilities
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,10 +38,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -50,6 +55,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -67,6 +73,7 @@ import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraConservationChip
 import me.juanlabs.anura.designsystem.component.AnuraConservationChipVariant
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
+import me.juanlabs.anura.designsystem.component.AnuraErrorState
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraMeasureSlider
 import me.juanlabs.anura.designsystem.component.AnuraToxicityChip
@@ -250,8 +257,10 @@ fun ExploreScreen(
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
-    val context = LocalContext.current
-    val online = isNetworkAvailable(context)
+    val online = rememberNetworkAvailable()
+    val searchOfflineMessage = stringResource(R.string.explore_search_offline)
+    val suggestionGenusLabel = stringResource(R.string.explore_suggestion_genus)
+    val suggestionFamilyLabel = stringResource(R.string.explore_suggestion_family)
     var query by rememberSaveable { mutableStateOf("") }
     var selectedFilters by rememberSaveable { mutableStateOf(listOf<String>()) }
     var altitudeMin by rememberSaveable { mutableStateOf("") }
@@ -259,20 +268,46 @@ fun ExploreScreen(
     var svlMm by rememberSaveable { mutableFloatStateOf(ExploreSvlMock) }
     var svlActive by rememberSaveable { mutableStateOf(false) }
     var showFilters by rememberSaveable { mutableStateOf(false) }
+    var searchBlocked by rememberSaveable { mutableStateOf(false) }
+    LaunchedEffect(online) {
+        if (!online) {
+            query = ""
+            showFilters = false
+        } else {
+            searchBlocked = false
+        }
+    }
     val catalog = (snapshot.observations.filter { it.visibilityPublic } + CommunityCatalog.observations)
         .distinctBy { it.id }
         .mapNotNull { it.toExploreObservation() }
     val named = catalog.map { item -> item to item.displayNames() }
     val needle = query.trim()
-    val filtered = named.filter { (item, names) ->
-        val textOk = needle.isEmpty() ||
-            names.first.contains(needle, ignoreCase = true) ||
-            names.second.contains(needle, ignoreCase = true)
-        textOk && item.matchesFilters(
-            selected = selectedFilters,
-            altitudeMinM = parseMetric(altitudeMin),
-            altitudeMaxM = parseMetric(altitudeMax),
-            svlMm = if (svlActive) svlMm.toInt() else null,
+    val searching = online && needle.isNotEmpty()
+    val filtered = if (!online) {
+        emptyList()
+    } else {
+        named.filter { (item, names) ->
+            val textOk = needle.isEmpty() ||
+                names.first.contains(needle, ignoreCase = true) ||
+                names.second.contains(needle, ignoreCase = true) ||
+                item.genus.contains(needle, ignoreCase = true) ||
+                item.family.contains(needle, ignoreCase = true)
+            textOk && item.matchesFilters(
+                selected = selectedFilters,
+                altitudeMinM = parseMetric(altitudeMin),
+                altitudeMaxM = parseMetric(altitudeMax),
+                svlMm = if (svlActive) svlMm.toInt() else null,
+            )
+        }
+    }
+    val suggestions = if (!searching) {
+        emptyList()
+    } else {
+        exploreSuggestions(
+            needle = needle,
+            named = named,
+            genusLabel = suggestionGenusLabel,
+            familyLabel = suggestionFamilyLabel,
         )
     }
     val pins = filtered.map { (item, names) ->
@@ -286,6 +321,7 @@ fun ExploreScreen(
     val speciesCount = filtered.map { it.second.second }.distinct().size
     val familyCount = filtered.map { it.first.family }.distinct().size
     val genusCount = filtered.map { it.first.genus }.distinct().size
+    val showMap = online && !searching
 
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
@@ -294,14 +330,16 @@ fun ExploreScreen(
                 title = stringResource(R.string.explore_title),
                 centerTitle = true,
                 actions = {
-                    IconButton(
-                        onClick = { showFilters = true },
-                        modifier = Modifier.size(AnuraDimens.sizeTouch),
-                    ) {
-                        Icon(
-                            imageVector = AnuraIcons.Filter,
-                            contentDescription = stringResource(R.string.explore_filter_cd),
-                        )
+                    if (online) {
+                        IconButton(
+                            onClick = { showFilters = true },
+                            modifier = Modifier.size(AnuraDimens.sizeTouch),
+                        ) {
+                            Icon(
+                                imageVector = AnuraIcons.Filter,
+                                contentDescription = stringResource(R.string.explore_filter_cd),
+                            )
+                        }
                     }
                 },
             )
@@ -326,111 +364,134 @@ fun ExploreScreen(
                 key = "explore-search",
                 span = { GridItemSpan(maxLineSpan) },
             ) {
-                AnuraTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    label = stringResource(R.string.observations_search),
-                    modifier = Modifier.fillMaxWidth(),
-                    leadingIcon = AnuraIcons.Empty,
-                    singleLine = true,
-                )
+                Column(verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent)) {
+                    AnuraTextField(
+                        value = query,
+                        onValueChange = { value ->
+                            if (!online) {
+                                searchBlocked = true
+                                repository.notify(searchOfflineMessage)
+                            } else {
+                                searchBlocked = false
+                                query = value
+                            }
+                        },
+                        label = stringResource(R.string.observations_search),
+                        modifier = Modifier.fillMaxWidth(),
+                        supportingText = if (searchBlocked) searchOfflineMessage else null,
+                        isError = searchBlocked,
+                        leadingIcon = AnuraIcons.Empty,
+                        singleLine = true,
+                    )
+                    if (suggestions.isNotEmpty()) {
+                        ExploreSuggestionMenu(
+                            suggestions = suggestions,
+                            onSelect = { selected ->
+                                query = selected.query
+                            },
+                        )
+                    }
+                }
             }
-            item(
-                key = "explore-map",
-                span = { GridItemSpan(maxLineSpan) },
-            ) {
-                ExploreOsmMap(
-                    pins = pins,
-                    onPinClick = onOpenObservationDetail,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(ExploreMapHeight)
-                        .clip(RoundedCornerShape(AnuraDimens.radiusCard))
-                        .semantics { contentDescription = mapCd },
-                )
+            if (showMap) {
+                item(
+                    key = "explore-map",
+                    span = { GridItemSpan(maxLineSpan) },
+                ) {
+                    ExploreOsmMap(
+                        pins = pins,
+                        onPinClick = onOpenObservationDetail,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(ExploreMapHeight)
+                            .clip(RoundedCornerShape(AnuraDimens.radiusCard))
+                            .semantics { contentDescription = mapCd },
+                    )
+                }
             }
             if (!online) {
                 item(
                     key = "explore-offline",
                     span = { GridItemSpan(maxLineSpan) },
                 ) {
-                    Text(
-                        text = stringResource(R.string.explore_map_offline),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    AnuraErrorState(
+                        title = stringResource(R.string.explore_offline_title),
+                        description = stringResource(R.string.explore_offline_body),
                     )
                 }
             }
-            item(
-                key = "explore-stats",
-                span = { GridItemSpan(maxLineSpan) },
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+            if (online) {
+                item(
+                    key = "explore-stats",
+                    span = { GridItemSpan(maxLineSpan) },
                 ) {
-                    ExploreStatCard(
-                        value = speciesCount.toString(),
-                        label = stringResource(R.string.explore_stat_species),
-                        modifier = Modifier.weight(1f),
-                    )
-                    ExploreStatCard(
-                        value = familyCount.toString(),
-                        label = stringResource(R.string.explore_stat_families),
-                        modifier = Modifier.weight(1f),
-                    )
-                    ExploreStatCard(
-                        value = genusCount.toString(),
-                        label = stringResource(R.string.explore_stat_genera),
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-            }
-            item(
-                key = "explore-near",
-                span = { GridItemSpan(maxLineSpan) },
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = stringResource(R.string.explore_near_you),
-                        style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.SemiBold,
-                        ),
-                        modifier = Modifier.weight(1f),
-                    )
-                    TextButton(
-                        onClick = onOpenExploreMore,
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                     ) {
-                        Text(
-                            text = stringResource(R.string.explore_see_more),
-                            color = AnuraTheme.extendedColors.accentInk,
-                            fontWeight = FontWeight.SemiBold,
+                        ExploreStatCard(
+                            value = speciesCount.toString(),
+                            label = stringResource(R.string.explore_stat_species),
+                            modifier = Modifier.weight(1f),
+                        )
+                        ExploreStatCard(
+                            value = familyCount.toString(),
+                            label = stringResource(R.string.explore_stat_families),
+                            modifier = Modifier.weight(1f),
+                        )
+                        ExploreStatCard(
+                            value = genusCount.toString(),
+                            label = stringResource(R.string.explore_stat_genera),
+                            modifier = Modifier.weight(1f),
                         )
                     }
                 }
-            }
-            if (filtered.isEmpty()) {
                 item(
-                    key = "explore-empty",
+                    key = "explore-near",
                     span = { GridItemSpan(maxLineSpan) },
                 ) {
-                    AnuraEmptyState(
-                        title = stringResource(R.string.observations_empty_title),
-                        description = stringResource(R.string.observations_empty_body),
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = stringResource(R.string.explore_near_you),
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                fontWeight = FontWeight.SemiBold,
+                            ),
+                            modifier = Modifier.weight(1f),
+                        )
+                        TextButton(
+                            onClick = onOpenExploreMore,
+                        ) {
+                            Text(
+                                text = stringResource(R.string.explore_see_more),
+                                color = AnuraTheme.extendedColors.accentInk,
+                                fontWeight = FontWeight.SemiBold,
+                            )
+                        }
+                    }
                 }
-            } else {
-                items(filtered, key = { it.first.id }) { (item, names) ->
-                    ExploreObservationCard(
-                        item = item,
-                        names = names,
-                        favorite = snapshot.favorites.contains(item.id),
-                        onFavoriteClick = { repository.toggleFavorite(item.id) },
-                        onClick = { onOpenObservationDetail(item.id) },
-                    )
+                if (filtered.isEmpty()) {
+                    item(
+                        key = "explore-empty",
+                        span = { GridItemSpan(maxLineSpan) },
+                    ) {
+                        AnuraEmptyState(
+                            title = stringResource(R.string.observations_empty_title),
+                            description = stringResource(R.string.observations_empty_body),
+                        )
+                    }
+                } else {
+                    items(filtered, key = { it.first.id }) { (item, names) ->
+                        ExploreObservationCard(
+                            item = item,
+                            names = names,
+                            favorite = snapshot.favorites.contains(item.id),
+                            onFavoriteClick = { repository.toggleFavorite(item.id) },
+                            onClick = { onOpenObservationDetail(item.id) },
+                        )
+                    }
                 }
             }
         }
@@ -1119,6 +1180,132 @@ private fun ObservationRecord.toExploreObservation(): ExploreObservation? {
         commonName = commonName ?: species?.commonName,
         scientificName = scientificName ?: species?.scientificName,
     )
+}
+
+private data class ExploreSuggestion(
+    val id: String,
+    val title: String,
+    val subtitle: String,
+    val query: String,
+)
+
+@Composable
+private fun ExploreSuggestionMenu(
+    suggestions: List<ExploreSuggestion>,
+    onSelect: (ExploreSuggestion) -> Unit,
+) {
+    AnuraCard(
+        modifier = Modifier.fillMaxWidth(),
+        bordered = true,
+    ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
+            suggestions.forEach { suggestion ->
+                val description = "${suggestion.title}, ${suggestion.subtitle}"
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = AnuraDimens.sizeTouch)
+                        .clickable(role = Role.Button, onClick = { onSelect(suggestion) })
+                        .padding(
+                            horizontal = AnuraDimens.spaceLabelToContent,
+                            vertical = AnuraDimens.spaceGap,
+                        )
+                        .semantics { contentDescription = description },
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    Text(
+                        text = suggestion.title,
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+                    Text(
+                        text = suggestion.subtitle,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun exploreSuggestions(
+    needle: String,
+    named: List<Pair<ExploreObservation, Pair<String, String>>>,
+    genusLabel: String,
+    familyLabel: String,
+): List<ExploreSuggestion> {
+    val fromObservations = named.map { (item, names) ->
+        ExploreSuggestion(
+            id = item.id,
+            title = names.first.ifBlank { names.second },
+            subtitle = names.second,
+            query = names.second.ifBlank { names.first },
+        )
+    }
+    val fromCatalog = SpeciesCatalog.all.map { species ->
+        ExploreSuggestion(
+            id = species.id,
+            title = species.commonName,
+            subtitle = species.scientificName,
+            query = species.scientificName,
+        )
+    }
+    val fromTaxa = named.flatMap { (item, _) ->
+        listOf(
+            ExploreSuggestion(
+                id = "genus-${item.genus}",
+                title = item.genus,
+                subtitle = genusLabel,
+                query = item.genus,
+            ),
+            ExploreSuggestion(
+                id = "family-${item.family}",
+                title = item.family,
+                subtitle = familyLabel,
+                query = item.family,
+            ),
+        )
+    }
+    return (fromObservations + fromCatalog + fromTaxa)
+        .distinctBy { it.title.lowercase() to it.subtitle.lowercase() }
+        .filter { suggestion ->
+            suggestion.title.contains(needle, ignoreCase = true) ||
+                suggestion.subtitle.contains(needle, ignoreCase = true)
+        }
+        .take(6)
+}
+
+@Composable
+private fun rememberNetworkAvailable(): Boolean {
+    val context = LocalContext.current
+    var online by remember { mutableStateOf(isNetworkAvailable(context)) }
+    DisposableEffect(context) {
+        val appContext = context.applicationContext
+        val cm = appContext.getSystemService(ConnectivityManager::class.java)
+        if (cm == null) {
+            return@DisposableEffect onDispose { }
+        }
+        val callback = object : ConnectivityManager.NetworkCallback() {
+            private fun refresh() {
+                appContext.mainExecutor.execute {
+                    online = isNetworkAvailable(appContext)
+                }
+            }
+
+            override fun onAvailable(network: Network) = refresh()
+
+            override fun onLost(network: Network) = refresh()
+
+            override fun onCapabilitiesChanged(
+                network: Network,
+                networkCapabilities: NetworkCapabilities,
+            ) = refresh()
+        }
+        cm.registerDefaultNetworkCallback(callback)
+        online = isNetworkAvailable(appContext)
+        onDispose { cm.unregisterNetworkCallback(callback) }
+    }
+    return online
 }
 
 private fun isNetworkAvailable(context: Context): Boolean {
