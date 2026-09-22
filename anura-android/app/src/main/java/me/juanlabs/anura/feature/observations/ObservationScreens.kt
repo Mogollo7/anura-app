@@ -2,6 +2,7 @@ package me.juanlabs.anura.feature.observations
 
 import android.content.Intent
 import androidx.annotation.DrawableRes
+import kotlin.math.roundToInt
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -10,12 +11,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.exclude
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.GridItemSpan
@@ -60,6 +65,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.IdentificationKnown
 import me.juanlabs.anura.core.data.ObservationRecord
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.formatCoordinates
@@ -430,6 +436,7 @@ fun ObservationDetailScreen(
     val visibilityPublic = observation?.visibilityPublic == true
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
+        contentWindowInsets = WindowInsets.safeDrawing.exclude(WindowInsets.ime),
         topBar = {
             AnuraTopBar(
                 title = stringResource(R.string.observation_detail_title),
@@ -497,13 +504,12 @@ fun ObservationDetailScreen(
         },
     ) { innerPadding ->
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+            modifier = Modifier.fillMaxSize(),
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(innerPadding)
                     .verticalScroll(rememberScrollState())
                     .padding(horizontal = AnuraDimens.spaceGutter)
                     .padding(bottom = 16.dp),
@@ -573,41 +579,31 @@ fun ObservationDetailScreen(
                     photoToken = observation?.photoTokens?.firstOrNull(),
                     onOpenComments = { showComments = true },
                 )
+                // en un rechazo del Open Set las candidatas no son una identificación: no se muestran como tal
+                val candidates = observation?.takeIf { it.identificationStatus == IdentificationKnown }?.candidates.orEmpty()
+                candidates.firstOrNull()?.let { top ->
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+                    ConfidenceCard(share = top.share)
+                }
+                val others = candidates.drop(1)
+                if (others.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+                    Text(
+                        text = stringResource(R.string.observation_detail_other_candidates),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    )
+                    others.forEach { candidate ->
+                        val catalogSpecies = SpeciesCatalog.all.firstOrNull { it.scientificName == candidate.scientificName }
+                        Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                        CandidateCard(
+                            name = candidate.scientificName,
+                            percent = candidate.share,
+                            imageRes = catalogSpecies?.photoRes,
+                            onClick = catalogSpecies?.let { match -> { onOpenSpeciesSheet(match.id) } },
+                        )
+                    }
+                }
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-                ConfidenceCard()
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-                Text(
-                    text = stringResource(R.string.observation_detail_other_candidates),
-                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
-                )
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-                CandidateCard(
-                    name = stringResource(R.string.observation_detail_candidate_1),
-                    note = stringResource(R.string.observation_detail_candidate_1_note),
-                    percent = 0.94f,
-                    percentLabel = stringResource(R.string.observation_detail_candidate_1_pct),
-                    imageRes = R.drawable.carousel_dendrobates_truncatus,
-                    onClick = { onOpenSpeciesSheet("ANU_COL_DEND_TRU_001") },
-                )
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-                CandidateCard(
-                    name = stringResource(R.string.observation_detail_candidate_2),
-                    note = stringResource(R.string.observation_detail_candidate_2_note),
-                    percent = 0.04f,
-                    percentLabel = stringResource(R.string.observation_detail_candidate_2_pct),
-                    imageRes = R.drawable.carousel_dendrobates_truncatus,
-                    onClick = { onOpenSpeciesSheet("ANU_COL_DEND_AUR_001") },
-                )
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-                CandidateCard(
-                    name = stringResource(R.string.observation_detail_candidate_3),
-                    note = stringResource(R.string.observation_detail_candidate_3_note),
-                    percent = 0.02f,
-                    percentLabel = stringResource(R.string.observation_detail_candidate_3_pct),
-                    imageRes = R.drawable.carousel_sachatamia_electrops,
-                    onClick = { onOpenSpeciesSheet("ANU_COL_PHYL_TER_001") },
-                )
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 AnuraFormButton(
                     text = stringResource(R.string.observation_detail_justification),
                     onClick = { showJustification = true },
@@ -638,17 +634,10 @@ fun ObservationDetailScreen(
                         me.juanlabs.anura.core.data.formatAudioDuration(observation.audioDurationMs) ?: "Audio"
                     } ?: missing,
                 )
-                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-                StatusPill(
-                    text = stringResource(
-                        if (id.endsWith("002")) {
-                            R.string.observation_detail_model_cloud
-                        } else {
-                            R.string.observation_detail_model_local
-                        },
-                    ),
-                    warning = false,
-                )
+                if (observation?.candidates?.isNotEmpty() == true) {
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                    StatusPill(text = stringResource(R.string.observation_detail_model_local), warning = false)
+                }
                 if (observation?.fieldSessionId != null) {
                     Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
                     FieldSessionRecordNotes(observationId = id)
@@ -658,6 +647,9 @@ fun ObservationDetailScreen(
                 ObservationCommentsOverlay(
                     observationId = id,
                     onDismiss = { showComments = false },
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = innerPadding.calculateTopPadding()),
                 ) {
                     ObservationMediaCarousel(
                         items = observation?.let { mediaForObservation(it) } ?: emptyList(),
@@ -887,8 +879,10 @@ private fun StatusPill(text: String, warning: Boolean) {
     )
 }
 
+private fun sharePercent(share: Float): Int = (share * 100).roundToInt()
+
 @Composable
-private fun ConfidenceCard() {
+private fun ConfidenceCard(share: Float) {
     AnuraCard(modifier = Modifier.fillMaxWidth(), bordered = true) {
         Column(
             modifier = Modifier.padding(
@@ -903,17 +897,13 @@ private fun ConfidenceCard() {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = stringResource(R.string.observation_detail_confidence_value),
+                    text = stringResource(R.string.observation_detail_share_pct, sharePercent(share)),
                     style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier.weight(1f),
                 )
-                Text(
-                    text = stringResource(R.string.observation_detail_confidence_level),
-                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
-                )
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-            ConfidenceBar(progress = 0.94f)
+            ConfidenceBar(progress = share)
         }
     }
 }
@@ -942,11 +932,9 @@ private fun ConfidenceBar(progress: Float) {
 @Composable
 private fun CandidateCard(
     name: String,
-    note: String,
     percent: Float,
-    percentLabel: String,
-    @DrawableRes imageRes: Int,
-    onClick: () -> Unit,
+    @DrawableRes imageRes: Int?,
+    onClick: (() -> Unit)?,
 ) {
     val thumbCd = stringResource(R.string.observation_detail_candidate_thumb_cd, name)
     val sheetCd = stringResource(R.string.observation_detail_species_cd, name)
@@ -954,11 +942,18 @@ private fun CandidateCard(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(AnuraDimens.radiusCard))
-            .clickable(onClick = onClick)
-            .semantics {
-                role = Role.Button
-                contentDescription = sheetCd
-            },
+            .then(
+                if (onClick != null) {
+                    Modifier
+                        .clickable(onClick = onClick)
+                        .semantics {
+                            role = Role.Button
+                            contentDescription = sheetCd
+                        }
+                } else {
+                    Modifier
+                },
+            ),
         bordered = true,
     ) {
         Column(
@@ -968,29 +963,25 @@ private fun CandidateCard(
             ),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Image(
-                    painter = painterResource(imageRes),
-                    contentDescription = thumbCd,
-                    modifier = Modifier
-                        .size(56.dp)
-                        .clip(RoundedCornerShape(AnuraDimens.radiusThumb)),
-                    contentScale = ContentScale.Crop,
-                    colorFilter = AnuraTheme.mediaColorFilter,
-                )
-                Spacer(modifier = Modifier.width(AnuraDimens.spaceGap))
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = name,
-                        style = MaterialTheme.typography.titleMedium.copy(fontStyle = FontStyle.Italic),
+                if (imageRes != null) {
+                    Image(
+                        painter = painterResource(imageRes),
+                        contentDescription = thumbCd,
+                        modifier = Modifier
+                            .size(56.dp)
+                            .clip(RoundedCornerShape(AnuraDimens.radiusThumb)),
+                        contentScale = ContentScale.Crop,
+                        colorFilter = AnuraTheme.mediaColorFilter,
                     )
-                    Text(
-                        text = note,
-                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    Spacer(modifier = Modifier.width(AnuraDimens.spaceGap))
                 }
                 Text(
-                    text = percentLabel,
+                    text = name,
+                    style = MaterialTheme.typography.titleMedium.copy(fontStyle = FontStyle.Italic),
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = stringResource(R.string.observation_detail_share_pct, sharePercent(percent)),
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 )
             }

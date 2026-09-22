@@ -1,12 +1,15 @@
 package me.juanlabs.anura.designsystem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
@@ -110,6 +113,7 @@ object AnuraTheme {
         }
 
         val density = LocalDensity.current
+        val redLight = resolvedMode == AnuraThemeMode.LuzRoja
         val themedContent: @Composable () -> Unit = {
             CompositionLocalProvider(
                 LocalAnuraExtendedColors provides extended.copy(
@@ -119,11 +123,7 @@ object AnuraTheme {
                 ),
                 LocalAnuraSwatchColors provides tokens.toSwatchColors(),
                 LocalPreferReduceMotion provides preferReduceMotion,
-                LocalAnuraMediaColorFilter provides if (resolvedMode == AnuraThemeMode.LuzRoja) {
-                    AnuraRedLightMediaColorFilter
-                } else {
-                    null
-                },
+                LocalAnuraMediaColorFilter provides null,
             ) {
                 MaterialTheme(
                     colorScheme = tokens.toColorScheme(isDark).copy(
@@ -134,7 +134,21 @@ object AnuraTheme {
                     ),
                     typography = AnuraTypography,
                     shapes = AnuraShapes,
-                    content = content,
+                    content = {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .then(
+                                    if (redLight) {
+                                        Modifier.anuraRedLightOverlay()
+                                    } else {
+                                        Modifier
+                                    },
+                                ),
+                        ) {
+                            content()
+                        }
+                    },
                 )
             }
         }

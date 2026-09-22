@@ -26,12 +26,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.ui.platform.LocalContext
+import me.juanlabs.anura.core.data.AnuraPackageManifest
+import me.juanlabs.anura.core.data.LocalPackageCatalog
 import me.juanlabs.anura.core.data.RegionalPackageStatus
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraErrorState
@@ -44,6 +51,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlin.math.roundToInt
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
@@ -59,10 +67,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.explore.ObservationCatalogScreen
 
-private const val EjePackageId = "EJE"
-private const val ChocoPackageId = "CHOCO"
-private val StorageUsedFraction = 0.15f
-private val DownloadProgressFraction = 0.64f
 private val ProgressTrackHeight = 8.dp
 private val ProgressTrackRadius = 4.dp
 private val ZonePinSize = 24.dp
@@ -74,18 +78,15 @@ private enum class PackageUiStatus {
     Error,
 }
 
-private data class RegionalPackage(
-    val id: String,
-    val nameRes: Int,
-    val metaRes: Int,
-)
-
-private val CatalogPackages = listOf(
-    RegionalPackage(EjePackageId, R.string.packages_eje_cafetero, R.string.packages_eje_meta),
-    RegionalPackage(ChocoPackageId, R.string.packages_choco, R.string.packages_choco_meta),
-    RegionalPackage("AMAZONIA", R.string.packages_amazonia, R.string.packages_amazonia_meta),
-    RegionalPackage("SIERRA", R.string.packages_sierra, R.string.packages_sierra_meta),
-)
+private fun formatPackageSize(bytes: Long): String {
+    if (bytes <= 0L) return "0 MB"
+    val megabytes = bytes / (1024.0 * 1024.0)
+    return if (megabytes >= 1024.0) {
+        "%.1f GB".format(megabytes / 1024.0)
+    } else {
+        "%.0f MB".format(megabytes)
+    }
+}
 
 /**
  * `Zonas descargadas` (Penpot Mockup Final). Descargar/eliminar son pop-ups locales (§4.2).
@@ -112,12 +113,12 @@ fun RegionalPackagesScreen(
             else -> PackageUiStatus.Available
         }
     }
-    val openedZone = CatalogPackages.firstOrNull { pack ->
+    val openedZone = LocalPackageCatalog.manifests.firstOrNull { pack ->
         pack.id == openedZoneId && statusOf(pack.id) == PackageUiStatus.Installed
     }
     if (openedZone != null) {
         ObservationCatalogScreen(
-            title = stringResource(openedZone.nameRes),
+            title = openedZone.name,
             onBackClick = { openedZoneId = null },
             onOpenObservationDetail = onOpenObservationDetail,
         )
@@ -134,7 +135,7 @@ fun RegionalPackagesScreen(
             )
         },
     ) { innerPadding ->
-        if (CatalogPackages.isEmpty()) {
+        if (LocalPackageCatalog.manifests.isEmpty()) {
             AnuraEmptyState(
                 title = stringResource(R.string.packages_empty_title),
                 description = stringResource(R.string.packages_empty_body),
@@ -155,16 +156,23 @@ fun RegionalPackagesScreen(
                 verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
             ) {
                 item(key = "space-used") {
-                    SpaceUsedCard()
+                    val storage by produceState<Pair<Long, Long>?>(null, snapshot.packages) {
+                        value = withContext(Dispatchers.IO) {
+                            val appBytes = context.filesDir.walkTopDown().filter { it.isFile }.sumOf { it.length() }
+                            appBytes to context.filesDir.usableSpace
+                        }
+                    }
+                    SpaceUsedCard(usedBytes = storage?.first, freeBytes = storage?.second)
                 }
-                items(CatalogPackages, key = { it.id }) { pack ->
+                items(LocalPackageCatalog.manifests, key = { it.id }) { pack ->
                     val record = snapshot.packages.find { it.id == pack.id }
                     val status = statusOf(pack.id)
                     PackageRow(
-                        name = stringResource(pack.nameRes),
-                        meta = stringResource(pack.metaRes),
+                        name = pack.name,
+                        meta = stringResource(R.string.packages_meta_format, pack.speciesCount, formatPackageSize(pack.sizeBytes)),
                         status = status,
                         progress = record?.progress ?: 0f,
+                        active = record?.active == true,
                         onOpenClick = { openedZoneId = pack.id },
                         onDownloadClick = { pendingDownloadId = pack.id },
                         onDeleteClick = {
@@ -181,6 +189,13 @@ fun RegionalPackagesScreen(
                                 repository.failPackage(pack.id)
                             }
                         },
+                        onActiveChange = { shouldBeActive ->
+                            if (shouldBeActive) {
+                                repository.activatePackage(pack.id)
+                            } else {
+                                repository.deactivatePackage(pack.id)
+                            }
+                        },
                     )
                 }
                 item(key = "coverage-note") {
@@ -191,10 +206,10 @@ fun RegionalPackagesScreen(
     }
 
     pendingDownloadId?.let { id ->
-        val name = CatalogPackages.first { it.id == id }.nameRes
+        val name = LocalPackageCatalog.find(id)?.name.orEmpty()
         PackageConfirmSheet(
             title = stringResource(R.string.packages_download_title),
-            body = stringResource(R.string.packages_download_body, stringResource(name)),
+            body = stringResource(R.string.packages_download_body, name),
             confirmLabel = stringResource(R.string.packages_download),
             onConfirm = {
                 if (isNetworkAvailable(context)) {
@@ -208,10 +223,10 @@ fun RegionalPackagesScreen(
         )
     }
     pendingDeleteId?.let { id ->
-        val name = CatalogPackages.first { it.id == id }.nameRes
+        val name = LocalPackageCatalog.find(id)?.name.orEmpty()
         PackageConfirmSheet(
             title = stringResource(R.string.packages_delete_title),
-            body = stringResource(R.string.packages_delete_body, stringResource(name)),
+            body = stringResource(R.string.packages_delete_body, name),
             confirmLabel = stringResource(R.string.packages_delete),
             onConfirm = {
                 repository.uninstallPackage(id)
@@ -221,10 +236,10 @@ fun RegionalPackagesScreen(
         )
     }
     pendingCancelId?.let { id ->
-        val name = CatalogPackages.first { it.id == id }.nameRes
+        val name = LocalPackageCatalog.find(id)?.name.orEmpty()
         PackageConfirmSheet(
             title = stringResource(R.string.packages_cancel_title),
-            body = stringResource(R.string.packages_cancel_body, stringResource(name)),
+            body = stringResource(R.string.packages_cancel_body, name),
             confirmLabel = stringResource(R.string.packages_cancel),
             onConfirm = {
                 repository.cancelPackage(id)
@@ -243,7 +258,7 @@ private fun isNetworkAvailable(context: Context): Boolean {
 }
 
 @Composable
-private fun SpaceUsedCard() {
+private fun SpaceUsedCard(usedBytes: Long?, freeBytes: Long?) {
     AnuraCard(
         modifier = Modifier.fillMaxWidth(),
         bordered = true,
@@ -258,12 +273,18 @@ private fun SpaceUsedCard() {
             verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent),
         ) {
             AnuraSectionLabel(text = stringResource(R.string.packages_space_used))
-            Text(
-                text = stringResource(R.string.packages_space_summary),
-                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.SemiBold),
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-            ZoneProgressBar(progress = StorageUsedFraction)
+            if (usedBytes != null && freeBytes != null) {
+                Text(
+                    text = stringResource(
+                        R.string.packages_space_summary,
+                        formatPackageSize(usedBytes),
+                        formatPackageSize(freeBytes),
+                    ),
+                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+                ZoneProgressBar(progress = usedBytes.toFloat() / (usedBytes + freeBytes).coerceAtLeast(1L))
+            }
         }
     }
 }
@@ -342,10 +363,12 @@ private fun PackageRow(
     meta: String,
     status: PackageUiStatus,
     progress: Float,
+    active: Boolean,
     onOpenClick: () -> Unit,
     onDownloadClick: () -> Unit,
     onDeleteClick: () -> Unit,
     onRetryClick: () -> Unit,
+    onActiveChange: (Boolean) -> Unit,
 ) {
     val pinActive = status != PackageUiStatus.Available && status != PackageUiStatus.Error
     AnuraCard(
@@ -395,11 +418,30 @@ private fun PackageRow(
                 )
                 if (status == PackageUiStatus.Installed) {
                     OfflineReadyChip()
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent),
+                    ) {
+                        Switch(
+                            checked = active,
+                            onCheckedChange = onActiveChange,
+                            colors = SwitchDefaults.colors(checkedTrackColor = AnuraTheme.extendedColors.accentInk),
+                        )
+                        Text(
+                            text = if (active) {
+                                stringResource(R.string.packages_active_label)
+                            } else {
+                                stringResource(R.string.packages_activate)
+                            },
+                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
                 if (status == PackageUiStatus.Downloading) {
                     ZoneProgressBar(progress = progress)
                     Text(
-                        text = stringResource(R.string.packages_download_progress),
+                        text = stringResource(R.string.packages_download_progress_format, (progress * 100).roundToInt()),
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

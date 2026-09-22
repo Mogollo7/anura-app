@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
@@ -23,6 +24,10 @@ import me.juanlabs.anura.core.data.AnuraRepository
 import me.juanlabs.anura.core.data.IdentificationKnown
 import me.juanlabs.anura.core.data.IdentificationUnknownFamily
 import me.juanlabs.anura.core.data.IdentificationUnknownGenus
+import me.juanlabs.anura.core.data.IdentificationUnknownOrder
+import me.juanlabs.anura.core.data.IdentificationCandidate
+import me.juanlabs.anura.feature.capture.OpenSetReachedRank
+import me.juanlabs.anura.feature.capture.OpenSetUnknownResults
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.theme.AnuraMotion
 import me.juanlabs.anura.designsystem.theme.AnuraAccentRole
@@ -41,6 +46,7 @@ import me.juanlabs.anura.feature.capture.CaptureStep4Screen
 import me.juanlabs.anura.feature.capture.CaptureStep5Screen
 import me.juanlabs.anura.feature.capture.CaptureStep6Screen
 import me.juanlabs.anura.feature.capture.PhotoCaptureScreen
+import me.juanlabs.anura.core.inference.IdentificationFailure
 import me.juanlabs.anura.feature.capture.MockOpenSetUnknownResults
 import me.juanlabs.anura.feature.capture.UnknownResultScreen
 import me.juanlabs.anura.feature.capture.WhatToRegisterContent
@@ -535,8 +541,50 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
         composable<AnuraRoute.Analyzing> { backStackEntry ->
             val route = backStackEntry.toRoute<AnuraRoute.Analyzing>()
             val repository = rememberAnuraRepository()
+            val context = androidx.compose.ui.platform.LocalContext.current
+            var showNotAnuroDialog by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
             AnalyzingScreen(
                 source = route.source,
+                identifyPhoto = if (route.source != AnuraRoute.Analyzing.Audio) {
+                    { repository.identifyDraftPhoto() }
+                } else {
+                    null
+                },
+                onIdentified = { outcome ->
+                    if (outcome.accepted) {
+                        val id = repository.commitObservation(IdentificationKnown, outcome)
+                        navController.navigate(AnuraRoute.ObservationDetail(id = id)) {
+                            popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
+                        }
+                    } else {
+                        val candidates = outcome.candidates.map {
+                            IdentificationCandidate(it.scientificName, it.share.toFloat(), it.genus, it.family)
+                        }
+                        val reached = OpenSetUnknownResults.reachedRank(candidates)
+                        val status = when (reached) {
+                            OpenSetReachedRank.Genus -> IdentificationUnknownGenus
+                            OpenSetReachedRank.Family -> IdentificationUnknownFamily
+                            OpenSetReachedRank.Order -> IdentificationUnknownOrder
+                        }
+                        val id = repository.commitObservation(status, outcome)
+                        navController.navigate(AnuraRoute.UnknownResult(reached.name.lowercase(), observationId = id)) {
+                            popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
+                        }
+                    }
+                },
+                onNotAnuro = { showNotAnuroDialog = true },
+                onIdentificationFailed = { reason ->
+                    repository.notify(
+                        context.getString(
+                            when (reason) {
+                                IdentificationFailure.NoPhoto -> me.juanlabs.anura.R.string.identification_error_no_photo
+                                IdentificationFailure.NoActivePackage -> me.juanlabs.anura.R.string.identification_error_no_package
+                                IdentificationFailure.EngineError -> me.juanlabs.anura.R.string.identification_error_engine
+                            },
+                        ),
+                    )
+                    navController.popBackStack()
+                },
                 onKnownResult = {
                     val id = repository.commitObservation(IdentificationKnown)
                     navController.navigate(AnuraRoute.ObservationDetail(id = id)) {
@@ -555,12 +603,35 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                     }
                 },
             )
+            if (showNotAnuroDialog) {
+                androidx.compose.material3.AlertDialog(
+                    onDismissRequest = {
+                        showNotAnuroDialog = false
+                        navController.popBackStack()
+                    },
+                    title = { androidx.compose.material3.Text(stringResource(me.juanlabs.anura.R.string.identification_not_anuro_title)) },
+                    text = { androidx.compose.material3.Text(stringResource(me.juanlabs.anura.R.string.identification_not_anuro)) },
+                    confirmButton = {
+                        androidx.compose.material3.TextButton(
+                            onClick = {
+                                showNotAnuroDialog = false
+                                navController.popBackStack()
+                            },
+                        ) {
+                            androidx.compose.material3.Text(stringResource(me.juanlabs.anura.R.string.identification_not_anuro_action))
+                        }
+                    },
+                )
+            }
         }
         composable<AnuraRoute.UnknownResult> { backStackEntry ->
             val resultRoute = backStackEntry.toRoute<AnuraRoute.UnknownResult>()
             val repository = rememberAnuraRepository()
             val reviewSent = stringResource(me.juanlabs.anura.R.string.expert_review_sent)
-            val result = MockOpenSetUnknownResults.forReached(resultRoute.reached)
+            val observation = resultRoute.observationId?.let(repository::observationById)
+            val result = observation?.takeIf { it.candidates.isNotEmpty() }
+                ?.let { OpenSetUnknownResults.fromCandidates(it.candidates, it.photoTokens.firstOrNull()) }
+                ?: MockOpenSetUnknownResults.forReached(resultRoute.reached)
             UnknownResultScreen(
                 result = result,
                 onBackClick = { navController.popBackStack() },
@@ -568,7 +639,7 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                     navController.navigate(AnuraRoute.SpeciesSheet(taxonId))
                 },
                 onRequestExpertReview = {
-                    repository.requestExpertReview(null)
+                    repository.requestExpertReview(resultRoute.observationId)
                     repository.notify(reviewSent)
                 },
             )

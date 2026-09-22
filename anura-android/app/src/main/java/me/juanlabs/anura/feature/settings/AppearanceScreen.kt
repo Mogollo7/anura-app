@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -50,6 +51,7 @@ import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
+import me.juanlabs.anura.designsystem.component.LocalAnuraTabBarInset
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraAccentRole
@@ -99,7 +101,12 @@ fun AppearanceScreen(
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = SettingsGutter)
-                .padding(bottom = AnuraDimens.spaceSection),
+                .padding(
+                    bottom = AnuraDimens.spaceSection +
+                        LocalAnuraTabBarInset.current +
+                        AnuraDimens.spaceSection,
+                )
+                .navigationBarsPadding(),
             verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceSection),
         ) {
             AppearanceSection(

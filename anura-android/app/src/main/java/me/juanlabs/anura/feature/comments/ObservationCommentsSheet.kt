@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -78,6 +79,7 @@ private const val SheetSnapFullAbove = 0.72f
 fun ObservationCommentsOverlay(
     observationId: String,
     onDismiss: () -> Unit,
+    modifier: Modifier = Modifier,
     media: @Composable () -> Unit,
 ) {
     val density = LocalDensity.current
@@ -119,13 +121,12 @@ fun ObservationCommentsOverlay(
     val animated by animateFloatAsState(targetValue = target, label = "comment-sheet")
 
     BoxWithConstraints(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .imePadding()
             .background(AnuraTheme.extendedColors.boardBackground),
     ) {
         val sheetHeight = maxHeight * animated
-        val mediaHeight = maxHeight - sheetHeight
+        val mediaHeight = (maxHeight - sheetHeight).coerceAtLeast(0.dp)
         val maxPx = with(density) { maxHeight.toPx() }
         Box(
             modifier = Modifier
@@ -139,7 +140,14 @@ fun ObservationCommentsOverlay(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .height(sheetHeight),
+                .then(
+                    if (imeVisible) {
+                        Modifier.imePadding()
+                    } else {
+                        Modifier.navigationBarsPadding()
+                    },
+                )
+                .fillMaxHeight(animated),
             color = MaterialTheme.colorScheme.surface,
             shape = RoundedCornerShape(
                 topStart = AnuraDimens.radiusModal,
@@ -149,15 +157,7 @@ fun ObservationCommentsOverlay(
             shadowElevation = 0.dp,
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .then(
-                        if (imeVisible) {
-                            Modifier
-                        } else {
-                            Modifier.navigationBarsPadding()
-                        },
-                    ),
+                modifier = Modifier.fillMaxSize(),
             ) {
                 Box(
                     modifier = Modifier
@@ -240,6 +240,7 @@ fun ObservationCommentsOverlay(
                     value = draft,
                     replyTo = replyTo,
                     proposal = pendingProposal,
+                    imeVisible = imeVisible,
                     onValueChange = { draft = it },
                     onFocusChange = { composerFocused = it },
                     onCancelReply = { replyTo = null },
@@ -513,6 +514,7 @@ private fun CommentComposer(
     value: String,
     replyTo: ObservationComment?,
     proposal: TaxonProposal?,
+    imeVisible: Boolean,
     onValueChange: (String) -> Unit,
     onFocusChange: (Boolean) -> Unit,
     onCancelReply: () -> Unit,
@@ -530,6 +532,7 @@ private fun CommentComposer(
                 start = AnuraDimens.spaceGutter,
                 end = AnuraDimens.spaceGutter,
                 top = AnuraDimens.spaceGap,
+                bottom = if (imeVisible) AnuraDimens.spaceLabelToContent else AnuraDimens.spaceGap,
             ),
     ) {
         if (replyTo != null) {

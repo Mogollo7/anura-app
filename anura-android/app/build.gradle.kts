@@ -35,6 +35,15 @@ android {
     buildFeatures {
         compose = true
     }
+    packaging {
+        jniLibs {
+            // sqlite-vec se carga con sqlite3_load_extension(ruta): necesita existir como archivo en nativeLibraryDir
+            useLegacyPackaging = true
+        }
+    }
+    androidResources {
+        noCompress += "onnx"
+    }
 }
 
 dependencies {
@@ -59,6 +68,8 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.onnxruntime.android)
+    implementation(libs.androidx.sqlite.bundled)
     ksp(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))

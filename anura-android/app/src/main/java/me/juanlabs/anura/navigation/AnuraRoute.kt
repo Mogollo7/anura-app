@@ -75,7 +75,7 @@ sealed interface AnuraRoute {
 
     /** `reached`: genus | family | order — resultado open-set (§4.1). */
     @Serializable
-    data class UnknownResult(val reached: String = "genus") : AnuraRoute
+    data class UnknownResult(val reached: String = "genus", val observationId: String? = null) : AnuraRoute
 
     /** Sheet del FAB — ruta real, alcanzable desde varias pantallas (§4.2). */
     @Serializable

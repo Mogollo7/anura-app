@@ -72,9 +72,11 @@ internal fun CaptureAddPhotoFlow(
     var confirmLeave by rememberSaveable { mutableStateOf(false) }
 
     fun persist(next: List<String>) {
-        specimens = next
-        selected = selected.coerceAtMost(next.lastIndex.coerceAtLeast(0))
         CapturePhotoDraft.tokens = next
+        // se conservan los tokens ya persistidos para no re-codificar (y duplicar) las fotos en cada cambio
+        val stored = CapturePhotoDraft.tokens.takeIf { it.size == next.size } ?: next
+        specimens = stored
+        selected = selected.coerceAtMost(stored.lastIndex.coerceAtLeast(0))
     }
 
     val gallery = rememberGalleryPicker { uris ->

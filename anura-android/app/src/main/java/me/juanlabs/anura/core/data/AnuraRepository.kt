@@ -7,8 +7,8 @@ import java.io.File
 import java.util.UUID
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -18,13 +18,19 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import me.juanlabs.anura.core.inference.AnuraIdentifier
+import me.juanlabs.anura.core.inference.IdentificationFailure
+import me.juanlabs.anura.core.inference.IdentificationOutcome
 
 class AnuraRepository(
     private val dao: SnapshotDao?,
     val media: MediaPersistence?,
     private val persistEnabled: Boolean,
+    private val installer: PackageInstaller? = null,
+    private val identifier: AnuraIdentifier? = null,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val packageInstallJobs = mutableMapOf<String, Job>()
     private val json = Json {
         ignoreUnknownKeys = true
         encodeDefaults = true
@@ -190,12 +196,30 @@ class AnuraRepository(
         updateDraft { it.copy(audioPath = persisted, audioDurationMs = durationMs) }
     }
 
-    fun commitObservation(identificationStatus: String): String {
+    /** Identifica la primera foto del borrador con el paquete regional activo. */
+    suspend fun identifyDraftPhoto(): IdentificationOutcome {
+        val engine = identifier
+            ?: return IdentificationOutcome.Failed(IdentificationFailure.EngineError, "Sin motor de identificación")
+        val photo = snapshot.draft.photoTokens.firstOrNull()?.let(MediaPersistence::fileFromToken)
+            ?: return IdentificationOutcome.Failed(IdentificationFailure.NoPhoto, "El borrador no tiene foto")
+        val pack = snapshot.packages.firstOrNull {
+            it.active && it.status == RegionalPackageStatus.Installed && it.localPath != null
+        } ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
+        return engine.identify(photo, requireNotNull(pack.localPath), pack.id)
+    }
+
+    fun commitObservation(
+        identificationStatus: String,
+        identified: IdentificationOutcome.Identified? = null,
+    ): String {
         val draft = snapshot.draft
         val session = snapshot.session
         val id = "obs-${UUID.randomUUID().toString().take(8)}"
-        val species = when (identificationStatus) {
-            IdentificationKnown -> SpeciesCatalog.find(SimulatedKnownSpeciesId)
+        // un rechazo del Open Set guarda las candidatas pero nunca atribuye especie
+        val named = identified?.takeIf { identificationStatus == IdentificationKnown }
+        val species = when {
+            named != null -> SpeciesCatalog.all.firstOrNull { it.scientificName == named.scientificName }
+            identified == null && identificationStatus == IdentificationKnown -> SpeciesCatalog.find(SimulatedKnownSpeciesId)
             else -> null
         }
         val photos = draft.photoTokens.map { token ->
@@ -210,8 +234,9 @@ class AnuraRepository(
             ownerUserId = session.userId,
             ownerDisplayName = session.displayName.ifBlank { "" },
             speciesId = species?.id,
-            commonName = species?.commonName,
-            scientificName = species?.scientificName,
+            // el paquete no trae nombres comunes: sin ficha en el catálogo se titula con el nombre científico
+            commonName = species?.commonName ?: named?.scientificName,
+            scientificName = named?.scientificName ?: species?.scientificName,
             photoTokens = photos,
             audioPath = audio,
             audioDurationMs = draft.audioDurationMs,
@@ -226,6 +251,9 @@ class AnuraRepository(
             fieldSessionId = draft.fieldSessionId ?: snapshot.activeSessionId,
             identificationStatus = identificationStatus,
             createdAtEpochMs = System.currentTimeMillis(),
+            candidates = identified?.candidates.orEmpty().map {
+                IdentificationCandidate(it.scientificName, it.share.toFloat(), it.genus, it.family)
+            },
         )
         update { current -> current.copy(observations = listOf(record) + current.observations) }
         resetDraft()
@@ -380,87 +408,93 @@ class AnuraRepository(
         }
     }
 
-    fun setPackageDownloading(id: String) {
+    private fun updatePackage(id: String, transform: (RegionalPackageRecord) -> RegionalPackageRecord) {
         update { current ->
-            current.copy(
-                packages = current.packages.map { pack ->
-                    if (pack.id == id) {
-                        pack.copy(status = RegionalPackageStatus.Downloading, progress = 0.08f)
-                    } else {
-                        pack
-                    }
-                },
-            )
+            current.copy(packages = current.packages.map { pack -> if (pack.id == id) transform(pack) else pack })
         }
-        scope.launch {
-            for (step in 1..8) {
-                delay(280)
-                update { current ->
-                    current.copy(
-                        packages = current.packages.map { pack ->
-                            if (pack.id == id && pack.status == RegionalPackageStatus.Downloading) {
-                                pack.copy(progress = (step / 8f).coerceAtMost(0.96f))
-                            } else {
-                                pack
-                            }
-                        },
-                    )
+    }
+
+    fun setPackageDownloading(id: String) {
+        val manifest = LocalPackageCatalog.find(id)
+        val engine = installer
+        if (manifest == null || engine == null) {
+            failPackage(id)
+            return
+        }
+        updatePackage(id) { it.copy(status = RegionalPackageStatus.Downloading, progress = 0f) }
+        packageInstallJobs[id]?.cancel()
+        packageInstallJobs[id] = scope.launch {
+            val result = engine.install(manifest) { fraction ->
+                updatePackage(id) { pack ->
+                    if (pack.status == RegionalPackageStatus.Downloading) pack.copy(progress = fraction) else pack
                 }
             }
-            update { current ->
-                current.copy(
-                    packages = current.packages.map { pack ->
-                        if (pack.id == id) {
-                            pack.copy(status = RegionalPackageStatus.Installed, progress = 1f)
-                        } else {
-                            pack
-                        }
-                    },
-                )
+            when (result) {
+                is PackageInstallResult.Success -> updatePackage(id) { pack ->
+                    pack.copy(
+                        status = RegionalPackageStatus.Installed,
+                        progress = 1f,
+                        version = manifest.version,
+                        sha256 = result.sha256,
+                        sizeBytes = result.sizeBytes,
+                        speciesCount = manifest.speciesCount,
+                        installedAtEpochMs = result.installedAtEpochMs,
+                        localPath = result.localPath,
+                    )
+                }
+                is PackageInstallResult.Failure -> {
+                    notify(result.reason)
+                    failPackage(id)
+                }
             }
+            packageInstallJobs.remove(id)
         }
     }
 
     fun failPackage(id: String) {
-        update { current ->
-            current.copy(
-                packages = current.packages.map { pack ->
-                    if (pack.id == id) {
-                        pack.copy(status = RegionalPackageStatus.Error, progress = 0f)
-                    } else {
-                        pack
-                    }
-                },
-            )
-        }
+        updatePackage(id) { it.copy(status = RegionalPackageStatus.Error, progress = 0f) }
     }
 
     fun cancelPackage(id: String) {
+        packageInstallJobs.remove(id)?.cancel()
+        updatePackage(id) { it.copy(status = RegionalPackageStatus.Available, progress = 0f) }
+    }
+
+    fun uninstallPackage(id: String) {
+        packageInstallJobs.remove(id)?.cancel()
+        installer?.uninstall(id)
+        updatePackage(id) {
+            it.copy(
+                status = RegionalPackageStatus.Available,
+                progress = 0f,
+                active = false,
+                version = null,
+                sha256 = null,
+                sizeBytes = 0L,
+                speciesCount = 0,
+                installedAtEpochMs = null,
+                localPath = null,
+            )
+        }
+    }
+
+    /** Activa este paquete para identificación y desactiva cualquier otro (uno a la vez). */
+    fun activatePackage(id: String) {
         update { current ->
             current.copy(
                 packages = current.packages.map { pack ->
-                    if (pack.id == id) {
-                        pack.copy(status = RegionalPackageStatus.Available, progress = 0f)
-                    } else {
-                        pack
+                    when {
+                        pack.id == id && pack.status == RegionalPackageStatus.Installed -> pack.copy(active = true)
+                        pack.id != id -> pack.copy(active = false)
+                        else -> pack
                     }
                 },
             )
         }
     }
 
-    fun uninstallPackage(id: String) {
-        update { current ->
-            current.copy(
-                packages = current.packages.map { pack ->
-                    if (pack.id == id) {
-                        pack.copy(status = RegionalPackageStatus.Available, progress = 0f)
-                    } else {
-                        pack
-                    }
-                },
-            )
-        }
+    fun deactivatePackage(id: String) {
+        updatePackage(id) { it.copy(active = false) }
     }
 
     companion object {
@@ -482,6 +516,8 @@ class AnuraRepository(
                 dao = db.snapshotDao(),
                 media = MediaPersistence(application),
                 persistEnabled = true,
+                installer = PackageInstaller(application),
+                identifier = AnuraIdentifier(application),
             )
             instance = repo
             repo.scope.launch {
@@ -491,7 +527,9 @@ class AnuraRepository(
                         repo.json.decodeFromString(AnuraSnapshot.serializer(), stored.payload)
                     }.getOrNull()
                     if (parsed != null) {
-                        repo._state.value = parsed
+                        repo._state.value = parsed.copy(
+                            packages = reconcilePackages(parsed.packages, LocalPackageCatalog.manifests.map { it.id }),
+                        )
                     }
                 }
             }

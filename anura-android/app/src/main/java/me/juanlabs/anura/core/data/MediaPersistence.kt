@@ -5,6 +5,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
+import android.graphics.Matrix
+import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
@@ -32,17 +34,26 @@ class MediaPersistence(private val context: Context) {
     fun persistPhotoToken(token: String): String {
         if (token.startsWith("res:")) return token
         val already = token.removePrefix("file:")
-        if (token.startsWith("file:") && already.startsWith(photosDir.absolutePath)) {
+        // CameraX guarda la captura directo en photosDir con la rotación solo en EXIF, y BitmapFactory
+        // (visor, detector de borrosidad, identificación) la ignora: esa foto se reescribe ya rotada.
+        val capturedInPlace = token.startsWith("file:") && already.startsWith(photosDir.absolutePath)
+        if (capturedInPlace && exifOrientation(already) == ExifInterface.ORIENTATION_NORMAL) {
             return token
         }
         val bitmap = decodeBitmap(token) ?: return token
         val scaled = scaleToMax(bitmap, MaxPhotoEdgePx)
-        val out = createPhotoFile()
-        FileOutputStream(out).use { stream ->
+        // la pantalla de captura conserva el token original: la foto de cámara se reescribe en su misma ruta
+        val out = if (capturedInPlace) File(already) else createPhotoFile()
+        val tmp = File(out.path + ".tmp")
+        FileOutputStream(tmp).use { stream ->
             scaled.compress(Bitmap.CompressFormat.JPEG, JpegQuality, stream)
         }
         if (scaled !== bitmap) scaled.recycle()
         if (!bitmap.isRecycled) bitmap.recycle()
+        if (!tmp.renameTo(out)) {
+            tmp.delete()
+            return token
+        }
         return "file:${out.absolutePath}"
     }
 
@@ -95,12 +106,15 @@ class MediaPersistence(private val context: Context) {
 
     private fun decodeBitmap(token: String): Bitmap? = runCatching {
         when {
-            token.startsWith("file:") -> BitmapFactory.decodeFile(token.removePrefix("file:"))
+            token.startsWith("file:") -> decodeFileUpright(token.removePrefix("file:"))
             token.startsWith("uri:") -> decodeUri(Uri.parse(token.removePrefix("uri:")))
             token.startsWith("content:") -> decodeUri(Uri.parse(token))
-            else -> BitmapFactory.decodeFile(token)
+            else -> decodeFileUpright(token)
         }
     }.getOrNull()
+
+    private fun decodeFileUpright(path: String): Bitmap? =
+        BitmapFactory.decodeFile(path)?.let { applyOrientation(it, exifOrientation(path)) }
 
     private fun decodeUri(uri: Uri): Bitmap? {
         return if (Build.VERSION.SDK_INT >= 28) {
@@ -113,6 +127,29 @@ class MediaPersistence(private val context: Context) {
 
     companion object {
         private const val MaxPhotoEdgePx = 1920
+
+        fun exifOrientation(path: String): Int = runCatching {
+            ExifInterface(path).getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+        }.getOrDefault(ExifInterface.ORIENTATION_NORMAL).let {
+            if (it == ExifInterface.ORIENTATION_UNDEFINED) ExifInterface.ORIENTATION_NORMAL else it
+        }
+
+        fun applyOrientation(source: Bitmap, orientation: Int): Bitmap {
+            val matrix = Matrix()
+            when (orientation) {
+                ExifInterface.ORIENTATION_ROTATE_90 -> matrix.setRotate(90f)
+                ExifInterface.ORIENTATION_ROTATE_180 -> matrix.setRotate(180f)
+                ExifInterface.ORIENTATION_ROTATE_270 -> matrix.setRotate(270f)
+                ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> matrix.setScale(-1f, 1f)
+                ExifInterface.ORIENTATION_FLIP_VERTICAL -> matrix.setScale(1f, -1f)
+                ExifInterface.ORIENTATION_TRANSPOSE -> matrix.apply { setRotate(90f); postScale(-1f, 1f) }
+                ExifInterface.ORIENTATION_TRANSVERSE -> matrix.apply { setRotate(270f); postScale(-1f, 1f) }
+                else -> return source
+            }
+            val rotated = Bitmap.createBitmap(source, 0, 0, source.width, source.height, matrix, true)
+            if (rotated !== source) source.recycle()
+            return rotated
+        }
         private const val JpegQuality = 82
 
         fun scaleToMax(source: Bitmap, maxEdge: Int): Bitmap {

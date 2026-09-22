@@ -5,11 +5,16 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.toRect
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
+import androidx.compose.ui.graphics.CompositingStrategy
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.graphicsLayer
 
 /**
  * Filtro de fotos en Luz Roja (RNF-07): luminancia → canal rojo, sin verde ni azul,
@@ -28,6 +33,19 @@ internal val AnuraRedLightMediaColorFilter: ColorFilter = ColorFilter.colorMatri
 )
 
 internal val LocalAnuraMediaColorFilter = staticCompositionLocalOf<ColorFilter?> { null }
+
+/** Velo rojo sobre la UI: el blanco y las fotos se tiñen, el negro se queda negro. */
+internal val AnuraRedLightOverlayColor = Color(0xFFFF453A)
+
+fun Modifier.anuraRedLightOverlay(): Modifier =
+    graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
+        .drawWithContent {
+            drawContent()
+            drawRect(
+                color = AnuraRedLightOverlayColor,
+                blendMode = BlendMode.Multiply,
+            )
+        }
 
 /** Teñido de media (foto, hero, miniatura) según el tema activo. */
 @Composable

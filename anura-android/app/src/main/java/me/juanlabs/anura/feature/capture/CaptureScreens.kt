@@ -41,8 +41,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.inference.IdentificationFailure
+import me.juanlabs.anura.core.inference.IdentificationOutcome
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
@@ -64,15 +67,16 @@ private data class AnalyzingStage(
 )
 
 private val AnalyzingStages = listOf(
-    AnalyzingStage(R.string.analyzing_stage_crop, R.string.analyzing_stage_crop_engine),
+    AnalyzingStage(R.string.analyzing_stage_crop, null),
     AnalyzingStage(R.string.analyzing_stage_compare, R.string.analyzing_stage_compare_engine),
     AnalyzingStage(R.string.analyzing_stage_context, R.string.analyzing_stage_context_engine),
     AnalyzingStage(R.string.analyzing_stage_rank, null),
 )
 
 /**
- * `Analizando · progreso por etapas` (§4.1). El sistema no retrocede mientras corre
- * el mock de etapas; al terminar navega al resultado conocido o al open-set.
+ * `Analizando · progreso por etapas` (§4.1). El sistema no retrocede mientras corre la animación.
+ * Con [identifyPhoto] (Foto ID) la identificación real corre en paralelo y decide el resultado;
+ * sin él (wizard y audio) se mantiene el resultado simulado.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -80,13 +84,26 @@ fun AnalyzingScreen(
     onKnownResult: () -> Unit,
     onUnknownResult: (String) -> Unit = {},
     source: String = AnuraRoute.Analyzing.Wizard,
+    identifyPhoto: (suspend () -> IdentificationOutcome)? = null,
+    onIdentified: (IdentificationOutcome.Identified) -> Unit = {},
+    onNotAnuro: () -> Unit = {},
+    onIdentificationFailed: (IdentificationFailure) -> Unit = {},
 ) {
     BackHandler(enabled = true) { }
     var currentStage by rememberSaveable { mutableIntStateOf(0) }
     LaunchedEffect(Unit) {
+        val pending = identifyPhoto?.let { identify -> async { identify() } }
         AnalyzingStages.indices.forEach { index ->
             currentStage = index
             delay(AnalyzingStageDelayMs)
+        }
+        if (pending != null) {
+            when (val outcome = pending.await()) {
+                is IdentificationOutcome.Identified -> onIdentified(outcome)
+                is IdentificationOutcome.NotAnuro -> onNotAnuro()
+                is IdentificationOutcome.Failed -> onIdentificationFailed(outcome.reason)
+            }
+            return@LaunchedEffect
         }
         when (source) {
             AnuraRoute.Analyzing.Image -> onUnknownResult("genus")
@@ -329,7 +346,7 @@ fun UnknownResultScreen(
                 .padding(bottom = CaptureBottomBreathing),
         ) {
             Image(
-                painter = painterResource(result.photoRes),
+                painter = result.photoToken?.let { rememberCaptureBackdropPainter(it) } ?: painterResource(result.photoRes),
                 contentDescription = stringResource(R.string.analyzing_photo_cd),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -406,12 +423,14 @@ fun UnknownResultScreen(
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             AnuraReviewChip(text = stringResource(R.string.unknown_result_needs_review))
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-            AnuraFormButton(
-                text = stringResource(result.sheetActionRes),
-                onClick = { onOpenTaxonSheet(result.taxonId) },
-                style = AnuraFormButtonStyle.Primary,
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+            result.taxonId?.let { taxonId ->
+                AnuraFormButton(
+                    text = stringResource(result.sheetActionRes),
+                    onClick = { onOpenTaxonSheet(taxonId) },
+                    style = AnuraFormButtonStyle.Primary,
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+            }
             AnuraFormButton(
                 text = stringResource(R.string.unknown_result_send_review),
                 onClick = onRequestExpertReview,

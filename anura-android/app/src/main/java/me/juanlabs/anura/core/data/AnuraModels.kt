@@ -69,9 +69,20 @@ data class ObservationRecord(
     val fieldSessionId: String? = null,
     val identificationStatus: String = IdentificationKnown,
     val createdAtEpochMs: Long = 0L,
+    /** Resultado real del k-NN (vacío en observaciones sin identificación en el teléfono). */
+    val candidates: List<IdentificationCandidate> = emptyList(),
 ) {
     val isCommunity: Boolean get() = ownerUserId.startsWith("user-")
 }
+
+/** Especie candidata y su fracción del voto ponderado de las 5 referencias más parecidas del paquete. */
+@Serializable
+data class IdentificationCandidate(
+    val scientificName: String,
+    val share: Float,
+    val genus: String = "",
+    val family: String = "",
+)
 
 @Serializable
 data class FieldSessionRecord(
@@ -116,6 +127,29 @@ data class RegionalPackageRecord(
     val id: String,
     val status: RegionalPackageStatus,
     val progress: Float = 0f,
+    val version: String? = null,
+    val sha256: String? = null,
+    val sizeBytes: Long = 0L,
+    val speciesCount: Int = 0,
+    val active: Boolean = false,
+    val installedAtEpochMs: Long? = null,
+    val localPath: String? = null,
+)
+
+/**
+ * Contrato de un paquete regional descargable. Hoy la fuente es [LocalPackageCatalog]
+ * (bundled en assets/); más adelante la misma forma la devolverá `GET /packages/{id}`.
+ */
+@Serializable
+data class AnuraPackageManifest(
+    val id: String,
+    val name: String,
+    val region: String,
+    val version: String,
+    val speciesCount: Int,
+    val sizeBytes: Long,
+    val sha256: String,
+    val assetPath: String,
 )
 
 @Serializable
@@ -135,16 +169,29 @@ data class AnuraSnapshot(
 )
 
 fun defaultPackages(): List<RegionalPackageRecord> = listOf(
-    RegionalPackageRecord("EJE", RegionalPackageStatus.Available),
-    RegionalPackageRecord("CHOCO", RegionalPackageStatus.Available),
-    RegionalPackageRecord("AMAZONIA", RegionalPackageStatus.Available),
-    RegionalPackageRecord("SIERRA", RegionalPackageStatus.Available),
+    RegionalPackageRecord(id = AntioquiaPackageId, status = RegionalPackageStatus.Available),
 )
+
+/**
+ * Alinea los registros persistidos con el catálogo vigente: agrega los paquetes nuevos, descarta los
+ * que ya no existen (p. ej. las zonas ficticias de versiones anteriores) y libera descargas que
+ * quedaron a medias cuando el proceso murió.
+ */
+fun reconcilePackages(stored: List<RegionalPackageRecord>, catalogIds: List<String>): List<RegionalPackageRecord> =
+    catalogIds.map { id ->
+        val record = stored.firstOrNull { it.id == id } ?: RegionalPackageRecord(id, RegionalPackageStatus.Available)
+        if (record.status == RegionalPackageStatus.Downloading) {
+            record.copy(status = RegionalPackageStatus.Available, progress = 0f)
+        } else {
+            record
+        }
+    }
 
 const val GuestUserId = "guest"
 const val IdentificationKnown = "known"
 const val IdentificationUnknownGenus = "unknown_genus"
 const val IdentificationUnknownFamily = "unknown_family"
+const val IdentificationUnknownOrder = "unknown_order"
 const val PeriodDawn = "dawn"
 const val PeriodDay = "day"
 const val PeriodDusk = "dusk"
@@ -156,3 +203,4 @@ const val HabitatRock = "rock"
 const val UsageCuriosity = "curiosity"
 const val UsageStudy = "study"
 const val SimulatedKnownSpeciesId = "ANU_COL_DEND_TRU_001"
+const val AntioquiaPackageId = "ANTIOQUIA"
