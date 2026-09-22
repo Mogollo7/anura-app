@@ -516,9 +516,19 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             )
         }
         composable<AnuraRoute.PhotoCapture> {
+            val repository = rememberAnuraRepository()
+            val context = androidx.compose.ui.platform.LocalContext.current
             PhotoCaptureScreen(
                 onBackClick = { navController.popBackStack() },
                 onPhotoAccepted = {
+                    // Foto ID no pasa por el Paso 1 (sin mapa ni UI de ubicación): sin esto el
+                    // borrador queda sin coordenadas y la identificación pierde el prior
+                    // geográfico/de clima por completo (ver bug reportado: misma foto, "truncatus"
+                    // 74% aquí vs. la especie correcta vía el wizard completo con coordenadas).
+                    // Última ubicación conocida, sin pedir una lectura nueva ni mostrar mapa.
+                    me.juanlabs.anura.designsystem.component.lastKnownLocation(context)?.let { location ->
+                        repository.updateDraft { it.copy(latitude = location.latitude, longitude = location.longitude) }
+                    }
                     navController.navigate(AnuraRoute.Analyzing(AnuraRoute.Analyzing.Image)) {
                         popUpTo(AnuraRoute.PhotoCapture) { inclusive = true }
                     }

@@ -1,8 +1,11 @@
 package me.juanlabs.anura.designsystem.component
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
@@ -31,6 +34,24 @@ fun AnuraPermissionKind.manifestPermissions(): Array<String> = when (this) {
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION,
     )
+}
+
+/**
+ * Última ubicación conocida (GPS o red, la más reciente de las dos), sin pedir una actualización
+ * nueva ni mostrar UI — para usarse en flujos cortos como Foto ID que no pasan por el Paso 1 del
+ * wizard. Requiere permiso ya concedido ([AnuraPermissionKind.Location.isGranted]); null si no
+ * hay permiso, no hay proveedor disponible, o nunca se registró una ubicación en el dispositivo.
+ */
+@SuppressLint("MissingPermission")
+fun lastKnownLocation(context: Context): Location? {
+    if (!AnuraPermissionKind.Location.isGranted(context)) return null
+    val manager = context.getSystemService(Context.LOCATION_SERVICE) as? LocationManager ?: return null
+    val gps = runCatching { manager.getLastKnownLocation(LocationManager.GPS_PROVIDER) }.getOrNull()
+    val network = runCatching { manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER) }.getOrNull()
+    return when {
+        gps != null && network != null -> if (gps.time >= network.time) gps else network
+        else -> gps ?: network
+    }
 }
 
 fun AnuraPermissionKind.isGranted(context: Context): Boolean {
