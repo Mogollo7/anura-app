@@ -159,6 +159,12 @@ fun SpeciesSheetScreen(
         SpeciesTaxonRank.Family -> speciesId
         SpeciesTaxonRank.Order -> speciesId
     }
+    val distributionTaxonIds = when (rank) {
+        SpeciesTaxonRank.Species -> listOf(species.id)
+        SpeciesTaxonRank.Genus,
+        SpeciesTaxonRank.Family,
+        SpeciesTaxonRank.Order -> SpeciesCatalog.byTaxon(speciesId).map { it.id }
+    }
 
     if (showIdentifiers) {
         IdentifiersHighlightedScreen(
@@ -306,7 +312,7 @@ fun SpeciesSheetScreen(
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             when (tab) {
-                SpeciesSheetTab.Distribution -> DistributionSection()
+                SpeciesSheetTab.Distribution -> DistributionSection(taxonIds = distributionTaxonIds)
                 SpeciesSheetTab.Morphology -> MorphologySection()
                 SpeciesSheetTab.Bioacoustics -> BioacousticsSection()
                 SpeciesSheetTab.Taxonomy -> if (rank != SpeciesTaxonRank.Species) {
@@ -389,10 +395,10 @@ private fun TaxonLink(label: String, onClick: () -> Unit) {
 }
 
 @Composable
-private fun DistributionSection() {
+private fun DistributionSection(taxonIds: List<String>) {
     val repository = rememberAnuraRepository()
     val queued = stringResource(R.string.species_range_queued)
-    GeographicLocationSection()
+    GeographicLocationSection(taxonIds = taxonIds)
     Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
     AnuraFormButton(
         text = stringResource(R.string.species_sheet_download_range),

@@ -12,16 +12,17 @@ object LocalPackageCatalog {
             id = AntioquiaPackageId,
             name = "Antioquia",
             region = "Antioquia",
-            version = "1.0.0",
+            version = "1.1.0",
             speciesCount = 30,
-            sizeBytes = 9_154_560L,
-            // Incluye zone_prior/zone_prior_meta (prior geográfico) y weather_prior/weather_prior_meta
-            // (prior de clima) horneadas en el paquete esta sesión — ver Arquitectura Multimodal §5.1.
-            // Bug real que este valor causó: quedó desactualizado tras hornear las tablas nuevas, así
-            // que un teléfono con el paquete ya "instalado" (estado persistido) nunca detectaba que el
-            // asset había cambiado y seguía usando una copia vieja sin esas tablas — crash real en
-            // campo ("no such table: zone_prior_meta") en vez de simplemente actualizar el paquete.
-            sha256 = "ef32050262ca37dc7b08892ec93c418153a264befc0060ec20afacea44ecae9e",
+            sizeBytes = 9_510_912L,
+            // v1.1.0 agrega occurrence_points (coordenadas reales de ocurrencia GBIF por
+            // taxon_id, hasta 300 por especie de las 30 reales) para pintar el mapa de
+            // distribución de cada ficha — antes no existía ningún punto real, solo el
+            // prior de zona agregado (zone_prior). El bump de versión es intencional (no
+            // solo el sha256): como no hay detección de paquete desactualizado (ver
+            // 00_OPEN_TASKS.md), un teléfono con "1.0.0" ya instalado seguiría usando la
+            // copia vieja sin esta tabla si solo cambiara el hash con la misma versión.
+            sha256 = "83b328771c261f950cefcd61138c9e37904d015ce924dc21113f713b2c3a8647",
             assetPath = "packages/antioquia/package.sqlite",
         ),
     )

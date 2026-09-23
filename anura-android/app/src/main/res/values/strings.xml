@@ -686,7 +686,6 @@
     <!-- Ubicación geográfica — sección, no ruta -->
     <string name="geo_location_title">Ubicación geográfica</string>
     <string name="geo_location_map_cd">Abrir mapa de la ubicación</string>
-    <string name="geo_location_geo_uri">geo:5.0689,-75.5174?q=5.0689,-75.5174(Observación)</string>
     <string name="geo_location_expand_cd">Expandir mapa</string>
     <string name="geo_location_collapse_cd">Cerrar mapa expandido</string>
 
