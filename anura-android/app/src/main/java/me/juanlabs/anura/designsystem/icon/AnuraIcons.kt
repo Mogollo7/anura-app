@@ -27,6 +27,8 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Forward10
+import androidx.compose.material.icons.filled.Fullscreen
+import androidx.compose.material.icons.filled.FullscreenExit
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
@@ -134,4 +136,6 @@ object AnuraIcons {
     val Reply: ImageVector = Icons.AutoMirrored.Filled.Reply
     val More: ImageVector = Icons.Filled.MoreVert
     val Refute: ImageVector = Icons.Filled.ThumbDown
+    val Expand: ImageVector = Icons.Filled.Fullscreen
+    val Collapse: ImageVector = Icons.Filled.FullscreenExit
 }

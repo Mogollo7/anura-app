@@ -8,7 +8,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
 import java.io.File
+import me.juanlabs.anura.R
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -68,7 +70,8 @@ fun ExploreOsmMap(
                     Marker(map).apply {
                         position = GeoPoint(pin.latitude, pin.longitude)
                         title = pin.title
-                        setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                        icon = ContextCompat.getDrawable(context, R.drawable.ic_map_pin_square_orange)
+                        setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
                         isDraggable = false
                         setOnMarkerClickListener { _, _ ->
                             onPinClick(pin.id)
