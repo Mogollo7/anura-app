@@ -51,7 +51,7 @@ object HomeCarouselCatalog {
             speciesName = "Pristimantis paisa",
             curiousFact = "Nace desarrollada del huevo, sin fase de renacuajo.",
             imageRes = R.drawable.carousel_pristimantis_paisa,
-            speciesId = "ANU_COL_PRIS_PAI_001",
+            speciesId = "COL_ANURA_0011",
         ),
         HomeCarouselItem(
             id = "carousel-sachatamia-electrops",
@@ -67,7 +67,7 @@ object HomeCarouselCatalog {
             speciesName = "Dendrobates truncatus",
             curiousFact = "Acumula su veneno comiendo hormigas y ácaros.",
             imageRes = R.drawable.carousel_dendrobates_truncatus,
-            speciesId = "ANU_COL_DEND_TRU_001",
+            speciesId = "COL_ANURA_0018",
         ),
         HomeCarouselItem(
             id = "carousel-dendropsophus-bogerti",
@@ -75,7 +75,7 @@ object HomeCarouselCatalog {
             speciesName = "Dendropsophus bogerti",
             curiousFact = "Canta en alta frecuencia junto a ríos de montaña.",
             imageRes = R.drawable.carousel_dendropsophus_bogerti,
-            speciesId = "ANU_COL_DEND_BOG_001",
+            speciesId = "COL_ANURA_0028",
         ),
     )
 

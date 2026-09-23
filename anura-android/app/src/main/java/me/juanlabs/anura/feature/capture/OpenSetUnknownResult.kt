@@ -133,7 +133,7 @@ object MockOpenSetUnknownResults {
     val Genus = OpenSetUnknownResult(
         reached = OpenSetReachedRank.Genus,
         headline = "Pristimantis sp.",
-        taxonId = "ANU_COL_PRIS_PAI_001",
+        taxonId = "COL_ANURA_0011",
         photoRes = R.drawable.carousel_pristimantis_paisa,
         subtitleRes = R.string.unknown_result_subtitle_genus,
         bodyRes = R.string.unknown_result_body_genus,
@@ -148,7 +148,7 @@ object MockOpenSetUnknownResults {
     val Family = OpenSetUnknownResult(
         reached = OpenSetReachedRank.Family,
         headline = "Strabomantidae sp.",
-        taxonId = "ANU_COL_PRIS_PAI_001",
+        taxonId = "COL_ANURA_0011",
         photoRes = R.drawable.carousel_pristimantis_paisa,
         subtitleRes = R.string.unknown_result_subtitle_family,
         bodyRes = R.string.unknown_result_body_family,
@@ -163,7 +163,7 @@ object MockOpenSetUnknownResults {
     val Order = OpenSetUnknownResult(
         reached = OpenSetReachedRank.Order,
         headline = "Anura sp.",
-        taxonId = "ANU_COL_PRIS_PAI_001",
+        taxonId = "COL_ANURA_0011",
         photoRes = R.drawable.carousel_pristimantis_paisa,
         subtitleRes = R.string.unknown_result_subtitle_order,
         bodyRes = R.string.unknown_result_body_order,

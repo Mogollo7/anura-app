@@ -19,7 +19,7 @@ object CommunityCatalog {
         communityObs(
             id = "near-001",
             owner = people[0],
-            speciesId = "ANU_COL_DEND_TRU_001",
+            speciesId = "COL_ANURA_0018",
             photoRes = R.drawable.carousel_dendrobates_truncatus,
             lat = 5.0689,
             lon = -75.5174,
@@ -28,7 +28,7 @@ object CommunityCatalog {
         communityObs(
             id = "near-002",
             owner = people[1],
-            speciesId = "ANU_COL_PRIS_PAI_001",
+            speciesId = "COL_ANURA_0011",
             photoRes = R.drawable.carousel_pristimantis_paisa,
             lat = 5.0820,
             lon = -75.4980,
@@ -37,7 +37,7 @@ object CommunityCatalog {
         communityObs(
             id = "near-003",
             owner = people[2],
-            speciesId = "ANU_COL_DEND_BOG_001",
+            speciesId = "COL_ANURA_0028",
             photoRes = R.drawable.carousel_dendropsophus_bogerti,
             lat = 5.0510,
             lon = -75.5400,
@@ -55,7 +55,7 @@ object CommunityCatalog {
         communityObs(
             id = "near-005",
             owner = people[4],
-            speciesId = "ANU_COL_PRIS_PAI_001",
+            speciesId = "COL_ANURA_0011",
             photoRes = R.drawable.carousel_pristimantis_paisa,
             lat = 5.0700,
             lon = -75.5100,

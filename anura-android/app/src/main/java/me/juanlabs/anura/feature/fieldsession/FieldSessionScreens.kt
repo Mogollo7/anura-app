@@ -91,7 +91,7 @@ internal data class FieldSessionRegister(
 internal val FieldSessionRegisters = listOf(
     FieldSessionRegister(
         observationId = "obs-001",
-        speciesId = "ANU_COL_DEND_TRU_001",
+        speciesId = "COL_ANURA_0018",
         timeRes = R.string.field_session_time_truncatus,
         speciesRes = R.string.field_session_sp_truncatus,
         mediaRes = R.string.field_session_media_photo_audio,
@@ -99,7 +99,7 @@ internal val FieldSessionRegisters = listOf(
     ),
     FieldSessionRegister(
         observationId = "obs-003",
-        speciesId = "ANU_COL_DEND_TRU_001",
+        speciesId = "COL_ANURA_0018",
         timeRes = R.string.field_session_time_punctata,
         speciesRes = R.string.field_session_sp_punctata,
         mediaRes = R.string.field_session_media_photo,
@@ -107,7 +107,7 @@ internal val FieldSessionRegisters = listOf(
     ),
     FieldSessionRegister(
         observationId = "obs-005",
-        speciesId = "ANU_COL_PRIS_PAI_001",
+        speciesId = "COL_ANURA_0011",
         timeRes = R.string.field_session_time_pristimantis,
         speciesRes = R.string.field_session_sp_pristimantis,
         mediaRes = R.string.field_session_media_audio_unconfirmed,
@@ -115,7 +115,7 @@ internal val FieldSessionRegisters = listOf(
     ),
     FieldSessionRegister(
         observationId = "obs-002",
-        speciesId = "ANU_COL_DEND_BOG_001",
+        speciesId = "COL_ANURA_0028",
         timeRes = R.string.field_session_time_rhinella,
         speciesRes = R.string.field_session_sp_rhinella,
         mediaRes = R.string.field_session_media_photo,

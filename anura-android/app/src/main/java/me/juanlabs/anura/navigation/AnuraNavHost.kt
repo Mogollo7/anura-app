@@ -244,7 +244,7 @@ private fun NavGraphBuilder.topLevelDestinations(
     }
     composable<AnuraRoute.Explore> {
         ExploreScreen(
-            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
+            onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
             onOpenExploreMore = { navController.navigate(AnuraRoute.ExploreMore) },
         )
     }
@@ -335,7 +335,7 @@ private fun NavGraphBuilder.detailDestinations(
     composable<AnuraRoute.ExploreMore> {
         ExploreMoreScreen(
             onBackClick = { navController.popBackStack() },
-            onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
+            onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
         )
     }
     composable<AnuraRoute.SpeciesByTaxon> { backStackEntry ->

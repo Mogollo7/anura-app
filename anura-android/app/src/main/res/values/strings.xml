@@ -307,6 +307,7 @@
     <string name="explore_more_title">Ver más</string>
     <string name="explore_more_sort">Ordenar</string>
     <string name="explore_more_count">%d observaciones</string>
+    <string name="explore_taxon_group_header">%1$s (%2$s) — %3$d especie(s)</string>
     <string name="favorites_title">Favoritos</string>
     <string name="favorites_filter_all">Todas</string>
     <string name="favorites_filter_toxic">Tóxicas</string>

@@ -101,7 +101,7 @@ private enum class SpeciesTaxonRank {
 }
 
 private fun speciesTaxonRank(speciesId: String): SpeciesTaxonRank = when {
-    speciesId.startsWith("ANU_") -> SpeciesTaxonRank.Species
+    speciesId.startsWith("COL_ANURA_") || speciesId.startsWith("ANU_") -> SpeciesTaxonRank.Species
     speciesId.equals("Anura", ignoreCase = true) -> SpeciesTaxonRank.Order
     speciesId.endsWith("idae", ignoreCase = true) -> SpeciesTaxonRank.Family
     else -> SpeciesTaxonRank.Genus
@@ -142,8 +142,10 @@ fun SpeciesSheetScreen(
 ) {
     var tab by rememberSaveable(speciesId) { mutableStateOf(SpeciesSheetTab.Distribution) }
     var showIdentifiers by rememberSaveable { mutableStateOf(false) }
-    val species = SpeciesCatalog.find(speciesId) ?: SpeciesCatalog.requireOrTruncatus(speciesId)
     val rank = speciesTaxonRank(speciesId)
+    val species = SpeciesCatalog.find(speciesId)
+        ?: SpeciesCatalog.findGroup(speciesId).takeIf { rank != SpeciesTaxonRank.Species }
+        ?: SpeciesCatalog.requireOrTruncatus(speciesId)
     val speciesTaxonId = when (rank) {
         SpeciesTaxonRank.Species -> species.genus
         SpeciesTaxonRank.Genus -> speciesId
@@ -184,7 +186,7 @@ fun SpeciesSheetScreen(
                 .padding(bottom = 16.dp),
         ) {
             ObservationMediaCarousel(
-                items = speciesPhotoItems(species),
+                items = speciesPhotoItems(species, rank, speciesId),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(220.dp),
@@ -308,7 +310,17 @@ fun SpeciesSheetScreen(
     }
 }
 
-private fun speciesPhotoItems(species: SpeciesRecord): List<ObservationMediaItem> {
+/**
+ * Ficha de especie: su propia foto + hasta 2 especies similares (para comparar). Ficha de
+ * género/familia/orden: una foto de cada especie miembro — "el carrusel tiene las fotos de
+ * ejemplares de esa familia o género, 1 de cada uno".
+ */
+private fun speciesPhotoItems(species: SpeciesRecord, rank: SpeciesTaxonRank, taxonId: String): List<ObservationMediaItem> {
+    if (rank != SpeciesTaxonRank.Species) {
+        return SpeciesCatalog.byTaxon(taxonId).mapIndexed { index, record ->
+            ObservationMediaItem.Photo("member-$index", record.photoRes)
+        }
+    }
     val extras = species.similarIds.mapNotNull { SpeciesCatalog.find(it) }.mapIndexed { index, record ->
         ObservationMediaItem.Photo("similar-$index", record.photoRes)
     }

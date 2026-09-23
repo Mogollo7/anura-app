@@ -70,8 +70,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.NearbySpecies
 import me.juanlabs.anura.core.data.ObservationRecord
+import me.juanlabs.anura.core.data.RegionalPackageStatus
 import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.SpeciesRecord
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
@@ -279,87 +282,65 @@ private fun <T> List<Pair<ExploreObservation, T>>.sortedByDistanceTo(
 
 private const val ExploreNearYouPreviewCount = 6
 
-/** `explorar` (§4.1) — top-level, tab 2. */
+/**
+ * "Cerca de vos": hasta [ExploreNearYouPreviewCount] especies del catálogo, no observaciones —
+ * son fichas técnicas. Ordenadas por P(especie|zona) real del paquete regional activo (mismo
+ * prior geográfico de `Arquitectura Multimodal §5.1`, [NearbySpecies]) según la última ubicación
+ * GPS conocida. Sin ubicación o sin paquete instalado, cae a las primeras del catálogo — nunca
+ * bloquea ni deja la sección vacía por eso.
+ */
+@Composable
+private fun rememberNearYouSpecies(): List<SpeciesRecord> {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val context = LocalContext.current
+    return remember(snapshot.packages) {
+        val activePackage = snapshot.packages.firstOrNull {
+            it.active && it.status == RegionalPackageStatus.Installed && it.localPath != null
+        }
+        val location = lastKnownLocation(context)
+        val ranked = if (activePackage?.localPath != null && location != null) {
+            NearbySpecies.rankedTaxonIds(
+                packagePath = activePackage.localPath,
+                latitude = location.latitude,
+                longitude = location.longitude,
+                limit = ExploreNearYouPreviewCount,
+            ).mapNotNull(SpeciesCatalog::find)
+        } else {
+            emptyList()
+        }
+        ranked.ifEmpty { SpeciesCatalog.all.take(ExploreNearYouPreviewCount) }
+    }
+}
+
+/** `explorar` (§4.1) — top-level, tab 2. Fichas técnicas de especies, no observaciones. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExploreScreen(
-    onOpenObservationDetail: (String) -> Unit,
+    onOpenSpeciesSheet: (String) -> Unit,
     onOpenExploreMore: () -> Unit,
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
     val online = rememberNetworkAvailable()
-    val searchOfflineMessage = stringResource(R.string.explore_search_offline)
-    val suggestionGenusLabel = stringResource(R.string.explore_suggestion_genus)
-    val suggestionFamilyLabel = stringResource(R.string.explore_suggestion_family)
     var query by rememberSaveable { mutableStateOf("") }
-    var selectedFilters by rememberSaveable { mutableStateOf(listOf<String>()) }
-    var altitudeMin by rememberSaveable { mutableStateOf("") }
-    var altitudeMax by rememberSaveable { mutableStateOf("") }
-    var svlMm by rememberSaveable { mutableFloatStateOf(ExploreSvlMock) }
-    var svlActive by rememberSaveable { mutableStateOf(false) }
-    var showFilters by rememberSaveable { mutableStateOf(false) }
-    var searchBlocked by rememberSaveable { mutableStateOf(false) }
-    LaunchedEffect(online) {
-        if (!online) {
-            query = ""
-            showFilters = false
-        } else {
-            searchBlocked = false
-        }
-    }
-    val catalog = (snapshot.observations.filter { it.visibilityPublic } + CommunityCatalog.observations)
-        .distinctBy { it.id }
-        .mapNotNull { it.toExploreObservation() }
-    val named = catalog.map { item -> item to item.displayNames() }
     val needle = query.trim()
-    val searching = online && needle.isNotEmpty()
-    val filtered = if (!online) {
-        emptyList()
-    } else {
-        named.filter { (item, names) ->
-            val textOk = needle.isEmpty() ||
-                names.first.contains(needle, ignoreCase = true) ||
-                names.second.contains(needle, ignoreCase = true) ||
-                item.genus.contains(needle, ignoreCase = true) ||
-                item.family.contains(needle, ignoreCase = true)
-            textOk && item.matchesFilters(
-                selected = selectedFilters,
-                altitudeMinM = parseMetric(altitudeMin),
-                altitudeMaxM = parseMetric(altitudeMax),
-                svlMm = if (svlActive) svlMm.toInt() else null,
-            )
+    val searching = needle.isNotEmpty()
+    val searchResults = if (searching) {
+        SpeciesCatalog.all.filter { record ->
+            record.commonName.contains(needle, ignoreCase = true) ||
+                record.scientificName.contains(needle, ignoreCase = true) ||
+                record.genus.contains(needle, ignoreCase = true) ||
+                record.family.contains(needle, ignoreCase = true)
         }
-    }
-    // Ubicación actual (última conocida, sin pedir permiso ni bloquear): "Cerca de vos" solo tiene
-    // sentido ordenado y acotado por proximidad real. Sin ubicación, cae a mostrar el catálogo tal
-    // cual (mismo comportamiento de antes) en vez de romper la pantalla.
-    val context = LocalContext.current
-    val currentLocation = remember { lastKnownLocation(context)?.let { it.latitude to it.longitude } }
-    val nearbySorted = filtered.sortedByDistanceTo(currentLocation)
-    val nearYouItems = if (searching) filtered else nearbySorted.take(ExploreNearYouPreviewCount)
-    val suggestions = if (!searching) {
-        emptyList()
     } else {
-        exploreSuggestions(
-            needle = needle,
-            named = named,
-            genusLabel = suggestionGenusLabel,
-            familyLabel = suggestionFamilyLabel,
-        )
+        emptyList()
     }
-    val pins = filtered.map { (item, names) ->
-        ExploreMapPin(
-            id = item.id,
-            latitude = item.latitude,
-            longitude = item.longitude,
-            title = names.second,
-        )
-    }
-    val speciesCount = filtered.map { it.second.second }.distinct().size
-    val familyCount = filtered.map { it.first.family }.distinct().size
-    val genusCount = filtered.map { it.first.genus }.distinct().size
-    val showMap = online && !searching
+    val nearYou = rememberNearYouSpecies()
+    val shown = if (searching) searchResults else nearYou
+    val speciesCount = SpeciesCatalog.all.size
+    val familyCount = SpeciesCatalog.all.map { it.family }.distinct().size
+    val genusCount = SpeciesCatalog.all.map { it.genus }.distinct().size
 
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
@@ -367,23 +348,9 @@ fun ExploreScreen(
             AnuraTopBar(
                 title = stringResource(R.string.explore_title),
                 centerTitle = true,
-                actions = {
-                    if (online) {
-                        IconButton(
-                            onClick = { showFilters = true },
-                            modifier = Modifier.size(AnuraDimens.sizeTouch),
-                        ) {
-                            Icon(
-                                imageVector = AnuraIcons.Filter,
-                                contentDescription = stringResource(R.string.explore_filter_cd),
-                            )
-                        }
-                    }
-                },
             )
         },
     ) { innerPadding ->
-        val mapCd = stringResource(R.string.explore_map_cd)
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             modifier = Modifier
@@ -402,50 +369,14 @@ fun ExploreScreen(
                 key = "explore-search",
                 span = { GridItemSpan(maxLineSpan) },
             ) {
-                Column(verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent)) {
-                    AnuraTextField(
-                        value = query,
-                        onValueChange = { value ->
-                            if (!online) {
-                                searchBlocked = true
-                                repository.notify(searchOfflineMessage)
-                            } else {
-                                searchBlocked = false
-                                query = value
-                            }
-                        },
-                        label = stringResource(R.string.observations_search),
-                        modifier = Modifier.fillMaxWidth(),
-                        supportingText = if (searchBlocked) searchOfflineMessage else null,
-                        isError = searchBlocked,
-                        leadingIcon = AnuraIcons.Empty,
-                        singleLine = true,
-                    )
-                    if (suggestions.isNotEmpty()) {
-                        ExploreSuggestionMenu(
-                            suggestions = suggestions,
-                            onSelect = { selected ->
-                                query = selected.query
-                            },
-                        )
-                    }
-                }
-            }
-            if (showMap) {
-                item(
-                    key = "explore-map",
-                    span = { GridItemSpan(maxLineSpan) },
-                ) {
-                    ExploreOsmMap(
-                        pins = pins,
-                        onPinClick = onOpenObservationDetail,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(ExploreMapHeight)
-                            .clip(RoundedCornerShape(AnuraDimens.radiusCard))
-                            .semantics { contentDescription = mapCd },
-                    )
-                }
+                AnuraTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    label = stringResource(R.string.observations_search),
+                    modifier = Modifier.fillMaxWidth(),
+                    leadingIcon = AnuraIcons.Empty,
+                    singleLine = true,
+                )
             }
             if (!online) {
                 item(
@@ -458,32 +389,32 @@ fun ExploreScreen(
                     )
                 }
             }
-            if (online) {
-                item(
-                    key = "explore-stats",
-                    span = { GridItemSpan(maxLineSpan) },
+            item(
+                key = "explore-stats",
+                span = { GridItemSpan(maxLineSpan) },
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                 ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
-                    ) {
-                        ExploreStatCard(
-                            value = speciesCount.toString(),
-                            label = stringResource(R.string.explore_stat_species),
-                            modifier = Modifier.weight(1f),
-                        )
-                        ExploreStatCard(
-                            value = familyCount.toString(),
-                            label = stringResource(R.string.explore_stat_families),
-                            modifier = Modifier.weight(1f),
-                        )
-                        ExploreStatCard(
-                            value = genusCount.toString(),
-                            label = stringResource(R.string.explore_stat_genera),
-                            modifier = Modifier.weight(1f),
-                        )
-                    }
+                    ExploreStatCard(
+                        value = speciesCount.toString(),
+                        label = stringResource(R.string.explore_stat_species),
+                        modifier = Modifier.weight(1f),
+                    )
+                    ExploreStatCard(
+                        value = familyCount.toString(),
+                        label = stringResource(R.string.explore_stat_families),
+                        modifier = Modifier.weight(1f),
+                    )
+                    ExploreStatCard(
+                        value = genusCount.toString(),
+                        label = stringResource(R.string.explore_stat_genera),
+                        modifier = Modifier.weight(1f),
+                    )
                 }
+            }
+            if (!searching) {
                 item(
                     key = "explore-near",
                     span = { GridItemSpan(maxLineSpan) },
@@ -510,69 +441,144 @@ fun ExploreScreen(
                         }
                     }
                 }
-                if (nearYouItems.isEmpty()) {
-                    item(
-                        key = "explore-empty",
-                        span = { GridItemSpan(maxLineSpan) },
-                    ) {
-                        AnuraEmptyState(
-                            title = stringResource(R.string.observations_empty_title),
-                            description = stringResource(R.string.observations_empty_body),
-                        )
-                    }
-                } else {
-                    items(nearYouItems, key = { it.first.id }) { (item, names) ->
-                        ExploreObservationCard(
-                            item = item,
-                            names = names,
-                            favorite = snapshot.favorites.contains(item.id),
-                            onFavoriteClick = { repository.toggleFavorite(item.id) },
-                            onClick = { onOpenObservationDetail(item.id) },
-                        )
-                    }
+            }
+            if (shown.isEmpty()) {
+                item(
+                    key = "explore-empty",
+                    span = { GridItemSpan(maxLineSpan) },
+                ) {
+                    AnuraEmptyState(
+                        title = stringResource(R.string.observations_empty_title),
+                        description = stringResource(R.string.observations_empty_body),
+                    )
+                }
+            } else {
+                items(shown, key = { it.id }) { record ->
+                    ObservationCard(
+                        commonName = record.commonName,
+                        scientificName = record.scientificName,
+                        isFavorite = snapshot.favorites.contains(record.id),
+                        onFavoriteClick = { repository.toggleFavorite(record.id) },
+                        modifier = Modifier.fillMaxWidth(),
+                        thumbnail = {
+                            Image(
+                                painter = painterResource(record.photoRes),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop,
+                            )
+                        },
+                        onClick = { onOpenSpeciesSheet(record.id) },
+                    )
                 }
             }
         }
     }
-
-    if (showFilters) {
-        ExploreFilterSheet(
-            selected = selectedFilters,
-            altitudeMin = altitudeMin,
-            altitudeMax = altitudeMax,
-            svlMm = svlMm,
-            onToggle = { id ->
-                selectedFilters = if (selectedFilters.contains(id)) {
-                    selectedFilters - id
-                } else {
-                    selectedFilters + id
-                }
-            },
-            onAltitudeMinChange = { altitudeMin = it },
-            onAltitudeMaxChange = { altitudeMax = it },
-            onSvlChange = {
-                svlMm = it
-                svlActive = true
-            },
-            onDismiss = { showFilters = false },
-        )
-    }
 }
 
-/** `ver mas` — Penpot: barra, búsqueda compacta, recuento y grilla completa. */
+/**
+ * `ver mas`: TODAS las fichas técnicas del catálogo (no solo las 6 cercanas), agrupadas por
+ * familia y género — "género (familia) — N especies" como encabezado de sección, igual que la
+ * lista que dio el usuario. Buscar filtra por nombre/género/familia sin romper la agrupación.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExploreMoreScreen(
     onBackClick: () -> Unit,
-    onOpenObservationDetail: (String) -> Unit,
+    onOpenSpeciesSheet: (String) -> Unit,
 ) {
-    ObservationCatalogScreen(
-        title = stringResource(R.string.explore_more_title),
-        onBackClick = onBackClick,
-        onOpenObservationDetail = onOpenObservationDetail,
-        showSheetFilters = true,
-        showSortAction = false,
-        sortByDistance = true,
-    )
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    var query by rememberSaveable { mutableStateOf("") }
+    val needle = query.trim()
+    val filtered = SpeciesCatalog.all.filter { record ->
+        needle.isEmpty() ||
+            record.commonName.contains(needle, ignoreCase = true) ||
+            record.scientificName.contains(needle, ignoreCase = true) ||
+            record.genus.contains(needle, ignoreCase = true) ||
+            record.family.contains(needle, ignoreCase = true)
+    }
+    val grouped = filtered
+        .sortedWith(compareBy({ it.family }, { it.genus }, { it.scientificName }))
+        .groupBy { it.genus to it.family }
+        .toList()
+
+    Scaffold(
+        containerColor = AnuraTheme.extendedColors.boardBackground,
+        topBar = {
+            AnuraTopBar(
+                title = stringResource(R.string.explore_more_title),
+                onBackClick = onBackClick,
+                centerTitle = true,
+            )
+        },
+    ) { innerPadding ->
+        if (grouped.isEmpty()) {
+            AnuraEmptyState(
+                title = stringResource(R.string.observations_empty_title),
+                description = stringResource(R.string.observations_empty_body),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            )
+            return@Scaffold
+        }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+            contentPadding = PaddingValues(AnuraDimens.spaceGutter),
+            horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+            verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+        ) {
+            item(
+                key = "explore-more-search",
+                span = { GridItemSpan(maxLineSpan) },
+            ) {
+                AnuraTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    label = stringResource(R.string.observations_search),
+                    modifier = Modifier.fillMaxWidth(),
+                    leadingIcon = AnuraIcons.Empty,
+                    singleLine = true,
+                )
+            }
+            grouped.forEach { (genusFamily, members) ->
+                val (genus, family) = genusFamily
+                item(
+                    key = "header-$genus-$family",
+                    span = { GridItemSpan(maxLineSpan) },
+                ) {
+                    Text(
+                        text = stringResource(R.string.explore_taxon_group_header, genus, family, members.size),
+                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = AnuraDimens.spaceGap),
+                    )
+                }
+                items(members, key = { it.id }) { record ->
+                    ObservationCard(
+                        commonName = record.commonName,
+                        scientificName = record.scientificName,
+                        isFavorite = snapshot.favorites.contains(record.id),
+                        onFavoriteClick = { repository.toggleFavorite(record.id) },
+                        modifier = Modifier.fillMaxWidth(),
+                        thumbnail = {
+                            Image(
+                                painter = painterResource(record.photoRes),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop,
+                            )
+                        },
+                        onClick = { onOpenSpeciesSheet(record.id) },
+                    )
+                }
+            }
+        }
+    }
 }
 
 /**
@@ -1115,7 +1121,7 @@ private fun rangesOverlap(range: IntRange?, min: Int?, max: Int?): Boolean {
 @Composable
 private fun ExplorePreview() {
     AnuraTheme {
-        ExploreScreen(onOpenObservationDetail = {}, onOpenExploreMore = {})
+        ExploreScreen(onOpenSpeciesSheet = {}, onOpenExploreMore = {})
     }
 }
 
@@ -1123,7 +1129,7 @@ private fun ExplorePreview() {
 @Composable
 private fun ExplorePreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
-        ExploreScreen(onOpenObservationDetail = {}, onOpenExploreMore = {})
+        ExploreScreen(onOpenSpeciesSheet = {}, onOpenExploreMore = {})
     }
 }
 
