@@ -90,12 +90,11 @@ import me.juanlabs.anura.feature.observations.StoredObservationCard
 private val ProfileAvatarSize = 80.dp
 private val ProfileEditBadgeSize = 28.dp
 private val ProfileStatCardHeight = 68.dp
-private val FavoritesHeroHeight = 250.dp
 
 private enum class ProfileOwnTab {
     Public,
     Private,
-    Drafts,
+    Favorites,
 }
 
 private data class ProfileObservation(
@@ -147,7 +146,6 @@ fun ProfileScreen(
     onOpenEditProfile: () -> Unit,
     onOpenConnections: (String, String) -> Unit,
     onOpenOtherProfile: (String) -> Unit,
-    onOpenFavorites: () -> Unit,
     onOpenObservationDetail: (String) -> Unit,
 ) {
     val repository = rememberAnuraRepository()
@@ -206,12 +204,11 @@ fun ProfileScreen(
         when (ownTab) {
             ProfileOwnTab.Public -> ownObservations.filter { it.visibilityPublic && !it.isDraft }
             ProfileOwnTab.Private -> ownObservations.filter { !it.visibilityPublic && !it.isDraft }
-            ProfileOwnTab.Drafts -> ownObservations.filter { it.isDraft }
+            ProfileOwnTab.Favorites -> snapshot.favorites.mapNotNull { id -> repository.observationById(id) }
         }
     } else {
         otherObservations
     }
-    val featuredFavorite = snapshot.favorites.firstNotNullOfOrNull { id -> repository.observationById(id) }
     val observationsCount = if (isOwn) ownObservations.size else otherObservations.size
     val speciesCount = (if (isOwn) ownObservations else otherObservations)
         .mapNotNull { it.speciesId }
@@ -342,22 +339,16 @@ fun ProfileScreen(
                     key = "grid-empty",
                     span = { GridItemSpan(maxLineSpan) },
                 ) {
-                    val emptyOwnDrafts = isOwn && ownTab == ProfileOwnTab.Drafts
+                    val emptyOwnFavorites = isOwn && ownTab == ProfileOwnTab.Favorites
                     AnuraEmptyState(
                         title = stringResource(
-                            if (emptyOwnDrafts) {
-                                R.string.profile_drafts_empty_title
+                            if (emptyOwnFavorites) {
+                                R.string.profile_favorites_empty
                             } else {
                                 R.string.observations_empty_title
                             },
                         ),
-                        description = stringResource(
-                            if (emptyOwnDrafts) {
-                                R.string.profile_drafts_empty_body
-                            } else {
-                                R.string.observations_empty_body
-                            },
-                        ),
+                        description = stringResource(R.string.observations_empty_body),
                     )
                 }
             } else {
@@ -369,16 +360,6 @@ fun ProfileScreen(
                         onClick = { onOpenObservationDetail(observation.id) },
                     )
                 }
-            }
-            item(
-                key = "favorites",
-                span = { GridItemSpan(maxLineSpan) },
-            ) {
-                ProfileFavoritesSection(
-                    featured = featuredFavorite,
-                    onOpenFeatured = { featuredFavorite?.let { onOpenObservationDetail(it.id) } },
-                    onSeeMore = onOpenFavorites,
-                )
             }
         }
     }
@@ -620,7 +601,7 @@ private fun ProfileOwnTabs(
                 when (tab) {
                     ProfileOwnTab.Public -> R.string.profile_tab_public
                     ProfileOwnTab.Private -> R.string.profile_tab_private
-                    ProfileOwnTab.Drafts -> R.string.profile_tab_drafts
+                    ProfileOwnTab.Favorites -> R.string.profile_tab_favorites
                 },
             )
             val isSelected = tab == selected
@@ -770,53 +751,6 @@ private fun ProfileVisibilityChip(isPublic: Boolean) {
     }
 }
 
-@Composable
-private fun ProfileFavoritesSection(
-    featured: ObservationRecord?,
-    onOpenFeatured: () -> Unit,
-    onSeeMore: () -> Unit,
-) {
-    if (featured == null) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            AnuraEmptyState(
-                title = stringResource(R.string.profile_favorites_empty),
-                description = stringResource(R.string.observations_empty_body),
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-            AnuraFormButton(
-                text = stringResource(R.string.profile_see_more_favorites),
-                onClick = onSeeMore,
-                style = AnuraFormButtonStyle.Secondary,
-            )
-        }
-        return
-    }
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(FavoritesHeroHeight)
-            .clip(RoundedCornerShape(AnuraDimens.radiusCard))
-            .clickable(role = Role.Button, onClick = onOpenFeatured),
-    ) {
-        ObservationPhoto(
-            observation = featured,
-            modifier = Modifier.fillMaxSize(),
-        )
-        AnuraFormButton(
-            text = stringResource(R.string.profile_see_more_favorites),
-            onClick = onSeeMore,
-            style = AnuraFormButtonStyle.Secondary,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = AnuraDimens.spaceGap)
-                .fillMaxWidth(0.77f),
-        )
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProfileActionsSheet(
@@ -922,7 +856,6 @@ private fun ProfileOwnPreview() {
             onOpenEditProfile = {},
             onOpenConnections = { _, _ -> },
             onOpenOtherProfile = {},
-            onOpenFavorites = {},
             onOpenObservationDetail = {},
         )
     }
@@ -938,7 +871,6 @@ private fun ProfileOtherPreview() {
             onOpenEditProfile = {},
             onOpenConnections = { _, _ -> },
             onOpenOtherProfile = {},
-            onOpenFavorites = {},
             onOpenObservationDetail = {},
         )
     }
@@ -954,7 +886,6 @@ private fun ProfileOwnPreviewRedLight() {
             onOpenEditProfile = {},
             onOpenConnections = { _, _ -> },
             onOpenOtherProfile = {},
-            onOpenFavorites = {},
             onOpenObservationDetail = {},
         )
     }
@@ -970,7 +901,6 @@ private fun ProfileOtherPreviewRedLight() {
             onOpenEditProfile = {},
             onOpenConnections = { _, _ -> },
             onOpenOtherProfile = {},
-            onOpenFavorites = {},
             onOpenObservationDetail = {},
         )
     }

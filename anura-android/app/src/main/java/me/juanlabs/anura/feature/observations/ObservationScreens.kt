@@ -105,25 +105,6 @@ private data class ListedObservation(
     val own: Boolean,
 )
 
-private val MockOwnObservations = listOf(
-    ListedObservation("obs-001", R.string.observations_item_1_common, R.string.observations_item_1_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = true, own = true),
-    ListedObservation("obs-002", R.string.observations_item_2_common, R.string.observations_item_2_sci, R.drawable.carousel_dendropsophus_bogerti, isPublic = false, own = true),
-    ListedObservation("obs-003", R.string.observations_item_3_common, R.string.observations_item_3_sci, R.drawable.carousel_sachatamia_electrops, isPublic = true, own = true),
-    ListedObservation("obs-004", R.string.observations_item_4_common, R.string.observations_item_4_sci, R.drawable.carousel_pristimantis_paisa, isPublic = false, own = true),
-    ListedObservation("obs-005", R.string.observations_item_5_common, R.string.observations_item_5_sci, R.drawable.carousel_dendropsophus_bogerti, isPublic = true, own = true),
-    ListedObservation("obs-006", R.string.observations_item_6_common, R.string.observations_item_6_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = false, own = true),
-    ListedObservation("obs-007", R.string.observations_item_7_common, R.string.observations_item_7_sci, R.drawable.carousel_pristimantis_paisa, isPublic = true, own = true),
-    ListedObservation("obs-008", R.string.observations_item_8_common, R.string.observations_item_8_sci, R.drawable.carousel_sachatamia_electrops, isPublic = false, own = true),
-)
-
-private val MockNearbyObservations = listOf(
-    ListedObservation("near-001", R.string.observations_item_1_common, R.string.observations_item_1_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = true, own = false),
-    ListedObservation("near-002", R.string.observations_item_4_common, R.string.observations_item_4_sci, R.drawable.carousel_pristimantis_paisa, isPublic = true, own = false),
-    ListedObservation("near-003", R.string.observations_item_5_common, R.string.observations_item_5_sci, R.drawable.carousel_dendropsophus_bogerti, isPublic = true, own = false),
-    ListedObservation("near-004", R.string.observations_item_6_common, R.string.observations_item_6_sci, R.drawable.carousel_dendrobates_truncatus, isPublic = true, own = false),
-    ListedObservation("near-005", R.string.observations_nearby_paisa, R.string.observations_nearby_paisa, R.drawable.carousel_pristimantis_paisa, isPublic = true, own = false),
-)
-
 /** `Fotos y observaciones` (§4.1) — top-level, tab 3. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -134,8 +115,6 @@ fun ObservationsScreen(
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
     var query by rememberSaveable { mutableStateOf("") }
-    val own = repository.ownObservations()
-    val nearby = CommunityCatalog.observations
     fun matches(observation: ObservationRecord): Boolean {
         val needle = query.trim()
         if (needle.isEmpty()) return true
@@ -145,9 +124,11 @@ fun ObservationsScreen(
         return common.contains(needle, ignoreCase = true) ||
             scientific.contains(needle, ignoreCase = true)
     }
-    val ownFiltered = own.filter(::matches)
-    val nearbyFiltered = nearby.filter(::matches)
-    val showNearby = ownFiltered.isEmpty()
+    // Feed único de todos los usuarios (propias + comunidad), no propias-o-comunidad como antes —
+    // orden de pila: la más reciente primero, por fecha de creación del registro.
+    val feed = (repository.ownObservations().filter { !it.isDraft } + CommunityCatalog.observations)
+        .filter(::matches)
+        .sortedByDescending { it.createdAtEpochMs }
 
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
@@ -185,7 +166,7 @@ fun ObservationsScreen(
                 leadingIcon = AnuraIcons.Empty,
                 singleLine = true,
             )
-            if (showNearby && nearbyFiltered.isEmpty()) {
+            if (feed.isEmpty()) {
                 AnuraEmptyState(
                     title = stringResource(R.string.observations_empty_title),
                     description = stringResource(R.string.observations_empty_body),
@@ -203,35 +184,13 @@ fun ObservationsScreen(
                     horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                     verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                 ) {
-                    if (showNearby) {
-                        item(
-                            key = "nearby-title",
-                            span = { GridItemSpan(maxLineSpan) },
-                        ) {
-                            Text(
-                                text = stringResource(R.string.observations_nearby_title),
-                                style = MaterialTheme.typography.titleMedium.copy(
-                                    fontWeight = FontWeight.SemiBold,
-                                ),
-                            )
-                        }
-                        items(nearbyFiltered, key = { it.id }) { observation ->
-                            StoredObservationCard(
-                                observation = observation,
-                                favorite = snapshot.favorites.contains(observation.id),
-                                onFavoriteClick = { repository.toggleFavorite(observation.id) },
-                                onClick = { onOpenObservationDetail(observation.id) },
-                            )
-                        }
-                    } else {
-                        items(ownFiltered, key = { it.id }) { observation ->
-                            StoredObservationCard(
-                                observation = observation,
-                                favorite = snapshot.favorites.contains(observation.id),
-                                onFavoriteClick = { repository.toggleFavorite(observation.id) },
-                                onClick = { onOpenObservationDetail(observation.id) },
-                            )
-                        }
+                    items(feed, key = { it.id }) { observation ->
+                        StoredObservationCard(
+                            observation = observation,
+                            favorite = snapshot.favorites.contains(observation.id),
+                            onFavoriteClick = { repository.toggleFavorite(observation.id) },
+                            onClick = { onOpenObservationDetail(observation.id) },
+                        )
                     }
                 }
             }
@@ -580,10 +539,21 @@ fun ObservationDetailScreen(
                     onOpenComments = { showComments = true },
                 )
                 // en un rechazo del Open Set las candidatas no son una identificación: no se muestran como tal
-                val candidates = observation?.takeIf { it.identificationStatus == IdentificationKnown }?.candidates.orEmpty()
+                val candidates = if (observation?.identificationStatus == IdentificationKnown) {
+                    observation.candidates.ifEmpty {
+                        SpeciesCatalog.find(observation.speciesId)
+                            ?.let(SpeciesCatalog::rankedCandidates)
+                            .orEmpty()
+                    }
+                } else {
+                    emptyList()
+                }
                 candidates.firstOrNull()?.let { top ->
                     Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-                    ConfidenceCard(share = top.share)
+                    ConfidenceCard(
+                        share = top.share,
+                        photoCount = observation?.photoTokens?.size ?: 0,
+                    )
                 }
                 val others = candidates.drop(1)
                 if (others.isNotEmpty()) {
@@ -882,7 +852,7 @@ private fun StatusPill(text: String, warning: Boolean) {
 private fun sharePercent(share: Float): Int = (share * 100).roundToInt()
 
 @Composable
-private fun ConfidenceCard(share: Float) {
+private fun ConfidenceCard(share: Float, photoCount: Int) {
     AnuraCard(modifier = Modifier.fillMaxWidth(), bordered = true) {
         Column(
             modifier = Modifier.padding(
@@ -900,6 +870,14 @@ private fun ConfidenceCard(share: Float) {
                     text = stringResource(R.string.observation_detail_share_pct, sharePercent(share)),
                     style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier.weight(1f),
+                )
+            }
+            if (photoCount > 1) {
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+                Text(
+                    text = stringResource(R.string.observation_detail_multi_photo_hint, photoCount),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))

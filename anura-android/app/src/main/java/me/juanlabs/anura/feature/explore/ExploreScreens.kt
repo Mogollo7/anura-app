@@ -4,6 +4,11 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
+import kotlin.math.atan2
+import kotlin.math.cos
+import kotlin.math.pow
+import kotlin.math.sin
+import kotlin.math.sqrt
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -76,6 +81,7 @@ import me.juanlabs.anura.designsystem.component.AnuraEmptyState
 import me.juanlabs.anura.designsystem.component.AnuraErrorState
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraMeasureSlider
+import me.juanlabs.anura.designsystem.component.lastKnownLocation
 import me.juanlabs.anura.designsystem.component.AnuraToxicityChip
 import me.juanlabs.anura.designsystem.component.AnuraToxicityChipVariant
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
@@ -248,6 +254,31 @@ private val MockExploreMoreObservations = listOf(
     ),
 )
 
+/** Distancia en km entre dos coordenadas (haversine) — para ordenar "Cerca de vos" por
+ * proximidad real, no por el orden arbitrario del catálogo. */
+private fun haversineKm(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+    val earthRadiusKm = 6371.0
+    val dLat = Math.toRadians(lat2 - lat1)
+    val dLon = Math.toRadians(lon2 - lon1)
+    val a = sin(dLat / 2).pow(2) +
+        cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)) * sin(dLon / 2).pow(2)
+    return earthRadiusKm * 2 * atan2(sqrt(a), sqrt(1 - a))
+}
+
+/**
+ * Ordena por distancia real a [origin] (todas quedan, solo cambia el orden); sin [origin] (sin
+ * ubicación disponible) devuelve la lista tal cual — nunca bloquea ni oculta resultados.
+ */
+private fun <T> List<Pair<ExploreObservation, T>>.sortedByDistanceTo(
+    origin: Pair<Double, Double>?,
+): List<Pair<ExploreObservation, T>> {
+    if (origin == null) return this
+    val (originLat, originLon) = origin
+    return sortedBy { (item, _) -> haversineKm(originLat, originLon, item.latitude, item.longitude) }
+}
+
+private const val ExploreNearYouPreviewCount = 6
+
 /** `explorar` (§4.1) — top-level, tab 2. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -300,6 +331,13 @@ fun ExploreScreen(
             )
         }
     }
+    // Ubicación actual (última conocida, sin pedir permiso ni bloquear): "Cerca de vos" solo tiene
+    // sentido ordenado y acotado por proximidad real. Sin ubicación, cae a mostrar el catálogo tal
+    // cual (mismo comportamiento de antes) en vez de romper la pantalla.
+    val context = LocalContext.current
+    val currentLocation = remember { lastKnownLocation(context)?.let { it.latitude to it.longitude } }
+    val nearbySorted = filtered.sortedByDistanceTo(currentLocation)
+    val nearYouItems = if (searching) filtered else nearbySorted.take(ExploreNearYouPreviewCount)
     val suggestions = if (!searching) {
         emptyList()
     } else {
@@ -472,7 +510,7 @@ fun ExploreScreen(
                         }
                     }
                 }
-                if (filtered.isEmpty()) {
+                if (nearYouItems.isEmpty()) {
                     item(
                         key = "explore-empty",
                         span = { GridItemSpan(maxLineSpan) },
@@ -483,7 +521,7 @@ fun ExploreScreen(
                         )
                     }
                 } else {
-                    items(filtered, key = { it.first.id }) { (item, names) ->
+                    items(nearYouItems, key = { it.first.id }) { (item, names) ->
                         ExploreObservationCard(
                             item = item,
                             names = names,
@@ -533,6 +571,7 @@ fun ExploreMoreScreen(
         onOpenObservationDetail = onOpenObservationDetail,
         showSheetFilters = true,
         showSortAction = false,
+        sortByDistance = true,
     )
 }
 
@@ -551,6 +590,7 @@ fun ObservationCatalogScreen(
     showSortAction: Boolean = true,
     searchHint: String? = null,
     taxonFilter: String? = null,
+    sortByDistance: Boolean = false,
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
@@ -610,10 +650,14 @@ fun ObservationCatalogScreen(
             CatalogQuickFilter.Unsynced -> searched.filter { it.first.unsynced }
         }
     }
-    val shown = if (sortByScientific) {
-        filtered.sortedBy { it.second.second }
-    } else {
-        filtered
+    val context = LocalContext.current
+    val currentLocation = remember(sortByDistance) {
+        if (sortByDistance) lastKnownLocation(context)?.let { it.latitude to it.longitude } else null
+    }
+    val shown = when {
+        sortByScientific -> filtered.sortedBy { it.second.second }
+        sortByDistance -> filtered.sortedByDistanceTo(currentLocation)
+        else -> filtered
     }
     val resolvedSearchHint = searchHint ?: stringResource(R.string.observations_search)
     val sortCd = stringResource(R.string.explore_more_sort)

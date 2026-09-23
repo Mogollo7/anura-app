@@ -623,13 +623,10 @@
     <string name="profile_edit_avatar_cd">Editar foto de perfil</string>
     <string name="profile_tab_public">Públicas</string>
     <string name="profile_tab_private">Privadas</string>
-    <string name="profile_tab_drafts">Borradores</string>
-    <string name="profile_drafts_empty_title">Sin borradores</string>
-    <string name="profile_drafts_empty_body">Los registros que aún no publiques aparecerán aquí.</string>
+    <string name="profile_tab_favorites">Favoritos</string>
     <string name="profile_public_observations">Observaciones públicas</string>
     <string name="profile_private_observations">Observaciones privadas</string>
     <string name="profile_favorites">Favoritos</string>
-    <string name="profile_see_more_favorites">Ver más favoritos</string>
     <string name="profile_stat_observations">Observaciones</string>
     <string name="profile_stat_species">Especies</string>
     <string name="profile_stat_following">Seguidos</string>

@@ -315,9 +315,6 @@ private fun NavGraphBuilder.detailDestinations(
                 navController.navigate(AnuraRoute.Connections(userId = userId, tab = tab))
             },
             onOpenOtherProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
-            onOpenFavorites = {
-                navController.navigate(AnuraRoute.Favorites)
-            },
             onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
         )
     }
