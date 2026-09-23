@@ -48,16 +48,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlin.math.roundToInt
 import me.juanlabs.anura.R
-import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
+import me.juanlabs.anura.designsystem.component.AnuraConfirmSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
-import me.juanlabs.anura.designsystem.component.AnuraFormButton
-import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
 import me.juanlabs.anura.designsystem.icon.AnuraIcons
@@ -207,7 +204,7 @@ fun RegionalPackagesScreen(
 
     pendingDownloadId?.let { id ->
         val name = LocalPackageCatalog.find(id)?.name.orEmpty()
-        PackageConfirmSheet(
+        AnuraConfirmSheet(
             title = stringResource(R.string.packages_download_title),
             body = stringResource(R.string.packages_download_body, name),
             confirmLabel = stringResource(R.string.packages_download),
@@ -224,7 +221,7 @@ fun RegionalPackagesScreen(
     }
     pendingDeleteId?.let { id ->
         val name = LocalPackageCatalog.find(id)?.name.orEmpty()
-        PackageConfirmSheet(
+        AnuraConfirmSheet(
             title = stringResource(R.string.packages_delete_title),
             body = stringResource(R.string.packages_delete_body, name),
             confirmLabel = stringResource(R.string.packages_delete),
@@ -237,7 +234,7 @@ fun RegionalPackagesScreen(
     }
     pendingCancelId?.let { id ->
         val name = LocalPackageCatalog.find(id)?.name.orEmpty()
-        PackageConfirmSheet(
+        AnuraConfirmSheet(
             title = stringResource(R.string.packages_cancel_title),
             body = stringResource(R.string.packages_cancel_body, name),
             confirmLabel = stringResource(R.string.packages_cancel),
@@ -504,52 +501,6 @@ private fun PackageRow(
                     }
                 }
             }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun PackageConfirmSheet(
-    title: String,
-    body: String,
-    confirmLabel: String,
-    onConfirm: () -> Unit,
-    onDismiss: () -> Unit,
-) {
-    AnuraBottomSheet(onDismissRequest = onDismiss) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = AnuraDimens.spacePopupInset),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
-                color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(vertical = AnuraDimens.spaceGap),
-            )
-            Text(
-                text = body,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
-            AnuraFormButton(
-                text = confirmLabel,
-                onClick = onConfirm,
-                style = AnuraFormButtonStyle.Primary,
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
-            AnuraFormButton(
-                text = stringResource(R.string.anura_cancel),
-                onClick = onDismiss,
-                style = AnuraFormButtonStyle.Outline,
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
         }
     }
 }

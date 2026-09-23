@@ -71,7 +71,9 @@ import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.formatCoordinates
 import me.juanlabs.anura.core.data.formatObservationWhen
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.platform.rememberNetworkAvailable
 import me.juanlabs.anura.designsystem.component.AnuraCard
+import me.juanlabs.anura.designsystem.component.AnuraConfirmSheet
 import me.juanlabs.anura.designsystem.component.AnuraConservationChip
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
 import me.juanlabs.anura.designsystem.component.AnuraToxicityChip
@@ -114,6 +116,7 @@ fun ObservationsScreen(
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
+    val online = rememberNetworkAvailable()
     var query by rememberSaveable { mutableStateOf("") }
     fun matches(observation: ObservationRecord): Boolean {
         val needle = query.trim()
@@ -126,7 +129,10 @@ fun ObservationsScreen(
     }
     // Feed único de todos los usuarios (propias + comunidad), no propias-o-comunidad como antes —
     // orden de pila: la más reciente primero, por fecha de creación del registro.
-    val feed = (repository.ownObservations().filter { !it.isDraft } + CommunityCatalog.observations)
+    val feed = (
+        repository.ownObservations().filter { !it.isDraft } +
+            if (online) CommunityCatalog.observations else emptyList()
+        )
         .filter(::matches)
         .sortedByDescending { it.createdAtEpochMs }
 
@@ -324,7 +330,9 @@ fun FavoritesScreen(
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
+    val online = rememberNetworkAvailable()
     val items = snapshot.favorites.mapNotNull { id -> repository.observationById(id) }
+        .filter { online || repository.isOwnObservation(it.id) }
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -630,27 +638,17 @@ fun ObservationDetailScreen(
         }
     }
     if (confirmDelete) {
-        androidx.compose.material3.AlertDialog(
-            onDismissRequest = { confirmDelete = false },
-            title = { Text(stringResource(R.string.observation_delete_confirm_title)) },
-            text = { Text(stringResource(R.string.observation_delete_confirm_body)) },
-            confirmButton = {
-                androidx.compose.material3.TextButton(
-                    onClick = {
-                        repository.deleteObservation(id)
-                        repository.notify(deletedMessage)
-                        confirmDelete = false
-                        onBackClick()
-                    },
-                ) {
-                    Text(stringResource(R.string.observation_delete_confirm_action))
-                }
+        AnuraConfirmSheet(
+            title = stringResource(R.string.observation_delete_confirm_title),
+            body = stringResource(R.string.observation_delete_confirm_body),
+            confirmLabel = stringResource(R.string.observation_delete_confirm_action),
+            onConfirm = {
+                repository.deleteObservation(id)
+                repository.notify(deletedMessage)
+                confirmDelete = false
+                onBackClick()
             },
-            dismissButton = {
-                androidx.compose.material3.TextButton(onClick = { confirmDelete = false }) {
-                    Text(stringResource(R.string.anura_cancel))
-                }
-            },
+            onDismiss = { confirmDelete = false },
         )
     }
     if (showJustification) {
