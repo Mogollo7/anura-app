@@ -291,11 +291,13 @@ fun SpeciesSheetScreen(
                     selected = tab == SpeciesSheetTab.Bioacoustics,
                     onClick = { tab = SpeciesSheetTab.Bioacoustics },
                 )
-                SpeciesTabChip(
-                    label = stringResource(R.string.species_sheet_tab_taxonomy),
-                    selected = tab == SpeciesSheetTab.Taxonomy,
-                    onClick = { tab = SpeciesSheetTab.Taxonomy },
-                )
+                if (rank != SpeciesTaxonRank.Species) {
+                    SpeciesTabChip(
+                        label = stringResource(R.string.species_sheet_tab_taxonomy),
+                        selected = tab == SpeciesSheetTab.Taxonomy,
+                        onClick = { tab = SpeciesSheetTab.Taxonomy },
+                    )
+                }
                 SpeciesTabChip(
                     label = stringResource(R.string.species_sheet_tab_similars),
                     selected = tab == SpeciesSheetTab.Similars,
@@ -307,12 +309,15 @@ fun SpeciesSheetScreen(
                 SpeciesSheetTab.Distribution -> DistributionSection()
                 SpeciesSheetTab.Morphology -> MorphologySection()
                 SpeciesSheetTab.Bioacoustics -> BioacousticsSection()
-                SpeciesSheetTab.Taxonomy -> TaxonomyTreeSection(
-                    family = species.family,
-                    highlightId = if (rank == SpeciesTaxonRank.Species) speciesId else "",
-                    onOpenTaxon = onOpenTaxon,
-                    onOpenSpeciesSheet = onOpenSpeciesSheet,
-                )
+                SpeciesSheetTab.Taxonomy -> if (rank != SpeciesTaxonRank.Species) {
+                    TaxonomyTreeSection(
+                        rank = rank,
+                        taxonId = speciesId,
+                        family = species.family,
+                        onOpenTaxon = onOpenTaxon,
+                        onOpenSpeciesSheet = onOpenSpeciesSheet,
+                    )
+                }
                 SpeciesSheetTab.Similars -> SimilarsSection(
                     species = species,
                     onOpenSpeciesSheet = onOpenSpeciesSheet,
@@ -566,25 +571,36 @@ private fun AudioRingButton(
 }
 
 /**
- * Árbol clicable familia → género → especie, todo el resto de la misma familia que [family]
- * (no solo el género actual, para poder navegar la familia entera desde cualquier ficha).
- * [highlightId] resalta la especie de la ficha actual, si la hay.
+ * No existe para fichas de especie (esas van directo a "Similares"). En ficha de género:
+ * solo las especies de ese género. En ficha de familia: sus géneros y, dentro de cada uno,
+ * las especies de ese género — nunca especies de otra familia.
  */
 @Composable
 private fun TaxonomyTreeSection(
+    rank: SpeciesTaxonRank,
+    taxonId: String,
     family: String,
-    highlightId: String,
     onOpenTaxon: (String) -> Unit,
     onOpenSpeciesSheet: (String) -> Unit,
 ) {
-    val byGenus = remember(family) {
-        SpeciesCatalog.byTaxon(family).groupBy { it.genus }.toSortedMap()
-    }
     Text(
         text = stringResource(R.string.species_sheet_taxonomy_title),
         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
     )
     Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+    if (rank == SpeciesTaxonRank.Genus) {
+        val members = remember(taxonId) { SpeciesCatalog.byTaxon(taxonId).sortedBy { it.scientificName } }
+        TaxonNode(label = taxonId, emphasized = true, onClick = { onOpenTaxon(taxonId) })
+        Column(modifier = Modifier.padding(start = 16.dp)) {
+            members.forEach { record ->
+                TaxonNode(label = record.scientificName, onClick = { onOpenSpeciesSheet(record.id) })
+            }
+        }
+        return
+    }
+    val byGenus = remember(family) {
+        SpeciesCatalog.byTaxon(family).groupBy { it.genus }.toSortedMap()
+    }
     TaxonNode(label = family, emphasized = true, onClick = { onOpenTaxon(family) })
     Column(modifier = Modifier.padding(start = 16.dp)) {
         byGenus.forEach { (genus, members) ->
@@ -592,11 +608,7 @@ private fun TaxonomyTreeSection(
             TaxonNode(label = genus, onClick = { onOpenTaxon(genus) })
             Column(modifier = Modifier.padding(start = 16.dp)) {
                 members.sortedBy { it.scientificName }.forEach { record ->
-                    TaxonNode(
-                        label = record.scientificName,
-                        highlighted = record.id == highlightId,
-                        onClick = { onOpenSpeciesSheet(record.id) },
-                    )
+                    TaxonNode(label = record.scientificName, onClick = { onOpenSpeciesSheet(record.id) })
                 }
             }
         }
