@@ -461,7 +461,9 @@
     <string name="species_sheet_tab_distribution">Distribución</string>
     <string name="species_sheet_tab_morphology">Morfología</string>
     <string name="species_sheet_tab_bioacoustics">Bioacústica</string>
+    <string name="species_sheet_tab_taxonomy">Taxonomía</string>
     <string name="species_sheet_tab_similars">Similares</string>
+    <string name="species_sheet_taxonomy_title">Árbol taxonómico</string>
     <string name="species_sheet_download_range">Descargar distribución</string>
     <string name="species_sheet_taxon_order">Orden Anura</string>
     <string name="species_sheet_taxon_family">Familia Dendrobatidae</string>

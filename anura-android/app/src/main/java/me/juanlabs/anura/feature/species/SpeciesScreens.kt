@@ -90,6 +90,7 @@ private enum class SpeciesSheetTab {
     Distribution,
     Morphology,
     Bioacoustics,
+    Taxonomy,
     Similars,
 }
 
@@ -291,6 +292,11 @@ fun SpeciesSheetScreen(
                     onClick = { tab = SpeciesSheetTab.Bioacoustics },
                 )
                 SpeciesTabChip(
+                    label = stringResource(R.string.species_sheet_tab_taxonomy),
+                    selected = tab == SpeciesSheetTab.Taxonomy,
+                    onClick = { tab = SpeciesSheetTab.Taxonomy },
+                )
+                SpeciesTabChip(
                     label = stringResource(R.string.species_sheet_tab_similars),
                     selected = tab == SpeciesSheetTab.Similars,
                     onClick = { tab = SpeciesSheetTab.Similars },
@@ -301,6 +307,12 @@ fun SpeciesSheetScreen(
                 SpeciesSheetTab.Distribution -> DistributionSection()
                 SpeciesSheetTab.Morphology -> MorphologySection()
                 SpeciesSheetTab.Bioacoustics -> BioacousticsSection()
+                SpeciesSheetTab.Taxonomy -> TaxonomyTreeSection(
+                    family = species.family,
+                    highlightId = if (rank == SpeciesTaxonRank.Species) speciesId else "",
+                    onOpenTaxon = onOpenTaxon,
+                    onOpenSpeciesSheet = onOpenSpeciesSheet,
+                )
                 SpeciesSheetTab.Similars -> SimilarsSection(
                     species = species,
                     onOpenSpeciesSheet = onOpenSpeciesSheet,
@@ -311,9 +323,9 @@ fun SpeciesSheetScreen(
 }
 
 /**
- * Ficha de especie: su propia foto + hasta 2 especies similares (para comparar). Ficha de
- * género/familia/orden: una foto de cada especie miembro — "el carrusel tiene las fotos de
- * ejemplares de esa familia o género, 1 de cada uno".
+ * Ficha de especie: solo su propia foto (las especies similares se comparan en la pestaña
+ * "Similares", no acá). Ficha de género/familia/orden: una foto de cada especie miembro —
+ * "el carrusel tiene las fotos de ejemplares de esa familia o género, 1 de cada uno".
  */
 private fun speciesPhotoItems(species: SpeciesRecord, rank: SpeciesTaxonRank, taxonId: String): List<ObservationMediaItem> {
     if (rank != SpeciesTaxonRank.Species) {
@@ -321,10 +333,7 @@ private fun speciesPhotoItems(species: SpeciesRecord, rank: SpeciesTaxonRank, ta
             ObservationMediaItem.Photo("member-$index", record.photoRes)
         }
     }
-    val extras = species.similarIds.mapNotNull { SpeciesCatalog.find(it) }.mapIndexed { index, record ->
-        ObservationMediaItem.Photo("similar-$index", record.photoRes)
-    }
-    return listOf(ObservationMediaItem.Photo("hero", species.photoRes)) + extras
+    return listOf(ObservationMediaItem.Photo("hero", species.photoRes))
 }
 
 @Composable
@@ -554,6 +563,70 @@ private fun AudioRingButton(
             )
         }
     }
+}
+
+/**
+ * Árbol clicable familia → género → especie, todo el resto de la misma familia que [family]
+ * (no solo el género actual, para poder navegar la familia entera desde cualquier ficha).
+ * [highlightId] resalta la especie de la ficha actual, si la hay.
+ */
+@Composable
+private fun TaxonomyTreeSection(
+    family: String,
+    highlightId: String,
+    onOpenTaxon: (String) -> Unit,
+    onOpenSpeciesSheet: (String) -> Unit,
+) {
+    val byGenus = remember(family) {
+        SpeciesCatalog.byTaxon(family).groupBy { it.genus }.toSortedMap()
+    }
+    Text(
+        text = stringResource(R.string.species_sheet_taxonomy_title),
+        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+    )
+    Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+    TaxonNode(label = family, emphasized = true, onClick = { onOpenTaxon(family) })
+    Column(modifier = Modifier.padding(start = 16.dp)) {
+        byGenus.forEach { (genus, members) ->
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+            TaxonNode(label = genus, onClick = { onOpenTaxon(genus) })
+            Column(modifier = Modifier.padding(start = 16.dp)) {
+                members.sortedBy { it.scientificName }.forEach { record ->
+                    TaxonNode(
+                        label = record.scientificName,
+                        highlighted = record.id == highlightId,
+                        onClick = { onOpenSpeciesSheet(record.id) },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun TaxonNode(
+    label: String,
+    emphasized: Boolean = false,
+    highlighted: Boolean = false,
+    onClick: () -> Unit,
+) {
+    Text(
+        text = label,
+        style = if (emphasized) {
+            MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
+        } else {
+            MaterialTheme.typography.bodyMedium.copy(
+                fontStyle = FontStyle.Italic,
+                fontWeight = if (highlighted) FontWeight.Bold else FontWeight.Normal,
+            )
+        },
+        color = if (highlighted) AnuraTheme.extendedColors.accentInk else MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier
+            .clip(RoundedCornerShape(AnuraDimens.radiusButton))
+            .clickable(onClick = onClick)
+            .semantics { role = Role.Button }
+            .padding(vertical = 4.dp),
+    )
 }
 
 @Composable
