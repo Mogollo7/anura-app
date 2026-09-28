@@ -71,6 +71,10 @@ data class ObservationRecord(
     val createdAtEpochMs: Long = 0L,
     /** Resultado real del k-NN (vacío en observaciones sin identificación en el teléfono). */
     val candidates: List<IdentificationCandidate> = emptyList(),
+    /** `observations.id` real una vez subida a `observation-service` (C3, alcance mínimo: solo
+     * lo que ya acepta `POST /api/observations`). Null = todavía solo local (invitado, sin
+     * foto, o la subida falló). */
+    val serverId: String? = null,
 ) {
     val isCommunity: Boolean get() = ownerUserId.startsWith("user-")
 }

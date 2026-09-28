@@ -262,8 +262,38 @@ class AnuraRepository(
             },
         )
         update { current -> current.copy(observations = listOf(record) + current.observations) }
+        uploadObservationIfPossible(record)
         resetDraft()
         return id
+    }
+
+    /** Sube la observación recién creada a `observation-service` (C3, alcance mínimo). Solo si
+     * hay sesión real y tiene al menos una foto: sin sesión (invitado) o sin foto (Audio ID,
+     * paso a paso sin cámara) se queda solo local — el servidor exige ambas cosas. */
+    private fun uploadObservationIfPossible(record: ObservationRecord) {
+        val token = snapshot.session.authToken ?: return
+        val photoToken = record.photoTokens.firstOrNull() ?: return
+        val photo = MediaPersistence.fileFromToken(photoToken) ?: return
+        val topCandidate = record.candidates.firstOrNull()
+        scope.launch {
+            val serverId = ObservationsRemote.upload(
+                photo = photo,
+                latitude = record.latitude,
+                longitude = record.longitude,
+                notes = habitatLabel(record.habitat)?.let { "Hábitat: $it" },
+                isPrivate = !record.visibilityPublic,
+                aiTopClass = record.scientificName.takeIf { record.identificationStatus == IdentificationKnown },
+                aiTopProb = topCandidate?.share?.toDouble(),
+                bearer = token,
+            ) ?: return@launch
+            update { current ->
+                current.copy(
+                    observations = current.observations.map {
+                        if (it.id == record.id) it.copy(serverId = serverId) else it
+                    },
+                )
+            }
+        }
     }
 
     fun observationById(id: String): ObservationRecord? =
