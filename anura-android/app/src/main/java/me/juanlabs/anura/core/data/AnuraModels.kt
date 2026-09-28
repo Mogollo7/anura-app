@@ -166,6 +166,17 @@ data class AnuraSnapshot(
     val blockedUserIds: List<String> = emptyList(),
     val reportedUserIds: List<String> = emptyList(),
     val sessionNotes: List<SessionNoteRecord> = emptyList(),
+    /** UUID generado una sola vez por instalación para `POST /api/auth/dispositivos` — no
+     * depende de la cuenta: sobrevive a cerrar sesión, igual que `device_key` en el Admin. */
+    val deviceKey: String? = null,
+    /** Lo que respondió el servidor al último reporte de este dispositivo (C4); false/null
+     * hasta el primer reporte. */
+    val deviceBlocked: Boolean = false,
+    val deviceBlockReason: String? = null,
+    /** Avisos de `GET /api/notifications`, más recientes primero — se refrescan al iniciar
+     * sesión y al abrir la pantalla de avisos, no en cada recomposición. */
+    val notifications: List<AppNotification> = emptyList(),
+    val unreadNotifications: Int = 0,
 )
 
 fun defaultPackages(): List<RegionalPackageRecord> = listOf(

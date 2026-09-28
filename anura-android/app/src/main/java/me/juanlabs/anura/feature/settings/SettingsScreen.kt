@@ -78,6 +78,7 @@ fun SettingsScreen(
     preferLargeText: Boolean = false,
     onPreferLargeTextChange: (Boolean) -> Unit = {},
     onOpenRegionalPackages: () -> Unit,
+    onOpenNotifications: () -> Unit,
     onOpenProfile: () -> Unit,
     onOpenEditProfile: () -> Unit,
     onSignOut: () -> Unit,
@@ -146,6 +147,12 @@ fun SettingsScreen(
                     title = stringResource(R.string.settings_packages),
                     leadingIcon = AnuraIcons.Download,
                     onClick = onOpenRegionalPackages,
+                )
+                SettingsNavRow(
+                    title = stringResource(R.string.settings_notifications),
+                    leadingIcon = AnuraIcons.Notifications,
+                    badgeCount = snapshot.unreadNotifications,
+                    onClick = onOpenNotifications,
                 )
                 SettingsNavRow(
                     title = stringResource(R.string.settings_appearance),
@@ -234,6 +241,7 @@ private fun SettingsNavRow(
     title: String,
     leadingIcon: ImageVector,
     onClick: () -> Unit,
+    badgeCount: Int = 0,
 ) {
     AnuraCard(
         modifier = Modifier
@@ -261,6 +269,21 @@ private fun SettingsNavRow(
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.weight(1f),
             )
+            if (badgeCount > 0) {
+                Box(
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.error)
+                        .padding(horizontal = 8.dp, vertical = 2.dp),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        text = badgeCount.toString(),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onError,
+                    )
+                }
+            }
             Icon(
                 imageVector = AnuraIcons.ChevronRight,
                 contentDescription = null,
@@ -280,6 +303,7 @@ private fun SettingsPreview() {
             accentRole = AnuraAccentRole.Ink,
             onAccentRoleChange = {},
             onOpenRegionalPackages = {},
+            onOpenNotifications = {},
             onOpenProfile = {},
             onOpenEditProfile = {},
             onSignOut = {},
@@ -297,6 +321,7 @@ private fun SettingsPreviewDark() {
             accentRole = AnuraAccentRole.Ink,
             onAccentRoleChange = {},
             onOpenRegionalPackages = {},
+            onOpenNotifications = {},
             onOpenProfile = {},
             onOpenEditProfile = {},
             onSignOut = {},
@@ -314,6 +339,7 @@ private fun SettingsPreviewRedLight() {
             accentRole = AnuraAccentRole.Ink,
             onAccentRoleChange = {},
             onOpenRegionalPackages = {},
+            onOpenNotifications = {},
             onOpenProfile = {},
             onOpenEditProfile = {},
             onSignOut = {},

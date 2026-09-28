@@ -61,6 +61,7 @@ import me.juanlabs.anura.feature.fieldsession.FieldSessionScreen
 import me.juanlabs.anura.feature.fieldsession.NightSoundsScreen
 import me.juanlabs.anura.feature.home.HomeCarouselCatalog
 import me.juanlabs.anura.feature.home.HomeScreen
+import me.juanlabs.anura.feature.notifications.NotificationsScreen
 import me.juanlabs.anura.feature.observations.FavoritesScreen
 import me.juanlabs.anura.feature.observations.ObservationDetailScreen
 import me.juanlabs.anura.feature.observations.ObservationsScreen
@@ -266,6 +267,7 @@ private fun NavGraphBuilder.topLevelDestinations(
             preferLargeText = preferLargeText,
             onPreferLargeTextChange = onPreferLargeTextChange,
             onOpenRegionalPackages = { navController.navigate(AnuraRoute.RegionalPackages) },
+            onOpenNotifications = { navController.navigate(AnuraRoute.Notifications) },
             onOpenProfile = { navController.navigate(AnuraRoute.Profile(userId = null)) },
             onOpenEditProfile = { navController.navigate(AnuraRoute.EditProfile) },
             onSignOut = {
@@ -391,6 +393,9 @@ private fun NavGraphBuilder.detailDestinations(
     }
     composable<AnuraRoute.EditProfile> {
         EditProfileScreen(onBackClick = { navController.popBackStack() })
+    }
+    composable<AnuraRoute.Notifications> {
+        NotificationsScreen(onBackClick = { navController.popBackStack() })
     }
             composable<AnuraRoute.RegionalPackages> {
         RegionalPackagesScreen(

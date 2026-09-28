@@ -32,7 +32,9 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import android.app.Application
 import me.juanlabs.anura.AnuraApplication
+import me.juanlabs.anura.core.data.DeviceReportResult
 import me.juanlabs.anura.core.data.LocalAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraNavBar
 import me.juanlabs.anura.designsystem.component.AnuraNavBarItem
@@ -79,6 +81,33 @@ fun AnuraScaffold(
         repository.messages.collect { message ->
             snackbarHostState.showSnackbar(message)
         }
+    }
+    // Reporte del dispositivo (C4) y avisos (C5): al abrir la app con sesión iniciada y tras
+    // cada login (authToken cambia). Si el servidor dice que la cuenta está suspendida, cierra
+    // la sesión aquí mismo — es la única pantalla que ve cada navegación de la app.
+    val deviceSuspendedMessage = stringResource(R.string.device_suspended_message)
+    val deviceBlockedFallback = stringResource(R.string.device_blocked_message)
+    LaunchedEffect(snapshot.session.authToken, snapshot.session.enteredApp) {
+        val token = snapshot.session.authToken
+        if (token == null || !snapshot.session.enteredApp) return@LaunchedEffect
+        when (repository.reportDevice(context.applicationContext as Application)) {
+            is DeviceReportResult.Suspended -> {
+                repository.signOut()
+                repository.notify(deviceSuspendedMessage)
+                navController.navigate(AnuraRoute.AuthGraph) {
+                    popUpTo(0) { inclusive = true }
+                }
+                return@LaunchedEffect
+            }
+            is DeviceReportResult.Ok -> {
+                val blockedNow = repository.snapshot.deviceBlocked
+                if (blockedNow) {
+                    repository.notify(repository.snapshot.deviceBlockReason?.takeIf { it.isNotBlank() } ?: deviceBlockedFallback)
+                }
+            }
+            DeviceReportResult.Failed -> Unit
+        }
+        repository.hydrateNotifications()
     }
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination

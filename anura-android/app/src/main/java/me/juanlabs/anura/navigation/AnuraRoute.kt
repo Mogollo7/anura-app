@@ -69,6 +69,10 @@ sealed interface AnuraRoute {
     @Serializable
     data object RegionalPackages : AnuraRoute
 
+    /** Avisos de `GET /api/notifications` (C5) — entrada desde Ajustes. */
+    @Serializable
+    data object Notifications : AnuraRoute
+
     /** `Explora más.` — listado 2×2 del board Penpot, desde explorar. */
     @Serializable
     data object ExploreMore : AnuraRoute

@@ -543,6 +543,7 @@
     <string name="settings_title">Ajustes</string>
     <string name="settings_profile_cd">Abrir perfil</string>
     <string name="settings_packages">Zonas descargadas</string>
+    <string name="settings_notifications">Avisos</string>
     <string name="settings_appearance">Apariencia</string>
     <string name="settings_mode_light">Claro</string>
     <string name="settings_mode_dark">Oscuro</string>
@@ -755,4 +756,11 @@
     <string name="connections_empty_following">Todavía no seguís a nadie</string>
     <string name="connections_empty_favorites">Todavía no hay favoritos</string>
     <string name="profile_favorites_empty">Todavía no marcaste favoritos</string>
+
+    <!-- Avisos (C5) y reporte de dispositivo (C4) — GET /api/notifications, POST /api/auth/dispositivos. -->
+    <string name="notifications_title">Avisos</string>
+    <string name="notifications_empty_title">No tienes avisos</string>
+    <string name="notifications_empty_body">Aquí vas a ver los avisos que te mande el equipo de Anura.</string>
+    <string name="device_blocked_message">El administrador bloqueó este dispositivo; la app dejó de sincronizarlo.</string>
+    <string name="device_suspended_message">Tu cuenta está suspendida. Cerramos tu sesión.</string>
 </resources>

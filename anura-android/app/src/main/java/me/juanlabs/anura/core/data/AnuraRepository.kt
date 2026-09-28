@@ -272,6 +272,72 @@ class AnuraRepository(
     fun ownObservations(): List<ObservationRecord> =
         snapshot.observations.filter { it.ownerUserId == snapshot.session.userId }
 
+    /** UUID de este teléfono para `POST /api/auth/dispositivos` — se genera una sola vez y
+     * queda en el snapshot (persistido por Room), igual que cualquier otro dato de la app. */
+    private fun ensureDeviceKey(): String {
+        snapshot.deviceKey?.let { return it }
+        val generated = UUID.randomUUID().toString()
+        update { it.copy(deviceKey = generated) }
+        return generated
+    }
+
+    /**
+     * Reporta este dispositivo al servidor (C4): modelo, versión de Android, versión de la
+     * app, paquetes regionales instalados y espacio libre. Se llama al abrir la app con sesión
+     * iniciada y tras cada login (ver `AnuraScaffold`); sin sesión no hace nada.
+     */
+    suspend fun reportDevice(context: Application): DeviceReportResult {
+        val token = snapshot.session.authToken ?: return DeviceReportResult.Failed
+        val deviceKey = ensureDeviceKey()
+        val paquetes = snapshot.packages
+            .filter { it.status == RegionalPackageStatus.Installed }
+            .map { pack ->
+                DevicePackageEntry(
+                    subregion = LocalPackageCatalog.find(pack.id)?.region ?: pack.id,
+                    version = pack.version.orEmpty(),
+                )
+            }
+        val espacioLibreMb = runCatching { context.filesDir.freeSpace / (1024L * 1024L) }.getOrNull()
+        val versionName = runCatching {
+            context.packageManager.getPackageInfo(context.packageName, 0).versionName
+        }.getOrNull().orEmpty()
+        val result = DeviceRemote.report(
+            bearer = token,
+            deviceKey = deviceKey,
+            modelo = android.os.Build.MODEL.orEmpty(),
+            android = android.os.Build.VERSION.RELEASE.orEmpty(),
+            appVersion = versionName,
+            paquetes = paquetes,
+            espacioLibreMb = espacioLibreMb,
+        )
+        if (result is DeviceReportResult.Ok) {
+            update { it.copy(deviceBlocked = result.bloqueado, deviceBlockReason = result.motivo) }
+        }
+        return result
+    }
+
+    /** Avisos propios (C5), para hidratar `snapshot.notifications` al iniciar sesión y al
+     * abrir la pantalla de avisos. */
+    suspend fun hydrateNotifications() {
+        val token = snapshot.session.authToken ?: return
+        val response = NotificationsRemote.fetch(token) ?: return
+        update { it.copy(notifications = response.avisos, unreadNotifications = response.sin_leer) }
+    }
+
+    /** Marca un aviso como leído: optimista en el snapshot, confirmado contra el servidor. */
+    fun markNotificationRead(id: String) {
+        val current = snapshot.notifications.find { it.id == id } ?: return
+        if (current.is_read) return
+        update { snap ->
+            snap.copy(
+                notifications = snap.notifications.map { if (it.id == id) it.copy(is_read = true) else it },
+                unreadNotifications = (snap.unreadNotifications - 1).coerceAtLeast(0),
+            )
+        }
+        val token = snapshot.session.authToken ?: return
+        scope.launch { NotificationsRemote.markRead(id, token) }
+    }
+
     fun toggleFavorite(id: String) {
         update { current ->
             val next = if (current.favorites.contains(id)) {

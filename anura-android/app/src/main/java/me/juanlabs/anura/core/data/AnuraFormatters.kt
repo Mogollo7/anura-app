@@ -34,6 +34,14 @@ fun formatObservationDate(epochMs: Long?): String? {
     return local.format(DateFormatter)
 }
 
+/** Fecha de un aviso del servidor (`created_at`, ISO 8601) — mismo formato que
+ * [formatObservationWhen], null si no se pudo interpretar. */
+fun formatIsoWhen(iso: String?): String? {
+    if (iso.isNullOrBlank()) return null
+    val epochMs = runCatching { Instant.parse(iso).toEpochMilli() }.getOrNull() ?: return null
+    return formatObservationWhen(epochMs)
+}
+
 fun formatClock(epochMs: Long?): String? {
     if (epochMs == null) return null
     val local = LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMs), ZoneId.systemDefault())

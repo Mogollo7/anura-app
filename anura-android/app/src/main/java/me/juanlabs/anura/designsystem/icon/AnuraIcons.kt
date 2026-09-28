@@ -51,6 +51,7 @@ import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.TextFields
 import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material.icons.filled.TravelExplore
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -88,6 +89,7 @@ object AnuraIcons {
     val Explore: ImageVector = Icons.Filled.TravelExplore
     val Observations: ImageVector = Icons.AutoMirrored.Filled.FormatListBulleted
     val Settings: ImageVector = Icons.Filled.Tune
+    val Notifications: ImageVector = Icons.Filled.Notifications
     val Add: ImageVector = Icons.Filled.Add
 
     // Auth — INICIAR SECCION / crear cuenta (Material, no Penpot).
