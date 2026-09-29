@@ -146,6 +146,8 @@
     <string name="clave_open_packages">Ver paquetes</string>
     <string name="clave_no_key_title">Aún no está la clave en este teléfono</string>
     <string name="clave_no_key_body">Conéctate para descargarla. Después funciona sin señal.</string>
+    <string name="clave_stale_title">Este paquete ya no está publicado</string>
+    <string name="clave_stale_body">El servidor no tiene la clave de este paquete. Descarga el paquete vigente en Paquetes.</string>
     <string name="clave_retry">Reintentar</string>
     <string name="clave_no_species_title">Este paquete no tiene especies</string>
     <string name="clave_no_species_body">Cuando se publique un paquete con especies, aquí podrás identificarlas.</string>

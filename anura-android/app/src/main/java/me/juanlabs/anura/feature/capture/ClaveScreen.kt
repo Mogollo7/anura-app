@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import me.juanlabs.anura.core.platform.rememberNetworkAvailable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -91,6 +92,7 @@ fun ClaveScreen(
     }
 
     val documento = clave
+    val online = rememberNetworkAvailable()
     when {
         documento == null && cargando -> ClaveMessage(
             title = stringResource(R.string.clave_loading),
@@ -100,6 +102,16 @@ fun ClaveScreen(
             onBackClick = onBackClick,
             onCloseClick = onCloseClick,
             loading = true,
+        )
+        // Con red y sin clave: el servidor ya no publica este paquete (o aún no lo publicó).
+        // Reintentar no lo arregla; hay que bajar el paquete vigente desde Paquetes.
+        documento == null && online -> ClaveMessage(
+            title = stringResource(R.string.clave_stale_title),
+            body = stringResource(R.string.clave_stale_body),
+            action = stringResource(R.string.clave_open_packages),
+            onAction = onOpenPackages,
+            onBackClick = onBackClick,
+            onCloseClick = onCloseClick,
         )
         documento == null -> ClaveMessage(
             title = stringResource(R.string.clave_no_key_title),
