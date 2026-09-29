@@ -277,3 +277,31 @@ Solo si el barrido confirma que nada está simulado (salvo C3 y el demo de audio
 - Transcripción completa de esta sesión (si necesitas un detalle exacto):
   `C:\Users\user\.claude\projects\D--Anura\311511b4-f5bd-44fd-b541-5e93b3bfa860.jsonl`
 - Reglas de Cursor ya existentes: `D:\Anura\.cursor\rules\anura-compose-spacing.mdc`
+
+## 12. ACTUALIZACIÓN 2026-09-29 (posterior a Cursor) — estado final
+
+Esta sección **reemplaza** a las secciones 7 y 8 (ya cumplidas) y a lo que diga 9.1 (ya ejecutado).
+
+- **Hecho y commiteado** (server: `b7498c1`, `44d1d78`, `f57b5a3`; Android: `b99184a`, `ea0a600`):
+  Paso a paso con clave real; catálogo del teléfono solo desde lo publicado (sin las 30 especies del APK ni sus fotos);
+  el paquete lleva el modelo Open Set validado (`open_set_model`, formato ANOS v1) y el teléfono lo carga del paquete
+  (sin modelo no acepta identificaciones); `versiones.js` crea la versión del dataset desde el admin (una base vacía
+  antes no podía calcular centroides/OSR/release); recorrido de las 32 rutas del admin con base vacía y con datos;
+  auditoría de seguridad con 6 vulnerabilidades corregidas (entre ellas la toma de la cuenta super por mayúsculas y la
+  lectura de archivos por `..` en miniaturas).
+- **Verificado:** `_pruebas/correr_todo.sh` (14 suites, todas pasan con bases nuevas), `tsc` limpio, `next build` del
+  admin, `vite build` de la web, `:app:compileDebugKotlin` + `:app:testDebugUnitTest` de Android.
+- **Desplegado el 2026-09-29** con `docker compose -f docker-compose.server.yml up -d --build` tras aplicar
+  `db-migrate` («phase 2 a 22 listas»). Copias previas en `D:\server\Anura\_respaldos\`:
+  `anura-pre-despliegue-20260929.dump` (pg_dump -Fc), `minio-pre-despliegue-20260929.tgz` (8,7 GB) y `uploads-thumbnails`.
+  Producción tras el despliegue: 43 especies, 12.209 fotos, 100 observaciones de la app, 1 super, **0 fichas publicadas,
+  0 paquetes** (el catálogo público está vacío hasta que se publique desde el admin).
+- **NO se hizo el vaciado** (sección 9.2): el usuario lo rechazó por ahora. No lo hagas sin que lo pida.
+- **Sigue sin verificar:** prueba de punta a punta en un teléfono real; `OnDeviceInferenceTest` (instrumentada).
+- **Pendientes conocidos** (no son simulación): falta `MINIO_PUBLIC_ENDPOINT` en el `.env` real (las fotos del panel solo
+  cargan en este PC); mover `ADD COLUMN profile_image_blob` de `migrate_profile_image_blob.sql` a una phase; cuenta de
+  panel reclamable por la primera persona que se registre con ese correo (no hay verificación de correo); sin límite de
+  intentos de login; `/api/geo` y `/api/predict` abiertos en nginx; puertos de MinIO/pgAdmin/NPM en `0.0.0.0`;
+  `VITE_ADMIN_URL` no se pasa al construir la web (el botón «ir al Admin» apunta a localhost:3010).
+- Limitaciones reales (sección 6): el paquete no ajusta por zona ni clima; el manifiesto del paquete sin firma Ed25519;
+  el simulador solo usa fotos ya embebidas; sin entrenamiento de micro-adaptador.
