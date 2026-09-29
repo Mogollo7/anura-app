@@ -305,3 +305,18 @@ Esta sección **reemplaza** a las secciones 7 y 8 (ya cumplidas) y a lo que diga
   `VITE_ADMIN_URL` no se pasa al construir la web (el botón «ir al Admin» apunta a localhost:3010).
 - Limitaciones reales (sección 6): el paquete no ajusta por zona ni clima; el manifiesto del paquete sin firma Ed25519;
   el simulador solo usa fotos ya embebidas; sin entrenamiento de micro-adaptador.
+
+## 13. ACTUALIZACIÓN 2026-09-29 (tarde) — paquete anterior importado y reversión
+
+- **Paquete anterior de Antioquia importado como versión publicada** (origen legado, 9 subregiones, un solo objeto en
+  MinIO: `paquetes/legado/05-83b328771c26/package.sqlite`, sha256 `8011018c…`). Adaptado al formato actual sin tocar la app
+  (30 especies, 4.034 vectores, modelo Open Set 1.1.0 filtrado, priors de zona y clima). Original respaldado en
+  `_respaldos/paquete-legado-antioquia-1.1.0/`. Verificado en el teléfono: descarga, hash idéntico, «Foto ID» identifica
+  y «Paso a paso» lista las 30 especies (la clave dice que no las puede separar: faltan datos en las fichas).
+- **Reversión:** `POST /api/dataset/releases/:id/restaurar` y botón «Restaurar esta versión» en el admin. Al publicar una
+  versión nueva, la anterior (incluida la importada) pasa a `retirado` y nunca se borra de MinIO.
+- **Aprobaciones:** la cuenta super puede dar la aprobación científica y la técnica (phase23); una cuenta normal sigue
+  necesitando otra cuenta.
+- **Túnel:** `MINIO_PUBLIC_ENDPOINT` y `DATASET_SERVICE_URL` (worker de IA) apuntan a `https://anura.juanlabs.me`; el nginx
+  de la web enruta `/anura-dataset/` (MinIO, solo lectura con firma) y `/api/worker/` (dataset-service, con X-Worker-Token).
+  El worker `pc-rtx4050` se registra por el túnel (corre en CPU: `CPUExecutionProvider`).
