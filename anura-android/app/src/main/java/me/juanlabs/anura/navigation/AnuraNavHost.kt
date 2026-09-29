@@ -49,7 +49,6 @@ import me.juanlabs.anura.feature.auth.WelcomeScreen
 import me.juanlabs.anura.feature.capture.AnalyzingScreen
 import me.juanlabs.anura.feature.capture.AudioCaptureScreen
 import me.juanlabs.anura.feature.capture.CapturePhotoDraft
-import me.juanlabs.anura.feature.capture.CaptureClaveScreen
 import me.juanlabs.anura.feature.capture.CaptureStep1Screen
 import me.juanlabs.anura.feature.capture.CaptureStep2Screen
 import me.juanlabs.anura.feature.capture.CaptureStep3Screen
@@ -576,30 +575,12 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             val fromReview = navController.isEditingCaptureReview()
             CaptureStep5Screen(
                 onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.Clave) },
-                onSkip = { navController.navigate(AnuraRoute.Clave) },
+                onNext = { navController.navigate(AnuraRoute.CaptureStep6) },
+                onSkip = { navController.navigate(AnuraRoute.CaptureStep6) },
                 fromReview = fromReview,
                 onSave = { navController.returnToCaptureReview() },
                 onCancel = { navController.returnToCaptureReview() },
                 onCloseClick = { navController.closeCaptureWizard() },
-            )
-        }
-        // Ayuda opcional para identificar (la clave del paquete) entre el audio y el resumen.
-        composable<AnuraRoute.Clave> {
-            val fromReview = navController.isEditingCaptureReview()
-            CaptureClaveScreen(
-                onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.CaptureStep6) },
-                onSkip = {
-                    if (fromReview) navController.returnToCaptureReview()
-                    else navController.navigate(AnuraRoute.CaptureStep6)
-                },
-                fromReview = fromReview,
-                onSave = { navController.returnToCaptureReview() },
-                onCloseClick = { navController.closeCaptureWizard() },
-                // sin paquete el borrador se conserva: al volver de Paquetes sigue en este paso
-                onOpenPackages = { navController.navigate(AnuraRoute.RegionalPackages) },
-                onOpenSpecies = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
             )
         }
         composable<AnuraRoute.CaptureStep6> {
@@ -611,7 +592,6 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                 onEditSize = { navController.navigate(AnuraRoute.CaptureStep3) },
                 onEditPhotos = { navController.navigate(AnuraRoute.CaptureStep4) },
                 onEditAudio = { navController.navigate(AnuraRoute.CaptureStep5) },
-                onEditClave = { navController.navigate(AnuraRoute.Clave) },
                 onCloseClick = { navController.closeCaptureWizard() },
             )
         }

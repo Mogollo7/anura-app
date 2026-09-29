@@ -23,10 +23,12 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.coroutineContext
 import kotlinx.serialization.json.Json
 import me.juanlabs.anura.core.auth.AnuraServerConfig
+import me.juanlabs.anura.core.inference.AltitudeRange
 import me.juanlabs.anura.core.inference.AnuraIdentifier
 import me.juanlabs.anura.core.inference.IdentificationEnsemble
 import me.juanlabs.anura.core.inference.IdentificationFailure
 import me.juanlabs.anura.core.inference.IdentificationOutcome
+import me.juanlabs.anura.core.inference.SpeciesAltitudeRanges
 import me.juanlabs.anura.core.key.ClaveDocumento
 
 class AnuraRepository(
@@ -274,12 +276,16 @@ class AnuraRepository(
             } ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
             val path = pack.localPath
                 ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
+            val altitudeM = resolveDraftAltitude()
+            val altitudeRanges = altitudeRangesFor(pack)
             val outcomes = photos.take(MaxPhotosForIdentification).map { photo ->
                 engine.identify(
                     photo,
                     path,
                     latitude = snapshot.draft.latitude,
                     longitude = snapshot.draft.longitude,
+                    altitudeM = altitudeM,
+                    altitudeRanges = altitudeRanges,
                 )
             }
             IdentificationEnsemble.combine(outcomes)
@@ -291,6 +297,47 @@ class AnuraRepository(
                 error.message ?: error.javaClass.simpleName,
             )
         }
+    }
+
+    /**
+     * Altitud del punto del borrador para la identificación: la del Paso 1 (OpenTopoData) y, si el
+     * borrador tiene ubicación pero no altitud (p. ej. Foto ID directo), se consulta ahora con su
+     * propio tope de espera. Sin red o sin dato, null: se identifica sin ese ajuste.
+     */
+    private suspend fun resolveDraftAltitude(): Int? {
+        val draft = snapshot.draft
+        draft.altitudeMeters?.let { return it }
+        val lat = draft.latitude ?: return null
+        val lon = draft.longitude ?: return null
+        val found = AltitudeRemote.fetch(lat, lon) ?: return null
+        updateDraft {
+            if (it.latitude == lat && it.longitude == lon && it.altitudeMeters == null) {
+                it.copy(
+                    altitudeMeters = found.meters,
+                    altitudeSource = found.source,
+                    altitudeLabel = "${formatMeters(found.meters)} msnm",
+                )
+            } else {
+                it
+            }
+        }
+        return found.meters
+    }
+
+    private fun formatMeters(meters: Int): String =
+        java.text.NumberFormat.getIntegerInstance(java.util.Locale("es", "CO")).format(meters)
+
+    /**
+     * Rango de altitud por especie: primero el que trae el paquete activo (`clave.json`,
+     * `resumen.altitud`) y, para lo que el paquete no trae, la literatura de la ficha publicada.
+     */
+    private fun altitudeRangesFor(pack: RegionalPackageRecord): SpeciesAltitudeRanges {
+        val clave = cachedClave(pack.id, pack.version ?: "1")
+        val fromPackage = clave?.especies.orEmpty().map { Triple(it.taxon_id, it.nombre_cientifico, it.resumen["altitud"]) }
+        val fromCatalog = ContentCatalog.catalog?.especies.orEmpty().map {
+            Triple(it.taxon_id, it.nombre_cientifico, it.altitud_literatura?.let { r -> AltitudeRange(r.min, r.max) })
+        }
+        return SpeciesAltitudeRanges.build(fromPackage, fromCatalog)
     }
 
     fun commitObservation(

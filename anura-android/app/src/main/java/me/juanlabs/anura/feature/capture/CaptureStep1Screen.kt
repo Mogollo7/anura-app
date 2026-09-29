@@ -21,9 +21,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,6 +45,9 @@ import androidx.compose.ui.unit.dp
 import java.text.NumberFormat
 import java.util.Locale
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.AltitudeRemote
+import me.juanlabs.anura.core.data.AltitudeSourceGps
+import me.juanlabs.anura.core.data.AltitudeSourceOpenTopo
 import me.juanlabs.anura.core.data.CaptureDraft
 import me.juanlabs.anura.core.data.HabitatLeafLitter
 import me.juanlabs.anura.core.data.HabitatLowVegetation
@@ -72,7 +78,8 @@ private val CaptureAltitudeLocale = Locale("es", "CO")
  * `Paso 1: dónde la viste` (§4.1, grafo `CaptureGraph`).
  *
  * Todo sale del GPS o de lo que la persona marca en el mapa (toque o arrastre): sin ubicación no se
- * inventa ninguna. La altitud es la del GPS; si el punto se marcó a mano no hay altitud. El microhábitat
+ * inventa ninguna. La altitud se consulta en OpenTopoData con ese punto (también si se marcó a mano);
+ * si no hay red, se usa la del GPS como respaldo y, si tampoco, se dice y se sigue. El microhábitat
  * empieza sin elegir. Omitir no cambia lo que ya haya en el borrador.
  */
 @Composable
@@ -91,9 +98,55 @@ fun CaptureStep1Screen(
     // lo que había al entrar: «Cancelar» al editar desde el resumen lo restaura
     val entry = remember { snapshot.draft }
     val locationGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Location)
-    val altitudeText = draft.altitudeMeters?.let { stringResource(R.string.capture_step1_altitude_value, formatAltitude(it)) }
-        ?: stringResource(R.string.capture_step1_altitude_none)
     val hasPoint = draft.latitude != null && draft.longitude != null
+    var lookup by remember { mutableStateOf(AltitudeLookup.Idle) }
+    // La altitud sale de OpenTopoData (vía el servicio geo de ANURA) con el punto del mapa, marcado a mano
+    // o del GPS. La del GPS queda solo de respaldo si la consulta falla; sin ninguna, se dice y se sigue.
+    LaunchedEffect(pointKey(draft.latitude), pointKey(draft.longitude)) {
+        val lat = draft.latitude
+        val lon = draft.longitude
+        if (lat == null || lon == null) {
+            lookup = AltitudeLookup.Idle
+            return@LaunchedEffect
+        }
+        if (repository.state.value.draft.altitudeSource == AltitudeSourceOpenTopo) {
+            lookup = AltitudeLookup.Done
+            return@LaunchedEffect
+        }
+        lookup = AltitudeLookup.Loading
+        val found = AltitudeRemote.fetch(lat, lon)
+        if (found == null) {
+            lookup = AltitudeLookup.Failed
+            return@LaunchedEffect
+        }
+        repository.updateDraft {
+            // solo si el punto sigue siendo el consultado: si la persona lo movió, esa respuesta ya no aplica
+            if (pointKey(it.latitude) == pointKey(lat) && pointKey(it.longitude) == pointKey(lon)) {
+                it.copy(
+                    altitudeMeters = found.meters,
+                    altitudeSource = found.source,
+                    altitudeLabel = formatAltitude(found.meters) + " msnm",
+                )
+            } else {
+                it
+            }
+        }
+        lookup = AltitudeLookup.Done
+    }
+    val altitudeText = when {
+        draft.altitudeMeters != null ->
+            stringResource(R.string.capture_step1_altitude_value, formatAltitude(draft.altitudeMeters))
+        !hasPoint -> stringResource(R.string.capture_step1_altitude_waiting)
+        lookup == AltitudeLookup.Failed -> stringResource(R.string.capture_step1_altitude_none)
+        else -> stringResource(R.string.capture_step1_altitude_loading)
+    }
+    val altitudeNote = when {
+        draft.altitudeMeters != null && draft.altitudeSource == AltitudeSourceGps ->
+            stringResource(R.string.capture_step1_altitude_source_gps)
+        draft.altitudeMeters != null -> stringResource(R.string.capture_step1_altitude_source_opentopo)
+        hasPoint && lookup == AltitudeLookup.Failed -> stringResource(R.string.capture_step1_altitude_failed_hint)
+        else -> null
+    }
 
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.capture_step1_appbar),
@@ -134,6 +187,15 @@ fun CaptureStep1Screen(
             valueStyleLarge = draft.altitudeMeters != null,
             modifier = Modifier.fillMaxWidth(),
         )
+        altitudeNote?.let { note ->
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+            Text(
+                text = note,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+            )
+        }
 
         Spacer(modifier = Modifier.height(CaptureFieldsToHabitatGap))
 
@@ -163,6 +225,7 @@ fun CaptureStep1Screen(
                         longitude = entry.longitude,
                         precisionMeters = entry.precisionMeters,
                         altitudeMeters = entry.altitudeMeters,
+                        altitudeSource = entry.altitudeSource,
                         altitudeLabel = entry.altitudeLabel,
                         habitat = entry.habitat,
                     )
@@ -173,20 +236,35 @@ fun CaptureStep1Screen(
     }
 }
 
-/** Aplica al borrador un punto del GPS o marcado a mano. Lo marcado a mano no trae altitud ni precisión. */
+private enum class AltitudeLookup { Idle, Loading, Done, Failed }
+
+/** Coordenada a ~11 m: dos fijos del GPS casi iguales son el mismo punto y no repiten la consulta. */
+private fun pointKey(value: Double?): Long? = value?.let { Math.round(it * 10_000) }
+
+/**
+ * Aplica al borrador un punto del GPS o marcado a mano. La altitud de un punto ya consultado en
+ * OpenTopoData se conserva si el punto no cambió; si cambió, queda la del GPS (solo respaldo) o ninguna,
+ * hasta que llegue la consulta del punto nuevo.
+ */
 private fun CaptureDraft.withLocation(location: Location): CaptureDraft {
     val manual = location.provider?.startsWith("manual") == true
-    val altitude = if (manual) null else gpsAltitudeMeters(location)
+    val precision = if (!manual && location.hasAccuracy()) location.accuracy.toInt().coerceAtLeast(0) else null
+    val samePoint = pointKey(latitude) == pointKey(location.latitude) && pointKey(longitude) == pointKey(location.longitude)
+    if (samePoint && altitudeSource == AltitudeSourceOpenTopo) {
+        return copy(latitude = location.latitude, longitude = location.longitude, precisionMeters = precision)
+    }
+    val gps = if (manual) null else gpsAltitudeMeters(location)
     return copy(
         latitude = location.latitude,
         longitude = location.longitude,
-        precisionMeters = if (!manual && location.hasAccuracy()) location.accuracy.toInt().coerceAtLeast(0) else null,
-        altitudeMeters = altitude,
-        altitudeLabel = altitude?.let { formatAltitude(it) + " msnm" },
+        precisionMeters = precision,
+        altitudeMeters = gps,
+        altitudeSource = gps?.let { AltitudeSourceGps },
+        altitudeLabel = gps?.let { formatAltitude(it) + " msnm" },
     )
 }
 
-/** Altitud sobre el nivel del mar si el teléfono la da (Android 14+); si no, la que reporta el GPS. */
+/** Altitud sobre el nivel del mar si el teléfono la da (Android 14+); si no, la que reporta el GPS. Respaldo de OpenTopoData. */
 private fun gpsAltitudeMeters(location: Location): Int? = when {
     Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE && location.hasMslAltitude() ->
         location.mslAltitudeMeters.toInt()

@@ -128,34 +128,12 @@
 
     <!-- Wizard de captura — textos exactos de Penpot Mockup Final -->
     <string name="capture_wizard_close_cd">Cerrar e ir al inicio</string>
-    <string name="clave_appbar">Paso a paso</string>
-    <string name="clave_loading">Cargando la clave…</string>
-    <string name="clave_remaining">Quedan %1$d especies</string>
-    <string name="clave_unknown">No sé</string>
-    <string name="clave_correct">Corregir la respuesta anterior</string>
-    <string name="clave_restart">Empezar de nuevo</string>
-    <string name="clave_open_sheet">Ver ficha</string>
-    <string name="clave_one_title">Coincide con una especie</string>
-    <string name="clave_several_title">Quedan varias especies</string>
-    <string name="clave_several_same">Con los datos de este paquete no se pueden separar.</string>
-    <string name="clave_several_pending">Si respondes esto, puede que se separen: %1$s</string>
-    <string name="clave_none_title">Ninguna especie coincide</string>
-    <string name="clave_none_body">Revisa una respuesta o empieza de nuevo. No hay una especie que encaje con lo que marcaste.</string>
-    <string name="clave_no_package_title">Aún no hay un paquete en este teléfono</string>
-    <string name="clave_no_package_body">Para identificar paso a paso, descarga el paquete de tu subregión.</string>
-    <string name="clave_open_packages">Ver paquetes</string>
-    <string name="clave_no_key_title">Aún no está la clave en este teléfono</string>
-    <string name="clave_no_key_body">Conéctate para descargarla. Después funciona sin señal.</string>
-    <string name="clave_stale_title">Este paquete ya no está publicado</string>
     <string name="clave_stale_body">El servidor no tiene la clave de este paquete. Descarga el paquete vigente en Paquetes.</string>
-    <string name="clave_retry">Reintentar</string>
-    <string name="clave_no_species_title">Este paquete no tiene especies</string>
-    <string name="clave_no_species_body">Cuando se publique un paquete con especies, aquí podrás identificarlas.</string>
     <string name="audio_demo_notice">Demostración: ANURA todavía no identifica por sonido. El audio se guarda, pero lo que ves aquí no es una identificación.</string>
     <string name="capture_photo_failed">No se pudo tomar la foto. Intenta de nuevo o elige una de la galería.</string>
     <string name="capture_wizard_progress_cd">Paso %1$d de %2$d</string>
 
-    <!-- Asistente «Paso a paso»: seis pasos + ayuda opcional (clave) -->
+    <!-- Asistente «Paso a paso»: seis pasos -->
     <string name="capture_wizard_skip">Omitir este paso</string>
     <string name="capture_wizard_optional_note">Puedes omitir este paso, pero la precisión de la identificación puede bajar.</string>
     <string name="capture_wizard_next">Continuar</string>
@@ -171,7 +149,12 @@
     <string name="capture_step1_coordinates">%1$s, %2$s</string>
     <string name="capture_step1_altitude_label">Altitud</string>
     <string name="capture_step1_altitude_value">%1$s msnm</string>
-    <string name="capture_step1_altitude_none">El GPS no dio la altitud</string>
+    <string name="capture_step1_altitude_none">No se pudo consultar la altitud</string>
+    <string name="capture_step1_altitude_waiting">Se consulta al marcar la ubicación</string>
+    <string name="capture_step1_altitude_loading">Consultando la altitud…</string>
+    <string name="capture_step1_altitude_source_opentopo">Fuente: OpenTopoData. Ayuda a ordenar las candidatas según la altitud de cada especie.</string>
+    <string name="capture_step1_altitude_source_gps">Fuente: GPS del teléfono. No se pudo consultar OpenTopoData.</string>
+    <string name="capture_step1_altitude_failed_hint">Sin conexión no hay altitud. Puedes continuar: la identificación se hará sin ella.</string>
     <string name="capture_step1_no_location">Aún no hay ubicación. Permite el acceso a la ubicación o toca el mapa para marcar el lugar.</string>
     <string name="capture_step1_searching">Buscando la señal del GPS…</string>
     <string name="capture_step1_microhabitat_label">Microhábitat</string>
@@ -215,20 +198,6 @@
     <string name="capture_step5_appbar">Paso 5 de 6</string>
     <string name="capture_step5_subtitle">El canto es opcional. Graba con el micrófono o elige un audio de la memoria.</string>
 
-    <string name="capture_clave_appbar">Ayuda para identificar</string>
-    <string name="capture_clave_optional_subtitle">Opcional. Responde unas preguntas y verás qué especies del paquete encajan. Se guarda con tu registro.</string>
-    <string name="capture_clave_prefilled_title">Ya respondimos con tus pasos</string>
-    <string name="capture_clave_prefilled_row">%1$s: %2$s</string>
-    <string name="capture_clave_label_altitud">Altitud</string>
-    <string name="capture_clave_label_tamano">Tamaño</string>
-    <string name="capture_clave_label_sustrato">Sustrato</string>
-    <string name="capture_clave_label_actividad">Actividad</string>
-    <string name="capture_clave_label_morfo">Forma</string>
-    <string name="capture_clave_prefilled_hint">Si algo no es correcto, vuelve al paso que lo capturó.</string>
-    <string name="capture_clave_none_prefilled">Ninguna especie del paquete encaja con lo que marcaste ni con lo de tus pasos. Revisa la altitud, el tamaño o el hábitat.</string>
-    <string name="capture_clave_continue">Continuar con estas respuestas</string>
-    <string name="capture_clave_continue_result">Continuar</string>
-    <string name="capture_clave_save">Guardar</string>
 
     <string name="capture_step6_appbar">Paso 6 de 6</string>
     <string name="capture_step6_title">Revisa y analiza</string>
@@ -248,13 +217,6 @@
     <string name="capture_step6_photos_empty">Sin fotos</string>
     <string name="capture_step6_audio">Audio</string>
     <string name="capture_step6_audio_empty">Sin audio</string>
-    <string name="capture_step6_clave">Ayuda para identificar</string>
-    <plurals name="capture_step6_clave_remaining">
-        <item quantity="one">Queda %1$d especie compatible</item>
-        <item quantity="other">Quedan %1$d especies compatibles</item>
-    </plurals>
-    <string name="capture_step6_clave_none">Ninguna especie coincide</string>
-    <string name="capture_step6_clave_empty">Sin usar</string>
     <string name="capture_step6_photos_required">Añade al menos una foto para analizar.</string>
     <string name="capture_step6_info">Anura identifica con tus fotos y, si hay ubicación, con la zona. El resto se guarda con tu registro.</string>
     <string name="capture_step6_offline">El análisis corre en el teléfono. No necesitas conexión.</string>

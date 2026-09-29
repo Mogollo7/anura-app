@@ -14,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -29,20 +28,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
-import me.juanlabs.anura.core.data.CaptureDraft
-import me.juanlabs.anura.core.data.RegionalPackageRecord
-import me.juanlabs.anura.core.data.RegionalPackageStatus
 import me.juanlabs.anura.core.data.formatAudioDuration
 import me.juanlabs.anura.core.data.formatCoordinates
 import me.juanlabs.anura.core.data.formatObservationWhen
 import me.juanlabs.anura.core.data.habitatLabel
 import me.juanlabs.anura.core.data.periodLabel
 import me.juanlabs.anura.core.data.rememberAnuraRepository
-import me.juanlabs.anura.core.key.ClaveDatos
-import me.juanlabs.anura.core.key.decodificarRespuestas
-import me.juanlabs.anura.core.key.especiesQueQuedan
-import me.juanlabs.anura.core.key.manualesSinPrevias
-import me.juanlabs.anura.core.key.respuestasPrevias
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
@@ -71,7 +62,6 @@ fun CaptureStep6Screen(
     onEditSize: () -> Unit = {},
     onEditPhotos: () -> Unit = {},
     onEditAudio: () -> Unit = {},
-    onEditClave: () -> Unit = {},
     onCloseClick: () -> Unit = onBackClick,
 ) {
     val repository = rememberAnuraRepository()
@@ -102,12 +92,6 @@ fun CaptureStep6Screen(
     }
     val audioValue = formatAudioDuration(draft.audioDurationMs)
         ?: stringResource(R.string.capture_step6_audio_empty)
-    val remaining = remainingSpecies(draft, snapshot.packages.activeInstalledPackage())
-    val claveValue = when {
-        draft.claveAnswers == null || remaining == null -> stringResource(R.string.capture_step6_clave_empty)
-        remaining == 0 -> stringResource(R.string.capture_step6_clave_none)
-        else -> pluralStringResource(R.plurals.capture_step6_clave_remaining, remaining, remaining)
-    }
 
     CaptureWizardScaffold(
         appBarTitle = stringResource(R.string.capture_step6_appbar),
@@ -153,13 +137,6 @@ fun CaptureStep6Screen(
             label = stringResource(R.string.capture_step6_audio),
             value = audioValue,
             onEdit = onEditAudio,
-        )
-        Spacer(modifier = Modifier.height(CaptureSummaryRowGap))
-        CaptureSummaryRow(
-            icon = AnuraIcons.Info,
-            label = stringResource(R.string.capture_step6_clave),
-            value = claveValue,
-            onEdit = onEditClave,
         )
 
         Spacer(modifier = Modifier.height(CaptureSummaryRowGap))
@@ -218,34 +195,6 @@ fun CaptureStep6Screen(
             enabled = photoCount > 0,
         )
     }
-}
-
-private fun List<RegionalPackageRecord>.activeInstalledPackage() =
-    firstOrNull { it.active && it.status == RegionalPackageStatus.Installed && !it.localPath.isNullOrBlank() }
-
-/**
- * Cuántas especies del paquete activo quedan con lo capturado en los pasos y las respuestas de la
- * clave. Null si no se usó la ayuda o la clave ya no está en el teléfono (no hay cifra que dar).
- */
-@Composable
-private fun remainingSpecies(draft: CaptureDraft, pack: RegionalPackageRecord?): Int? {
-    val repository = rememberAnuraRepository()
-    // se lee del disco una vez por paquete, no en cada recomposición
-    val clave = remember(pack?.id, pack?.version) {
-        pack?.let { repository.cachedClave(it.id, it.version ?: "1") }
-    }
-    if (draft.claveAnswers == null || clave == null) return null
-    val previas = respuestasPrevias(
-        clave,
-        ClaveDatos(
-            altitudM = draft.altitudeMeters,
-            tamanoMm = draft.svlMm,
-            habitat = draft.habitat,
-            periodo = draft.period,
-        ),
-    )
-    val manuales = manualesSinPrevias(previas, decodificarRespuestas(draft.claveAnswers))
-    return especiesQueQuedan(clave, previas + manuales)
 }
 
 @Composable

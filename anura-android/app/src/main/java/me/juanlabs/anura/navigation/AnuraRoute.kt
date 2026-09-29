@@ -123,10 +123,6 @@ sealed interface AnuraRoute {
     @Serializable
     data object CaptureStep5 : AnuraRoute
 
-    /** Ayuda opcional entre el Paso 5 y el resumen: la clave del paquete, con lo que ya se capturó. */
-    @Serializable
-    data object Clave : AnuraRoute
-
     @Serializable
     data object CaptureStep6 : AnuraRoute
 

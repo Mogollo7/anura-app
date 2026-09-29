@@ -36,8 +36,10 @@ data class CaptureDraft(
     val longitude: Double? = null,
     val precisionMeters: Int? = null,
     val altitudeLabel: String? = null,
-    /** Altitud del GPS en metros (null si el GPS no la dio o el punto se marcó a mano). */
+    /** Altitud del punto en metros: de OpenTopoData; la del GPS solo si esa consulta falló. Null = sin dato. */
     val altitudeMeters: Int? = null,
+    /** De dónde salió [altitudeMeters]: [AltitudeSourceOpenTopo] o [AltitudeSourceGps]. */
+    val altitudeSource: String? = null,
     val ecosystemLabel: String? = null,
     val observedAtEpochMs: Long? = null,
     val period: String? = null,
@@ -46,8 +48,6 @@ data class CaptureDraft(
     val audioPath: String? = null,
     val audioDurationMs: Long? = null,
     val fieldSessionId: String? = null,
-    /** Respuestas manuales a la clave del asistente (una por línea, `carácter<TAB>opción`). Null: no se usó la ayuda. */
-    val claveAnswers: String? = null,
 )
 
 @Serializable

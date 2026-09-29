@@ -66,10 +66,12 @@ class AnuraIdentifier(private val context: Context) {
         packagePath: String,
         latitude: Double? = null,
         longitude: Double? = null,
+        altitudeM: Int? = null,
+        altitudeRanges: SpeciesAltitudeRanges? = null,
     ): IdentificationOutcome =
         withContext(Dispatchers.Default) {
             mutex.withLock {
-                runCatching { identifyLocked(photo, packagePath, latitude, longitude) }.getOrElse { error ->
+                runCatching { identifyLocked(photo, packagePath, latitude, longitude, altitudeM, altitudeRanges) }.getOrElse { error ->
                     Log.e(Tag, "Fallo en la identificación", error)
                     IdentificationOutcome.Failed(IdentificationFailure.EngineError, error.message ?: error.javaClass.simpleName)
                 }
@@ -81,6 +83,8 @@ class AnuraIdentifier(private val context: Context) {
         packagePath: String,
         latitude: Double?,
         longitude: Double?,
+        altitudeM: Int?,
+        altitudeRanges: SpeciesAltitudeRanges?,
     ): IdentificationOutcome {
         // Un paquete desinstalado y vuelto a instalar deja la conexión apuntando al archivo borrado.
         val stamp = File(packagePath).lastModified()
@@ -155,7 +159,11 @@ class AnuraIdentifier(private val context: Context) {
         // Candidatas para mostrar: mismo ganador oficial (k=5) + hasta 3 alternativas de un vecindario
         // más amplio, solo para que la UI tenga con qué comparar — no cambia la decisión de arriba.
         val broader = if (DisplayNeighbors > KNeighbors) index.nearest(embedding, DisplayNeighbors) else neighbors
-        val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader, geoPrior, weatherMultiplier), DisplayCandidateCount)
+        // Altitud del punto (OpenTopoData en el Paso 1) contra el rango de cada especie (paquete o ficha
+        // publicada): reasigna peso como el clima y, como él, nunca cambia la especie oficial.
+        val altitudeMultiplier = AltitudePrior.multipliers(altitudeM?.toDouble(), broader, altitudeRanges)
+        val contextMultiplier = AltitudePrior.combine(weatherMultiplier, altitudeMultiplier)
+        val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader, geoPrior, contextMultiplier), DisplayCandidateCount)
 
         val name = top.scientificName
         Log.i(
@@ -164,6 +172,7 @@ class AnuraIdentifier(private val context: Context) {
                 "tau=${"%.3f".format(openSet.tau)} especies=${openSet.centroidIds.size} ${if (score.accepted) "ACCEPT" else "REJECT"} " +
                 "geoZone=${geoPrior?.zoneId ?: "sin_ubicacion_o_fuera_de_cobertura"} " +
                 "clima=${if (weatherMultiplier != null) "ok" else "sin_dato"} " +
+                "altitud=${if (altitudeMultiplier != null) "${altitudeM}m(${altitudeMultiplier.size} rangos)" else "sin_dato"} " +
                 "preprocess=${t1 - t0}ms encode=${t2 - t1}ms knn=${t3 - t2}ms openset=${t4 - t3}ms",
         )
         logMemory("after_identify")

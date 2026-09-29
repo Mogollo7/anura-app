@@ -1,8 +1,5 @@
 package me.juanlabs.anura.core.key
 
-import me.juanlabs.anura.core.data.HabitatWaterBody
-import me.juanlabs.anura.core.data.PeriodDawn
-import me.juanlabs.anura.core.data.PeriodNight
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
@@ -59,31 +56,6 @@ class ClavePrefillTest {
     }
 
     @Test
-    fun respuestasPrevias_soloConLoQueSeCapturo() {
-        assertEquals(emptyList<ClaveRespuesta>(), respuestasPrevias(clave, ClaveDatos()))
-        val previas = respuestasPrevias(
-            clave,
-            ClaveDatos(altitudM = 1500, tamanoMm = 48, habitat = HabitatWaterBody, periodo = PeriodNight),
-        )
-        assertEquals(
-            listOf(
-                ClaveRespuesta("altitud", "altitud_1"),
-                ClaveRespuesta("tamano", "tamano_1"),
-                ClaveRespuesta("sustrato", "quebrada"),
-                ClaveRespuesta("actividad", "noche"),
-            ),
-            previas,
-        )
-    }
-
-    @Test
-    fun respuestasPrevias_amanecerNoDecideActividad_yCaracteresAusentesSeIgnoran() {
-        val sinTamano = clave.copy(caracteres = listOf(altitud, actividad))
-        val previas = respuestasPrevias(sinTamano, ClaveDatos(altitudM = 500, tamanoMm = 30, periodo = PeriodDawn))
-        assertEquals(listOf(ClaveRespuesta("altitud", "altitud_0")), previas)
-    }
-
-    @Test
     fun especiesCompatiblesConValor_cuentaSoloLasQueTienenDato() {
         // A y C entran en la banda de menos de 40 mm; D no tiene dato y no se cuenta
         assertEquals(2, especiesCompatiblesConValor(clave, "tamano", 30.0))
@@ -99,17 +71,4 @@ class ClavePrefillTest {
         assertNull(especiesCompatiblesConValor(clave.copy(caracteres = listOf(altitud)), "tamano", 30.0))
     }
 
-    @Test
-    fun especiesQueQuedan_cuentaLaResolucion() {
-        assertEquals(4, especiesQueQuedan(clave, emptyList()))
-        assertEquals(3, especiesQueQuedan(clave, listOf(ClaveRespuesta("tamano", "tamano_0"))))
-        assertNull(especiesQueQuedan(clave, listOf(ClaveRespuesta("no_existe", "x"))))
-    }
-
-    @Test
-    fun codificar_esReversible() {
-        val respuestas = listOf(ClaveRespuesta("altitud", "altitud_1"), ClaveRespuesta("tamano", null))
-        assertEquals(respuestas, decodificarRespuestas(codificarRespuestas(respuestas)))
-        assertEquals(emptyList<ClaveRespuesta>(), decodificarRespuestas(null))
-    }
 }
