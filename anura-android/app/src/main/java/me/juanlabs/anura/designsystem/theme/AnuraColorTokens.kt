@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
  * `anura-luz-roja`). Ver arquitectura §3.2-3.4. Esta es la única fuente de valores
  * hexadecimales de la app: ningún composable debe hardcodear un color propio,
  * siempre se referencia [MaterialTheme.colorScheme] o [AnuraTheme.extendedColors].
+ *
+ * Normas supremas (claro / oscuro / luz roja): `docs/BRANDING_VISUAL_IDENTITY.md`.
  */
 internal data class AnuraColorTokens(
     val accentTint: Color,

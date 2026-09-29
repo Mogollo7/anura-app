@@ -50,6 +50,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.catalogGapTitle
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
@@ -150,24 +152,28 @@ fun IdentificationJustificationSheet(
     onDismiss: () -> Unit,
     onRefuteAll: () -> Unit = onDismiss,
 ) {
-    var refuteRegionId by rememberSaveable { mutableStateOf<String?>(null) }
-    val refuteRegion = JustificationRegions.firstOrNull { it.id == refuteRegionId }
     AnuraBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false),
         containerColor = AnuraTheme.extendedColors.boardBackground,
     ) {
-        IdentificationJustificationBody(
-            onSelectRegion = { refuteRegionId = it.id },
-            onRefuteAll = onRefuteAll,
-        )
-    }
-    if (refuteRegion != null) {
-        RefuteRegionSheet(
-            region = refuteRegion,
-            onDismiss = { refuteRegionId = null },
-            onSend = { refuteRegionId = null },
-        )
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = AnuraDimens.spaceGutter)
+                .padding(bottom = AnuraDimens.spaceSection),
+        ) {
+            Text(
+                text = stringResource(R.string.justification_title),
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            Text(
+                text = stringResource(R.string.justification_unavailable),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
 
@@ -382,12 +388,12 @@ private fun RefuteRegionSheet(
     val selected = JustificationRegions.firstOrNull { it.id == selectedId } ?: region
     var regionMenu by rememberSaveable { mutableStateOf(false) }
     var speciesMenu by rememberSaveable { mutableStateOf(false) }
-    val speciesOptions = listOf(
-        stringResource(R.string.justification_refute_species_mock),
-        stringResource(R.string.species_sheet_scientific_name),
-        stringResource(R.string.observations_item_2_sci),
-        stringResource(R.string.species_sheet_similar_3_sci),
-    )
+    val speciesOptions = SpeciesCatalog.all.map { it.scientificName }
+    val speciesPlaceholder = if (speciesOptions.isEmpty()) {
+        catalogGapTitle()
+    } else {
+        stringResource(R.string.justification_refute_species_mock)
+    }
     AnuraBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
@@ -495,7 +501,7 @@ private fun RefuteRegionSheet(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = species.ifBlank { stringResource(R.string.justification_refute_species_mock) },
+                        text = species.ifBlank { speciesPlaceholder },
                         style = MaterialTheme.typography.titleMedium.copy(fontStyle = FontStyle.Italic),
                         modifier = Modifier.weight(1f),
                     )
@@ -504,16 +510,24 @@ private fun RefuteRegionSheet(
                     expanded = speciesMenu,
                     onDismissRequest = { speciesMenu = false },
                 ) {
-                    speciesOptions.forEach { option ->
+                    if (speciesOptions.isEmpty()) {
                         DropdownMenuItem(
-                            text = {
-                                Text(text = option, fontStyle = FontStyle.Italic)
-                            },
-                            onClick = {
-                                species = option
-                                speciesMenu = false
-                            },
+                            text = { Text(text = speciesPlaceholder) },
+                            onClick = { speciesMenu = false },
+                            enabled = false,
                         )
+                    } else {
+                        speciesOptions.forEach { option ->
+                            DropdownMenuItem(
+                                text = {
+                                    Text(text = option, fontStyle = FontStyle.Italic)
+                                },
+                                onClick = {
+                                    species = option
+                                    speciesMenu = false
+                                },
+                            )
+                        }
                     }
                 }
             }

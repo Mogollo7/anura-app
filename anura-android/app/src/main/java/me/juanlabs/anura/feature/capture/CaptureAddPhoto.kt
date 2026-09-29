@@ -48,12 +48,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.anuraMediaTint
 
-private val MockPoseDrawables = intArrayOf(
-    R.drawable.carousel_pristimantis_paisa,
-    R.drawable.carousel_dendrobates_truncatus,
-    R.drawable.carousel_dendropsophus_bogerti,
-)
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun CaptureBlurryPhotoSheet(
@@ -227,6 +221,3 @@ internal fun rememberGalleryPicker(onPicked: (List<Uri>) -> Unit) =
     rememberLauncherForActivityResult(ActivityResultContracts.PickMultipleVisualMedia()) { uris ->
         onPicked(uris)
     }
-
-internal fun mockPoseToken(index: Int): String =
-    "res:${MockPoseDrawables[index.coerceIn(0, MockPoseDrawables.lastIndex)]}"

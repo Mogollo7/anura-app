@@ -2,6 +2,7 @@ package me.juanlabs.anura.feature.observations
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -33,8 +34,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
+import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -64,6 +69,14 @@ internal fun ObservationMediaCarousel(
     }
     val pagerState = rememberPagerState(pageCount = { pages.size })
     val carouselCd = stringResource(R.string.observation_media_carousel_cd)
+    var lightboxIndex by rememberSaveable { mutableStateOf<Int?>(null) }
+    val photoIndices = pages.mapIndexedNotNull { index, item ->
+        index.takeIf {
+            item is ObservationMediaItem.Photo ||
+                item is ObservationMediaItem.FilePhoto ||
+                item is ObservationMediaItem.RemotePhoto
+        }
+    }
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(AnuraDimens.radiusCard))
@@ -79,8 +92,19 @@ internal fun ObservationMediaCarousel(
                 index = page + 1,
                 total = pages.size,
                 active = pagerState.currentPage == page,
+                onOpenPhoto = {
+                    val photoPage = photoIndices.indexOf(page)
+                    if (photoPage >= 0) lightboxIndex = photoPage
+                },
             )
         }
+    }
+    lightboxIndex?.let { start ->
+        MediaLightbox(
+            items = pages,
+            initialIndex = start,
+            onDismiss = { lightboxIndex = null },
+        )
     }
 }
 
@@ -90,6 +114,7 @@ private fun ObservationMediaPage(
     index: Int,
     total: Int,
     active: Boolean,
+    onOpenPhoto: () -> Unit,
 ) {
     var hostCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
     val indexLabel = stringResource(R.string.capture_step4_photo_index, index, total)
@@ -103,8 +128,9 @@ private fun ObservationMediaPage(
         )
     }
     val backdrop: Painter? = when (item) {
-        is ObservationMediaItem.Photo -> painterResource(item.imageRes)
+        is ObservationMediaItem.Photo -> rememberSpeciesPhotoPainter(item.remoteSha256, item.imageRes)
         is ObservationMediaItem.FilePhoto -> rememberCaptureBackdropPainter(item.token)
+        is ObservationMediaItem.RemotePhoto -> rememberRemotePhotoPainter(item.url, item.fallbackRes)
         is ObservationMediaItem.Audio -> null
     }
     Box(
@@ -116,9 +142,11 @@ private fun ObservationMediaPage(
         when (item) {
             is ObservationMediaItem.Photo -> {
                 Image(
-                    painter = painterResource(item.imageRes),
+                    painter = rememberSpeciesPhotoPainter(item.remoteSha256, item.imageRes),
                     contentDescription = stringResource(R.string.observation_detail_photo_cd),
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(role = Role.Button, onClick = onOpenPhoto),
                     contentScale = ContentScale.Crop,
                     colorFilter = AnuraTheme.mediaColorFilter,
                 )
@@ -129,7 +157,20 @@ private fun ObservationMediaPage(
                 Image(
                     painter = painter,
                     contentDescription = stringResource(R.string.observation_detail_photo_cd),
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(role = Role.Button, onClick = onOpenPhoto),
+                    contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
+                )
+            }
+            is ObservationMediaItem.RemotePhoto -> {
+                Image(
+                    painter = rememberRemotePhotoPainter(item.url, item.fallbackRes),
+                    contentDescription = stringResource(R.string.observation_detail_photo_cd),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(role = Role.Button, onClick = onOpenPhoto),
                     contentScale = ContentScale.Crop,
                     colorFilter = AnuraTheme.mediaColorFilter,
                 )

@@ -42,9 +42,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withTimeoutOrNull
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.IdentificationCandidate
 import me.juanlabs.anura.core.inference.IdentificationFailure
 import me.juanlabs.anura.core.inference.IdentificationOutcome
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
@@ -62,6 +65,7 @@ import me.juanlabs.anura.navigation.AnuraRoute
 
 private val AnalyzingPhotoHeight = 220.dp
 private val AnalyzingStageDelayMs = 1_100L
+private val AnalyzingIdentifyTimeoutMs = 45_000L
 
 private data class AnalyzingStage(
     val title: Int,
@@ -77,42 +81,71 @@ private val AnalyzingStages = listOf(
 
 /**
  * `Analizando · progreso por etapas` (§4.1). El sistema no retrocede mientras corre la animación.
- * Con [identifyPhoto] (Foto ID) la identificación real corre en paralelo y decide el resultado;
- * sin él (wizard y audio) se mantiene el resultado simulado.
+ * Con [identifyPhoto] la identificación real corre en paralelo y decide el resultado; si falla,
+ * se avisa y no se guarda nada como identificado. Sin él (solo Audio ID) el resultado es una
+ * demostración: todavía no hay modelo de audio, y la pantalla lo dice.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AnalyzingScreen(
-    onKnownResult: () -> Unit,
     onUnknownResult: (String) -> Unit = {},
     source: String = AnuraRoute.Analyzing.Wizard,
     identifyPhoto: (suspend () -> IdentificationOutcome)? = null,
     onIdentified: (IdentificationOutcome.Identified) -> Unit = {},
     onNotAnuro: () -> Unit = {},
     onIdentificationFailed: (IdentificationFailure) -> Unit = {},
+    /** Sin paquete de identificación instalado: lleva a Paquetes para bajar el de la región. */
+    onOpenPackages: () -> Unit = {},
 ) {
     BackHandler(enabled = true) { }
     var currentStage by rememberSaveable { mutableIntStateOf(0) }
     var showNotAnuro by rememberSaveable { mutableStateOf(false) }
+    var showNoPackage by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(Unit) {
-        val pending = identifyPhoto?.let { identify -> async { identify() } }
+        val pending = identifyPhoto?.let { identify ->
+            async {
+                try {
+                    identify()
+                } catch (cancelled: CancellationException) {
+                    throw cancelled
+                } catch (error: Exception) {
+                    IdentificationOutcome.Failed(
+                        IdentificationFailure.EngineError,
+                        error.message ?: error.javaClass.simpleName,
+                    )
+                }
+            }
+        }
         AnalyzingStages.indices.forEach { index ->
             currentStage = index
             delay(AnalyzingStageDelayMs)
         }
         if (pending != null) {
-            when (val outcome = pending.await()) {
+            val outcome = try {
+                withTimeoutOrNull(AnalyzingIdentifyTimeoutMs) { pending.await() }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (error: Exception) {
+                IdentificationOutcome.Failed(
+                    IdentificationFailure.EngineError,
+                    error.message ?: error.javaClass.simpleName,
+                )
+            }
+            when (outcome) {
                 is IdentificationOutcome.Identified -> onIdentified(outcome)
                 is IdentificationOutcome.NotAnuro -> showNotAnuro = true
-                is IdentificationOutcome.Failed -> onIdentificationFailed(outcome.reason)
+                is IdentificationOutcome.Failed ->
+                    if (outcome.reason == IdentificationFailure.NoActivePackage) {
+                        showNoPackage = true
+                    } else {
+                        onIdentificationFailed(outcome.reason)
+                    }
+                null -> onIdentificationFailed(IdentificationFailure.EngineError)
             }
             return@LaunchedEffect
         }
-        when (source) {
-            AnuraRoute.Analyzing.Image -> onUnknownResult("genus")
-            AnuraRoute.Analyzing.Audio -> onUnknownResult("family")
-            else -> onKnownResult()
-        }
+        // Solo Audio ID llega aquí (sin identificador): demostración, sin especie ni familia.
+        onUnknownResult("order")
     }
     val progress = when (currentStage) {
         0 -> 0.25f
@@ -122,6 +155,7 @@ fun AnalyzingScreen(
     }
     val percent = (progress * 100).toInt()
     val showStages = source == AnuraRoute.Analyzing.Wizard
+    val photoCount = CapturePhotoDraft.tokens.size
     val headline = stringResource(
         when (source) {
             AnuraRoute.Analyzing.Image -> R.string.analyzing_via_image
@@ -175,14 +209,17 @@ fun AnalyzingScreen(
                     // pantalla en blanco si algún caller llega aquí sin fotos).
                     val capturedToken = CapturePhotoDraft.tokens.firstOrNull()
                     val capturedPainter = capturedToken?.let { rememberCaptureBackdropPainter(it) }
-                    Image(
-                        painter = capturedPainter
-                            ?: painterResource(R.drawable.carousel_dendrobates_truncatus),
-                        contentDescription = stringResource(R.string.analyzing_photo_cd),
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Crop,
-                        colorFilter = AnuraTheme.mediaColorFilter,
-                    )
+                    if (capturedPainter != null) {
+                        Image(
+                            painter = capturedPainter,
+                            contentDescription = stringResource(R.string.analyzing_photo_cd),
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop,
+                            colorFilter = AnuraTheme.mediaColorFilter,
+                        )
+                    } else {
+                        Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surfaceVariant))
+                    }
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
@@ -198,6 +235,20 @@ fun AnalyzingScreen(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
             )
+            if (source == AnuraRoute.Analyzing.Audio) {
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                AudioDemoNotice()
+            }
+            if (source != AnuraRoute.Analyzing.Audio && photoCount > 1) {
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceLabelToContent))
+                Text(
+                    text = stringResource(R.string.analyzing_multi_photos, photoCount),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             LinearProgressIndicator(
                 progress = { progress },
@@ -216,8 +267,13 @@ fun AnalyzingScreen(
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             if (showStages) {
                 AnalyzingStages.forEachIndexed { index, stage ->
+                    val title = if (index == 0 && photoCount > 1) {
+                        stringResource(R.string.analyzing_stage_crop_multi)
+                    } else {
+                        stringResource(stage.title)
+                    }
                     AnalyzingStageRow(
-                        title = stringResource(stage.title),
+                        title = title,
                         engine = stage.engine?.let { stringResource(it) },
                         state = when {
                             index < currentStage -> AnalyzingStageState.Done
@@ -254,6 +310,53 @@ fun AnalyzingScreen(
     }
     if (showNotAnuro) {
         NotAnuroSheet(onDismiss = { showNotAnuro = false; onNotAnuro() })
+    }
+    if (showNoPackage) {
+        NoPackageSheet(
+            onDownload = { showNoPackage = false; onOpenPackages() },
+            onDismiss = { showNoPackage = false; onIdentificationFailed(IdentificationFailure.NoActivePackage) },
+        )
+    }
+}
+
+/** El APK no trae especies: sin paquete de la región no hay con qué comparar la foto. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun NoPackageSheet(onDownload: () -> Unit, onDismiss: () -> Unit) {
+    AnuraBottomSheet(onDismissRequest = onDismiss) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = AnuraDimens.spacePopupInset),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = stringResource(R.string.identification_no_package_title),
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(vertical = AnuraDimens.spaceGap),
+            )
+            Text(
+                text = stringResource(R.string.identification_no_package_body),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            AnuraFormButton(
+                text = stringResource(R.string.identification_no_package_action),
+                onClick = onDownload,
+                style = AnuraFormButtonStyle.Primary,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            AnuraFormButton(
+                text = stringResource(R.string.identification_no_package_later),
+                onClick = onDismiss,
+                style = AnuraFormButtonStyle.OutlineNeutral,
+            )
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+        }
     }
 }
 
@@ -364,7 +467,8 @@ private fun AnalyzingStageRow(
 @Composable
 fun UnknownResultScreen(
     onBackClick: () -> Unit,
-    result: OpenSetUnknownResult = MockOpenSetUnknownResults.Genus,
+    result: OpenSetUnknownResult,
+    audioDemo: Boolean = false,
     onOpenTaxonSheet: (String) -> Unit = {},
     onRequestExpertReview: () -> Unit = {},
 ) {
@@ -388,17 +492,23 @@ fun UnknownResultScreen(
                 .padding(horizontal = AnuraDimens.spaceGutter)
                 .padding(bottom = CaptureBottomBreathing),
         ) {
-            Image(
-                painter = result.photoToken?.let { rememberCaptureBackdropPainter(it) } ?: painterResource(result.photoRes),
-                contentDescription = stringResource(R.string.analyzing_photo_cd),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(AnalyzingPhotoHeight)
-                    .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
-                contentScale = ContentScale.Crop,
-                colorFilter = AnuraTheme.mediaColorFilter,
-            )
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            if (audioDemo) {
+                AudioDemoNotice()
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            }
+            result.photoToken?.let { rememberCaptureBackdropPainter(it) }?.let { painter ->
+                Image(
+                    painter = painter,
+                    contentDescription = stringResource(R.string.analyzing_photo_cd),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(AnalyzingPhotoHeight)
+                        .clip(RoundedCornerShape(AnuraDimens.radiusCard)),
+                    contentScale = ContentScale.Crop,
+                    colorFilter = AnuraTheme.mediaColorFilter,
+                )
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            }
             Text(
                 text = result.headline,
                 style = MaterialTheme.typography.headlineSmall.copy(
@@ -540,7 +650,7 @@ internal fun AnuraReviewChip(
 @Composable
 private fun AnalyzingPreview() {
     AnuraTheme {
-        AnalyzingScreen(onKnownResult = {})
+        AnalyzingScreen()
     }
 }
 
@@ -548,14 +658,14 @@ private fun AnalyzingPreview() {
 @Composable
 private fun AnalyzingPreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
-        AnalyzingScreen(onKnownResult = {})
+        AnalyzingScreen()
     }
 }
 
 @AnuraPreviews
 @Composable
 private fun UnknownResultPreview() {
-    AnuraTheme { UnknownResultScreen(onBackClick = {}) }
+    AnuraTheme { UnknownResultScreen(onBackClick = {}, result = PreviewUnknownGenus) }
 }
 
 @AnuraPreviews
@@ -564,7 +674,7 @@ private fun UnknownResultFamilyPreview() {
     AnuraTheme {
         UnknownResultScreen(
             onBackClick = {},
-            result = MockOpenSetUnknownResults.Family,
+            result = PreviewUnknownFamily,
         )
     }
 }
@@ -575,7 +685,7 @@ private fun UnknownResultOrderPreview() {
     AnuraTheme {
         UnknownResultScreen(
             onBackClick = {},
-            result = MockOpenSetUnknownResults.Order,
+            result = OpenSetUnknownResults.fromCandidates(emptyList(), null),
         )
     }
 }
@@ -583,5 +693,21 @@ private fun UnknownResultOrderPreview() {
 @Preview(name = "Luz roja", group = "modo", showBackground = true)
 @Composable
 private fun UnknownResultPreviewRedLight() {
-    AnuraTheme(AnuraThemeMode.LuzRoja) { UnknownResultScreen(onBackClick = {}) }
+    AnuraTheme(AnuraThemeMode.LuzRoja) { UnknownResultScreen(onBackClick = {}, result = PreviewUnknownGenus) }
 }
+
+// Solo para las vistas previas de Android Studio: candidatas de ejemplo pasadas por el mismo cálculo real.
+private val PreviewUnknownGenus = OpenSetUnknownResults.fromCandidates(
+    listOf(
+        IdentificationCandidate("Pristimantis paisa", 0.5f, genus = "Pristimantis", family = "Strabomantidae"),
+        IdentificationCandidate("Pristimantis achatinus", 0.3f, genus = "Pristimantis", family = "Strabomantidae"),
+    ),
+    null,
+)
+private val PreviewUnknownFamily = OpenSetUnknownResults.fromCandidates(
+    listOf(
+        IdentificationCandidate("Pristimantis paisa", 0.4f, genus = "Pristimantis", family = "Strabomantidae"),
+        IdentificationCandidate("Craugastor raniformis", 0.3f, genus = "Craugastor", family = "Strabomantidae"),
+    ),
+    null,
+)

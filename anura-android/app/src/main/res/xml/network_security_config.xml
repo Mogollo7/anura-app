@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  HTTPS en todo, salvo el servidor local por USB: con `adb reverse tcp:3008 tcp:3008` el teléfono
+  ve dataset-service en 127.0.0.1 sin salir del cable (etapa L1, Plan del Backend Real).
+  El dominio público (anura.juanlabs.me) sigue siendo solo HTTPS.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>

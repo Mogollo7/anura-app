@@ -44,6 +44,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.delay
 import me.juanlabs.anura.core.data.ObservationRecord
+import me.juanlabs.anura.core.data.rememberAmbientConditions
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.formatClock
 import me.juanlabs.anura.core.data.formatCoordinates
@@ -79,83 +80,13 @@ import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.home.HomeQuickActions
 
-internal data class FieldSessionRegister(
-    val observationId: String,
-    val speciesId: String,
-    val timeRes: Int,
-    val speciesRes: Int,
-    val mediaRes: Int,
-    val toxic: Boolean,
-)
-
-internal val FieldSessionRegisters = listOf(
-    FieldSessionRegister(
-        observationId = "obs-001",
-        speciesId = "COL_ANURA_0018",
-        timeRes = R.string.field_session_time_truncatus,
-        speciesRes = R.string.field_session_sp_truncatus,
-        mediaRes = R.string.field_session_media_photo_audio,
-        toxic = true,
-    ),
-    FieldSessionRegister(
-        observationId = "obs-003",
-        speciesId = "COL_ANURA_0018",
-        timeRes = R.string.field_session_time_punctata,
-        speciesRes = R.string.field_session_sp_punctata,
-        mediaRes = R.string.field_session_media_photo,
-        toxic = false,
-    ),
-    FieldSessionRegister(
-        observationId = "obs-005",
-        speciesId = "COL_ANURA_0011",
-        timeRes = R.string.field_session_time_pristimantis,
-        speciesRes = R.string.field_session_sp_pristimantis,
-        mediaRes = R.string.field_session_media_audio_unconfirmed,
-        toxic = false,
-    ),
-    FieldSessionRegister(
-        observationId = "obs-002",
-        speciesId = "COL_ANURA_0028",
-        timeRes = R.string.field_session_time_rhinella,
-        speciesRes = R.string.field_session_sp_rhinella,
-        mediaRes = R.string.field_session_media_photo,
-        toxic = false,
-    ),
-)
-
-internal fun fieldSessionRegister(observationId: String): FieldSessionRegister? =
-    FieldSessionRegisters.find { it.observationId == observationId }
-
-internal data class FieldSessionNote(
-    val time: String,
-    val body: String,
-)
-
 private const val FieldSessionNoteMaxChars = 500
-
-internal object FieldSessionNotesCatalog {
-    private val notesByObservation = mutableStateMapOf<String, List<FieldSessionNote>>()
-    private var seeded = false
-
-    fun notes(observationId: String): List<FieldSessionNote> =
-        notesByObservation[observationId].orEmpty()
-
-    fun seedIfNeeded(truncatusNotes: List<FieldSessionNote>) {
-        if (seeded) return
-        seeded = true
-        notesByObservation["obs-001"] = truncatusNotes
-    }
-
-    fun add(observationId: String, note: FieldSessionNote) {
-        notesByObservation[observationId] = notes(observationId) + note
-    }
-}
 
 /**
  * `Salida de campo en curso` (§4.1, argumento `sessionId`).
  *
  * Board Penpot: cronómetro, variables ambientales, registros, identificación
- * y sonidos nocturnos. Datos mock.
+ * y sonidos nocturnos.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -181,6 +112,7 @@ fun FieldSessionScreen(
         }
     }
     val missing = stringResource(R.string.anura_value_missing)
+    val climate = rememberAmbientConditions(session?.latitude, session?.longitude)
     val locationLabel = session?.placeLabel
         ?: formatCoordinates(session?.latitude, session?.longitude)
         ?: stringResource(R.string.field_session_location_missing)
@@ -270,12 +202,12 @@ fun FieldSessionScreen(
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceLabelToContent),
             ) {
                 FieldSessionVariableCard(
-                    value = missing,
+                    value = climate.temperature,
                     label = stringResource(R.string.field_session_temp_label),
                     modifier = Modifier.weight(1f),
                 )
                 FieldSessionVariableCard(
-                    value = missing,
+                    value = climate.humidity,
                     label = stringResource(R.string.field_session_humidity_label),
                     modifier = Modifier.weight(1f),
                 )
@@ -285,7 +217,7 @@ fun FieldSessionScreen(
                     modifier = Modifier.weight(1f),
                 )
                 FieldSessionVariableCard(
-                    value = missing,
+                    value = climate.precipitation,
                     label = stringResource(R.string.field_session_rain_label),
                     modifier = Modifier.weight(1f),
                 )
@@ -376,66 +308,6 @@ private fun FieldSessionVariableCard(
                 textAlign = TextAlign.Center,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-            )
-        }
-    }
-}
-
-@Composable
-private fun FieldSessionRegisterRow(
-    register: FieldSessionRegister,
-    onOpen: () -> Unit,
-) {
-    val openCd = stringResource(R.string.field_session_register_open_cd)
-    AnuraCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(
-                role = Role.Button,
-                onClickLabel = openCd,
-                onClick = onOpen,
-            ),
-        shape = RoundedCornerShape(AnuraDimens.radiusButton),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = AnuraDimens.spaceCardInsetHorizontal,
-                    vertical = AnuraDimens.spaceCardInsetVertical,
-                ),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
-        ) {
-            Text(
-                text = stringResource(register.timeRes),
-                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                color = AnuraTheme.extendedColors.accentInk,
-            )
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(register.speciesRes),
-                    style = MaterialTheme.typography.titleMedium.copy(fontStyle = FontStyle.Italic),
-                    color = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Text(
-                    text = stringResource(register.mediaRes),
-                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-            if (register.toxic) {
-                AnuraToxicityChip(variant = AnuraToxicityChipVariant.Toxic)
-            }
-            Icon(
-                imageVector = AnuraIcons.ChevronRight,
-                contentDescription = null,
-                tint = AnuraTheme.extendedColors.accentInk,
-                modifier = Modifier.size(24.dp),
             )
         }
     }

@@ -18,6 +18,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -25,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraMeasureSlider
@@ -36,9 +38,10 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
 private const val CaptureSvlMin = 10f
 private const val CaptureSvlMax = 160f
-private const val CaptureSvlMock = 48f
+/** Posición inicial del deslizador; lo que se guarda es lo que la persona confirma. */
+private const val CaptureSvlStart = 48f
 
-/** `Paso 3: qué tamaño tenía` (§4.1). Estados: medición inicial y modificada (SVL mock). */
+/** `Paso 3: qué tamaño tenía` (§4.1). Estados: medición inicial y modificada (longitud hocico-cloaca). */
 @Composable
 fun CaptureStep3Screen(
     onBackClick: () -> Unit,
@@ -50,9 +53,10 @@ fun CaptureStep3Screen(
     onCloseClick: () -> Unit = onBackClick,
 ) {
     val repository = rememberAnuraRepository()
-    val draftSvl = repository.snapshot.draft.svlMm?.toFloat() ?: CaptureSvlMock
+    val draftSvl = repository.snapshot.draft.svlMm?.toFloat() ?: CaptureSvlStart
     var svl by rememberSaveable { mutableFloatStateOf(draftSvl) }
     val svlMm = svl.toInt()
+    val candidatas = SpeciesCatalog.countForSvl(svlMm)
     LaunchedEffect(svlMm) {
         repository.updateDraft { it.copy(svlMm = svlMm) }
     }
@@ -90,7 +94,7 @@ fun CaptureStep3Screen(
                     )
                     Spacer(modifier = Modifier.size(8.dp))
                     Text(
-                        text = stringResource(R.string.capture_step3_candidates, svlMm),
+                        text = pluralStringResource(R.plurals.capture_step3_candidates, candidatas, svlMm, candidatas),
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -126,11 +130,6 @@ fun CaptureStep3Screen(
                     modifier = Modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.capture_step3_ranges),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
             }
         }
 

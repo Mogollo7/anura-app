@@ -2,6 +2,7 @@ package me.juanlabs.anura
 
 import android.app.Application
 import me.juanlabs.anura.core.data.AnuraRepository
+import me.juanlabs.anura.core.notifications.AvisosPollWorker
 
 /**
  * Punto de entrada de proceso de ANURA.
@@ -18,5 +19,8 @@ class AnuraApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         repository = AnuraRepository.create(this)
+        // Avisos como notificación real aunque la app esté cerrada (sin FCM todavía, ver
+        // AvisosPollWorker) — el propio worker no hace nada si no hay sesión iniciada.
+        AvisosPollWorker.schedule(this)
     }
 }

@@ -44,6 +44,7 @@ enum class AnuraConservationChipVariant(val shortLabel: String, val fullLabel: S
     VU("VU", "Vulnerable"),
     NT("NT", "Casi amenazada"),
     LC("LC", "Preocupación menor"),
+    NE("NE", "No evaluado"),
     DD("DD", "Datos insuficientes"),
 }
 
@@ -107,6 +108,7 @@ fun AnuraConservationChip(
         AnuraConservationChipVariant.LC ->
             Triple(extended.success, extended.onSuccess, AnuraIcons.Success)
 
+        AnuraConservationChipVariant.NE,
         AnuraConservationChipVariant.DD ->
             Triple(colors.surfaceVariant, colors.onSurfaceVariant, AnuraIcons.Info)
     }

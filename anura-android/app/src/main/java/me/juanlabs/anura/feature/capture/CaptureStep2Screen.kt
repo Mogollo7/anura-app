@@ -21,6 +21,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,6 +46,8 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.PeriodDawn
+import me.juanlabs.anura.core.data.AmbientLabels
+import me.juanlabs.anura.core.data.rememberAmbientConditions
 import me.juanlabs.anura.core.data.PeriodDay
 import me.juanlabs.anura.core.data.PeriodDusk
 import me.juanlabs.anura.core.data.PeriodNight
@@ -239,7 +242,9 @@ fun CaptureStep2Screen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        CaptureWeatherCard()
+        val snapshot by repository.state.collectAsState()
+        val climate = rememberAmbientConditions(snapshot.draft.latitude, snapshot.draft.longitude)
+        CaptureWeatherCard(climate = climate)
 
         Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
 
@@ -332,7 +337,7 @@ private fun CaptureDayPeriodChip(
 }
 
 @Composable
-private fun CaptureWeatherCard() {
+private fun CaptureWeatherCard(climate: AmbientLabels) {
     AnuraCard(modifier = Modifier.fillMaxWidth(), bordered = true) {
         Column(
             modifier = Modifier.padding(
@@ -358,17 +363,17 @@ private fun CaptureWeatherCard() {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CaptureWeatherStat(
                     label = stringResource(R.string.capture_step2_temp_label),
-                    value = stringResource(R.string.capture_step2_temp_value),
+                    value = climate.temperature,
                     modifier = Modifier.weight(1f),
                 )
                 CaptureWeatherStat(
                     label = stringResource(R.string.capture_step2_humidity_label),
-                    value = stringResource(R.string.capture_step2_humidity_value),
+                    value = climate.humidity,
                     modifier = Modifier.weight(1f),
                 )
                 CaptureWeatherStat(
                     label = stringResource(R.string.capture_step2_precip_label),
-                    value = stringResource(R.string.capture_step2_precip_value),
+                    value = climate.precipitation,
                     modifier = Modifier.weight(1f),
                 )
             }

@@ -163,6 +163,13 @@ object KnnVote {
     fun displayCandidates(winner: Candidate, broader: List<Candidate>, count: Int = 4): List<Candidate> {
         val winnerForDisplay = broader.firstOrNull { it.taxonId == winner.taxonId } ?: winner
         val rest = broader.filter { it.taxonId != winner.taxonId }.take(count - 1)
-        return listOf(winnerForDisplay) + rest
+        // Bug reportado: geo/clima a veces reponderan tanto que una alternativa queda con más
+        // % que el ganador (p. ej. "microcephalus 35% / bogerti 65%" debajo) — contradice "el
+        // contexto es mejora de porcentaje menor, nunca cambia el resultado" de más arriba: si
+        // no puede cambiar QUIÉN es, tampoco debería poder verse más confiado que quién es.
+        val cappedRest = rest.map { candidate ->
+            if (candidate.share > winnerForDisplay.share) candidate.copy(share = winnerForDisplay.share) else candidate
+        }
+        return listOf(winnerForDisplay) + cappedRest
     }
 }

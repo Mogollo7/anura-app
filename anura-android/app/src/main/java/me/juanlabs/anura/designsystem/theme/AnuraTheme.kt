@@ -55,6 +55,8 @@ internal fun AnuraColorTokens.colorFor(role: AnuraAccentRole) = when (role) {
  * Dynamic color queda desactivado a propósito (§3.7-P4): el color transporta
  * semántica de seguridad (toxicidad, IUCN, luz roja) y no puede depender del
  * wallpaper del usuario.
+ *
+ * Guía de identidad visual (móvil, tres temas): `docs/BRANDING_VISUAL_IDENTITY.md`.
  */
 object AnuraTheme {
 

@@ -6,6 +6,7 @@ import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material.icons.automirrored.filled.Reply
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.automirrored.filled.Sort
+import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -132,6 +133,7 @@ object AnuraIcons {
     val Stop: ImageVector = Icons.Filled.Stop
     val Chat: ImageVector = Icons.AutoMirrored.Filled.Chat
     val CloudOff: ImageVector = Icons.Filled.CloudOff
+    val Cloud: ImageVector = Icons.Filled.Cloud
     val Download: ImageVector = Icons.Filled.Download
     val Share: ImageVector = Icons.Filled.Share
     val Send: ImageVector = Icons.AutoMirrored.Filled.Send

@@ -51,6 +51,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -65,6 +66,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.data.catalogGapBody
+import me.juanlabs.anura.core.data.catalogGapTitle
+import me.juanlabs.anura.designsystem.component.AnuraEmptyState
 import me.juanlabs.anura.designsystem.component.AnuraLightGlass
 import me.juanlabs.anura.designsystem.component.AnuraLoadingState
 import me.juanlabs.anura.designsystem.component.LocalAnuraTabBarInset
@@ -155,7 +159,7 @@ private fun HomeContent(
     onAudioId: () -> Unit,
     onStepByStep: () -> Unit,
 ) {
-    val pagerState = rememberPagerState(pageCount = { state.carouselItems.size })
+    val pagerState = rememberPagerState(pageCount = { state.carouselItems.size.coerceAtLeast(1) })
 
     Column(
         modifier = Modifier
@@ -169,7 +173,15 @@ private fun HomeContent(
 
         Spacer(modifier = Modifier.height(HomeHeaderToCarouselGap))
 
-        if (state.carouselItems.isNotEmpty()) {
+        if (state.carouselItems.isEmpty()) {
+            AnuraEmptyState(
+                title = catalogGapTitle(),
+                description = catalogGapBody(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AnuraDimens.spaceGutter),
+            )
+        } else {
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier
@@ -304,7 +316,7 @@ private fun HomeCarouselCard(
         item.curiousFact,
     )
 
-    val painter = painterResource(item.imageRes)
+    val painter = rememberSpeciesPhotoPainter(item.photoSha256, item.imageRes)
     var cardCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
 
     Box(
@@ -655,7 +667,7 @@ private fun HomeScreenPreviewWithSession() {
             onPhotoId = {},
             onAudioId = {},
             onStepByStep = {},
-            activeFieldSession = HomeCarouselCatalog.mockActiveFieldSession(),
+            activeFieldSession = HomeCarouselCatalog.previewActiveFieldSession(),
         )
     }
 }

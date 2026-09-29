@@ -8,6 +8,8 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -67,9 +69,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import me.juanlabs.anura.R
+import me.juanlabs.anura.designsystem.component.AnuraEmptyState
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.SpeciesRecord
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraConservationChip
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
@@ -140,25 +144,44 @@ fun SpeciesSheetScreen(
     onOpenSpeciesSheet: (String) -> Unit = {},
     onOpenSpeciesByTaxon: (String) -> Unit = {},
     onOpenProfile: (String) -> Unit = {},
+    onGoHome: () -> Unit = onBackClick,
 ) {
     var tab by rememberSaveable(speciesId) { mutableStateOf(SpeciesSheetTab.Distribution) }
     var showIdentifiers by rememberSaveable { mutableStateOf(false) }
     val rank = speciesTaxonRank(speciesId)
     val species = SpeciesCatalog.find(speciesId)
         ?: SpeciesCatalog.findGroup(speciesId).takeIf { rank != SpeciesTaxonRank.Species }
-        ?: SpeciesCatalog.requireOrTruncatus(speciesId)
-    val speciesTaxonId = when (rank) {
-        SpeciesTaxonRank.Species -> species.genus
-        SpeciesTaxonRank.Genus -> speciesId
+    if (species == null) {
+        // Sin ficha para ese id: se dice, no se muestra otra especie en su lugar.
+        Scaffold(
+            containerColor = AnuraTheme.extendedColors.boardBackground,
+            topBar = {
+                AnuraTopBar(
+                    title = stringResource(R.string.species_sheet_title),
+                    onBackClick = onBackClick,
+                    centerTitle = true,
+                )
+            },
+        ) { innerPadding ->
+            AnuraEmptyState(
+                title = stringResource(R.string.species_not_found_title),
+                description = stringResource(R.string.species_not_found_body),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            )
+        }
+        return
+    }
+    val groupMembers = when (rank) {
+        SpeciesTaxonRank.Species -> emptyList()
+        SpeciesTaxonRank.Genus,
         SpeciesTaxonRank.Family,
-        SpeciesTaxonRank.Order -> speciesId
+        SpeciesTaxonRank.Order -> SpeciesCatalog.byTaxon(speciesId)
     }
-    val groupTaxonId = when (rank) {
-        SpeciesTaxonRank.Species,
-        SpeciesTaxonRank.Genus -> species.family
-        SpeciesTaxonRank.Family -> speciesId
-        SpeciesTaxonRank.Order -> speciesId
-    }
+    val speciesCount = groupMembers.size
+    val generaCount = groupMembers.map { it.genus }.distinct().size
+    val familyCount = groupMembers.map { it.family }.distinct().size
     val distributionTaxonIds = when (rank) {
         SpeciesTaxonRank.Species -> listOf(species.id)
         SpeciesTaxonRank.Genus,
@@ -181,6 +204,17 @@ fun SpeciesSheetScreen(
                 title = stringResource(R.string.species_sheet_title),
                 onBackClick = onBackClick,
                 centerTitle = true,
+                actions = {
+                    IconButton(
+                        onClick = onGoHome,
+                        modifier = Modifier.size(AnuraDimens.sizeTouch),
+                    ) {
+                        Icon(
+                            imageVector = AnuraIcons.Close,
+                            contentDescription = stringResource(R.string.species_sheet_close_home_cd),
+                        )
+                    }
+                },
             )
         },
     ) { innerPadding ->
@@ -198,6 +232,15 @@ fun SpeciesSheetScreen(
                     .fillMaxWidth()
                     .height(220.dp),
             )
+            // Crédito de la foto publicada: las licencias CC exigen atribución visible.
+            if (rank == SpeciesTaxonRank.Species && species.photoSha256 != null && !species.photoCredit.isNullOrBlank()) {
+                Text(
+                    text = stringResource(R.string.species_sheet_photo_credit, species.photoCredit),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+            }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             Text(
                 text = species.commonName,
@@ -209,72 +252,97 @@ fun SpeciesSheetScreen(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
-            Row(horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
-                AnuraToxicityChip(variant = species.toxicity)
-                AnuraConservationChip(variant = species.iucn)
-            }
-            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             TaxonomyBreadcrumb(
+                rank = rank,
                 order = species.order,
                 family = species.family,
                 genus = species.genus,
                 onOpenTaxon = onOpenTaxon,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            Row(horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
+                if (species.toxicityDeclared) {
+                    AnuraToxicityChip(variant = species.toxicity)
+                }
+                AnuraConservationChip(variant = species.iucn)
+            }
+            if (rank == SpeciesTaxonRank.Species && species.isPublished && species.curiousFact.isNotBlank()) {
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                Text(
+                    text = species.curiousFact,
+                    style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+            // Un dato vacío no se muestra (ficha publicada sin altitud o sin LHC): nada de "—".
+            val hasValue = { v: String -> v.isNotBlank() && v != "—" }
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceActionGap),
             ) {
-                SpeciesStatCard(
-                    value = species.catalogObservationCount,
-                    label = stringResource(R.string.species_sheet_stat_observations_label),
-                    modifier = Modifier.weight(1f),
-                )
-                SpeciesStatCard(
-                    value = species.altitudeRange,
-                    label = stringResource(R.string.species_sheet_stat_altitude_label),
-                    modifier = Modifier.weight(1f),
-                )
-                SpeciesStatCard(
-                    value = species.sizeRange,
-                    label = stringResource(R.string.species_sheet_stat_size_label),
-                    modifier = Modifier.weight(1f),
-                )
+                if (hasValue(species.catalogObservationCount)) {
+                    SpeciesStatCard(
+                        value = species.catalogObservationCount,
+                        label = stringResource(R.string.species_sheet_stat_observations_label),
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (hasValue(species.altitudeRange)) {
+                    SpeciesStatCard(
+                        value = species.altitudeRange,
+                        label = stringResource(R.string.species_sheet_stat_altitude_label),
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (hasValue(species.sizeRange)) {
+                    SpeciesStatCard(
+                        value = species.sizeRange,
+                        label = stringResource(R.string.species_sheet_stat_size_label),
+                        modifier = Modifier.weight(1f),
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceActionGap),
             ) {
+                if (hasValue(species.catalogObserverCount)) {
+                    SpeciesStatCard(
+                        value = species.catalogObserverCount,
+                        label = stringResource(R.string.species_sheet_stat_observers_label),
+                        onClick = { showIdentifiers = true },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (rank == SpeciesTaxonRank.Family || rank == SpeciesTaxonRank.Order) {
+                    SpeciesStatCard(
+                        value = generaCount.toString(),
+                        label = stringResource(R.string.species_sheet_stat_genera_label),
+                        onClick = { onOpenSpeciesByTaxon(speciesId) },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (rank == SpeciesTaxonRank.Genus ||
+                    rank == SpeciesTaxonRank.Family ||
+                    rank == SpeciesTaxonRank.Order
+                ) {
+                    SpeciesStatCard(
+                        value = speciesCount.toString(),
+                        label = stringResource(R.string.species_sheet_stat_species_label),
+                        onClick = { onOpenSpeciesByTaxon(speciesId) },
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+            }
+            if (rank == SpeciesTaxonRank.Order) {
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 SpeciesStatCard(
-                    value = species.catalogObserverCount,
-                    label = stringResource(R.string.species_sheet_stat_observers_label),
-                    onClick = { showIdentifiers = true },
-                    modifier = Modifier.weight(1f),
-                )
-                SpeciesStatCard(
-                    value = SpeciesCatalog.byTaxon(speciesTaxonId).size.toString(),
-                    label = stringResource(R.string.species_sheet_stat_species_label),
-                    onClick = { onOpenSpeciesByTaxon(speciesTaxonId) },
-                    modifier = Modifier.weight(1f),
-                )
-                SpeciesStatCard(
-                    value = stringResource(
-                        if (rank == SpeciesTaxonRank.Order) {
-                            R.string.species_sheet_stat_families
-                        } else {
-                            R.string.species_sheet_stat_genera
-                        },
-                    ),
-                    label = stringResource(
-                        if (rank == SpeciesTaxonRank.Order) {
-                            R.string.species_sheet_stat_families_label
-                        } else {
-                            R.string.species_sheet_stat_genera_label
-                        },
-                    ),
-                    onClick = { onOpenSpeciesByTaxon(groupTaxonId) },
-                    modifier = Modifier.weight(1f),
+                    value = familyCount.toString(),
+                    label = stringResource(R.string.species_sheet_stat_families_label),
+                    onClick = { onOpenSpeciesByTaxon(speciesId) },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
@@ -313,7 +381,7 @@ fun SpeciesSheetScreen(
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             when (tab) {
                 SpeciesSheetTab.Distribution -> DistributionSection(taxonIds = distributionTaxonIds)
-                SpeciesSheetTab.Morphology -> MorphologySection()
+                SpeciesSheetTab.Morphology -> MorphologySection(species)
                 SpeciesSheetTab.Bioacoustics -> BioacousticsSection()
                 SpeciesSheetTab.Taxonomy -> if (rank != SpeciesTaxonRank.Species) {
                     TaxonomyTreeSection(
@@ -341,43 +409,62 @@ fun SpeciesSheetScreen(
 private fun speciesPhotoItems(species: SpeciesRecord, rank: SpeciesTaxonRank, taxonId: String): List<ObservationMediaItem> {
     if (rank != SpeciesTaxonRank.Species) {
         return SpeciesCatalog.byTaxon(taxonId).mapIndexed { index, record ->
-            ObservationMediaItem.Photo("member-$index", record.photoRes)
+            ObservationMediaItem.Photo("member-$index", record.photoRes, record.photoSha256)
         }
     }
-    return listOf(ObservationMediaItem.Photo("hero", species.photoRes))
+    return listOf(ObservationMediaItem.Photo("hero", species.photoRes, species.photoSha256))
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun TaxonomyBreadcrumb(
+    rank: SpeciesTaxonRank,
     order: String,
     family: String,
     genus: String,
     onOpenTaxon: (String) -> Unit,
 ) {
     val sep = stringResource(R.string.species_sheet_taxon_sep)
-    Row(modifier = Modifier.fillMaxWidth()) {
-        TaxonLink(
-            label = order,
-            onClick = { onOpenTaxon(order) },
-        )
-        Text(
-            text = sep,
-            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        TaxonLink(
-            label = family,
-            onClick = { onOpenTaxon(family) },
-        )
-        Text(
-            text = sep,
-            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        TaxonLink(
-            label = genus,
-            onClick = { onOpenTaxon(genus) },
-        )
+    val showFamily = rank != SpeciesTaxonRank.Order
+    val showGenus = rank == SpeciesTaxonRank.Species
+    FlowRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        if (rank == SpeciesTaxonRank.Order) {
+            Text(
+                text = order,
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        } else {
+            TaxonLink(label = order, onClick = { onOpenTaxon(order) })
+        }
+        if (showFamily) {
+            Text(
+                text = sep,
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (rank == SpeciesTaxonRank.Family) {
+                Text(
+                    text = family,
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else {
+                TaxonLink(label = family, onClick = { onOpenTaxon(family) })
+            }
+        }
+        if (showGenus) {
+            Text(
+                text = sep,
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            TaxonLink(label = genus, onClick = { onOpenTaxon(genus) })
+        }
     }
 }
 
@@ -408,42 +495,45 @@ private fun DistributionSection(taxonIds: List<String>) {
     )
 }
 
+/**
+ * Morfología de la ficha publicada (Admin → Contenido). Antes esta pestaña mostraba el texto de
+ * ejemplo de Penpot (el de *D. truncatus*) en TODAS las especies; ahora, sin ficha revisada,
+ * lo dice y no muestra nada inventado.
+ */
 @Composable
-private fun MorphologySection() {
+private fun MorphologySection(species: SpeciesRecord) {
     val repository = rememberAnuraRepository()
     val exported = stringResource(R.string.species_export_ready)
     Text(
         text = stringResource(R.string.species_sheet_morphology_title),
         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
     )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_tympanum),
-        value = stringResource(R.string.species_sheet_tympanum_value),
+    val m = species.morphology
+    val lines = listOfNotNull(
+        m?.timpano?.let { R.string.species_sheet_tympanum to it },
+        m?.discos?.let { R.string.species_sheet_disc to it },
+        m?.pliegues?.let { R.string.species_sheet_fold to it },
+        m?.patron_dorsal?.let { R.string.species_sheet_dorsal to it },
+        m?.patron_ventral?.let { R.string.species_sheet_ventral to it },
+        m?.membranas?.let { R.string.species_sheet_webbing to it },
+        species.sizeRange.takeIf { species.isPublished && it.isNotBlank() }?.let { R.string.species_sheet_svl to it },
     )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_disc),
-        value = stringResource(R.string.species_sheet_disc_value),
-    )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_fold),
-        value = stringResource(R.string.species_sheet_fold_value),
-    )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_dorsal),
-        value = stringResource(R.string.species_sheet_dorsal_value),
-    )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_ventral),
-        value = stringResource(R.string.species_sheet_ventral_value),
-    )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_webbing),
-        value = stringResource(R.string.species_sheet_webbing_value),
-    )
-    RecordLine(
-        label = stringResource(R.string.species_sheet_svl),
-        value = stringResource(R.string.species_sheet_svl_value),
-    )
+    if (lines.isEmpty() && m?.diagnosticos.isNullOrEmpty()) {
+        Text(
+            text = stringResource(R.string.species_sheet_morphology_empty),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = AnuraDimens.spaceGap),
+        )
+        return
+    }
+    lines.forEach { (label, value) -> RecordLine(label = stringResource(label), value = value) }
+    m?.diagnosticos?.takeIf { it.isNotEmpty() }?.let { rasgos ->
+        RecordLine(
+            label = stringResource(R.string.species_sheet_diagnostics),
+            value = rasgos.joinToString("\n") { "• $it" },
+        )
+    }
     Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
     AnuraFormButton(
         text = stringResource(R.string.species_sheet_export),
@@ -673,6 +763,7 @@ private fun SimilarsSection(
                     common = record.commonName,
                     scientific = record.scientificName,
                     imageRes = record.photoRes,
+                    photoSha256 = record.photoSha256,
                     favorite = snapshot.favorites.contains(record.id),
                     onFavorite = { repository.toggleFavorite(record.id) },
                     onClick = { onOpenSpeciesSheet(record.id) },
@@ -692,6 +783,7 @@ private fun SimilarCard(
     common: String,
     scientific: String,
     imageRes: Int,
+    photoSha256: String?,
     favorite: Boolean,
     onFavorite: () -> Unit,
     onClick: () -> Unit,
@@ -704,8 +796,10 @@ private fun SimilarCard(
         onFavoriteClick = onFavorite,
         modifier = modifier,
         thumbnail = {
+            // Respaldo local visible al instante; la foto publicada real entra sola cuando
+            // termina de bajar, sin bloquear la lista (K2, mismo patrón de ContentCatalog).
             Image(
-                painter = painterResource(imageRes),
+                painter = rememberSpeciesPhotoPainter(photoSha256, imageRes),
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop,

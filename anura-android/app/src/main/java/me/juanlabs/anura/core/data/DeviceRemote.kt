@@ -79,8 +79,8 @@ sealed interface DeviceReportResult {
 
 /**
  * `GET /api/notifications` / `POST /api/notifications/:id/leido` (C5) — avisos de la cuenta que
- * inició sesión (Admin → Operación → Notificaciones los origina). Sin FCM todavía: la app los
- * lee cuando abre la pantalla de avisos, no por push.
+ * inició sesión (Admin → Operación → Notificaciones los origina). Sin FCM: la app los pide al
+ * abrir y, en segundo plano, `AvisosPollWorker` (como máximo cada 15 min).
  */
 object NotificationsRemote {
     suspend fun fetch(bearer: String): NotificationsResponse? =
@@ -88,6 +88,9 @@ object NotificationsRemote {
 
     suspend fun markRead(id: String, bearer: String): Boolean =
         AnuraApi.postOk("/api/notifications/${encode(id)}/leido", bearer = bearer)
+
+    suspend fun delete(id: String, bearer: String): Boolean =
+        AnuraApi.deleteOk("/api/notifications/${encode(id)}", bearer = bearer)
 
     private fun encode(value: String): String = URLEncoder.encode(value, "UTF-8")
 }
@@ -97,7 +100,8 @@ data class AppNotification(
     val id: String,
     val type: String? = null,
     val title: String,
-    val body: String,
+    /** El panel permite enviar un aviso solo con título; el cuerpo llega `null`. */
+    val body: String? = null,
     val is_read: Boolean = false,
     val created_at: String? = null,
 )

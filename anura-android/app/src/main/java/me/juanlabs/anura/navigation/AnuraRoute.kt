@@ -79,7 +79,12 @@ sealed interface AnuraRoute {
 
     /** `reached`: genus | family | order — resultado open-set (§4.1). */
     @Serializable
-    data class UnknownResult(val reached: String = "genus", val observationId: String? = null) : AnuraRoute
+    data class UnknownResult(
+        val reached: String = "genus",
+        val observationId: String? = null,
+        /** Viene de Audio ID: no hay modelo de audio, la pantalla lo avisa como demostración. */
+        val audioDemo: Boolean = false,
+    ) : AnuraRoute
 
     /** Sheet del FAB — ruta real, alcanzable desde varias pantallas (§4.2). */
     @Serializable
@@ -101,6 +106,10 @@ sealed interface AnuraRoute {
     // ---- Grafo anidado: captura/wizard de observación ----
     @Serializable
     data object CaptureGraph : AnuraRoute
+
+    /** Clave dicotómica. Mismo grafo que el asistente; no cambia el resto de la captura. */
+    @Serializable
+    data object Clave : AnuraRoute
 
     @Serializable
     data object CaptureStep1 : AnuraRoute

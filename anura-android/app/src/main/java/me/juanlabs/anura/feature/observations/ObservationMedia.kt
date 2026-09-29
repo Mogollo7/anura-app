@@ -10,6 +10,7 @@ import androidx.compose.ui.res.painterResource
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.ObservationRecord
 import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import me.juanlabs.anura.feature.capture.rememberCaptureBackdropPainter
 
 internal sealed interface ObservationMediaItem {
@@ -18,11 +19,21 @@ internal sealed interface ObservationMediaItem {
     data class Photo(
         override val id: String,
         @param:DrawableRes val imageRes: Int,
+        /** Foto publicada del catálogo de contenido; mientras baja (o sin red) se ve [imageRes]. */
+        val remoteSha256: String? = null,
     ) : ObservationMediaItem
 
     data class FilePhoto(
         override val id: String,
         val token: String,
+    ) : ObservationMediaItem
+
+    /** Foto real de una observación ajena, pedida al servidor (miniatura de explorer-service),
+     * no una publicada del catálogo de contenido ni un archivo local del teléfono. */
+    data class RemotePhoto(
+        override val id: String,
+        val url: String,
+        @param:DrawableRes val fallbackRes: Int,
     ) : ObservationMediaItem
 
     data class Audio(
@@ -36,10 +47,21 @@ internal fun mediaForObservation(observation: ObservationRecord): List<Observati
     val photos = observation.photoTokens.mapIndexed { index, token ->
         ObservationMediaItem.FilePhoto("p$index", token)
     }
+    val remote = observation.photoUrl?.let {
+        listOf(
+            ObservationMediaItem.RemotePhoto(
+                id = "p-remote",
+                url = it,
+                fallbackRes = observation.photoRes
+                    ?: SpeciesCatalog.find(observation.speciesId)?.photoRes
+                    ?: R.drawable.carousel_dendrobates_truncatus,
+            ),
+        )
+    }.orEmpty()
     val fallback = observation.photoRes?.let {
         listOf(ObservationMediaItem.Photo("p-res", it))
     }.orEmpty()
-    val photoItems = photos.ifEmpty { fallback }
+    val photoItems = photos.ifEmpty { remote.ifEmpty { fallback } }
     val audio = observation.audioPath?.let {
         listOf(
             ObservationMediaItem.Audio(
@@ -62,31 +84,18 @@ internal fun ObservationPhoto(
     modifier: Modifier = Modifier,
 ) {
     val token = observation.photoTokens.firstOrNull()
-    val painter = token?.let { rememberCaptureBackdropPainter(it) }
-        ?: painterResource(
-            observation.photoRes
-                ?: SpeciesCatalog.find(observation.speciesId)?.photoRes
-                ?: R.drawable.carousel_dendrobates_truncatus,
-        )
+    val fallbackRes = observation.photoRes
+        ?: SpeciesCatalog.find(observation.speciesId)?.photoRes
+        ?: R.drawable.carousel_dendrobates_truncatus
+    val painter = when {
+        token != null -> rememberCaptureBackdropPainter(token) ?: painterResource(fallbackRes)
+        observation.photoUrl != null -> rememberRemotePhotoPainter(observation.photoUrl, fallbackRes)
+        else -> painterResource(fallbackRes)
+    }
     Image(
         painter = painter,
         contentDescription = null,
         modifier = modifier.fillMaxSize(),
         contentScale = ContentScale.Crop,
     )
-}
-
-internal fun mockObservationMedia(observationId: String): List<ObservationMediaItem> {
-    val photos = listOf(
-        ObservationMediaItem.Photo("p1", R.drawable.carousel_dendrobates_truncatus),
-        ObservationMediaItem.Photo("p2", R.drawable.carousel_pristimantis_paisa),
-        ObservationMediaItem.Photo("p3", R.drawable.carousel_dendropsophus_bogerti),
-    )
-    val audio = ObservationMediaItem.Audio("a1")
-    return when {
-        observationId.endsWith("002") || observationId.contains("audio-only") -> listOf(audio)
-        observationId.contains("photo-only") -> photos.take(2)
-        observationId.endsWith("001") -> photos.take(2) + audio
-        else -> photos + audio
-    }
 }

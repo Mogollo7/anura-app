@@ -12,10 +12,6 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.double
 import kotlinx.serialization.json.float
-import me.juanlabs.anura.core.data.AntioquiaPackageId
-import me.juanlabs.anura.core.data.LocalPackageCatalog
-import me.juanlabs.anura.core.data.PackageInstallResult
-import me.juanlabs.anura.core.data.PackageInstaller
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -26,6 +22,8 @@ import org.junit.runner.RunWith
  * Requiere el set de referencia en el almacenamiento externo de la app:
  *   adb push golden_images/. /sdcard/Android/data/me.juanlabs.anura/files/golden/
  *   adb push golden_v1.json  /sdcard/Android/data/me.juanlabs.anura/files/golden/
+ *   adb push package.sqlite  /sdcard/Android/data/me.juanlabs.anura/files/golden/
+ * (package.sqlite: el paquete de Antioquia con el que PC generó el set; el APK ya no trae paquetes).
  * (lo genera tools/mobile/export_mobile_inference.py).
  */
 @RunWith(AndroidJUnit4::class)
@@ -37,17 +35,16 @@ class OnDeviceInferenceTest {
         val goldenDir = requireNotNull(context.getExternalFilesDir("golden"))
         val golden = Json.parseToJsonElement(File(goldenDir, "golden_v1.json").readText()).jsonObject
 
-        val manifest = requireNotNull(LocalPackageCatalog.find(AntioquiaPackageId))
-        val install = PackageInstaller(context).install(manifest) {}
-        assertTrue("instalación: $install", install is PackageInstallResult.Success)
-        val packagePath = (install as PackageInstallResult.Success).localPath
+        val packageFile = File(goldenDir, "package.sqlite")
+        assertTrue("falta ${packageFile.path}", packageFile.exists())
+        val packagePath = packageFile.path
 
         val identifier = AnuraIdentifier(context)
         val failures = mutableListOf<String>()
         for (image in golden["images"]!!.jsonArray.map { it.jsonObject }) {
             val file = image["file"]!!.jsonPrimitive.content
             val expectedEmbedding = image["embedding"]!!.jsonArray.map { it.jsonPrimitive.float }.toFloatArray()
-            val outcome = identifier.identify(File(goldenDir, file), packagePath, AntioquiaPackageId)
+            val outcome = identifier.identify(File(goldenDir, file), packagePath, GoldenPackageId)
             if (outcome !is IdentificationOutcome.Identified) {
                 failures += "$file: $outcome"
                 continue
@@ -88,3 +85,6 @@ class OnDeviceInferenceTest {
         const val MinCosine = 0.999
     }
 }
+
+/** Clave del paquete del set de referencia en `openset/allowed_by_package.json`. */
+private const val GoldenPackageId = "ANTIOQUIA"

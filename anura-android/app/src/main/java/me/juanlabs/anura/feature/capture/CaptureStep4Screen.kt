@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraPermissionKind
 import me.juanlabs.anura.designsystem.component.rememberSystemPermissionGranted
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
@@ -53,11 +54,11 @@ internal fun CaptureAddPhotoFlow(
     onCloseClick: () -> Unit = onBackClick,
 ) {
     val cameraGranted = rememberSystemPermissionGranted(AnuraPermissionKind.Camera)
+    val repository = rememberAnuraRepository()
+    val captureFailedMessage = stringResource(R.string.capture_photo_failed)
     var specimens by rememberSaveable {
         mutableStateOf(
-            CapturePhotoDraft.tokens.ifEmpty {
-                if (fromReview) listOf(mockQueuedSpecimen(0), mockQueuedSpecimen(1)) else emptyList()
-            },
+            CapturePhotoDraft.tokens,
         )
     }
     var selected by rememberSaveable {
@@ -96,7 +97,11 @@ internal fun CaptureAddPhotoFlow(
         capturing = true
         shutter.takePicture(
             onSaved = { enqueue(it) },
-            onError = { enqueue(mockQueuedSpecimen(specimens.size)) },
+            // Si la cámara falla no se agrega nada: nunca una foto que la persona no tomó.
+            onError = {
+                capturing = false
+                repository.notify(captureFailedMessage)
+            },
         )
     }
 

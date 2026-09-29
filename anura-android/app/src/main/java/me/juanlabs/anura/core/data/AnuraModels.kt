@@ -20,6 +20,8 @@ data class UserSession(
     val photoToken: String? = null,
     val usageProfile: String? = null,
     val enteredApp: Boolean = false,
+    /** JWT real de auth-service (login con Google por Custom Tabs). Null: sesión local/mock. */
+    val authToken: String? = null,
 ) {
     val isGuest: Boolean get() = kind == AccountKind.Guest
     val isOwnProfile: Boolean get() = true
@@ -49,11 +51,16 @@ data class ObservationRecord(
     val id: String,
     val ownerUserId: String,
     val ownerDisplayName: String,
+    /** Handle real (`auth.users.username`) — lo que en verdad piden los endpoints de seguir y
+     * de perfil público; null para el respaldo local antiguo sin cuenta real detrás. */
+    val ownerUsername: String? = null,
     val speciesId: String? = null,
     val commonName: String? = null,
     val scientificName: String? = null,
     val photoTokens: List<String> = emptyList(),
     val photoRes: Int? = null,
+    /** Miniatura real del servidor para una observación ajena sin archivo local (`ExplorerRemote.thumbUrl`). */
+    val photoUrl: String? = null,
     val audioPath: String? = null,
     val audioDurationMs: Long? = null,
     val latitude: Double? = null,
@@ -97,6 +104,12 @@ data class FieldSessionRecord(
     val latitude: Double? = null,
     val longitude: Double? = null,
     val altitudeLabel: String? = null,
+    /** `observations.field_trips.id` una vez subida (solo salidas cerradas y con al menos una
+     * observación propia ya en el servidor). Null = todavía solo en el teléfono. */
+    val serverId: String? = null,
+    /** Lo último que confirmó el servidor (cierre + observaciones vinculadas); si difiere de lo
+     * actual, [AnuraRepository.syncFieldTrips] la vuelve a enviar. */
+    val syncedSignature: String? = null,
 )
 
 @Serializable
@@ -107,6 +120,12 @@ data class CommentRecord(
     val authorName: String,
     val body: String,
     val createdAtEpochMs: Long,
+    /** null = comentario de primer nivel. */
+    val parentId: String? = null,
+    /** "agree" | "neutral" | "disagree" — postura real del servidor, ya no una constante fija. */
+    val stance: String = "neutral",
+    val taxonProposalScientificName: String? = null,
+    val taxonProposalCommonName: String? = null,
 )
 
 @Serializable
@@ -140,22 +159,6 @@ data class RegionalPackageRecord(
     val localPath: String? = null,
 )
 
-/**
- * Contrato de un paquete regional descargable. Hoy la fuente es [LocalPackageCatalog]
- * (bundled en assets/); más adelante la misma forma la devolverá `GET /packages/{id}`.
- */
-@Serializable
-data class AnuraPackageManifest(
-    val id: String,
-    val name: String,
-    val region: String,
-    val version: String,
-    val speciesCount: Int,
-    val sizeBytes: Long,
-    val sha256: String,
-    val assetPath: String,
-)
-
 @Serializable
 data class AnuraSnapshot(
     val session: UserSession = UserSession(),
@@ -166,7 +169,9 @@ data class AnuraSnapshot(
     val favorites: List<String> = emptyList(),
     val comments: List<CommentRecord> = emptyList(),
     val followingIds: List<String> = emptyList(),
-    val packages: List<RegionalPackageRecord> = defaultPackages(),
+    /** Paquetes que conoce este teléfono. El APK no trae ninguno: salen del árbol que publica
+     * el servidor (`GET /api/dataset/publico/paquetes`) y se bajan desde Paquetes. */
+    val packages: List<RegionalPackageRecord> = emptyList(),
     val blockedUserIds: List<String> = emptyList(),
     val reportedUserIds: List<String> = emptyList(),
     val sessionNotes: List<SessionNoteRecord> = emptyList(),
@@ -181,10 +186,6 @@ data class AnuraSnapshot(
      * sesión y al abrir la pantalla de avisos, no en cada recomposición. */
     val notifications: List<AppNotification> = emptyList(),
     val unreadNotifications: Int = 0,
-)
-
-fun defaultPackages(): List<RegionalPackageRecord> = listOf(
-    RegionalPackageRecord(id = AntioquiaPackageId, status = RegionalPackageStatus.Available),
 )
 
 /**
@@ -217,5 +218,3 @@ const val HabitatWaterBody = "water_body"
 const val HabitatRock = "rock"
 const val UsageCuriosity = "curiosity"
 const val UsageStudy = "study"
-const val SimulatedKnownSpeciesId = "COL_ANURA_0018"
-const val AntioquiaPackageId = "ANTIOQUIA"

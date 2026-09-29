@@ -34,7 +34,7 @@ object ObservationsRemote {
         aiTopClass: String?,
         aiTopProb: Double?,
         bearer: String,
-    ): String? = withContext(Dispatchers.IO) {
+    ): UploadResult? = withContext(Dispatchers.IO) {
         if (!photo.exists()) return@withContext null
         runCatching {
             val boundary = "$BoundaryPrefix${UUID.randomUUID()}"
@@ -71,13 +71,41 @@ object ObservationsRemote {
                 val code = conn.responseCode
                 if (code !in 200..299) return@runCatching null
                 val text = conn.inputStream.bufferedReader().use { it.readText() }
-                json.decodeFromString(UploadResponse.serializer(), text).observation_id
+                val body = json.decodeFromString(UploadResponse.serializer(), text)
+                val observationId = body.observation_id ?: return@runCatching null
+                UploadResult(
+                    observationId = observationId,
+                    thumbnailUrl = absoluteMediaUrl(body.thumbnail_url),
+                    imageUrl = absoluteMediaUrl(body.image_url),
+                )
             } finally {
                 conn.disconnect()
             }
         }.getOrNull()
     }
+
+    private fun absoluteMediaUrl(path: String?): String? {
+        if (path.isNullOrBlank()) return null
+        return if (path.startsWith("http")) path else AnuraServerConfig.AUTH_BASE_URL + path
+    }
+
+    /** Publicar o volver a ocultar una observación que ya está en el servidor. */
+    suspend fun updateVisibility(serverId: String, isPrivate: Boolean, bearer: String): Boolean {
+        val body = """{"is_private":$isPrivate}"""
+        return AnuraApi.putOk("/api/observations/$serverId", body, bearer)
+    }
 }
 
+/** Respuesta de `POST /api/observations` ya normalizada (URLs absolutas). */
+data class UploadResult(
+    val observationId: String,
+    val thumbnailUrl: String?,
+    val imageUrl: String?,
+)
+
 @Serializable
-private data class UploadResponse(val observation_id: String? = null)
+private data class UploadResponse(
+    val observation_id: String? = null,
+    val image_url: String? = null,
+    val thumbnail_url: String? = null,
+)

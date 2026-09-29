@@ -1,14 +1,11 @@
 package me.juanlabs.anura.feature.explore
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.Network
-import android.net.NetworkCapabilities
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.math.sqrt
+import kotlinx.coroutines.delay
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -43,11 +40,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -69,13 +66,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
-import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.catalogGapBody
+import me.juanlabs.anura.core.data.catalogGapTitle
+import me.juanlabs.anura.core.data.ExplorerFeedItem
+import me.juanlabs.anura.core.data.ExplorerRemote
+import me.juanlabs.anura.core.data.ExplorerSuggestion
 import me.juanlabs.anura.core.data.NearbySpecies
 import me.juanlabs.anura.core.data.ObservationRecord
 import me.juanlabs.anura.core.data.RegionalPackageStatus
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.SpeciesRecord
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.platform.rememberNetworkAvailable
+import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraConservationChip
@@ -103,19 +106,19 @@ private const val FilterFamily = "family:"
 private const val FilterGenus = "genus:"
 private const val FilterDanger = "danger:"
 private const val FilterIucn = "iucn:"
-private const val TraitHead = "cabeza"
-private const val TraitCloaca = "cloaca"
 private const val DangerToxic = "toxic"
 private const val DangerHarmless = "harmless"
 private const val ExploreSvlMin = 10f
 private const val ExploreSvlMax = 160f
-private const val ExploreSvlMock = 48f
+private const val ExploreSvlStart = 48f
 
 private data class ExploreObservation(
     val id: String,
     val commonRes: Int,
     val scientificRes: Int,
     @param:DrawableRes val photoRes: Int,
+    /** Miniatura real del servidor (`ExplorerRemote.thumbUrl`); null = solo hay el drawable local. */
+    val photoUrl: String? = null,
     val latitude: Double,
     val longitude: Double,
     val family: String,
@@ -128,133 +131,6 @@ private data class ExploreObservation(
     val unsynced: Boolean = false,
     val commonName: String? = null,
     val scientificName: String? = null,
-)
-
-private val MockExploreObservations = listOf(
-    ExploreObservation(
-        id = "obs-001",
-        commonRes = R.string.observations_item_1_common,
-        scientificRes = R.string.observations_item_1_sci,
-        photoRes = R.drawable.carousel_dendrobates_truncatus,
-        latitude = 5.0689,
-        longitude = -75.5174,
-        family = "Dendrobatidae",
-        genus = "Dendrobates",
-        altitude = "0–1.200 m",
-        size = "26–38 mm",
-        toxic = true,
-        iucn = AnuraConservationChipVariant.LC,
-        traits = setOf(TraitHead, TraitCloaca),
-    ),
-    ExploreObservation(
-        id = "obs-003",
-        commonRes = R.string.observations_item_3_common,
-        scientificRes = R.string.observations_item_3_sci,
-        photoRes = R.drawable.carousel_sachatamia_electrops,
-        latitude = 5.0820,
-        longitude = -75.4980,
-        family = "Centrolenidae",
-        genus = "Espadarana",
-        altitude = "0–1.200 m",
-        size = "26–38 mm",
-        toxic = false,
-        iucn = AnuraConservationChipVariant.NT,
-        traits = setOf(TraitHead),
-    ),
-    ExploreObservation(
-        id = "obs-005",
-        commonRes = R.string.observations_item_5_common,
-        scientificRes = R.string.observations_item_5_sci,
-        photoRes = R.drawable.carousel_dendropsophus_bogerti,
-        latitude = 5.0510,
-        longitude = -75.5400,
-        family = "Hylidae",
-        genus = "Boana",
-        altitude = "0–1.200 m",
-        size = "48 mm",
-        toxic = false,
-        iucn = AnuraConservationChipVariant.LC,
-        traits = setOf(TraitCloaca),
-    ),
-    ExploreObservation(
-        id = "obs-006",
-        commonRes = R.string.observations_item_6_common,
-        scientificRes = R.string.observations_item_6_sci,
-        photoRes = R.drawable.carousel_dendrobates_truncatus,
-        latitude = 5.0950,
-        longitude = -75.5300,
-        family = "Bufonidae",
-        genus = "Rhinella",
-        altitude = "0–1.200 m",
-        size = "48 mm",
-        toxic = false,
-        iucn = AnuraConservationChipVariant.LC,
-        traits = setOf(TraitHead, TraitCloaca),
-    ),
-)
-
-private val MockExploreMoreObservations = listOf(
-    ExploreObservation(
-        id = "obs-002",
-        commonRes = R.string.observations_item_2_common,
-        scientificRes = R.string.observations_item_2_sci,
-        photoRes = R.drawable.carousel_dendrobates_truncatus,
-        latitude = 5.0700,
-        longitude = -75.5100,
-        family = "Dendrobatidae",
-        genus = "Phyllobates",
-        altitude = "0–1.200 m",
-        size = "26–38 mm",
-        toxic = true,
-        iucn = AnuraConservationChipVariant.EN,
-        traits = setOf(TraitHead),
-    ),
-    ExploreObservation(
-        id = "obs-004",
-        commonRes = R.string.observations_item_4_common,
-        scientificRes = R.string.observations_item_4_sci,
-        photoRes = R.drawable.carousel_pristimantis_paisa,
-        latitude = 5.0600,
-        longitude = -75.5000,
-        family = "Bufonidae",
-        genus = "Atelopus",
-        altitude = "1.200–2.500 m",
-        size = "26–38 mm",
-        toxic = false,
-        iucn = AnuraConservationChipVariant.CR,
-        traits = setOf(TraitCloaca),
-    ),
-    ExploreObservation(
-        id = "obs-007",
-        commonRes = R.string.observations_item_7_common,
-        scientificRes = R.string.observations_item_7_sci,
-        photoRes = R.drawable.carousel_sachatamia_electrops,
-        latitude = 5.0400,
-        longitude = -75.5250,
-        family = "Hemiphractidae",
-        genus = "Gastrotheca",
-        altitude = "1.200–2.500 m",
-        size = "48 mm",
-        toxic = false,
-        iucn = AnuraConservationChipVariant.VU,
-        traits = setOf(TraitHead),
-        unsynced = true,
-    ),
-    ExploreObservation(
-        id = "obs-008",
-        commonRes = R.string.observations_item_8_common,
-        scientificRes = R.string.observations_item_8_sci,
-        photoRes = R.drawable.carousel_dendropsophus_bogerti,
-        latitude = 5.0900,
-        longitude = -75.5050,
-        family = "Dendrobatidae",
-        genus = "Hyloxalus",
-        altitude = "1.200–2.500 m",
-        size = "26–38 mm",
-        toxic = true,
-        iucn = AnuraConservationChipVariant.DD,
-        traits = setOf(TraitHead, TraitCloaca),
-    ),
 )
 
 /** Distancia en km entre dos coordenadas (haversine) — para ordenar "Cerca de vos" por
@@ -313,11 +189,23 @@ private fun rememberNearYouSpecies(): List<SpeciesRecord> {
     }
 }
 
-/** `explorar` (§4.1) — top-level, tab 2. Fichas técnicas de especies, no observaciones. */
+/**
+ * Catálogo de especies — pestaña Listado (tab 3). Fichas técnicas, no el feed de observaciones
+ * (ese vive en Explorar / [ObservationsScreen]).
+ *
+ * La búsqueda es donde se usa la conexión con el servidor: escribir pide sugerencias reales a
+ * `GET /api/explorer/suggest` (explorer-service, `species.taxonomy`), agrupadas en cliente por
+ * especie/género/familia (el servidor devuelve filas de especie; los grupos de género y familia
+ * son las distintas que aparecen entre esas filas — sigue siendo dato real, solo agrupado). Tocar
+ * una especie abre su ficha; tocar un género o familia abre [SpeciesByTaxonScreen] con la lista de
+ * esa familia/género. Sin conexión, la búsqueda no tiene de dónde sacar sugerencias — se avisa en
+ * vez de mostrar algo inventado.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExploreScreen(
     onOpenSpeciesSheet: (String) -> Unit,
+    onOpenSpeciesByTaxon: (String) -> Unit,
     onOpenExploreMore: () -> Unit,
 ) {
     val repository = rememberAnuraRepository()
@@ -325,19 +213,26 @@ fun ExploreScreen(
     val online = rememberNetworkAvailable()
     var query by rememberSaveable { mutableStateOf("") }
     val needle = query.trim()
-    val searching = needle.isNotEmpty()
-    val searchResults = if (searching) {
-        SpeciesCatalog.all.filter { record ->
-            record.commonName.contains(needle, ignoreCase = true) ||
-                record.scientificName.contains(needle, ignoreCase = true) ||
-                record.genus.contains(needle, ignoreCase = true) ||
-                record.family.contains(needle, ignoreCase = true)
+    val searching = needle.length >= 2
+    var remoteSuggestions by remember { mutableStateOf<List<ExplorerSuggestion>>(emptyList()) }
+    var suggestLoading by remember { mutableStateOf(false) }
+    LaunchedEffect(needle) {
+        if (needle.length < 2) {
+            remoteSuggestions = emptyList()
+            suggestLoading = false
+            return@LaunchedEffect
         }
-    } else {
-        emptyList()
+        suggestLoading = true
+        delay(300) // debounce: no pedir sugerencias en cada tecla
+        remoteSuggestions = ExplorerRemote.suggest(needle)
+        suggestLoading = false
+    }
+    val genusLabel = stringResource(R.string.explore_suggestion_genus)
+    val familyLabel = stringResource(R.string.explore_suggestion_family)
+    val suggestions = remember(remoteSuggestions, genusLabel, familyLabel) {
+        groupedTaxonSuggestions(remoteSuggestions, genusLabel, familyLabel)
     }
     val nearYou = rememberNearYouSpecies()
-    val shown = if (searching) searchResults else nearYou
     val speciesCount = SpeciesCatalog.all.size
     val familyCount = SpeciesCatalog.all.map { it.family }.distinct().size
     val genusCount = SpeciesCatalog.all.map { it.genus }.distinct().size
@@ -414,7 +309,7 @@ fun ExploreScreen(
                     )
                 }
             }
-            if (!searching) {
+            if (!searching && nearYou.isNotEmpty()) {
                 item(
                     key = "explore-near",
                     span = { GridItemSpan(maxLineSpan) },
@@ -442,18 +337,42 @@ fun ExploreScreen(
                     }
                 }
             }
-            if (shown.isEmpty()) {
+            if (searching) {
+                item(
+                    key = "explore-suggestions",
+                    span = { GridItemSpan(maxLineSpan) },
+                ) {
+                    when {
+                        suggestions.isNotEmpty() -> ExploreSuggestionMenu(
+                            suggestions = suggestions,
+                            onSelect = { suggestion ->
+                                when (suggestion.kind) {
+                                    ExploreSuggestionKind.Species -> onOpenSpeciesSheet(suggestion.query)
+                                    ExploreSuggestionKind.Genus, ExploreSuggestionKind.Family ->
+                                        onOpenSpeciesByTaxon(suggestion.query)
+                                }
+                            },
+                        )
+                        suggestLoading -> Unit // ya se ve el estado "sin conexión" arriba si aplica; nada que mostrar todavía
+                        !online -> Unit // el aviso de "explore-offline" ya cubre este caso
+                        else -> AnuraEmptyState(
+                            title = stringResource(R.string.observations_empty_title),
+                            description = stringResource(R.string.observations_empty_body),
+                        )
+                    }
+                }
+            } else if (nearYou.isEmpty()) {
                 item(
                     key = "explore-empty",
                     span = { GridItemSpan(maxLineSpan) },
                 ) {
                     AnuraEmptyState(
-                        title = stringResource(R.string.observations_empty_title),
-                        description = stringResource(R.string.observations_empty_body),
+                        title = catalogGapTitle(),
+                        description = catalogGapBody(),
                     )
                 }
             } else {
-                items(shown, key = { it.id }) { record ->
+                items(nearYou, key = { it.id }) { record ->
                     ObservationCard(
                         commonName = record.commonName,
                         scientificName = record.scientificName,
@@ -515,8 +434,8 @@ fun ExploreMoreScreen(
     ) { innerPadding ->
         if (grouped.isEmpty()) {
             AnuraEmptyState(
-                title = stringResource(R.string.observations_empty_title),
-                description = stringResource(R.string.observations_empty_body),
+                title = if (needle.isEmpty()) catalogGapTitle() else stringResource(R.string.observations_empty_title),
+                description = if (needle.isEmpty()) catalogGapBody() else stringResource(R.string.observations_empty_body),
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),
@@ -600,9 +519,19 @@ fun ObservationCatalogScreen(
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
-    val catalog = (snapshot.observations.filter { it.visibilityPublic } + CommunityCatalog.observations)
+    val online = rememberNetworkAvailable()
+    val remoteFeed by produceState(initialValue = emptyList<ExplorerFeedItem>(), online) {
+        value = if (online) ExplorerRemote.feed() else emptyList()
+    }
+    val catalog = run {
+        val ownId = snapshot.session.userId
+        val local = snapshot.observations
+            .filter { observation -> observation.visibilityPublic && (online || observation.ownerUserId == ownId) }
+            .mapNotNull { it.toExploreObservation() }
+        val community = remoteFeed.mapNotNull { it.toExploreObservation() }
+        (local + community)
+    }
         .distinctBy { it.id }
-        .mapNotNull { it.toExploreObservation() }
         .let { items ->
             if (taxonFilter.isNullOrBlank()) {
                 items
@@ -619,7 +548,7 @@ fun ObservationCatalogScreen(
     var selectedFilters by rememberSaveable { mutableStateOf(listOf<String>()) }
     var altitudeMin by rememberSaveable { mutableStateOf("") }
     var altitudeMax by rememberSaveable { mutableStateOf("") }
-    var svlMm by rememberSaveable { mutableFloatStateOf(ExploreSvlMock) }
+    var svlMm by rememberSaveable { mutableFloatStateOf(ExploreSvlStart) }
     var svlActive by rememberSaveable { mutableStateOf(false) }
     var showFilters by rememberSaveable { mutableStateOf(false) }
     val named = catalog.map { item -> item to item.displayNames() }
@@ -651,7 +580,8 @@ fun ObservationCatalogScreen(
             CatalogQuickFilter.Toxic -> searched.filter { it.first.toxic }
             CatalogQuickFilter.Threatened -> searched.filter {
                 it.first.iucn != AnuraConservationChipVariant.LC &&
-                    it.first.iucn != AnuraConservationChipVariant.DD
+                    it.first.iucn != AnuraConservationChipVariant.DD &&
+                    it.first.iucn != AnuraConservationChipVariant.NE
             }
             CatalogQuickFilter.Unsynced -> searched.filter { it.first.unsynced }
         }
@@ -806,6 +736,8 @@ fun ObservationCatalogScreen(
     }
     if (showSheetFilters && showFilters) {
         ExploreFilterSheet(
+            families = remember(catalog) { catalog.map { it.family }.filter { it.isNotBlank() }.distinct().sorted() },
+            genera = remember(catalog) { catalog.map { it.genus }.filter { it.isNotBlank() }.distinct().sorted() },
             selected = selectedFilters,
             altitudeMin = altitudeMin,
             altitudeMax = altitudeMax,
@@ -854,7 +786,7 @@ private fun ExploreObservationCard(
         statusChip = chip,
         thumbnail = {
             Image(
-                painter = painterResource(item.photoRes),
+                painter = rememberRemotePhotoPainter(item.photoUrl, item.photoRes),
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop,
@@ -895,6 +827,8 @@ private fun ExploreStatCard(
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 private fun ExploreFilterSheet(
+    families: List<String>,
+    genera: List<String>,
     selected: List<String>,
     altitudeMin: String,
     altitudeMax: String,
@@ -905,10 +839,6 @@ private fun ExploreFilterSheet(
     onSvlChange: (Float) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    val families = MockExploreObservations.map { it.family }.distinct() +
-        MockExploreMoreObservations.map { it.family }.distinct()
-    val genera = MockExploreObservations.map { it.genus }.distinct() +
-        MockExploreMoreObservations.map { it.genus }.distinct()
     val altitudePlaceholder = stringResource(R.string.explore_filter_altitude_placeholder)
     val svlValue = svlMm.toInt()
 
@@ -1121,7 +1051,7 @@ private fun rangesOverlap(range: IntRange?, min: Int?, max: Int?): Boolean {
 @Composable
 private fun ExplorePreview() {
     AnuraTheme {
-        ExploreScreen(onOpenSpeciesSheet = {}, onOpenExploreMore = {})
+        ExploreScreen(onOpenSpeciesSheet = {}, onOpenSpeciesByTaxon = {}, onOpenExploreMore = {})
     }
 }
 
@@ -1129,11 +1059,17 @@ private fun ExplorePreview() {
 @Composable
 private fun ExplorePreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
-        ExploreScreen(onOpenSpeciesSheet = {}, onOpenExploreMore = {})
+        ExploreScreen(onOpenSpeciesSheet = {}, onOpenSpeciesByTaxon = {}, onOpenExploreMore = {})
     }
 }
 
-/** `explorar → Especies del género o familia` (§4.1, argumento `taxonId`). */
+/**
+ * `explorar → Especies del género o familia` (§4.1, argumento `taxonId`) — la "recopilación de
+ * resultados en forma de listado" que aparece al tocar una sugerencia de género o familia en
+ * [ExploreScreen]. El filtro de arriba se adapta a lo que hay: si `taxonId` es una familia con
+ * más de un género real entre sus especies, aparecen chips por género (calculados de los propios
+ * resultados, no una lista fija); si es un género, solo queda el buscador por nombre.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SpeciesByTaxonScreen(
@@ -1143,14 +1079,24 @@ fun SpeciesByTaxonScreen(
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
-    val species = SpeciesCatalog.byTaxon(taxonId)
+    val allInGroup = SpeciesCatalog.byTaxon(taxonId)
+    val isFamily = taxonId.endsWith("idae", ignoreCase = true) || taxonId.equals("Anura", ignoreCase = true)
+    var query by rememberSaveable { mutableStateOf("") }
+    var genusFilter by rememberSaveable { mutableStateOf<String?>(null) }
+    val genera = remember(allInGroup) { allInGroup.map { it.genus }.distinct().sorted() }
+    val needle = query.trim()
+    val species = allInGroup.filter { record ->
+        (genusFilter == null || record.genus == genusFilter) &&
+            (
+                needle.isEmpty() ||
+                    record.commonName.contains(needle, ignoreCase = true) ||
+                    record.scientificName.contains(needle, ignoreCase = true)
+                )
+    }
     val searchHint = stringResource(
-        if (taxonId.endsWith("idae", ignoreCase = true) || taxonId.equals("Anura", ignoreCase = true)) {
-            R.string.species_by_taxon_search_family
-        } else {
-            R.string.species_by_taxon_search_genus
-        },
+        if (isFamily) R.string.species_by_taxon_search_family else R.string.species_by_taxon_search_genus,
     )
+    val allLabel = stringResource(R.string.favorites_filter_all)
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -1161,7 +1107,7 @@ fun SpeciesByTaxonScreen(
             )
         },
     ) { innerPadding ->
-        if (species.isEmpty()) {
+        if (allInGroup.isEmpty()) {
             AnuraEmptyState(
                 title = stringResource(R.string.observations_empty_title),
                 description = searchHint,
@@ -1179,23 +1125,71 @@ fun SpeciesByTaxonScreen(
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                 verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
             ) {
-                items(species, key = { it.id }) { record ->
-                    ObservationCard(
-                        commonName = record.commonName,
-                        scientificName = record.scientificName,
-                        isFavorite = snapshot.favorites.contains(record.id),
-                        onFavoriteClick = { repository.toggleFavorite(record.id) },
-                        modifier = Modifier.fillMaxWidth(),
-                        thumbnail = {
-                            Image(
-                                painter = painterResource(record.photoRes),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.Crop,
-                            )
-                        },
-                        onClick = { onOpenSpeciesSheet(record.id) },
-                    )
+                item(
+                    key = "taxon-filters",
+                    span = { GridItemSpan(maxLineSpan) },
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
+                        AnuraTextField(
+                            value = query,
+                            onValueChange = { query = it },
+                            label = searchHint,
+                            modifier = Modifier.fillMaxWidth(),
+                            leadingIcon = AnuraIcons.Empty,
+                            singleLine = true,
+                        )
+                        if (isFamily && genera.size > 1) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .horizontalScroll(rememberScrollState()),
+                                horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+                            ) {
+                                ExploreFilterChip(
+                                    label = allLabel,
+                                    selected = genusFilter == null,
+                                    onClick = { genusFilter = null },
+                                )
+                                genera.forEach { genus ->
+                                    ExploreFilterChip(
+                                        label = genus,
+                                        selected = genusFilter == genus,
+                                        onClick = { genusFilter = if (genusFilter == genus) null else genus },
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+                if (species.isEmpty()) {
+                    item(
+                        key = "taxon-empty",
+                        span = { GridItemSpan(maxLineSpan) },
+                    ) {
+                        AnuraEmptyState(
+                            title = stringResource(R.string.observations_empty_title),
+                            description = stringResource(R.string.observations_empty_body),
+                        )
+                    }
+                } else {
+                    items(species, key = { it.id }) { record ->
+                        ObservationCard(
+                            commonName = record.commonName,
+                            scientificName = record.scientificName,
+                            isFavorite = snapshot.favorites.contains(record.id),
+                            onFavoriteClick = { repository.toggleFavorite(record.id) },
+                            modifier = Modifier.fillMaxWidth(),
+                            thumbnail = {
+                                Image(
+                                    painter = painterResource(record.photoRes),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentScale = ContentScale.Crop,
+                                )
+                            },
+                            onClick = { onOpenSpeciesSheet(record.id) },
+                        )
+                    }
                 }
             }
         }
@@ -1232,11 +1226,41 @@ private fun ObservationRecord.toExploreObservation(): ExploreObservation? {
     )
 }
 
+/** `GET /api/explorer/feed` — la comunidad real, en vez de `CommunityCatalog`. */
+private fun ExplorerFeedItem.toExploreObservation(): ExploreObservation? {
+    val lat = lat ?: return null
+    val lon = lon ?: return null
+    val sci = if (!genus.isNullOrBlank() && !species.isNullOrBlank()) "$genus $species" else ai_class
+    val local = sci?.let(SpeciesCatalog::find)
+    return ExploreObservation(
+        id = id,
+        commonRes = 0,
+        scientificRes = 0,
+        photoRes = local?.photoRes ?: R.drawable.carousel_dendrobates_truncatus,
+        photoUrl = ExplorerRemote.thumbUrl(thumbnail_key ?: image_key),
+        latitude = lat,
+        longitude = lon,
+        family = family ?: local?.family.orEmpty(),
+        genus = genus ?: local?.genus.orEmpty(),
+        altitude = local?.altitudeRange.orEmpty(),
+        size = local?.sizeRange.orEmpty(),
+        toxic = local?.toxicity == AnuraToxicityChipVariant.Toxic,
+        iucn = local?.iucn ?: AnuraConservationChipVariant.LC,
+        traits = emptySet(),
+        unsynced = false,
+        commonName = common_name ?: local?.commonName,
+        scientificName = sci ?: local?.scientificName,
+    )
+}
+
+private enum class ExploreSuggestionKind { Species, Genus, Family }
+
 private data class ExploreSuggestion(
     val id: String,
     val title: String,
     val subtitle: String,
     val query: String,
+    val kind: ExploreSuggestionKind,
 )
 
 @Composable
@@ -1278,89 +1302,50 @@ private fun ExploreSuggestionMenu(
     }
 }
 
-private fun exploreSuggestions(
-    needle: String,
-    named: List<Pair<ExploreObservation, Pair<String, String>>>,
+/**
+ * El servidor (`GET /api/explorer/suggest`) siempre devuelve filas a nivel de especie — no hay
+ * una sugerencia "de género" o "de familia" como tal. Se arman acá, agrupando los géneros y
+ * familias DISTINTOS que aparecen entre esas filas reales — sigue siendo dato real, solo
+ * reorganizado, nunca inventado. Especies primero (coincidencia más directa), después géneros,
+ * después familias; sin duplicados, tope razonable para que quepa en la caja.
+ */
+private fun groupedTaxonSuggestions(
+    remote: List<ExplorerSuggestion>,
     genusLabel: String,
     familyLabel: String,
 ): List<ExploreSuggestion> {
-    val fromObservations = named.map { (item, names) ->
+    val taxa = remote.filter { it.isTaxon }
+    val species = taxa.mapNotNull { row ->
+        val sci = row.scientific_name?.takeIf { it.isNotBlank() } ?: return@mapNotNull null
         ExploreSuggestion(
-            id = item.id,
-            title = names.first.ifBlank { names.second },
-            subtitle = names.second,
-            query = names.second.ifBlank { names.first },
+            id = "species-$sci",
+            title = row.common_name?.takeIf { it.isNotBlank() } ?: sci,
+            subtitle = sci,
+            query = sci,
+            kind = ExploreSuggestionKind.Species,
         )
     }
-    val fromCatalog = SpeciesCatalog.all.map { species ->
-        ExploreSuggestion(
-            id = species.id,
-            title = species.commonName,
-            subtitle = species.scientificName,
-            query = species.scientificName,
-        )
-    }
-    val fromTaxa = named.flatMap { (item, _) ->
-        listOf(
+    val genera = taxa.mapNotNull { it.scientific_name?.substringBefore(' ')?.takeIf { g -> g.isNotBlank() } }
+        .distinct()
+        .map { genus ->
             ExploreSuggestion(
-                id = "genus-${item.genus}",
-                title = item.genus,
+                id = "genus-$genus",
+                title = genus,
                 subtitle = genusLabel,
-                query = item.genus,
-            ),
+                query = genus,
+                kind = ExploreSuggestionKind.Genus,
+            )
+        }
+    val families = taxa.mapNotNull { it.family?.takeIf { f -> f.isNotBlank() } }
+        .distinct()
+        .map { family ->
             ExploreSuggestion(
-                id = "family-${item.family}",
-                title = item.family,
+                id = "family-$family",
+                title = family,
                 subtitle = familyLabel,
-                query = item.family,
-            ),
-        )
-    }
-    return (fromObservations + fromCatalog + fromTaxa)
-        .distinctBy { it.title.lowercase() to it.subtitle.lowercase() }
-        .filter { suggestion ->
-            suggestion.title.contains(needle, ignoreCase = true) ||
-                suggestion.subtitle.contains(needle, ignoreCase = true)
+                query = family,
+                kind = ExploreSuggestionKind.Family,
+            )
         }
-        .take(6)
-}
-
-@Composable
-private fun rememberNetworkAvailable(): Boolean {
-    val context = LocalContext.current
-    var online by remember { mutableStateOf(isNetworkAvailable(context)) }
-    DisposableEffect(context) {
-        val appContext = context.applicationContext
-        val cm = appContext.getSystemService(ConnectivityManager::class.java)
-        if (cm == null) {
-            return@DisposableEffect onDispose { }
-        }
-        val callback = object : ConnectivityManager.NetworkCallback() {
-            private fun refresh() {
-                appContext.mainExecutor.execute {
-                    online = isNetworkAvailable(appContext)
-                }
-            }
-
-            override fun onAvailable(network: Network) = refresh()
-
-            override fun onLost(network: Network) = refresh()
-
-            override fun onCapabilitiesChanged(
-                network: Network,
-                networkCapabilities: NetworkCapabilities,
-            ) = refresh()
-        }
-        cm.registerDefaultNetworkCallback(callback)
-        online = isNetworkAvailable(appContext)
-        onDispose { cm.unregisterNetworkCallback(callback) }
-    }
-    return online
-}
-
-private fun isNetworkAvailable(context: Context): Boolean {
-    val cm = context.getSystemService(ConnectivityManager::class.java) ?: return false
-    val network = cm.activeNetwork ?: return false
-    val caps = cm.getNetworkCapabilities(network) ?: return false
-    return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    return (species + genera + families).distinctBy { it.id }.take(8)
 }

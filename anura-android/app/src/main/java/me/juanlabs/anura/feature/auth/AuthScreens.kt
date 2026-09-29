@@ -54,6 +54,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import me.juanlabs.anura.R
 import me.juanlabs.anura.designsystem.component.AnuraFormButton
 import me.juanlabs.anura.designsystem.component.AnuraFormButtonStyle
@@ -224,22 +229,25 @@ private enum class SignUpUsageProfile {
 /**
  * `INICIAR SECCION` (§4.1).
  *
- * Estados locales mock: texto de correo/contraseña, visibilidad de contraseña.
- * Sin loading/error de red. Entrar → Home; Entrar sin cuenta → Home (invitado);
- * Crear una → SignUp; olvidé contraseña → no-op mock.
+ * Correo y contraseña se validan en auth-service ([onSignIn] devuelve el error a mostrar o
+ * null). Google abre el mismo login de la web. No hay recuperación de contraseña: el servidor
+ * no manda correos todavía.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignInScreen(
     onBackClick: () -> Unit,
-    onSignedIn: (String) -> Unit,
+    onSignIn: suspend (email: String, password: String) -> String?,
     onGoToSignUp: () -> Unit,
     onContinueWithoutAccount: () -> Unit,
-    onForgotPassword: (String) -> Unit = {},
+    onContinueWithGoogle: () -> Unit = {},
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
+    var busy by remember { mutableStateOf(false) }
+    var error by remember { mutableStateOf<String?>(null) }
+    val scope = rememberCoroutineScope()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -277,6 +285,14 @@ fun SignInScreen(
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
 
+                AnuraFormButton(
+                    text = stringResource(R.string.sign_in_continue_with_google),
+                    onClick = onContinueWithGoogle,
+                    style = AnuraFormButtonStyle.OutlineNeutral,
+                )
+
+                Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+
                 AnuraTextField(
                     value = email,
                     onValueChange = { email = it },
@@ -312,26 +328,23 @@ fun SignInScreen(
                     modifier = Modifier.fillMaxWidth(),
                 )
 
-                TextButton(
-                    onClick = { onForgotPassword(email) },
-                    modifier = Modifier.align(Alignment.End),
-                ) {
-                    Text(
-                        text = stringResource(R.string.sign_in_forgot_password),
-                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                        color = AnuraTheme.extendedColors.accentInk,
-                    )
-                }
+                AuthErrorText(error)
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
 
                 AnuraFormButton(
-                    text = stringResource(R.string.sign_in_enter),
+                    text = stringResource(if (busy) R.string.sign_in_entering else R.string.sign_in_enter),
                     onClick = {
-                        if (email.isBlank()) return@AnuraFormButton
-                        onSignedIn(email.trim())
+                        if (busy) return@AnuraFormButton
+                        busy = true
+                        error = null
+                        scope.launch {
+                            error = onSignIn(email.trim(), password)
+                            busy = false
+                        }
                     },
                     style = AnuraFormButtonStyle.Primary,
+                    enabled = !busy && email.isNotBlank() && password.isNotEmpty(),
                 )
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
@@ -357,17 +370,20 @@ fun SignInScreen(
 /**
  * `crear cuenta` (§4.1).
  *
- * Estados locales mock: nombre/correo/contraseña, visibilidad, perfil de uso,
- * aceptación de términos. Sin loading/error de red. Crear cuenta → Home.
+ * La cuenta se crea en auth-service ([onSignUp] devuelve el error a mostrar o null) y queda
+ * con sesión iniciada. El perfil de uso y los términos se quedan en el teléfono.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpScreen(
     onBackClick: () -> Unit,
-    onSignedUp: (String, String, String) -> Unit,
+    onSignUp: suspend (name: String, email: String, password: String, usage: String) -> String?,
     onGoToSignIn: () -> Unit,
     onContinueWithoutAccount: () -> Unit,
 ) {
+    var busy by remember { mutableStateOf(false) }
+    var error by remember { mutableStateOf<String?>(null) }
+    val scope = rememberCoroutineScope()
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -534,21 +550,28 @@ fun SignUpScreen(
                     )
                 }
 
+                AuthErrorText(error)
+
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
 
                 AnuraFormButton(
-                    text = stringResource(R.string.sign_up_create),
+                    text = stringResource(if (busy) R.string.sign_up_creating else R.string.sign_up_create),
                     onClick = {
-                        if (name.isBlank()) return@AnuraFormButton
+                        if (busy) return@AnuraFormButton
                         val usage = if (usageProfile == SignUpUsageProfile.Study) {
                             me.juanlabs.anura.core.data.UsageStudy
                         } else {
                             me.juanlabs.anura.core.data.UsageCuriosity
                         }
-                        onSignedUp(name.trim(), email.trim(), usage)
+                        busy = true
+                        error = null
+                        scope.launch {
+                            error = onSignUp(name.trim(), email.trim(), password, usage)
+                            busy = false
+                        }
                     },
                     style = AnuraFormButtonStyle.Primary,
-                    enabled = termsAccepted && name.isNotBlank(),
+                    enabled = !busy && termsAccepted && name.isNotBlank() && email.isNotBlank() && password.length >= MinPasswordLength,
                 )
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
@@ -692,7 +715,7 @@ private fun SignInScreenPreview() {
     AnuraTheme {
         SignInScreen(
             onBackClick = {},
-            onSignedIn = { _ -> },
+            onSignIn = { _, _ -> null },
             onGoToSignUp = {},
             onContinueWithoutAccount = {},
         )
@@ -705,9 +728,25 @@ private fun SignUpScreenPreview() {
     AnuraTheme {
         SignUpScreen(
             onBackClick = {},
-            onSignedUp = { _, _, _ -> },
+            onSignUp = { _, _, _, _ -> null },
             onGoToSignIn = {},
             onContinueWithoutAccount = {},
         )
     }
+}
+
+private const val MinPasswordLength = 8
+
+@Composable
+private fun AuthErrorText(message: String?) {
+    if (message == null) return
+    Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+    Text(
+        text = message,
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.error,
+        modifier = Modifier
+            .fillMaxWidth()
+            .semantics { liveRegion = LiveRegionMode.Polite },
+    )
 }

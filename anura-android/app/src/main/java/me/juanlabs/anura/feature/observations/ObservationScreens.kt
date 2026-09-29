@@ -27,6 +27,7 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -45,6 +46,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -64,12 +66,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
-import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.ExplorerRemote
 import me.juanlabs.anura.core.data.IdentificationKnown
 import me.juanlabs.anura.core.data.ObservationRecord
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.formatCoordinates
+import me.juanlabs.anura.core.data.formatObservationDate
 import me.juanlabs.anura.core.data.formatObservationWhen
+import me.juanlabs.anura.core.auth.AnuraServerConfig
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.core.platform.rememberNetworkAvailable
 import me.juanlabs.anura.designsystem.component.AnuraCard
@@ -92,7 +96,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 import me.juanlabs.anura.feature.capture.AnuraReviewChip
 import me.juanlabs.anura.feature.comments.ObservationCommentsOverlay
 import me.juanlabs.anura.feature.fieldsession.FieldSessionRecordNotes
-import me.juanlabs.anura.feature.fieldsession.fieldSessionRegister
 import me.juanlabs.anura.feature.explore.ObservationCatalogScreen
 import me.juanlabs.anura.feature.species.IdentificationJustificationSheet
 
@@ -107,7 +110,7 @@ private data class ListedObservation(
     val own: Boolean,
 )
 
-/** `Fotos y observaciones` (§4.1) — top-level, tab 3. */
+/** Feed de observaciones — pestaña Explorar (tab 2). Las especies van en Listado. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ObservationsScreen(
@@ -127,13 +130,19 @@ fun ObservationsScreen(
         return common.contains(needle, ignoreCase = true) ||
             scientific.contains(needle, ignoreCase = true)
     }
+    val communityFeed by produceState(initialValue = emptyList<ObservationRecord>(), online) {
+        value = if (online) ExplorerRemote.feed().map { it.toObservationRecord() } else emptyList()
+    }
+    var fieldSessionFilter by rememberSaveable { mutableStateOf<String?>(null) }
+    // Salidas de campo como categoría: cada una ya vive en Room (real, no inventada) pero antes
+    // no había forma de volver a verla una vez cerrada — este filtro la deja alcanzable.
+    val fieldSessions = snapshot.fieldSessions.sortedByDescending { it.startedAtEpochMs }
     // Feed único de todos los usuarios (propias + comunidad), no propias-o-comunidad como antes —
     // orden de pila: la más reciente primero, por fecha de creación del registro.
-    val feed = (
-        repository.ownObservations().filter { !it.isDraft } +
-            if (online) CommunityCatalog.observations else emptyList()
-        )
+    val feed = (repository.ownObservations().filter { !it.isDraft } + communityFeed)
+        .distinctBy { it.id }
         .filter(::matches)
+        .filter { fieldSessionFilter == null || it.fieldSessionId == fieldSessionFilter }
         .sortedByDescending { it.createdAtEpochMs }
 
     Scaffold(
@@ -172,6 +181,47 @@ fun ObservationsScreen(
                 leadingIcon = AnuraIcons.Empty,
                 singleLine = true,
             )
+            if (fieldSessions.isNotEmpty()) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())
+                        .padding(horizontal = AnuraDimens.spaceGutter)
+                        .padding(bottom = AnuraDimens.spaceGap),
+                    horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
+                ) {
+                    FilterChip(
+                        selected = fieldSessionFilter == null,
+                        onClick = { fieldSessionFilter = null },
+                        label = { Text(stringResource(R.string.favorites_filter_all)) },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = AnuraTheme.extendedColors.accentInk,
+                            selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                        ),
+                    )
+                    fieldSessions.forEach { session ->
+                        val label = stringResource(
+                            if (session.closedAtEpochMs == null) {
+                                R.string.observations_field_session_chip_active
+                            } else {
+                                R.string.observations_field_session_chip_closed
+                            },
+                            session.placeLabel ?: formatObservationDate(session.startedAtEpochMs).orEmpty(),
+                        )
+                        FilterChip(
+                            selected = fieldSessionFilter == session.id,
+                            onClick = {
+                                fieldSessionFilter = if (fieldSessionFilter == session.id) null else session.id
+                            },
+                            label = { Text(label) },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = AnuraTheme.extendedColors.accentInk,
+                                selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                            ),
+                        )
+                    }
+                }
+            }
             if (feed.isEmpty()) {
                 AnuraEmptyState(
                     title = stringResource(R.string.observations_empty_title),
@@ -389,7 +439,13 @@ fun ObservationDetailScreen(
     var showComments by rememberSaveable { mutableStateOf(false) }
     var moreMenu by rememberSaveable { mutableStateOf(false) }
     var confirmDelete by rememberSaveable { mutableStateOf(false) }
-    val observation = repository.observationById(id)
+    val localObservation = repository.observationById(id)
+    // Ajena y no cacheada localmente todavía: se pide de verdad al servidor (ya no hay
+    // CommunityCatalog de respaldo — ver ExplorerRemote.observation).
+    val remoteObservation by produceState<ObservationRecord?>(initialValue = null, id, localObservation) {
+        value = if (localObservation == null) repository.fetchRemoteObservation(id) else null
+    }
+    val observation = localObservation ?: remoteObservation
     val species = SpeciesCatalog.find(observation?.speciesId)
     val isOwn = observation?.let { repository.isOwnObservation(it.id) } == true
     val missing = stringResource(R.string.anura_value_missing)
@@ -527,7 +583,7 @@ fun ObservationDetailScreen(
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 ObservationAuthorRow(
                     observationId = id,
-                    ownerUserId = observation?.ownerUserId,
+                    ownerUsername = observation?.ownerUsername,
                     ownerDisplayName = observation?.ownerDisplayName.orEmpty(),
                     isOwn = isOwn,
                     onOpenProfile = onOpenProfile,
@@ -548,11 +604,7 @@ fun ObservationDetailScreen(
                 )
                 // en un rechazo del Open Set las candidatas no son una identificación: no se muestran como tal
                 val candidates = if (observation?.identificationStatus == IdentificationKnown) {
-                    observation.candidates.ifEmpty {
-                        SpeciesCatalog.find(observation.speciesId)
-                            ?.let(SpeciesCatalog::rankedCandidates)
-                            .orEmpty()
-                    }
+                    observation.candidates
                 } else {
                     emptyList()
                 }
@@ -612,7 +664,11 @@ fun ObservationDetailScreen(
                         me.juanlabs.anura.core.data.formatAudioDuration(observation.audioDurationMs) ?: "Audio"
                     } ?: missing,
                 )
-                if (observation?.candidates?.isNotEmpty() == true) {
+                // Mismo criterio que `candidates` arriba (línea ~550): un rechazo del Open Set
+                // (género/familia/orden desconocido) no debe mostrar "Modelo local" sin
+                // candidatas visibles — `commitObservation` llena `candidates` igual aunque el
+                // resultado no sea una identificación.
+                if (observation?.identificationStatus == IdentificationKnown && observation.candidates.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                     StatusPill(text = stringResource(R.string.observation_detail_model_local), warning = false)
                 }
@@ -659,7 +715,7 @@ fun ObservationDetailScreen(
 @Composable
 private fun ObservationAuthorRow(
     observationId: String,
-    ownerUserId: String?,
+    ownerUsername: String?,
     ownerDisplayName: String,
     isOwn: Boolean,
     onOpenProfile: (String?) -> Unit,
@@ -671,11 +727,11 @@ private fun ObservationAuthorRow(
         isOwn && session.displayName.isNotBlank() -> session.displayName
         isOwn -> stringResource(R.string.profile_guest_name)
         ownerDisplayName.isNotBlank() -> ownerDisplayName
-        else -> CommunityCatalog.person(ownerUserId)?.displayName.orEmpty()
+        else -> ownerUsername.orEmpty()
     }
-    val profileUserId = if (isOwn) null else ownerUserId
-    val following = ownerUserId != null && repository.isFollowing(ownerUserId)
-    val openProfile = { onOpenProfile(profileUserId) }
+    val profileUsername = if (isOwn) null else ownerUsername
+    val following = ownerUsername != null && repository.isFollowing(ownerUsername)
+    val openProfile = { onOpenProfile(profileUsername) }
     val profileCd = stringResource(R.string.observation_author_cd, displayName)
 
     AnuraCard(modifier = Modifier.fillMaxWidth()) {
@@ -716,10 +772,10 @@ private fun ObservationAuthorRow(
                     .clickable(role = Role.Button, onClick = openProfile)
                     .semantics { contentDescription = profileCd },
             )
-            if (!isOwn && ownerUserId != null) {
+            if (!isOwn && ownerUsername != null) {
                 FilterChip(
                     selected = following,
-                    onClick = { repository.toggleFollow(ownerUserId) },
+                    onClick = { repository.toggleFollow(ownerUsername) },
                     label = {
                         Text(
                             stringResource(
@@ -759,6 +815,7 @@ private fun ObservationTempoActions(
         R.string.observation_detail_share_text,
         commonName,
         scientificName,
+        "${AnuraServerConfig.AUTH_BASE_URL}/explorer/$observationId",
     )
     val chooserTitle = stringResource(R.string.observation_detail_share_chooser)
     Row(

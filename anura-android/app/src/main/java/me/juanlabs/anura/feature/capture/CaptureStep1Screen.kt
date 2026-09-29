@@ -76,12 +76,10 @@ private enum class CaptureMicrohabitat {
 }
 
 /**
- * Datos mock del Paso 1: el GPS y el contexto ambiental todavía no están conectados.
- * Omitir deja el destino sin ubicación (`null` en el dominio, no `""`).
+ * Valores iniciales del Paso 1. Ubicación, precisión y altitud salen del GPS del teléfono
+ * (`CaptureOsmMap`); omitir deja la observación sin ubicación (`null`, no `""`).
  */
 data class CaptureStep1UiState(
-    val precisionMeters: Int = 8,
-    val altitudeLabel: String = "",
     val ecosystemLabel: String = "",
 )
 

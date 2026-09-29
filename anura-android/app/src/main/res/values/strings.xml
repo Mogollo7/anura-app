@@ -21,13 +21,17 @@
     <string name="sign_in_email_label">Correo</string>
     <string name="sign_in_email_placeholder">correo@ejemplo.com</string>
     <string name="sign_in_password_label">Contraseña</string>
-    <string name="sign_in_forgot_password">¿Olvidaste la contraseña?</string>
     <string name="sign_in_enter">Entrar</string>
+    <string name="sign_in_entering">Entrando…</string>
+    <string name="auth_offline">No hay conexión con el servidor. Revisa tu internet e intenta de nuevo.</string>
     <string name="sign_in_without_account">Entrar sin cuenta</string>
     <string name="sign_in_no_account">¿No tienes cuenta?</string>
     <string name="sign_in_create_one">Crear una</string>
     <string name="sign_in_show_password_cd">Mostrar contraseña</string>
     <string name="sign_in_hide_password_cd">Ocultar contraseña</string>
+    <!-- Nuevo, no viene del board de Penpot todavía: abre el login de Google en el navegador
+         del sistema (Custom Tabs), sin SDK nativo de Google en la app. -->
+    <string name="sign_in_continue_with_google">Continuar con Google</string>
 
     <!-- crear cuenta — textos exactos de Penpot -->
     <string name="sign_up_title">Crear cuenta</string>
@@ -44,6 +48,7 @@
     <string name="sign_up_profile_study">Estudio o investigación</string>
     <string name="sign_up_terms">Acepto los términos y la política de datos. Mis observaciones son privadas hasta que decida publicarlas.</string>
     <string name="sign_up_create">Crear cuenta</string>
+    <string name="sign_up_creating">Creando tu cuenta…</string>
     <string name="sign_up_without_account">Entrar sin cuenta</string>
     <string name="sign_up_footer_prefix">¿Ya tienes cuenta?</string>
     <string name="sign_up_footer_sign_in">Iniciar sesión</string>
@@ -57,8 +62,13 @@
     <string name="home_loading">Cargando inicio…</string>
     <string name="home_carousel_where_to_look">En dónde mirar</string>
     <string name="home_carousel_featured_photo">Foto destacada</string>
-    <string name="home_carousel_endangered">En peligro de extinción</string>
+    <string name="home_carousel_endangered">Especie amenazada</string>
     <string name="home_carousel_frog_of_day">Rana del día</string>
+    <string name="catalog_empty_title">Aún no hay especies publicadas</string>
+    <string name="catalog_empty_body">Cuando se publique una ficha, aparecerá aquí.</string>
+    <string name="catalog_offline_title">Conéctate para cargar las especies</string>
+    <string name="catalog_offline_body">Después de la primera descarga se ven sin internet.</string>
+    <string name="catalog_loading_title">Cargando las especies…</string>
     <string name="home_carousel_card_cd">%1$s. %2$s. %3$s</string>
     <string name="home_action_step_by_step">Paso a paso</string>
     <string name="home_action_photo_id">Foto ID</string>
@@ -73,7 +83,8 @@
     <string name="field_session_live_cd">Indicador en vivo</string>
     <string name="field_session_location">Quebrada La Miel · transecto 2</string>
     <string name="field_session_elapsed">1:12:04</string>
-    <string name="field_session_temp">18 °C</string>
+    <string name="weather_unavailable">N/A</string>
+    <string name="field_session_temp">N/A</string>
     <string name="field_session_temp_label">Temperatura</string>
     <string name="field_session_humidity">86 %</string>
     <string name="field_session_humidity_label">Humedad</string>
@@ -87,7 +98,7 @@
     <string name="field_session_end">Finalizar</string>
     <string name="field_session_end_cd">Terminar salida de campo</string>
     <string name="night_sounds_title">Sonidos nocturnos</string>
-    <string name="night_sounds_metadata">5°04\'N 75°31\'O · 21:47 · 18 °C</string>
+    <string name="night_sounds_metadata">5°04\'N 75°31\'O · 21:47 · %1$s</string>
     <string name="night_sounds_hint">Acercate a menos de 3 m y quedate en silencio. Anura separa el canto del ruido de fondo.</string>
     <string name="night_sounds_save">Guardar en la salida</string>
     <string name="night_sounds_retry">Reintentar</string>
@@ -99,7 +110,7 @@
     <string name="night_sounds_percent_22">22 %</string>
     <string name="field_session_comment_cd">Comentar esta observación de campo</string>
     <string name="field_session_register_open_cd">Ver información de este registro</string>
-    <string name="field_session_notes_pick">Elegí el registro al que pertenece el apunte</string>
+    <string name="field_session_notes_pick">Elige el registro al que pertenece el apunte</string>
     <string name="field_session_notes_change">Cambiar de registro</string>
     <string name="field_session_notes_title">Notas de la salida</string>
     <string name="field_session_notes_placeholder">Hojarasca húmeda cerca de la quebrada, mucha actividad de machos cantando tras la lluvia…</string>
@@ -113,20 +124,10 @@
     <string name="field_session_note_body_2">Encontramos 3 individuos de D. truncatus bajo la misma hoja.</string>
     <string name="field_session_note_time_3">22:30</string>
     <string name="field_session_note_body_3">Temperatura bajó a 16 °C, actividad de canto disminuyó notablemente.</string>
-    <string name="field_session_media_photo">Foto</string>
-    <string name="field_session_media_photo_audio">Foto + audio</string>
-    <string name="field_session_media_audio_unconfirmed">Audio · sin confirmar</string>
     <string name="field_session_sp_truncatus">Dendrobates truncatus</string>
-    <string name="field_session_sp_punctata">Boana punctata</string>
-    <string name="field_session_sp_pristimantis">Pristimantis sp.</string>
-    <string name="field_session_sp_rhinella">Rhinella horribilis</string>
-    <string name="field_session_time_truncatus">21:47</string>
-    <string name="field_session_time_punctata">21:31</string>
-    <string name="field_session_time_pristimantis">21:12</string>
-    <string name="field_session_time_rhinella">20:58</string>
 
     <!-- Pop-up del botón "+": qué registrar — textos exactos de Penpot -->
-    <string name="what_to_register_title">¿Qué querés registrar?</string>
+    <string name="what_to_register_title">¿Qué quieres registrar?</string>
     <string name="what_to_register_body">El botón central es la entrada a las salidas de campo.</string>
     <string name="what_to_register_start_field_session">Iniciar salida de campo</string>
     <string name="what_to_register_continue_field_session">Continuar salida de campo</string>
@@ -140,15 +141,38 @@
 
     <!-- Wizard de captura — textos exactos de Penpot Mockup Final -->
     <string name="capture_wizard_close_cd">Cerrar e ir al inicio</string>
+    <string name="clave_appbar">Paso a paso</string>
+    <string name="clave_loading">Cargando la clave…</string>
+    <string name="clave_remaining">Quedan %1$d especies</string>
+    <string name="clave_unknown">No sé</string>
+    <string name="clave_correct">Corregir la respuesta anterior</string>
+    <string name="clave_restart">Empezar de nuevo</string>
+    <string name="clave_open_sheet">Ver ficha</string>
+    <string name="clave_one_title">Coincide con una especie</string>
+    <string name="clave_several_title">Quedan varias especies</string>
+    <string name="clave_several_same">Con los datos de este paquete no se pueden separar.</string>
+    <string name="clave_several_pending">Si respondes esto, puede que se separen: %1$s</string>
+    <string name="clave_none_title">Ninguna especie coincide</string>
+    <string name="clave_none_body">Revisa una respuesta o empieza de nuevo. No hay una especie que encaje con lo que marcaste.</string>
+    <string name="clave_no_package_title">Aún no hay un paquete en este teléfono</string>
+    <string name="clave_no_package_body">Para identificar paso a paso, descarga el paquete de tu subregión.</string>
+    <string name="clave_open_packages">Ver paquetes</string>
+    <string name="clave_no_key_title">Aún no está la clave en este teléfono</string>
+    <string name="clave_no_key_body">Conéctate para descargarla. Después funciona sin señal.</string>
+    <string name="clave_retry">Reintentar</string>
+    <string name="clave_no_species_title">Este paquete no tiene especies</string>
+    <string name="clave_no_species_body">Cuando se publique un paquete con especies, aquí podrás identificarlas.</string>
+    <string name="audio_demo_notice">Demostración: ANURA todavía no identifica por sonido. El audio se guarda, pero lo que ves aquí no es una identificación.</string>
+    <string name="capture_photo_failed">No se pudo tomar la foto. Intenta de nuevo o elige una de la galería.</string>
     <string name="capture_wizard_progress_cd">Paso %1$d de %2$d</string>
     <string name="capture_wizard_skip">Omitir este paso</string>
     <string name="capture_wizard_optional_note">Se puede omitir este paso, pero la precisión de identificación puede disminuir en consecuencia</string>
     <string name="capture_wizard_next">Continuar</string>
     <string name="capture_wizard_save">Guardar</string>
     <string name="capture_wizard_cancel_edit_title">¿Cancelar los cambios?</string>
-    <string name="capture_wizard_cancel_edit_body">Si cancelás, volvés al resumen sin guardar lo que cambiaste en este paso.</string>
-    <string name="capture_unsaved_title">¿Seguro que querés salir?</string>
-    <string name="capture_unsaved_body">Hay cambios sin guardar. Si aceptás, volvés atrás y se pierden.</string>
+    <string name="capture_wizard_cancel_edit_body">Si cancelas, vuelves al resumen sin guardar lo que cambiaste en este paso.</string>
+    <string name="capture_unsaved_title">¿Seguro que quieres salir?</string>
+    <string name="capture_unsaved_body">Hay cambios sin guardar. Si aceptas, vuelves atrás y se pierden.</string>
     <string name="anura_accept">Aceptar</string>
     <string name="anura_discard">Descartar</string>
 
@@ -170,7 +194,7 @@
 
     <string name="capture_step2_appbar">Paso 2 de 6</string>
     <string name="capture_step2_title">¿Cuándo la viste?</string>
-    <string name="capture_step2_subtitle">Tomado del momento de la foto. Tocá para cambiarlo.</string>
+    <string name="capture_step2_subtitle">Tomado del momento de la foto. Toca para cambiarlo.</string>
     <string name="capture_step2_time_local">%1$s · hora local (UTC−5)</string>
     <string name="capture_step2_day_period">Franja del día</string>
     <string name="capture_step2_dawn">Amanecer</string>
@@ -179,7 +203,7 @@
     <string name="capture_step2_night">Noche</string>
     <string name="capture_step2_weather_auto">Consultado automáticamente</string>
     <string name="capture_step2_temp_label">Temperatura</string>
-    <string name="capture_step2_temp_value">18 °C</string>
+    <string name="capture_step2_temp_value">N/A</string>
     <string name="capture_step2_humidity_label">Humedad</string>
     <string name="capture_step2_humidity_value">86 %</string>
     <string name="capture_step2_precip_label">Precipitación</string>
@@ -195,8 +219,10 @@
     <string name="capture_step3_min">10 mm</string>
     <string name="capture_step3_max">160 mm</string>
     <string name="capture_step3_value">%1$d mm</string>
-    <string name="capture_step3_candidates">Con %1$d mm quedan 9 especies candidatas</string>
-    <string name="capture_step3_ranges">Pristimantis 18–34 mm · Boana 40–72 mm · Rhinella 60–140 mm</string>
+    <plurals name="capture_step3_candidates">
+        <item quantity="one">Con %1$d mm queda %2$d especie candidata</item>
+        <item quantity="other">Con %1$d mm quedan %2$d especies candidatas</item>
+    </plurals>
 
     <string name="capture_step4_appbar">Paso 4 de 6</string>
     <string name="capture_step4_camera_cd">Cámara de campo</string>
@@ -212,7 +238,7 @@
 
     <string name="capture_step5_appbar">Paso 5 de 6</string>
     <string name="capture_step5_title">Añadir audio</string>
-    <string name="capture_step5_subtitle">El canto es opcional. Grabá con el micrófono o elegí un audio de la memoria.</string>
+    <string name="capture_step5_subtitle">El canto es opcional. Graba con el micrófono o elige un audio de la memoria.</string>
     <string name="capture_step5_play">Reproducir</string>
     <string name="capture_step5_pause">Pausar</string>
     <string name="capture_step5_dominant">Frecuencia dominante %1$s kHz</string>
@@ -225,11 +251,11 @@
     <string name="capture_step5_seek_forward_cd">Avanzar 10 segundos</string>
     <string name="capture_step5_progress_cd">Progreso del audio %1$s de %2$s</string>
     <string name="capture_step5_time_remaining">%1$s / %2$s</string>
-    <string name="capture_step5_leave_local_title">¿Querés elegir otro audio?</string>
-    <string name="capture_step5_leave_local_body">Si aceptás, cerrás este archivo y podés grabar o elegir otro desde la memoria.</string>
+    <string name="capture_step5_leave_local_title">¿Quieres elegir otro audio?</string>
+    <string name="capture_step5_leave_local_body">Si aceptas, cierras este archivo y puedes grabar o elegir otro desde la memoria.</string>
 
     <string name="capture_step6_appbar">Paso 6 de 6</string>
-    <string name="capture_step6_title">Revisá y analizá</string>
+    <string name="capture_step6_title">Revisa y analiza</string>
     <string name="capture_step6_subtitle">Cada dato vuelve al paso que lo capturó.</string>
     <string name="capture_step6_where">Dónde</string>
     <string name="capture_step6_where_value">5°04\'N 75°31\'O · 2.140 msnm · Hojarasca</string>
@@ -242,7 +268,7 @@
     <string name="capture_step6_audio">Audio</string>
     <string name="capture_step6_audio_value">00:14 · 2,4 kHz</string>
     <string name="capture_step6_info">Anura combina foto, canto y metadatos. Si falta alguno, la identificación baja de confianza pero se hace igual.</string>
-    <string name="capture_step6_offline">El análisis corre en el dispositivo. No necesitás conexión.</string>
+    <string name="capture_step6_offline">El análisis corre en el dispositivo. No necesitas conexión.</string>
     <string name="capture_step6_analyze">Analizar</string>
     <string name="capture_step6_edit_cd">Editar %1$s</string>
 
@@ -256,7 +282,7 @@
     <string name="photo_blurry_accept">Aceptar</string>
 
     <string name="audio_capture_title">Añadir audio</string>
-    <string name="audio_capture_subtitle">Grabá el canto con el micrófono o elegí un audio de la memoria.</string>
+    <string name="audio_capture_subtitle">Graba el canto con el micrófono o elige un audio de la memoria.</string>
     <string name="audio_capture_analyze">Analizar audio</string>
     <string name="audio_capture_reject">Rechazar el audio</string>
 
@@ -302,7 +328,7 @@
     <string name="explore_stat_species">Especies</string>
     <string name="explore_stat_families">Familias</string>
     <string name="explore_stat_genera">Géneros</string>
-    <string name="explore_near_you">Cerca de vos</string>
+    <string name="explore_near_you">Cerca de ti</string>
     <string name="explore_see_more">Ver más</string>
     <string name="explore_more_title">Ver más</string>
     <string name="explore_more_sort">Ordenar</string>
@@ -349,6 +375,7 @@
     <string name="observation_detail_species_cd">Abrir ficha de %1$s</string>
     <string name="observation_detail_candidate_thumb_cd">Miniatura de %1$s</string>
     <string name="observation_detail_photo_cd">Foto de la observación</string>
+    <string name="media_lightbox_close_cd">Cerrar foto</string>
     <string name="observation_media_carousel_cd">Carrusel de fotos y audio de la observación</string>
     <string name="observation_media_index_cd">Medio %1$d de %2$d</string>
     <string name="observation_detail_common_name">Rana venenosa de Santa Marta</string>
@@ -380,7 +407,7 @@
     <string name="observation_detail_download_cd">Descargar la observación</string>
     <string name="observation_detail_share_cd">Compartir la foto y la observación</string>
     <string name="observation_detail_share_chooser">Compartir observación</string>
-    <string name="observation_detail_share_text">%1$s (%2$s) — observación en ANURA</string>
+    <string name="observation_detail_share_text">%1$s (%2$s) — observación en ANURA: %3$s</string>
     <string name="observation_author_other">@laura.anura</string>
     <string name="observation_author_follow">Seguir</string>
     <string name="observation_author_cd">Abrir perfil de %1$s</string>
@@ -432,17 +459,18 @@
 
     <!-- ESPECIE, FAMILIA, GENERO (ficha técnica) — textos exactos de Penpot -->
     <string name="species_sheet_title">Ficha técnica</string>
+    <string name="species_sheet_close_home_cd">Cerrar e ir al inicio</string>
     <string name="species_sheet_common_name">Rana venenosa de Santa Marta</string>
     <string name="species_sheet_scientific_name">Dendrobates truncatus</string>
     <string name="species_sheet_toxic">Tóxica</string>
     <string name="species_sheet_iucn">LC · Preocupación menor</string>
     <string name="species_sheet_taxonomy_line">Orden Anura › Familia Dendrobatidae › Género Dendrobates</string>
     <string name="species_sheet_stat_observations">1.284</string>
-    <string name="species_sheet_stat_observations_label">Observaciones</string>
+    <string name="species_sheet_stat_observations_label">Fotos de referencia</string>
     <string name="species_sheet_stat_altitude">0–1.200 m</string>
     <string name="species_sheet_stat_altitude_label">Altitud</string>
     <string name="species_sheet_stat_size">26–38 mm</string>
-    <string name="species_sheet_stat_size_label">Tamaño</string>
+    <string name="species_sheet_stat_size_label">Hocico-cloaca</string>
     <string name="species_sheet_stat_observers">6</string>
     <string name="species_sheet_stat_observers_label">Identificadores</string>
     <string name="species_sheet_stat_species">12</string>
@@ -452,12 +480,12 @@
     <string name="species_sheet_stat_families">3</string>
     <string name="species_sheet_stat_families_label">Familias</string>
     <string name="identifiers_title">Identificadores</string>
-    <string name="identifiers_search">Buscá un identificador</string>
+    <string name="identifiers_search">Busca un identificador</string>
     <string name="identifiers_meta">%1$s · %2$d identificaciones</string>
     <string name="identifiers_person_6_name">Mateo Londoño</string>
     <string name="identifiers_person_6_handle">\@mateo.l</string>
-    <string name="species_by_taxon_search_genus">Buscá una especie de este género</string>
-    <string name="species_by_taxon_search_family">Buscá una especie de esta familia</string>
+    <string name="species_by_taxon_search_genus">Busca una especie de este género</string>
+    <string name="species_by_taxon_search_family">Busca una especie de esta familia</string>
     <string name="species_sheet_tab_distribution">Distribución</string>
     <string name="species_sheet_tab_morphology">Morfología</string>
     <string name="species_sheet_tab_bioacoustics">Bioacústica</string>
@@ -484,6 +512,9 @@
     <string name="species_sheet_similar_4_common">Ranita de Bogert</string>
     <string name="species_sheet_similar_4_sci">Dendropsophus bogerti</string>
     <string name="species_sheet_morphology_title">Diagnóstico morfológico</string>
+    <string name="species_sheet_morphology_empty">Esta especie todavía no tiene la morfología revisada por un herpetólogo.</string>
+    <string name="species_sheet_diagnostics">Rasgos diagnósticos</string>
+    <string name="species_sheet_photo_credit">Foto: %1$s</string>
     <string name="species_sheet_tympanum">Tímpano</string>
     <string name="species_sheet_tympanum_value">Visible, diámetro ≈ ½ del ojo</string>
     <string name="species_sheet_disc">Disco digital</string>
@@ -499,14 +530,15 @@
     <string name="species_sheet_svl">Longitud hocico–cloaca</string>
     <string name="species_sheet_svl_value">26–38 mm (hembras mayores)</string>
     <string name="species_sheet_export">Exportar resumen (PDF / offline)</string>
-    <string name="species_sheet_explore_genus">Explorá más de este género</string>
+    <string name="species_sheet_explore_genus">Explora más de este género</string>
     <string name="species_sheet_photo_cd">Foto de la especie</string>
 
     <!-- DESPLEGABLE1 justificación — textos exactos de Penpot -->
     <string name="justification_title">Justificación</string>
+    <string name="justification_unavailable">La identificación no guarda qué zona del animal pesó en el resultado. No hay porcentajes que mostrar.</string>
     <string name="justification_heading">Qué miró el modelo</string>
     <string name="justification_intro">Cada región anatómica con su carácter detectado y su peso en la conclusión.</string>
-    <string name="justification_hint">Tocá una región para ver o refutar su análisis</string>
+    <string name="justification_hint">Toca una región para ver o refutar su análisis</string>
     <string name="justification_contribution">Contribución por región</string>
     <string name="justification_region_tympanum">Tímpano</string>
     <string name="justification_region_tympanum_pct">24 %</string>
@@ -520,19 +552,19 @@
     <string name="justification_region_dorsal">Patrón dorsal</string>
     <string name="justification_region_dorsal_pct">27 %</string>
     <string name="justification_region_dorsal_note">Franjas longitudinales amarillas → D. truncatus</string>
-    <string name="justification_footer">Si refutás una región, la observación pasa a «En revisión experta» y se guardan la foto, la máscara y tu corrección para reentrenar el modelo.</string>
+    <string name="justification_footer">Si refutas una región, la observación pasa a «En revisión experta» y se guardan la foto, la máscara y tu corrección para reentrenar el modelo.</string>
     <string name="justification_refute_all">Refutar la identificación completa</string>
     <string name="justification_photo_cd">Foto con máscara de segmentación semántica</string>
     <string name="justification_region_cd">Región: %1$s</string>
     <string name="justification_refute_region_cd">Refutar %1$s</string>
     <string name="justification_refute_title">Refutar esta región</string>
-    <string name="justification_refute_intro">Elegí la estructura mal delimitada y decí qué observaste. Queda en «En revisión experta».</string>
+    <string name="justification_refute_intro">Elige la estructura mal delimitada y di qué observaste. Queda en «En revisión experta».</string>
     <string name="justification_refute_region_label">Región señalada</string>
     <string name="justification_refute_model_label">El modelo concluyó</string>
     <string name="justification_refute_observed">Qué observaste</string>
     <string name="justification_refute_observed_mock">Es un pliegue dorsolateral, no el tímpano. El tímpano queda oculto bajo el pliegue.</string>
     <string name="justification_refute_species">Especie correcta (opcional)</string>
-    <string name="justification_refute_species_mock">Pristimantis taeniatus</string>
+    <string name="justification_refute_species_mock">Elige una especie</string>
     <string name="justification_refute_send">Enviar refutación</string>
     <string name="justification_region_tympanum_model">Diámetro ≈ ½ del ojo → Dendrobates</string>
     <string name="justification_region_disc_model">Ensanchado en dedos y artejos → descarta Rhinella</string>
@@ -542,7 +574,7 @@
     <!-- ajustes (§4.1) — Apariencia: Claro / Oscuro / Luz roja + 6 muestras -->
     <string name="settings_title">Ajustes</string>
     <string name="settings_profile_cd">Abrir perfil</string>
-    <string name="settings_packages">Zonas descargadas</string>
+    <string name="settings_packages">Paquetes</string>
     <string name="settings_notifications">Avisos</string>
     <string name="settings_appearance">Apariencia</string>
     <string name="settings_mode_light">Claro</string>
@@ -556,7 +588,7 @@
     <string name="settings_swatch_warning">Alerta</string>
     <string name="settings_swatch_info">Info</string>
     <string name="settings_appearance_theme_section">Tema</string>
-    <string name="settings_appearance_theme_body">Elegí cómo se ve Anura. Sistema sigue el modo del teléfono.</string>
+    <string name="settings_appearance_theme_body">Elige cómo se ve Anura. Sistema sigue el modo del teléfono.</string>
     <string name="settings_appearance_theme_light_body">Fondos claros</string>
     <string name="settings_appearance_theme_dark_body">Fondos oscuros</string>
     <string name="settings_appearance_theme_system_body">Igual que el teléfono</string>
@@ -578,8 +610,16 @@
     <string name="settings_edit_profile_cd">Editar perfil</string>
 
     <!-- Zonas descargadas (§4.1) — Penpot Mockup Final -->
-    <string name="packages_title">Zonas descargadas</string>
+    <string name="packages_title">Paquetes</string>
+    <string name="packages_intro">Un paquete por país. Al bajarlo se bajan sus departamentos; dentro de cada uno, sus subregiones.</string>
+    <string name="packages_loading">Cargando paquetes del servidor…</string>
+    <string name="packages_catalog_error">No se pudo leer el catálogo de paquetes.</string>
+    <string name="packages_kind_identify">Identificación</string>
+    <string name="packages_kind_catalog">Catálogo de la subregión</string>
+    <string name="packages_kind_country">País</string>
+    <string name="packages_kind_department">Departamento</string>
     <string name="packages_meta_format">%1$d especies · %2$s</string>
+    <string name="packages_download_includes">También se bajan los paquetes que contiene.</string>
     <string name="packages_space_used">Espacio usado por Anura</string>
     <string name="packages_space_summary">%1$s usados · %2$s libres</string>
     <string name="packages_offline_chip">Lista sin conexión</string>
@@ -588,7 +628,13 @@
     <string name="packages_deactivate">Desactivar</string>
     <string name="packages_active_label">Activo para identificar</string>
     <string name="identification_error_no_photo">No hay foto para analizar.</string>
-    <string name="identification_error_no_package">Activa un paquete regional en Zonas descargadas para identificar.</string>
+    <string name="identification_error_no_package">Descarga el paquete de tu región en Paquetes para identificar.</string>
+    <string name="identification_no_package_title">Falta el paquete de tu región</string>
+    <string name="identification_no_package_body">Para identificar sin conexión, Anura compara la foto con el paquete de tu subregión. Descárgalo una vez y queda en el teléfono. Tu foto se guarda mientras tanto.</string>
+    <string name="identification_no_package_action">Descargar paquete</string>
+    <string name="identification_no_package_later">Ahora no</string>
+    <string name="species_not_found_title">No encontramos esta especie</string>
+    <string name="species_not_found_body">No tiene ficha en el catálogo de este teléfono.</string>
     <string name="identification_error_engine">No se pudo analizar la foto. Intenta de nuevo.</string>
     <string name="photo_id_location_prompt_title">¿Usar la ubicación actual?</string>
     <string name="photo_id_location_prompt_body">Ayuda a comparar candidatas por zona y no cambia qué especie se identifica.</string>
@@ -603,15 +649,15 @@
     <string name="packages_download">Descargar</string>
     <string name="packages_delete">Eliminar</string>
     <string name="packages_download_title">Descargar zona</string>
-    <string name="packages_download_body">¿Descargar la zona %1$s?</string>
+    <string name="packages_download_body">¿Descargar %1$s?</string>
     <string name="packages_delete_title">Eliminar zona</string>
-    <string name="packages_delete_body">¿Eliminar la zona %1$s del dispositivo?</string>
+    <string name="packages_delete_body">¿Eliminar %1$s de este dispositivo? Si contiene otros paquetes, también se quitan.</string>
     <string name="packages_download_cd">Descargar %1$s</string>
     <string name="packages_delete_cd">Eliminar %1$s</string>
     <string name="packages_cancel_download_cd">Cancelar la descarga de %1$s</string>
     <string name="packages_downloading_cd">Descargando %1$s</string>
-    <string name="packages_empty_title">Sin zonas descargadas</string>
-    <string name="packages_empty_body">Todavía no hay paquetes regionales en este dispositivo.</string>
+    <string name="packages_empty_title">Sin paquetes</string>
+    <string name="packages_empty_body">El servidor no publicó paquetes regionales.</string>
     <string name="packages_coverage_note">Fuera de una zona descargada, Anura guarda la foto y la analiza cuando vuelva la señal.</string>
 
     <!-- profile propia/ajena (§4.1) — Mockup Final -->
@@ -622,7 +668,7 @@
     <string name="profile_display_name_other">Laura Restrepo</string>
     <string name="profile_bio_other">Herpetóloga · Universidad de Antioquia</string>
     <string name="profile_identifier_chip">Identificadora destacada</string>
-    <string name="profile_other_privacy_note">Las publicaciones privadas de otra persona no existen para vos: no se listan ni se cuentan.</string>
+    <string name="profile_other_privacy_note">Las publicaciones privadas de otra persona no existen para ti: no se listan ni se cuentan.</string>
     <string name="profile_location_own">Manizales, Caldas</string>
     <string name="profile_edit_avatar_cd">Editar foto de perfil</string>
     <string name="profile_tab_public">Públicas</string>
@@ -645,9 +691,9 @@
     <string name="profile_stat_species_other_value">186</string>
     <string name="profile_stat_followers_other_value">3,4 k</string>
     <string name="connections_following">Siguiendo</string>
-    <string name="connections_search_followers">Buscá seguidores</string>
-    <string name="connections_search_following">Buscá seguidos</string>
-    <string name="connections_search_favorites">Buscá favoritos</string>
+    <string name="connections_search_followers">Busca seguidores</string>
+    <string name="connections_search_following">Busca seguidos</string>
+    <string name="connections_search_favorites">Busca favoritos</string>
     <string name="connections_tab_followers">Seguidores (%d)</string>
     <string name="connections_tab_following">Seguidos (%d)</string>
     <string name="connections_tab_favorites">Favoritos (%d)</string>
@@ -681,7 +727,7 @@
     <string name="edit_profile_current_password">Contraseña actual</string>
     <string name="edit_profile_new_password">Nueva contraseña</string>
     <string name="edit_profile_confirm_password">Confirmar nueva contraseña</string>
-    <string name="edit_profile_confirm_placeholder">Repetí la nueva contraseña</string>
+    <string name="edit_profile_confirm_placeholder">Repite la nueva contraseña</string>
     <string name="edit_profile_save">Guardar cambios</string>
 
     <!-- Ubicación geográfica — sección, no ruta -->
@@ -700,7 +746,7 @@
     <string name="profile_guest_name">Invitado</string>
     <string name="profile_value_missing">No agregado</string>
     <string name="profile_create_account_cta">Crear cuenta para guardar tu perfil</string>
-    <string name="settings_guest_label">Usás ANURA sin cuenta</string>
+    <string name="settings_guest_label">Usas ANURA sin cuenta</string>
     <string name="settings_sign_out_guest">Salir del modo invitado</string>
     <string name="anura_value_missing">Sin dato</string>
     <string name="capture_step6_where_empty">Sin ubicación</string>
@@ -721,9 +767,7 @@
     <string name="observation_visibility_updated">Visibilidad actualizada</string>
     <string name="observation_downloaded">Archivo guardado en el dispositivo</string>
     <string name="observation_download_failed">No se pudo guardar el archivo</string>
-    <string name="auth_forgot_password_sent">Si el correo existe, te enviamos un enlace de recuperación</string>
-    <string name="auth_forgot_password_need_email">Escribí tu correo para recuperar la contraseña</string>
-    <string name="auth_sign_in_need_email">Escribí un correo para entrar</string>
+    <string name="auth_sign_in_need_email">Escribe un correo para entrar</string>
     <string name="expert_review_sent">Enviada a revisión de experto</string>
     <string name="profile_saved">Cambios de perfil guardados</string>
     <string name="profile_password_mismatch">La nueva contraseña no coincide</string>
@@ -740,11 +784,11 @@
     <string name="field_session_empty_registers">Todavía no hay registros en esta salida</string>
     <string name="observation_not_found_title">No encontramos esta observación</string>
     <string name="observation_not_found_body">Puede haberse eliminado o no existir en este dispositivo.</string>
-    <string name="sign_up_need_name">Escribí tu nombre para crear la cuenta</string>
+    <string name="sign_up_need_name">Escribe tu nombre para crear la cuenta</string>
     <string name="comments_empty_title">Sin comentarios</string>
     <string name="comments_empty_body">Sé la primera persona en comentar.</string>
     <string name="explore_offline_title">Sin conexión</string>
-    <string name="explore_offline_body">El mapa y el recuento de especies no están disponibles. Podés ver el buscador, pero no se puede buscar sin internet.</string>
+    <string name="explore_offline_body">El mapa y el recuento de especies no están disponibles. Puedes ver el buscador, pero no se puede buscar sin internet.</string>
     <string name="explore_search_offline">Sin internet no se puede buscar</string>
     <string name="explore_suggestion_genus">Género</string>
     <string name="explore_suggestion_family">Familia</string>
@@ -753,14 +797,29 @@
     <string name="packages_cancel_body">%1$s no se instalará en el dispositivo.</string>
     <string name="packages_cancel">Sí, cancelar</string>
     <string name="connections_empty_followers">Todavía no hay seguidores</string>
-    <string name="connections_empty_following">Todavía no seguís a nadie</string>
+    <string name="connections_empty_following">Todavía no sigues a nadie</string>
     <string name="connections_empty_favorites">Todavía no hay favoritos</string>
     <string name="profile_favorites_empty">Todavía no marcaste favoritos</string>
+    <string name="connection_status_online_cd">Conectado con el servidor de ANURA</string>
+    <string name="connection_status_offline_cd">Sin conexión con el servidor de ANURA</string>
+    <string name="observations_field_session_chip_active">En curso · %1$s</string>
+    <string name="observations_field_session_chip_closed">%1$s</string>
 
     <!-- Avisos (C5) y reporte de dispositivo (C4) — GET /api/notifications, POST /api/auth/dispositivos. -->
     <string name="notifications_title">Avisos</string>
     <string name="notifications_empty_title">No tienes avisos</string>
     <string name="notifications_empty_body">Aquí vas a ver los avisos que te mande el equipo de Anura.</string>
+    <string name="notifications_filter_all">Todos</string>
+    <string name="notifications_filter_unread">No leídos</string>
+    <string name="notifications_filter_read">Leídos</string>
+    <string name="notifications_empty_unread_title">No tienes avisos sin leer</string>
+    <string name="notifications_empty_read_title">No tienes avisos leídos</string>
+    <string name="notifications_delete_cd">Eliminar aviso</string>
+    <string name="notifications_expand_hint">Toca para ver el aviso completo</string>
     <string name="device_blocked_message">El administrador bloqueó este dispositivo; la app dejó de sincronizarlo.</string>
     <string name="device_suspended_message">Tu cuenta está suspendida. Cerramos tu sesión.</string>
+
+    <!-- Notificación real del sistema para avisos nuevos (core/notifications/AnuraNotifications.kt). -->
+    <string name="notification_channel_avisos_name">Avisos</string>
+    <string name="notification_channel_avisos_description">Novedades de tu cuenta: paquetes nuevos, avisos del equipo de Anura.</string>
 </resources>

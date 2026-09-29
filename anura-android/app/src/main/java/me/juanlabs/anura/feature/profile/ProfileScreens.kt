@@ -43,6 +43,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -64,11 +65,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
-import me.juanlabs.anura.core.data.CommunityCatalog
+import me.juanlabs.anura.core.data.AuthRemote
+import me.juanlabs.anura.core.data.ExplorerRemote
 import me.juanlabs.anura.core.data.GuestUserId
 import me.juanlabs.anura.core.data.ObservationRecord
+import me.juanlabs.anura.core.data.PublicPerson
+import me.juanlabs.anura.core.data.PublicProfileResponse
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.platform.rememberNetworkAvailable
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
@@ -150,33 +155,35 @@ fun ProfileScreen(
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
+    val online = rememberNetworkAvailable()
     val session = snapshot.session
-    val isOwn = userId.isNullOrBlank() || userId == "me" || userId == session.userId
-    val other = if (isOwn) null else CommunityCatalog.person(userId)
+    // `userId` es en realidad el username real (auth.users.username) para perfiles ajenos —
+    // es la clave natural de /api/auth/public/:username, no hay CommunityCatalog de respaldo.
+    val isOwn = userId.isNullOrBlank() || userId == "me" || userId == session.userId || userId == session.username
+    val otherUsername = userId?.takeIf { !isOwn }
+    val otherProfile by produceState<PublicProfileResponse?>(initialValue = null, otherUsername) {
+        value = otherUsername?.let { AuthRemote.publicProfile(it) }
+    }
     val context = LocalContext.current
     val guestName = stringResource(R.string.profile_guest_name)
     val missing = stringResource(R.string.profile_value_missing)
     val displayName = if (isOwn) {
         session.displayName.ifBlank { guestName }
     } else {
-        other?.displayName ?: stringResource(R.string.profile_display_name_other)
+        otherProfile?.user?.username ?: stringResource(R.string.profile_display_name_other)
     }
     val username = if (isOwn) {
         session.username
     } else {
-        other?.handle.orEmpty()
+        otherProfile?.user?.username?.let { "@$it" }.orEmpty()
     }
-    val location = if (isOwn) {
-        session.location.ifBlank { missing }
-    } else {
-        other?.location?.ifBlank { missing } ?: missing
-    }
+    val location = if (isOwn) session.location.ifBlank { missing } else missing
     val bio = if (isOwn) {
         session.bio.ifBlank { missing }
     } else {
-        missing
+        otherProfile?.user?.biography?.ifBlank { missing } ?: missing
     }
-    val connectionsId = if (isOwn) session.userId.ifBlank { GuestUserId } else userId.orEmpty()
+    val connectionsId = if (isOwn) session.username.ifBlank { session.userId.ifBlank { GuestUserId } } else otherUsername.orEmpty()
     val shareText = stringResource(R.string.profile_share_text, displayName, username.ifBlank { guestName })
     val shareChooser = stringResource(R.string.profile_share_chooser)
     val profileLink = stringResource(
@@ -184,37 +191,47 @@ fun ProfileScreen(
         username.removePrefix("@").ifBlank { "invitado" },
     )
     val copyLinkLabel = stringResource(R.string.profile_copy_link)
+    val following = !isOwn && otherUsername != null && repository.isFollowing(otherUsername)
     val followLabel = stringResource(
-        if (!isOwn && repository.isFollowing(userId.orEmpty())) {
-            R.string.observation_author_following
-        } else {
-            R.string.observation_author_follow
-        },
+        if (following) R.string.observation_author_following else R.string.observation_author_follow,
     )
 
     var showActions by rememberSaveable { mutableStateOf(false) }
     var showReport by rememberSaveable { mutableStateOf(false) }
     var showObservationsCatalog by rememberSaveable { mutableStateOf(false) }
     var ownTab by rememberSaveable { mutableStateOf(ProfileOwnTab.Public) }
-    val following = !isOwn && repository.isFollowing(userId.orEmpty())
     val ownObservations = repository.ownObservations()
-    val otherObservations = if (isOwn) emptyList() else CommunityCatalog.observationsOf(userId.orEmpty())
-        .filter { it.visibilityPublic && !snapshot.blockedUserIds.contains(it.ownerUserId) }
+    val otherObservations by produceState(initialValue = emptyList<ObservationRecord>(), otherUsername, online) {
+        value = if (otherUsername != null && online) {
+            ExplorerRemote.feed(username = otherUsername).map { it.toObservationRecord() }
+        } else {
+            emptyList()
+        }
+    }
+    val otherObservationsVisible = otherObservations.filter {
+        it.visibilityPublic && !snapshot.blockedUserIds.contains(it.ownerUserId)
+    }
     val gridItems = if (isOwn) {
         when (ownTab) {
             ProfileOwnTab.Public -> ownObservations.filter { it.visibilityPublic && !it.isDraft }
             ProfileOwnTab.Private -> ownObservations.filter { !it.visibilityPublic && !it.isDraft }
             ProfileOwnTab.Favorites -> snapshot.favorites.mapNotNull { id -> repository.observationById(id) }
+                .filter { online || repository.isOwnObservation(it.id) }
         }
     } else {
-        otherObservations
+        otherObservationsVisible
     }
-    val observationsCount = if (isOwn) ownObservations.size else otherObservations.size
-    val speciesCount = (if (isOwn) ownObservations else otherObservations)
-        .mapNotNull { it.speciesId }
-        .distinct()
-        .size
-    val followersCount = if (isOwn) 0 else CommunityCatalog.people.size
+    val observationsCount = if (isOwn) {
+        ownObservations.size
+    } else {
+        otherProfile?.stats?.observations ?: otherObservationsVisible.size
+    }
+    val speciesCount = if (isOwn) {
+        ownObservations.mapNotNull { it.speciesId }.distinct().size
+    } else {
+        otherProfile?.stats?.species ?: 0
+    }
+    val followersCount = if (isOwn) 0 else (otherProfile?.stats?.followers ?: 0)
 
     if (showObservationsCatalog) {
         ObservationCatalogScreen(
@@ -298,7 +315,7 @@ fun ProfileScreen(
                     observationsValue = observationsCount.toString(),
                     speciesValue = speciesCount.toString(),
                     followersValue = followersCount.toString(),
-                    onFollowClick = { userId?.let(repository::toggleFollow) },
+                    onFollowClick = { otherUsername?.let(repository::toggleFollow) },
                     onReportClick = { showReport = true },
                     onOpenFollowers = { onOpenConnections(connectionsId, "followers") },
                     onOpenSecondStat = {},
@@ -385,14 +402,14 @@ fun ProfileScreen(
         ProfileReportSheet(
             onDismiss = { showReport = false },
             onReport = {
-                userId?.let {
+                otherProfile?.user?.id?.let {
                     repository.reportUser(it)
                     repository.notify(context.getString(R.string.profile_report_sent))
                 }
                 showReport = false
             },
             onBlock = {
-                userId?.let {
+                otherProfile?.user?.id?.let {
                     repository.blockUser(it)
                     repository.notify(context.getString(R.string.profile_blocked))
                 }
@@ -945,12 +962,18 @@ fun ConnectionsScreen(
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
     val session = snapshot.session
-    val isOwn = userId == "me" || userId == session.userId || userId == GuestUserId || userId.isBlank()
-    val other = if (isOwn) null else CommunityCatalog.person(userId)
+    val isOwn = userId == "me" || userId == session.userId || userId == session.username ||
+        userId == GuestUserId || userId.isBlank()
+    // `userId` es el username real para cuentas ajenas (igual que en ProfileScreen) — no hay
+    // CommunityCatalog de respaldo, las listas salen de auth-service de verdad.
+    val targetUsername = if (isOwn) session.username.ifBlank { null } else userId
+    val otherProfile by produceState<PublicProfileResponse?>(initialValue = null, targetUsername, isOwn) {
+        value = if (!isOwn) targetUsername?.let { AuthRemote.publicProfile(it) } else null
+    }
     val title = if (isOwn) {
         session.displayName.ifBlank { stringResource(R.string.profile_guest_name) }
     } else {
-        other?.displayName ?: stringResource(R.string.profile_title)
+        otherProfile?.user?.username ?: stringResource(R.string.profile_title)
     }
     var tab by rememberSaveable(initialTab) {
         mutableStateOf(
@@ -963,19 +986,19 @@ fun ConnectionsScreen(
     }
     var query by rememberSaveable { mutableStateOf("") }
     val followingQuery = query.trim()
-    val sourcePeople = if (isOwn) {
-        if (tab == ConnectionsTab.Following) {
-            CommunityCatalog.people.filter { repository.isFollowing(it.userId) }
-        } else {
-            emptyList()
-        }
-    } else {
-        CommunityCatalog.people.filter { it.userId != userId }
+    val followersList by produceState(initialValue = emptyList<PublicPerson>(), targetUsername) {
+        value = targetUsername?.let { AuthRemote.followers(it) }.orEmpty()
+    }
+    val followingList by produceState(initialValue = emptyList<PublicPerson>(), targetUsername) {
+        value = targetUsername?.let { AuthRemote.following(it) }.orEmpty()
+    }
+    val sourcePeople = when (tab) {
+        ConnectionsTab.Followers -> followersList
+        ConnectionsTab.Following -> followingList
+        ConnectionsTab.Favorites -> emptyList()
     }
     val people = sourcePeople.filter { person ->
-        followingQuery.isEmpty() ||
-            person.displayName.contains(followingQuery, ignoreCase = true) ||
-            person.handle.contains(followingQuery, ignoreCase = true)
+        followingQuery.isEmpty() || person.username.contains(followingQuery, ignoreCase = true)
     }
     val favoriteQuery = query.trim()
     val favorites = snapshot.favorites.mapNotNull { id -> repository.observationById(id) }.filter { observation ->
@@ -989,8 +1012,8 @@ fun ConnectionsScreen(
                 scientific.contains(favoriteQuery, ignoreCase = true)
         }
     }
-    val followersCount = if (isOwn) 0 else sourcePeople.size
-    val followingCount = CommunityCatalog.people.count { repository.isFollowing(it.userId) }
+    val followersCount = followersList.size
+    val followingCount = followingList.size
     val favoritesCount = snapshot.favorites.size
     val searchHint = stringResource(
         when (tab) {
@@ -1113,13 +1136,13 @@ fun ConnectionsScreen(
                         contentPadding = PaddingValues(bottom = AnuraDimens.spaceSection),
                         verticalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
                     ) {
-                        items(people, key = { it.userId }) { person ->
+                        items(people, key = { it.username }) { person ->
                             ConnectionPersonRow(
-                                name = person.displayName,
-                                handle = person.handle,
-                                following = repository.isFollowing(person.userId),
-                                onFollowClick = { repository.toggleFollow(person.userId) },
-                                onOpenProfile = { onOpenProfile(person.userId) },
+                                name = person.username,
+                                handle = "@${person.username}",
+                                following = repository.isFollowing(person.username),
+                                onFollowClick = { repository.toggleFollow(person.username) },
+                                onOpenProfile = { onOpenProfile(person.username) },
                             )
                         }
                     }

@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase
 
 /**
  * Coordenadas reales de ocurrencia (GBIF, tabla `occurrence_points` horneada en el paquete
- * regional — ver `LocalPackageCatalog` v1.1.0) para pintar el mapa de distribución de una
+ * regional publicado por el servidor) para pintar el mapa de distribución de una
  * ficha técnica. Lectura de tabla plana, igual que [NearbySpecies].
  */
 object SpeciesOccurrences {

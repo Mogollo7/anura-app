@@ -90,15 +90,38 @@ fun ObservationCommentsOverlay(
     val snapshot by repository.state.collectAsState()
     var sheetFraction by rememberSaveable(observationId) { mutableFloatStateOf(0f) }
     var composerFocused by rememberSaveable { mutableStateOf(false) }
-    val comments = snapshot.comments.filter { it.observationId == observationId }.map { record ->
-        ObservationComment(
+    LaunchedEffect(observationId) { repository.refreshComments(observationId) }
+    val allComments = snapshot.comments.filter { it.observationId == observationId }
+    val byParent = allComments.groupBy { it.parentId }
+    fun toUi(record: me.juanlabs.anura.core.data.CommentRecord): ObservationComment {
+        val stance = when (record.stance) {
+            "agree" -> CommentStance.Agree
+            "disagree" -> CommentStance.Disagree
+            else -> CommentStance.Neutral
+        }
+        val proposal = record.taxonProposalScientificName?.let { sci ->
+            val local = me.juanlabs.anura.core.data.SpeciesCatalog.find(sci)
+            TaxonProposal(
+                taxon = TaxonSuggestion(
+                    id = sci,
+                    scientificName = sci,
+                    commonName = record.taxonProposalCommonName ?: local?.commonName ?: sci,
+                    rank = TaxonRank.Species,
+                    photoRes = local?.photoRes ?: R.drawable.carousel_dendrobates_truncatus,
+                ),
+            )
+        }
+        return ObservationComment(
             id = record.id,
-            username = record.authorName,
+            username = "@${record.authorName}",
             body = record.body,
-            stance = CommentStance.Neutral,
+            stance = stance,
             own = record.authorUserId == snapshot.session.userId,
+            proposal = proposal,
+            replies = byParent[record.id].orEmpty().sortedBy { it.createdAtEpochMs }.map(::toUi),
         )
     }
+    val comments = byParent[null].orEmpty().sortedBy { it.createdAtEpochMs }.map(::toUi)
     var draft by rememberSaveable { mutableStateOf("") }
     var replyTo by remember { mutableStateOf<ObservationComment?>(null) }
     var pendingProposal by remember { mutableStateOf<TaxonProposal?>(null) }
@@ -246,14 +269,14 @@ fun ObservationCommentsOverlay(
                     onCancelReply = { replyTo = null },
                     onSend = {
                         val text = draft.trim()
-                        val mention = pendingProposal?.taxon?.scientificName
-                        val payload = buildString {
-                            if (replyTo != null) append("@${replyTo?.username} ")
-                            if (!mention.isNullOrBlank()) append("@$mention ")
-                            append(text)
-                        }.trim()
-                        if (payload.isEmpty()) return@CommentComposer
-                        repository.addComment(observationId, payload)
+                        if (text.isEmpty() && pendingProposal == null) return@CommentComposer
+                        repository.addComment(
+                            observationId = observationId,
+                            body = text,
+                            parentId = replyTo?.id,
+                            taxonProposalScientificName = pendingProposal?.taxon?.scientificName,
+                            taxonProposalCommonName = pendingProposal?.taxon?.commonName,
+                        )
                         draft = ""
                         pendingProposal = null
                         replyTo = null

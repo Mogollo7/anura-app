@@ -26,6 +26,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import java.io.File
@@ -188,4 +190,3 @@ internal fun CaptureBatchFieldCapture(
     }
 }
 
-internal fun mockQueuedSpecimen(index: Int): String = mockPoseToken(index)

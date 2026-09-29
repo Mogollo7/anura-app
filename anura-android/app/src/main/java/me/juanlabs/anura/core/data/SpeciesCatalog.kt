@@ -7,13 +7,14 @@ import me.juanlabs.anura.designsystem.component.AnuraToxicityChipVariant
 
 /**
  * Catálogo de producto (no es dato de usuario). Fuente única por `speciesId`
- * para fichas, carrusel y resultados simulados.
+ * para fichas, carrusel y explorar. No inventa resultados: las candidatas de una identificación
+ * salen del motor y del paquete instalado, nunca de aquí.
  *
  * Las 30 especies con id `COL_ANURA_XXXX` son las reales del paquete visual de Antioquia
  * (mismo taxon_id que `package.sqlite`/`taxonomy_guide.json` — no un id de demo inventado).
- * `iucn = DD` en todas: no hay una fuente de estado de conservación verificada por especie
- * integrada todavía (evitar fabricar CR/EN/VU/NT/LC sin dato real). `altitudeRange`/
- * `sizeRange` = "Sin datos" por el mismo motivo. `catalogObservationCount` es el número real
+ * IUCN, altitud y SVL salen de la ficha de campo del paquete (especie). En fichas de
+ * género/familia/orden, altitud y tamaño se mezclan como unión de rangos de las
+ * especies miembro. `catalogObservationCount` es el número real
  * de fotos de entrenamiento disponibles en `data cleaned/<especie>/` (no un contador de
  * comunidad, que no existe en este prototipo). `similarIds` = hasta 2 especies del mismo
  * género (o familia si el género solo tiene una especie en el catálogo).
@@ -34,25 +35,76 @@ data class SpeciesRecord(
     val curiousFact: String,
     @param:DrawableRes val photoRes: Int,
     val similarIds: List<String> = emptyList(),
+    /** Foto principal publicada en Admin → Contenido (licencia CC); si es null, se usa [photoRes]. */
+    val photoSha256: String? = null,
+    val photoCredit: String? = null,
+    /** Morfología revisada; null = no hay (la pestaña lo dice, no muestra texto de ejemplo). */
+    val morphology: PublishedMorphology? = null,
+    val habitat: String? = null,
+    /** true si la ficha viene del catálogo publicado (revisado por un herpetólogo). */
+    val isPublished: Boolean = false,
+    /** false cuando la ficha publicada no trae toxicidad: no se muestra «inofensiva» por defecto. */
+    val toxicityDeclared: Boolean = true,
 )
 
 object SpeciesCatalog {
-    val all: List<SpeciesRecord> = listOf(
+    /**
+     * La lista es el catálogo descargado ([ContentCatalog]), también sin red.
+     * Una especie nueva publicada entra aunque no estuviera en el APK.
+     * Antes de la primera descarga la lista está vacía: no se muestran las fotos
+     * empaquetadas como si ya fueran fichas.
+     */
+    val all: List<SpeciesRecord>
+        get() {
+            val published = ContentCatalog.catalog?.especies ?: return emptyList()
+            val overlaid = published.map { withPublished(publishedStub(it)) }
+            return overlaid.map { it.copy(similarIds = similarsAmong(it, overlaid)) }
+        }
+
+    private fun publishedStub(published: PublishedSpecies): SpeciesRecord {
+        val known = local.firstOrNull {
+            it.id == published.taxon_id || it.scientificName.equals(published.nombre_cientifico, ignoreCase = true)
+        }
+        if (known != null) return known
+        return SpeciesRecord(
+            id = published.taxon_id,
+            commonName = published.nombre_comun ?: published.nombre_cientifico,
+            scientificName = published.nombre_cientifico,
+            genus = published.genero.orEmpty(),
+            family = published.familia.orEmpty(),
+            iucn = AnuraConservationChipVariant.NE,
+            toxicity = AnuraToxicityChipVariant.Harmless,
+            toxicityDeclared = false,
+            altitudeRange = "",
+            sizeRange = "",
+            catalogObservationCount = "",
+            catalogObserverCount = "",
+            curiousFact = "",
+            photoRes = R.drawable.splash_empty,
+        )
+    }
+
+    /** Especies cuya ficha (local o publicada) incluye este largo hocico–cloaca. Sin rango, no cuentan. */
+    fun countForSvl(svlMm: Int): Int = all.count { record ->
+        val range = TaxonTraitRanges.parse(record.sizeRange) ?: return@count false
+        svlMm >= range.min && (svlMm <= range.max || range.maxOpen)
+    }
+
+    private val local: List<SpeciesRecord> = listOf(
         SpeciesRecord(
             id = "COL_ANURA_0001",
             commonName = "Palm Rocket Frog",
             scientificName = "Rheobates palmatus",
             genus = "Rheobates",
             family = "Aromobatidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.500–2.500 m",
+            sizeRange = "45–60 mm",
             catalogObservationCount = "70",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_rheobates_palmatus,
-            similarIds = listOf(),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0002",
@@ -60,15 +112,14 @@ object SpeciesCatalog {
             scientificName = "Rhinella alata",
             genus = "Rhinella",
             family = "Bufonidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.500 m",
+            sizeRange = "35–55 mm",
             catalogObservationCount = "90",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_rhinella_alata,
-            similarIds = listOf("COL_ANURA_0003", "COL_ANURA_0004"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0003",
@@ -76,15 +127,14 @@ object SpeciesCatalog {
             scientificName = "Rhinella horribilis",
             genus = "Rhinella",
             family = "Bufonidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.600 m",
+            sizeRange = "90–150+ mm",
             catalogObservationCount = "94",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_rhinella_horribilis,
-            similarIds = listOf("COL_ANURA_0002", "COL_ANURA_0004"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0004",
@@ -92,15 +142,14 @@ object SpeciesCatalog {
             scientificName = "Rhinella margaritifera",
             genus = "Rhinella",
             family = "Bufonidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.200 m",
+            sizeRange = "45–75 mm",
             catalogObservationCount = "159",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_rhinella_margaritifera,
-            similarIds = listOf("COL_ANURA_0002", "COL_ANURA_0003"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0006",
@@ -108,15 +157,14 @@ object SpeciesCatalog {
             scientificName = "Craugastor raniformis",
             genus = "Craugastor",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.500 m",
+            sizeRange = "40–70 mm",
             catalogObservationCount = "298",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_craugastor_raniformis,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0007",
@@ -124,15 +172,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis achatinus",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–2.200 m",
+            sizeRange = "25–45 mm",
             catalogObservationCount = "1902",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_achatinus,
-            similarIds = listOf("COL_ANURA_0009", "COL_ANURA_0010"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0009",
@@ -140,15 +187,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis erythropleura",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.000–2.600 m",
+            sizeRange = "20–35 mm",
             catalogObservationCount = "136",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_erythropleura,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0010"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0010",
@@ -156,15 +202,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis gaigei",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.200 m",
+            sizeRange = "30–45 mm",
             catalogObservationCount = "89",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_gaigei,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0011",
@@ -172,15 +217,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis paisa",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.800–3.000 m",
+            sizeRange = "25–35 mm",
             catalogObservationCount = "170",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_paisa,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0012",
@@ -188,15 +232,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis palmeri",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.000–2.600 m",
+            sizeRange = "20–30 mm",
             catalogObservationCount = "100",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_palmeri,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0013",
@@ -204,15 +247,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis penelopus",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.VU,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.000–2.200 m",
+            sizeRange = "25–35 mm",
             catalogObservationCount = "156",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_penelopus,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0014",
@@ -220,15 +262,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis permixtus",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.800–3.200 m",
+            sizeRange = "25–35 mm",
             catalogObservationCount = "111",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_permixtus,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0015",
@@ -236,15 +277,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis taeniatus",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.500 m",
+            sizeRange = "25–35 mm",
             catalogObservationCount = "160",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_taeniatus,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0016",
@@ -252,15 +292,14 @@ object SpeciesCatalog {
             scientificName = "Pristimantis thectopternus",
             genus = "Pristimantis",
             family = "Craugastoridae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.500–2.800 m",
+            sizeRange = "25–40 mm",
             catalogObservationCount = "80",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_pristimantis_thectopternus,
-            similarIds = listOf("COL_ANURA_0007", "COL_ANURA_0009"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0018",
@@ -268,15 +307,14 @@ object SpeciesCatalog {
             scientificName = "Dendrobates truncatus",
             genus = "Dendrobates",
             family = "Dendrobatidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Toxic,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.200 m",
+            sizeRange = "20–25 mm",
             catalogObservationCount = "1809",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_dendrobates_truncatus,
-            similarIds = listOf(),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0020",
@@ -284,15 +322,14 @@ object SpeciesCatalog {
             scientificName = "Boana boans",
             genus = "Boana",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.000 m",
+            sizeRange = "90–128 mm",
             catalogObservationCount = "145",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_boana_boans,
-            similarIds = listOf("COL_ANURA_0023", "COL_ANURA_0024"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0023",
@@ -300,15 +337,14 @@ object SpeciesCatalog {
             scientificName = "Boana platanera",
             genus = "Boana",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.NE,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–2.450 m",
+            sizeRange = "42–64 mm",
             catalogObservationCount = "150",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_boana_platanera,
-            similarIds = listOf("COL_ANURA_0020", "COL_ANURA_0024"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0024",
@@ -316,15 +352,14 @@ object SpeciesCatalog {
             scientificName = "Boana pugnax",
             genus = "Boana",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–605 m",
+            sizeRange = "50–80 mm",
             catalogObservationCount = "148",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_boana_pugnax,
-            similarIds = listOf("COL_ANURA_0020", "COL_ANURA_0023"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0026",
@@ -332,15 +367,14 @@ object SpeciesCatalog {
             scientificName = "Boana rosenbergi",
             genus = "Boana",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.000 m",
+            sizeRange = "70–100 mm",
             catalogObservationCount = "148",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_boana_rosenbergi,
-            similarIds = listOf("COL_ANURA_0020", "COL_ANURA_0023"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0027",
@@ -348,15 +382,14 @@ object SpeciesCatalog {
             scientificName = "Boana xerophylla",
             genus = "Boana",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–2.450 m",
+            sizeRange = "42–64 mm",
             catalogObservationCount = "100",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_boana_xerophylla,
-            similarIds = listOf("COL_ANURA_0020", "COL_ANURA_0023"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0028",
@@ -364,15 +397,14 @@ object SpeciesCatalog {
             scientificName = "Dendropsophus bogerti",
             genus = "Dendropsophus",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "2.400–3.000 m",
+            sizeRange = "30–35 mm",
             catalogObservationCount = "948",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_dendropsophus_bogerti,
-            similarIds = listOf("COL_ANURA_0029", "COL_ANURA_0030"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0029",
@@ -380,15 +412,14 @@ object SpeciesCatalog {
             scientificName = "Dendropsophus columbianus",
             genus = "Dendropsophus",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.200–2.200 m",
+            sizeRange = "25–33 mm",
             catalogObservationCount = "146",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_dendropsophus_columbianus,
-            similarIds = listOf("COL_ANURA_0028", "COL_ANURA_0030"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0030",
@@ -396,15 +427,14 @@ object SpeciesCatalog {
             scientificName = "Dendropsophus ebraccatus",
             genus = "Dendropsophus",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.500 m",
+            sizeRange = "23–35 mm",
             catalogObservationCount = "148",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_dendropsophus_ebraccatus,
-            similarIds = listOf("COL_ANURA_0028", "COL_ANURA_0029"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0032",
@@ -412,15 +442,14 @@ object SpeciesCatalog {
             scientificName = "Dendropsophus microcephalus",
             genus = "Dendropsophus",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.200 m",
+            sizeRange = "20–30 mm",
             catalogObservationCount = "713",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_dendropsophus_microcephalus,
-            similarIds = listOf("COL_ANURA_0028", "COL_ANURA_0029"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0034",
@@ -428,15 +457,14 @@ object SpeciesCatalog {
             scientificName = "Dendropsophus norandinus",
             genus = "Dendropsophus",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "1.400–2.000 m",
+            sizeRange = "25–33 mm",
             catalogObservationCount = "26",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_dendropsophus_norandinus,
-            similarIds = listOf("COL_ANURA_0028", "COL_ANURA_0029"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0037",
@@ -444,15 +472,14 @@ object SpeciesCatalog {
             scientificName = "Hyloscirtus palmeri",
             genus = "Hyloscirtus",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "100–1.600 m",
+            sizeRange = "40–50 mm",
             catalogObservationCount = "178",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_hyloscirtus_palmeri,
-            similarIds = listOf("COL_ANURA_0020", "COL_ANURA_0023"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0038",
@@ -460,15 +487,14 @@ object SpeciesCatalog {
             scientificName = "Scinax ruber",
             genus = "Scinax",
             family = "Hylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.500 m",
+            sizeRange = "30–45 mm",
             catalogObservationCount = "125",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_scinax_ruber,
-            similarIds = listOf("COL_ANURA_0020", "COL_ANURA_0023"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0039",
@@ -476,15 +502,14 @@ object SpeciesCatalog {
             scientificName = "Engystomops pustulosus",
             genus = "Engystomops",
             family = "Leptodactylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.000 m",
+            sizeRange = "25–35 mm",
             catalogObservationCount = "1718",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_engystomops_pustulosus,
-            similarIds = listOf("COL_ANURA_0040"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0040",
@@ -492,15 +517,14 @@ object SpeciesCatalog {
             scientificName = "Leptodactylus colombiensis",
             genus = "Leptodactylus",
             family = "Leptodactylidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "200–2.000 m",
+            sizeRange = "35–50 mm",
             catalogObservationCount = "206",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_leptodactylus_colombiensis,
-            similarIds = listOf("COL_ANURA_0039"),
         ),
         SpeciesRecord(
             id = "COL_ANURA_0042",
@@ -508,15 +532,14 @@ object SpeciesCatalog {
             scientificName = "Phyllomedusa venusta",
             genus = "Phyllomedusa",
             family = "Phyllomedusidae",
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = AnuraConservationChipVariant.LC,
             toxicity = AnuraToxicityChipVariant.Harmless,
-            altitudeRange = "Sin datos",
-            sizeRange = "Sin datos",
+            altitudeRange = "0–1.200 m",
+            sizeRange = "70–100 mm",
             catalogObservationCount = "150",
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = R.drawable.carousel_phyllomedusa_venusta,
-            similarIds = listOf(),
         ),
         // No forma parte del catálogo visual de Antioquia (fuera de la muestra de 30 real) —
         // se conserva con su id anterior por compatibilidad: CommunityCatalog/HomeCarouselCatalog
@@ -535,18 +558,68 @@ object SpeciesCatalog {
             catalogObserverCount = "9",
             curiousFact = "Su piel transparente permite ver sus órganos internos.",
             photoRes = R.drawable.carousel_sachatamia_electrops,
-            similarIds = listOf("COL_ANURA_0011"),
         ),
     )
 
-    private val byId = all.associateBy { it.id }
+    /**
+     * Ficha publicada encima del registro local. Regla de la ficha pública: si hay ficha
+     * publicada, se muestra SOLO lo publicado — lo escrito a mano aquí no tiene fuente y no se
+     * mezcla (un campo sin dato queda vacío y la pantalla no lo pinta). La foto local queda
+     * solo como respaldo mientras baja la publicada.
+     */
+    private fun withPublished(record: SpeciesRecord): SpeciesRecord {
+        val p = ContentCatalog.byTaxonId(record.id) ?: ContentCatalog.byScientificName(record.scientificName)
+        if (p == null) return record.copy(similarIds = computedSimilar(record))
+        val curated = p.especies_confusion.mapNotNull { taxon -> local.firstOrNull { it.id == taxon }?.id }
+        return record.copy(
+            commonName = p.nombre_comun ?: p.nombre_cientifico,
+            genus = p.genero ?: record.genus,
+            family = p.familia ?: record.family,
+            iucn = p.uicn?.categoria?.let { cat -> AnuraConservationChipVariant.entries.firstOrNull { it.name == cat } } ?: record.iucn,
+            toxicity = when (p.toxicidad?.nivel) {
+                "toxica_tacto", "toxica_ingestion" -> AnuraToxicityChipVariant.Toxic
+                "inofensiva" -> AnuraToxicityChipVariant.Harmless
+                else -> record.toxicity
+            },
+            toxicityDeclared = p.toxicidad?.nivel != null,
+            altitudeRange = p.altitud_literatura?.let { TaxonTraitRanges.formatPublished(it.min, it.max, "m") }.orEmpty(),
+            sizeRange = p.lhc?.let { TaxonTraitRanges.formatPublished(it.min, it.max, "mm") }.orEmpty(),
+            catalogObservationCount = p.fotos_referencia?.toString() ?: record.catalogObservationCount,
+            catalogObserverCount = "",
+            curiousFact = p.dato_curioso?.valor.orEmpty(),
+            // `especies_confusion` la cura un herpetólogo al publicar la ficha; sin eso, se
+            // calcula de verdad (mismo género, si no misma familia) en vez de una pareja fija
+            // escrita a mano por especie.
+            similarIds = curated.ifEmpty { computedSimilar(record) },
+            photoSha256 = p.foto_principal?.sha256,
+            // La atribución de iNaturalist ya trae la licencia ("… (CC BY)"); la licencia sola solo si no hay autor.
+            photoCredit = p.foto_principal?.let { it.atribucion ?: it.licencia?.uppercase() },
+            morphology = p.morfologia,
+            habitat = p.habitat,
+            isPublished = true,
+        )
+    }
+
+    /** Mismo género primero; si no hay otra especie del género, misma familia. Nunca la propia. */
+    private fun computedSimilar(record: SpeciesRecord): List<String> = similarsAmong(record, local)
+
+    private fun similarsAmong(record: SpeciesRecord, pool: List<SpeciesRecord>): List<String> {
+        val curated = record.similarIds.filter { id -> pool.any { it.id == id } }
+        if (curated.isNotEmpty()) return curated.take(2)
+        val sameGenus = pool.filter { it.id != record.id && it.genus.isNotBlank() && it.genus == record.genus }
+        if (sameGenus.isNotEmpty()) return sameGenus.take(2).map { it.id }
+        return pool.filter { it.id != record.id && it.family.isNotBlank() && it.family == record.family }
+            .take(2)
+            .map { it.id }
+    }
 
     /** Especie exacta por id o nombre científico — nunca especies "hermanas" por género/familia
      * (eso es [findGroup], usado solo para fichas de género/familia). */
     fun find(speciesId: String?): SpeciesRecord? {
         if (speciesId.isNullOrBlank()) return null
-        byId[speciesId]?.let { return it }
-        return all.find { it.scientificName.equals(speciesId, ignoreCase = true) }
+        return all.find {
+            it.id == speciesId || it.scientificName.equals(speciesId, ignoreCase = true)
+        }
     }
 
     /**
@@ -564,41 +637,28 @@ object SpeciesCatalog {
             members.all { it.family.equals(taxonId, ignoreCase = true) } -> "Familia"
             else -> "Orden"
         }
+        val altitude = TaxonTraitRanges.merge(members.mapNotNull { TaxonTraitRanges.parse(it.altitudeRange) })
+        val size = TaxonTraitRanges.merge(members.mapNotNull { TaxonTraitRanges.parse(it.sizeRange) })
         return SpeciesRecord(
             id = taxonId,
             commonName = taxonId,
             scientificName = rankLabel,
             genus = first.genus,
             family = first.family,
-            iucn = AnuraConservationChipVariant.DD,
+            iucn = TaxonTraitRanges.worstIucn(members.map { it.iucn }),
             toxicity = if (members.any { it.toxicity == AnuraToxicityChipVariant.Toxic }) {
                 AnuraToxicityChipVariant.Toxic
             } else {
                 AnuraToxicityChipVariant.Harmless
             },
-            altitudeRange = "Ver especies",
-            sizeRange = "Ver especies",
+            altitudeRange = altitude?.let(TaxonTraitRanges::formatAltitude) ?: "Ver especies",
+            sizeRange = size?.let(TaxonTraitRanges::formatSize) ?: "Ver especies",
             catalogObservationCount = members.sumOf { it.catalogObservationCount.toIntOrNull() ?: 0 }.toString(),
             catalogObserverCount = "—",
             curiousFact = "",
             photoRes = first.photoRes,
             similarIds = emptyList(),
         )
-    }
-
-    fun requireOrTruncatus(speciesId: String?): SpeciesRecord =
-        find(speciesId) ?: all.first { it.id == SimulatedKnownSpeciesId }
-
-    fun rankedCandidates(species: SpeciesRecord): List<IdentificationCandidate> {
-        val ranked = listOf(species) + species.similarIds.mapNotNull(::find).take(2)
-        val shares = when (ranked.size) {
-            1 -> floatArrayOf(0.92f)
-            2 -> floatArrayOf(0.81f, 0.19f)
-            else -> floatArrayOf(0.74f, 0.16f, 0.10f)
-        }
-        return ranked.mapIndexed { index, record ->
-            IdentificationCandidate(record.scientificName, shares[index], record.genus, record.family)
-        }
     }
 
     fun asCandidate(scientificName: String, share: Float, genus: String, family: String): IdentificationCandidate {

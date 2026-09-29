@@ -22,6 +22,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +34,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.rememberAmbientTemperatureLabel
+import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.feature.capture.AudioDemoNotice
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraSectionLabel
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
@@ -74,6 +79,10 @@ fun NightSoundsScreen(
     sessionId: String,
     onBackClick: () -> Unit,
 ) {
+    val repository = rememberAnuraRepository()
+    val snapshot by repository.state.collectAsState()
+    val session = snapshot.fieldSessions.find { it.id == sessionId }
+    val temperature = rememberAmbientTemperatureLabel(session?.latitude, session?.longitude)
     Scaffold(
         containerColor = AnuraTheme.extendedColors.boardBackground,
         topBar = {
@@ -92,7 +101,9 @@ fun NightSoundsScreen(
                 .padding(horizontal = AnuraDimens.spaceGutter)
                 .padding(bottom = AnuraDimens.spaceSection),
         ) {
-            NightSoundsMetadataChip()
+            AudioDemoNotice()
+            Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+            NightSoundsMetadataChip(temperature = temperature)
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             key(sessionId) {
                 CaptureLiveSpectrogramSession(
@@ -116,7 +127,7 @@ fun NightSoundsScreen(
 }
 
 @Composable
-private fun NightSoundsMetadataChip() {
+private fun NightSoundsMetadataChip(temperature: String) {
     AnuraCard(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(AnuraDimens.radiusCapsule),
@@ -138,7 +149,7 @@ private fun NightSoundsMetadataChip() {
                 modifier = Modifier.size(24.dp),
             )
             Text(
-                text = stringResource(R.string.night_sounds_metadata),
+                text = stringResource(R.string.night_sounds_metadata, temperature),
                 style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.weight(1f),

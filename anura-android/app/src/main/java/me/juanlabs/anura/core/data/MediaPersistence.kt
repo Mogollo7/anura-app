@@ -170,5 +170,18 @@ class MediaPersistence(private val context: Context) {
             val file = File(path)
             return file.takeIf { it.exists() }
         }
+
+        /**
+         * Borra un archivo local nuestro (`anura_media/...`) tras una subida confirmada.
+         * No toca `res:`, `uri:` ni rutas fuera de esos directorios.
+         */
+        fun deleteLocalFile(token: String?): Boolean {
+            if (token.isNullOrBlank()) return false
+            val file = fileFromToken(token) ?: return false
+            val path = file.absolutePath
+            val underMedia = path.contains("${File.separator}anura_media${File.separator}")
+            if (!underMedia) return false
+            return runCatching { file.delete() }.getOrDefault(false)
+        }
     }
 }

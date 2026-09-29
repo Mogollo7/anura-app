@@ -6,15 +6,16 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
-import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -22,6 +23,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.navigation
 import androidx.navigation.toRoute
+import kotlinx.coroutines.flow.first
 import me.juanlabs.anura.core.data.AnuraRepository
 import me.juanlabs.anura.core.data.IdentificationKnown
 import me.juanlabs.anura.core.data.IdentificationUnknownFamily
@@ -31,6 +33,11 @@ import me.juanlabs.anura.core.data.IdentificationCandidate
 import me.juanlabs.anura.feature.capture.OpenSetReachedRank
 import me.juanlabs.anura.feature.capture.OpenSetUnknownResults
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.auth.authTokenEvents
+import me.juanlabs.anura.core.auth.decodeJwtClaims
+import me.juanlabs.anura.core.auth.launchGoogleLogin
+import me.juanlabs.anura.core.data.notificationOpenRequests
+import me.juanlabs.anura.core.data.observationDeepLinkEvents
 import me.juanlabs.anura.designsystem.theme.AnuraMotion
 import me.juanlabs.anura.designsystem.theme.AnuraAccentRole
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
@@ -41,15 +48,9 @@ import me.juanlabs.anura.feature.auth.WelcomeScreen
 import me.juanlabs.anura.feature.capture.AnalyzingScreen
 import me.juanlabs.anura.feature.capture.AudioCaptureScreen
 import me.juanlabs.anura.feature.capture.CapturePhotoDraft
-import me.juanlabs.anura.feature.capture.CaptureStep1Screen
-import me.juanlabs.anura.feature.capture.CaptureStep2Screen
-import me.juanlabs.anura.feature.capture.CaptureStep3Screen
-import me.juanlabs.anura.feature.capture.CaptureStep4Screen
-import me.juanlabs.anura.feature.capture.CaptureStep5Screen
-import me.juanlabs.anura.feature.capture.CaptureStep6Screen
+import me.juanlabs.anura.feature.capture.ClaveScreen
 import me.juanlabs.anura.feature.capture.PhotoCaptureScreen
 import me.juanlabs.anura.core.inference.IdentificationFailure
-import me.juanlabs.anura.feature.capture.MockOpenSetUnknownResults
 import me.juanlabs.anura.feature.capture.UnknownResultScreen
 import me.juanlabs.anura.feature.capture.WhatToRegisterContent
 import me.juanlabs.anura.feature.comments.CommentsScreen
@@ -97,6 +98,8 @@ fun AnuraNavHost(
     onFieldSessionActivated: (String) -> Unit = {},
     onFieldSessionClosed: () -> Unit = {},
 ) {
+    var notificationsRouted by remember { mutableStateOf(false) }
+    var startupNotificationToken by remember { mutableStateOf<Long?>(null) }
     val reduceMotion = rememberReduceMotion()
     val enter = {
         if (reduceMotion) EnterTransition.None else fadeIn(tween(AnuraMotion.DurationMedium))
@@ -104,6 +107,59 @@ fun AnuraNavHost(
     val exit = {
         if (reduceMotion) ExitTransition.None else fadeOut(tween(AnuraMotion.DurationMedium))
     }
+
+    // Login real con Google (Custom Tabs, ver core/auth/ServerAuth.kt): MainActivity recibe
+    // el deep link y emite aquí, sin importar en qué pantalla esté la app en ese momento.
+    val repositoryForAuth = rememberAnuraRepository()
+    LaunchedEffect(navController) {
+        authTokenEvents.collect { token ->
+            val claims = decodeJwtClaims(token) ?: return@collect
+            repositoryForAuth.signInWithToken(token, claims)
+            navController.navigate(AnuraRoute.Home) {
+                popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+            }
+        }
+    }
+
+    // Restaura la sesión guardada (Room, ver AnuraRepository.create()) al arrancar en frío.
+    // El startDestination siempre es AuthGraph porque Compose lo fija en la primera composición
+    // y la carga de Room es asíncrona. Si la sesión ya entró, saltamos a Inicio — salvo que
+    // el proceso haya arrancado por un toque de aviso: en ese caso el destino es Avisos.
+    // Solo cierra sesión quien toque "Salir" en Ajustes (`onSignOut` más abajo).
+    LaunchedEffect(repositoryForAuth) {
+        repositoryForAuth.hydrated.first { it }
+        val pending = notificationOpenRequests.value
+        startupNotificationToken = pending?.token
+        val openNotifications = pending != null
+        if (repositoryForAuth.snapshot.session.enteredApp || openNotifications) {
+            navController.navigate(if (openNotifications) AnuraRoute.Notifications else AnuraRoute.Home) {
+                popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+            }
+        }
+        notificationsRouted = true
+    }
+
+    // Compartir (ObservationTempoActions, ObservationScreens.kt) + App Links
+    // (AndroidManifest.xml): abrir https://anura.juanlabs.me/explorer/<id> con la app instalada
+    // navega directo al detalle, sin pasar por el navegador.
+    LaunchedEffect(navController) {
+        observationDeepLinkEvents.collect { id ->
+            navController.navigate(AnuraRoute.ObservationDetail(id = id))
+        }
+    }
+
+    // Tocar una notificación de aviso con la app ya abierta. El arranque en frío lo resuelve
+    // el efecto de arriba: si este collector también navegara el mismo token, la sesión
+    // restaurada podría pisarlo y dejar a la persona en Inicio.
+    LaunchedEffect(navController, notificationsRouted) {
+        if (!notificationsRouted) return@LaunchedEffect
+        notificationOpenRequests.collect { open ->
+            if (open == null || open.token == startupNotificationToken) return@collect
+            startupNotificationToken = open.token
+            navController.navigate(AnuraRoute.Notifications) { launchSingleTop = true }
+        }
+    }
+
     NavHost(
         navController = navController,
         startDestination = AnuraRoute.AuthGraph,
@@ -145,16 +201,20 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         }
         composable<AnuraRoute.SignIn> {
             val repository = rememberAnuraRepository()
-            val needEmail = stringResource(me.juanlabs.anura.R.string.auth_forgot_password_need_email)
-            val sent = stringResource(me.juanlabs.anura.R.string.auth_forgot_password_sent)
+            val context = LocalContext.current
+            val offline = stringResource(me.juanlabs.anura.R.string.auth_offline)
             SignInScreen(
                 onBackClick = { navController.popBackStack() },
-                onSignedIn = { email ->
-                    repository.signIn(email)
-                    navController.navigate(AnuraRoute.Home) {
-                        popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+                onSignIn = { email, password ->
+                    repository.signInWithPassword(email, password, offline).also { error ->
+                        if (error == null) {
+                            navController.navigate(AnuraRoute.Home) {
+                                popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+                            }
+                        }
                     }
                 },
+                onContinueWithGoogle = { launchGoogleLogin(context) },
                 onGoToSignUp = { navController.navigate(AnuraRoute.SignUp) },
                 onContinueWithoutAccount = {
                     repository.enterGuest()
@@ -162,19 +222,20 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                         popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
                     }
                 },
-                onForgotPassword = { email ->
-                    repository.notify(if (email.isBlank()) needEmail else sent)
-                },
             )
         }
         composable<AnuraRoute.SignUp> {
             val repository = rememberAnuraRepository()
+            val offline = stringResource(me.juanlabs.anura.R.string.auth_offline)
             SignUpScreen(
                 onBackClick = { navController.popBackStack() },
-                onSignedUp = { name, email, usage ->
-                    repository.signUp(name, email, usage)
-                    navController.navigate(AnuraRoute.Home) {
-                        popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+                onSignUp = { name, email, password, usage ->
+                    repository.signUpWithPassword(name, email, password, usage, offline).also { error ->
+                        if (error == null) {
+                            navController.navigate(AnuraRoute.Home) {
+                                popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
+                            }
+                        }
                     }
                 },
                 onGoToSignIn = { navController.navigate(AnuraRoute.SignIn) },
@@ -243,16 +304,19 @@ private fun NavGraphBuilder.topLevelDestinations(
             },
         )
     }
+    // Explorar = observaciones; Listado = especies. La barra (rótulos/iconos/orden)
+    // no cambia — solo el destino de cada pestaña.
     composable<AnuraRoute.Explore> {
-        ExploreScreen(
-            onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
-            onOpenExploreMore = { navController.navigate(AnuraRoute.ExploreMore) },
-        )
-    }
-    composable<AnuraRoute.Observations> {
         ObservationsScreen(
             onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
             onOpenFavorites = { navController.navigate(AnuraRoute.Favorites) },
+        )
+    }
+    composable<AnuraRoute.Observations> {
+        ExploreScreen(
+            onOpenSpeciesSheet = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
+            onOpenSpeciesByTaxon = { taxonId -> navController.navigate(AnuraRoute.SpeciesByTaxon(taxonId)) },
+            onOpenExploreMore = { navController.navigate(AnuraRoute.ExploreMore) },
         )
     }
     composable<AnuraRoute.Settings> {
@@ -305,6 +369,12 @@ private fun NavGraphBuilder.detailDestinations(
                     navController.navigate(AnuraRoute.SpeciesByTaxon(taxonId))
                 },
                 onOpenProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
+                onGoHome = {
+                    navController.navigate(AnuraRoute.Home) {
+                        popUpTo(AnuraRoute.Home) { inclusive = false }
+                        launchSingleTop = true
+                    }
+                },
             )
         }
     composable<AnuraRoute.Profile> { backStackEntry ->
@@ -449,75 +519,17 @@ private fun NavGraphBuilder.detailDestinations(
 }
 
 private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
-    navigation<AnuraRoute.CaptureGraph>(startDestination = AnuraRoute.CaptureStep1) {
-        composable<AnuraRoute.CaptureStep1> {
-            val fromReview = navController.isEditingCaptureReview()
-            CaptureStep1Screen(
-                onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.CaptureStep2) },
-                onSkip = { navController.navigate(AnuraRoute.CaptureStep2) },
-                fromReview = fromReview,
-                onSave = { navController.returnToCaptureReview() },
-                onCancel = { navController.returnToCaptureReview() },
+    navigation<AnuraRoute.CaptureGraph>(startDestination = AnuraRoute.Clave) {
+        composable<AnuraRoute.Clave> {
+            ClaveScreen(
+                onBackClick = { navController.closeCaptureWizard() },
                 onCloseClick = { navController.closeCaptureWizard() },
-            )
-        }
-        composable<AnuraRoute.CaptureStep2> {
-            val fromReview = navController.isEditingCaptureReview()
-            CaptureStep2Screen(
-                onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.CaptureStep3) },
-                onSkip = { navController.navigate(AnuraRoute.CaptureStep3) },
-                fromReview = fromReview,
-                onSave = { navController.returnToCaptureReview() },
-                onCancel = { navController.returnToCaptureReview() },
-                onCloseClick = { navController.closeCaptureWizard() },
-            )
-        }
-        composable<AnuraRoute.CaptureStep3> {
-            val fromReview = navController.isEditingCaptureReview()
-            CaptureStep3Screen(
-                onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.CaptureStep4) },
-                onSkip = { navController.navigate(AnuraRoute.CaptureStep4) },
-                fromReview = fromReview,
-                onSave = { navController.returnToCaptureReview() },
-                onCancel = { navController.returnToCaptureReview() },
-                onCloseClick = { navController.closeCaptureWizard() },
-            )
-        }
-        composable<AnuraRoute.CaptureStep4> {
-            val fromReview = navController.isEditingCaptureReview()
-            CaptureStep4Screen(
-                onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.CaptureStep5) },
-                fromReview = fromReview,
-                onSave = { navController.returnToCaptureReview() },
-                onCloseClick = { navController.closeCaptureWizard() },
-            )
-        }
-        composable<AnuraRoute.CaptureStep5> {
-            val fromReview = navController.isEditingCaptureReview()
-            CaptureStep5Screen(
-                onBackClick = { navController.leaveCaptureStep(fromReview) },
-                onNext = { navController.navigate(AnuraRoute.CaptureStep6) },
-                onSkip = { navController.navigate(AnuraRoute.CaptureStep6) },
-                fromReview = fromReview,
-                onSave = { navController.returnToCaptureReview() },
-                onCancel = { navController.returnToCaptureReview() },
-                onCloseClick = { navController.closeCaptureWizard() },
-            )
-        }
-        composable<AnuraRoute.CaptureStep6> {
-            CaptureStep6Screen(
-                onBackClick = { navController.popBackStack() },
-                onAnalyze = { navController.navigate(AnuraRoute.Analyzing()) },
-                onEditWhere = { navController.navigate(AnuraRoute.CaptureStep1) },
-                onEditWhen = { navController.navigate(AnuraRoute.CaptureStep2) },
-                onEditSize = { navController.navigate(AnuraRoute.CaptureStep3) },
-                onEditPhotos = { navController.navigate(AnuraRoute.CaptureStep4) },
-                onEditAudio = { navController.navigate(AnuraRoute.CaptureStep5) },
-                onCloseClick = { navController.closeCaptureWizard() },
+                onOpenPackages = {
+                    navController.navigate(AnuraRoute.RegionalPackages) {
+                        popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
+                    }
+                },
+                onOpenSpecies = { speciesId -> navController.navigate(AnuraRoute.SpeciesSheet(speciesId)) },
             )
         }
         composable<AnuraRoute.PhotoCapture> {
@@ -601,6 +613,11 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                     }
                 },
                 onNotAnuro = { navController.popBackStack() },
+                onOpenPackages = {
+                    navController.navigate(AnuraRoute.RegionalPackages) {
+                        popUpTo<AnuraRoute.Analyzing> { inclusive = true }
+                    }
+                },
                 onIdentificationFailed = { reason ->
                     repository.notify(
                         context.getString(
@@ -613,20 +630,10 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                     )
                     navController.popBackStack()
                 },
-                onKnownResult = {
-                    val id = repository.commitObservation(IdentificationKnown)
-                    navController.navigate(AnuraRoute.ObservationDetail(id = id)) {
-                        popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
-                    }
-                },
                 onUnknownResult = { reached ->
-                    val status = if (reached == "family") {
-                        IdentificationUnknownFamily
-                    } else {
-                        IdentificationUnknownGenus
-                    }
-                    repository.commitObservation(status)
-                    navController.navigate(AnuraRoute.UnknownResult(reached)) {
+                    // Solo Audio ID: demostración sin modelo, se guarda sin identificar más allá de Anura.
+                    val id = repository.commitObservation(IdentificationUnknownOrder)
+                    navController.navigate(AnuraRoute.UnknownResult(reached, observationId = id, audioDemo = true)) {
                         popUpTo(AnuraRoute.CaptureGraph) { inclusive = true }
                     }
                 },
@@ -637,11 +644,15 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             val repository = rememberAnuraRepository()
             val reviewSent = stringResource(me.juanlabs.anura.R.string.expert_review_sent)
             val observation = resultRoute.observationId?.let(repository::observationById)
-            val result = observation?.takeIf { it.candidates.isNotEmpty() }
-                ?.let { OpenSetUnknownResults.fromCandidates(it.candidates, it.photoTokens.firstOrNull()) }
-                ?: MockOpenSetUnknownResults.forReached(resultRoute.reached)
+            // Sin candidatas (audio, paso a paso o sin paquete) el resultado se queda en Anura sin
+            // confirmar familia ni género: nunca un resultado de ejemplo.
+            val result = OpenSetUnknownResults.fromCandidates(
+                observation?.candidates.orEmpty(),
+                observation?.photoTokens?.firstOrNull(),
+            )
             UnknownResultScreen(
                 result = result,
+                audioDemo = resultRoute.audioDemo,
                 onBackClick = { navController.popBackStack() },
                 onOpenTaxonSheet = { taxonId ->
                     navController.navigate(AnuraRoute.SpeciesSheet(taxonId))
@@ -653,19 +664,6 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
             )
         }
     }
-}
-
-private fun NavHostController.isEditingCaptureReview(): Boolean =
-    previousBackStackEntry?.destination?.hasRoute<AnuraRoute.CaptureStep6>() == true
-
-private fun NavHostController.returnToCaptureReview() {
-    if (!popBackStack(AnuraRoute.CaptureStep6, inclusive = false)) {
-        popBackStack()
-    }
-}
-
-private fun NavHostController.leaveCaptureStep(fromReview: Boolean) {
-    if (fromReview) returnToCaptureReview() else popBackStack()
 }
 
 private fun NavHostController.closeCaptureWizard() {
