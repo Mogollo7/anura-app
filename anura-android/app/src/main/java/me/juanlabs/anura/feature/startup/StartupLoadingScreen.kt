@@ -19,6 +19,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -26,8 +27,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withTimeoutOrNull
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.ContentCatalog
+import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraLoader
 import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
@@ -45,11 +49,11 @@ private val GapLogoToTitle = 20.dp
 private val GapSubtitleToLoader = 20.dp
 
 /**
- * Espera mock de la nota de diseño §5 en Penpot: "Espera corta (1–3 s)".
- * El runtime real (modelo ONNX / paquete) se conecta en una fase posterior;
- * hoy solo simula la preparación local.
+ * Tope de la preparación real (nota de diseño §5 en Penpot: "Espera corta (1–3 s)"). La pantalla
+ * se va en cuanto está lista; si algo tarda más de esto (disco lento), la app abre igual y sigue
+ * cargando en segundo plano — nunca se queda atrapada en el arranque.
  */
-private const val StartupMockDelayMillis = 2_000L
+private const val StartupMaxWaitMillis = 3_000L
 
 /**
  * `Estado · Cargando (PANTALLA DE CARGA INICIO)` — pantalla de arranque de ANURA.
@@ -64,9 +68,16 @@ fun StartupLoadingScreen(
     modifier: Modifier = Modifier,
 ) {
     val statusLabel = stringResource(R.string.startup_preparing_model)
+    val repository = rememberAnuraRepository()
+    val appContext = LocalContext.current.applicationContext
 
+    // Preparación real: la sesión y los datos guardados en el teléfono (Room) y el catálogo de
+    // especies ya descargado (archivo). El modelo de identificación se carga al identificar.
     LaunchedEffect(Unit) {
-        delay(StartupMockDelayMillis)
+        withTimeoutOrNull(StartupMaxWaitMillis) {
+            repository.hydrated.first { it }
+            ContentCatalog.loadLocal(appContext)
+        }
         onReady()
     }
 

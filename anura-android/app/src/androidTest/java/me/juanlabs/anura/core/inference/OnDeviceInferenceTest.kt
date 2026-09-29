@@ -23,7 +23,9 @@ import org.junit.runner.RunWith
  *   adb push golden_images/. /sdcard/Android/data/me.juanlabs.anura/files/golden/
  *   adb push golden_v1.json  /sdcard/Android/data/me.juanlabs.anura/files/golden/
  *   adb push package.sqlite  /sdcard/Android/data/me.juanlabs.anura/files/golden/
- * (package.sqlite: el paquete de Antioquia con el que PC generó el set; el APK ya no trae paquetes).
+ * (package.sqlite: un paquete con el que PC generó el set y que TRAE la tabla open_set_model con los mismos
+ * centroides y τ que el set de referencia; el APK ya no trae paquetes ni modelo de rechazo. Sin esa tabla
+ * la identificación falla con NoOpenSetModel.)
  * (lo genera tools/mobile/export_mobile_inference.py).
  */
 @RunWith(AndroidJUnit4::class)
@@ -44,7 +46,7 @@ class OnDeviceInferenceTest {
         for (image in golden["images"]!!.jsonArray.map { it.jsonObject }) {
             val file = image["file"]!!.jsonPrimitive.content
             val expectedEmbedding = image["embedding"]!!.jsonArray.map { it.jsonPrimitive.float }.toFloatArray()
-            val outcome = identifier.identify(File(goldenDir, file), packagePath, GoldenPackageId)
+            val outcome = identifier.identify(File(goldenDir, file), packagePath)
             if (outcome !is IdentificationOutcome.Identified) {
                 failures += "$file: $outcome"
                 continue
@@ -55,7 +57,7 @@ class OnDeviceInferenceTest {
             val embedding = record["embedding"]!!.jsonArray.map { it.jsonPrimitive.float }.toFloatArray()
             val cosine = embedding.indices.sumOf { embedding[it].toDouble() * expectedEmbedding[it] }
             val expectedTaxon = image["predicted_taxon_id"]!!.jsonPrimitive.content
-            // el teléfono restringe el Open Set a las especies del paquete activo (ver AnuraIdentifier),
+            // el modelo de rechazo del paquete trae solo las especies del paquete (ver AnuraIdentifier),
             // así que la decisión a comparar es la restringida, no la del catálogo nacional completo.
             val expectedAccept = image["decision_restricted"]!!.jsonPrimitive.content == "ACCEPT"
             Log.i(
@@ -85,6 +87,3 @@ class OnDeviceInferenceTest {
         const val MinCosine = 0.999
     }
 }
-
-/** Clave del paquete del set de referencia en `openset/allowed_by_package.json`. */
-private const val GoldenPackageId = "ANTIOQUIA"

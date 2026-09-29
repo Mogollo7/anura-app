@@ -1,6 +1,5 @@
 package me.juanlabs.anura.feature.home
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.ContentCatalog
@@ -24,19 +23,17 @@ enum class HomeCarouselCategory(
 }
 
 /**
- * Ítem del carrusel de inicio. `imageRes` apunta a un drawable local; para
- * ampliar el carrusel basta con añadir un recurso en `res/drawable` y una
- * entrada aquí (o en la fuente que alimente [HomeCarouselCatalog.items]).
+ * Ítem del carrusel de inicio. La foto sale del catálogo publicado por su [photoSha256]
+ * (nunca de un recurso del APK); sin foto publicada se ve un hueco neutro.
  */
 data class HomeCarouselItem(
     val id: String,
     val category: HomeCarouselCategory,
     val speciesName: String,
     val curiousFact: String,
-    @param:DrawableRes val imageRes: Int,
     /** Id de catálogo para [me.juanlabs.anura.navigation.AnuraRoute.SpeciesSheet]. */
     val speciesId: String,
-    /** Foto publicada (Admin → Contenido); mientras baja se ve [imageRes]. */
+    /** Foto publicada (Admin → Contenido); null = sin foto. */
     val photoSha256: String? = null,
 )
 
@@ -73,7 +70,7 @@ object HomeCarouselCatalog {
             val eligible = published.filter { isEligible(it, category) }
             val pick = scheduled ?: eligible.takeIf { it.isNotEmpty() }?.let { it[Math.floorMod(today.toEpochDay(), it.size.toLong()).toInt()] }
             pick?.let { toItem(it, category) }
-        }.ifEmpty { emptyList() }
+        }
     }
 
     private fun isEligible(p: PublishedSpecies, category: HomeCarouselCategory): Boolean = when (category) {
@@ -88,7 +85,7 @@ object HomeCarouselCatalog {
         val text = when (category) {
             HomeCarouselCategory.WhereToLook -> p.habitat.orEmpty()
             HomeCarouselCategory.FeaturedPhoto -> p.foto_principal?.atribucion?.let { "Foto: $it" }.orEmpty()
-            HomeCarouselCategory.Endangered -> p.dato_curioso?.valor ?: record.iucn.fullLabel
+            HomeCarouselCategory.Endangered -> p.dato_curioso?.valor ?: record.iucn?.fullLabel.orEmpty()
             HomeCarouselCategory.FrogOfTheDay -> p.dato_curioso?.valor.orEmpty()
         }
         return HomeCarouselItem(
@@ -96,18 +93,11 @@ object HomeCarouselCatalog {
             category = category,
             speciesName = p.nombre_comun ?: p.nombre_cientifico,
             curiousFact = text,
-            imageRes = record.photoRes,
             speciesId = record.id,
             photoSha256 = p.foto_principal?.sha256,
         )
     }
 
-    fun previewActiveFieldSession(): HomeActiveFieldSession = HomeActiveFieldSession(
-        sessionId = "session-001",
-        placeName = "Quebrada La Miel",
-        elapsedLabel = "1 h 12 min",
-        registerCount = 7,
-    )
 }
 
 /**

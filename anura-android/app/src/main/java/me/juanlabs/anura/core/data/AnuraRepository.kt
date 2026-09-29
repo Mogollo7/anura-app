@@ -278,7 +278,6 @@ class AnuraRepository(
                 engine.identify(
                     photo,
                     path,
-                    pack.id,
                     latitude = snapshot.draft.latitude,
                     longitude = snapshot.draft.longitude,
                 )

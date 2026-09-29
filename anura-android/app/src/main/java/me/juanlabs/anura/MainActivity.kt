@@ -47,7 +47,7 @@ import me.juanlabs.anura.navigation.AnuraScaffold
  * 2. `AnuraScaffold` / `AnuraNavHost` — empieza en `AuthGraph` → `Welcome`.
  *
  * El splash no es ruta de [me.juanlabs.anura.navigation.AnuraRoute] (§4.1); es la
- * puerta previa al grafo. Runtime real (modelo/paquete) aún no conectado.
+ * puerta previa al grafo. Espera (con tope) a que se restauren la sesión y el catálogo guardados.
  */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

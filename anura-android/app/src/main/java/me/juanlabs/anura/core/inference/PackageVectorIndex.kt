@@ -41,6 +41,21 @@ class PackageVectorIndex private constructor(
         }
     }
 
+    /**
+     * Modelo de rechazo Open Set del paquete (tabla `open_set_model`). Un paquete sin la tabla o sin
+     * fila —los compilados antes de que el servidor lo incluyera— devuelve [PackageOpenSet.Unavailable].
+     */
+    fun readOpenSet(): PackageOpenSet {
+        class Row(val format: String, val sha256: String, val data: ByteArray)
+        val row = runCatching {
+            connection.prepare("select format, sha256, data from open_set_model where id = 1").use { st ->
+                if (st.step()) Row(st.getText(0), st.getText(1), st.getBlob(2)) else null
+            }
+        }.getOrElse { return PackageOpenSet.Unavailable("El paquete no trae modelo de rechazo") }
+            ?: return PackageOpenSet.Unavailable("El paquete no trae modelo de rechazo")
+        return PackageOpenSets.decode(row.format, row.sha256, row.data, taxa.keys)
+    }
+
     fun vecVersion(): String = connection.prepare("select vec_version()").use { st -> st.step(); st.getText(0) }
 
     /**

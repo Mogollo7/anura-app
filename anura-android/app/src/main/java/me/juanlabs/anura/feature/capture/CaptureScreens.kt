@@ -1,6 +1,7 @@
 package me.juanlabs.anura.feature.capture
 
 import androidx.activity.compose.BackHandler
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -101,6 +102,7 @@ fun AnalyzingScreen(
     var currentStage by rememberSaveable { mutableIntStateOf(0) }
     var showNotAnuro by rememberSaveable { mutableStateOf(false) }
     var showNoPackage by rememberSaveable { mutableStateOf(false) }
+    var showNoOpenSet by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(Unit) {
         val pending = identifyPhoto?.let { identify ->
             async {
@@ -134,12 +136,11 @@ fun AnalyzingScreen(
             when (outcome) {
                 is IdentificationOutcome.Identified -> onIdentified(outcome)
                 is IdentificationOutcome.NotAnuro -> showNotAnuro = true
-                is IdentificationOutcome.Failed ->
-                    if (outcome.reason == IdentificationFailure.NoActivePackage) {
-                        showNoPackage = true
-                    } else {
-                        onIdentificationFailed(outcome.reason)
-                    }
+                is IdentificationOutcome.Failed -> when (outcome.reason) {
+                    IdentificationFailure.NoActivePackage -> showNoPackage = true
+                    IdentificationFailure.NoOpenSetModel -> showNoOpenSet = true
+                    else -> onIdentificationFailed(outcome.reason)
+                }
                 null -> onIdentificationFailed(IdentificationFailure.EngineError)
             }
             return@LaunchedEffect
@@ -317,12 +318,30 @@ fun AnalyzingScreen(
             onDismiss = { showNoPackage = false; onIdentificationFailed(IdentificationFailure.NoActivePackage) },
         )
     }
+    if (showNoOpenSet) {
+        NoPackageSheet(
+            title = R.string.identification_no_openset_title,
+            body = R.string.identification_no_openset_body,
+            action = R.string.identification_no_openset_action,
+            onDownload = { showNoOpenSet = false; onOpenPackages() },
+            onDismiss = { showNoOpenSet = false; onIdentificationFailed(IdentificationFailure.NoOpenSetModel) },
+        )
+    }
 }
 
-/** El APK no trae especies: sin paquete de la región no hay con qué comparar la foto. */
+/**
+ * El APK no trae especies: sin paquete de la región no hay con qué comparar la foto. También sirve
+ * para un paquete sin modelo de rechazo (se pasa otro texto): hay que bajar uno actualizado.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun NoPackageSheet(onDownload: () -> Unit, onDismiss: () -> Unit) {
+private fun NoPackageSheet(
+    onDownload: () -> Unit,
+    onDismiss: () -> Unit,
+    @StringRes title: Int = R.string.identification_no_package_title,
+    @StringRes body: Int = R.string.identification_no_package_body,
+    @StringRes action: Int = R.string.identification_no_package_action,
+) {
     AnuraBottomSheet(onDismissRequest = onDismiss) {
         Column(
             modifier = Modifier
@@ -331,21 +350,21 @@ private fun NoPackageSheet(onDownload: () -> Unit, onDismiss: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = stringResource(R.string.identification_no_package_title),
+                text = stringResource(title),
                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(vertical = AnuraDimens.spaceGap),
             )
             Text(
-                text = stringResource(R.string.identification_no_package_body),
+                text = stringResource(body),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
             Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
             AnuraFormButton(
-                text = stringResource(R.string.identification_no_package_action),
+                text = stringResource(action),
                 onClick = onDownload,
                 style = AnuraFormButtonStyle.Primary,
             )

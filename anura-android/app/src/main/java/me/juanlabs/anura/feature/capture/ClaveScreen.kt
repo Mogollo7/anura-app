@@ -237,10 +237,12 @@ private fun ClaveResultadoUna(
     Spacer(modifier = Modifier.height(CaptureSubtitleToContentGap))
     ClaveEspecieCard(especie)
     Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
-    if (SpeciesCatalog.find(especie.taxon_id) != null || SpeciesCatalog.find(especie.nombre_cientifico) != null) {
+    // La ficha solo se ofrece si la especie está en el catálogo publicado (no hay ficha que abrir si no).
+    val ficha = SpeciesCatalog.find(especie.taxon_id) ?: SpeciesCatalog.find(especie.nombre_cientifico)
+    if (ficha != null) {
         AnuraFormButton(
             text = stringResource(R.string.clave_open_sheet),
-            onClick = { onOpenSpecies(especie.taxon_id) },
+            onClick = { onOpenSpecies(ficha.id) },
             style = AnuraFormButtonStyle.Primary,
         )
         Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
@@ -282,7 +284,7 @@ private fun ClaveResultadoVarias(
             Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
             AnuraFormButton(
                 text = stringResource(R.string.clave_open_sheet),
-                onClick = { onOpenSpecies(especie.taxon_id) },
+                onClick = { onOpenSpecies(conocida.id) },
                 style = AnuraFormButtonStyle.Outline,
             )
         }

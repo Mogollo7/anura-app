@@ -326,7 +326,7 @@ private fun FieldSessionObservationRow(
         ?: "—"
     val name = observation.scientificName ?: species?.scientificName ?: unidentified
     val media = buildString {
-        if (observation.photoTokens.isNotEmpty() || observation.photoRes != null) append("Foto")
+        if (observation.photoTokens.isNotEmpty() || observation.photoUrl != null) append("Foto")
         if (observation.audioPath != null) {
             if (isNotEmpty()) append(" · ")
             append("Audio")

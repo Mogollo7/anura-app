@@ -2,7 +2,6 @@ package me.juanlabs.anura.core.data
 
 import android.content.Context
 import android.graphics.BitmapFactory
-import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,7 +12,6 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
@@ -23,6 +21,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.auth.AnuraServerConfig
+import me.juanlabs.anura.core.platform.rememberPhotoPlaceholderPainter
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -310,23 +309,22 @@ enum class CatalogAvailability {
 }
 
 /**
- * Foto publicada de una especie. [fallbackRes] es el drawable que ya tenía la pantalla
- * (carrusel, ficha, observación): se sigue viendo al instante y mientras la foto publicada
- * baja. Si no hay foto publicada, no se cambia por un fondo neutro.
+ * Foto publicada de una especie, bajada por su sha256 (con caché en disco). Mientras baja, o si la
+ * especie no tiene foto publicada, se ve un hueco neutro: el APK no trae fotos de especies y una de
+ * ejemplo haría pasar una especie por otra.
  */
 @Composable
 fun rememberSpeciesPhotoPainter(
     photoSha256: String?,
-    @DrawableRes fallbackRes: Int,
     width: Int = ContentCatalog.FullWidth,
 ): Painter {
-    val fallback = painterResource(fallbackRes)
-    if (photoSha256.isNullOrBlank()) return fallback
+    val placeholder = rememberPhotoPlaceholderPainter()
+    if (photoSha256.isNullOrBlank()) return placeholder
     val context = LocalContext.current
     val bitmap by produceState<ImageBitmap?>(initialValue = null, photoSha256, width, ContentCatalog.baseUrl) {
         value = ContentCatalog.loadPhoto(context, photoSha256, width)
     }
-    return bitmap?.let { BitmapPainter(it) } ?: fallback
+    return bitmap?.let { BitmapPainter(it) } ?: placeholder
 }
 
 /** `GET /api/dataset/publico/manifiesto` — K2: manifest + sha256 + firma Ed25519. */

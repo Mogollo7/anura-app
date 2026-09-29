@@ -64,45 +64,10 @@ private enum class Step5TransportMode {
     Idle,
 }
 
-/** `Paso 5: Añadir audio`. Espectrograma en vivo y transporte circular. Audio opcional. */
-@Composable
-fun CaptureStep5Screen(
-    onBackClick: () -> Unit,
-    onNext: () -> Unit,
-    onSkip: () -> Unit = onNext,
-    fromReview: Boolean = false,
-    onSave: () -> Unit = onNext,
-    onCancel: () -> Unit = onBackClick,
-    onCloseClick: () -> Unit = onBackClick,
-) {
-    var dirty by rememberSaveable { mutableStateOf(false) }
-    CaptureWizardScaffold(
-        appBarTitle = stringResource(R.string.capture_step5_appbar),
-        step = 5,
-        onBackClick = onBackClick,
-        onCloseClick = onCloseClick,
-        unsavedChanges = dirty || fromReview,
-    ) {
-        CaptureWizardHeading(
-            title = stringResource(R.string.capture_step5_title),
-            subtitle = stringResource(R.string.capture_step5_subtitle),
-        )
-        CaptureLiveSpectrogramSession(
-            onAnalyzeAudio = onNext,
-            showAnalyzeActions = false,
-            onDirtyChange = { dirty = it },
-        )
-        Spacer(modifier = Modifier.height(CaptureContentToFooterGap))
-        CaptureWizardStepFooter(
-            fromReview = fromReview,
-            onSkip = onSkip,
-            onNext = onNext,
-            onSave = onSave,
-            onCancel = onCancel,
-        )
-    }
-}
-
+/**
+ * Espectrograma en vivo con transporte circular (grabar, pausar, usar, elegir archivo). Lo usan
+ * Audio ID y Sonidos nocturnos, que son la demostración aceptada (sin modelo de audio).
+ */
 @Composable
 internal fun CaptureLiveSpectrogramSession(
     onAnalyzeAudio: () -> Unit,
@@ -215,7 +180,7 @@ internal fun CaptureLiveSpectrogramSession(
                     fadeIn(tween(AnuraMotion.DurationShort)) togetherWith fadeOut(tween(AnuraMotion.DurationShort))
                 }
             },
-            label = "CaptureStep5Transport",
+            label = "CaptureAudioTransport",
         ) { mode ->
             when (mode) {
                 Step5TransportMode.Recording -> Row(
@@ -417,16 +382,4 @@ internal fun CaptureRecordingTicker(startAt: Int, onTick: (Int) -> Unit) {
 private fun formatDominantKhz(value: Float): String {
     val rounded = (value * 10f).toInt() / 10f
     return if (rounded == rounded.toInt().toFloat()) rounded.toInt().toString() else rounded.toString()
-}
-
-@AnuraPreviews
-@Composable
-private fun CaptureStep5Preview() {
-    AnuraTheme { CaptureStep5Screen(onBackClick = {}, onNext = {}) }
-}
-
-@Preview(name = "Luz roja", group = "modo", showBackground = true)
-@Composable
-private fun CaptureStep5PreviewRedLight() {
-    AnuraTheme(AnuraThemeMode.LuzRoja) { CaptureStep5Screen(onBackClick = {}, onNext = {}) }
 }

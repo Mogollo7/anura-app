@@ -19,28 +19,10 @@ import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
-/** `Paso 4: Añadir foto` — cámara a pantalla completa y carrusel de revisión. */
-@Composable
-fun CaptureStep4Screen(
-    onBackClick: () -> Unit,
-    onNext: () -> Unit,
-    fromReview: Boolean = false,
-    onSave: () -> Unit = onNext,
-    onCloseClick: () -> Unit = onBackClick,
-) {
-    CaptureAddPhotoFlow(
-        appBarTitle = stringResource(R.string.capture_step4_appbar),
-        showProgress = true,
-        step = 4,
-        confirmLabel = stringResource(R.string.capture_wizard_next),
-        onBackClick = onBackClick,
-        onConfirm = onNext,
-        fromReview = fromReview,
-        onSave = onSave,
-        onCloseClick = onCloseClick,
-    )
-}
-
+/**
+ * Cámara a pantalla completa y carrusel de revisión de fotos. Lo usa Foto ID ([PhotoCaptureScreen]);
+ * el paso «Añadir foto» del asistente viejo ya no existe.
+ */
 @Composable
 internal fun CaptureAddPhotoFlow(
     appBarTitle: String,
@@ -177,16 +159,4 @@ internal fun CaptureAddPhotoFlow(
             onDismiss = { confirmLeave = false },
         )
     }
-}
-
-@AnuraPreviews
-@Composable
-private fun CaptureStep4Preview() {
-    AnuraTheme { CaptureStep4Screen(onBackClick = {}, onNext = {}) }
-}
-
-@Preview(name = "Luz roja", group = "modo", showBackground = true)
-@Composable
-private fun CaptureStep4PreviewRedLight() {
-    AnuraTheme(AnuraThemeMode.LuzRoja) { CaptureStep4Screen(onBackClick = {}, onNext = {}) }
 }

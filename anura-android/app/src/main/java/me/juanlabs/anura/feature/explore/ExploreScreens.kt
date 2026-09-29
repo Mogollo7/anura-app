@@ -6,7 +6,6 @@ import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.math.sqrt
 import kotlinx.coroutines.delay
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -55,7 +54,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -66,6 +64,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.CatalogAvailability
+import me.juanlabs.anura.core.data.ContentCatalog
 import me.juanlabs.anura.core.data.catalogGapBody
 import me.juanlabs.anura.core.data.catalogGapTitle
 import me.juanlabs.anura.core.data.ExplorerFeedItem
@@ -77,7 +77,9 @@ import me.juanlabs.anura.core.data.RegionalPackageStatus
 import me.juanlabs.anura.core.data.SpeciesCatalog
 import me.juanlabs.anura.core.data.SpeciesRecord
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
 import me.juanlabs.anura.core.platform.rememberNetworkAvailable
+import me.juanlabs.anura.core.platform.rememberPhotoPlaceholderPainter
 import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import me.juanlabs.anura.designsystem.component.AnuraBottomSheet
 import me.juanlabs.anura.designsystem.component.AnuraCard
@@ -100,6 +102,7 @@ import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
+import me.juanlabs.anura.feature.capture.rememberCaptureBackdropPainter
 
 private val ExploreMapHeight = 280.dp
 private const val FilterFamily = "family:"
@@ -114,11 +117,12 @@ private const val ExploreSvlStart = 48f
 
 private data class ExploreObservation(
     val id: String,
-    val commonRes: Int,
-    val scientificRes: Int,
-    @param:DrawableRes val photoRes: Int,
-    /** Miniatura real del servidor (`ExplorerRemote.thumbUrl`); null = solo hay el drawable local. */
+    /** Foto propia guardada en el teléfono (token de `MediaPersistence`); null = no hay. */
+    val photoToken: String? = null,
+    /** Miniatura real del servidor (`ExplorerRemote.thumbUrl`); null = no hay. */
     val photoUrl: String? = null,
+    /** Foto publicada de la especie (sha256) para cuando la observación no tiene foto propia. */
+    val photoSha256: String? = null,
     val latitude: Double,
     val longitude: Double,
     val family: String,
@@ -126,7 +130,7 @@ private data class ExploreObservation(
     val altitude: String,
     val size: String,
     val toxic: Boolean,
-    val iucn: AnuraConservationChipVariant,
+    val iucn: AnuraConservationChipVariant?,
     val traits: Set<String>,
     val unsynced: Boolean = false,
     val commonName: String? = null,
@@ -170,7 +174,8 @@ private fun rememberNearYouSpecies(): List<SpeciesRecord> {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
     val context = LocalContext.current
-    return remember(snapshot.packages) {
+    // El catálogo también es clave: cuando termina de bajar, la lista se recalcula (antes quedaba vacía).
+    return remember(snapshot.packages, ContentCatalog.catalog) {
         val activePackage = snapshot.packages.firstOrNull {
             it.active && it.status == RegionalPackageStatus.Installed && it.localPath != null
         }
@@ -284,7 +289,7 @@ fun ExploreScreen(
                     )
                 }
             }
-            item(
+            if (speciesCount > 0) item(
                 key = "explore-stats",
                 span = { GridItemSpan(maxLineSpan) },
             ) {
@@ -381,7 +386,7 @@ fun ExploreScreen(
                         modifier = Modifier.fillMaxWidth(),
                         thumbnail = {
                             Image(
-                                painter = painterResource(record.photoRes),
+                                painter = rememberSpeciesPhotoPainter(record.photoSha256, ContentCatalog.ThumbWidth),
                                 contentDescription = null,
                                 modifier = Modifier.fillMaxSize(),
                                 contentScale = ContentScale.Crop,
@@ -486,7 +491,7 @@ fun ExploreMoreScreen(
                         modifier = Modifier.fillMaxWidth(),
                         thumbnail = {
                             Image(
-                                painter = painterResource(record.photoRes),
+                                painter = rememberSpeciesPhotoPainter(record.photoSha256, ContentCatalog.ThumbWidth),
                                 contentDescription = null,
                                 modifier = Modifier.fillMaxSize(),
                                 contentScale = ContentScale.Crop,
@@ -579,9 +584,11 @@ fun ObservationCatalogScreen(
             CatalogQuickFilter.All -> searched
             CatalogQuickFilter.Toxic -> searched.filter { it.first.toxic }
             CatalogQuickFilter.Threatened -> searched.filter {
-                it.first.iucn != AnuraConservationChipVariant.LC &&
-                    it.first.iucn != AnuraConservationChipVariant.DD &&
-                    it.first.iucn != AnuraConservationChipVariant.NE
+                val iucn = it.first.iucn
+                iucn != null &&
+                    iucn != AnuraConservationChipVariant.LC &&
+                    iucn != AnuraConservationChipVariant.DD &&
+                    iucn != AnuraConservationChipVariant.NE
             }
             CatalogQuickFilter.Unsynced -> searched.filter { it.first.unsynced }
         }
@@ -772,7 +779,7 @@ private fun ExploreObservationCard(
         item.toxic -> {
             { AnuraToxicityChip(AnuraToxicityChipVariant.Toxic) }
         }
-        item.iucn != AnuraConservationChipVariant.LC -> {
+        item.iucn != null && item.iucn != AnuraConservationChipVariant.LC -> {
             { AnuraConservationChip(item.iucn) }
         }
         else -> null
@@ -786,7 +793,13 @@ private fun ExploreObservationCard(
         statusChip = chip,
         thumbnail = {
             Image(
-                painter = rememberRemotePhotoPainter(item.photoUrl, item.photoRes),
+                painter = when {
+                    item.photoToken != null ->
+                        rememberCaptureBackdropPainter(item.photoToken) ?: rememberPhotoPlaceholderPainter()
+                    item.photoUrl != null ->
+                        rememberRemotePhotoPainter(item.photoUrl, rememberSpeciesPhotoPainter(item.photoSha256, ContentCatalog.ThumbWidth))
+                    else -> rememberSpeciesPhotoPainter(item.photoSha256, ContentCatalog.ThumbWidth)
+                },
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop,
@@ -1018,7 +1031,7 @@ private fun ExploreObservation.matchesFilters(
         anyIn(FilterDanger) {
             (it == DangerToxic && toxic) || (it == DangerHarmless && !toxic)
         } &&
-        anyIn(FilterIucn) { it == iucn.name } &&
+        anyIn(FilterIucn) { it == iucn?.name } &&
         altitudeOk &&
         sizeOk
 }
@@ -1108,9 +1121,11 @@ fun SpeciesByTaxonScreen(
         },
     ) { innerPadding ->
         if (allInGroup.isEmpty()) {
+            // Sin catálogo (sin publicar, sin red o cargando) se dice eso; «sin resultados» solo si el catálogo está listo.
+            val catalogReady = ContentCatalog.availability == CatalogAvailability.Ready
             AnuraEmptyState(
-                title = stringResource(R.string.observations_empty_title),
-                description = searchHint,
+                title = if (catalogReady) stringResource(R.string.observations_empty_title) else catalogGapTitle(),
+                description = if (catalogReady) searchHint else catalogGapBody(),
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),
@@ -1181,7 +1196,7 @@ fun SpeciesByTaxonScreen(
                             modifier = Modifier.fillMaxWidth(),
                             thumbnail = {
                                 Image(
-                                    painter = painterResource(record.photoRes),
+                                    painter = rememberSpeciesPhotoPainter(record.photoSha256, ContentCatalog.ThumbWidth),
                                     contentDescription = null,
                                     modifier = Modifier.fillMaxSize(),
                                     contentScale = ContentScale.Crop,
@@ -1197,11 +1212,8 @@ fun SpeciesByTaxonScreen(
 }
 
 @Composable
-private fun ExploreObservation.displayNames(): Pair<String, String> {
-    val common = commonName ?: if (commonRes != 0) stringResource(commonRes) else ""
-    val scientific = scientificName ?: if (scientificRes != 0) stringResource(scientificRes) else ""
-    return common to scientific
-}
+private fun ExploreObservation.displayNames(): Pair<String, String> =
+    commonName.orEmpty() to scientificName.orEmpty()
 
 private fun ObservationRecord.toExploreObservation(): ExploreObservation? {
     val lat = latitude ?: return null
@@ -1209,9 +1221,9 @@ private fun ObservationRecord.toExploreObservation(): ExploreObservation? {
     val species = SpeciesCatalog.find(speciesId)
     return ExploreObservation(
         id = id,
-        commonRes = 0,
-        scientificRes = 0,
-        photoRes = photoRes ?: species?.photoRes ?: R.drawable.carousel_dendrobates_truncatus,
+        photoToken = photoTokens.firstOrNull(),
+        photoUrl = photoUrl,
+        photoSha256 = species?.photoSha256,
         latitude = lat,
         longitude = lon,
         family = species?.family.orEmpty(),
@@ -1219,7 +1231,7 @@ private fun ObservationRecord.toExploreObservation(): ExploreObservation? {
         altitude = species?.altitudeRange.orEmpty(),
         size = svlMm?.let { "$it mm" } ?: species?.sizeRange.orEmpty(),
         toxic = species?.toxicity == AnuraToxicityChipVariant.Toxic,
-        iucn = species?.iucn ?: AnuraConservationChipVariant.LC,
+        iucn = species?.iucn,
         traits = emptySet(),
         commonName = commonName ?: species?.commonName,
         scientificName = scientificName ?: species?.scientificName,
@@ -1234,10 +1246,8 @@ private fun ExplorerFeedItem.toExploreObservation(): ExploreObservation? {
     val local = sci?.let(SpeciesCatalog::find)
     return ExploreObservation(
         id = id,
-        commonRes = 0,
-        scientificRes = 0,
-        photoRes = local?.photoRes ?: R.drawable.carousel_dendrobates_truncatus,
         photoUrl = ExplorerRemote.thumbUrl(thumbnail_key ?: image_key),
+        photoSha256 = local?.photoSha256,
         latitude = lat,
         longitude = lon,
         family = family ?: local?.family.orEmpty(),
@@ -1245,7 +1255,7 @@ private fun ExplorerFeedItem.toExploreObservation(): ExploreObservation? {
         altitude = local?.altitudeRange.orEmpty(),
         size = local?.sizeRange.orEmpty(),
         toxic = local?.toxicity == AnuraToxicityChipVariant.Toxic,
-        iucn = local?.iucn ?: AnuraConservationChipVariant.LC,
+        iucn = local?.iucn,
         traits = emptySet(),
         unsynced = false,
         commonName = common_name ?: local?.commonName,

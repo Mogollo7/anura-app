@@ -10,10 +10,14 @@ import kotlin.math.sqrt
 data class OpenSetScore(val mahalanobis: Double, val nearestCentroidId: String, val accepted: Boolean)
 
 /**
- * Rechazo Open Set congelado (M5_LedoitWolf_Shared, threshold_1.1.0_CLEAN): distancia de Mahalanobis
- * mínima a los centroides con precisión compartida; se acepta si ≤ tau. Mismo cálculo que
- * `min_mahalanobis` de tools/catalog/run_open_set_evaluation.py, en doble precisión.
- * Formato del archivo: ver tools/mobile/export_mobile_inference.py.
+ * Rechazo Open Set (M5_LedoitWolf_Shared): distancia de Mahalanobis mínima a las medias de las
+ * especies del paquete con precisión compartida; se acepta si ≤ tau. Mismo cálculo que
+ * `min_mahalanobis` de tools/catalog/run_open_set_evaluation.py y que `mahalanobis.js` del servidor,
+ * en doble precisión.
+ *
+ * Cada paquete regional trae su propio modelo (tabla `open_set_model`, formato ANOS v1) con el τ que
+ * validó una persona en el Admin; el APK no trae ninguno. Formato del archivo: `osrModelo.js` en
+ * dataset-service (y tools/mobile/export_mobile_inference.py, que lo usa como referencia de paridad).
  */
 class OpenSetModel(
     val dim: Int,
@@ -54,9 +58,14 @@ class OpenSetModel(
 
     companion object {
         private const val Magic = "ANOS"
+        private const val HeaderBytes = 24
 
-        fun read(input: InputStream): OpenSetModel {
-            val buffer = ByteBuffer.wrap(input.readBytes()).order(ByteOrder.LITTLE_ENDIAN)
+        fun read(input: InputStream): OpenSetModel = parse(input.readBytes())
+
+        /** Decodifica un ANOS v1 (el blob `open_set_model.data` del paquete). Falla con el motivo si no es válido. */
+        fun parse(bytes: ByteArray): OpenSetModel {
+            require(bytes.size >= HeaderBytes) { "Archivo Open Set truncado" }
+            val buffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN)
             val magic = ByteArray(4).also { buffer.get(it) }.toString(Charsets.US_ASCII)
             require(magic == Magic) { "Archivo Open Set inválido: magic=$magic" }
             val version = buffer.int
@@ -64,14 +73,21 @@ class OpenSetModel(
             val dim = buffer.int
             val k = buffer.int
             val tau = buffer.double
+            require(dim > 0 && k > 0) { "Open Set sin dimensión o sin especies" }
+            require(tau.isFinite() && tau > 0.0) { "Open Set con un umbral que no es válido: $tau" }
+            val matrixBytes = (dim.toLong() * dim + k.toLong() * dim) * 8
+            require(bytes.size - HeaderBytes >= matrixBytes) { "Archivo Open Set truncado" }
             val precision = DoubleArray(dim * dim).also { buffer.asDoubleBuffer().get(it) }
             buffer.position(buffer.position() + dim * dim * 8)
             val centroids = DoubleArray(k * dim).also { buffer.asDoubleBuffer().get(it) }
             buffer.position(buffer.position() + k * dim * 8)
             val ids = List(k) {
-                val bytes = ByteArray(buffer.int).also { buffer.get(it) }
-                bytes.toString(Charsets.UTF_8)
+                require(buffer.remaining() >= 4) { "Archivo Open Set truncado" }
+                val length = buffer.int
+                require(length in 0..buffer.remaining()) { "Archivo Open Set truncado" }
+                ByteArray(length).also { buffer.get(it) }.toString(Charsets.UTF_8)
             }
+            require(!buffer.hasRemaining()) { "Archivo Open Set con bytes de más" }
             return OpenSetModel(dim, tau, precision, centroids, ids)
         }
     }

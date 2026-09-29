@@ -40,7 +40,6 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -222,11 +221,6 @@ private fun CaptureCarouselPage(
 @Composable
 internal fun rememberCaptureBackdropPainter(token: String): Painter? {
     return when {
-        token.startsWith("res:") -> {
-            val resId = token.removePrefix("res:").toIntOrNull()
-                ?: R.drawable.carousel_pristimantis_paisa
-            painterResource(resId)
-        }
         token.startsWith("uri:") -> {
             val bitmap = rememberUriImage(Uri.parse(token.removePrefix("uri:")))
             bitmap?.let { BitmapPainter(it) }

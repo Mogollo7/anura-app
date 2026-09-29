@@ -65,6 +65,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.CatalogAvailability
+import me.juanlabs.anura.core.data.ContentCatalog
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.core.data.catalogGapBody
 import me.juanlabs.anura.core.data.catalogGapTitle
@@ -174,9 +176,11 @@ private fun HomeContent(
         Spacer(modifier = Modifier.height(HomeHeaderToCarouselGap))
 
         if (state.carouselItems.isEmpty()) {
+            // Hay especies publicadas pero ninguna es apta para el carrusel (falta foto, dato o hábitat): no es «sin especies».
+            val speciesReady = ContentCatalog.availability == CatalogAvailability.Ready
             AnuraEmptyState(
-                title = catalogGapTitle(),
-                description = catalogGapBody(),
+                title = if (speciesReady) stringResource(R.string.home_carousel_empty_title) else catalogGapTitle(),
+                description = if (speciesReady) stringResource(R.string.home_carousel_empty_body) else catalogGapBody(),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = AnuraDimens.spaceGutter),
@@ -316,7 +320,7 @@ private fun HomeCarouselCard(
         item.curiousFact,
     )
 
-    val painter = rememberSpeciesPhotoPainter(item.photoSha256, item.imageRes)
+    val painter = rememberSpeciesPhotoPainter(item.photoSha256)
     var cardCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
 
     Box(
@@ -648,7 +652,7 @@ private fun HomeScreenPreviewNoSession() {
             onAudioId = {},
             onStepByStep = {},
             uiState = HomeUiState.Content(
-                userDisplayName = "Sebastián",
+                userDisplayName = "Nombre",
                 carouselItems = HomeCarouselCatalog.items(),
                 activeFieldSession = null,
             ),
@@ -667,7 +671,13 @@ private fun HomeScreenPreviewWithSession() {
             onPhotoId = {},
             onAudioId = {},
             onStepByStep = {},
-            activeFieldSession = HomeCarouselCatalog.previewActiveFieldSession(),
+            // Datos mínimos solo para la vista previa de Android Studio.
+            activeFieldSession = HomeActiveFieldSession(
+                sessionId = "preview",
+                placeName = "Lugar de la salida",
+                elapsedLabel = "0 min",
+                registerCount = 0,
+            ),
         )
     }
 }

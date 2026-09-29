@@ -1,0 +1,75 @@
+{
+  "formato": "ANOS v1",
+  "dim": 4,
+  "k": 3,
+  "tau": 1.75,
+  "ids": [
+    "COL_ANURA_0001",
+    "COL_ANURA_0002",
+    "COL_ANURA_0003"
+  ],
+  "size_bytes": 302,
+  "sha256": "1ce628c65b91c64e57d31889b5c4f32debeff021075ea268c37c9ab720281527",
+  "muestras": [
+    {
+      "nombre": "muestra_1",
+      "embedding": [
+        0.5,
+        -0.25,
+        1.125,
+        0
+      ],
+      "distancia": 0,
+      "centroide_mas_cercano": "COL_ANURA_0001",
+      "acepta": true
+    },
+    {
+      "nombre": "muestra_2",
+      "embedding": [
+        -0.9,
+        0.7,
+        0.1,
+        1.9
+      ],
+      "distancia": 0.103832798286476,
+      "centroide_mas_cercano": "COL_ANURA_0002",
+      "acepta": true
+    },
+    {
+      "nombre": "muestra_3",
+      "embedding": [
+        0.4,
+        1.4,
+        -1.9,
+        0.2
+      ],
+      "distancia": 0.1578627090881027,
+      "centroide_mas_cercano": "COL_ANURA_0003",
+      "acepta": true
+    },
+    {
+      "nombre": "muestra_4",
+      "embedding": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "distancia": 7.155596897833591,
+      "centroide_mas_cercano": "COL_ANURA_0002",
+      "acepta": false
+    },
+    {
+      "nombre": "muestra_5",
+      "embedding": [
+        -0.2,
+        0.1,
+        0.5,
+        0.9
+      ],
+      "distancia": 0.9309653208210434,
+      "centroide_mas_cercano": "COL_ANURA_0001",
+      "acepta": true
+    }
+  ]
+}

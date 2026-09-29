@@ -3,7 +3,6 @@ package me.juanlabs.anura.feature.profile
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -53,7 +52,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -65,6 +63,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.auth.AnuraServerConfig
 import me.juanlabs.anura.core.data.AuthRemote
 import me.juanlabs.anura.core.data.ExplorerRemote
 import me.juanlabs.anura.core.data.GuestUserId
@@ -102,40 +101,6 @@ private enum class ProfileOwnTab {
     Favorites,
 }
 
-private data class ProfileObservation(
-    val id: String,
-    @param:DrawableRes val photoRes: Int,
-    val commonRes: Int,
-    val scientificRes: Int,
-    val isPublic: Boolean,
-    val isDraft: Boolean = false,
-    val isToxic: Boolean = false,
-)
-
-private val OwnPublicObservations = listOf(
-    ProfileObservation("obs-001", R.drawable.carousel_dendrobates_truncatus, R.string.observations_item_1_common, R.string.observations_item_1_sci, true, isToxic = true),
-    ProfileObservation("obs-003", R.drawable.carousel_sachatamia_electrops, R.string.observations_item_3_common, R.string.observations_item_3_sci, true),
-    ProfileObservation("obs-005", R.drawable.carousel_dendropsophus_bogerti, R.string.observations_item_5_common, R.string.observations_item_5_sci, true),
-    ProfileObservation("obs-007", R.drawable.carousel_pristimantis_paisa, R.string.observations_item_7_common, R.string.observations_item_7_sci, true),
-)
-
-private val OwnPrivateObservations = listOf(
-    ProfileObservation("obs-002", R.drawable.carousel_dendropsophus_bogerti, R.string.observations_item_2_common, R.string.observations_item_2_sci, false),
-    ProfileObservation("obs-004", R.drawable.carousel_pristimantis_paisa, R.string.observations_item_4_common, R.string.observations_item_4_sci, false),
-)
-
-private val OwnDraftObservations = listOf(
-    ProfileObservation("obs-006", R.drawable.carousel_dendrobates_truncatus, R.string.observations_item_6_common, R.string.observations_item_6_sci, false, isDraft = true),
-    ProfileObservation("obs-008", R.drawable.carousel_sachatamia_electrops, R.string.observations_item_8_common, R.string.observations_item_8_sci, false, isDraft = true),
-)
-
-private val OtherPublicObservations = listOf(
-    ProfileObservation("near-001", R.drawable.carousel_dendrobates_truncatus, R.string.observations_item_1_common, R.string.observations_item_1_sci, true, isToxic = true),
-    ProfileObservation("near-002", R.drawable.carousel_pristimantis_paisa, R.string.observations_item_4_common, R.string.observations_item_4_sci, true),
-    ProfileObservation("near-003", R.drawable.carousel_dendropsophus_bogerti, R.string.observations_item_5_common, R.string.observations_item_5_sci, true),
-    ProfileObservation("near-004", R.drawable.carousel_dendrobates_truncatus, R.string.observations_item_6_common, R.string.observations_item_6_sci, true),
-)
-
 /**
  * `profile` (propia/ajena, §4.1, argumento `userId?`). `userId == null` = propio.
  *
@@ -170,7 +135,7 @@ fun ProfileScreen(
     val displayName = if (isOwn) {
         session.displayName.ifBlank { guestName }
     } else {
-        otherProfile?.user?.username ?: stringResource(R.string.profile_display_name_other)
+        otherProfile?.user?.username ?: missing
     }
     val username = if (isOwn) {
         session.username
@@ -186,10 +151,13 @@ fun ProfileScreen(
     val connectionsId = if (isOwn) session.username.ifBlank { session.userId.ifBlank { GuestUserId } } else otherUsername.orEmpty()
     val shareText = stringResource(R.string.profile_share_text, displayName, username.ifBlank { guestName })
     val shareChooser = stringResource(R.string.profile_share_chooser)
-    val profileLink = stringResource(
-        R.string.profile_link_mock,
-        username.removePrefix("@").ifBlank { "invitado" },
-    )
+    // Perfil público real de la web (`/people/:username`); sin nombre de usuario (invitado), la portada.
+    val profileHandle = username.removePrefix("@")
+    val profileLink = if (profileHandle.isBlank()) {
+        AnuraServerConfig.AUTH_BASE_URL
+    } else {
+        stringResource(R.string.profile_link, profileHandle)
+    }
     val copyLinkLabel = stringResource(R.string.profile_copy_link)
     val following = !isOwn && otherUsername != null && repository.isFollowing(otherUsername)
     val followLabel = stringResource(
@@ -690,84 +658,6 @@ private fun ProfileStatCard(
     }
 }
 
-@Composable
-private fun ProfileObservationCard(
-    item: ProfileObservation,
-    showVisibility: Boolean,
-    favorite: Boolean,
-    onFavoriteClick: () -> Unit,
-    onClick: () -> Unit,
-) {
-    val commonName = stringResource(item.commonRes)
-    val scientificName = stringResource(item.scientificRes)
-    ObservationCard(
-        commonName = commonName,
-        scientificName = scientificName,
-        isFavorite = favorite,
-        onFavoriteClick = onFavoriteClick,
-        modifier = Modifier.fillMaxWidth(),
-        statusChip = when {
-            item.isToxic -> {
-                { AnuraToxicityChip(AnuraToxicityChipVariant.Toxic) }
-            }
-            showVisibility -> {
-                { ProfileVisibilityChip(isPublic = item.isPublic) }
-            }
-            else -> null
-        },
-        thumbnail = {
-            Image(
-                painter = painterResource(item.photoRes),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop,
-            )
-        },
-        onClick = onClick,
-    )
-}
-
-@Composable
-private fun ProfileVisibilityChip(isPublic: Boolean) {
-    val label = stringResource(
-        if (isPublic) {
-            R.string.observation_detail_visibility_public
-        } else {
-            R.string.observation_detail_visibility_private
-        },
-    )
-    val bg = if (isPublic) {
-        AnuraTheme.extendedColors.success
-    } else {
-        MaterialTheme.colorScheme.surfaceVariant
-    }
-    val fg = if (isPublic) {
-        AnuraTheme.extendedColors.onSuccess
-    } else {
-        MaterialTheme.colorScheme.onSurfaceVariant
-    }
-    Row(
-        modifier = Modifier
-            .clip(RoundedCornerShape(AnuraDimens.radiusCapsule))
-            .background(bg)
-            .padding(horizontal = 10.dp, vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Icon(
-            imageVector = if (isPublic) AnuraIcons.Visibility else AnuraIcons.Lock,
-            contentDescription = null,
-            tint = fg,
-            modifier = Modifier.size(14.dp),
-        )
-        Text(
-            text = label,
-            color = fg,
-            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-        )
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProfileActionsSheet(
@@ -929,23 +819,6 @@ private enum class ConnectionsTab {
     Favorites,
 }
 
-private data class ConnectionPerson(
-    val id: String,
-    val nameRes: Int,
-    val handleRes: Int,
-)
-
-private val ConnectionPeople = listOf(
-    ConnectionPerson("user-camila", R.string.connections_person_1_name, R.string.connections_person_1_handle),
-    ConnectionPerson("user-julian", R.string.connections_person_2_name, R.string.connections_person_2_handle),
-    ConnectionPerson("user-vale", R.string.connections_person_3_name, R.string.connections_person_3_handle),
-    ConnectionPerson("user-andres", R.string.connections_person_4_name, R.string.connections_person_4_handle),
-    ConnectionPerson("user-laura", R.string.connections_person_5_name, R.string.connections_person_5_handle),
-)
-
-private const val ConnectionsFollowersCount = 128
-private const val ConnectionsFollowingCount = 86
-private const val ConnectionsFavoritesCount = 19
 private val ConnectionsFollowButtonWidth = 96.dp
 private val ConnectionsAvatarSize = 48.dp
 

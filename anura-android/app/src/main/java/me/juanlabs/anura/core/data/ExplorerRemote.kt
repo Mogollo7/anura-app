@@ -102,7 +102,6 @@ data class ExplorerFeedItem(
             commonName = common_name ?: local?.commonName,
             scientificName = sci ?: local?.scientificName,
             photoTokens = emptyList(),
-            photoRes = local?.photoRes,
             photoUrl = ExplorerRemote.thumbUrl(thumbnail_key ?: image_key, size = "large"),
             latitude = lat,
             longitude = lon,

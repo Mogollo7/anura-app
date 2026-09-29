@@ -18,7 +18,7 @@ import me.juanlabs.anura.designsystem.preview.AnuraPreviews
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 import me.juanlabs.anura.designsystem.theme.AnuraThemeMode
 
-/** `Añadir audio`. Misma interfaz que el paso 5 del wizard. */
+/** `Añadir audio` (Audio ID, demostración aceptada): grabar o elegir un archivo, sin identificación. */
 @Composable
 fun AudioCaptureScreen(
     onBackClick: () -> Unit,

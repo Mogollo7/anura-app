@@ -1,25 +1,23 @@
 package me.juanlabs.anura.feature.observations
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.ObservationRecord
 import me.juanlabs.anura.core.data.SpeciesCatalog
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
+import me.juanlabs.anura.core.platform.rememberPhotoPlaceholderPainter
 import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import me.juanlabs.anura.feature.capture.rememberCaptureBackdropPainter
 
 internal sealed interface ObservationMediaItem {
     val id: String
 
+    /** Foto publicada del catálogo de contenido (por sha256); sin foto o mientras baja, un hueco neutro. */
     data class Photo(
         override val id: String,
-        @param:DrawableRes val imageRes: Int,
-        /** Foto publicada del catálogo de contenido; mientras baja (o sin red) se ve [imageRes]. */
         val remoteSha256: String? = null,
     ) : ObservationMediaItem
 
@@ -33,7 +31,6 @@ internal sealed interface ObservationMediaItem {
     data class RemotePhoto(
         override val id: String,
         val url: String,
-        @param:DrawableRes val fallbackRes: Int,
     ) : ObservationMediaItem
 
     data class Audio(
@@ -48,20 +45,9 @@ internal fun mediaForObservation(observation: ObservationRecord): List<Observati
         ObservationMediaItem.FilePhoto("p$index", token)
     }
     val remote = observation.photoUrl?.let {
-        listOf(
-            ObservationMediaItem.RemotePhoto(
-                id = "p-remote",
-                url = it,
-                fallbackRes = observation.photoRes
-                    ?: SpeciesCatalog.find(observation.speciesId)?.photoRes
-                    ?: R.drawable.carousel_dendrobates_truncatus,
-            ),
-        )
+        listOf(ObservationMediaItem.RemotePhoto(id = "p-remote", url = it))
     }.orEmpty()
-    val fallback = observation.photoRes?.let {
-        listOf(ObservationMediaItem.Photo("p-res", it))
-    }.orEmpty()
-    val photoItems = photos.ifEmpty { remote.ifEmpty { fallback } }
+    val photoItems = photos.ifEmpty { remote }
     val audio = observation.audioPath?.let {
         listOf(
             ObservationMediaItem.Audio(
@@ -71,10 +57,9 @@ internal fun mediaForObservation(observation: ObservationRecord): List<Observati
             ),
         )
     }.orEmpty()
+    // Sin foto ni audio propios: la foto publicada de la especie, o un hueco neutro si no la hay.
     return (photoItems + audio).ifEmpty {
-        val speciesPhoto = SpeciesCatalog.find(observation.speciesId)?.photoRes
-            ?: R.drawable.carousel_dendrobates_truncatus
-        listOf(ObservationMediaItem.Photo("empty", speciesPhoto))
+        listOf(ObservationMediaItem.Photo("empty", SpeciesCatalog.find(observation.speciesId)?.photoSha256))
     }
 }
 
@@ -84,13 +69,11 @@ internal fun ObservationPhoto(
     modifier: Modifier = Modifier,
 ) {
     val token = observation.photoTokens.firstOrNull()
-    val fallbackRes = observation.photoRes
-        ?: SpeciesCatalog.find(observation.speciesId)?.photoRes
-        ?: R.drawable.carousel_dendrobates_truncatus
+    val speciesSha = SpeciesCatalog.find(observation.speciesId)?.photoSha256
     val painter = when {
-        token != null -> rememberCaptureBackdropPainter(token) ?: painterResource(fallbackRes)
-        observation.photoUrl != null -> rememberRemotePhotoPainter(observation.photoUrl, fallbackRes)
-        else -> painterResource(fallbackRes)
+        token != null -> rememberCaptureBackdropPainter(token) ?: rememberPhotoPlaceholderPainter()
+        observation.photoUrl != null -> rememberRemotePhotoPainter(observation.photoUrl, rememberSpeciesPhotoPainter(speciesSha))
+        else -> rememberSpeciesPhotoPainter(speciesSha)
     }
     Image(
         painter = painter,

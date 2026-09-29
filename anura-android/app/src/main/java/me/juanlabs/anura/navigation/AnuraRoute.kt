@@ -103,31 +103,13 @@ sealed interface AnuraRoute {
     @Serializable
     data object SignUp : AnuraRoute
 
-    // ---- Grafo anidado: captura/wizard de observación ----
+    // ---- Grafo anidado: captura de observación ----
     @Serializable
     data object CaptureGraph : AnuraRoute
 
-    /** Clave dicotómica. Mismo grafo que el asistente; no cambia el resto de la captura. */
+    /** Clave dicotómica («Paso a paso»). Vive en el grafo de captura; usa datos del paquete instalado. */
     @Serializable
     data object Clave : AnuraRoute
-
-    @Serializable
-    data object CaptureStep1 : AnuraRoute
-
-    @Serializable
-    data object CaptureStep2 : AnuraRoute
-
-    @Serializable
-    data object CaptureStep3 : AnuraRoute
-
-    @Serializable
-    data object CaptureStep4 : AnuraRoute
-
-    @Serializable
-    data object CaptureStep5 : AnuraRoute
-
-    @Serializable
-    data object CaptureStep6 : AnuraRoute
 
     @Serializable
     data object PhotoCapture : AnuraRoute

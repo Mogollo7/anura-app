@@ -1,6 +1,5 @@
 package me.juanlabs.anura.feature.comments
 
-import androidx.annotation.DrawableRes
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.SpeciesCatalog
 
@@ -21,7 +20,8 @@ internal data class TaxonSuggestion(
     val scientificName: String,
     val commonName: String,
     val rank: TaxonRank,
-    @param:DrawableRes val photoRes: Int,
+    /** Foto publicada de la especie (sha256); null = sin foto, se ve un hueco neutro. */
+    val photoSha256: String?,
 )
 
 internal data class TaxonProposal(
@@ -39,7 +39,7 @@ internal data class ObservationComment(
     val replies: List<ObservationComment> = emptyList(),
 )
 
-/** Catálogo real del servidor (K/K2) — antes eran 8 especies escritas a mano. */
+/** Especies publicadas (catálogo del servidor). Sin catálogo, no hay a quién mencionar: la lista queda vacía. */
 internal val CommentTaxonCatalog: List<TaxonSuggestion>
     get() = SpeciesCatalog.all.map { species ->
         TaxonSuggestion(
@@ -47,7 +47,7 @@ internal val CommentTaxonCatalog: List<TaxonSuggestion>
             scientificName = species.scientificName,
             commonName = species.commonName,
             rank = TaxonRank.Species,
-            photoRes = species.photoRes,
+            photoSha256 = species.photoSha256,
         )
     }
 

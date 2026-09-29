@@ -15,11 +15,15 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.jsonArray
-import kotlinx.serialization.json.jsonObject
-import kotlinx.serialization.json.jsonPrimitive
 
-enum class IdentificationFailure { NoPhoto, NoActivePackage, EngineError }
+enum class IdentificationFailure {
+    NoPhoto,
+    NoActivePackage,
+
+    /** El paquete activo no trae modelo de rechazo (o es inválido): no se acepta identificar sin rechazo. */
+    NoOpenSetModel,
+    EngineError,
+}
 
 sealed interface IdentificationOutcome {
     data class Identified(
@@ -45,27 +49,27 @@ sealed interface IdentificationOutcome {
 /**
  * Pipeline de identificación por imagen en el teléfono, igual al de PC:
  * foto → preprocesado open_clip → encoder ONNX → k-NN (k=5, voto ponderado) en el paquete activo
- * vía sqlite-vec → rechazo Open Set por Mahalanobis. El encoder y el Open Set se cargan una vez.
+ * vía sqlite-vec → rechazo Open Set por Mahalanobis. El encoder se carga una vez; el modelo de rechazo
+ * sale del propio paquete activo (tabla `open_set_model`, con el τ validado en el Admin) y se vuelve a
+ * leer cada vez que cambia el paquete o su archivo.
  */
 class AnuraIdentifier(private val context: Context) {
     private val mutex = Mutex()
     private var encoder: ImageEncoder? = null
-    private var openSet: OpenSetModel? = null
     private var index: PackageVectorIndex? = null
     private var indexFileStamp = 0L
-    private var allowedByPackage: Map<String, Set<String>>? = null
+    private var packageOpenSet: PackageOpenSet? = null
     private val debuggable = context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
 
     suspend fun identify(
         photo: File,
         packagePath: String,
-        packageId: String,
         latitude: Double? = null,
         longitude: Double? = null,
     ): IdentificationOutcome =
         withContext(Dispatchers.Default) {
             mutex.withLock {
-                runCatching { identifyLocked(photo, packagePath, packageId, latitude, longitude) }.getOrElse { error ->
+                runCatching { identifyLocked(photo, packagePath, latitude, longitude) }.getOrElse { error ->
                     Log.e(Tag, "Fallo en la identificación", error)
                     IdentificationOutcome.Failed(IdentificationFailure.EngineError, error.message ?: error.javaClass.simpleName)
                 }
@@ -75,13 +79,9 @@ class AnuraIdentifier(private val context: Context) {
     private fun identifyLocked(
         photo: File,
         packagePath: String,
-        packageId: String,
         latitude: Double?,
         longitude: Double?,
     ): IdentificationOutcome {
-        val encoder = encoder ?: loadEncoder().also { encoder = it }
-        val openSet = openSet ?: context.assets.open(OpenSetAsset).use(OpenSetModel::read).also { openSet = it }
-        val allowed = (allowedByPackage ?: loadAllowedByPackage().also { allowedByPackage = it })[packageId]
         // Un paquete desinstalado y vuelto a instalar deja la conexión apuntando al archivo borrado.
         val stamp = File(packagePath).lastModified()
         val index = index?.takeIf { it.packagePath == packagePath && indexFileStamp == stamp } ?: run {
@@ -89,9 +89,20 @@ class AnuraIdentifier(private val context: Context) {
             PackageVectorIndex.open(context, packagePath).also {
                 index = it
                 indexFileStamp = stamp
-                Log.i(Tag, "paquete abierto $packagePath sqlite-vec=${it.vecVersion()}")
+                // Otro paquete (o el mismo actualizado) trae otro modelo de rechazo: se relee.
+                packageOpenSet = it.readOpenSet()
+                Log.i(Tag, "paquete abierto $packagePath sqlite-vec=${it.vecVersion()} openset=${packageOpenSet?.describe()}")
             }
         }
+        // Sin modelo de rechazo no se acepta ninguna identificación, y se dice antes de cargar el encoder.
+        val openSet = when (val state = packageOpenSet ?: index.readOpenSet().also { packageOpenSet = it }) {
+            is PackageOpenSet.Ready -> state.model
+            is PackageOpenSet.Unavailable -> {
+                Log.w(Tag, "paquete $packagePath sin modelo de rechazo utilizable: ${state.detail}")
+                return IdentificationOutcome.Failed(IdentificationFailure.NoOpenSetModel, state.detail)
+            }
+        }
+        val encoder = encoder ?: loadEncoder().also { encoder = it }
 
         val t0 = SystemClock.elapsedRealtime()
         val bitmap = BitmapFactory.decodeFile(photo.path, BitmapFactory.Options().apply {
@@ -132,7 +143,8 @@ class AnuraIdentifier(private val context: Context) {
             ?: return IdentificationOutcome.Failed(IdentificationFailure.EngineError, "El paquete no devolvió vecinos")
         val taxonId = top.taxonId
         val t3 = SystemClock.elapsedRealtime()
-        val score = openSet.score(embedding, allowed)
+        // Las especies permitidas son exactamente las del paquete: el modelo trae solo esas medias.
+        val score = openSet.score(embedding)
         val t4 = SystemClock.elapsedRealtime()
 
         if (!score.accepted && score.mahalanobis > NotAnuroTau) {
@@ -149,7 +161,7 @@ class AnuraIdentifier(private val context: Context) {
         Log.i(
             Tag,
             "identify ${photo.name} ${width}x$height pred=$name share=${"%.3f".format(top.share)} maha=${"%.3f".format(score.mahalanobis)} " +
-                "tau=${"%.3f".format(openSet.tau)} allowed=${allowed?.size ?: "todas"} ${if (score.accepted) "ACCEPT" else "REJECT"} " +
+                "tau=${"%.3f".format(openSet.tau)} especies=${openSet.centroidIds.size} ${if (score.accepted) "ACCEPT" else "REJECT"} " +
                 "geoZone=${geoPrior?.zoneId ?: "sin_ubicacion_o_fuera_de_cobertura"} " +
                 "clima=${if (weatherMultiplier != null) "ok" else "sin_dato"} " +
                 "preprocess=${t1 - t0}ms encode=${t2 - t1}ms knn=${t3 - t2}ms openset=${t4 - t3}ms",
@@ -173,14 +185,6 @@ class AnuraIdentifier(private val context: Context) {
         return stats.mapValues { (_, s) -> s.likelihood(obs).pow(weight) }
     }
 
-    private fun loadAllowedByPackage(): Map<String, Set<String>> = runCatching {
-        val json = Json.parseToJsonElement(context.assets.open(AllowedByPackageAsset).bufferedReader().readText())
-        json.jsonObject.mapValues { (_, ids) -> ids.jsonArray.map { it.jsonPrimitive.content }.toSet() }
-    }.getOrElse {
-        Log.w(Tag, "No se pudo cargar $AllowedByPackageAsset, Open Set sin restringir por paquete", it)
-        emptyMap()
-    }
-
     private fun loadEncoder(): ImageEncoder {
         logMemory("before_encoder_load")
         val start = SystemClock.elapsedRealtime()
@@ -188,6 +192,11 @@ class AnuraIdentifier(private val context: Context) {
         Log.i(Tag, "encoder cargado en ${SystemClock.elapsedRealtime() - start}ms")
         logMemory("after_encoder_load")
         return loaded
+    }
+
+    private fun PackageOpenSet.describe(): String = when (this) {
+        is PackageOpenSet.Ready -> "tau=${"%.3f".format(model.tau)} especies=${model.centroidIds.size} sha256=${sha256.take(12)}"
+        is PackageOpenSet.Unavailable -> "sin modelo ($detail)"
     }
 
     private fun logMemory(label: String) {
@@ -236,8 +245,6 @@ class AnuraIdentifier(private val context: Context) {
 
     companion object {
         const val Tag = "AnuraInference"
-        private const val OpenSetAsset = "openset/openset_v1.1.0_clean.bin"
-        private const val AllowedByPackageAsset = "openset/allowed_by_package.json"
         private const val KNeighbors = 5
         private const val DisplayNeighbors = 15
         private const val DisplayCandidateCount = 4

@@ -69,9 +69,11 @@ class KnnVoteTest {
 
         assertEquals(listOf("A", "B", "C", "D"), result.map { it.taxonId })
         // el % mostrado sale de broader para TODAS, incluido el ganador — no del share oficial (0.9) —
-        // para que la suma de los % mostrados nunca pase de 100%: 0.3+0.4+0.2+0.1=1.0.
+        // y ninguna alternativa se muestra por encima del ganador: B (0.4) se limita a 0.3.
+        // Suma mostrada: 0.3+0.3+0.2+0.1 = 0.9, nunca pasa de 100%.
         assertEquals(0.3, result.first().share, 0.0)
-        assertEquals(1.0, result.sumOf { it.share }, 1e-9)
+        assertEquals(0.3, result[1].share, 0.0)
+        assertEquals(0.9, result.sumOf { it.share }, 1e-9)
     }
 
     @Test

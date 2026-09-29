@@ -2,7 +2,6 @@ package me.juanlabs.anura.core.platform
 
 import android.content.Context
 import android.graphics.BitmapFactory
-import androidx.annotation.DrawableRes
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,7 +13,6 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -68,11 +66,6 @@ fun rememberPhotoPlaceholderPainter(): Painter {
  * Foto real del servidor en cuanto termina de bajar (sin bloquear el scroll ni el primer
  * dibujo); antes, [fallback] o el hueco neutro.
  */
-/** El drawable que ya tenía la pantalla sigue viéndose hasta que baja la foto del servidor. */
-@Composable
-fun rememberRemotePhotoPainter(url: String?, @DrawableRes fallbackRes: Int): Painter =
-    rememberRemotePhotoPainter(url, painterResource(fallbackRes))
-
 @Composable
 fun rememberRemotePhotoPainter(url: String?, fallback: Painter? = null): Painter {
     val context = LocalContext.current

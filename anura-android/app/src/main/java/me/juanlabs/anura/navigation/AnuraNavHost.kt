@@ -368,7 +368,6 @@ private fun NavGraphBuilder.detailDestinations(
                 onOpenSpeciesByTaxon = { taxonId ->
                     navController.navigate(AnuraRoute.SpeciesByTaxon(taxonId))
                 },
-                onOpenProfile = { userId -> navController.navigate(AnuraRoute.Profile(userId)) },
                 onGoHome = {
                     navController.navigate(AnuraRoute.Home) {
                         popUpTo(AnuraRoute.Home) { inclusive = false }
@@ -624,6 +623,7 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                             when (reason) {
                                 IdentificationFailure.NoPhoto -> me.juanlabs.anura.R.string.identification_error_no_photo
                                 IdentificationFailure.NoActivePackage -> me.juanlabs.anura.R.string.identification_error_no_package
+                                IdentificationFailure.NoOpenSetModel -> me.juanlabs.anura.R.string.identification_error_no_openset
                                 IdentificationFailure.EngineError -> me.juanlabs.anura.R.string.identification_error_engine
                             },
                         ),

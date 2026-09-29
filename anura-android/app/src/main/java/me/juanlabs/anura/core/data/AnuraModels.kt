@@ -20,7 +20,7 @@ data class UserSession(
     val photoToken: String? = null,
     val usageProfile: String? = null,
     val enteredApp: Boolean = false,
-    /** JWT real de auth-service (login con Google por Custom Tabs). Null: sesión local/mock. */
+    /** JWT real de auth-service (login con Google por Custom Tabs). Null: sesión local sin cuenta. */
     val authToken: String? = null,
 ) {
     val isGuest: Boolean get() = kind == AccountKind.Guest
@@ -58,7 +58,6 @@ data class ObservationRecord(
     val commonName: String? = null,
     val scientificName: String? = null,
     val photoTokens: List<String> = emptyList(),
-    val photoRes: Int? = null,
     /** Miniatura real del servidor para una observación ajena sin archivo local (`ExplorerRemote.thumbUrl`). */
     val photoUrl: String? = null,
     val audioPath: String? = null,

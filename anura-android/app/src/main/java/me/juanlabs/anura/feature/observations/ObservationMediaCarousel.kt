@@ -33,8 +33,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.res.painterResource
 import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
+import me.juanlabs.anura.core.platform.rememberPhotoPlaceholderPainter
 import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -65,7 +65,7 @@ internal fun ObservationMediaCarousel(
     modifier: Modifier = Modifier,
 ) {
     val pages = items.ifEmpty {
-        listOf(ObservationMediaItem.Photo("empty", R.drawable.carousel_dendrobates_truncatus))
+        listOf(ObservationMediaItem.Photo("empty"))
     }
     val pagerState = rememberPagerState(pageCount = { pages.size })
     val carouselCd = stringResource(R.string.observation_media_carousel_cd)
@@ -128,9 +128,9 @@ private fun ObservationMediaPage(
         )
     }
     val backdrop: Painter? = when (item) {
-        is ObservationMediaItem.Photo -> rememberSpeciesPhotoPainter(item.remoteSha256, item.imageRes)
+        is ObservationMediaItem.Photo -> rememberSpeciesPhotoPainter(item.remoteSha256)
         is ObservationMediaItem.FilePhoto -> rememberCaptureBackdropPainter(item.token)
-        is ObservationMediaItem.RemotePhoto -> rememberRemotePhotoPainter(item.url, item.fallbackRes)
+        is ObservationMediaItem.RemotePhoto -> rememberRemotePhotoPainter(item.url)
         is ObservationMediaItem.Audio -> null
     }
     Box(
@@ -142,7 +142,7 @@ private fun ObservationMediaPage(
         when (item) {
             is ObservationMediaItem.Photo -> {
                 Image(
-                    painter = rememberSpeciesPhotoPainter(item.remoteSha256, item.imageRes),
+                    painter = rememberSpeciesPhotoPainter(item.remoteSha256),
                     contentDescription = stringResource(R.string.observation_detail_photo_cd),
                     modifier = Modifier
                         .fillMaxSize()
@@ -153,7 +153,7 @@ private fun ObservationMediaPage(
             }
             is ObservationMediaItem.FilePhoto -> {
                 val painter = rememberCaptureBackdropPainter(item.token)
-                    ?: painterResource(R.drawable.carousel_dendrobates_truncatus)
+                    ?: rememberPhotoPlaceholderPainter()
                 Image(
                     painter = painter,
                     contentDescription = stringResource(R.string.observation_detail_photo_cd),
@@ -166,7 +166,7 @@ private fun ObservationMediaPage(
             }
             is ObservationMediaItem.RemotePhoto -> {
                 Image(
-                    painter = rememberRemotePhotoPainter(item.url, item.fallbackRes),
+                    painter = rememberRemotePhotoPainter(item.url),
                     contentDescription = stringResource(R.string.observation_detail_photo_cd),
                     modifier = Modifier
                         .fillMaxSize()

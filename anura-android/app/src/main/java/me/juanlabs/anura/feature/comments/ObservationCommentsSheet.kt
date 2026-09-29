@@ -44,7 +44,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import me.juanlabs.anura.core.data.ContentCatalog
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -54,7 +56,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -107,7 +108,7 @@ fun ObservationCommentsOverlay(
                     scientificName = sci,
                     commonName = record.taxonProposalCommonName ?: local?.commonName ?: sci,
                     rank = TaxonRank.Species,
-                    photoRes = local?.photoRes ?: R.drawable.carousel_dendrobates_truncatus,
+                    photoSha256 = local?.photoSha256,
                 ),
             )
         }
@@ -440,7 +441,7 @@ private fun DisagreementProposalCard(proposal: TaxonProposal) {
             horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
         ) {
             Image(
-                painter = painterResource(taxon.photoRes),
+                painter = rememberSpeciesPhotoPainter(taxon.photoSha256, ContentCatalog.ThumbWidth),
                 contentDescription = thumbCd,
                 modifier = Modifier
                     .size(56.dp)
@@ -505,7 +506,7 @@ private fun TaxonMentionList(
                 horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap),
             ) {
                 Image(
-                    painter = painterResource(taxon.photoRes),
+                    painter = rememberSpeciesPhotoPainter(taxon.photoSha256, ContentCatalog.ThumbWidth),
                     contentDescription = null,
                     modifier = Modifier
                         .size(40.dp)

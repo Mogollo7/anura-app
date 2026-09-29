@@ -33,7 +33,7 @@ object BlurDetectorHelper {
         analysisSize: Int = DEFAULT_ANALYSIS_SIZE,
         dispatcher: CoroutineDispatcher = Dispatchers.Default,
     ): Boolean = withContext(dispatcher) {
-        if (token.isBlank() || token.startsWith("res:")) return@withContext false
+        if (token.isBlank()) return@withContext false
         val bitmap = decodeToken(context, token, analysisSize * 2) ?: return@withContext false
         try {
             val variance = laplacianVariance(bitmap, analysisSize)

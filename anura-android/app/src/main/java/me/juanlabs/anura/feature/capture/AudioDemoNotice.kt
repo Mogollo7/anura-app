@@ -1,5 +1,6 @@
 package me.juanlabs.anura.feature.capture
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -24,7 +25,10 @@ import me.juanlabs.anura.designsystem.theme.AnuraDimens
  * todo lo que muestran es una demostración y cada pantalla lo dice con este aviso.
  */
 @Composable
-internal fun AudioDemoNotice(modifier: Modifier = Modifier) {
+internal fun AudioDemoNotice(
+    modifier: Modifier = Modifier,
+    @StringRes text: Int = R.string.audio_demo_notice,
+) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -40,7 +44,7 @@ internal fun AudioDemoNotice(modifier: Modifier = Modifier) {
             modifier = Modifier.size(20.dp),
         )
         Text(
-            text = stringResource(R.string.audio_demo_notice),
+            text = stringResource(text),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onTertiaryContainer,
         )

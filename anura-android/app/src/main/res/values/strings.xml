@@ -4,7 +4,7 @@
     <!-- Estado · Cargando (PANTALLA DE CARGA INICIO) — textos exactos de Penpot -->
     <string name="startup_brand_name">Anura</string>
     <string name="startup_tagline">Identificación de anuros de Colombia</string>
-    <string name="startup_preparing_model">Cargando el modelo local…</string>
+    <string name="startup_preparing_model">Preparando tus datos…</string>
     <string name="startup_logo_cd">Logo de Anura</string>
 
     <!-- LOGIN OR SINGUO (bienvenida) — textos exactos de Penpot -->
@@ -56,8 +56,6 @@
     <!-- home — textos exactos de Penpot -->
     <string name="home_brand_welcome">Bienvenido</string>
     <string name="home_greeting">Hola, %1$s</string>
-    <string name="home_user_name_mock">Sebastián</string>
-    <string name="home_user_username_mock">@sebastian</string>
     <string name="home_avatar_cd">Abrir perfil</string>
     <string name="home_loading">Cargando inicio…</string>
     <string name="home_carousel_where_to_look">En dónde mirar</string>
@@ -65,7 +63,9 @@
     <string name="home_carousel_endangered">Especie amenazada</string>
     <string name="home_carousel_frog_of_day">Rana del día</string>
     <string name="catalog_empty_title">Aún no hay especies publicadas</string>
-    <string name="catalog_empty_body">Cuando se publique una ficha, aparecerá aquí.</string>
+    <string name="catalog_empty_body">Cuando se publiquen, aparecerán aquí.</string>
+    <string name="home_carousel_empty_title">Aún no hay destacados</string>
+    <string name="home_carousel_empty_body">Las especies publicadas con foto y datos aparecerán aquí.</string>
     <string name="catalog_offline_title">Conéctate para cargar las especies</string>
     <string name="catalog_offline_body">Después de la primera descarga se ven sin internet.</string>
     <string name="catalog_loading_title">Cargando las especies…</string>
@@ -81,19 +81,12 @@
     <string name="field_session_title">Salida en curso</string>
     <string name="field_session_notes_cd">Notas de la salida</string>
     <string name="field_session_live_cd">Indicador en vivo</string>
-    <string name="field_session_location">Quebrada La Miel · transecto 2</string>
-    <string name="field_session_elapsed">1:12:04</string>
     <string name="weather_unavailable">N/A</string>
-    <string name="field_session_temp">N/A</string>
     <string name="field_session_temp_label">Temperatura</string>
-    <string name="field_session_humidity">86 %</string>
     <string name="field_session_humidity_label">Humedad</string>
-    <string name="field_session_altitude">2.140 m</string>
     <string name="field_session_altitude_label">Altitud</string>
-    <string name="field_session_rain">Llovizna</string>
     <string name="field_session_rain_label">Lluvia</string>
     <string name="field_session_registers">Registros de esta salida</string>
-    <string name="field_session_register_count">7</string>
     <string name="field_session_night_sounds">Sonidos nocturnos de la salida</string>
     <string name="field_session_end">Finalizar</string>
     <string name="field_session_end_cd">Terminar salida de campo</string>
@@ -118,12 +111,6 @@
     <string name="field_session_notes_save">Guardar nota</string>
     <string name="field_session_notes_saved">Apuntes guardados en esta salida</string>
     <string name="field_session_notes_empty">Todavía no hay apuntes en esta salida.</string>
-    <string name="field_session_note_time_1">21:40</string>
-    <string name="field_session_note_body_1">Sonido de arroyo constante, buena señal para grabar cantos.</string>
-    <string name="field_session_note_time_2">22:05</string>
-    <string name="field_session_note_body_2">Encontramos 3 individuos de D. truncatus bajo la misma hoja.</string>
-    <string name="field_session_note_time_3">22:30</string>
-    <string name="field_session_note_body_3">Temperatura bajó a 16 °C, actividad de canto disminuyó notablemente.</string>
     <string name="field_session_sp_truncatus">Dendrobates truncatus</string>
 
     <!-- Pop-up del botón "+": qué registrar — textos exactos de Penpot -->
@@ -165,57 +152,14 @@
     <string name="audio_demo_notice">Demostración: ANURA todavía no identifica por sonido. El audio se guarda, pero lo que ves aquí no es una identificación.</string>
     <string name="capture_photo_failed">No se pudo tomar la foto. Intenta de nuevo o elige una de la galería.</string>
     <string name="capture_wizard_progress_cd">Paso %1$d de %2$d</string>
-    <string name="capture_wizard_skip">Omitir este paso</string>
-    <string name="capture_wizard_optional_note">Se puede omitir este paso, pero la precisión de identificación puede disminuir en consecuencia</string>
-    <string name="capture_wizard_next">Continuar</string>
-    <string name="capture_wizard_save">Guardar</string>
-    <string name="capture_wizard_cancel_edit_title">¿Cancelar los cambios?</string>
-    <string name="capture_wizard_cancel_edit_body">Si cancelas, vuelves al resumen sin guardar lo que cambiaste en este paso.</string>
     <string name="capture_unsaved_title">¿Seguro que quieres salir?</string>
     <string name="capture_unsaved_body">Hay cambios sin guardar. Si aceptas, vuelves atrás y se pierden.</string>
     <string name="anura_accept">Aceptar</string>
     <string name="anura_discard">Descartar</string>
 
-    <string name="capture_step1_appbar">Paso 1 de 6</string>
-    <string name="capture_step1_title">¿Dónde la viste?</string>
-    <string name="capture_step1_subtitle">Anura ya tomó tu ubicación. Ajustala si hace falta.</string>
-    <string name="capture_step1_map_cd">Mapa con marcador de ubicación arrastrable</string>
-    <string name="capture_step1_precision">Precisión ±%1$d m</string>
-    <string name="capture_step1_coordinates">%1$s, %2$s</string>
-    <string name="capture_step1_altitude_label">Altitud</string>
-    <string name="capture_step1_altitude_mock">2.140 msnm</string>
-    <string name="capture_step1_ecosystem_label">Ecosistema</string>
-    <string name="capture_step1_ecosystem_mock">Bosque altoandino</string>
-    <string name="capture_step1_microhabitat_label">Microhábitat</string>
-    <string name="capture_step1_habitat_leaf_litter">Hojarasca</string>
-    <string name="capture_step1_habitat_low_vegetation">Vegetación baja</string>
-    <string name="capture_step1_habitat_water">Cuerpo de agua</string>
-    <string name="capture_step1_habitat_rock">Roca</string>
 
-    <string name="capture_step2_appbar">Paso 2 de 6</string>
-    <string name="capture_step2_title">¿Cuándo la viste?</string>
-    <string name="capture_step2_subtitle">Tomado del momento de la foto. Toca para cambiarlo.</string>
-    <string name="capture_step2_time_local">%1$s · hora local (UTC−5)</string>
-    <string name="capture_step2_day_period">Franja del día</string>
-    <string name="capture_step2_dawn">Amanecer</string>
-    <string name="capture_step2_day">Día</string>
-    <string name="capture_step2_dusk">Atardecer</string>
-    <string name="capture_step2_night">Noche</string>
-    <string name="capture_step2_weather_auto">Consultado automáticamente</string>
-    <string name="capture_step2_temp_label">Temperatura</string>
-    <string name="capture_step2_temp_value">N/A</string>
-    <string name="capture_step2_humidity_label">Humedad</string>
-    <string name="capture_step2_humidity_value">86 %</string>
-    <string name="capture_step2_precip_label">Precipitación</string>
-    <string name="capture_step2_precip_value">Llovizna</string>
-    <string name="capture_step2_date_cd">Fecha del avistamiento</string>
     <string name="capture_step2_time_cd">Hora local del avistamiento</string>
 
-    <string name="capture_step3_appbar">Paso 3 de 6</string>
-    <string name="capture_step3_title">¿Qué tamaño tenía?</string>
-    <string name="capture_step3_subtitle">Longitud hocico–cloaca aproximada. Sirve para descartar especies.</string>
-    <string name="capture_step3_coin_ref">$100 COP</string>
-    <string name="capture_step3_individual">El individuo</string>
     <string name="capture_step3_min">10 mm</string>
     <string name="capture_step3_max">160 mm</string>
     <string name="capture_step3_value">%1$d mm</string>
@@ -224,11 +168,9 @@
         <item quantity="other">Con %1$d mm quedan %2$d especies candidatas</item>
     </plurals>
 
-    <string name="capture_step4_appbar">Paso 4 de 6</string>
     <string name="capture_step4_camera_cd">Cámara de campo</string>
     <string name="capture_step4_delete_specimen_cd">Eliminar captura %1$s</string>
     <string name="capture_step4_take_samples">Tomar muestras</string>
-    <string name="capture_step4_save_photos">Guardar</string>
     <string name="capture_step4_gallery_cd">Abrir galería</string>
     <string name="capture_step4_shutter_cd">Tomar foto</string>
     <string name="capture_step4_review_cd">Revisar %1$d fotos</string>
@@ -236,41 +178,18 @@
     <string name="capture_step4_photo_index">%1$d / %2$d</string>
     <string name="capture_step4_photo_index_cd">Foto %1$d de %2$d</string>
 
-    <string name="capture_step5_appbar">Paso 5 de 6</string>
     <string name="capture_step5_title">Añadir audio</string>
-    <string name="capture_step5_subtitle">El canto es opcional. Graba con el micrófono o elige un audio de la memoria.</string>
     <string name="capture_step5_play">Reproducir</string>
     <string name="capture_step5_pause">Pausar</string>
     <string name="capture_step5_dominant">Frecuencia dominante %1$s kHz</string>
     <string name="capture_step5_record_cd">Empezar a grabar</string>
     <string name="capture_step5_storage_cd">Elegir audio de la memoria</string>
     <string name="capture_step5_use_clip_cd">Utilizar captura</string>
-    <string name="capture_step5_local_title">Audio local</string>
-    <string name="capture_step5_use_audio">Utilizar audio</string>
     <string name="capture_step5_seek_back_cd">Retroceder 10 segundos</string>
     <string name="capture_step5_seek_forward_cd">Avanzar 10 segundos</string>
     <string name="capture_step5_progress_cd">Progreso del audio %1$s de %2$s</string>
     <string name="capture_step5_time_remaining">%1$s / %2$s</string>
-    <string name="capture_step5_leave_local_title">¿Quieres elegir otro audio?</string>
-    <string name="capture_step5_leave_local_body">Si aceptas, cierras este archivo y puedes grabar o elegir otro desde la memoria.</string>
 
-    <string name="capture_step6_appbar">Paso 6 de 6</string>
-    <string name="capture_step6_title">Revisa y analiza</string>
-    <string name="capture_step6_subtitle">Cada dato vuelve al paso que lo capturó.</string>
-    <string name="capture_step6_where">Dónde</string>
-    <string name="capture_step6_where_value">5°04\'N 75°31\'O · 2.140 msnm · Hojarasca</string>
-    <string name="capture_step6_when">Cuándo</string>
-    <string name="capture_step6_when_value">7 sep 2026 · 21:47 · Noche · 18 °C</string>
-    <string name="capture_step6_size">Tamaño</string>
-    <string name="capture_step6_size_value">48 mm hocico–cloaca</string>
-    <string name="capture_step6_photos">Fotos</string>
-    <string name="capture_step6_photos_value">2 vistas: dorsal y ventral</string>
-    <string name="capture_step6_audio">Audio</string>
-    <string name="capture_step6_audio_value">00:14 · 2,4 kHz</string>
-    <string name="capture_step6_info">Anura combina foto, canto y metadatos. Si falta alguno, la identificación baja de confianza pero se hace igual.</string>
-    <string name="capture_step6_offline">El análisis corre en el dispositivo. No necesitas conexión.</string>
-    <string name="capture_step6_analyze">Analizar</string>
-    <string name="capture_step6_edit_cd">Editar %1$s</string>
 
     <string name="photo_capture_title">Fotos del mismo individuo</string>
     <string name="photo_capture_analyze">Analizar</string>
@@ -346,23 +265,6 @@
     <string name="observations_nearby_title">Puedes encontrar esta rana cerca</string>
     <string name="observations_empty_title">Todavía no hay observaciones</string>
     <string name="observations_empty_body">Registra tu primera observación desde el botón +.</string>
-    <string name="observations_item_1_common">Rana venenosa de Santa Marta</string>
-    <string name="observations_item_1_sci">Dendrobates truncatus</string>
-    <string name="observations_item_2_common">Rana dardo dorada</string>
-    <string name="observations_item_2_sci">Phyllobates terribilis</string>
-    <string name="observations_item_3_common">Rana de cristal</string>
-    <string name="observations_item_3_sci">Espadarana prosoblepon</string>
-    <string name="observations_item_4_common">Rana arlequín</string>
-    <string name="observations_item_4_sci">Atelopus sp.</string>
-    <string name="observations_item_5_common">Rana platanera</string>
-    <string name="observations_item_5_sci">Boana pugnax</string>
-    <string name="observations_item_6_common">Sapo común</string>
-    <string name="observations_item_6_sci">Rhinella marina</string>
-    <string name="observations_item_7_common">Rana marsupial andina</string>
-    <string name="observations_item_7_sci">Gastrotheca sp.</string>
-    <string name="observations_item_8_common">Ranita cohete</string>
-    <string name="observations_item_8_sci">Hyloxalus sp.</string>
-    <string name="observations_nearby_paisa">Pristimantis paisa</string>
 
     <!-- Detalles de observación (resultado) — textos exactos de Penpot -->
     <string name="observation_detail_title">Detalles</string>
@@ -378,10 +280,6 @@
     <string name="media_lightbox_close_cd">Cerrar foto</string>
     <string name="observation_media_carousel_cd">Carrusel de fotos y audio de la observación</string>
     <string name="observation_media_index_cd">Medio %1$d de %2$d</string>
-    <string name="observation_detail_common_name">Rana venenosa de Santa Marta</string>
-    <string name="observation_detail_scientific_name">Dendrobates truncatus</string>
-    <string name="observation_detail_toxic_chip">Tóxica — no manipular</string>
-    <string name="observation_detail_iucn_chip">LC · Preocupación menor</string>
     <string name="observation_detail_confidence_label">Coincidencia con las referencias del paquete</string>
     <string name="observation_detail_multi_photo_hint">Resultado con %d fotos del mismo individuo</string>
     <string name="observation_detail_share_pct">%1$d %%</string>
@@ -390,13 +288,9 @@
     <string name="observation_detail_refute">Refutar identificación</string>
     <string name="observation_detail_record_data">Datos del registro</string>
     <string name="observation_detail_where">Dónde</string>
-    <string name="observation_detail_where_value">5°04\'N 75°31\'O · 2.140 msnm · Hojarasca</string>
     <string name="observation_detail_when">Cuándo</string>
-    <string name="observation_detail_when_value">7 sep 2026 · 21:47 · 18 °C · 86 % HR</string>
     <string name="observation_detail_size">Tamaño</string>
-    <string name="observation_detail_size_value">48 mm hocico–cloaca</string>
     <string name="observation_detail_audio">Audio</string>
-    <string name="observation_detail_audio_value">00:14 · frecuencia dominante 2,4 kHz</string>
     <string name="observation_detail_model_local">Modelo local</string>
     <string name="observation_detail_species_sheet">Ver ficha técnica</string>
     <string name="observation_detail_expert_review">En revisión experta tras una refutación</string>
@@ -408,7 +302,6 @@
     <string name="observation_detail_share_cd">Compartir la foto y la observación</string>
     <string name="observation_detail_share_chooser">Compartir observación</string>
     <string name="observation_detail_share_text">%1$s (%2$s) — observación en ANURA: %3$s</string>
-    <string name="observation_author_other">@laura.anura</string>
     <string name="observation_author_follow">Seguir</string>
     <string name="observation_author_cd">Abrir perfil de %1$s</string>
 
@@ -438,9 +331,6 @@
     <string name="unknown_result_subtitle_family">Familia identificada · género y especie sin confirmar</string>
     <string name="unknown_result_subtitle_order">Orden identificado · familia, género y especie sin confirmar</string>
     <string name="unknown_result_not_a_failure">Esto no es un fallo</string>
-    <string name="unknown_result_body_genus">El género %1$s tiene más de 200 especies en Colombia y muchas no están en el modelo. Anura llega hasta donde la evidencia alcanza y lo dice.</string>
-    <string name="unknown_result_body_family">La familia %1$s agrupa muchos géneros y el ejemplar no encaja con precisión en ninguno del catálogo. Anura llega hasta donde la evidencia alcanza y lo dice.</string>
-    <string name="unknown_result_body_order">El orden %1$s está claro, pero familia, género y especie quedan abiertos. Anura llega hasta donde la evidencia alcanza y lo dice.</string>
     <string name="unknown_result_body_real_genus">Las referencias más parecidas son en su mayoría del género %1$s, pero la foto no coincide con ninguna especie conocida del paquete regional.</string>
     <string name="unknown_result_body_real_family">Las referencias más parecidas son en su mayoría de la familia %1$s, sin mayoría de género ni coincidencia con una especie conocida del paquete regional.</string>
     <string name="unknown_result_body_real_order">La foto no coincide con ninguna especie conocida del paquete regional y las referencias más parecidas no coinciden en familia.</string>
@@ -460,30 +350,14 @@
     <!-- ESPECIE, FAMILIA, GENERO (ficha técnica) — textos exactos de Penpot -->
     <string name="species_sheet_title">Ficha técnica</string>
     <string name="species_sheet_close_home_cd">Cerrar e ir al inicio</string>
-    <string name="species_sheet_common_name">Rana venenosa de Santa Marta</string>
-    <string name="species_sheet_scientific_name">Dendrobates truncatus</string>
-    <string name="species_sheet_toxic">Tóxica</string>
-    <string name="species_sheet_iucn">LC · Preocupación menor</string>
-    <string name="species_sheet_taxonomy_line">Orden Anura › Familia Dendrobatidae › Género Dendrobates</string>
-    <string name="species_sheet_stat_observations">1.284</string>
     <string name="species_sheet_stat_observations_label">Fotos de referencia</string>
-    <string name="species_sheet_stat_altitude">0–1.200 m</string>
     <string name="species_sheet_stat_altitude_label">Altitud</string>
-    <string name="species_sheet_stat_size">26–38 mm</string>
+    <string name="species_sheet_no_data">Sin dato</string>
+    <string name="species_bioacoustics_demo_notice">Demostración: aún no hay grabaciones de referencia publicadas. Estos audios son de ejemplo.</string>
     <string name="species_sheet_stat_size_label">Hocico-cloaca</string>
-    <string name="species_sheet_stat_observers">6</string>
-    <string name="species_sheet_stat_observers_label">Identificadores</string>
-    <string name="species_sheet_stat_species">12</string>
     <string name="species_sheet_stat_species_label">Especies</string>
-    <string name="species_sheet_stat_genera">8</string>
     <string name="species_sheet_stat_genera_label">Géneros</string>
-    <string name="species_sheet_stat_families">3</string>
     <string name="species_sheet_stat_families_label">Familias</string>
-    <string name="identifiers_title">Identificadores</string>
-    <string name="identifiers_search">Busca un identificador</string>
-    <string name="identifiers_meta">%1$s · %2$d identificaciones</string>
-    <string name="identifiers_person_6_name">Mateo Londoño</string>
-    <string name="identifiers_person_6_handle">\@mateo.l</string>
     <string name="species_by_taxon_search_genus">Busca una especie de este género</string>
     <string name="species_by_taxon_search_family">Busca una especie de esta familia</string>
     <string name="species_sheet_tab_distribution">Distribución</string>
@@ -492,10 +366,6 @@
     <string name="species_sheet_tab_taxonomy">Taxonomía</string>
     <string name="species_sheet_tab_similars">Similares</string>
     <string name="species_sheet_taxonomy_title">Árbol taxonómico</string>
-    <string name="species_sheet_download_range">Descargar distribución</string>
-    <string name="species_sheet_taxon_order">Orden Anura</string>
-    <string name="species_sheet_taxon_family">Familia Dendrobatidae</string>
-    <string name="species_sheet_taxon_genus">Género Dendrobates</string>
     <string name="species_sheet_taxon_sep"> › </string>
     <string name="species_sheet_audio_1">Canto diurno</string>
     <string name="species_sheet_audio_1_meta">00:14 · 2,4 kHz</string>
@@ -503,73 +373,23 @@
     <string name="species_sheet_audio_2_meta">00:09 · 2,1 kHz</string>
     <string name="species_sheet_play_cd">Reproducir %1$s</string>
     <string name="species_sheet_stop_cd">Detener %1$s</string>
-    <string name="species_sheet_similar_1_common">Rana flecha verde</string>
-    <string name="species_sheet_similar_1_sci">Dendrobates auratus</string>
-    <string name="species_sheet_similar_2_common">Rana dardo</string>
-    <string name="species_sheet_similar_2_sci">Phyllobates terribilis</string>
-    <string name="species_sheet_similar_3_common">Rana paisa</string>
-    <string name="species_sheet_similar_3_sci">Pristimantis paisa</string>
-    <string name="species_sheet_similar_4_common">Ranita de Bogert</string>
-    <string name="species_sheet_similar_4_sci">Dendropsophus bogerti</string>
     <string name="species_sheet_morphology_title">Diagnóstico morfológico</string>
     <string name="species_sheet_morphology_empty">Esta especie todavía no tiene la morfología revisada por un herpetólogo.</string>
     <string name="species_sheet_diagnostics">Rasgos diagnósticos</string>
     <string name="species_sheet_photo_credit">Foto: %1$s</string>
     <string name="species_sheet_tympanum">Tímpano</string>
-    <string name="species_sheet_tympanum_value">Visible, diámetro ≈ ½ del ojo</string>
     <string name="species_sheet_disc">Disco digital</string>
-    <string name="species_sheet_disc_value">Ensanchado en dedos y artejos</string>
     <string name="species_sheet_fold">Pliegue dorsolateral</string>
-    <string name="species_sheet_fold_value">Ausente</string>
     <string name="species_sheet_dorsal">Patrón dorsal</string>
-    <string name="species_sheet_dorsal_value">Franjas longitudinales amarillas sobre negro</string>
     <string name="species_sheet_ventral">Patrón ventral</string>
-    <string name="species_sheet_ventral_value">Reticulado azul o verde metálico</string>
     <string name="species_sheet_webbing">Membrana interdigital</string>
-    <string name="species_sheet_webbing_value">Reducida en manos, basal en pies</string>
     <string name="species_sheet_svl">Longitud hocico–cloaca</string>
-    <string name="species_sheet_svl_value">26–38 mm (hembras mayores)</string>
-    <string name="species_sheet_export">Exportar resumen (PDF / offline)</string>
     <string name="species_sheet_explore_genus">Explora más de este género</string>
     <string name="species_sheet_photo_cd">Foto de la especie</string>
 
     <!-- DESPLEGABLE1 justificación — textos exactos de Penpot -->
     <string name="justification_title">Justificación</string>
     <string name="justification_unavailable">La identificación no guarda qué zona del animal pesó en el resultado. No hay porcentajes que mostrar.</string>
-    <string name="justification_heading">Qué miró el modelo</string>
-    <string name="justification_intro">Cada región anatómica con su carácter detectado y su peso en la conclusión.</string>
-    <string name="justification_hint">Toca una región para ver o refutar su análisis</string>
-    <string name="justification_contribution">Contribución por región</string>
-    <string name="justification_region_tympanum">Tímpano</string>
-    <string name="justification_region_tympanum_pct">24 %</string>
-    <string name="justification_region_tympanum_note">Visible, diámetro ≈ ½ del ojo → compatible con Dendrobates</string>
-    <string name="justification_region_disc">Disco digital</string>
-    <string name="justification_region_disc_pct">31 %</string>
-    <string name="justification_region_disc_note">Ensanchado en dedos y artejos → descarta Rhinella</string>
-    <string name="justification_region_fold">Pliegue dorsolateral</string>
-    <string name="justification_region_fold_pct">18 %</string>
-    <string name="justification_region_fold_note">Ausente → descarta Leptodactylus</string>
-    <string name="justification_region_dorsal">Patrón dorsal</string>
-    <string name="justification_region_dorsal_pct">27 %</string>
-    <string name="justification_region_dorsal_note">Franjas longitudinales amarillas → D. truncatus</string>
-    <string name="justification_footer">Si refutas una región, la observación pasa a «En revisión experta» y se guardan la foto, la máscara y tu corrección para reentrenar el modelo.</string>
-    <string name="justification_refute_all">Refutar la identificación completa</string>
-    <string name="justification_photo_cd">Foto con máscara de segmentación semántica</string>
-    <string name="justification_region_cd">Región: %1$s</string>
-    <string name="justification_refute_region_cd">Refutar %1$s</string>
-    <string name="justification_refute_title">Refutar esta región</string>
-    <string name="justification_refute_intro">Elige la estructura mal delimitada y di qué observaste. Queda en «En revisión experta».</string>
-    <string name="justification_refute_region_label">Región señalada</string>
-    <string name="justification_refute_model_label">El modelo concluyó</string>
-    <string name="justification_refute_observed">Qué observaste</string>
-    <string name="justification_refute_observed_mock">Es un pliegue dorsolateral, no el tímpano. El tímpano queda oculto bajo el pliegue.</string>
-    <string name="justification_refute_species">Especie correcta (opcional)</string>
-    <string name="justification_refute_species_mock">Elige una especie</string>
-    <string name="justification_refute_send">Enviar refutación</string>
-    <string name="justification_region_tympanum_model">Diámetro ≈ ½ del ojo → Dendrobates</string>
-    <string name="justification_region_disc_model">Ensanchado en dedos y artejos → descarta Rhinella</string>
-    <string name="justification_region_fold_model">Ausente → descarta Leptodactylus</string>
-    <string name="justification_region_dorsal_model">Franjas longitudinales amarillas → D. truncatus</string>
 
     <!-- ajustes (§4.1) — Apariencia: Claro / Oscuro / Luz roja + 6 muestras -->
     <string name="settings_title">Ajustes</string>
@@ -603,8 +423,8 @@
     <string name="settings_appearance_large_text_body">Aumenta la letra dentro de Anura.</string>
     <string name="settings_appearance_preview_section">Vista previa</string>
     <string name="settings_appearance_preview_body">Así se ven el acento y el tipo con tu selección.</string>
-    <string name="settings_appearance_preview_common">Rana venenosa</string>
-    <string name="settings_appearance_preview_sci">Dendrobates truncatus</string>
+    <string name="settings_appearance_preview_common">Nombre común</string>
+    <string name="settings_appearance_preview_sci">Nombre científico</string>
     <string name="settings_appearance_preview_action">Acción principal</string>
     <string name="settings_sign_out">Cerrar sesión</string>
     <string name="settings_edit_profile_cd">Editar perfil</string>
@@ -633,6 +453,10 @@
     <string name="identification_no_package_body">Para identificar sin conexión, Anura compara la foto con el paquete de tu subregión. Descárgalo una vez y queda en el teléfono. Tu foto se guarda mientras tanto.</string>
     <string name="identification_no_package_action">Descargar paquete</string>
     <string name="identification_no_package_later">Ahora no</string>
+    <string name="identification_error_no_openset">Este paquete no trae umbral de rechazo, actualízalo en Paquetes.</string>
+    <string name="identification_no_openset_title">Falta el umbral de rechazo</string>
+    <string name="identification_no_openset_body">Este paquete no trae umbral de rechazo, actualízalo. Sin él Anura no puede saber si la foto es de una especie del paquete, así que no identifica. Tu foto se guarda mientras tanto.</string>
+    <string name="identification_no_openset_action">Actualizar paquete</string>
     <string name="species_not_found_title">No encontramos esta especie</string>
     <string name="species_not_found_body">No tiene ficha en el catálogo de este teléfono.</string>
     <string name="identification_error_engine">No se pudo analizar la foto. Intenta de nuevo.</string>
@@ -664,12 +488,8 @@
     <string name="profile_title">Perfil</string>
     <string name="profile_title_own">Mi perfil</string>
     <string name="profile_more_cd">Acción: puntos</string>
-    <string name="profile_display_name_own">Sebastián Martínez</string>
-    <string name="profile_display_name_other">Laura Restrepo</string>
-    <string name="profile_bio_other">Herpetóloga · Universidad de Antioquia</string>
     <string name="profile_identifier_chip">Identificadora destacada</string>
     <string name="profile_other_privacy_note">Las publicaciones privadas de otra persona no existen para ti: no se listan ni se cuentan.</string>
-    <string name="profile_location_own">Manizales, Caldas</string>
     <string name="profile_edit_avatar_cd">Editar foto de perfil</string>
     <string name="profile_tab_public">Públicas</string>
     <string name="profile_tab_private">Privadas</string>
@@ -681,15 +501,6 @@
     <string name="profile_stat_species">Especies</string>
     <string name="profile_stat_following">Seguidos</string>
     <string name="profile_stat_followers">Seguidores</string>
-    <string name="profile_stat_observations_value">42</string>
-    <string name="profile_stat_observations_own_value">47</string>
-    <string name="profile_stat_species_value">19</string>
-    <string name="profile_stat_following_value">15</string>
-    <string name="profile_stat_followers_value">7</string>
-    <string name="profile_stat_followers_own_value">128</string>
-    <string name="profile_stat_observations_other_value">1.204</string>
-    <string name="profile_stat_species_other_value">186</string>
-    <string name="profile_stat_followers_other_value">3,4 k</string>
     <string name="connections_following">Siguiendo</string>
     <string name="connections_search_followers">Busca seguidores</string>
     <string name="connections_search_following">Busca seguidos</string>
@@ -697,32 +508,20 @@
     <string name="connections_tab_followers">Seguidores (%d)</string>
     <string name="connections_tab_following">Seguidos (%d)</string>
     <string name="connections_tab_favorites">Favoritos (%d)</string>
-    <string name="connections_person_1_name">Camila Restrepo</string>
-    <string name="connections_person_1_handle">\@camila.rana</string>
-    <string name="connections_person_2_name">Julián Osorio</string>
-    <string name="connections_person_2_handle">\@julian.osorio</string>
-    <string name="connections_person_3_name">Valentina Gómez</string>
-    <string name="connections_person_3_handle">\@vale.anuros</string>
-    <string name="connections_person_4_name">Andrés Zapata</string>
-    <string name="connections_person_4_handle">\@andres.z</string>
-    <string name="connections_person_5_name">Laura Cárdenas</string>
-    <string name="connections_person_5_handle">\@laura.cardenas</string>
     <string name="profile_share">Compartir perfil</string>
     <string name="profile_copy_link">Copiar enlace del perfil</string>
     <string name="profile_report_block">Reportar o bloquear</string>
     <string name="profile_share_chooser">Compartir perfil</string>
     <string name="profile_share_text">%1$s (%2$s) en ANURA</string>
-    <string name="profile_link_mock">https://anura.app/u/%1$s</string>
+    <string name="profile_link">https://anura.juanlabs.me/people/%1$s</string>
 
     <!-- EDIT (§4.1) — nombre, bio y foto -->
     <string name="edit_profile_title">Editar perfil</string>
     <string name="edit_profile_bio_label">Bio</string>
-    <string name="edit_profile_bio_mock">Herpetólogo aventurero</string>
     <string name="edit_profile_photo_cd">Cambiar foto de perfil</string>
     <string name="edit_profile_pick_photo">Elegir foto de la galería</string>
     <string name="edit_profile_username_label">Nombre de usuario</string>
     <string name="edit_profile_full_name_label">Nombre completo</string>
-    <string name="edit_profile_full_name_mock">Sebastián Martínez</string>
     <string name="edit_profile_password_section">Cambiar contraseña</string>
     <string name="edit_profile_current_password">Contraseña actual</string>
     <string name="edit_profile_new_password">Nueva contraseña</string>
@@ -749,13 +548,6 @@
     <string name="settings_guest_label">Usas ANURA sin cuenta</string>
     <string name="settings_sign_out_guest">Salir del modo invitado</string>
     <string name="anura_value_missing">Sin dato</string>
-    <string name="capture_step6_where_empty">Sin ubicación</string>
-    <string name="capture_step6_when_empty">Sin fecha</string>
-    <string name="capture_step6_size_empty">Sin medida</string>
-    <string name="capture_step6_photos_count">%d fotos del mismo individuo</string>
-    <string name="capture_step6_photos_empty">Sin fotos</string>
-    <string name="capture_step6_audio_empty">Sin audio</string>
-    <string name="capture_step6_size_mm">%d mm hocico–cloaca</string>
     <string name="observations_favorites_cd">Favoritos</string>
     <string name="observation_unidentified_common">Observación sin identificar</string>
     <string name="observation_unidentified_scientific">Pendiente de identificación</string>
@@ -775,8 +567,6 @@
     <string name="profile_blocked">Persona bloqueada</string>
     <string name="profile_report_action">Reportar</string>
     <string name="profile_block_action">Bloquear</string>
-    <string name="species_range_queued">La descarga del rango quedó en cola</string>
-    <string name="species_export_ready">Ficha lista para compartir</string>
     <string name="packages_retry">Reintentar</string>
     <string name="packages_error_title">No se pudo descargar</string>
     <string name="field_session_location_missing">Ubicación no registrada</string>

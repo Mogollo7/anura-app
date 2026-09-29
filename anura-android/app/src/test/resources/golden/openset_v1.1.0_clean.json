@@ -1,6 +1,6 @@
 {
  "artifact": "openset_v1.1.0_clean.bin",
- "allowed_by_package_file": "allowed_by_package.json",
+ "allowed_by_package_file": "allowed_ids_golden.json",
  "allowed_by_package_sha256": "4980f95d9d8adf94f7b321be5f2d11e1f88eda752259167967bf195b0aa22907",
  "format": "ANOS v1 little-endian (ver docstring de tools/mobile/export_mobile_inference.py)",
  "method": "M5_LedoitWolf_Shared",

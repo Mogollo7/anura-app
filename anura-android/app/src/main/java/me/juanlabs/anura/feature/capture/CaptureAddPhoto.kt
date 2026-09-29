@@ -33,7 +33,6 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -128,16 +127,6 @@ internal fun CapturePhotoPreview(
                 if (blurred && Build.VERSION.SDK_INT >= 31) Modifier.blur(18.dp) else Modifier,
             )
         when {
-            token.startsWith("res:") -> {
-                val resId = token.removePrefix("res:").toIntOrNull()
-                    ?: R.drawable.carousel_pristimantis_paisa
-                Image(
-                    painter = painterResource(resId),
-                    contentDescription = stringResource(R.string.photo_capture_preview_cd),
-                    modifier = imageModifier,
-                    contentScale = ContentScale.Crop,
-                )
-            }
             token.startsWith("uri:") -> {
                 val bitmap = rememberUriImage(Uri.parse(token.removePrefix("uri:")))
                 if (bitmap != null) {

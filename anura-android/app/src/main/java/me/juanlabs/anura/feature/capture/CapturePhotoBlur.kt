@@ -15,9 +15,7 @@ import me.juanlabs.anura.core.image.BlurDetectorHelper
 /**
  * Orquesta detección de borrosidad + alerta reutilizable.
  *
- * Lo usan los dos flujos de captura:
- * - Paso a paso ([CaptureStep4Screen] → [CaptureAddPhotoFlow])
- * - Identificación ID ([PhotoCaptureScreen] → [CaptureAddPhotoFlow])
+ * Lo usa el flujo de Foto ID ([PhotoCaptureScreen] → [CaptureAddPhotoFlow]).
  */
 class CapturePhotoBlurController internal constructor(
     private val context: Context,

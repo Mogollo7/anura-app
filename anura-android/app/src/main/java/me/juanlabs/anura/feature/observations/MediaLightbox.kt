@@ -19,8 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
+import me.juanlabs.anura.core.platform.rememberPhotoPlaceholderPainter
 import me.juanlabs.anura.core.platform.rememberRemotePhotoPainter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
@@ -97,10 +97,10 @@ internal fun MediaLightbox(
 @Composable
 private fun LightboxPhoto(item: ObservationMediaItem) {
     val painter = when (item) {
-        is ObservationMediaItem.Photo -> rememberSpeciesPhotoPainter(item.remoteSha256, item.imageRes)
+        is ObservationMediaItem.Photo -> rememberSpeciesPhotoPainter(item.remoteSha256)
         is ObservationMediaItem.FilePhoto -> rememberCaptureBackdropPainter(item.token)
-            ?: painterResource(R.drawable.carousel_dendrobates_truncatus)
-        is ObservationMediaItem.RemotePhoto -> rememberRemotePhotoPainter(item.url, item.fallbackRes)
+            ?: rememberPhotoPlaceholderPainter()
+        is ObservationMediaItem.RemotePhoto -> rememberRemotePhotoPainter(item.url)
         is ObservationMediaItem.Audio -> return
     }
     Image(

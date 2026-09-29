@@ -50,7 +50,6 @@ import me.juanlabs.anura.designsystem.theme.AnuraDimens
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
 
 internal const val CaptureWizardTotalSteps = 6
-const val CaptureDraftPhotoCountKey = "capture_photo_count"
 
 internal object CapturePhotoDraft {
     var tokens: List<String>
@@ -77,10 +76,9 @@ internal val CaptureProgressGap = 12.dp
 internal val CaptureProgressToTitleGap = 14.dp
 internal val CaptureTitleToSubtitleGap = 4.dp
 internal val CaptureSubtitleToContentGap = 16.dp
-internal val CaptureNoteToSkipGap = AnuraDimens.spaceGap
 internal val CaptureBottomBreathing = 16.dp
 
-/** Contenido → pie de botones del wizard (Step1 microhábitat, Step2/3/5, AudioCapture). */
+/** Contenido → pie de botones del asistente (Audio ID, Paso a paso). */
 internal val CaptureContentToFooterGap = 20.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -179,103 +177,6 @@ internal fun CaptureWizardHeading(
         color = MaterialTheme.colorScheme.onSurface,
     )
     Spacer(modifier = Modifier.height(CaptureSubtitleToContentGap))
-}
-
-@Composable
-internal fun CaptureWizardOptionalActions(
-    onSkip: () -> Unit,
-    onNext: () -> Unit,
-    nextLabel: String = stringResource(R.string.capture_wizard_next),
-) {
-    AnuraFormButton(
-        text = nextLabel,
-        onClick = onNext,
-        style = AnuraFormButtonStyle.Primary,
-    )
-    Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
-    AnuraFormButton(
-        text = stringResource(R.string.capture_wizard_skip),
-        onClick = onSkip,
-        style = AnuraFormButtonStyle.Outline,
-    )
-    Spacer(modifier = Modifier.height(CaptureNoteToSkipGap))
-    CaptureWizardSkipNote()
-}
-
-@Composable
-private fun CaptureWizardSkipNote() {
-    Text(
-        text = stringResource(R.string.capture_wizard_optional_note),
-        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth(),
-    )
-}
-
-@Composable
-internal fun CaptureWizardPrimaryAction(
-    onNext: () -> Unit,
-    enabled: Boolean = true,
-    nextLabel: String = stringResource(R.string.capture_wizard_next),
-) {
-    AnuraFormButton(
-        text = nextLabel,
-        onClick = onNext,
-        style = AnuraFormButtonStyle.Primary,
-        enabled = enabled,
-    )
-}
-
-@Composable
-internal fun CaptureWizardStepFooter(
-    fromReview: Boolean,
-    onSkip: () -> Unit,
-    onNext: () -> Unit,
-    onSave: () -> Unit,
-    onCancel: () -> Unit,
-    nextEnabled: Boolean = true,
-    showSkip: Boolean = true,
-    nextLabel: String = stringResource(R.string.capture_wizard_next),
-) {
-    if (fromReview) {
-        var confirmCancel by rememberSaveable { mutableStateOf(false) }
-        AnuraFormButton(
-            text = stringResource(R.string.capture_wizard_save),
-            onClick = onSave,
-            style = AnuraFormButtonStyle.Primary,
-            enabled = nextEnabled,
-        )
-        Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
-        AnuraFormButton(
-            text = stringResource(R.string.anura_cancel),
-            onClick = { confirmCancel = true },
-            style = AnuraFormButtonStyle.Outline,
-        )
-        if (confirmCancel) {
-            CaptureConfirmSheet(
-                title = stringResource(R.string.capture_wizard_cancel_edit_title),
-                body = stringResource(R.string.capture_wizard_cancel_edit_body),
-                onConfirm = {
-                    confirmCancel = false
-                    onCancel()
-                },
-                onDismiss = { confirmCancel = false },
-            )
-        }
-    } else if (showSkip) {
-        CaptureWizardOptionalActions(
-            onSkip = onSkip,
-            onNext = onNext,
-            nextLabel = nextLabel,
-        )
-    } else {
-        CaptureWizardPrimaryAction(
-            onNext = onNext,
-            enabled = nextEnabled,
-            nextLabel = nextLabel,
-        )
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -64,7 +64,7 @@ private val SettingsGutter = 19.dp
  * Cerrar sesión. Navbar/FAB viven en [me.juanlabs.anura.navigation.AnuraScaffold].
  * El hero de hábitat no se pinta: el mockup aún no tiene esa foto.
  *
- * Estados: contenido mock; el modo de tema es selección local (DataStore en B5).
+ * Estados: perfil y paquetes reales; el modo de tema es una selección local de esta sesión.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

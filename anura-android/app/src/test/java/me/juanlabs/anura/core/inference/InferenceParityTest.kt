@@ -18,14 +18,15 @@ import org.junit.Test
 
 /**
  * Paridad con PC usando los valores que genera tools/mobile/export_mobile_inference.py
- * (open_clip + ONNX fp16 + sqlite-vec + Mahalanobis oficiales).
+ * (open_clip + ONNX fp16 + sqlite-vec + Mahalanobis oficiales). El modelo Open Set de referencia es un
+ * recurso de prueba (golden/openset_v1.1.0_clean.bin): el APK no lo trae, cada paquete lleva el suyo.
  */
 class InferenceParityTest {
     private val golden: JsonObject by lazy {
         Json.parseToJsonElement(resource("golden/golden_v1.json").readText()).jsonObject
     }
     private val openSet: OpenSetModel by lazy {
-        File("src/main/assets/openset/openset_v1.1.0_clean.bin").inputStream().use(OpenSetModel::read)
+        resource("golden/openset_v1.1.0_clean.bin").inputStream().use(OpenSetModel::read)
     }
 
     private fun resource(name: String): File =
@@ -80,7 +81,7 @@ class InferenceParityTest {
     @Test
     fun restrictedOpenSet_matchesPcForEveryGoldenImage() {
         val allowedJson = Json.parseToJsonElement(
-            File("src/main/assets/openset/allowed_by_package.json").readText(),
+            resource("golden/allowed_ids_golden.json").readText(),
         ).jsonObject
         val allowed = allowedJson["ANTIOQUIA"]!!.jsonArray.map { it.jsonPrimitive.content }.toSet()
         assertEquals(30, allowed.size)

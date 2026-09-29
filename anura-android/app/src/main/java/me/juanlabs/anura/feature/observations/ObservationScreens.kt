@@ -1,7 +1,6 @@
 package me.juanlabs.anura.feature.observations
 
 import android.content.Intent
-import androidx.annotation.DrawableRes
 import kotlin.math.roundToInt
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -54,7 +53,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -66,6 +64,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
+import me.juanlabs.anura.core.data.ContentCatalog
 import me.juanlabs.anura.core.data.ExplorerRemote
 import me.juanlabs.anura.core.data.IdentificationKnown
 import me.juanlabs.anura.core.data.ObservationRecord
@@ -75,6 +74,7 @@ import me.juanlabs.anura.core.data.formatObservationDate
 import me.juanlabs.anura.core.data.formatObservationWhen
 import me.juanlabs.anura.core.auth.AnuraServerConfig
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.data.rememberSpeciesPhotoPainter
 import me.juanlabs.anura.core.platform.rememberNetworkAvailable
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraConfirmSheet
@@ -100,15 +100,6 @@ import me.juanlabs.anura.feature.explore.ObservationCatalogScreen
 import me.juanlabs.anura.feature.species.IdentificationJustificationSheet
 
 private val ObservationHeroHeight = 280.dp
-
-private data class ListedObservation(
-    val id: String,
-    val commonRes: Int,
-    val scientificRes: Int,
-    @param:DrawableRes val photoRes: Int,
-    val isPublic: Boolean,
-    val own: Boolean,
-)
 
 /** Feed de observaciones — pestaña Explorar (tab 2). Las especies van en Listado. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -268,37 +259,6 @@ private fun ObservationsPreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
         ObservationsScreen(onOpenObservationDetail = {}, onOpenFavorites = {})
     }
-}
-
-@Composable
-private fun ListedObservationCard(
-    item: ListedObservation,
-    names: Pair<String, String>,
-    favorite: Boolean,
-    onFavoriteClick: () -> Unit,
-    onClick: () -> Unit,
-) {
-    ObservationCard(
-        commonName = names.first,
-        scientificName = names.second,
-        isFavorite = favorite,
-        onFavoriteClick = onFavoriteClick,
-        modifier = Modifier.fillMaxWidth(),
-        statusChip = if (item.own) {
-            { VisibilityChip(isPublic = item.isPublic) }
-        } else {
-            null
-        },
-        thumbnail = {
-            Image(
-                painter = painterResource(item.photoRes),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop,
-            )
-        },
-        onClick = onClick,
-    )
 }
 
 @Composable
@@ -591,8 +551,8 @@ fun ObservationDetailScreen(
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
                 Row(horizontalArrangement = Arrangement.spacedBy(AnuraDimens.spaceGap)) {
                     species?.let {
-                        AnuraToxicityChip(variant = it.toxicity)
-                        AnuraConservationChip(variant = it.iucn)
+                        if (it.toxicityDeclared) AnuraToxicityChip(variant = it.toxicity)
+                        it.iucn?.let { iucn -> AnuraConservationChip(variant = iucn) }
                     }
                 }
                 ObservationTempoActions(
@@ -628,7 +588,8 @@ fun ObservationDetailScreen(
                         CandidateCard(
                             name = candidate.scientificName,
                             percent = candidate.share,
-                            imageRes = catalogSpecies?.photoRes,
+                            speciesInCatalog = catalogSpecies != null,
+                            photoSha256 = catalogSpecies?.photoSha256,
                             onClick = catalogSpecies?.let { match -> { onOpenSpeciesSheet(match.id) } },
                         )
                     }
@@ -966,7 +927,8 @@ private fun ConfidenceBar(progress: Float) {
 private fun CandidateCard(
     name: String,
     percent: Float,
-    @DrawableRes imageRes: Int?,
+    speciesInCatalog: Boolean,
+    photoSha256: String?,
     onClick: (() -> Unit)?,
 ) {
     val thumbCd = stringResource(R.string.observation_detail_candidate_thumb_cd, name)
@@ -996,9 +958,9 @@ private fun CandidateCard(
             ),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                if (imageRes != null) {
+                if (speciesInCatalog) {
                     Image(
-                        painter = painterResource(imageRes),
+                        painter = rememberSpeciesPhotoPainter(photoSha256, ContentCatalog.ThumbWidth),
                         contentDescription = thumbCd,
                         modifier = Modifier
                             .size(56.dp)
@@ -1054,19 +1016,6 @@ private fun ObservationDetailPreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
         ObservationDetailScreen(
             id = "obs-nuevo",
-            onBackClick = {},
-            onOpenSpeciesSheet = {},
-            onOpenProfile = {},
-        )
-    }
-}
-
-@Preview(name = "Ajena", group = "modo", showBackground = true)
-@Composable
-private fun ObservationDetailPreviewOther() {
-    AnuraTheme {
-        ObservationDetailScreen(
-            id = "near-001",
             onBackClick = {},
             onOpenSpeciesSheet = {},
             onOpenProfile = {},

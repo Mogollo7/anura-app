@@ -32,7 +32,6 @@ class MediaPersistence(private val context: Context) {
     fun createAudioFile(): File = File(audioDir, "clip_${UUID.randomUUID()}.wav")
 
     fun persistPhotoToken(token: String): String {
-        if (token.startsWith("res:")) return token
         val already = token.removePrefix("file:")
         // CameraX guarda la captura directo en photosDir con la rotación solo en EXIF, y BitmapFactory
         // (visor, detector de borrosidad, identificación) la ignora: esa foto se reescribe ya rotada.
