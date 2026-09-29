@@ -154,6 +154,112 @@
     <string name="audio_demo_notice">Demostración: ANURA todavía no identifica por sonido. El audio se guarda, pero lo que ves aquí no es una identificación.</string>
     <string name="capture_photo_failed">No se pudo tomar la foto. Intenta de nuevo o elige una de la galería.</string>
     <string name="capture_wizard_progress_cd">Paso %1$d de %2$d</string>
+
+    <!-- Asistente «Paso a paso»: seis pasos + ayuda opcional (clave) -->
+    <string name="capture_wizard_skip">Omitir este paso</string>
+    <string name="capture_wizard_optional_note">Puedes omitir este paso, pero la precisión de la identificación puede bajar.</string>
+    <string name="capture_wizard_next">Continuar</string>
+    <string name="capture_wizard_save">Guardar</string>
+    <string name="capture_wizard_cancel_edit_title">¿Cancelar los cambios?</string>
+    <string name="capture_wizard_cancel_edit_body">Si cancelas, vuelves al resumen sin guardar lo que cambiaste en este paso.</string>
+
+    <string name="capture_step1_appbar">Paso 1 de 6</string>
+    <string name="capture_step1_title">¿Dónde la viste?</string>
+    <string name="capture_step1_subtitle">Anura toma tu ubicación del GPS. Ajústala arrastrando el marcador o tocando el mapa.</string>
+    <string name="capture_step1_map_cd">Mapa. Toca para marcar el lugar o arrastra el marcador.</string>
+    <string name="capture_step1_precision">Precisión ±%1$d m</string>
+    <string name="capture_step1_coordinates">%1$s, %2$s</string>
+    <string name="capture_step1_altitude_label">Altitud</string>
+    <string name="capture_step1_altitude_value">%1$s msnm</string>
+    <string name="capture_step1_altitude_none">El GPS no dio la altitud</string>
+    <string name="capture_step1_no_location">Aún no hay ubicación. Permite el acceso a la ubicación o toca el mapa para marcar el lugar.</string>
+    <string name="capture_step1_searching">Buscando la señal del GPS…</string>
+    <string name="capture_step1_microhabitat_label">Microhábitat</string>
+    <string name="capture_step1_habitat_leaf_litter">Hojarasca</string>
+    <string name="capture_step1_habitat_low_vegetation">Vegetación baja</string>
+    <string name="capture_step1_habitat_water">Cuerpo de agua</string>
+    <string name="capture_step1_habitat_rock">Roca</string>
+
+    <string name="capture_step2_appbar">Paso 2 de 6</string>
+    <string name="capture_step2_title">¿Cuándo la viste?</string>
+    <string name="capture_step2_subtitle">Es la fecha y hora de tu teléfono. Toca para cambiarlas.</string>
+    <string name="capture_step2_time_local">%1$s · hora del teléfono</string>
+    <string name="capture_step2_day_period">Franja del día</string>
+    <string name="capture_step2_dawn">Amanecer</string>
+    <string name="capture_step2_day">Día</string>
+    <string name="capture_step2_dusk">Atardecer</string>
+    <string name="capture_step2_night">Noche</string>
+    <string name="capture_step2_date_cd">Fecha del avistamiento</string>
+    <string name="capture_step2_weather_title">Clima ahora en tu ubicación</string>
+    <string name="capture_step2_weather_auto">Consultado automáticamente a Open-Meteo</string>
+    <string name="capture_step2_temp_label">Temperatura</string>
+    <string name="capture_step2_humidity_label">Humedad</string>
+    <string name="capture_step2_precip_label">Lluvia</string>
+    <string name="capture_step2_weather_loading">Consultando el clima…</string>
+    <string name="capture_step2_weather_failed">No se pudo consultar el clima. Revisa tu conexión.</string>
+
+    <string name="capture_step3_appbar">Paso 3 de 6</string>
+    <string name="capture_step3_title">¿Qué tamaño tenía?</string>
+    <string name="capture_step3_subtitle">Largo del hocico a la cloaca, aproximado. Sirve para descartar especies.</string>
+    <string name="capture_step3_coin_ref">$100 COP</string>
+    <string name="capture_step3_individual">El individuo</string>
+    <string name="capture_step3_untouched">Mueve el control para indicar la medida.</string>
+    <string name="capture_step3_no_sizes">Aún no hay tamaños en este paquete.</string>
+    <string name="capture_step3_no_package">Descarga el paquete de tu subregión para ver cuántas especies coinciden con la medida.</string>
+    <string name="capture_step3_no_key">Conéctate una vez para bajar la clave del paquete y ver cuántas especies coinciden con la medida.</string>
+    <string name="capture_step3_loading_key">Buscando los tamaños del paquete…</string>
+    <string name="capture_step3_matches">Compatibles con %1$d mm: %2$d de %3$d especies con tamaño registrado</string>
+
+    <string name="capture_step4_appbar">Paso 4 de 6</string>
+
+    <string name="capture_step5_appbar">Paso 5 de 6</string>
+    <string name="capture_step5_subtitle">El canto es opcional. Graba con el micrófono o elige un audio de la memoria.</string>
+
+    <string name="capture_clave_appbar">Ayuda para identificar</string>
+    <string name="capture_clave_optional_subtitle">Opcional. Responde unas preguntas y verás qué especies del paquete encajan. Se guarda con tu registro.</string>
+    <string name="capture_clave_prefilled_title">Ya respondimos con tus pasos</string>
+    <string name="capture_clave_prefilled_row">%1$s: %2$s</string>
+    <string name="capture_clave_label_altitud">Altitud</string>
+    <string name="capture_clave_label_tamano">Tamaño</string>
+    <string name="capture_clave_label_sustrato">Sustrato</string>
+    <string name="capture_clave_label_actividad">Actividad</string>
+    <string name="capture_clave_label_morfo">Forma</string>
+    <string name="capture_clave_prefilled_hint">Si algo no es correcto, vuelve al paso que lo capturó.</string>
+    <string name="capture_clave_none_prefilled">Ninguna especie del paquete encaja con lo que marcaste ni con lo de tus pasos. Revisa la altitud, el tamaño o el hábitat.</string>
+    <string name="capture_clave_continue">Continuar con estas respuestas</string>
+    <string name="capture_clave_continue_result">Continuar</string>
+    <string name="capture_clave_save">Guardar</string>
+
+    <string name="capture_step6_appbar">Paso 6 de 6</string>
+    <string name="capture_step6_title">Revisa y analiza</string>
+    <string name="capture_step6_subtitle">Cada dato vuelve al paso que lo capturó.</string>
+    <string name="capture_step6_where">Dónde</string>
+    <string name="capture_step6_where_empty">Sin ubicación</string>
+    <string name="capture_step6_when">Cuándo</string>
+    <string name="capture_step6_when_empty">Sin fecha</string>
+    <string name="capture_step6_size">Tamaño</string>
+    <string name="capture_step6_size_mm">%1$d mm hocico–cloaca</string>
+    <string name="capture_step6_size_empty">Sin medida</string>
+    <string name="capture_step6_photos">Fotos</string>
+    <plurals name="capture_step6_photos_count">
+        <item quantity="one">%1$d foto del mismo individuo</item>
+        <item quantity="other">%1$d fotos del mismo individuo</item>
+    </plurals>
+    <string name="capture_step6_photos_empty">Sin fotos</string>
+    <string name="capture_step6_audio">Audio</string>
+    <string name="capture_step6_audio_empty">Sin audio</string>
+    <string name="capture_step6_clave">Ayuda para identificar</string>
+    <plurals name="capture_step6_clave_remaining">
+        <item quantity="one">Queda %1$d especie compatible</item>
+        <item quantity="other">Quedan %1$d especies compatibles</item>
+    </plurals>
+    <string name="capture_step6_clave_none">Ninguna especie coincide</string>
+    <string name="capture_step6_clave_empty">Sin usar</string>
+    <string name="capture_step6_photos_required">Añade al menos una foto para analizar.</string>
+    <string name="capture_step6_info">Anura identifica con tus fotos y, si hay ubicación, con la zona. El resto se guarda con tu registro.</string>
+    <string name="capture_step6_offline">El análisis corre en el teléfono. No necesitas conexión.</string>
+    <string name="capture_step6_analyze">Analizar</string>
+    <string name="capture_step6_edit_cd">Editar %1$s</string>
     <string name="capture_unsaved_title">¿Seguro que quieres salir?</string>
     <string name="capture_unsaved_body">Hay cambios sin guardar. Si aceptas, vuelves atrás y se pierden.</string>
     <string name="anura_accept">Aceptar</string>

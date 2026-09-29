@@ -98,7 +98,7 @@ fun rememberAmbientConditions(latitude: Double?, longitude: Double?): AmbientLab
 fun rememberAmbientTemperatureLabel(latitude: Double?, longitude: Double?): String =
     rememberAmbientConditions(latitude, longitude).temperature
 
-private fun formatPrecipitation(mm: Double): String {
+internal fun formatPrecipitation(mm: Double): String {
     val rounded = kotlin.math.round(mm * 10.0) / 10.0
     val text = if (rounded % 1.0 == 0.0) rounded.toInt().toString() else rounded.toString().replace('.', ',')
     return "$text mm"

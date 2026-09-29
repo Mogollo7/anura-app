@@ -76,6 +76,7 @@ internal val CaptureProgressGap = 12.dp
 internal val CaptureProgressToTitleGap = 14.dp
 internal val CaptureTitleToSubtitleGap = 4.dp
 internal val CaptureSubtitleToContentGap = 16.dp
+internal val CaptureNoteToSkipGap = AnuraDimens.spaceGap
 internal val CaptureBottomBreathing = 16.dp
 
 /** Contenido → pie de botones del asistente (Audio ID, Paso a paso). */
@@ -177,6 +178,107 @@ internal fun CaptureWizardHeading(
         color = MaterialTheme.colorScheme.onSurface,
     )
     Spacer(modifier = Modifier.height(CaptureSubtitleToContentGap))
+}
+
+@Composable
+internal fun CaptureWizardOptionalActions(
+    onSkip: () -> Unit,
+    onNext: () -> Unit,
+    nextLabel: String = stringResource(R.string.capture_wizard_next),
+) {
+    AnuraFormButton(
+        text = nextLabel,
+        onClick = onNext,
+        style = AnuraFormButtonStyle.Primary,
+    )
+    Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+    AnuraFormButton(
+        text = stringResource(R.string.capture_wizard_skip),
+        onClick = onSkip,
+        style = AnuraFormButtonStyle.Outline,
+    )
+    Spacer(modifier = Modifier.height(CaptureNoteToSkipGap))
+    CaptureWizardSkipNote()
+}
+
+@Composable
+private fun CaptureWizardSkipNote() {
+    Text(
+        text = stringResource(R.string.capture_wizard_optional_note),
+        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Center,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+internal fun CaptureWizardPrimaryAction(
+    onNext: () -> Unit,
+    enabled: Boolean = true,
+    nextLabel: String = stringResource(R.string.capture_wizard_next),
+) {
+    AnuraFormButton(
+        text = nextLabel,
+        onClick = onNext,
+        style = AnuraFormButtonStyle.Primary,
+        enabled = enabled,
+    )
+}
+
+/**
+ * Pie de un paso del asistente. Normal: «Continuar» y «Omitir este paso». Al editar desde el
+ * resumen ([fromReview]): «Guardar» y «Cancelar» (con confirmación).
+ */
+@Composable
+internal fun CaptureWizardStepFooter(
+    fromReview: Boolean,
+    onSkip: () -> Unit,
+    onNext: () -> Unit,
+    onSave: () -> Unit,
+    onCancel: () -> Unit,
+    nextEnabled: Boolean = true,
+    showSkip: Boolean = true,
+    nextLabel: String = stringResource(R.string.capture_wizard_next),
+) {
+    if (fromReview) {
+        var confirmCancel by rememberSaveable { mutableStateOf(false) }
+        AnuraFormButton(
+            text = stringResource(R.string.capture_wizard_save),
+            onClick = onSave,
+            style = AnuraFormButtonStyle.Primary,
+            enabled = nextEnabled,
+        )
+        Spacer(modifier = Modifier.height(AnuraDimens.spaceActionGap))
+        AnuraFormButton(
+            text = stringResource(R.string.anura_cancel),
+            onClick = { confirmCancel = true },
+            style = AnuraFormButtonStyle.Outline,
+        )
+        if (confirmCancel) {
+            CaptureConfirmSheet(
+                title = stringResource(R.string.capture_wizard_cancel_edit_title),
+                body = stringResource(R.string.capture_wizard_cancel_edit_body),
+                onConfirm = {
+                    confirmCancel = false
+                    onCancel()
+                },
+                onDismiss = { confirmCancel = false },
+            )
+        }
+    } else if (showSkip) {
+        CaptureWizardOptionalActions(
+            onSkip = onSkip,
+            onNext = onNext,
+            nextLabel = nextLabel,
+        )
+    } else {
+        CaptureWizardPrimaryAction(
+            onNext = onNext,
+            enabled = nextEnabled,
+            nextLabel = nextLabel,
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
