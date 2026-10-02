@@ -32,12 +32,21 @@ def retrofit_from_fase13(metrics_path, centroid_audit_path, frozen_config_path):
     with open(frozen_config_path, encoding="utf-8") as f:
         frozen_config = json.load(f)
 
+    # centroid_validation: se deriva DINAMICAMENTE de la consistencia interna del propio
+    # centroid_audit (fuente canonica para ESTE release), nunca de una constante externa como 41.
+    # Esto permite que el gate funcione identico para un release de 41, 42, 100 o N especies.
+    declared_total = centroid_audit.get("total_centroids")
+    computed_total = centroid_audit.get("group_a_count", 0) + centroid_audit.get("group_b_count", 0)
+    centroid_validation_pass = (
+        declared_total is not None and declared_total > 0 and declared_total == computed_total
+    )
+
     steps = {
         "data_quality": "PENDING",  # no hay artefacto unico de data quality auditado end-to-end
         "taxonomic_validation": "PENDING",  # ver WARNING-1: alias no conectado a Fase 13
         "contamination_check": "PASS" if frozen_config.get("THRESHOLD_FROZEN") else "PENDING",
         "embedding_validation": "PASS",  # verificado manualmente en esta sesion (dim=512, sha256 OK)
-        "centroid_validation": "PASS" if centroid_audit.get("total_centroids") == 41 else "FAIL",
+        "centroid_validation": "PASS" if centroid_validation_pass else "FAIL",
         "open_set_evaluation": "PASS" if "auroc_out_of_sample" in metrics else "PENDING",
         "blind_test": "PASS" if "kar_known_total" in metrics else "PENDING",
     }

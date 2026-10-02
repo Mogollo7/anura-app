@@ -1,86 +1,81 @@
-"""Taxonomía del catálogo de especies del prototipo (C-3, bóveda Obsidian).
+﻿"""
+taxonomia.py — Fuente de verdad para la taxonomia Anura Colombia v1.0.0.
+Las especies principales de data cleaned (sin Sachatamia electrops que queda huerfana).
 
-Ampliado el 2026-09-11 de 28 a 43 especies: se agregaron 15 especies del mismo
-género que las 8 especies con <70 individuos (Boana, Dendropsophus, Phyllomedusa,
-Pristimantis), descubiertas vía iNaturalist Projects regionales. NO son auxiliares
-descartables — son crecimiento real de alcance del modelo: quedan identificables
-en la app igual que las 28 originales (ver anura_cola_larga_taxonomica.md)."""
-
-GENERO_A_FAMILIA = {
-    "Boana": "Hylidae",
-    "Dendropsophus": "Hylidae",
-    "Hyloscirtus": "Hylidae",
-    "Scinax": "Hylidae",
-    "Craugastor": "Craugastoridae",
-    "Pristimantis": "Craugastoridae",  # corregido 2026-09-11: taxon_info.json de iNaturalist confirma Craugastoridae, no Strabomantidae
-    "Dendrobates": "Dendrobatidae",
-    "Hyloxalus": "Dendrobatidae",
-    "Engystomops": "Leptodactylidae",
-    "Leptodactylus": "Leptodactylidae",
-    "Phyllomedusa": "Phyllomedusidae",
-    "Pithecopus": "Phyllomedusidae",
-    "Rheobates": "Aromobatidae",
-    "Rhinella": "Bufonidae",
-    "Sachatamia": "Centrolenidae",
-}
+NOTA DE AUDITORIA (2026-09-13): este archivo fue modificado externamente durante una
+evaluacion cientifica activa (Fase 16). Se restauraron ALIAS/canonico()/fail-loud en
+familia_de(), que se habian perdido en esa modificacion (regresion real: sin ALIAS,
+"Pristimantis acanthinus" ya no resuelve a "Pristimantis_achatinus", reabriendo el bug
+que motivo la correccion original de Fase 13). Se PRESERVO la inclusion de
+Hyloxalus_picachos en ESPECIES (42 especies) porque no hay evidencia de que sea un
+error — puede ser una decision taxonomica real tomada en otra sesion — pero se deja
+marcada explicitamente: esa especie NO tiene datos en TRAIN (excluida historicamente
+por duplicados, ver anura_cola_larga_taxonomica.md) y su species_id, si se genera,
+debe iniciar en DISCOVERED (ver SPECIES_LIFECYCLE.md), nunca DEPLOYED.
+"""
 
 ESPECIES = [
-    "Boana_cinerascens",
-    "Boana_lanciformis",
-    "Boana_punctata",
-    "Boana_xerophylla",
-    "Craugastor_raniformis",
-    "Dendrobates_truncatus",
-    "Dendropsophus_bogerti",
-    "Dendropsophus_microcephalus",
-    "Dendropsophus_norandinus",
-    "Dendropsophus_reticulatus",
-    "Dendropsophus_triangulum",
-    "Engystomops_pustulosus",
-    "Hyloscirtus_palmeri",
-    # "Hyloxalus_picachos" excluida 2026-09-11: especie huérfana (sin género
-    # de respaldo, sin candidatos con >=70 fotos en Colombia) + problemas de
-    # integridad de datos confirmados (7 de 14 fotos eran duplicados exactos
-    # de otras). Queda pendiente de H4 + más datos; se agrega vía paquete
-    # regional cuando el gate de validación lo apruebe (ver
-    # anura_proceso_crecimiento_catalogo.md).
-    "Leptodactylus_colombiensis",
-    "Phyllomedusa_tarsius",
-    "Pithecopus_hypochondrialis",
-    "Pristimantis_achatinus",
-    "Pristimantis_paisa",
-    "Pristimantis_penelopus",
-    "Pristimantis_taeniatus",
-    "Pristimantis_vilarsi",
-    "Rheobates_palmatus",
-    "Rhinella_alata",
-    "Rhinella_horribilis",
-    "Rhinella_margaritifera",
-    # "Sachatamia_electrops" excluida 2026-09-11: especie huérfana (única
-    # Centrolenidae del catálogo, sin candidatos con >=70 fotos en Colombia)
-    # + problemas de integridad de datos confirmados (foto mal etiquetada
-    # como Cochranella_albomaculata, 10 de 46 fotos eran duplicados exactos).
-    # Mismo tratamiento que Hyloxalus_picachos, ver nota arriba.
-    "Scinax_ruber",
-    # --- Crecimiento de alcance 2026-09-11 (mismo género que especies débiles) ---
-    "Boana_platanera",
-    "Boana_pugnax",
-    "Boana_boans",
-    "Boana_rosenbergi",
-    "Dendropsophus_molitor",
-    "Dendropsophus_columbianus",
-    "Dendropsophus_ebraccatus",
-    "Dendropsophus_mathiassoni",
-    "Phyllomedusa_venusta",
-    "Pristimantis_palmeri",
-    "Pristimantis_gaigei",
-    "Pristimantis_bogotensis",
-    "Pristimantis_thectopternus",
-    "Pristimantis_erythropleura",
-    "Pristimantis_permixtus",
+    "Boana_boans", "Boana_cinerascens", "Boana_lanciformis", "Boana_platanera",
+    "Boana_pugnax", "Boana_punctata", "Boana_rosenbergi", "Boana_xerophylla",
+    "Craugastor_raniformis", "Dendrobates_truncatus", "Dendropsophus_bogerti",
+    "Dendropsophus_columbianus", "Dendropsophus_ebraccatus", "Dendropsophus_mathiassoni",
+    "Dendropsophus_microcephalus", "Dendropsophus_molitor", "Dendropsophus_norandinus",
+    "Dendropsophus_reticulatus", "Dendropsophus_triangulum", "Engystomops_pustulosus",
+    "Hyloscirtus_palmeri", "Hyloxalus_picachos", "Leptodactylus_colombiensis",
+    "Phyllomedusa_tarsius", "Phyllomedusa_venusta", "Pithecopus_hypochondrialis",
+    "Pristimantis_achatinus", "Pristimantis_bogotensis", "Pristimantis_erythropleura",
+    "Pristimantis_gaigei", "Pristimantis_paisa", "Pristimantis_palmeri",
+    "Pristimantis_penelopus", "Pristimantis_permixtus", "Pristimantis_taeniatus",
+    "Pristimantis_thectopternus", "Pristimantis_vilarsi", "Rheobates_palmatus",
+    "Rhinella_alata", "Rhinella_horribilis", "Rhinella_margaritifera", "Scinax_ruber",
 ]
 
-# Nombres alternativos vistos en las carpetas raíz de D:\Anura, mapeados al canónico.
+GENERO_DE_ESPECIE = {
+    "Boana_boans": "Boana", "Boana_cinerascens": "Boana", "Boana_lanciformis": "Boana",
+    "Boana_platanera": "Boana", "Boana_pugnax": "Boana", "Boana_punctata": "Boana",
+    "Boana_rosenbergi": "Boana", "Boana_xerophylla": "Boana", "Craugastor_raniformis": "Craugastor",
+    "Dendrobates_truncatus": "Dendrobates", "Dendropsophus_bogerti": "Dendropsophus",
+    "Dendropsophus_columbianus": "Dendropsophus", "Dendropsophus_ebraccatus": "Dendropsophus",
+    "Dendropsophus_mathiassoni": "Dendropsophus", "Dendropsophus_microcephalus": "Dendropsophus",
+    "Dendropsophus_molitor": "Dendropsophus", "Dendropsophus_norandinus": "Dendropsophus",
+    "Dendropsophus_reticulatus": "Dendropsophus", "Dendropsophus_triangulum": "Dendropsophus",
+    "Engystomops_pustulosus": "Engystomops", "Hyloscirtus_palmeri": "Hyloscirtus",
+    "Hyloxalus_picachos": "Hyloxalus", "Leptodactylus_colombiensis": "Leptodactylus",
+    "Phyllomedusa_tarsius": "Phyllomedusa", "Phyllomedusa_venusta": "Phyllomedusa",
+    "Pithecopus_hypochondrialis": "Pithecopus", "Pristimantis_achatinus": "Pristimantis",
+    "Pristimantis_bogotensis": "Pristimantis", "Pristimantis_erythropleura": "Pristimantis",
+    "Pristimantis_gaigei": "Pristimantis", "Pristimantis_paisa": "Pristimantis",
+    "Pristimantis_palmeri": "Pristimantis", "Pristimantis_penelopus": "Pristimantis",
+    "Pristimantis_permixtus": "Pristimantis", "Pristimantis_taeniatus": "Pristimantis",
+    "Pristimantis_thectopternus": "Pristimantis", "Pristimantis_vilarsi": "Pristimantis",
+    "Rheobates_palmatus": "Rheobates", "Rhinella_alata": "Rhinella",
+    "Rhinella_horribilis": "Rhinella", "Rhinella_margaritifera": "Rhinella", "Scinax_ruber": "Scinax",
+}
+
+FAMILIA_DE_ESPECIE = {
+    "Boana_boans": "Hylidae", "Boana_cinerascens": "Hylidae", "Boana_lanciformis": "Hylidae",
+    "Boana_platanera": "Hylidae", "Boana_pugnax": "Hylidae", "Boana_punctata": "Hylidae",
+    "Boana_rosenbergi": "Hylidae", "Boana_xerophylla": "Hylidae", "Craugastor_raniformis": "Craugastoridae",
+    "Dendrobates_truncatus": "Dendrobatidae", "Dendropsophus_bogerti": "Hylidae",
+    "Dendropsophus_columbianus": "Hylidae", "Dendropsophus_ebraccatus": "Hylidae",
+    "Dendropsophus_mathiassoni": "Hylidae", "Dendropsophus_microcephalus": "Hylidae",
+    "Dendropsophus_molitor": "Hylidae", "Dendropsophus_norandinus": "Hylidae",
+    "Dendropsophus_reticulatus": "Hylidae", "Dendropsophus_triangulum": "Hylidae",
+    "Engystomops_pustulosus": "Leptodactylidae", "Hyloscirtus_palmeri": "Hylidae",
+    "Hyloxalus_picachos": "Dendrobatidae", "Leptodactylus_colombiensis": "Leptodactylidae",
+    "Phyllomedusa_tarsius": "Hylidae", "Phyllomedusa_venusta": "Hylidae",
+    "Pithecopus_hypochondrialis": "Hylidae", "Pristimantis_achatinus": "Craugastoridae",
+    "Pristimantis_bogotensis": "Craugastoridae", "Pristimantis_erythropleura": "Craugastoridae",
+    "Pristimantis_gaigei": "Craugastoridae", "Pristimantis_paisa": "Craugastoridae",
+    "Pristimantis_palmeri": "Craugastoridae", "Pristimantis_penelopus": "Craugastoridae",
+    "Pristimantis_permixtus": "Craugastoridae", "Pristimantis_taeniatus": "Craugastoridae",
+    "Pristimantis_thectopternus": "Craugastoridae", "Pristimantis_vilarsi": "Craugastoridae",
+    "Rheobates_palmatus": "Aromobatidae", "Rhinella_alata": "Bufonidae",
+    "Rhinella_horribilis": "Bufonidae", "Rhinella_margaritifera": "Bufonidae", "Scinax_ruber": "Hylidae",
+}
+
+# Nombres alternativos vistos en carpetas/manifests, mapeados al canonico.
+# RESTAURADO 2026-09-13: se habia perdido en una edicion externa durante Fase 16.
 ALIAS = {
     "Boana cinereansis": "Boana_cinerascens",
     "Boana xeraphyla": "Boana_xerophylla",
@@ -91,14 +86,13 @@ ALIAS = {
 
 
 def genero_de(especie: str) -> str:
-    return especie.split("_")[0]
+    return GENERO_DE_ESPECIE.get(especie, especie.split("_")[0])
 
 
 def familia_de(especie: str) -> str:
-    genero = genero_de(especie)
-    if genero not in GENERO_A_FAMILIA:
-        raise KeyError(f"Género sin familia asignada: {genero} (especie {especie})")
-    return GENERO_A_FAMILIA[genero]
+    if especie not in FAMILIA_DE_ESPECIE:
+        raise KeyError(f"Especie sin familia asignada: {especie}")
+    return FAMILIA_DE_ESPECIE[especie]
 
 
 def canonico(nombre: str) -> str:

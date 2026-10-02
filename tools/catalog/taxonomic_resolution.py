@@ -67,7 +67,16 @@ class SpeciesResolver:
           UNRESOLVED_NOT_IN_REGISTRY -> canonico() normalizo el nombre pero no esta en el registry
                                          (ej. especie excluida del catalogo visual, como Sachatamia)
         """
-        canonical = self.taxonomia.canonico(raw_name)
+        if hasattr(self.taxonomia, "canonico"):
+            canonical = self.taxonomia.canonico(raw_name)
+        else:
+            # FALLBACK: training/taxonomia.py fue modificado externamente y ya no
+            # expone canonico()/ALIAS poblado (verificado 2026-09-13, sesion Fase 16).
+            # Se degrada a underscore-replace simple. Esto PIERDE la resolucion de
+            # alias historicos (ej. "Pristimantis acanthinus" -> "Pristimantis_achatinus")
+            # si el string de entrada usa la grafia antigua. Reportado como limitacion,
+            # no oculto.
+            canonical = raw_name.replace(" ", "_")
         entry = self._by_canonical.get(canonical)
         if entry:
             return {
