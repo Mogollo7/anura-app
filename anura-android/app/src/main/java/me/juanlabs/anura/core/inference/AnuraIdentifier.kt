@@ -34,6 +34,13 @@ sealed interface IdentificationOutcome {
         val neighbors: List<Neighbor>,
         /** Ordenadas por voto; la primera es la especie identificada. */
         val candidates: List<Candidate>,
+        /** Clústeres del paquete que incluyen a la especie identificada (las que se confunden con ella). */
+        val clusters: List<SpeciesCluster> = emptyList(),
+        /** Morfo (variante de color o patrón) más cercano de la especie, por coseno al centroide de morfo. */
+        val morph: NearestMatch? = null,
+        /** Género y familia cuyo supercentroide queda más cerca de la foto. */
+        val nearestGenus: NearestMatch? = null,
+        val nearestFamily: NearestMatch? = null,
     ) : IdentificationOutcome
 
     /**
@@ -59,6 +66,8 @@ class AnuraIdentifier(private val context: Context) {
     private var index: PackageVectorIndex? = null
     private var indexFileStamp = 0L
     private var packageOpenSet: PackageOpenSet? = null
+    private var packageClusters: List<SpeciesCluster> = emptyList()
+    private var packageExtras: PackageExtras = PackageExtras.Empty
     private val debuggable = context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
 
     suspend fun identify(
@@ -68,10 +77,11 @@ class AnuraIdentifier(private val context: Context) {
         longitude: Double? = null,
         altitudeM: Int? = null,
         altitudeRanges: SpeciesAltitudeRanges? = null,
+        pasoAPaso: Map<String, Double>? = null,
     ): IdentificationOutcome =
         withContext(Dispatchers.Default) {
             mutex.withLock {
-                runCatching { identifyLocked(photo, packagePath, latitude, longitude, altitudeM, altitudeRanges) }.getOrElse { error ->
+                runCatching { identifyLocked(photo, packagePath, latitude, longitude, altitudeM, altitudeRanges, pasoAPaso) }.getOrElse { error ->
                     Log.e(Tag, "Fallo en la identificación", error)
                     IdentificationOutcome.Failed(IdentificationFailure.EngineError, error.message ?: error.javaClass.simpleName)
                 }
@@ -85,6 +95,7 @@ class AnuraIdentifier(private val context: Context) {
         longitude: Double?,
         altitudeM: Int?,
         altitudeRanges: SpeciesAltitudeRanges?,
+        pasoAPaso: Map<String, Double>?,
     ): IdentificationOutcome {
         // Un paquete desinstalado y vuelto a instalar deja la conexión apuntando al archivo borrado.
         val stamp = File(packagePath).lastModified()
@@ -95,6 +106,8 @@ class AnuraIdentifier(private val context: Context) {
                 indexFileStamp = stamp
                 // Otro paquete (o el mismo actualizado) trae otro modelo de rechazo: se relee.
                 packageOpenSet = it.readOpenSet()
+                packageClusters = it.readClusters()
+                packageExtras = it.readExtras()
                 Log.i(Tag, "paquete abierto $packagePath sqlite-vec=${it.vecVersion()} openset=${packageOpenSet?.describe()}")
             }
         }
@@ -161,8 +174,25 @@ class AnuraIdentifier(private val context: Context) {
         val broader = if (DisplayNeighbors > KNeighbors) index.nearest(embedding, DisplayNeighbors) else neighbors
         // Altitud del punto (OpenTopoData en el Paso 1) contra el rango de cada especie (paquete o ficha
         // publicada): reasigna peso como el clima y, como él, nunca cambia la especie oficial.
-        val altitudeMultiplier = AltitudePrior.multipliers(altitudeM?.toDouble(), broader, altitudeRanges)
-        val contextMultiplier = AltitudePrior.combine(weatherMultiplier, altitudeMultiplier)
+        val extras = packageExtras
+        val altitudeFromRanges = AltitudePrior.multipliers(altitudeM?.toDouble(), broader, altitudeRanges)
+        // Lo que la clave no trae, lo completa el rango de la Ficha horneado en el paquete (`taxon_context`).
+        val altitudeFromFicha = altitudeM?.let { alt ->
+            broader.map { it.taxonId }.distinct()
+                .filter { altitudeFromRanges?.containsKey(it) != true }
+                .mapNotNull { id ->
+                    extras.context[id]?.let { AltitudeRange(it.altitudeMin, it.altitudeMax) }
+                        ?.takeIf { !it.isEmpty }
+                        ?.let { id to AltitudePrior.factor(alt.toDouble(), it) }
+                }
+                .toMap()
+        }?.takeIf { it.isNotEmpty() }
+        // Cada especie aplica la altitud con el peso geográfico (wg) de su Ficha y el hábitat/tamaño con su wm.
+        val altitudeMultiplier = ContextWeights.apply(
+            AltitudePrior.combine(altitudeFromRanges, altitudeFromFicha), extras.context,
+        ) { it.weightGeo }
+        val pasoPonderado = ContextWeights.apply(pasoAPaso, extras.context) { it.weightHabitat }
+        val contextMultiplier = AltitudePrior.combine(AltitudePrior.combine(weatherMultiplier, altitudeMultiplier), pasoPonderado)
         val candidates = KnnVote.displayCandidates(top, KnnVote.candidates(broader, geoPrior, contextMultiplier), DisplayCandidateCount)
 
         val name = top.scientificName
@@ -177,7 +207,15 @@ class AnuraIdentifier(private val context: Context) {
         )
         logMemory("after_identify")
         if (debuggable) writeDebugRecord(photo, width, height, embedding, neighbors, taxonId, score, longArrayOf(t1 - t0, t2 - t1, t3 - t2, t4 - t3))
-        return IdentificationOutcome.Identified(taxonId, name, score.accepted, score, neighbors, candidates)
+        // Morfo más parecido: solo si la especie tiene dos o más morfos en el paquete; con uno solo no dice nada.
+        val morph = extras.morphs[taxonId]?.takeIf { it.size >= 2 }?.nearest(embedding)
+        return IdentificationOutcome.Identified(
+            taxonId, name, score.accepted, score, neighbors, candidates,
+            clusters = packageClusters.filter { it.contains(taxonId) },
+            morph = morph,
+            nearestGenus = extras.genera.nearest(embedding),
+            nearestFamily = extras.families.nearest(embedding),
+        )
     }
 
     /**

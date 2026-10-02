@@ -48,6 +48,10 @@ object IdentificationEnsemble {
             openSet = OpenSetScore(mahalanobis, nearest, accepted),
             neighbors = neighbors,
             candidates = fusedCandidates,
+            clusters = identified.flatMap { it.clusters }.distinctBy { it.id }.filter { it.contains(top.taxonId) },
+            morph = identified.filter { it.taxonId == top.taxonId }.mapNotNull { it.morph }.maxByOrNull { it.cosine },
+            nearestGenus = identified.mapNotNull { it.nearestGenus }.maxByOrNull { it.cosine },
+            nearestFamily = identified.mapNotNull { it.nearestFamily }.maxByOrNull { it.cosine },
         )
     }
 

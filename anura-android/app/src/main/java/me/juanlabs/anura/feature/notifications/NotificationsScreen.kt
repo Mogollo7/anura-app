@@ -24,6 +24,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -42,9 +43,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.AppNotification
+import me.juanlabs.anura.core.data.cuerpoVisible
 import me.juanlabs.anura.core.data.formatIsoWhen
 import me.juanlabs.anura.core.data.notificationOpenRequests
 import me.juanlabs.anura.core.data.rememberAnuraRepository
+import me.juanlabs.anura.core.data.tokenPublico
 import me.juanlabs.anura.designsystem.component.AnuraCard
 import me.juanlabs.anura.designsystem.component.AnuraEmptyState
 import me.juanlabs.anura.designsystem.component.AnuraTopBar
@@ -65,7 +68,7 @@ private enum class NotificationFilter { All, Unread, Read }
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationsScreen(onBackClick: () -> Unit) {
+fun NotificationsScreen(onBackClick: () -> Unit, onOpenFull: (String) -> Unit = {}) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
     val context = LocalContext.current
@@ -153,6 +156,10 @@ fun NotificationsScreen(onBackClick: () -> Unit) {
                                 expandedId = if (expandedId == notification.id) null else notification.id
                                 repository.markNotificationRead(notification.id)
                             },
+                            onOpenFull = { token ->
+                                repository.markNotificationRead(notification.id)
+                                onOpenFull(token)
+                            },
                             onDelete = { repository.deleteNotification(notification.id) },
                         )
                     }
@@ -180,6 +187,7 @@ private fun NotificationRow(
     notification: AppNotification,
     expanded: Boolean,
     onClick: () -> Unit,
+    onOpenFull: (String) -> Unit,
     onDelete: () -> Unit,
 ) {
     AnuraCard(
@@ -215,7 +223,8 @@ private fun NotificationRow(
                     ),
                     color = MaterialTheme.colorScheme.onSurface,
                 )
-                val body = notification.body?.trim().orEmpty()
+                val body = notification.cuerpoVisible()
+                val token = notification.tokenPublico()
                 if (body.isNotEmpty()) {
                     Text(
                         text = body,
@@ -225,6 +234,19 @@ private fun NotificationRow(
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.padding(top = 2.dp),
                     )
+                }
+                if (token != null) {
+                    TextButton(
+                        onClick = { onOpenFull(token) },
+                        contentPadding = PaddingValues(0.dp),
+                        modifier = Modifier.padding(top = 2.dp),
+                    ) {
+                        Text(
+                            text = stringResource(R.string.notifications_open_full),
+                            color = AnuraTheme.extendedColors.accentInk,
+                            style = MaterialTheme.typography.labelLarge,
+                        )
+                    }
                 }
                 if (!expanded && body.length > 80) {
                     Text(

@@ -107,6 +107,7 @@ private val WelcomeHeroAlignment = BiasAlignment(
 fun WelcomeScreen(
     onGoToSignIn: () -> Unit,
     onGoToSignUp: () -> Unit,
+    notice: String? = null,
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
 
@@ -185,6 +186,17 @@ fun WelcomeScreen(
                 )
 
                 Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetTitleToBody))
+
+                if (!notice.isNullOrBlank()) {
+                    Text(
+                        text = notice,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.error,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceSheetTitleToBody))
+                }
 
                 Text(
                     text = stringResource(R.string.welcome_body),

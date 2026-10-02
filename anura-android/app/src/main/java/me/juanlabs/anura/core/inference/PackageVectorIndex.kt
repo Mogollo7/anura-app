@@ -7,6 +7,9 @@ import androidx.sqlite.driver.bundled.SQLITE_OPEN_READONLY
 import java.io.File
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.builtins.serializer
+import kotlinx.serialization.json.Json
 
 /**
  * Búsqueda k-NN sobre la tabla `vec_references` (vec0, coseno) de un paquete regional instalado,
@@ -54,6 +57,58 @@ class PackageVectorIndex private constructor(
         }.getOrElse { return PackageOpenSet.Unavailable("El paquete no trae modelo de rechazo") }
             ?: return PackageOpenSet.Unavailable("El paquete no trae modelo de rechazo")
         return PackageOpenSets.decode(row.format, row.sha256, row.data, taxa.keys)
+    }
+
+    /**
+     * Clústeres de especies que se confunden (tabla `clusters`). Un paquete sin la tabla, o con
+     * miembros que ya no están en `taxa`, devuelve lo que sí se puede leer: nunca falla ni inventa.
+     */
+    fun readClusters(): List<SpeciesCluster> = runCatching {
+        connection.prepare("select cluster_id, name, members from clusters").use { st ->
+            buildList {
+                while (st.step()) {
+                    val ids = runCatching {
+                        Json.decodeFromString(ListSerializer(String.serializer()), st.getText(2))
+                    }.getOrDefault(emptyList())
+                    val members = ids.mapNotNull { id -> taxa[id]?.let { ClusterMember(id, it.scientificName) } }
+                    if (members.size >= 2) add(SpeciesCluster(st.getLong(0).toInt(), st.getText(1), members))
+                }
+            }
+        }
+    }.getOrDefault(emptyList())
+
+    /** Contexto de Ficha, morfos y supercentroides del paquete. Cada tabla ausente o dañada queda vacía. */
+    fun readExtras(): PackageExtras {
+        fun blobToFloats(bytes: ByteArray): FloatArray {
+            val buf = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN)
+            return FloatArray(bytes.size / 4) { buf.getFloat() }
+        }
+        val context = runCatching {
+            connection.prepare(
+                "select taxon_id, altitude_min, altitude_max, w_visual, w_geo, w_habitat, lrc_min, lrc_max from taxon_context",
+            ).use { st ->
+                buildMap {
+                    fun num(i: Int): Double? = if (st.isNull(i)) null else st.getDouble(i)
+                    while (st.step()) {
+                        put(st.getText(0), TaxonContext(num(1), num(2), num(3), num(4), num(5), num(6), num(7)))
+                    }
+                }
+            }
+        }.getOrDefault(emptyMap())
+        val morphs = runCatching {
+            connection.prepare("select taxon_id, name, vector from morph_centroids").use { st ->
+                val out = LinkedHashMap<String, MutableList<NamedVector>>()
+                while (st.step()) out.getOrPut(st.getText(0)) { mutableListOf() }.add(NamedVector(st.getText(1), blobToFloats(st.getBlob(2))))
+                out as Map<String, List<NamedVector>>
+            }
+        }.getOrDefault(emptyMap())
+        fun level(name: String): List<NamedVector> = runCatching {
+            connection.prepare("select name, vector from centroids where level = ?").use { st ->
+                st.bindText(1, name)
+                buildList { while (st.step()) add(NamedVector(st.getText(0), blobToFloats(st.getBlob(1)))) }
+            }
+        }.getOrDefault(emptyList())
+        return PackageExtras(context, morphs, level("genero"), level("familia"))
     }
 
     fun vecVersion(): String = connection.prepare("select vec_version()").use { st -> st.step(); st.getText(0) }

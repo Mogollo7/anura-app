@@ -64,6 +64,20 @@ class ClavePrefillTest {
     }
 
     @Test
+    fun pasoAPaso_campoVacioNoAjusta_ySinDatoNoPenaliza() {
+        assertNull(pasoAPasoMultiplicadores(clave, null, null))
+        val conSustrato = clave.copy(
+            especies = listOf(
+                ClaveEspecie("A", estados = mapOf("sustrato" to listOf("hojarasca"))),
+                ClaveEspecie("D"),
+            ),
+        )
+        val pesos = pasoAPasoMultiplicadores(conSustrato, "leaf_litter", null)
+        assertEquals(1.15, pesos?.get("A"))
+        assertNull(pesos?.get("D"))
+    }
+
+    @Test
     fun especiesCompatiblesConValor_sinDatosNoHayCifra() {
         assertNull(especiesCompatiblesConValor(clave, "sustrato", 1.0))
         val sinTamanos = clave.copy(especies = clave.especies.map { it.copy(estados = emptyMap()) })

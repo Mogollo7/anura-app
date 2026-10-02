@@ -24,6 +24,7 @@
     <string name="sign_in_enter">Entrar</string>
     <string name="sign_in_entering">Entrando…</string>
     <string name="auth_offline">No hay conexión con el servidor. Revisa tu internet e intenta de nuevo.</string>
+    <string name="session_expired_message">La sesión venció. Entra de nuevo para subir las fotos y observaciones que quedaron en el teléfono.</string>
     <string name="sign_in_without_account">Entrar sin cuenta</string>
     <string name="sign_in_no_account">¿No tienes cuenta?</string>
     <string name="sign_in_create_one">Crear una</string>
@@ -531,7 +532,7 @@
     <string name="species_not_found_body">No tiene ficha en el catálogo de este teléfono.</string>
     <string name="identification_error_engine">No se pudo analizar la foto. Intenta de nuevo.</string>
     <string name="photo_id_location_prompt_title">¿Usar la ubicación actual?</string>
-    <string name="photo_id_location_prompt_body">Ayuda a comparar candidatas por zona y no cambia qué especie se identifica.</string>
+    <string name="photo_id_location_prompt_body">Puedes usarla para comparar candidatas por zona, o seguir sin ella. Identificar la foto no la necesita.</string>
     <string name="photo_id_location_prompt_confirm">Usar ubicación</string>
     <string name="photo_id_location_prompt_dismiss">Omitir</string>
     <string name="identification_not_anuro_title">No parece un anuro</string>
@@ -676,6 +677,16 @@
     <string name="notifications_empty_read_title">No tienes avisos leídos</string>
     <string name="notifications_delete_cd">Eliminar aviso</string>
     <string name="notifications_expand_hint">Toca para ver el aviso completo</string>
+    <string name="notifications_open_full">Ver completo</string>
+    <string name="observation_detail_morph">Morfo más parecido: %1$s</string>
+    <string name="observation_detail_nearest_genus">Género más cercano: %1$s</string>
+    <string name="observation_detail_nearest_family">Familia más cercana: %1$s</string>
+    <string name="observation_detail_confusable_title">Puede confundirse con</string>
+    <string name="observation_detail_confusable_body">Con la foto sola el modelo no separa bien estas especies. El Admin las marcó como un clúster.</string>
+    <string name="notifications_full_title">Aviso</string>
+    <string name="notifications_full_loading">Cargando el aviso…</string>
+    <string name="notifications_full_error">No se pudo cargar el aviso</string>
+    <string name="notifications_full_retry">Reintentar</string>
     <string name="device_blocked_message">El administrador bloqueó este dispositivo; la app dejó de sincronizarlo.</string>
     <string name="device_suspended_message">Tu cuenta está suspendida. Cerramos tu sesión.</string>
 

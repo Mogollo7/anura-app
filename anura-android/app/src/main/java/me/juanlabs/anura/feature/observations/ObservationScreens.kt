@@ -106,7 +106,6 @@ private val ObservationHeroHeight = 280.dp
 @Composable
 fun ObservationsScreen(
     onOpenObservationDetail: (String) -> Unit,
-    onOpenFavorites: () -> Unit,
 ) {
     val repository = rememberAnuraRepository()
     val snapshot by repository.state.collectAsState()
@@ -130,7 +129,16 @@ fun ObservationsScreen(
     val fieldSessions = snapshot.fieldSessions.sortedByDescending { it.startedAtEpochMs }
     // Feed único de todos los usuarios (propias + comunidad), no propias-o-comunidad como antes —
     // orden de pila: la más reciente primero, por fecha de creación del registro.
-    val feed = (repository.ownObservations().filter { !it.isDraft } + communityFeed)
+    val own = repository.ownObservations().filter { !it.isDraft }
+    val ownIds = own.flatMap { listOfNotNull(it.id, it.serverId) }.toSet()
+    val myUsername = snapshot.session.username
+    // De otras personas: sin las mías (ya salen arriba, con su copia local) ni las de usuarios bloqueados.
+    val others = communityFeed.filter {
+        it.id !in ownIds &&
+            it.ownerUserId !in snapshot.blockedUserIds &&
+            !(myUsername.isNotBlank() && it.ownerUsername.equals(myUsername, ignoreCase = true))
+    }
+    val feed = (own + others)
         .distinctBy { it.id }
         .filter(::matches)
         .filter { fieldSessionFilter == null || it.fieldSessionId == fieldSessionFilter }
@@ -142,17 +150,6 @@ fun ObservationsScreen(
             AnuraTopBar(
                 title = stringResource(R.string.observations_title),
                 centerTitle = true,
-                actions = {
-                    IconButton(
-                        onClick = onOpenFavorites,
-                        modifier = Modifier.size(AnuraDimens.sizeTouch),
-                    ) {
-                        Icon(
-                            imageVector = AnuraIcons.FavoriteBorder,
-                            contentDescription = stringResource(R.string.observations_favorites_cd),
-                        )
-                    }
-                },
             )
         },
     ) { innerPadding ->
@@ -249,7 +246,7 @@ fun ObservationsScreen(
 @Composable
 private fun ObservationsPreview() {
     AnuraTheme {
-        ObservationsScreen(onOpenObservationDetail = {}, onOpenFavorites = {})
+        ObservationsScreen(onOpenObservationDetail = {})
     }
 }
 
@@ -257,7 +254,7 @@ private fun ObservationsPreview() {
 @Composable
 private fun ObservationsPreviewRedLight() {
     AnuraTheme(AnuraThemeMode.LuzRoja) {
-        ObservationsScreen(onOpenObservationDetail = {}, onOpenFavorites = {})
+        ObservationsScreen(onOpenObservationDetail = {})
     }
 }
 
@@ -573,6 +570,46 @@ fun ObservationDetailScreen(
                     ConfidenceCard(
                         share = top.share,
                         photoCount = observation?.photoTokens?.size ?: 0,
+                    )
+                }
+                val known = observation?.identificationStatus == IdentificationKnown
+                val morphLine = if (known) observation?.morphName?.let { stringResource(R.string.observation_detail_morph, it) } else null
+                val rankLine = if (!known && observation != null) {
+                    listOfNotNull(
+                        observation.nearestGenus?.let { stringResource(R.string.observation_detail_nearest_genus, it) },
+                        observation.nearestFamily?.let { stringResource(R.string.observation_detail_nearest_family, it) },
+                    ).joinToString(" · ").takeIf { it.isNotBlank() }
+                } else null
+                (morphLine ?: rankLine)?.let { line ->
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceGap))
+                    Text(
+                        text = line,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                val confusable = if (observation?.identificationStatus == IdentificationKnown) {
+                    observation.confusableWith
+                } else {
+                    emptyList()
+                }
+                if (confusable.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(AnuraDimens.spaceSection))
+                    Text(
+                        text = stringResource(R.string.observation_detail_confusable_title),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    )
+                    Text(
+                        text = stringResource(R.string.observation_detail_confusable_body),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 2.dp),
+                    )
+                    Text(
+                        text = confusable.joinToString(", "),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic),
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(top = 4.dp),
                     )
                 }
                 val others = candidates.drop(1)

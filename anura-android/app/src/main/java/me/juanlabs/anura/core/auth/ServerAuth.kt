@@ -30,6 +30,8 @@ data class JwtClaims(
     val email: String? = null,
     val username: String? = null,
     val role: String? = null,
+    /** Segundos desde epoch. Lo pone auth-service (`expiresIn`). */
+    val exp: Long? = null,
 )
 
 private val jwtJson = Json { ignoreUnknownKeys = true }
@@ -67,6 +69,12 @@ fun extractAuthToken(uri: Uri?): String? {
     if (uri.scheme != AnuraServerConfig.AUTH_CALLBACK_SCHEME) return null
     if (uri.host != AnuraServerConfig.AUTH_CALLBACK_HOST) return null
     return uri.getQueryParameter("token")
+}
+
+/** True si el JWT ya venció (o vence en los próximos [skewSeconds]). Sin `exp`, no se considera vencido. */
+fun isJwtExpired(token: String, skewSeconds: Long = 60): Boolean {
+    val exp = decodeJwtClaims(token)?.exp ?: return false
+    return exp <= System.currentTimeMillis() / 1000 + skewSeconds
 }
 
 /** Payload del JWT (mismo secreto de auth-service) — solo para mostrar/enrutar en la UI. */

@@ -68,6 +68,7 @@ import me.juanlabs.anura.feature.fieldsession.FieldSessionScreen
 import me.juanlabs.anura.feature.fieldsession.NightSoundsScreen
 import me.juanlabs.anura.feature.home.HomeCarouselCatalog
 import me.juanlabs.anura.feature.home.HomeScreen
+import me.juanlabs.anura.feature.notifications.AvisoDetalleScreen
 import me.juanlabs.anura.feature.notifications.NotificationsScreen
 import me.juanlabs.anura.feature.observations.FavoritesScreen
 import me.juanlabs.anura.feature.observations.ObservationDetailScreen
@@ -118,6 +119,13 @@ fun AnuraNavHost(
     // el deep link y emite aquí, sin importar en qué pantalla esté la app en ese momento.
     val repositoryForAuth = rememberAnuraRepository()
     LaunchedEffect(navController) {
+        repositoryForAuth.reauthEvents.collect {
+            navController.navigate(AnuraRoute.AuthGraph) {
+                popUpTo(0) { inclusive = true }
+            }
+        }
+    }
+    LaunchedEffect(navController) {
         authTokenEvents.collect { token ->
             val claims = decodeJwtClaims(token) ?: return@collect
             repositoryForAuth.signInWithToken(token, claims)
@@ -137,10 +145,14 @@ fun AnuraNavHost(
         val pending = notificationOpenRequests.value
         startupNotificationToken = pending?.token
         val openNotifications = pending != null
-        if (repositoryForAuth.snapshot.session.enteredApp || openNotifications) {
+        val restored = repositoryForAuth.snapshot.session
+        if (restored.authToken != null && me.juanlabs.anura.core.auth.isJwtExpired(restored.authToken)) {
+            repositoryForAuth.noteSessionRejected()
+        } else if (restored.enteredApp || openNotifications) {
             navController.navigate(if (openNotifications) AnuraRoute.Notifications else AnuraRoute.Home) {
                 popUpTo(AnuraRoute.AuthGraph) { inclusive = true }
             }
+            pending?.completo?.let { navController.navigate(AnuraRoute.AvisoDetalle(it)) }
         }
         notificationsRouted = true
     }
@@ -163,6 +175,7 @@ fun AnuraNavHost(
             if (open == null || open.token == startupNotificationToken) return@collect
             startupNotificationToken = open.token
             navController.navigate(AnuraRoute.Notifications) { launchSingleTop = true }
+            open.completo?.let { navController.navigate(AnuraRoute.AvisoDetalle(it)) }
         }
     }
 
@@ -200,9 +213,16 @@ fun AnuraNavHost(
 private fun NavGraphBuilder.authGraph(navController: NavHostController) {
     navigation<AnuraRoute.AuthGraph>(startDestination = AnuraRoute.Welcome) {
         composable<AnuraRoute.Welcome> {
+            val repository = rememberAnuraRepository()
+            val snapshot by repository.state.collectAsState()
             WelcomeScreen(
                 onGoToSignIn = { navController.navigate(AnuraRoute.SignIn) },
                 onGoToSignUp = { navController.navigate(AnuraRoute.SignUp) },
+                notice = if (snapshot.session.sessionExpired) {
+                    stringResource(me.juanlabs.anura.R.string.session_expired_message)
+                } else {
+                    null
+                },
             )
         }
         composable<AnuraRoute.SignIn> {
@@ -315,7 +335,6 @@ private fun NavGraphBuilder.topLevelDestinations(
     composable<AnuraRoute.Explore> {
         ObservationsScreen(
             onOpenObservationDetail = { id -> navController.navigate(AnuraRoute.ObservationDetail(id)) },
-            onOpenFavorites = { navController.navigate(AnuraRoute.Favorites) },
         )
     }
     composable<AnuraRoute.Observations> {
@@ -470,7 +489,14 @@ private fun NavGraphBuilder.detailDestinations(
         EditProfileScreen(onBackClick = { navController.popBackStack() })
     }
     composable<AnuraRoute.Notifications> {
-        NotificationsScreen(onBackClick = { navController.popBackStack() })
+        NotificationsScreen(
+            onBackClick = { navController.popBackStack() },
+            onOpenFull = { token -> navController.navigate(AnuraRoute.AvisoDetalle(token)) },
+        )
+    }
+    composable<AnuraRoute.AvisoDetalle> { backStackEntry ->
+        val route = backStackEntry.toRoute<AnuraRoute.AvisoDetalle>()
+        AvisoDetalleScreen(token = route.token, onBackClick = { navController.popBackStack() })
     }
             composable<AnuraRoute.RegionalPackages> {
         RegionalPackagesScreen(

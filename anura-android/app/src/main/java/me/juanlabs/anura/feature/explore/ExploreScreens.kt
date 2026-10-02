@@ -533,7 +533,14 @@ fun ObservationCatalogScreen(
         val local = snapshot.observations
             .filter { observation -> observation.visibilityPublic && (online || observation.ownerUserId == ownId) }
             .mapNotNull { it.toExploreObservation() }
-        val community = remoteFeed.mapNotNull { it.toExploreObservation() }
+        val ownIds = snapshot.observations.flatMap { listOfNotNull(it.id, it.serverId) }.toSet()
+        val mine = snapshot.session.username
+        val community = remoteFeed
+            .filter { item ->
+                item.id !in ownIds &&
+                    !(mine.isNotBlank() && item.username.equals(mine, ignoreCase = true))
+            }
+            .mapNotNull { it.toExploreObservation() }
         (local + community)
     }
         .distinctBy { it.id }

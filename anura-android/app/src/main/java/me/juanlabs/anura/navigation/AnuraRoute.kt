@@ -73,6 +73,10 @@ sealed interface AnuraRoute {
     @Serializable
     data object Notifications : AnuraRoute
 
+    /** Aviso rico dibujado dentro de la app (`GET /api/notifications/public/:token`). */
+    @Serializable
+    data class AvisoDetalle(val token: String) : AnuraRoute
+
     /** `Explora más.` — listado 2×2 del board Penpot, desde explorar. */
     @Serializable
     data object ExploreMore : AnuraRoute

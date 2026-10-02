@@ -22,6 +22,8 @@ data class UserSession(
     val enteredApp: Boolean = false,
     /** JWT real de auth-service (login con Google por Custom Tabs). Null: sesión local sin cuenta. */
     val authToken: String? = null,
+    /** La sesión del teléfono ya no sirve para subir. Welcome lo explica y pide entrar de nuevo. */
+    val sessionExpired: Boolean = false,
 ) {
     val isGuest: Boolean get() = kind == AccountKind.Guest
     val isOwnProfile: Boolean get() = true
@@ -81,6 +83,13 @@ data class ObservationRecord(
     val createdAtEpochMs: Long = 0L,
     /** Resultado real del k-NN (vacío en observaciones sin identificación en el teléfono). */
     val candidates: List<IdentificationCandidate> = emptyList(),
+    /** Otras especies del mismo clúster del paquete (las que el modelo confunde con la identificada). */
+    val confusableWith: List<String> = emptyList(),
+    /** Morfo más cercano (centroide de morfo del paquete), solo si la especie tiene dos o más. */
+    val morphName: String? = null,
+    /** Género y familia cuyo supercentroide queda más cerca; sirven cuando la especie no se pudo nombrar. */
+    val nearestGenus: String? = null,
+    val nearestFamily: String? = null,
     /** `observations.id` real una vez subida a `observation-service` (C3, alcance mínimo: solo
      * lo que ya acepta `POST /api/observations`). Null = todavía solo local (invitado, sin
      * foto, o la subida falló). */

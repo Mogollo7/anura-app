@@ -30,8 +30,19 @@ class AvisosPollWorker(context: Context, params: WorkerParameters) : CoroutineWo
         runCatching { ContentCatalog.sync(applicationContext) }
         if (repository.snapshot.session.authToken == null) return Result.success()
         return runCatching {
+            when (val report = repository.reportDevice(applicationContext as android.app.Application)) {
+                is me.juanlabs.anura.core.data.DeviceReportResult.Unauthorized,
+                me.juanlabs.anura.core.data.DeviceReportResult.Suspended,
+                -> return@runCatching Result.success()
+                is me.juanlabs.anura.core.data.DeviceReportResult.Ok -> {
+                    if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
+                    if (report.sincronizar && !report.bloqueado) repository.ackDeviceSync()
+                }
+                me.juanlabs.anura.core.data.DeviceReportResult.Failed -> {
+                    if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
+                }
+            }
             repository.hydrateNotifications(applicationContext)
-            if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
             Result.success()
         }.getOrElse { Result.retry() }
     }

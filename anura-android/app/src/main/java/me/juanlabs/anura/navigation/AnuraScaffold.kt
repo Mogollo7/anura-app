@@ -105,8 +105,12 @@ fun AnuraScaffold(
     val deviceBlockedFallback = stringResource(R.string.device_blocked_message)
     LaunchedEffect(snapshot.session.authToken, snapshot.session.enteredApp) {
         val token = snapshot.session.authToken
+        if (token != null && me.juanlabs.anura.core.auth.isJwtExpired(token)) {
+            repository.noteSessionRejected()
+            return@LaunchedEffect
+        }
         if (token == null || !snapshot.session.enteredApp) return@LaunchedEffect
-        when (repository.reportDevice(context.applicationContext as Application)) {
+        when (val report = repository.reportDevice(context.applicationContext as Application)) {
             is DeviceReportResult.Suspended -> {
                 repository.signOut()
                 repository.notify(deviceSuspendedMessage)
@@ -120,11 +124,19 @@ fun AnuraScaffold(
                 if (blockedNow) {
                     repository.notify(repository.snapshot.deviceBlockReason?.takeIf { it.isNotBlank() } ?: deviceBlockedFallback)
                 }
+                repository.hydrateNotifications(context)
+                if (!blockedNow) {
+                    repository.syncPendingObservations()
+                    repository.hydrateOwnObservations()
+                    if (report.sincronizar) repository.ackDeviceSync()
+                }
             }
-            DeviceReportResult.Failed -> Unit
+            DeviceReportResult.Unauthorized -> Unit
+            DeviceReportResult.Failed -> {
+                repository.hydrateNotifications(context)
+                if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
+            }
         }
-        repository.hydrateNotifications(context)
-        if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
     }
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination

@@ -1,7 +1,11 @@
 package me.juanlabs.anura.core.data
 
+import java.net.HttpURLConnection
+import java.net.URL
 import java.net.URLEncoder
 import java.time.Instant
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import me.juanlabs.anura.core.auth.AnuraServerConfig
 
@@ -22,9 +26,28 @@ object ExplorerRemote {
         }
 
     /** Feed público: propio si se pasa `username`, o el de toda la comunidad. */
-    suspend fun feed(username: String? = null): List<ExplorerFeedItem> {
+    suspend fun feed(username: String? = null, bearer: String? = null): List<ExplorerFeedItem> {
         val path = if (username != null) "/api/explorer/feed?username=${encode(username)}" else "/api/explorer/feed"
-        return AnuraApi.get<List<ExplorerFeedItem>>(path).orEmpty()
+        return AnuraApi.get<List<ExplorerFeedItem>>(path, bearer).orEmpty()
+    }
+
+    /** Foto completa de una observación (no miniatura), para bajarla al teléfono. */
+    fun originalUrl(key: String?): String? = thumbUrl(key, size = "original")
+
+    /** Baja un archivo a memoria; null si falla la red o el servidor no responde 200. */
+    suspend fun downloadBytes(url: String): ByteArray? = withContext(Dispatchers.IO) {
+        runCatching {
+            val conn = (URL(url).openConnection() as HttpURLConnection).apply {
+                connectTimeout = 6_000
+                readTimeout = 30_000
+            }
+            try {
+                if (conn.responseCode != HttpURLConnection.HTTP_OK) null
+                else conn.inputStream.use { it.readBytes() }.takeIf { it.isNotEmpty() }
+            } finally {
+                conn.disconnect()
+            }
+        }.getOrNull()
     }
 
     suspend fun observation(id: String): ExplorerFeedItem? =

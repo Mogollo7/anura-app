@@ -34,8 +34,8 @@ object ObservationsRemote {
         aiTopClass: String?,
         aiTopProb: Double?,
         bearer: String,
-    ): UploadResult? = withContext(Dispatchers.IO) {
-        if (!photo.exists()) return@withContext null
+    ): ObservationUpload = withContext(Dispatchers.IO) {
+        if (!photo.exists()) return@withContext ObservationUpload.Failed
         runCatching {
             val boundary = "$BoundaryPrefix${UUID.randomUUID()}"
             val conn = (URL(AnuraServerConfig.AUTH_BASE_URL + "/api/observations").openConnection() as HttpURLConnection).apply {
@@ -69,19 +69,22 @@ object ObservationsRemote {
                     out.write("\r\n--$boundary--\r\n".toByteArray())
                 }
                 val code = conn.responseCode
-                if (code !in 200..299) return@runCatching null
+                if (code == 401) return@runCatching ObservationUpload.Unauthorized
+                if (code !in 200..299) return@runCatching ObservationUpload.Failed
                 val text = conn.inputStream.bufferedReader().use { it.readText() }
                 val body = json.decodeFromString(UploadResponse.serializer(), text)
-                val observationId = body.observation_id ?: return@runCatching null
-                UploadResult(
-                    observationId = observationId,
-                    thumbnailUrl = absoluteMediaUrl(body.thumbnail_url),
-                    imageUrl = absoluteMediaUrl(body.image_url),
+                val observationId = body.observation_id ?: return@runCatching ObservationUpload.Failed
+                ObservationUpload.Saved(
+                    UploadResult(
+                        observationId = observationId,
+                        thumbnailUrl = absoluteMediaUrl(body.thumbnail_url),
+                        imageUrl = absoluteMediaUrl(body.image_url),
+                    ),
                 )
             } finally {
                 conn.disconnect()
             }
-        }.getOrNull()
+        }.getOrDefault(ObservationUpload.Failed)
     }
 
     private fun absoluteMediaUrl(path: String?): String? {
@@ -94,6 +97,17 @@ object ObservationsRemote {
         val body = """{"is_private":$isPrivate}"""
         return AnuraApi.putOk("/api/observations/$serverId", body, bearer)
     }
+
+    /** Borra la observación del servidor (fila, predicción y fotos). Solo la dueña puede. */
+    suspend fun delete(serverId: String, bearer: String): Boolean =
+        AnuraApi.deleteOk("/api/observations/$serverId", bearer)
+}
+
+sealed interface ObservationUpload {
+    data class Saved(val result: UploadResult) : ObservationUpload
+    /** El JWT no vale (venció o el servidor lo rechazó). Hay que volver a entrar. */
+    data object Unauthorized : ObservationUpload
+    data object Failed : ObservationUpload
 }
 
 /** Respuesta de `POST /api/observations` ya normalizada (URLs absolutas). */

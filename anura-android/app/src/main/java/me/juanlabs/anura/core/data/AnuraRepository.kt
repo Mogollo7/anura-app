@@ -23,6 +23,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.coroutineContext
 import kotlinx.serialization.json.Json
 import me.juanlabs.anura.core.auth.AnuraServerConfig
+import me.juanlabs.anura.core.auth.isJwtExpired
 import me.juanlabs.anura.core.inference.AltitudeRange
 import me.juanlabs.anura.core.inference.AnuraIdentifier
 import me.juanlabs.anura.core.inference.IdentificationEnsemble
@@ -45,6 +46,11 @@ class AnuraRepository(
     private val _packageCatalogState = MutableStateFlow<PackageCatalogState>(PackageCatalogState.Loading)
     val packageCatalogState: StateFlow<PackageCatalogState> = _packageCatalogState.asStateFlow()
     private val uploadsInFlight = java.util.Collections.synchronizedSet(mutableSetOf<String>())
+    private val reauthNotified = java.util.concurrent.atomic.AtomicBoolean(false)
+    private val _reauth = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+
+    /** La UI (NavHost) lleva a Welcome cuando el JWT ya no sirve para subir. */
+    val reauthEvents: SharedFlow<Unit> = _reauth.asSharedFlow()
     private val json = Json {
         ignoreUnknownKeys = true
         encodeDefaults = true
@@ -110,6 +116,7 @@ class AnuraRepository(
      * puedan migrarse igual que en [signUp].
      */
     fun signInWithToken(token: String, claims: me.juanlabs.anura.core.auth.JwtClaims) {
+        reauthNotified.set(false)
         update { current ->
             val oldId = current.session.userId
             val newId = claims.id ?: oldId
@@ -129,11 +136,15 @@ class AnuraRepository(
                     displayName = current.session.displayName.ifBlank { claims.username ?: claims.email ?: "" },
                     enteredApp = true,
                     authToken = token,
+                    sessionExpired = false,
                 ),
                 observations = migrated,
             )
         }
-        scope.launch { hydrateFavorites() }
+        scope.launch {
+            hydrateFavorites()
+            hydrateOwnObservations()
+        }
     }
 
     /**
@@ -186,9 +197,23 @@ class AnuraRepository(
     fun signOut() {
         update { current ->
             current.copy(
-                session = current.session.copy(enteredApp = false),
+                session = current.session.copy(enteredApp = false, authToken = null, sessionExpired = false),
             )
         }
+    }
+
+    /**
+     * El servidor rechazó el JWT (hoy: venció al día del login con Google). Las observaciones
+     * se quedan en el teléfono. Al volver a entrar, [syncPendingObservations] las sube.
+     */
+    fun noteSessionRejected() {
+        if (!reauthNotified.compareAndSet(false, true)) return
+        update { current ->
+            current.copy(
+                session = current.session.copy(authToken = null, enteredApp = false, sessionExpired = true),
+            )
+        }
+        _reauth.tryEmit(Unit)
     }
 
     fun updateProfile(
@@ -278,6 +303,11 @@ class AnuraRepository(
                 ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
             val altitudeM = resolveDraftAltitude()
             val altitudeRanges = altitudeRangesFor(pack)
+            val paso = me.juanlabs.anura.core.key.pasoAPasoMultiplicadores(
+                cachedClave(pack.id, pack.version ?: "1"),
+                snapshot.draft.habitat,
+                snapshot.draft.svlMm,
+            )
             val outcomes = photos.take(MaxPhotosForIdentification).map { photo ->
                 engine.identify(
                     photo,
@@ -286,6 +316,7 @@ class AnuraRepository(
                     longitude = snapshot.draft.longitude,
                     altitudeM = altitudeM,
                     altitudeRanges = altitudeRanges,
+                    pasoAPaso = paso,
                 )
             }
             IdentificationEnsemble.combine(outcomes)
@@ -382,6 +413,13 @@ class AnuraRepository(
             fieldSessionId = draft.fieldSessionId ?: snapshot.activeSessionId,
             identificationStatus = identificationStatus,
             createdAtEpochMs = System.currentTimeMillis(),
+            morphName = named?.morph?.name,
+            nearestGenus = identified?.nearestGenus?.name,
+            nearestFamily = identified?.nearestFamily?.name,
+            confusableWith = named?.let { hit ->
+                hit.clusters.flatMap { it.members }.map { it.scientificName }
+                    .filter { it != hit.scientificName }.distinct()
+            }.orEmpty(),
             // Solo las candidatas que calculó el motor: sin identificación real no hay porcentajes.
             candidates = identified?.candidates.orEmpty().map {
                 SpeciesCatalog.asCandidate(it.scientificName, it.share.toFloat(), it.genus, it.family)
@@ -400,8 +438,14 @@ class AnuraRepository(
      * Tras POST confirmado con `serverId`, libera la foto local pesada y deja `photoUrl` remota. */
     private fun uploadObservationIfPossible(record: ObservationRecord) {
         val token = snapshot.session.authToken ?: return
+        if (isJwtExpired(token)) {
+            noteSessionRejected()
+            return
+        }
         if (snapshot.deviceBlocked) return
         if (record.serverId != null) return
+        // Privada = solo en el teléfono. Al publicarla se sube; al volverla privada se baja y se borra del servidor.
+        if (!record.visibilityPublic) return
         val photoToken = record.photoTokens.firstOrNull() ?: return
         val photo = MediaPersistence.fileFromToken(photoToken) ?: return
         if (!uploadsInFlight.add(record.id)) return
@@ -409,16 +453,25 @@ class AnuraRepository(
         scope.launch {
             try {
                 val latest = snapshot.observations.find { it.id == record.id } ?: record
-                val uploaded = ObservationsRemote.upload(
-                    photo = photo,
-                    latitude = latest.latitude,
-                    longitude = latest.longitude,
-                    notes = observationNotes(latest),
-                    isPrivate = !latest.visibilityPublic,
-                    aiTopClass = latest.scientificName.takeIf { latest.identificationStatus == IdentificationKnown },
-                    aiTopProb = topCandidate?.share?.toDouble(),
-                    bearer = token,
-                ) ?: return@launch
+                val uploaded = when (
+                    val outcome = ObservationsRemote.upload(
+                        photo = photo,
+                        latitude = latest.latitude,
+                        longitude = latest.longitude,
+                        notes = observationNotes(latest),
+                        isPrivate = !latest.visibilityPublic,
+                        aiTopClass = latest.scientificName.takeIf { latest.identificationStatus == IdentificationKnown },
+                        aiTopProb = topCandidate?.share?.toDouble(),
+                        bearer = token,
+                    )
+                ) {
+                    is ObservationUpload.Saved -> outcome.result
+                    ObservationUpload.Unauthorized -> {
+                        noteSessionRejected()
+                        return@launch
+                    }
+                    ObservationUpload.Failed -> return@launch
+                }
                 val remotePhoto = uploaded.thumbnailUrl ?: uploaded.imageUrl
                 val localPhotos = latest.photoTokens
                 // Persistir serverId + URL remota y vaciar tokens locales ANTES de borrar archivos,
@@ -458,7 +511,12 @@ class AnuraRepository(
      * subida anterior falló). También libera fotos locales de las que ya tienen `serverId`
      * (subidas en una sesión anterior) sustituyéndolas por la miniatura del servidor. */
     fun syncPendingObservations() {
-        if (snapshot.session.authToken == null || snapshot.deviceBlocked) return
+        val token = snapshot.session.authToken ?: return
+        if (isJwtExpired(token)) {
+            noteSessionRejected()
+            return
+        }
+        if (snapshot.deviceBlocked) return
         snapshot.observations
             .filter {
                 it.serverId == null &&
@@ -631,10 +689,20 @@ class AnuraRepository(
             paquetes = paquetes,
             espacioLibreMb = espacioLibreMb,
         )
-        if (result is DeviceReportResult.Ok) {
-            update { it.copy(deviceBlocked = result.bloqueado, deviceBlockReason = result.motivo) }
+        when (result) {
+            is DeviceReportResult.Ok ->
+                update { it.copy(deviceBlocked = result.bloqueado, deviceBlockReason = result.motivo) }
+            DeviceReportResult.Unauthorized -> noteSessionRejected()
+            DeviceReportResult.Suspended, DeviceReportResult.Failed -> Unit
         }
         return result
+    }
+
+    /** El admin pidió sincronizar y este teléfono ya lanzó la subida de lo pendiente. */
+    fun ackDeviceSync() {
+        val token = snapshot.session.authToken ?: return
+        val deviceKey = snapshot.deviceKey ?: return
+        scope.launch { DeviceRemote.acknowledge(bearer = token, deviceKey = deviceKey) }
     }
 
     /**
@@ -741,19 +809,90 @@ class AnuraRepository(
         }
     }
 
+    /**
+     * Privada = vive solo en el teléfono. Pública = vive en el servidor.
+     * - Privada → pública: se marca y se sube (o, si ya estaba allá, se publica con PUT).
+     * - Pública → privada: primero se baja la foto original al teléfono y se guarda; solo si eso
+     *   salió bien se borra del servidor. Si algo falla, la observación sigue pública y nada se pierde.
+     */
     fun setObservationVisibility(id: String, public: Boolean) {
         if (!isOwnObservation(id)) return
-        val serverId = snapshot.observations.find { it.id == id }?.serverId
-        update { current ->
-            current.copy(
-                observations = current.observations.map { observation ->
-                    if (observation.id == id) observation.copy(visibilityPublic = public) else observation
-                },
-            )
+        val actual = snapshot.observations.find { it.id == id } ?: return
+        if (actual.visibilityPublic == public) return
+        val token = snapshot.session.authToken
+        val serverId = actual.serverId
+        if (public) {
+            update { current ->
+                current.copy(observations = current.observations.map { if (it.id == id) it.copy(visibilityPublic = true) else it })
+            }
+            if (token == null) return
+            if (serverId != null) {
+                scope.launch { ObservationsRemote.updateVisibility(serverId, isPrivate = false, bearer = token) }
+            } else {
+                snapshot.observations.find { it.id == id }?.let { uploadObservationIfPossible(it) }
+            }
+            return
         }
+        if (serverId == null) {
+            update { current ->
+                current.copy(observations = current.observations.map { if (it.id == id) it.copy(visibilityPublic = false) else it })
+            }
+            return
+        }
+        if (token == null || isJwtExpired(token)) {
+            notify("Entra a tu cuenta para volver privada una observación que está en el servidor.")
+            return
+        }
+        scope.launch {
+            val local = actual.photoTokens.firstOrNull()?.takeIf { MediaPersistence.fileFromToken(it) != null }
+            val photo = local ?: run {
+                val remote = ExplorerRemote.observation(serverId)
+                val url = ExplorerRemote.originalUrl(remote?.image_key ?: remote?.thumbnail_key)
+                val bytes = url?.let { ExplorerRemote.downloadBytes(it) }
+                bytes?.let { media?.savePhotoBytes(it) }
+            }
+            if (photo == null) {
+                notify("No se pudo bajar la foto al teléfono. La observación sigue pública.")
+                return@launch
+            }
+            if (!ObservationsRemote.delete(serverId, token)) {
+                if (local == null) MediaPersistence.deleteLocalFile(photo)
+                notify("No se pudo quitar la observación del servidor. Sigue pública.")
+                return@launch
+            }
+            update { current ->
+                current.copy(
+                    observations = current.observations.map {
+                        if (it.id == id) it.copy(visibilityPublic = false, serverId = null, photoUrl = null, photoTokens = listOf(photo)) else it
+                    },
+                )
+            }
+        }
+    }
+
+    /**
+     * Trae al teléfono las observaciones propias que están en el servidor (otro dispositivo,
+     * la web o una reinstalación), para que salgan en el perfil. Solo añade las que faltan;
+     * no pisa ni borra nada de lo local. Sin red o sin respuesta no hace nada.
+     */
+    suspend fun hydrateOwnObservations() {
         val token = snapshot.session.authToken ?: return
-        val remoteId = serverId ?: return
-        scope.launch { ObservationsRemote.updateVisibility(remoteId, isPrivate = !public, bearer = token) }
+        val session = snapshot.session
+        if (session.username.isBlank() || isJwtExpired(token)) return
+        val remote = ExplorerRemote.feed(username = session.username, bearer = token)
+        if (remote.isEmpty()) return
+        update { current ->
+            val known = current.observations.flatMap { listOfNotNull(it.id, it.serverId) }.toSet()
+            val nuevas = remote.filter { it.id !in known }.map {
+                it.toObservationRecord().copy(
+                    ownerUserId = session.userId,
+                    ownerDisplayName = session.displayName,
+                    ownerUsername = session.username,
+                    serverId = it.id,
+                )
+            }
+            if (nuevas.isEmpty()) current else current.copy(observations = current.observations + nuevas)
+        }
     }
 
     fun isOwnObservation(id: String): Boolean {

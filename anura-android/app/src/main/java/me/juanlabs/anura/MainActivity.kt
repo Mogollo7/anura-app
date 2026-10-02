@@ -30,6 +30,7 @@ import me.juanlabs.anura.core.data.emitNotificationOpen
 import me.juanlabs.anura.core.data.emitObservationDeepLink
 import me.juanlabs.anura.core.data.extractObservationId
 import me.juanlabs.anura.core.data.isNotificationOpenUri
+import me.juanlabs.anura.core.data.notificationCompletoFromUri
 import me.juanlabs.anura.core.data.notificationIdFromUri
 import me.juanlabs.anura.core.notifications.AnuraNotifications
 import me.juanlabs.anura.designsystem.theme.AnuraTheme
@@ -158,7 +159,10 @@ class MainActivity : ComponentActivity() {
     // — mismo puente que handleAuthDeepLink.
     private fun handleNotificationDeepLink(intent: Intent?) {
         if (!isNotificationOpenUri(intent?.data)) return
-        emitNotificationOpen(notificationIdFromUri(intent?.data))
+        emitNotificationOpen(
+            notificationIdFromUri(intent?.data),
+            notificationCompletoFromUri(intent?.data),
+        )
     }
 
     // App Links (AndroidManifest.xml): https://anura.juanlabs.me/explorer/<id> llega aquí en

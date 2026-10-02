@@ -12,6 +12,8 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import me.juanlabs.anura.R
 import me.juanlabs.anura.core.data.AppNotification
+import me.juanlabs.anura.core.data.cuerpoVisible
+import me.juanlabs.anura.core.data.tokenPublico
 
 /**
  * Notificación real del sistema para un aviso (`AppNotification`, C5) — hasta ahora los avisos
@@ -72,8 +74,7 @@ object AnuraNotifications {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
-        val full = notification.body?.trim().orEmpty()
-            .ifBlank { "Toca para ver el detalle del aviso." }
+        val full = notification.cuerpoVisible().ifBlank { "Toca para ver el detalle del aviso." }
         val summary = full.lineSequence().first().take(140)
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
@@ -87,6 +88,23 @@ object AnuraNotifications {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
+
+        notification.tokenPublico()?.let { token ->
+            val verUri = Uri.parse("anura://notifications").buildUpon()
+                .appendPath(notification.id)
+                .appendQueryParameter("completo", token)
+                .build()
+            val ver = Intent(Intent.ACTION_VIEW, verUri).apply {
+                setPackage(context.packageName)
+            }
+            val verPending = PendingIntent.getActivity(
+                context,
+                notification.id.hashCode() xor 0x5A17,
+                ver,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+            )
+            builder.addAction(0, context.getString(R.string.notifications_open_full), verPending)
+        }
 
         runCatching {
             NotificationManagerCompat.from(context).notify(notification.id.hashCode(), builder.build())

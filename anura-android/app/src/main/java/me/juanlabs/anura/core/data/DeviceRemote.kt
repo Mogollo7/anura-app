@@ -39,11 +39,24 @@ object DeviceRemote {
         return when {
             code in 200..299 && text != null ->
                 runCatching { json.decodeFromString(DeviceReportResponse.serializer(), text) }
-                    .map { DeviceReportResult.Ok(bloqueado = it.bloqueado, motivo = it.motivo) }
+                    .map {
+                        DeviceReportResult.Ok(
+                            bloqueado = it.bloqueado,
+                            motivo = it.motivo,
+                            sincronizar = it.sincronizar,
+                        )
+                    }
                     .getOrDefault(DeviceReportResult.Failed)
+            code == 401 -> DeviceReportResult.Unauthorized
             code == 403 && text != null && isSuspended(text) -> DeviceReportResult.Suspended
             else -> DeviceReportResult.Failed
         }
+    }
+
+    /** Quita la petición de sincronización que dejó el admin en este teléfono. */
+    suspend fun acknowledge(bearer: String, deviceKey: String): Boolean {
+        val body = json.encodeToString(SyncAckRequest.serializer(), SyncAckRequest(device_key = deviceKey))
+        return AnuraApi.postOk("/api/auth/dispositivos/sincronizada", body, bearer)
     }
 
     private fun isSuspended(body: String): Boolean =
@@ -69,10 +82,15 @@ private data class DeviceReportResponse(
     val id: String? = null,
     val bloqueado: Boolean = false,
     val motivo: String? = null,
+    val sincronizar: Boolean = false,
 )
 
+@Serializable
+private data class SyncAckRequest(val device_key: String)
+
 sealed interface DeviceReportResult {
-    data class Ok(val bloqueado: Boolean, val motivo: String?) : DeviceReportResult
+    data class Ok(val bloqueado: Boolean, val motivo: String?, val sincronizar: Boolean = false) : DeviceReportResult
+    data object Unauthorized : DeviceReportResult
     data object Suspended : DeviceReportResult
     data object Failed : DeviceReportResult
 }
@@ -92,8 +110,24 @@ object NotificationsRemote {
     suspend fun delete(id: String, bearer: String): Boolean =
         AnuraApi.deleteOk("/api/notifications/${encode(id)}", bearer = bearer)
 
+    suspend fun fetchCompleto(token: String): AvisoCompleto? =
+        AnuraApi.get("/api/notifications/public/${encode(token)}")
+
     private fun encode(value: String): String = URLEncoder.encode(value, "UTF-8")
 }
+
+@Serializable
+data class AvisoEnlaceDto(val texto: String = "", val url: String = "")
+
+@Serializable
+data class AvisoCompleto(
+    val titulo: String = "",
+    val cuerpo: String = "",
+    val enlaces: List<AvisoEnlaceDto> = emptyList(),
+    val autor: String? = null,
+    val enviado: String? = null,
+    val imagen: String? = null,
+)
 
 @Serializable
 data class AppNotification(
@@ -104,7 +138,32 @@ data class AppNotification(
     val body: String? = null,
     val is_read: Boolean = false,
     val created_at: String? = null,
+    /** Página pública /a/<token> cuando el aviso trae texto largo, enlaces o imagen. */
+    val enlace: String? = null,
 )
+
+private val PieVerCompleto = Regex("""\n*Ver completo\b[\s\S]*$""")
+private val UrlEnPie = Regex("""https://\S+""")
+
+/** El body que ve la persona, sin el pie «Ver completo: url» que el servidor mete para el resumen. */
+fun AppNotification.cuerpoVisible(): String =
+    body?.trim().orEmpty().replace(PieVerCompleto, "").trim()
+
+/** Enlace de la página completa: el campo `enlace` del servidor, o el que ya venía escrito en el body. */
+fun AppNotification.enlacePublico(): String? {
+    enlace?.trim()?.takeIf { it.startsWith("https://") }?.let { return it }
+    val pie = body?.let { PieVerCompleto.find(it) }?.value ?: return null
+    return UrlEnPie.find(pie)?.value?.trimEnd('.', ',', ';')
+}
+
+/** Token de `/a/<token>` para pedir el aviso completo y dibujarlo dentro de la app. */
+fun AppNotification.tokenPublico(): String? = enlacePublico()?.let(::tokenDeEnlace)
+
+fun tokenDeEnlace(url: String): String? {
+    val partes = url.substringAfter("://").substringAfter("/").trim('/').split('/')
+    if (partes.size < 2 || partes[0] != "a") return null
+    return partes[1].takeIf { it.isNotBlank() }
+}
 
 @Serializable
 data class NotificationsResponse(

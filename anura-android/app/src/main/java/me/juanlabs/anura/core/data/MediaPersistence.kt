@@ -29,6 +29,16 @@ class MediaPersistence(private val context: Context) {
 
     fun createPhotoFile(): File = File(photosDir, "specimen_${UUID.randomUUID()}.jpg")
 
+    /** Guarda bytes de una foto bajada del servidor y devuelve su token `file:`; null si no se pudo escribir. */
+    fun savePhotoBytes(bytes: ByteArray): String? {
+        val out = createPhotoFile()
+        val tmp = File(out.path + ".tmp")
+        return runCatching {
+            tmp.writeBytes(bytes)
+            if (tmp.renameTo(out)) "file:${out.absolutePath}" else null
+        }.getOrNull().also { if (it == null) tmp.delete() }
+    }
+
     fun createAudioFile(): File = File(audioDir, "clip_${UUID.randomUUID()}.wav")
 
     fun persistPhotoToken(token: String): String {

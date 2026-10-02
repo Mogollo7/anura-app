@@ -13,19 +13,25 @@ import kotlinx.coroutines.flow.asStateFlow
  * `NavHost` exista. Un `SharedFlow` sin replay pierde ese evento y la app abre en Inicio.
  * El valor se queda hasta que la navegación de arranque lo lee.
  */
-data class NotificationOpen(val id: String?, val token: Long)
+data class NotificationOpen(val id: String?, val token: Long, val completo: String? = null)
 
 private val _notificationOpenRequests = MutableStateFlow<NotificationOpen?>(null)
 val notificationOpenRequests: StateFlow<NotificationOpen?> = _notificationOpenRequests.asStateFlow()
 
-fun emitNotificationOpen(id: String?) {
-    _notificationOpenRequests.value = NotificationOpen(id = id, token = System.nanoTime())
+fun emitNotificationOpen(id: String?, completo: String? = null) {
+    _notificationOpenRequests.value = NotificationOpen(id = id, token = System.nanoTime(), completo = completo)
 }
 
 /** `true` si esta Uri es el deep link de "abrir Avisos" (MainActivity puede recibir otras). */
 fun isNotificationOpenUri(uri: Uri?): Boolean {
     if (uri == null) return false
     return uri.scheme == "anura" && uri.host == "notifications"
+}
+
+/** Token del aviso rico, si el `PendingIntent` de «Ver completo» lo traía. */
+fun notificationCompletoFromUri(uri: Uri?): String? {
+    if (!isNotificationOpenUri(uri)) return null
+    return uri?.getQueryParameter("completo")?.takeIf { it.isNotBlank() }
 }
 
 /** Id del aviso concreto, si el `PendingIntent` lo traía en el path. */
