@@ -1237,7 +1237,8 @@ class AnuraRepository(
                 application,
                 AnuraDatabase::class.java,
                 "anura.db",
-            ).fallbackToDestructiveMigration(dropAllTables = true).build()
+            ).addMigrations(AnuraDatabase.Migration1To2)
+                .fallbackToDestructiveMigration(dropAllTables = true).build()
             val repo = AnuraRepository(
                 dao = db.snapshotDao(),
                 media = MediaPersistence(application),

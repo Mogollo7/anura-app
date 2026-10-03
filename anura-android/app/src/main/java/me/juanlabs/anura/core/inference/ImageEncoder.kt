@@ -44,9 +44,13 @@ class ImageEncoder private constructor(private val session: OrtSession) : AutoCl
                 check(tmp.renameTo(modelFile)) { "No se pudo mover el modelo a ${modelFile.path}" }
             }
             // FP16 en el EP de CPU usa kernels genéricos (~14 s/foto en ARM); XNNPACK ~0,8 s con el mismo modelo.
-            return runCatching { fromFile(modelFile.absolutePath, xnnpack = true) }
-                .getOrElse { fromFile(modelFile.absolutePath, xnnpack = false) }
+            return loadFile(modelFile)
         }
+
+        /** Encoder descargado (`models/by-sha/<sha256>/encoder.onnx`), ya verificado por el descargador. */
+        fun loadFile(modelFile: File): ImageEncoder =
+            runCatching { fromFile(modelFile.absolutePath, xnnpack = true) }
+                .getOrElse { fromFile(modelFile.absolutePath, xnnpack = false) }
 
         fun fromFile(modelPath: String, xnnpack: Boolean = false): ImageEncoder {
             val options = OrtSession.SessionOptions().apply {

@@ -15,6 +15,9 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import me.juanlabs.anura.core.encoder.EncoderResolucion
+import me.juanlabs.anura.core.encoder.EncoderResolver
+import me.juanlabs.anura.core.encoder.EncoderStore
 
 enum class IdentificationFailure {
     NoPhoto,
@@ -23,6 +26,9 @@ enum class IdentificationFailure {
     /** El paquete activo no trae modelo de rechazo (o es inválido): no se acepta identificar sin rechazo. */
     NoOpenSetModel,
     EngineError,
+
+    /** El encoder del paquete no está ni empaquetado ni descargado: hay que actualizar la app. */
+    EncoderUnavailable,
 }
 
 sealed interface IdentificationOutcome {
@@ -63,6 +69,8 @@ sealed interface IdentificationOutcome {
 class AnuraIdentifier(private val context: Context) {
     private val mutex = Mutex()
     private var encoder: ImageEncoder? = null
+    private var encoderSha: String? = null
+    private val encoderResolver = EncoderResolver(EncoderStore(File(context.filesDir, EncoderStoreDir)))
     private var index: PackageVectorIndex? = null
     private var indexFileStamp = 0L
     private var packageOpenSet: PackageOpenSet? = null
@@ -119,7 +127,19 @@ class AnuraIdentifier(private val context: Context) {
                 return IdentificationOutcome.Failed(IdentificationFailure.NoOpenSetModel, state.detail)
             }
         }
-        val encoder = encoder ?: loadEncoder().also { encoder = it }
+        // Regla 4 del protocolo: cada paquete se identifica con el encoder con el que se calculó. Nunca se mezclan.
+        val packageSha = index.encoderSha256()
+        val resolucion = encoderResolver.resolver(packageSha)
+        if (resolucion is EncoderResolucion.NoDisponible) {
+            return IdentificationOutcome.Failed(
+                IdentificationFailure.EncoderUnavailable,
+                "El paquete usa el encoder ${resolucion.sha256.take(12)} y no está en el teléfono. Actualiza la app.",
+            )
+        }
+        val encoder = encoder?.takeIf { encoderSha == packageSha } ?: run {
+            encoder?.close()
+            loadEncoder(resolucion).also { encoder = it; encoderSha = packageSha }
+        }
 
         val t0 = SystemClock.elapsedRealtime()
         val bitmap = BitmapFactory.decodeFile(photo.path, BitmapFactory.Options().apply {
@@ -232,10 +252,13 @@ class AnuraIdentifier(private val context: Context) {
         return stats.mapValues { (_, s) -> s.likelihood(obs).pow(weight) }
     }
 
-    private fun loadEncoder(): ImageEncoder {
+    private fun loadEncoder(resolucion: EncoderResolucion): ImageEncoder {
         logMemory("before_encoder_load")
         val start = SystemClock.elapsedRealtime()
-        val loaded = ImageEncoder.load(context)
+        val loaded = when (resolucion) {
+            is EncoderResolucion.Descargado -> ImageEncoder.loadFile(resolucion.archivo)
+            else -> ImageEncoder.load(context)
+        }
         Log.i(Tag, "encoder cargado en ${SystemClock.elapsedRealtime() - start}ms")
         logMemory("after_encoder_load")
         return loaded
@@ -292,6 +315,7 @@ class AnuraIdentifier(private val context: Context) {
 
     companion object {
         const val Tag = "AnuraInference"
+        const val EncoderStoreDir = "models/by-sha"
         private const val KNeighbors = 5
         private const val DisplayNeighbors = 15
         private const val DisplayCandidateCount = 4

@@ -531,6 +531,7 @@
     <string name="species_not_found_title">No encontramos esta especie</string>
     <string name="species_not_found_body">No tiene ficha en el catálogo de este teléfono.</string>
     <string name="identification_error_engine">No se pudo analizar la foto. Intenta de nuevo.</string>
+    <string name="identification_error_encoder">Este paquete necesita un modelo más nuevo. Actualiza la app y vuelve a intentar.</string>
     <string name="photo_id_location_prompt_title">¿Usar la ubicación actual?</string>
     <string name="photo_id_location_prompt_body">Puedes usarla para comparar candidatas por zona, o seguir sin ella. Identificar la foto no la necesita.</string>
     <string name="photo_id_location_prompt_confirm">Usar ubicación</string>

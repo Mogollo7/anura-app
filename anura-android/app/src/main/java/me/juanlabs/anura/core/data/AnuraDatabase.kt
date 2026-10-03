@@ -8,6 +8,10 @@ import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+import me.juanlabs.anura.core.observations.ObservacionLocalDao
+import me.juanlabs.anura.core.observations.ObservacionLocalEntity
 
 @Entity(tableName = "anura_snapshot")
 data class SnapshotEntity(
@@ -25,10 +29,24 @@ interface SnapshotDao {
 }
 
 @Database(
-    entities = [SnapshotEntity::class],
-    version = 1,
+    entities = [SnapshotEntity::class, ObservacionLocalEntity::class],
+    version = 2,
     exportSchema = false,
 )
 abstract class AnuraDatabase : RoomDatabase() {
     abstract fun snapshotDao(): SnapshotDao
+    abstract fun observacionLocalDao(): ObservacionLocalDao
+
+    companion object {
+        /** Añade `observacion_local` sin tocar `anura_snapshot` (la destructiva borraría el snapshot). */
+        val Migration1To2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS `observacion_local` (`id` TEXT NOT NULL, `visibilidad` TEXT NOT NULL, " +
+                        "`sync` TEXT NOT NULL, `fotos_json` TEXT NOT NULL, `visibilidad_cambiada_en` INTEGER NOT NULL, " +
+                        "PRIMARY KEY(`id`))",
+                )
+            }
+        }
+    }
 }

@@ -715,6 +715,7 @@ private fun NavGraphBuilder.captureGraph(navController: NavHostController) {
                                 IdentificationFailure.NoActivePackage -> me.juanlabs.anura.R.string.identification_error_no_package
                                 IdentificationFailure.NoOpenSetModel -> me.juanlabs.anura.R.string.identification_error_no_openset
                                 IdentificationFailure.EngineError -> me.juanlabs.anura.R.string.identification_error_engine
+                                IdentificationFailure.EncoderUnavailable -> me.juanlabs.anura.R.string.identification_error_encoder
                             },
                         ),
                     )
