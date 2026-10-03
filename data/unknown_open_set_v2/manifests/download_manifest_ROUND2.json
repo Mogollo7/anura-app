@@ -1,0 +1,3332 @@
+[
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 102423919,
+    "photo_id": 171208426,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/171208426/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\102423919_171208426.jpg",
+    "sha256": "64763d1c5b112dce78f571de3204dd37e81a6db6df50cff6a174c3aff357ba70",
+    "download_timestamp": "2026-09-14T07:14:46.714987Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.3419360341,
+      7.0845764905
+    ],
+    "observed_on": "2020-12-10"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 103274788,
+    "photo_id": 172804318,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172804318/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\103274788_172804318.jpg",
+    "sha256": "613e9894e17a5bfe2bcaa82407fe8649d5c29367766b4f1f6b9a5cf7eeacb285",
+    "download_timestamp": "2026-09-14T07:14:46.715243Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.8793496166,
+      4.5202311106
+    ],
+    "observed_on": "2021-12-18"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 104529495,
+    "photo_id": 175167937,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/175167937/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\104529495_175167937.jpg",
+    "sha256": "8b7ebe086a4c878b419dc32e0e3cb6ce8d91e3d9c524319ae2c4e2efb86a9939",
+    "download_timestamp": "2026-09-14T07:14:46.715484Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.7826255549,
+      4.5369219224
+    ],
+    "observed_on": "2022-01-07"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 104638035,
+    "photo_id": 175376842,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/175376842/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\104638035_175376842.jpg",
+    "sha256": "edb15f338fb21645c04dc9d2711495f973fc99fc4ae9aa9d912c5683c1f18b5d",
+    "download_timestamp": "2026-09-14T07:14:46.715665Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.9289527166,
+      4.6322484152
+    ],
+    "observed_on": "2022-01-09"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 109849315,
+    "photo_id": 185216210,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/185216210/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\109849315_185216210.jpg",
+    "sha256": "449270059bbca216c4d9450d5b48bbeb324b4807fb9b1eb5d9fd2a0fcb827fbe",
+    "download_timestamp": "2026-09-14T07:14:46.715840Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.4002865695,
+      9.3429047074
+    ],
+    "observed_on": "2022-03-12"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 112780386,
+    "photo_id": 190517465,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/190517465/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\112780386_190517465.jpg",
+    "sha256": "6e22e22f0ad7d9ab384df046885996df0db5eb4d032bdc4f66297f6d719b7615",
+    "download_timestamp": "2026-09-14T07:14:46.716038Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.4830932841,
+      4.1835943841
+    ],
+    "observed_on": "2022-04-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 113054335,
+    "photo_id": 191012470,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/191012470/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\113054335_191012470.jpg",
+    "sha256": "cc7a098ebb6ccb9cb97c4e0cc7fb240c05725d7d0bc10126a27391ba9590df81",
+    "download_timestamp": "2026-09-14T07:14:46.716175Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.8986822019,
+      11.543221484
+    ],
+    "observed_on": "2022-04-20"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 115771905,
+    "photo_id": 195406898,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/195406898/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\115771905_195406898.jpg",
+    "sha256": "145c1dadd50dd888d0415a7a4a6e35ab4681369ef2fa850ed23aee3ce5b84b8c",
+    "download_timestamp": "2026-09-14T07:14:46.716322Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.7321472167,
+      6.9278473853
+    ],
+    "observed_on": "2022-04-29"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 131275222,
+    "photo_id": 223374263,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/223374263/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\131275222_223374263.jpg",
+    "sha256": "4bfd0cc821fa564b61d76485751927ec9e0ff3892f098e0d8dd343c661ddb6b1",
+    "download_timestamp": "2026-09-14T07:14:46.716612Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1007026588,
+      5.9477022894
+    ],
+    "observed_on": "2022-08-16"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 141925767,
+    "photo_id": 243241362,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/243241362/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\141925767_243241362.jpg",
+    "sha256": "4e0e9d88b53e37adadc8d091324ed1321447358b1701fdc0e60801128acae76c",
+    "download_timestamp": "2026-09-14T07:14:46.716738Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.987475,
+      6.308416
+    ],
+    "observed_on": "2022-11-04"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 14690838,
+    "photo_id": 21902414,
+    "license": "cc-by-nc-nd",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/21902414/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\14690838_21902414.jpg",
+    "sha256": "d2e5679fdd75fbf1fe4ea33982d9cd3b3716b79a61435cd1878ad888f386837f",
+    "download_timestamp": "2026-09-14T07:14:46.716892Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.748208,
+      7.082239
+    ],
+    "observed_on": "2016-07-31"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 147146620,
+    "photo_id": 253140977,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/253140977/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\147146620_253140977.jpg",
+    "sha256": "0ea7b7498d11117baaf87858344c2ae1ea2776ac8a96b9ab46c849835440f9a8",
+    "download_timestamp": "2026-09-14T07:14:46.717015Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5636046246,
+      4.0671685557
+    ],
+    "observed_on": "2022-12-07"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 147147338,
+    "photo_id": 253146586,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/253146586/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\147147338_253146586.jpg",
+    "sha256": "267e568fa157f4fbcd46e619aa3e8e26643a7793706602121e3af77d9f888b75",
+    "download_timestamp": "2026-09-14T07:14:46.717149Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.509560242,
+      4.1957038484
+    ],
+    "observed_on": "2022-12-08"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 147987413,
+    "photo_id": 254753761,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/254753761/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\147987413_254753761.jpg",
+    "sha256": "f712c1d93952a0090f47bcd8e5f9fa316b306b3934bf7aa105d7120aef9c1c8f",
+    "download_timestamp": "2026-09-14T07:14:46.717284Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.693626551,
+      4.3288422685
+    ],
+    "observed_on": "2023-02-02"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 156337032,
+    "photo_id": 270324151,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/270324151/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\156337032_270324151.jpg",
+    "sha256": "1b1a4b2835ba406dcccb9bb5c41e49de975566bb78880c724b3e928baf9e7870",
+    "download_timestamp": "2026-09-14T07:14:46.717527Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0592040833,
+      9.074913
+    ],
+    "observed_on": "2023-04-20"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 156488726,
+    "photo_id": 270600279,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/270600279/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\156488726_270600279.jpg",
+    "sha256": "c5b90b6ff5d457fde2ca54506b1464153a98164d55dc3ea67eb8b9bb80e68eff",
+    "download_timestamp": "2026-09-14T07:14:46.717681Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1847914967,
+      6.5643085684
+    ],
+    "observed_on": "2022-05-11"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 156494168,
+    "photo_id": 270608841,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/270608841/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\156494168_270608841.jpg",
+    "sha256": "c0725ae8a29e628eeac0deef8e8877b7f982b3064c2e291e2c45f0d1b0416178",
+    "download_timestamp": "2026-09-14T07:14:46.717849Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1927848532,
+      6.9733431828
+    ],
+    "observed_on": "2021-03-26"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 159346463,
+    "photo_id": 275304605,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/275304605/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\159346463_275304605.jpg",
+    "sha256": "c6a590af514cc5b4453a2b13a426ef539d50a69a78e84580602a5b340e9613ef",
+    "download_timestamp": "2026-09-14T07:14:46.718037Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8381343011,
+      5.8113720164
+    ],
+    "observed_on": "2023-01-16"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 162552841,
+    "photo_id": 281077849,
+    "license": "cc-by-nc-sa",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/281077849/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\162552841_281077849.jpg",
+    "sha256": "4c38ede92d92502ec4bf916c109851f9486e41aed80d2c913d81a0e5ae7e8c9a",
+    "download_timestamp": "2026-09-14T07:14:46.718196Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.101,
+      5.17
+    ],
+    "observed_on": "2023-05-13"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 165093205,
+    "photo_id": 285735195,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/285735195/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\165093205_285735195.jpg",
+    "sha256": "aee6a870ed93693c287e3dc6508e81bbc2dfa485bbd24f7c64aabde5967d3385",
+    "download_timestamp": "2026-09-14T07:14:46.718332Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.7002976438,
+      4.0598000817
+    ],
+    "observed_on": "2023-06-01"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 165143210,
+    "photo_id": 285828806,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/285828806/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\165143210_285828806.jpg",
+    "sha256": "e0dbea769692dd19c9b45799fec124097de3cb8c08e2dcab03fcbd9d0794b2d9",
+    "download_timestamp": "2026-09-14T07:14:46.718434Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -72.3848772927,
+      5.2241937384
+    ],
+    "observed_on": "2023-05-26"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 168197808,
+    "photo_id": 291460745,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/291460745/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\168197808_291460745.jpg",
+    "sha256": "59a252d5872e877613dadbbc38c6595fa075f1a012e32ba4f7e26877c0e7d489",
+    "download_timestamp": "2026-09-14T07:14:46.718593Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.122422,
+      6.523003
+    ],
+    "observed_on": "2023-05-27"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 182294644,
+    "photo_id": 317815915,
+    "license": "cc-by-nc-sa",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/317815915/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\182294644_317815915.jpg",
+    "sha256": "bd14300ca3d1f65d7726ad5669e639d82a0e50d28402786999f682b3bbf4c099",
+    "download_timestamp": "2026-09-14T07:14:46.718719Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.4175739058,
+      9.0616181239
+    ],
+    "observed_on": "2023-07-15"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 184473650,
+    "photo_id": 322016655,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/322016655/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\184473650_322016655.jpg",
+    "sha256": "4ca79183af3683ff105ae6c755fb0cfd583acdcc795001dbbc107e7f029cfd5e",
+    "download_timestamp": "2026-09-14T07:14:46.718872Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.1384949406,
+      3.8492993243
+    ],
+    "observed_on": "2023-09-22"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 18571868,
+    "photo_id": 28415733,
+    "license": "cc-by-nc-sa",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28415733/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\18571868_28415733.jpg",
+    "sha256": "7ebf8e567e39604ca2dad1ab8cdaaf84cf8a4520682d414fade9eb11f74d874d",
+    "download_timestamp": "2026-09-14T07:14:46.718989Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.7916475213,
+      6.4609010198
+    ],
+    "observed_on": "2018-10-05"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 187985854,
+    "photo_id": 328880390,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/328880390/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\187985854_328880390.jpg",
+    "sha256": "812a9f2caa2623a26f66769d666fa683fa26fcfb70b0a38296b880da096764fd",
+    "download_timestamp": "2026-09-14T07:14:46.719125Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -72.292045,
+      5.323225
+    ],
+    "observed_on": "2023-10-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 198207990,
+    "photo_id": 349294951,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349294951/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\198207990_349294951.jpg",
+    "sha256": "242d8098c6a8f92695761e4aca165495dd273aa8e113e67bf41fab752e1d0b78",
+    "download_timestamp": "2026-09-14T07:14:46.719291Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.6484576408,
+      4.353931867
+    ],
+    "observed_on": "2024-01-04"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 198614031,
+    "photo_id": 350103213,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350103213/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\198614031_350103213.jpg",
+    "sha256": "09f7c0de833ce9e4a7544fa1bbf9274112053a3ab8aafa2e89fc9ad613b874aa",
+    "download_timestamp": "2026-09-14T07:14:46.719436Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.9388183793,
+      4.6004216874
+    ],
+    "observed_on": "2024-02-06"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 200920431,
+    "photo_id": 354577702,
+    "license": "cc0",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354577702/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\200920431_354577702.jpg",
+    "sha256": "89ba0c6725e82bd4ab4e4fd0635db67e2196a24dc5fa8ceabaac727d0982fa92",
+    "download_timestamp": "2026-09-14T07:14:46.719630Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2156800628,
+      6.7939799505
+    ],
+    "observed_on": "2024-03-01"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 202157104,
+    "photo_id": 356982849,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356982849/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\202157104_356982849.jpg",
+    "sha256": "3f406156e34098917731881458f97ce7d18026b333cb0d86faeaa2e17305e86c",
+    "download_timestamp": "2026-09-14T07:14:46.719777Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5023219472,
+      9.5719684037
+    ],
+    "observed_on": "2022-02-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 202157106,
+    "photo_id": 356982966,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356982966/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\202157106_356982966.jpg",
+    "sha256": "d52f70caf6f55c73935e64ea62134b26c4688a9b32a0b9a47d81eaf83c6e5f51",
+    "download_timestamp": "2026-09-14T07:14:46.719937Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4366814917,
+      9.4914135299
+    ],
+    "observed_on": "2022-02-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 202157111,
+    "photo_id": 356983118,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356983118/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\202157111_356983118.jpg",
+    "sha256": "926574d86e7f2d5d8a54b75dbab9ccd7169c52c7d2256416496c1c25cf5245e9",
+    "download_timestamp": "2026-09-14T07:14:46.720097Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5006605775,
+      9.5742978288
+    ],
+    "observed_on": "2022-02-20"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 204082371,
+    "photo_id": 360673366,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/360673366/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\204082371_360673366.jpg",
+    "sha256": "2300175d17e0ba162ccb8b95a3ccb72d6bdfe95dafe3f203f9897a23a044ccc5",
+    "download_timestamp": "2026-09-14T07:14:46.720265Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.93889192,
+      4.5998107532
+    ],
+    "observed_on": "2024-03-26"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 223575913,
+    "photo_id": 396162198,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/396162198/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\223575913_396162198.jpg",
+    "sha256": "4f651cd4b34fe860858fc4ec253cf82b558caeee6aee5069a63400744ec8c8cf",
+    "download_timestamp": "2026-09-14T07:14:46.720449Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.264138,
+      6.046195
+    ],
+    "observed_on": "2024-06-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 242872482,
+    "photo_id": 433015325,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/433015325/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\242872482_433015325.jpg",
+    "sha256": "264a92bb3c88c267bdbee85130b0d4d61ad4649a1cabbc0dfa7a501994434915",
+    "download_timestamp": "2026-09-14T07:14:46.720590Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.7171560966,
+      7.8850581069
+    ],
+    "observed_on": "2022-01-16"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 250169662,
+    "photo_id": 447353546,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447353546/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\250169662_447353546.jpg",
+    "sha256": "937e5dc4edca7798595a0a7699592234dc7b52f87cfef8ca676a4358d4700cb8",
+    "download_timestamp": "2026-09-14T07:14:46.720749Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -70.9975023806,
+      5.1918890052
+    ],
+    "observed_on": "2024-10-30"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 256178366,
+    "photo_id": 459248691,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/459248691/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\256178366_459248691.jpg",
+    "sha256": "2268b79c96534ac2ba1b321a3dc50a18cc5cefe78658309bfb577c599e9e740e",
+    "download_timestamp": "2026-09-14T07:14:46.720909Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8495554191,
+      5.8083538702
+    ],
+    "observed_on": "2024-12-16"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 256830914,
+    "photo_id": 460576462,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/460576462/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\256830914_460576462.jpg",
+    "sha256": "04bbbf956efca01b7883a828ca16e0360aa7b86c979f6b093a08593202661b13",
+    "download_timestamp": "2026-09-14T07:14:46.721060Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4625863889,
+      7.1189163889
+    ],
+    "observed_on": "2022-09-12"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 256908603,
+    "photo_id": 460732850,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/460732850/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\256908603_460732850.jpg",
+    "sha256": "6f9cc4e8463b770f6e722ae1288b77e5f491b950f2d311c30666ceb4cf49da5a",
+    "download_timestamp": "2026-09-14T07:14:46.721209Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -73.4625466667,
+      7.1188383333
+    ],
+    "observed_on": "2024-04-22"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 257175905,
+    "photo_id": 461286768,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/461286768/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\257175905_461286768.jpg",
+    "sha256": "b35f6fbfafc3ef3a5394003517e28adc469a899a660728792f8466eee03e9403",
+    "download_timestamp": "2026-09-14T07:14:46.721342Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.9820683333,
+      10.4494786111
+    ],
+    "observed_on": "2015-04-25"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 261281585,
+    "photo_id": 469376729,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/469376729/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\261281585_469376729.jpg",
+    "sha256": "365b33fe876b84dc4b9260ae3c5650e0851c0f9cc46fe0a2e30035a364f64f1b",
+    "download_timestamp": "2026-09-14T07:14:46.721552Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.368145816,
+      9.3394401666
+    ],
+    "observed_on": "2025-02-09"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 263112219,
+    "photo_id": 472615580,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/472615580/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\263112219_472615580.jpg",
+    "sha256": "6f8f12d30971ee2be70cbfaae3101abcd7f0718b0bf919ef3bef68cc8de34aed",
+    "download_timestamp": "2026-09-14T07:14:46.721776Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.0821343362,
+      2.8285533795
+    ],
+    "observed_on": "2025-02-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 267964702,
+    "photo_id": 481612762,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/481612762/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\267964702_481612762.jpg",
+    "sha256": "530417e1286ef636da99decfb45418ee7e6f4a8c32ca5517c65205a1af7992a8",
+    "download_timestamp": "2026-09-14T07:14:46.721976Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.6799999475,
+      2.1122099454
+    ],
+    "observed_on": "2025-02-14"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 269812450,
+    "photo_id": 485168864,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/485168864/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\269812450_485168864.jpg",
+    "sha256": "741a12a07112f0ea4a2475f09b40e2fad6aa30ce2be180c46af9908aa9db0061",
+    "download_timestamp": "2026-09-14T07:14:46.722129Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.6285475269,
+      4.1491662502
+    ],
+    "observed_on": "2025-03-23"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 272894487,
+    "photo_id": 490959916,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/490959916/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\272894487_490959916.jpg",
+    "sha256": "d8c358eeb6d8259cca25de6b362b7601e2ce4ebd8ff72ac7e0f1f9ff76a87672",
+    "download_timestamp": "2026-09-14T07:14:46.722323Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.0215522274,
+      4.6345926618
+    ],
+    "observed_on": "2025-04-24"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 280869799,
+    "photo_id": 504493960,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/504493960/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\280869799_504493960.jpg",
+    "sha256": "a8c2d6182eb0fa4003b4348f4525084f28201c94e76e17b058a8237b0a4a1851",
+    "download_timestamp": "2026-09-14T07:14:46.722627Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.305595,
+      7.2788
+    ],
+    "observed_on": "2025-03-24"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 281248916,
+    "photo_id": 505207784,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/505207784/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\281248916_505207784.jpg",
+    "sha256": "47a638e8faae56f2554afdd214c4820eb64e99131fdd99e523e68a8ff95c46bf",
+    "download_timestamp": "2026-09-14T07:14:46.722763Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.3184583333,
+      7.2443633333
+    ],
+    "observed_on": "2024-11-03"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 28197633,
+    "photo_id": 43938591,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43938591/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\28197633_43938591.jpg",
+    "sha256": "44a3002d11db724c5a73f4366170b2c3bf871ee2ce05d6c9645f1e8a373d5cce",
+    "download_timestamp": "2026-09-14T07:14:46.722902Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.7462720275,
+      7.0835388042
+    ],
+    "observed_on": "2019-03-13"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 299720895,
+    "photo_id": 539975816,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/539975816/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\299720895_539975816.jpg",
+    "sha256": "8478e832d7dcde17070e76ea402e326c96b6640c70b8e645378d0a72d82ed920",
+    "download_timestamp": "2026-09-14T07:14:46.723149Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.9371825565,
+      4.5980889283
+    ],
+    "observed_on": "2025-07-20"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 302427854,
+    "photo_id": 545031182,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/545031182/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\302427854_545031182.jpg",
+    "sha256": "60594e0c09f2cfcdefda5f7264f179ebf987b3b23dcf84d456623bbfb6229aa9",
+    "download_timestamp": "2026-09-14T07:14:46.723289Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -76.84634067,
+      7.88035851
+    ],
+    "observed_on": "2025-03-26"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 306635632,
+    "photo_id": 552995407,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/552995407/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\306635632_552995407.jpg",
+    "sha256": "2279cdd813d3b3a2aba85cc9a04312bcc8904f7151724e95634d0d86e83c8dfb",
+    "download_timestamp": "2026-09-14T07:14:46.723406Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.5473631855,
+      6.0331903861
+    ],
+    "observed_on": "2024-06-21"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 30786556,
+    "photo_id": 48117916,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/48117916/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\30786556_48117916.jpg",
+    "sha256": "0d252b528c07fb017ab26bc8137b975ede865ab6ff3ebec21bfb9ad8053bedc2",
+    "download_timestamp": "2026-09-14T07:14:46.723524Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.1696038958,
+      4.8538371164
+    ],
+    "observed_on": "2019-03-11"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 309493247,
+    "photo_id": 558485232,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/558485232/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\309493247_558485232.jpg",
+    "sha256": "a70cf9ebdc6912ead52f87ef04e76b5afa8ff40272ba8ec541c94a2b099dca70",
+    "download_timestamp": "2026-09-14T07:14:46.723687Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.49266,
+      4.2234333333
+    ],
+    "observed_on": "2025-08-21"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 318467078,
+    "photo_id": 575574685,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/575574685/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\318467078_575574685.jpg",
+    "sha256": "94e00ac05353ea8f57e11e7d9ec3b2d21ee5365d14b81c643b5373f7e257e75e",
+    "download_timestamp": "2026-09-14T07:14:46.723807Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2646528652,
+      6.0461955279
+    ],
+    "observed_on": "2010-05-22"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 318468359,
+    "photo_id": 575576931,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/575576931/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\318468359_575576931.jpg",
+    "sha256": "210120ff98100a9d4654516f517530b8b8bc0276b002a3cb19b358d7a36ddcbd",
+    "download_timestamp": "2026-09-14T07:14:46.723946Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2646528652,
+      6.0461955279
+    ],
+    "observed_on": "2014-03-20"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 322881099,
+    "photo_id": 584178218,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/584178218/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\322881099_584178218.jpg",
+    "sha256": "41cd863a8795e42e5c787267ca049984aa2da6e86188da6f8c2f8eca2d580441",
+    "download_timestamp": "2026-09-14T07:14:46.724220Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5609883333,
+      4.2837716667
+    ],
+    "observed_on": "2025-10-24"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 325753825,
+    "photo_id": 589853059,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/589853059/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\325753825_589853059.jpg",
+    "sha256": "7a87ffa3728b9e0ffe29ea9bc5b7cf1305606d1fa96cec3f26dba33650f841ff",
+    "download_timestamp": "2026-09-14T07:14:46.724601Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.392945,
+      4.5940166667
+    ],
+    "observed_on": "2025-11-09"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 326864233,
+    "photo_id": 592064353,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/592064353/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\326864233_592064353.jpg",
+    "sha256": "9f84d38d449a1bbd482b2fec57b394753b9307c8c26304400907a3ae8c239633",
+    "download_timestamp": "2026-09-14T07:14:46.724772Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -73.4041330017,
+      4.1932731733
+    ],
+    "observed_on": "2022-12-07"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 328281692,
+    "photo_id": 594835457,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/594835457/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\328281692_594835457.jpg",
+    "sha256": "cde5e16cc8d3302b897ae641dcc88efc0973f5fce2a8c237ef1c5f4d6ac44a59",
+    "download_timestamp": "2026-09-14T07:14:46.724983Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.5803835,
+      4.1891375
+    ],
+    "observed_on": "2025-11-25"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 330054323,
+    "photo_id": 598411829,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/598411829/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\330054323_598411829.jpg",
+    "sha256": "a36f3a93f61ea5398517ec6ba577a52fcf3c443327565ab1f1ad320de47fed1e",
+    "download_timestamp": "2026-09-14T07:14:46.725416Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.4931116667,
+      4.6844133333
+    ],
+    "observed_on": "2025-12-07"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 332203439,
+    "photo_id": 602829634,
+    "license": "cc-by",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/602829634/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\332203439_602829634.jpg",
+    "sha256": "66de2642ff4a0dc8aa2861b139ac73c9f4bdc5d63c2dd8a3895bfdc7df1ed431",
+    "download_timestamp": "2026-09-14T07:14:46.725560Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0149,
+      6.2519972222
+    ],
+    "observed_on": "2025-12-21"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 333015562,
+    "photo_id": 604497002,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/604497002/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\333015562_604497002.jpg",
+    "sha256": "a05cc7c53fe48665b256e2790ee04b5735310e5804a9a38827ab9b008f620ad1",
+    "download_timestamp": "2026-09-14T07:14:46.725771Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2622083,
+      6.050386
+    ],
+    "observed_on": "2025-11-24"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 333299933,
+    "photo_id": 606179151,
+    "license": "cc-by",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606179151/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\333299933_606179151.jpg",
+    "sha256": "6cd640014dfbfb18979962e0073c40c3a377dc0d52426caab244a19f013976cd",
+    "download_timestamp": "2026-09-14T07:14:46.725992Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4889666667,
+      4.21955
+    ],
+    "observed_on": "2026-01-02"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 333461850,
+    "photo_id": 605402079,
+    "license": "cc-by",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/605402079/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\333461850_605402079.jpg",
+    "sha256": "1947f1a8216f35358fcf953459a93cd26ac321d998a679fba1a62ab3d9e0ef34",
+    "download_timestamp": "2026-09-14T07:14:46.726210Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4889133333,
+      4.2196083333
+    ],
+    "observed_on": "2026-01-03"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 336977094,
+    "photo_id": 612475322,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/612475322/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\336977094_612475322.jpg",
+    "sha256": "0d692ac6532e367933c91f9085d0097b5ab5f4ad563488462219a04e73052a74",
+    "download_timestamp": "2026-09-14T07:14:46.726354Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -76.1563351,
+      7.9648672
+    ],
+    "observed_on": "2024-10-01"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 339456680,
+    "photo_id": 617524142,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617524142/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\339456680_617524142.jpg",
+    "sha256": "7070b0d30ffae680ad6fc315b6f80e54b3f9593221aad24539e70646070ced97",
+    "download_timestamp": "2026-09-14T07:14:46.726502Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.3346357518,
+      4.5771864955
+    ],
+    "observed_on": "2020-08-29"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 340944944,
+    "photo_id": 620553933,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/620553933/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\340944944_620553933.jpg",
+    "sha256": "82310f563651a97fd26b40e76152cd1f51d3d1ae18040234d8bc95989a50b364",
+    "download_timestamp": "2026-09-14T07:14:46.726737Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0337445,
+      6.2776216667
+    ],
+    "observed_on": "2026-03-01"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 341392094,
+    "photo_id": 630995180,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/630995180/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\341392094_630995180.jpg",
+    "sha256": "df0c88ce120237ad43559e4d6eebdc9c0da77a2807b484fcfefc7fd9c51dd943",
+    "download_timestamp": "2026-09-14T07:14:46.727004Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4582100318,
+      6.9754579809
+    ],
+    "observed_on": "2023-11-16"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 341398662,
+    "photo_id": 631083125,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631083125/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\341398662_631083125.jpg",
+    "sha256": "91db4c8fa8c7e49772e7fb24a5df2d8e07c54a2a48499a9d7c9895463e0fc519",
+    "download_timestamp": "2026-09-14T07:14:46.727171Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2632795742,
+      6.0475398397
+    ],
+    "observed_on": "2025-07-30"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 343185262,
+    "photo_id": 625087410,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/625087410/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\343185262_625087410.jpg",
+    "sha256": "bf9beda4f0d80e182e8d97e9235492afe600e8f402a3079d75b3d4f70c369d29",
+    "download_timestamp": "2026-09-14T07:14:46.727404Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.7271877155,
+      6.5469828859
+    ],
+    "observed_on": "2026-03-15"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 350165035,
+    "photo_id": 638864656,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638864656/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\350165035_638864656.jpg",
+    "sha256": "b019e6a11a7e6e8d3a15f6c8d24c75220136b083b0533af033b42d5d91294b07",
+    "download_timestamp": "2026-09-14T07:14:46.727728Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9079064,
+      5.8621889
+    ],
+    "observed_on": "2026-04-13"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 350689670,
+    "photo_id": 639894905,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/639894905/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\350689670_639894905.jpg",
+    "sha256": "2c4cfb53022545de2c0dfb8cfab73bae8ca5d6ce50cfa34dea02482424d9ba30",
+    "download_timestamp": "2026-09-14T07:14:46.727923Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8182101548,
+      6.593003762
+    ],
+    "observed_on": "2026-04-13"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 358701085,
+    "photo_id": 654380212,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/654380212/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\358701085_654380212.jpg",
+    "sha256": "d1f24071bf11d1ddba0879569f45e833c1fb3684e163cab8e7ccec0386259bc1",
+    "download_timestamp": "2026-09-14T07:14:46.728097Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.0721445354,
+      2.8323627846
+    ],
+    "observed_on": "2024-07-09"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 36063608,
+    "photo_id": 56958359,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/56958359/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\36063608_56958359.jpg",
+    "sha256": "61f02a427b0653ee574b530d5ae52f7ded7cb8ea7f79b68174cd32cbe2a3a8c6",
+    "download_timestamp": "2026-09-14T07:14:46.728278Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -72.851822656,
+      4.6441034644
+    ],
+    "observed_on": "2019-01-21"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 362042548,
+    "photo_id": 660760579,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/660760579/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\362042548_660760579.jpg",
+    "sha256": "9ee858e3c181e133ebb96a2cd99f54e2f9bff07ca54ebba3238ce69e81c45d3c",
+    "download_timestamp": "2026-09-14T07:14:46.728488Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8703422397,
+      5.8619693823
+    ],
+    "observed_on": "2026-05-16"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 368364787,
+    "photo_id": 672792532,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/672792532/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\368364787_672792532.jpg",
+    "sha256": "7056fd6f3d4bc8c8b7fd6714e0a9fc4d0902c82bf2291047e757290004d63321",
+    "download_timestamp": "2026-09-14T07:14:46.728682Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -75.3810127079,
+      10.332440171
+    ],
+    "observed_on": "2026-06-03"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 37020013,
+    "photo_id": 58616459,
+    "license": "cc0",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/58616459/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\37020013_58616459.jpg",
+    "sha256": "3113100cbd55f5c3ae3e9145e7dd88504f7408ff3b209f6fac5ccd43933d83ee",
+    "download_timestamp": "2026-09-14T07:14:46.728838Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.620225,
+      4.11306667
+    ],
+    "observed_on": "2019-12-27"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 37266952,
+    "photo_id": 59049672,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/59049672/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\37266952_59049672.jpg",
+    "sha256": "ed40e26d275706ab8558492013a6c262982ae6b702329b18e6a07fad18718584",
+    "download_timestamp": "2026-09-14T07:14:46.728980Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.5953611657,
+      5.0672911504
+    ],
+    "observed_on": "2020-01-02"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 375142893,
+    "photo_id": 685766260,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/685766260/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\375142893_685766260.jpg",
+    "sha256": "7437add03770e82d96eded98d45ec30c54a9626ab9c524b35e5d2968caa7139e",
+    "download_timestamp": "2026-09-14T07:14:46.729168Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.3862925082,
+      9.3161632624
+    ],
+    "observed_on": "2026-06-25"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 37860244,
+    "photo_id": 60101599,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60101599/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\37860244_60101599.jpg",
+    "sha256": "a0dc5860f803a553ea4258aa78e33e42fe5efa4f9f89eba244185aee7fd2b6ae",
+    "download_timestamp": "2026-09-14T07:14:46.729315Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1698760833,
+      6.6051916667
+    ],
+    "observed_on": "2019-11-22"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 381865375,
+    "photo_id": 698773055,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/698773055/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\381865375_698773055.jpg",
+    "sha256": "55ca5f7d91d051c26339e92a8c3713f826b76c9245c98a2fb3d91652aaf12690",
+    "download_timestamp": "2026-09-14T07:14:46.729481Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5658874444,
+      7.4899549444
+    ],
+    "observed_on": "2026-07-15"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 38590436,
+    "photo_id": 61352129,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61352129/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\38590436_61352129.jpg",
+    "sha256": "bb47bdcc0ee7cc999075e71f6874d66a10cebcf75b99aaf9520804f0701d4ada",
+    "download_timestamp": "2026-09-14T07:14:46.729611Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.1685599604,
+      4.8538899556
+    ],
+    "observed_on": "2019-04-26"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 386718994,
+    "photo_id": 708077567,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/708077567/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\386718994_708077567.jpg",
+    "sha256": "eba595c6294cc835f2549c970e2b5ad3c664f4ef49bde35e4d3a2f659202e476",
+    "download_timestamp": "2026-09-14T07:14:46.730036Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.6496666667,
+      4.3540666667
+    ],
+    "observed_on": "2023-09-21"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 387291388,
+    "photo_id": 709179291,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/709179291/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\387291388_709179291.jpg",
+    "sha256": "655dc8ae25ebea423bf87429aa14f5ea1ee6c8e3f47784927dea55fab2623a16",
+    "download_timestamp": "2026-09-14T07:14:46.730300Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -71.7406383333,
+      6.46787
+    ],
+    "observed_on": "2026-08-01"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 389619203,
+    "photo_id": 713698863,
+    "license": "cc0",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/713698863/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\389619203_713698863.jpg",
+    "sha256": "c8333cd393908df7ba3b2aa9716068912ab47c66e678808d3031e2e8828954e0",
+    "download_timestamp": "2026-09-14T07:14:46.730532Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.2118835278,
+      6.8026151389
+    ],
+    "observed_on": "2026-07-20"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 390781958,
+    "photo_id": 715974292,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/715974292/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\390781958_715974292.jpg",
+    "sha256": "d36dc8934bb1c6ac5b4c3ba7357ef72d0ff77d3d4d2e1ab51fb38ce369453a78",
+    "download_timestamp": "2026-09-14T07:14:46.730793Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.4412833333,
+      4.68808
+    ],
+    "observed_on": "2026-08-11"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 39424380,
+    "photo_id": 62541293,
+    "license": "cc-by-nc-sa",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62541293/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\39424380_62541293.jpg",
+    "sha256": "172437a8c23ad8901a7fe3c20cb6ca62238fcc7c3b15b756f3e54187458d1e29",
+    "download_timestamp": "2026-09-14T07:14:46.731110Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.6189672941,
+      6.4490699177
+    ],
+    "observed_on": "2020-01-27"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 39478037,
+    "photo_id": 62639876,
+    "license": "cc-by",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62639876/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\39478037_62639876.jpg",
+    "sha256": "6ade2d9676646c4a07a7527e464ce52076bf208c1ba928e0770d1da9cd6ad755",
+    "download_timestamp": "2026-09-14T07:14:46.731277Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1764336174,
+      9.833083867
+    ],
+    "observed_on": "2017-11-27"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 39537046,
+    "photo_id": 62736290,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62736290/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\39537046_62736290.jpg",
+    "sha256": "1c78195d180882a2fcf63be8107e8e7945dae0cce3f7a70609b3658a621fe070",
+    "download_timestamp": "2026-09-14T07:14:46.731450Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5952914879,
+      6.6269006674
+    ],
+    "observed_on": "2020-03-02"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 39977196,
+    "photo_id": 63481960,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63481960/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\39977196_63481960.jpg",
+    "sha256": "a6cb7dd22cddca988059b0280c172b45f267d3ccc3b0951b6aa39df99c5bb693",
+    "download_timestamp": "2026-09-14T07:14:46.731614Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0607391372,
+      9.0737434789
+    ],
+    "observed_on": "2019-05-25"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 41771017,
+    "photo_id": 66274465,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/66274465/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\41771017_66274465.jpg",
+    "sha256": "70608bf64906f5299a53f29156994ec901a3f1ce570ab5bea58556be265eacdc",
+    "download_timestamp": "2026-09-14T07:14:46.731754Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.5808713499,
+      4.0700504478
+    ],
+    "observed_on": "2018-04-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 43628637,
+    "photo_id": 69210674,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/69210674/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\43628637_69210674.jpg",
+    "sha256": "47fd1f691eda6236a01ab71ebb23e7995211813c453e6761ef9242c7ef7475a3",
+    "download_timestamp": "2026-09-14T07:14:46.731890Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.1692646445,
+      4.852824284
+    ],
+    "observed_on": "2020-04-23"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 53124451,
+    "photo_id": 84479616,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84479616/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\53124451_84479616.jpg",
+    "sha256": "f3d5ce40067ab42a312c5b00e5d3619338708b5cbb696af77852aad6e88d90ad",
+    "download_timestamp": "2026-09-14T07:14:46.732183Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.1689742282,
+      4.8539564669
+    ],
+    "observed_on": "2019-04-26"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 53124475,
+    "photo_id": 84479848,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84479848/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\53124475_84479848.jpg",
+    "sha256": "8537d5f0d1e5420ab9c7e6b63efe7de9c5761e630c398007c3a42235b6995507",
+    "download_timestamp": "2026-09-14T07:14:46.732310Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.1680764225,
+      4.8542438112
+    ],
+    "observed_on": "2019-03-11"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 53292071,
+    "photo_id": 84752352,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84752352/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\53292071_84752352.jpg",
+    "sha256": "bb623e3ae8e6a9341bf704ddecdc78f91884cbb17ecb46c5ff0283f408c8024c",
+    "download_timestamp": "2026-09-14T07:14:46.732417Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -73.9094911516,
+      3.2670168962
+    ],
+    "observed_on": "2020-02-25"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 70004552,
+    "photo_id": 113715544,
+    "license": "cc0",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113715544/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\70004552_113715544.jpg",
+    "sha256": "1287e5faf486c6e844a58a97c77cf0de73ddf9c5667edf3e610a8e0b31840b00",
+    "download_timestamp": "2026-09-14T07:14:46.732805Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2052355466,
+      6.7993792627
+    ],
+    "observed_on": "2021-02-18"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 78412495,
+    "photo_id": 128322898,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128322898/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\78412495_128322898.jpg",
+    "sha256": "5b5c1bd3222261cf200de6d2277ee2bac5e0df0887090c9cff5f7644c773f2f5",
+    "download_timestamp": "2026-09-14T07:14:46.733044Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.6639724076,
+      6.0586741488
+    ],
+    "observed_on": "2021-05-04"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 80448302,
+    "photo_id": 131854799,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131854799/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\80448302_131854799.jpg",
+    "sha256": "33a4a1dfd1f8f282f583cb0d580c15b904a76e5034730d1056105729134b28d8",
+    "download_timestamp": "2026-09-14T07:14:46.733276Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.7004374,
+      7.0797435
+    ],
+    "observed_on": "2021-04-17"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 93085435,
+    "photo_id": 154223542,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/154223542/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\93085435_154223542.jpg",
+    "sha256": "e045e321066743aa11a11832c529cf8b820e0869879a21e33df2fd2f2721bbfc",
+    "download_timestamp": "2026-09-14T07:14:46.733444Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.6118121879,
+      7.047176855
+    ],
+    "observed_on": "2021-08-10"
+  },
+  {
+    "species": "Scinax rostratus",
+    "taxon_id": 24292,
+    "gbif_taxon_key": 5217865,
+    "observation_id": 95055185,
+    "photo_id": 157758912,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/157758912/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Scinax_rostratus\\95055185_157758912.jpg",
+    "sha256": "af5661dea9dd4f1fc6230284d68fba4c195c38735c502696e964934fd55e555f",
+    "download_timestamp": "2026-09-14T07:14:46.733615Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.210142751,
+      6.5768058442
+    ],
+    "observed_on": "2019-07-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 271820735,
+    "photo_id": 488972285,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/488972285/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\271820735_488972285.jpg",
+    "sha256": "2730656824682f3c75f6fac1dc2eeec54e57ea242aef92eaf19cccc8fbf0219c",
+    "download_timestamp": "2026-09-14T07:14:46.792629Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8637029955,
+      5.9686072029
+    ],
+    "observed_on": "2025-01-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 271820741,
+    "photo_id": 488972372,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/488972372/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\271820741_488972372.jpg",
+    "sha256": "8b58dcf1e8905c3f42821b14a046e4dcd407bbe0556bd42cd4920435083670b6",
+    "download_timestamp": "2026-09-14T07:14:46.792930Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.9694847341,
+      5.9009515139
+    ],
+    "observed_on": "2025-01-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 271820742,
+    "photo_id": 488972396,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/488972396/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\271820742_488972396.jpg",
+    "sha256": "45b364cbafd5acfc10b77739399177b9f00fc326a3b3ec842eddb364f9c30ba6",
+    "download_timestamp": "2026-09-14T07:14:46.793191Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8706511735,
+      5.8834739227
+    ],
+    "observed_on": "2025-01-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 271820743,
+    "photo_id": 488972411,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/488972411/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\271820743_488972411.jpg",
+    "sha256": "9e53ad55b1ee67d18ad44d5be2ab42cd8e53c696ac671e0077a58ddad89c736d",
+    "download_timestamp": "2026-09-14T07:14:46.793396Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.9547026064,
+      5.8584157362
+    ],
+    "observed_on": "2025-01-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 271820747,
+    "photo_id": 488972452,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/488972452/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\271820747_488972452.jpg",
+    "sha256": "9b8fe833d6d0a45208d27649eb7740d32ac3ad211d4746b808e01a2940f9b1f9",
+    "download_timestamp": "2026-09-14T07:14:46.793596Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.9367927319,
+      5.9539509592
+    ],
+    "observed_on": "2025-01-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 274604596,
+    "photo_id": 493634137,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/493634137/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\274604596_493634137.jpg",
+    "sha256": "7580830a101c85db3d6361bedab95961726643c11149ad94c883a618a6de0e20",
+    "download_timestamp": "2026-09-14T07:14:46.793817Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2646528408,
+      6.0461953828
+    ],
+    "observed_on": "2025-04-26"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 276009336,
+    "photo_id": 495771618,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/495771618/medium.jpeg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\276009336_495771618.jpg",
+    "sha256": "f9fb9a0b677d9db762e2e30fbcb618561cb281023418d81c73c06f3e97fa82f3",
+    "download_timestamp": "2026-09-14T07:14:46.793988Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -75.139098,
+      6.0145366
+    ],
+    "observed_on": "2025-04-03"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 281128300,
+    "photo_id": 504979603,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/504979603/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\281128300_504979603.jpg",
+    "sha256": "4d8f0478066fbba2674ca4211b1393d16cac8738fff91e0f8309c14840c2accc",
+    "download_timestamp": "2026-09-14T07:14:46.794197Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.3181,
+      7.2787383333
+    ],
+    "observed_on": "2024-11-30"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 281250336,
+    "photo_id": 505210581,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/505210581/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\281250336_505210581.jpg",
+    "sha256": "9defea7298d46abe49e48a556ed020a20b4d248c2ed62284db3248f767a9881d",
+    "download_timestamp": "2026-09-14T07:14:46.794378Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.3331133333,
+      7.2016616667
+    ],
+    "observed_on": "2024-10-27"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 288724385,
+    "photo_id": 519257778,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/519257778/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\288724385_519257778.jpg",
+    "sha256": "a786bec92631e151bda9bd420edab427296f0d288c87c62b7864026540b27bdc",
+    "download_timestamp": "2026-09-14T07:14:46.794579Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.26272266,
+      6.05065625
+    ],
+    "observed_on": "2025-06-09"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 293893104,
+    "photo_id": 528945355,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/528945355/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\293893104_528945355.jpg",
+    "sha256": "74aa6dcb91ff73861333edba56e6bca9bc4173f83421137061208a2757806f94",
+    "download_timestamp": "2026-09-14T07:14:46.794778Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8606633333,
+      5.89058
+    ],
+    "observed_on": "2025-06-17"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 294491842,
+    "photo_id": 530053156,
+    "license": "cc-by",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/530053156/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\294491842_530053156.jpg",
+    "sha256": "b98f88104499fb19a95ebe1440a3f3aaec149e9ee52512f3d5fe433a32f09ba4",
+    "download_timestamp": "2026-09-14T07:14:46.794965Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.855288,
+      5.892259
+    ],
+    "observed_on": "2025-04-06"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 298319469,
+    "photo_id": 537341023,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/537341023/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\298319469_537341023.jpg",
+    "sha256": "4df2cf94b8a05287ea00fdf63cbc720fb5641c5b600b2d8df3c7208e4aa6a61e",
+    "download_timestamp": "2026-09-14T07:14:46.795195Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2646528408,
+      6.0461953828
+    ],
+    "observed_on": "2025-07-15"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 302758791,
+    "photo_id": 545642057,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/545642057/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\302758791_545642057.jpg",
+    "sha256": "69d6da0a32b9e748131fd75dde0b7dd6b88055147545a226befabbf0619127e3",
+    "download_timestamp": "2026-09-14T07:14:46.795432Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.2646528408,
+      6.0461953828
+    ],
+    "observed_on": "2025-07-28"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 309872681,
+    "photo_id": 559220756,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/559220756/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\309872681_559220756.jpg",
+    "sha256": "57e2c3218c079dedee66beb91adb4affb96129148dedb032469766e5463c0e7b",
+    "download_timestamp": "2026-09-14T07:14:46.795631Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.966991283,
+      5.9800375918
+    ],
+    "observed_on": "2025-08-26"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 317407555,
+    "photo_id": 573547556,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/573547556/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\317407555_573547556.jpg",
+    "sha256": "50cca68c4d0f6b74df7a84658aa97da7b4f560c6a44489698fd028bba41b783f",
+    "download_timestamp": "2026-09-14T07:14:46.795787Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4043731667,
+      6.8776960278
+    ],
+    "observed_on": "2025-09-28"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 317432021,
+    "photo_id": 573595837,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/573595837/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\317432021_573595837.jpg",
+    "sha256": "83571f748216a89e768707ff9edc7e48e61aae78452ef2856b44a1f9c080c0da",
+    "download_timestamp": "2026-09-14T07:14:46.796018Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8895569146,
+      5.576269105
+    ],
+    "observed_on": "2025-09-16"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 317914157,
+    "photo_id": 574518836,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/574518836/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\317914157_574518836.jpg",
+    "sha256": "19dfbac1185f791227a5e3a45d389da1c86c95065c3eadbd8f4bcaf6d4581812",
+    "download_timestamp": "2026-09-14T07:14:46.796254Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0779708997,
+      6.315438
+    ],
+    "observed_on": "2025-09-29"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 318466281,
+    "photo_id": 575573402,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/575573402/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\318466281_575573402.jpg",
+    "sha256": "b2e5b18384006e4c566f573ccf2b758a2767941c7adaea50ca487ad88cbd17f0",
+    "download_timestamp": "2026-09-14T07:14:46.796448Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2646528652,
+      6.0461955279
+    ],
+    "observed_on": "2016-11-20"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 318468991,
+    "photo_id": 575578107,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/575578107/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\318468991_575578107.jpg",
+    "sha256": "928fc36f320186a24d1775fb4c41458c716afb9ad6f2bf9eaec1136b74c53f19",
+    "download_timestamp": "2026-09-14T07:14:46.796587Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2646528652,
+      6.0461955279
+    ],
+    "observed_on": "2022-06-17"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 323823094,
+    "photo_id": 586000136,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/586000136/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\323823094_586000136.jpg",
+    "sha256": "51dac4871b4d934f354f006b3636f071efefa2765be2bb34539b52c30a16b880",
+    "download_timestamp": "2026-09-14T07:14:46.796775Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.9449942325,
+      5.8757566042
+    ],
+    "observed_on": "2025-10-28"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 324844014,
+    "photo_id": 588047863,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/588047863/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\324844014_588047863.jpg",
+    "sha256": "3cbfca2256aafc6cecd83075c00b24f0b7cd64038b8627a784441ec03fba45aa",
+    "download_timestamp": "2026-09-14T07:14:46.797030Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.855475,
+      5.8879133333
+    ],
+    "observed_on": "2025-11-03"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 327524388,
+    "photo_id": 593383198,
+    "license": "cc-by",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/593383198/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\327524388_593383198.jpg",
+    "sha256": "4d590d2a7f6389c65b4eaeb04cfcf3f999ea16ad65b3e0a1587709e91f3b0849",
+    "download_timestamp": "2026-09-14T07:14:46.797211Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -73.9541673,
+      6.6439046
+    ],
+    "observed_on": "2025-11-21"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 329262318,
+    "photo_id": 596803040,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/596803040/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\329262318_596803040.jpg",
+    "sha256": "a05599aa5fda3bfa40678887c6b93506836a542ccc80f2bcbdae834d0b668ee0",
+    "download_timestamp": "2026-09-14T07:14:46.797329Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2622065843,
+      6.0505338595
+    ],
+    "observed_on": "2025-11-12"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 333787226,
+    "photo_id": 606011094,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606011094/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\333787226_606011094.jpg",
+    "sha256": "45f1e21807ba5045451ccb5c83da38ae0da5d0f1252bb32b9bcd109b601448e9",
+    "download_timestamp": "2026-09-14T07:14:46.797607Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8719633333,
+      5.8613416667
+    ],
+    "observed_on": "2025-05-28"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 334781112,
+    "photo_id": 608033550,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/608033550/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\334781112_608033550.jpg",
+    "sha256": "467ed60735dd184d8ff437224ebdc64ba1d1a2a147b1b52b50be46ab1768b58c",
+    "download_timestamp": "2026-09-14T07:14:46.797953Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8539583333,
+      5.8869633333
+    ],
+    "observed_on": "2026-01-14"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 335327894,
+    "photo_id": 609147470,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/609147470/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\335327894_609147470.jpg",
+    "sha256": "70b7d448dc35436907fe7cb3a6ef342f2dc9a7dce11ec2ea53a961d5b008cdf9",
+    "download_timestamp": "2026-09-14T07:14:46.798156Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.78685,
+      6.68421
+    ],
+    "observed_on": "2024-08-18"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 335424201,
+    "photo_id": 609341636,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/609341636/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\335424201_609341636.jpg",
+    "sha256": "e312a40aaa46c80e1b7b91b36912a0100183ed9418d75930b63dcd4a075b39f8",
+    "download_timestamp": "2026-09-14T07:14:46.798401Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8552105877,
+      5.8803487889
+    ],
+    "observed_on": "2026-01-16"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 336305494,
+    "photo_id": 611111607,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/611111607/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\336305494_611111607.jpg",
+    "sha256": "793c7b47e983ea03de501e397fd3116591b1f024a0901debfcc03c53eb4c7abb",
+    "download_timestamp": "2026-09-14T07:14:46.798625Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.035457015,
+      6.1822352076
+    ],
+    "observed_on": "2026-01-26"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 336501537,
+    "photo_id": 611504990,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/611504990/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\336501537_611504990.jpg",
+    "sha256": "0e0d34ba9576724e2df2b60d7eefdd3b6f340d0e013923f8c5caf8cc7fec3835",
+    "download_timestamp": "2026-09-14T07:14:46.798842Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0278663635,
+      6.2951217031
+    ],
+    "observed_on": "2026-01-28"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 336509962,
+    "photo_id": 611520224,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/611520224/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\336509962_611520224.jpg",
+    "sha256": "f88f6fd69a457733a7c20e70786de61ce9c64ea3ea6e277cd09a410ef8f8f876",
+    "download_timestamp": "2026-09-14T07:14:46.799013Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9963059792,
+      6.0335654923
+    ],
+    "observed_on": "2026-01-20"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 337152557,
+    "photo_id": 612833433,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/612833433/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\337152557_612833433.jpg",
+    "sha256": "cb3564f8a078509dc838bdd64ebf7b15dcf7dfb41128ae09071c9613dbe9238d",
+    "download_timestamp": "2026-09-14T07:14:46.799259Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0679570064,
+      6.1305284458
+    ],
+    "observed_on": "2026-02-02"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 337670574,
+    "photo_id": 613897656,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613897656/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\337670574_613897656.jpg",
+    "sha256": "38fd0074e93c13406e4ffad1d865495aec12e422a259b3ec4abe7f82a3f473e1",
+    "download_timestamp": "2026-09-14T07:14:46.799553Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1789041667,
+      5.8504886111
+    ],
+    "observed_on": "2026-02-07"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 338006893,
+    "photo_id": 614586134,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/614586134/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\338006893_614586134.jpg",
+    "sha256": "53fb5a093647015250c89fe0cb933bb9db44a657098d5003c55dae303b26cab7",
+    "download_timestamp": "2026-09-14T07:14:46.799704Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0606188178,
+      6.387800137
+    ],
+    "observed_on": "2026-02-09"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 338124173,
+    "photo_id": 614825720,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/614825720/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\338124173_614825720.jpg",
+    "sha256": "3697e25f43bf5e75b7a4e55c48524d677860a93686b972c55fd66d40ee30a60f",
+    "download_timestamp": "2026-09-14T07:14:46.799921Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -75.0679335371,
+      6.1307921325
+    ],
+    "observed_on": "2026-02-09"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 338800324,
+    "photo_id": 616198000,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616198000/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\338800324_616198000.jpg",
+    "sha256": "df7dde1fe91f653f45d56154f38be96d15ae640d25887679134e4f2df466a8f2",
+    "download_timestamp": "2026-09-14T07:14:46.800062Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9712955,
+      5.84477995
+    ],
+    "observed_on": "2026-02-15"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 338889303,
+    "photo_id": 616372163,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616372163/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\338889303_616372163.jpg",
+    "sha256": "5405c396062939d5c671bd0d78f83a4a64d3b96aedd3d84b64d6c8645bdc4d52",
+    "download_timestamp": "2026-09-14T07:14:46.800203Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.1263181266,
+      5.8074242009
+    ],
+    "observed_on": "2024-07-18"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 339050470,
+    "photo_id": 616690361,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616690361/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\339050470_616690361.jpg",
+    "sha256": "bb3a2490fa2a1ce0108358cfe6f6918edb7cba37b0f8fbc0b666b08099ae7b6d",
+    "download_timestamp": "2026-09-14T07:14:46.800430Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0917505473,
+      5.9737599953
+    ],
+    "observed_on": "2026-02-16"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 339158374,
+    "photo_id": 616915380,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616915380/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\339158374_616915380.jpg",
+    "sha256": "962406fd143c02353afb43d4caba4e63ed99b4d24198b293af71b6421296d41c",
+    "download_timestamp": "2026-09-14T07:14:46.800775Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.85668,
+      5.8941466667
+    ],
+    "observed_on": "2026-02-17"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 339182754,
+    "photo_id": 616959884,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616959884/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\339182754_616959884.jpg",
+    "sha256": "2706a8fdebfa97ae2db5477eeee767dae1e5ef1ea3528f6e910b8d7578bc1ce5",
+    "download_timestamp": "2026-09-14T07:14:46.800927Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.6244456461,
+      6.5298871102
+    ],
+    "observed_on": "2019-05-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 339334381,
+    "photo_id": 617276683,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617276683/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\339334381_617276683.jpg",
+    "sha256": "b61acc04825243e299e9cdd654dc405e73afc76e21c0274f3afa41ccde17c7f6",
+    "download_timestamp": "2026-09-14T07:14:46.801146Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4030833333,
+      6.8792666667
+    ],
+    "observed_on": "2026-02-19"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 340027598,
+    "photo_id": 618686880,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/618686880/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\340027598_618686880.jpg",
+    "sha256": "757919351a0bf04135e69310586bf0178cf7bdad43d07795c7a34cfba947da1b",
+    "download_timestamp": "2026-09-14T07:14:46.801313Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9866770208,
+      6.0440001998
+    ],
+    "observed_on": "2026-02-24"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 340529066,
+    "photo_id": 619710765,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/619710765/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\340529066_619710765.jpg",
+    "sha256": "d0140ec08fa114bc05aef661d2745836a3680653fe61872c26fb3cb090807722",
+    "download_timestamp": "2026-09-14T07:14:46.801537Z",
+    "quality_grade": "casual",
+    "coordinates": [
+      -75.0278663635,
+      6.2951217031
+    ],
+    "observed_on": null
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341165330,
+    "photo_id": 621007392,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/621007392/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341165330_621007392.jpg",
+    "sha256": "d4c116d74f705e98ca23ff3ce44113945166a62db9f44a5cf266133bcd07f5af",
+    "download_timestamp": "2026-09-14T07:14:46.801729Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.960885,
+      6.2507580556
+    ],
+    "observed_on": "2026-03-03"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341255047,
+    "photo_id": 621191230,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/621191230/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341255047_621191230.jpg",
+    "sha256": "3b8c3e3db953314aeb043459cf78836ba68cca799d29699a64f9ababe69b380c",
+    "download_timestamp": "2026-09-14T07:14:46.802039Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0028,
+      6.2076333333
+    ],
+    "observed_on": "2026-03-03"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341388497,
+    "photo_id": 631044674,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631044674/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341388497_631044674.jpg",
+    "sha256": "11cb33acefbfff12aaf8bf9c175125aad8ca2877afa0c30f63fb8e44bcc4b1b7",
+    "download_timestamp": "2026-09-14T07:14:46.802208Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4582100318,
+      6.9754579809
+    ],
+    "observed_on": "2023-11-19"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341398641,
+    "photo_id": 631104287,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631104287/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341398641_631104287.jpg",
+    "sha256": "a3361d920223934666958cc78f59eb7a1247977151b2d6fac49fd6ec9d11c1ee",
+    "download_timestamp": "2026-09-14T07:14:46.802340Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.2632795742,
+      6.0475398397
+    ],
+    "observed_on": "2025-07-19"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341454672,
+    "photo_id": 621605997,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/621605997/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341454672_621605997.jpg",
+    "sha256": "e3c72c86a4c42aac7e8a87e11e142c0d9c4429bf51a9f86467ba9fe48408eeb4",
+    "download_timestamp": "2026-09-14T07:14:46.802564Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9882471189,
+      6.0438291592
+    ],
+    "observed_on": "2026-02-25"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341614966,
+    "photo_id": 624358681,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/624358681/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341614966_624358681.jpg",
+    "sha256": "aec8bd8cc1b99b57c01927c9a4331b44414b86de33e39f5eb29642053e7bd49a",
+    "download_timestamp": "2026-09-14T07:14:46.802716Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0344305,
+      6.330105
+    ],
+    "observed_on": "2026-03-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 341966840,
+    "photo_id": 622642706,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/622642706/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\341966840_622642706.jpg",
+    "sha256": "bbd4374d5b524e83a0ad3dfcc0804f64d6c7bd17de9210a80ff57438649829b7",
+    "download_timestamp": "2026-09-14T07:14:46.802920Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0675114244,
+      6.1314951853
+    ],
+    "observed_on": "2026-03-02"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 343564824,
+    "photo_id": 625864802,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/625864802/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\343564824_625864802.jpg",
+    "sha256": "8149d5da9196847872442965f526deeb98ec7d321ac1076ff054a5c500bc0c04",
+    "download_timestamp": "2026-09-14T07:14:46.803150Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0695472211,
+      6.351084775
+    ],
+    "observed_on": "2026-03-06"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 343643327,
+    "photo_id": 626023655,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/626023655/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\343643327_626023655.jpg",
+    "sha256": "50ced0a8016e7ca56a71d591c6b155461f993c6cab70e2d221f362250de361f9",
+    "download_timestamp": "2026-09-14T07:14:46.803424Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0671959296,
+      6.1310921551
+    ],
+    "observed_on": "2026-03-18"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 344786893,
+    "photo_id": 628255935,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/628255935/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\344786893_628255935.jpg",
+    "sha256": "56ce923279ad71dfc0d93df889778d042c4e55f46d83bfe0333cd95d9c915377",
+    "download_timestamp": "2026-09-14T07:14:46.803693Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0571630556,
+      6.1557366667
+    ],
+    "observed_on": "2026-03-23"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 345099969,
+    "photo_id": 628866718,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/628866718/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\345099969_628866718.jpg",
+    "sha256": "132245e4a0b5e49268a7493f5d6fa129d107313c8bb1ae928ffb19d101a92aef",
+    "download_timestamp": "2026-09-14T07:14:46.803899Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.961427711,
+      6.2517761504
+    ],
+    "observed_on": "2026-03-25"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 345204321,
+    "photo_id": 629071098,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/629071098/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\345204321_629071098.jpg",
+    "sha256": "85eee90be0e80cd85c4529be3879596db332449f6f2c0a1165c95f469ed5bbbb",
+    "download_timestamp": "2026-09-14T07:14:46.804066Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8949907348,
+      6.2571116384
+    ],
+    "observed_on": "2026-03-25"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 346514335,
+    "photo_id": 631658883,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631658883/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\346514335_631658883.jpg",
+    "sha256": "11b4a74abf9f0c48ffeed35c636a589630ac8cfcda4a737b2a6ed0dff3455e74",
+    "download_timestamp": "2026-09-14T07:14:46.804278Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4407040477,
+      6.9550599404
+    ],
+    "observed_on": "2026-03-27"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 346705696,
+    "photo_id": 632028491,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/632028491/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\346705696_632028491.jpg",
+    "sha256": "d6eb447175f406bc1209b182821002d964ae090029e3b8487600eefd3e590aff",
+    "download_timestamp": "2026-09-14T07:14:46.804476Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9932816037,
+      6.0383785459
+    ],
+    "observed_on": "2026-03-30"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 347607506,
+    "photo_id": 633822272,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/633822272/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\347607506_633822272.jpg",
+    "sha256": "3f7c9b0364d313391b5708135a72361cfaf33ec59f1c1e2998176ab27ec505b4",
+    "download_timestamp": "2026-09-14T07:14:46.804721Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8709386997,
+      5.8609895997
+    ],
+    "observed_on": "2026-04-03"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 347611201,
+    "photo_id": 633832745,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/633832745/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\347611201_633832745.jpg",
+    "sha256": "ba2bac17c4ff82272c020cc6307e1ee59783d1f53f8993e5758f42cdebad9507",
+    "download_timestamp": "2026-09-14T07:14:46.804987Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8706432,
+      5.8625959997
+    ],
+    "observed_on": "2026-04-02"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 347846167,
+    "photo_id": 634300695,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/634300695/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\347846167_634300695.jpg",
+    "sha256": "bf90bb51e6daacfd6099927a292dd7ceb7eace2c261b13dc40edd3b8059fb4e3",
+    "download_timestamp": "2026-09-14T07:14:46.805267Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9594002962,
+      6.2526133547
+    ],
+    "observed_on": "2026-04-06"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 347909870,
+    "photo_id": 634424793,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/634424793/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\347909870_634424793.jpg",
+    "sha256": "71c1330e41c67dcdd162a3e7a94e8cafbd1331d7a370e44a042a8c3fd044b25e",
+    "download_timestamp": "2026-09-14T07:14:46.805523Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.9957385287,
+      6.0416959815
+    ],
+    "observed_on": "2026-04-06"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 348405042,
+    "photo_id": 635406643,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/635406643/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\348405042_635406643.jpg",
+    "sha256": "b6b3784b30ab5c1b684ed3e33e6bfa25b72af32f60fe07a07eca4d4e8682d9ef",
+    "download_timestamp": "2026-09-14T07:14:46.805751Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0678269193,
+      6.1304871093
+    ],
+    "observed_on": "2026-04-08"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 348596744,
+    "photo_id": 635301701,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/635301701/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\348596744_635301701.jpg",
+    "sha256": "acefb779c1eaef62aeb2f70ec6c4907f8b04b96f19217f7a45ee0c93f84f207a",
+    "download_timestamp": "2026-09-14T07:14:46.805951Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -76.3826241181,
+      5.7167156078
+    ],
+    "observed_on": "2025-11-18"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 348596771,
+    "photo_id": 635301898,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/635301898/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\348596771_635301898.jpg",
+    "sha256": "d48d22b1f46c54355e336c3c9d4ce00b3d5ca3f84ddf3803afc5f74d93291c27",
+    "download_timestamp": "2026-09-14T07:14:46.806143Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -76.3826241181,
+      5.7167156078
+    ],
+    "observed_on": "2025-05-20"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 349669107,
+    "photo_id": 637899373,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/637899373/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\349669107_637899373.jpg",
+    "sha256": "4e5afcc9e5dbd82b772015bb095289737f8b799bd25aacf62fd8f165fafd53e4",
+    "download_timestamp": "2026-09-14T07:14:46.806435Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9973616667,
+      6.2127916667
+    ],
+    "observed_on": "2026-04-12"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 349957724,
+    "photo_id": 638460810,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638460810/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\349957724_638460810.jpg",
+    "sha256": "8be10b1630d2e80ad0dc840a5f338abd9a65ce56901ced7d3e133371374801a7",
+    "download_timestamp": "2026-09-14T07:14:46.806696Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8606675,
+      5.8905833333
+    ],
+    "observed_on": "2026-03-06"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 350521765,
+    "photo_id": 639567583,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/639567583/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\350521765_639567583.jpg",
+    "sha256": "fdb4c58ee3f5e8856acc2ccb450fb2abd2e09f6f87801b5cd767c06838c7c560",
+    "download_timestamp": "2026-09-14T07:14:46.806899Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9625585973,
+      6.2442015904
+    ],
+    "observed_on": "2026-04-17"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 356680334,
+    "photo_id": 650469153,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650469153/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\356680334_650469153.jpg",
+    "sha256": "9f25acc086bc42276c9591b68caf661f68670af202131b92b2d8252396593ac7",
+    "download_timestamp": "2026-09-14T07:14:46.807102Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.968421,
+      6.4421061997
+    ],
+    "observed_on": "2026-04-29"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 359231335,
+    "photo_id": 655402752,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/655402752/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\359231335_655402752.jpg",
+    "sha256": "2297a454cdaacf3698d60192cceca273111e05f6695ae9187d5a1bef325f0092",
+    "download_timestamp": "2026-09-14T07:14:46.807354Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9512302876,
+      6.2213259346
+    ],
+    "observed_on": "2026-05-06"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 359372220,
+    "photo_id": 655675820,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/655675820/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\359372220_655675820.jpg",
+    "sha256": "bbf3b03ec0db00901f48a0f2a8f373f90edd23b24787a666fb85d075bebaea19",
+    "download_timestamp": "2026-09-14T07:14:46.807978Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0097939745,
+      6.3275243596
+    ],
+    "observed_on": "2026-05-07"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 360984678,
+    "photo_id": 658752349,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/658752349/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\360984678_658752349.jpg",
+    "sha256": "33cf0e9abeef299b30afb4b04640d8d049293bd2f1adb0b957af2a7ed5e1fa70",
+    "download_timestamp": "2026-09-14T07:14:46.808905Z",
+    "quality_grade": "casual",
+    "coordinates": [
+      -75.0786174461,
+      6.3026395371
+    ],
+    "observed_on": null
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 362038151,
+    "photo_id": 660752092,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/660752092/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\362038151_660752092.jpg",
+    "sha256": "ac4da54762d3a193392afbfc3551185c02335fba64eba3e4c89a77ebb74bc18d",
+    "download_timestamp": "2026-09-14T07:14:46.809327Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9716529623,
+      6.2491808753
+    ],
+    "observed_on": "2026-04-29"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 362788795,
+    "photo_id": 662711007,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/662711007/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\362788795_662711007.jpg",
+    "sha256": "ff65da0e665896521097c65310a19fd8c1c44832cfd07d747c38f2f4d9bb626a",
+    "download_timestamp": "2026-09-14T07:14:46.809762Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -75.0540527701,
+      6.3529614578
+    ],
+    "observed_on": "2026-05-14"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 363189303,
+    "photo_id": 662943380,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/662943380/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\363189303_662943380.jpg",
+    "sha256": "a66c3fba171c566136820adc4f72f8ebf8fc33a3b289271c07eff1b3f2b507f4",
+    "download_timestamp": "2026-09-14T07:14:46.810178Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.969952777,
+      6.2514028742
+    ],
+    "observed_on": "2026-05-19"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 365402755,
+    "photo_id": 667138568,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/667138568/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\365402755_667138568.jpg",
+    "sha256": "a4dafa23c484e36d49db67cd349a17f7a4118ab1159e508445f014306d257de5",
+    "download_timestamp": "2026-09-14T07:14:46.810667Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.7874333333,
+      6.5452416667
+    ],
+    "observed_on": "2026-05-26"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 366017025,
+    "photo_id": 668308090,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/668308090/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\366017025_668308090.jpg",
+    "sha256": "de75ef99eebea64814a906097db7a4b0cc301157204e796c5c065578e16c53c0",
+    "download_timestamp": "2026-09-14T07:14:46.811880Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.8703845,
+      5.8620458
+    ],
+    "observed_on": "2026-05-07"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 366139058,
+    "photo_id": 668536482,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/668536482/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\366139058_668536482.jpg",
+    "sha256": "ca222e12f89f4aa7f9cd066e939be9810d60bd5379c2c32d14e619f799bed723",
+    "download_timestamp": "2026-09-14T07:14:46.812488Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.824126,
+      7.2520639722
+    ],
+    "observed_on": "2026-05-20"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 366526464,
+    "photo_id": 669279752,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/669279752/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\366526464_669279752.jpg",
+    "sha256": "9a6e65316005f841a20fde059467713cc14c47c0ec8d3fc467423a0bd171a742",
+    "download_timestamp": "2026-09-14T07:14:46.813233Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -76.4367690682,
+      7.2440549664
+    ],
+    "observed_on": "2026-05-29"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 366896480,
+    "photo_id": 669975056,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/669975056/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\366896480_669975056.jpg",
+    "sha256": "49754213aa306c827d2336f64646618956dcec3f578054a20c2f1d2bd168ca8d",
+    "download_timestamp": "2026-09-14T07:14:46.813762Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.9611453488,
+      6.2484311703
+    ],
+    "observed_on": "2026-05-08"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 367429746,
+    "photo_id": 671003401,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/671003401/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\367429746_671003401.jpg",
+    "sha256": "6f992dc5dedaac19b83966af490d259ff1dd8748c1fd00cac45c8d3e5ea5c6da",
+    "download_timestamp": "2026-09-14T07:14:46.814281Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.6594756842,
+      6.6009308329
+    ],
+    "observed_on": "2026-05-30"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 378912976,
+    "photo_id": 693050398,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/693050398/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\378912976_693050398.jpg",
+    "sha256": "027cf003bab986d11f5ebcc0ca474b12a8fdd675701ec8dd7fbeff80222ef8ba",
+    "download_timestamp": "2026-09-14T07:14:46.814884Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4407040477,
+      6.9550599404
+    ],
+    "observed_on": "2026-07-01"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 388882341,
+    "photo_id": 712286989,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/712286989/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\388882341_712286989.jpg",
+    "sha256": "65df98f9c7e712b7578ff5a8638757e917b23834a9bca208d226eb9220e7ea39",
+    "download_timestamp": "2026-09-14T07:14:46.815475Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -73.4407040477,
+      6.9550599404
+    ],
+    "observed_on": "2026-08-04"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 392151740,
+    "photo_id": 718629881,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/718629881/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\392151740_718629881.jpg",
+    "sha256": "9f4dba4ec325d0e89db9436d6756bbad5d0ce433ea33c977fd95e052f732b58b",
+    "download_timestamp": "2026-09-14T07:14:46.816289Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.7816550997,
+      6.4275380997
+    ],
+    "observed_on": "2026-08-16"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 398434297,
+    "photo_id": 730899829,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/730899829/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\398434297_730899829.jpg",
+    "sha256": "aae5873581a620593b7b1cd07953e61a5a25c8755127d384e719050c8a57ad7e",
+    "download_timestamp": "2026-09-14T07:14:46.816777Z",
+    "quality_grade": "needs_id",
+    "coordinates": [
+      -74.7634910792,
+      5.1950510367
+    ],
+    "observed_on": "2026-09-05"
+  },
+  {
+    "species": "Craugastor metriosistus",
+    "taxon_id": 517046,
+    "gbif_taxon_key": 10819374,
+    "observation_id": 399441112,
+    "photo_id": 732837291,
+    "license": "cc-by-nc",
+    "original_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/732837291/medium.jpg",
+    "local_path": "D:\\Anura\\data\\unknown_open_set_v2\\images\\primary\\Craugastor_metriosistus\\399441112_732837291.jpg",
+    "sha256": "da1b44e0b0011fff90cba40598351fe6ab6bf8f2e860a218d16280cbeb07a1de",
+    "download_timestamp": "2026-09-14T07:14:46.817193Z",
+    "quality_grade": "research",
+    "coordinates": [
+      -74.8407119242,
+      5.7911137854
+    ],
+    "observed_on": "2024-04-08"
+  }
+]

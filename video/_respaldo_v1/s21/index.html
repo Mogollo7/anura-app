@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S21 Personas</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #1f7a33; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #1f7a33; color: #fefefe; font-family: "Archivo", sans-serif; }
+      .t { position: absolute; left: 80px; top: 380px; width: 700px; margin: 0; font-weight: 700; font-size: 80px; line-height: 1.15; }
+      #t21 { opacity: 0; }
+      #frame { position: absolute; left: 880px; top: 140px; width: 960px; height: 840px; border-radius: 24px; overflow: hidden; box-sizing: border-box; border: 1px solid rgba(254, 254, 254, 0.35); box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28); background: #000; }
+      /* ancla del zoom: centro de la primera fila real (sebastianmartinez06.js), en coordenadas del marco */
+      #zoom { position: absolute; left: 0; top: 0; width: 960px; height: 840px; transform-origin: 480px 253px; }
+      #rec { position: absolute; left: 0; top: 0; width: 960px; height: 840px; object-fit: cover; }
+      #cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+      #cursor .ring { position: absolute; inset: 0; border-radius: 50%; border: 5px solid #fefefe; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+      #cursor .dot { position: absolute; left: 22px; top: 22px; width: 20px; height: 20px; border-radius: 50%; background: #1f7a33; border: 2px solid #fefefe; box-sizing: border-box; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s21" data-start="0" data-width="1920" data-height="1080" data-duration="4">
+      <p id="t20" class="t" data-layout-allow-overlap>compartir tus observaciones</p>
+      <p id="t21" class="t" data-layout-allow-overlap>con diferentes personas.</p>
+      <div id="frame" data-layout-allow-occlusion>
+        <div id="zoom" data-layout-allow-overflow>
+          <video id="rec" src="assets/video/observers.mp4" data-start="0" data-duration="4" data-track-index="1" muted playsinline></video>
+        </div>
+        <div id="cursor"><div class="ring"></div><div class="dot"></div></div>
+      </div>
+    </div>
+
+    <script>
+      const K = 960 / 1142;
+      // el cursor sigue desde donde quedó en S20 y va, lento, hasta el nombre de la primera fila
+      const A = { x: 931 * K, y: 184 * K }, B = { x: 600 * K, y: 330 * K };
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 0.00 - 0.30: el texto de S20 se sustituye en el mismo sitio
+      tl.to("#t20", { opacity: 0, duration: 0.15, ease: "power1.in" }, 0);
+      tl.fromTo("#t21", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: EASE }, 0.1);
+      tl.set("#cursor", { x: A.x, y: A.y }, 0);
+      // zoom suave a 1.08 sobre la primera fila, 0.6 s, y se queda
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.08, duration: 0.6, ease: "power2.inOut" }, 1.25);
+      // un solo movimiento lento del cursor hasta la primera fila, ya con el zoom aplicado
+      tl.to("#cursor", { x: 480 + (B.x - 480) * 1.08, y: 253 + (B.y - 253) * 1.08, duration: 1.6, ease: "power3.inOut" }, 0.25);
+      window.__timelines["s21"] = tl;
+    </script>
+  </body>
+</html>

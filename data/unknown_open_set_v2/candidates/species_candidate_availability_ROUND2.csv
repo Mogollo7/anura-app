@@ -1,0 +1,24 @@
+species,taxon_id,gbif_taxon_key,genus,family,relation_to_known,observations_available_CO_any,observations_available_CO_CC_licensed,estimated_usable_images,estimated_individuals,verification_status
+Boana crepitans,555738,10697747,Boana,Hylidae,SAME_GENUS,4,0,0,0,VERIFIED_REAL_TAXON
+Boana calcarata,555091,10551481,Boana,Hylidae,SAME_GENUS,15,unknown,15,8,VERIFIED_REAL_TAXON
+Boana wavrini,555163,10852279,Boana,Hylidae,SAME_GENUS,20,unknown,20,10,VERIFIED_REAL_TAXON
+Boana maculateralis,555124,10774023,Boana,Hylidae,SAME_GENUS,6,unknown,6,4,VERIFIED_REAL_TAXON
+Boana picturata,555137,10876427,Boana,Hylidae,SAME_GENUS,55,unknown,55,25,VERIFIED_REAL_TAXON
+Boana rufitela,555152,10883886,Boana,Hylidae,SAME_GENUS,38,unknown,38,18,VERIFIED_REAL_TAXON
+Boana nympha,555130,10848467,Boana,Hylidae,SAME_GENUS,23,unknown,23,12,VERIFIED_REAL_TAXON
+Boana appendiculata,1273328,11789961,Boana,Hylidae,SAME_GENUS,17,unknown,17,9,VERIFIED_REAL_TAXON
+Pristimantis w-nigrum,66936,2425342,Pristimantis,Craugastoridae,SAME_GENUS,51,23,23,15,VERIFIED_REAL_TAXON
+Pristimantis medemi,66745,2425008,Pristimantis,Craugastoridae,SAME_GENUS,69,44,44,25,VERIFIED_REAL_TAXON
+Pristimantis elegans,66652,2425233,Pristimantis,Craugastoridae,SAME_GENUS,72,42,42,22,VERIFIED_REAL_TAXON
+Pristimantis viejas,66927,2425468,Pristimantis,Craugastoridae,SAME_GENUS,27,unknown,27,14,VERIFIED_REAL_TAXON
+Pristimantis orpacobates,66781,2425137,Pristimantis,Craugastoridae,SAME_GENUS,39,unknown,39,20,VERIFIED_REAL_TAXON
+Pristimantis boulengeri,66579,2425004,Pristimantis,Craugastoridae,SAME_GENUS,24,unknown,24,12,VERIFIED_REAL_TAXON
+Scarthyla vigilans,67169,2427370,Scarthyla,Hylidae,SAME_FAMILY,42,42,42,20,VERIFIED_REAL_TAXON
+Osteocephalus taurinus,24188,2427639,Osteocephalus,Hylidae,SAME_FAMILY,99,99,95,40,VERIFIED_REAL_TAXON
+Pseudis paradoxa,24412,2428380,Pseudis,Hylidae,SAME_FAMILY,91,91,88,35,VERIFIED_REAL_TAXON
+Scinax rostratus,24292,5217865,Scinax,Hylidae,SAME_FAMILY,114,114,100,45,VERIFIED_REAL_TAXON
+Osteocephalus planiceps,24178,2427625,Osteocephalus,Hylidae,SAME_FAMILY,44,44,44,20,VERIFIED_REAL_TAXON
+Hyloscirtus larinopygion,65655,2428323,Hyloscirtus,Hylidae,SAME_FAMILY,53,53,53,25,VERIFIED_REAL_TAXON
+Craugastor longirostris,65253,2430747,Craugastor,Craugastoridae,SAME_FAMILY,44,44,44,20,VERIFIED_REAL_TAXON
+Craugastor metriosistus,517046,10819374,Craugastor,Craugastoridae,SAME_FAMILY,200,200,100,50,VERIFIED_REAL_TAXON
+Craugastor fitzingeri,65238,2430621,Craugastor,Craugastoridae,SAME_FAMILY,29,29,29,15,VERIFIED_REAL_TAXON

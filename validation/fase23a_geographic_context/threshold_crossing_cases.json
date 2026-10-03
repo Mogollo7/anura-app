@@ -1,0 +1,171 @@
+{
+  "n_changed_total": 308,
+  "n_known_total_sample": 8095,
+  "cases": [
+    {
+      "idx": 17,
+      "is_unknown_true": 0,
+      "true_species": "Boana boans",
+      "predicted_top1_species": "Boana boans",
+      "zone": "ZONE_005",
+      "visual_norm": 0.8580579455641069,
+      "geo_prob": 0.0233951497860199,
+      "baseline_pred": "UNKNOWN",
+      "combined_pred": "KNOWN"
+    },
+    {
+      "idx": 118,
+      "is_unknown_true": 0,
+      "true_species": "Boana lanciformis",
+      "predicted_top1_species": "Boana lanciformis",
+      "zone": "nan",
+      "visual_norm": 0.5899639885651073,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 120,
+      "is_unknown_true": 0,
+      "true_species": "Boana lanciformis",
+      "predicted_top1_species": "Boana lanciformis",
+      "zone": "nan",
+      "visual_norm": 0.600225983405207,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 144,
+      "is_unknown_true": 0,
+      "true_species": "Boana platanera",
+      "predicted_top1_species": "Boana platanera",
+      "zone": "nan",
+      "visual_norm": 0.6291014057697419,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 164,
+      "is_unknown_true": 0,
+      "true_species": "Boana pugnax",
+      "predicted_top1_species": "Boana pugnax",
+      "zone": "nan",
+      "visual_norm": 0.6221158708281382,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 247,
+      "is_unknown_true": 0,
+      "true_species": "Boana punctata",
+      "predicted_top1_species": "Boana punctata",
+      "zone": "nan",
+      "visual_norm": 0.6238250430154697,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 301,
+      "is_unknown_true": 0,
+      "true_species": "Boana punctata",
+      "predicted_top1_species": "Boana punctata",
+      "zone": "nan",
+      "visual_norm": 0.6165539647261764,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 311,
+      "is_unknown_true": 0,
+      "true_species": "Boana punctata",
+      "predicted_top1_species": "Boana punctata",
+      "zone": "nan",
+      "visual_norm": 0.6087679913962831,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 335,
+      "is_unknown_true": 0,
+      "true_species": "Boana punctata",
+      "predicted_top1_species": "Boana punctata",
+      "zone": "nan",
+      "visual_norm": 0.6018824796385703,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 458,
+      "is_unknown_true": 0,
+      "true_species": "Craugastor raniformis",
+      "predicted_top1_species": "Craugastor raniformis",
+      "zone": "ZONE_005",
+      "visual_norm": 0.7743738707684709,
+      "geo_prob": 0.0268188302425106,
+      "baseline_pred": "UNKNOWN",
+      "combined_pred": "KNOWN"
+    },
+    {
+      "idx": 473,
+      "is_unknown_true": 0,
+      "true_species": "Craugastor raniformis",
+      "predicted_top1_species": "Craugastor raniformis",
+      "zone": "ZONE_005",
+      "visual_norm": 0.6401443552824478,
+      "geo_prob": 0.0268188302425106,
+      "baseline_pred": "UNKNOWN",
+      "combined_pred": "KNOWN"
+    },
+    {
+      "idx": 475,
+      "is_unknown_true": 0,
+      "true_species": "Craugastor raniformis",
+      "predicted_top1_species": "Craugastor raniformis",
+      "zone": "ZONE_005",
+      "visual_norm": 0.8950244311286228,
+      "geo_prob": 0.0268188302425106,
+      "baseline_pred": "UNKNOWN",
+      "combined_pred": "KNOWN"
+    },
+    {
+      "idx": 476,
+      "is_unknown_true": 0,
+      "true_species": "Craugastor raniformis",
+      "predicted_top1_species": "Craugastor raniformis",
+      "zone": "ZONE_005",
+      "visual_norm": 0.6898062800568914,
+      "geo_prob": 0.0268188302425106,
+      "baseline_pred": "UNKNOWN",
+      "combined_pred": "KNOWN"
+    },
+    {
+      "idx": 499,
+      "is_unknown_true": 0,
+      "true_species": "Craugastor raniformis",
+      "predicted_top1_species": "Craugastor raniformis",
+      "zone": "nan",
+      "visual_norm": 0.6066961876579469,
+      "geo_prob": 0.003436426116838488,
+      "baseline_pred": "KNOWN",
+      "combined_pred": "UNKNOWN"
+    },
+    {
+      "idx": 515,
+      "is_unknown_true": 0,
+      "true_species": "Craugastor raniformis",
+      "predicted_top1_species": "Craugastor raniformis",
+      "zone": "ZONE_005",
+      "visual_norm": 0.7596818044696874,
+      "geo_prob": 0.0268188302425106,
+      "baseline_pred": "UNKNOWN",
+      "combined_pred": "KNOWN"
+    }
+  ]
+}

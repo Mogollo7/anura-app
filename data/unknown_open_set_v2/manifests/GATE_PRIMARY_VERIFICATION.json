@@ -1,0 +1,100 @@
+{
+  "gate_name": "GATE_PRIMARY_VERIFICATION",
+  "freeze_date": "2026-09-14T01:00:17.549499",
+  "primary_species_count": 7,
+  "criteria": {
+    "valid_images_min": 70,
+    "valid_images_max": 100,
+    "leakage_count_max": 0,
+    "exact_duplicates_max": 0,
+    "quality_pass": true,
+    "independent_individuals_min": 10
+  },
+  "verification_results": {
+    "Dendropsophus_labialis": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 74,
+      "independent_individuals": 43
+    },
+    "Pristimantis_brevirostris": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 89,
+      "independent_individuals": 45
+    },
+    "Rhinella_marina": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 83,
+      "independent_individuals": 41
+    },
+    "Leptodactylus_fragilis": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 85,
+      "independent_individuals": 44
+    },
+    "Boana_albifrons": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 95,
+      "independent_individuals": 48
+    },
+    "Smilisca_phaeota": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 107,
+      "independent_individuals": 55
+    },
+    "Espadarana_prosoblepon": {
+      "pass": true,
+      "checks": {
+        "valid_images_range": true,
+        "leakage_count": true,
+        "exact_duplicates": true,
+        "quality_pass": true,
+        "independent_individuals": true
+      },
+      "valid_images": 89,
+      "independent_individuals": 45
+    }
+  },
+  "all_pass": true
+}

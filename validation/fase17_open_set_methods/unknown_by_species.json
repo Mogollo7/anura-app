@@ -1,0 +1,37 @@
+{
+  "Sachatamia_electrops": {
+    "n": 41,
+    "FAR_at_historical_threshold": 0.926829268292683,
+    "AUROC_vs_all_known": 0.6065617097642548,
+    "mahalanobis_dist_mean": 33.842644439038935,
+    "mahalanobis_dist_std": 4.42629611177396,
+    "nearest_known_species_counts": {
+      "Boana_cinerascens": 13,
+      "Hyloscirtus_palmeri": 11,
+      "Boana_punctata": 4,
+      "Dendropsophus_columbianus": 3,
+      "Pristimantis_bogotensis": 3,
+      "Dendropsophus_mathiassoni": 2,
+      "Dendropsophus_bogerti": 2,
+      "Scinax_ruber": 3
+    }
+  },
+  "Hyloxalus_picachos": {
+    "n": 15,
+    "FAR_at_historical_threshold": 0.8666666666666667,
+    "AUROC_vs_all_known": 0.5522140468227424,
+    "mahalanobis_dist_mean": 32.64228630564795,
+    "mahalanobis_dist_std": 5.443204205940034,
+    "nearest_known_species_counts": {
+      "Pristimantis_achatinus": 1,
+      "Dendropsophus_norandinus": 1,
+      "Pristimantis_gaigei": 3,
+      "Pristimantis_vilarsi": 2,
+      "Pristimantis_paisa": 2,
+      "Pristimantis_taeniatus": 1,
+      "Pristimantis_permixtus": 1,
+      "Rheobates_palmatus": 2,
+      "Craugastor_raniformis": 2
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "phase": "FASE21_COVARIANCE_STABILITY",
+  "dataset": "REFERENCE (798 images, 10 species)",
+  "method": "Ledoit-Wolf shared covariance",
+  "matrix_properties": {
+    "shape": "512 x 512",
+    "trace": 0.9010964632034302,
+    "frobenius_norm": 0.290002703666687,
+    "condition_number": 10026.1630859375,
+    "effective_rank": 512,
+    "n_eigenvalues_significant": 2
+  },
+  "eigenvalue_spectrum": {
+    "top_10": [
+      0.19329099357128143,
+      0.16458463668823242,
+      0.0899026095867157,
+      0.07660888135433197,
+      0.04716922715306282,
+      0.04132954776287079,
+      0.02894134446978569,
+      0.012696566991508007,
+      0.010873422026634216,
+      0.009408854879438877
+    ],
+    "min_eigenvalue": 1.927866105688736e-05,
+    "max_eigenvalue": 0.19329099357128143,
+    "ratio_max_min": 10026.1103515625
+  },
+  "diagnostics": {
+    "ledoit_wolf_shrinkage": 0.010922741144895554,
+    "interpretation": "Shrinkage=0 means full sample covariance; >0 indicates regularization"
+  },
+  "conclusion": "REGULARIZATION_APPLIED"
+}

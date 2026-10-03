@@ -1,0 +1,9 @@
+{
+  "manifest_name": "download_manifest_REAL_recovery",
+  "generated": "2026-09-14",
+  "source": "iNaturalist API v1 (https://api.inaturalist.org/v1)",
+  "target_species": ["Boana albifrons", "Pristimantis brevirostris"],
+  "status": "NO_DOWNLOAD_ATTEMPTED",
+  "reason": "Both target taxa returned zero results from /v1/taxa (exact name search) and zero results from /v1/observations (taxon_name query, global and Colombia place_id=7196). Cross-checked against GBIF Species API (species/match matchType=NONE confidence=100; species/search count=0 for both names). Neither name corresponds to a taxon concept that exists in these authoritative sources as of the query date. Downloading images requires a resolvable taxon_id; none exists, so no observations, photos, or files were fetched. This is a hard stop per task instructions (no invention, no substitution of species, no simulated data).",
+  "records": []
+}

@@ -1,0 +1,30 @@
+{
+  "prior_source": "COLOMBIA_ANURA/ANTIOQUIA/priors/prior_zone_taxon_v1.csv",
+  "alpha_source": "COLOMBIA_ANURA/ANTIOQUIA/priors/alpha_selection_v1.json",
+  "formula": "P(s|z) = (N(s,z) + alpha) / (N(z) + alpha*K)",
+  "alpha": 2.0,
+  "K": 291,
+  "zones": ["ZONE_001", "ZONE_002", "ZONE_003", "ZONE_004"],
+  "species_absent_from_prior_zone": "smoothed with n_records=0, n_effective=0 using same alpha/K formula (never P=0)",
+  "neutral_geo_score_no_zone": 0.0034364261168384879,
+  "neutral_geo_score_rationale": "1/K (uniform prior mass), used when the sample has no coordinates or falls outside the Antioquia grid; documented explicitly, never treated as evidence of incompatibility",
+  "zone_assignment_method": "row = round(lat/0.25); col = round(lon/0.25); cell_id = f'G025_{row}_{col}'; zone = cell_zone_map_v1.csv[cell_id] if cell_id is in_department else None",
+  "coordinates_source": "iNaturalist API v1 /observations, geojson.coordinates or location field",
+  "coverage_unknown": {"geo": "620/620", "zone": "262/620 (42.3%)", "elevation_direct_from_api": "0/620"},
+  "coverage_known": {"geo": "7431/7475", "zone": "2763/7475 (37.0%)", "elevation_direct_from_api": "0/7475", "excluded_no_observation_id": 44},
+  "elevation_note": "The iNaturalist API 'elevation' field was empty/null for all 4466 unique observations queried; no direct elevation metadata was recoverable this way. Elevation-based subgrouping (Fase 6) was therefore NOT executed with observation-level elevation and is reported as unavailable rather than substituted with a DEM lookup (which was out of scope for this protocol and would not be 'elevation_m as provided by iNaturalist').",
+  "anti_contamination": {
+    "n_eval_unique_obs_ids": 4466,
+    "n_prior_source_inat_record_ids": 6422,
+    "n_overlap": 1214,
+    "overlap_fraction_of_eval": 0.2718,
+    "verdict": "GEOGRAPHIC_PRIOR_DIAGNOSTIC",
+    "interpretation": "27.2% of the observation_ids evaluated (UNKNOWN + KNOWN with obs_id) also appear as source records for prior_zone_taxon_v1.csv. The zone-species prior was therefore partially built from the same individual observations later scored against it. This is a genuine, non-trivial leakage risk and the entire Fase 2-8 evaluation in this run must be read as a GEOGRAPHIC_PRIOR_DIAGNOSTIC, not a clean independent-data validation of the geographic prior's generalization."
+  },
+  "baseline_reproduction_caveat": {
+    "official_frozen_baseline_auroc_euclidean_raw": 0.5732919408781961,
+    "this_session_reproduced_visual_only_auroc": 0.6181214470726538,
+    "gap": 0.0448,
+    "reason": "The exact per-sample scoring scripts referenced in validation/fase23a_open_set_automatic/reproducibility/config.json (fase23a_run.py, fase23a_stage2.py, fase23a_stage3.py) were run from a scratchpad in a prior session and are not present in the repository; only summary CSV/JSON outputs remain. This session recomputed centroids and scores independently from clean_known_embeddings.npz and unknown_embeddings.npz using a documented (but not necessarily identical) protocol: KNOWN score = leave-one-out distance to own-species centroid; UNKNOWN score = min distance to full-sample KNOWN centroids. The resulting AUROC (0.6181) does not match the frozen 0.5733 closely enough to be called a reproduction. All weight-sweep and geography-effect numbers in this deliverable are therefore INTERNALLY CONSISTENT (geo vs this session's own visual baseline) but NOT a validated extension of the exact frozen Fase 23A pipeline."
+  }
+}

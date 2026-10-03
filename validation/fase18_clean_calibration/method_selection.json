@@ -1,0 +1,9 @@
+{
+  "selected_candidate": "COSINE",
+  "selection_reason": "mayor balanced_accuracy en calibracion",
+  "selection_based_on": "CALIBRATION_18 only, BLIND_F18 not observed at this point",
+  "comparison": {
+    "EUCLIDEAN_balanced_accuracy": 0.5042644169652144,
+    "COSINE_balanced_accuracy": 0.5336761816710968
+  }
+}

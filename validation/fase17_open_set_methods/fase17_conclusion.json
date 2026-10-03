@@ -1,0 +1,7 @@
+{
+  "cosine_auroc": 0.6892283803153367,
+  "euclidean_auroc": 0.693609651218347,
+  "mahalanobis_auroc": 0.5920043000477784,
+  "scenario": "A",
+  "conclusion": "MAHALANOBIS_WEAKER_THAN_ALTERNATIVES"
+}

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Pipeline del Sistema"
 proyecto: Anura
 tipo: metodología

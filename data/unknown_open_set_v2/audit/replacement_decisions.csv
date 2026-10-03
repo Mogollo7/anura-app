@@ -1,0 +1,3 @@
+rejected_species,reason,replacement_species,replacement_images,replacement_individuals,replacement_relation,status
+Pristimantis_nervicus,final_images=3 < 70,Pristimantis_brevirostris,89,45,SAME_GENUS,ACCEPTED
+Boana_geographica,final_images=2 < 70,Boana_albifrons,95,48,SAME_GENUS,ACCEPTED

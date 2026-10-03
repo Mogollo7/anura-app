@@ -1,0 +1,34 @@
+{
+  "EUCLIDEAN": {
+    "threshold": 0.9018552899360657,
+    "selection_rule": "95th percentile of CALIBRATION KNOWN native metric (distance for Euclidean, similarity for Cosine), defined BEFORE observing BLIND_F18",
+    "calibration_n": 2562,
+    "known_n": 2545,
+    "unknown_n": 17,
+    "KAR_calibration": 0.9497053045186641,
+    "FRR_calibration": 0.050294695481335916,
+    "FAR_calibration": 0.9411764705882353,
+    "UDR_calibration": 0.05882352941176472,
+    "balanced_accuracy_calibration": 0.5042644169652144,
+    "precision_calibration": 0.007751937984496124,
+    "recall_calibration": 0.058823529411764705,
+    "f1_calibration": 0.0136986301369863,
+    "AUROC_calibration_diagnostic_only": 0.7437189414076043
+  },
+  "COSINE": {
+    "threshold": 0.49660250544548035,
+    "selection_rule": "95th percentile of CALIBRATION KNOWN native metric (distance for Euclidean, similarity for Cosine), defined BEFORE observing BLIND_F18",
+    "calibration_n": 2562,
+    "known_n": 2545,
+    "unknown_n": 17,
+    "KAR_calibration": 0.9497053045186641,
+    "FRR_calibration": 0.050294695481335916,
+    "FAR_calibration": 0.8823529411764706,
+    "UDR_calibration": 0.11764705882352944,
+    "balanced_accuracy_calibration": 0.5336761816710968,
+    "precision_calibration": 0.015384615384615385,
+    "recall_calibration": 0.11764705882352941,
+    "f1_calibration": 0.027210884353741496,
+    "AUROC_calibration_diagnostic_only": 0.7392349474170807
+  }
+}

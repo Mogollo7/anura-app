@@ -1,0 +1,18 @@
+{
+  "phase": "18_freeze",
+  "timestamp_utc": "2026-09-13T19:41:12.733468+00:00",
+  "selected_method": "COSINE",
+  "selected_threshold": 0.49660250544548035,
+  "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "catalog_release": "visual_catalog_1.0.0",
+  "centroid_count": 41,
+  "hashes": {
+    "reference_embeddings": "22ab6977274890db61d0784adac2abd3a1f20412649d75e003840d1c6e39e341",
+    "train_embeddings": "1a777f09ac90f57750aac57e4788f634eefedcdee463313dbbf445049d1e43fa",
+    "calibration_manifest": "c61aa67c53663b8ffa45006bdb4987f063dc31f9de60cf884280fa7799aecce7",
+    "blind_manifest": "e8c3549fcc1d37da9ea28d9cfd78712f31c8913b7732c069d486dbfbd7795199",
+    "calibration_results": "dfc95af9c16e3b7c522464525d50b4032aca60d4e518bb686ad0aa24b572749a",
+    "method_selection": "9e66a106468d04ba5c2b780f399c3ec2924581996ce45969479357e138dbe992"
+  },
+  "note": "A partir de este punto, threshold/centroides/calibration/metodo NO deben modificarse. El blind test se ejecuta DESPUES de este freeze."
+}

@@ -1,0 +1,13 @@
+---
+description: Contexto y reglas duras del trabajo "quitar lo simulado" de ANURA; léelo al empezar cualquier tarea de servidor, admin o Android.
+alwaysApply: true
+---
+
+Antes de trabajar, lee `D:\Anura\CONTEXTO_CURSOR.md` (intención, decisiones del usuario, estado exacto al parar y lo que falta).
+
+Reglas duras:
+- No despliegues, no reconstruyas contenedores y no toques la base ni MinIO de producción hasta que el usuario lo confirme en el chat.
+- El vaciado de datos es irreversible: requiere copia de seguridad y confirmación explícita (sección 9 del contexto).
+- Nada de datos inventados ni fallbacks que finjan datos; un estado vacío se muestra como estado vacío honesto.
+- Sin `git push`. Commits locales, uno por bloque, en español.
+- Pruebas contra bases desechables con `sh D:/server/Anura/_pruebas/bd_prueba.sh <bd>`, nunca contra `anura_postgres`.

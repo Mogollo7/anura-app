@@ -134,7 +134,10 @@ fun AnuraScaffold(
             DeviceReportResult.Unauthorized -> Unit
             DeviceReportResult.Failed -> {
                 repository.hydrateNotifications(context)
-                if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
+                if (!repository.snapshot.deviceBlocked) {
+                    repository.syncPendingObservations()
+                    repository.hydrateOwnObservations()
+                }
             }
         }
     }

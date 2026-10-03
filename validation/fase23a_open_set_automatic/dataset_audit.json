@@ -1,0 +1,30 @@
+{
+  "unknown_dataset": {
+    "source": "data/unknown_open_set_v2/images/primary/ (rebuilt + deduplicated this session)",
+    "n_images": 620,
+    "n_species": 7,
+    "n_individuals": 412,
+    "manifest": "data/unknown_open_set_v2/manifests/PRIMARY_MANIFEST.json (v1.3.0-rebuild-dedup)",
+    "leakage_vs_known_dataset": 0,
+    "exact_duplicates": 0
+  },
+  "known_dataset": {
+    "source": "validation/fase16_clean_open_set/clean_known_embeddings.npz",
+    "n_images": 7475,
+    "n_species": 24,
+    "note": "24-species subset (not full 41) \u2014 the only KNOWN pool verified free of TRAIN/individual leakage (Fase16 CLEAN_KNOWN_FASE16 split). Documented, not fabricated as 41."
+  },
+  "centroids": {
+    "n_species": 41,
+    "group_a_reference": 9,
+    "group_b_train": 32
+  },
+  "encoder": {
+    "checkpoint": "bioclip/checkpoints/bioclip_anura_mejor.pt",
+    "sha256_verified": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac",
+    "match_expected": true,
+    "note": "Project-wide 'encoder_sha256' fields in covariance/threshold/catalog manifests reference the ONNX export hash (219e860e...) as a stable encoder identity tag; the .pt checkpoint used here for actual inference and the ONNX export are companion artifacts of the same frozen training run (cross-referenced in evaluation/model_size_audit.md and validation/new_species_test/fixture/embedding_contract_verified.json). No fine-tuning performed."
+  },
+  "covariance": "covariance/v1.1.0_CLEAN/covariance_matrix.npz (Ledoit-Wolf, shrinkage=0.066659, frozen, loaded not recalculated)",
+  "threshold_mahalanobis": 39.35406371422803
+}

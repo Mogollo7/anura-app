@@ -1,0 +1,33 @@
+{
+  "package": "ANTIOQUIA_EXPERIMENTAL_v1",
+  "phase": "GEO-5",
+  "timestamp_utc": "2026-09-14T16:09:01.233485+00:00",
+  "seed": 42,
+  "w_geo_used": 0.9,
+  "gate0_reproduction": {
+    "official_auroc": 0.5732919408781961,
+    "reproduced_auroc": 0.5732919408781961,
+    "abs_diff": 0.0,
+    "passed": true
+  },
+  "input_file_hashes_sha256": {
+    "COLOMBIA_ANURA\\ANTIOQUIA\\catalog\\catalog_v1.csv": "86ec1aa1afddc7cee44e4abfa10949c84fbc43294b0eb3dcdaa2d322e239f6ca",
+    "taxonomy\\species\\species_registry.json": "03c15cf486ae7198d8d3624de2b3f79baa0fadf6829ba265ccfce7b86e1ac785",
+    "validation\\fase23a_geographic_context\\prior_zone_taxon_v2_clean.csv": "3691ca1994eb5ff1a1219d79dc65f6b141f320e9a9be29c663a5ec15c1e65bb1",
+    "validation\\fase23a_geographic_context\\prior_zone_taxon_v2_clean_manifest.json": "7674b355fd914e6220fb7a3b19e50adaa2bf5f2f881d7944a4af30c913b65342",
+    "validation\\fase23a_geographic_context\\GEO2_WEIGHT_SWEEP.csv": "571e632c7db8e8ad0fd35bbe81b274b031ce563ea0f61b2f27ee59373647a1b7",
+    "validation\\fase23a_geographic_context\\reproduced_scores_v2.npz": "3f6fd52697c5b94f67f2d9a592a2ef394bf4524638b521da50f8b280a0158247",
+    "validation\\fase16_clean_open_set\\clean_known_manifest.json": "143d88c9210100af345fe9da32ba41453c024caf31d594ca44b84f20ac0e5514"
+  },
+  "n_catalog_species": 291,
+  "n_embeddings_evaluable_species": 33,
+  "n_curated_known_testset_species": 21,
+  "status": "NOT_READY_FOR_DEPLOYMENT -- paquete experimental, ver GEO5_REPORT.md",
+  "hard_rules_confirmed": [
+    "no genus/family used in combined_score (context-only)",
+    "no hierarchical cascade implemented",
+    "no fine-tuning / no new embeddings / no new bulk API calls",
+    "regional_packages/ANTIOQUIA/v1.0.0/ untouched",
+    "GEO2_*/GEO3_*/GEO4_* files untouched (read-only reference)"
+  ]
+}

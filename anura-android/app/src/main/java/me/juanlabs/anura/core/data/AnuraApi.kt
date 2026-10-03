@@ -36,7 +36,11 @@ object AnuraApi {
         request(path, "POST", body = jsonBody, bearer = bearer)
 
     suspend inline fun <reified T> get(path: String, bearer: String? = null): T? =
-        getText(path, bearer)?.let { text -> runCatching { json.decodeFromString<T>(text) }.getOrNull() }
+        getText(path, bearer)?.let { text ->
+            runCatching { json.decodeFromString<T>(text) }
+                .onFailure { android.util.Log.e("AnuraApi", "Failed to decode GET $path: ${it.message}", it) }
+                .getOrNull()
+        }
 
     suspend inline fun <reified T> post(path: String, jsonBody: String = "{}", bearer: String? = null): T? =
         postText(path, jsonBody, bearer)?.let { text -> runCatching { json.decodeFromString<T>(text) }.getOrNull() }

@@ -1,0 +1,58 @@
+{
+  "n_centroids": 41,
+  "min_centroid_distance": 0.19440272450447083,
+  "median_centroid_distance": 1.1036754846572876,
+  "max_centroid_distance": 1.3370747566223145,
+  "top10_closest_pairs": [
+    {
+      "species_A": "Pristimantis_paisa",
+      "species_B": "Pristimantis_taeniatus",
+      "distance_euclidean": 0.19440272450447083
+    },
+    {
+      "species_A": "Phyllomedusa_tarsius",
+      "species_B": "Phyllomedusa_venusta",
+      "distance_euclidean": 0.1983044147491455
+    },
+    {
+      "species_A": "Dendropsophus_ebraccatus",
+      "species_B": "Dendropsophus_triangulum",
+      "distance_euclidean": 0.19911512732505798
+    },
+    {
+      "species_A": "Dendropsophus_bogerti",
+      "species_B": "Dendropsophus_columbianus",
+      "distance_euclidean": 0.22829341888427734
+    },
+    {
+      "species_A": "Boana_pugnax",
+      "species_B": "Boana_rosenbergi",
+      "distance_euclidean": 0.2309475541114807
+    },
+    {
+      "species_A": "Pristimantis_palmeri",
+      "species_B": "Pristimantis_taeniatus",
+      "distance_euclidean": 0.23828181624412537
+    },
+    {
+      "species_A": "Dendropsophus_microcephalus",
+      "species_B": "Dendropsophus_mathiassoni",
+      "distance_euclidean": 0.24381980299949646
+    },
+    {
+      "species_A": "Rhinella_alata",
+      "species_B": "Rhinella_margaritifera",
+      "distance_euclidean": 0.24436749517917633
+    },
+    {
+      "species_A": "Boana_platanera",
+      "species_B": "Boana_pugnax",
+      "distance_euclidean": 0.26028019189834595
+    },
+    {
+      "species_A": "Dendropsophus_reticulatus",
+      "species_B": "Dendropsophus_triangulum",
+      "distance_euclidean": 0.26750287413597107
+    }
+  ]
+}

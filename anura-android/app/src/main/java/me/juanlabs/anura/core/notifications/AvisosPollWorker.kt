@@ -35,11 +35,17 @@ class AvisosPollWorker(context: Context, params: WorkerParameters) : CoroutineWo
                 me.juanlabs.anura.core.data.DeviceReportResult.Suspended,
                 -> return@runCatching Result.success()
                 is me.juanlabs.anura.core.data.DeviceReportResult.Ok -> {
-                    if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
+                    if (!repository.snapshot.deviceBlocked) {
+                        repository.syncPendingObservations()
+                        repository.hydrateOwnObservations()
+                    }
                     if (report.sincronizar && !report.bloqueado) repository.ackDeviceSync()
                 }
                 me.juanlabs.anura.core.data.DeviceReportResult.Failed -> {
-                    if (!repository.snapshot.deviceBlocked) repository.syncPendingObservations()
+                    if (!repository.snapshot.deviceBlocked) {
+                        repository.syncPendingObservations()
+                        repository.hydrateOwnObservations()
+                    }
                 }
             }
             repository.hydrateNotifications(applicationContext)

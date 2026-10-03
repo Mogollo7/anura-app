@@ -1,0 +1,208 @@
+{
+  "fase": "23B",
+  "titulo": "CURACIÓN MANUAL DE UNKNOWN_V2.1 - REQUISITOS Y TAREAS",
+  "fecha_bloqueo": "2026-09-14",
+  "status": "AWAITING_MANUAL_CURATION",
+  "prerequisitos_cumplidos": {
+    "dataset_auditado": true,
+    "known_verificado": true,
+    "inconsistencias_documentadas": true,
+    "metodos_definidos": true
+  },
+  "dataset_a_curar": {
+    "nombre": "UNKNOWN_V2.1_PRIMARY",
+    "ruta_imagenes": "D:/Anura/data/unknown_open_set_v2/images/final/",
+    "n_especies": 7,
+    "n_imagenes": 622,
+    "n_individuos": 321,
+    "nota": "Todas 622 imágenes DEBEN revisarse manualmente"
+  },
+  "tareas_obligatorias": [
+    {
+      "id": "T1",
+      "titulo": "Revisar cada imagen",
+      "descripcion": "Abrir cada una de las 622 imágenes y verificar",
+      "checklist": [
+        "¿Especie identificada correctamente?",
+        "¿Anuro visible (no occluido)?",
+        "¿Calidad fotográfica aceptable?",
+        "¿Múltiples fotos del mismo individuo?",
+        "¿Hay artefactos o anomalías?",
+        "¿Es foto de campo o captura artificial?"
+      ],
+      "output": "Por cada imagen: APPROVE, REJECT, o FLAG_FOR_REVIEW"
+    },
+    {
+      "id": "T2",
+      "titulo": "Detectar duplicados perceptuales",
+      "descripcion": "Identificar imágenes casi-idénticas",
+      "metodos": [
+        "Usar librería de perceptual hash (si disponible)",
+        "O inspección manual: buscar fotos extremadamente similares",
+        "O agrupar por individuo (col_obs_XXXXX) e inspeccionar"
+      ],
+      "output": "Lista de pares/grupos duplicados y decisión de inclusión"
+    },
+    {
+      "id": "T3",
+      "titulo": "RESOLVER DECISIÓN SMILISCA_PHAEOTA",
+      "descripcion": "Decidir si 107 imágenes es aceptable o limitar a 100",
+      "opciones": [
+        {
+          "opcion": "A",
+          "nombre": "ACEPTAR 107 IMÁGENES",
+          "criterio": "Si las 107 fotos son de buena calidad y representan individuos distintos",
+          "output": "Mantener las 107, documentar decisión"
+        },
+        {
+          "opcion": "B",
+          "nombre": "LIMITAR A 100",
+          "criterio": "Si se requiere cumplimiento estricto del contrato",
+          "proceso": "Excluir 7 imágenes de MENOR CALIDAD",
+          "output": "Listar 7 imágenes excluidas, motivo, mantener 100"
+        },
+        {
+          "opcion": "C",
+          "nombre": "EXCLUIR COMPLETAMENTE",
+          "criterio": "Si la especie tiene calidad insuficiente o contamina",
+          "output": "Excluir Smilisca_phaeota, quedar con 6 especies"
+        }
+      ],
+      "recomendacion": "OPCIÓN B (limitar a 100) para cumplimiento contractual y rigor"
+    },
+    {
+      "id": "T4",
+      "titulo": "Compilar resultados de curación",
+      "descripcion": "Generar manifest final con decisiones",
+      "output": {
+        "UNKNOWN_V2.1_CURATED_MANIFEST.json": {
+          "species": "lista final de especies aprobadas",
+          "total_approved_images": "N",
+          "total_rejected_images": "M",
+          "species_decisions": {
+            "Smilisca_phaeota": "100 (o 107 o EXCLUDED)",
+            "Boana_albifrons": "N imágenes aprobadas",
+            "...": "..."
+          },
+          "near_duplicates_removed": "count",
+          "reviewer_notes": "observaciones críticas"
+        }
+      }
+    },
+    {
+      "id": "T5",
+      "titulo": "Extraer embeddings UNKNOWN",
+      "descripcion": "Generar embeddings para UNKNOWN_V2.1_CURATED",
+      "procedimiento": [
+        "Usar evaluation/fase13/bioclip_inference_v1.py (congelado)",
+        "Input: imágenes aprobadas de UNKNOWN_V2.1_CURATED",
+        "Output: UNKNOWN_embeddings.npz (512D L2-normalized)",
+        "Verificar SHA256 del encoder = 219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad"
+      ],
+      "output": "validation/fase23a_open_set_automatic/data/UNKNOWN_embeddings.npz"
+    },
+    {
+      "id": "T6",
+      "titulo": "Notificar para re-ejecución FASE 23A",
+      "descripcion": "Señalar cuando esté listo para evaluación",
+      "comunicar": [
+        "Total de imágenes aprobadas",
+        "Decisión final Smilisca_phaeota",
+        "Ubicación de embeddings extraídos",
+        "Notas críticas sobre calidad del dataset"
+      ]
+    }
+  ],
+  "puntos_criticos": [
+    {
+      "punto": "SMILISCA_PHAEOTA INCONSISTENCIA",
+      "prioridad": "CRÍTICA",
+      "descripcion": "107 imágenes > contrato máximo 100",
+      "decision_requerida": "Explicita",
+      "impacto": "Afecta la validez del dataset para evaluación",
+      "recomendacion": "Limitar a 100 y excluir 7 de menor calidad para rigor contractual"
+    },
+    {
+      "punto": "NEAR-DUPLICATES",
+      "prioridad": "ALTA",
+      "descripcion": "622 imágenes pueden contener duplicados/casi-duplicados",
+      "detection_method": "Perceptual hash o inspección manual",
+      "impacto": "Sobre-representación de individuos sesgaría métricas"
+    },
+    {
+      "punto": "IDENTIFICACIÓN TAXONÓMICA",
+      "prioridad": "ALTA",
+      "descripcion": "Dataset es 100% automático, sin verificación manual",
+      "riesgo": "Posible misidentificación de especies",
+      "verificar": "Cada imagen debe cotejarse contra referencia taxonómica"
+    },
+    {
+      "punto": "CALIDAD FOTOGRÁFICA",
+      "prioridad": "MEDIA",
+      "descripcion": "Calidad automation check no verifica detalles",
+      "items_a_revisar": [
+        "Blur o falta de nitidez",
+        "Oclusión del anuro",
+        "Artefactos fotográficos (reflejo, sombra extrema)",
+        "Composición inadecuada para análisis"
+      ]
+    }
+  ],
+  "timeline": {
+    "inicio_fase_23b": "[DATE_TO_BE_SET]",
+    "estimado_revision_manual": "1-2 days (622 imágenes a 200-300 por día)",
+    "extraction_embeddings": "0.5 days (batch process)",
+    "re_ejecucion_fase_23a": "[DATE_POST_23B]",
+    "fecha_esperada_resultados_finales": "[TBD]"
+  },
+  "entregables_fase_23b": [
+    "UNKNOWN_V2.1_CURATED_MANIFEST.json (dataset final curado)",
+    "curation_decisions.json (decisión por imagen: APPROVE/REJECT)",
+    "duplicate_analysis.json (near-duplicates encontrados)",
+    "smilisca_phaeota_decision.json (decisión explícita: 100/107/EXCLUDE)",
+    "UNKNOWN_embeddings.npz (embeddings BioCLIP congelado)",
+    "FASE23B_CURATION_REPORT.md (reporte de curación)",
+    "reviewer_notes.txt (observaciones críticas del revisor)"
+  ],
+  "criterios_aceptacion_fase_23b": {
+    "c1": "Todas 622 imágenes revisadas (APPROVE, REJECT, o FLAG)",
+    "c2": "Smilisca_phaeota decisión explícitamente tomada y documentada",
+    "c3": "Near-duplicates identificados y marcados",
+    "c4": "Embeddings extraídos con BioCLIP congelado",
+    "c5": "SHA256 encoder verificado = 219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+    "c6": "Dataset final contiene >=300 imágenes (mínimo para estadística)",
+    "c7": "Todas tareas (T1-T6) completadas"
+  },
+  "bloqueadores_si_no_se_cumple": [
+    "Si no se revisan todas 622 imágenes: FASE 23A no puede ejecutarse",
+    "Si no se resuelve Smilisca: dataset inconsistente para análisis",
+    "Si no se extraen embeddings: imposible scoring y métricas",
+    "Si embeddings usan encoder diferente: resultados no comparables con Fase 21"
+  ],
+  "restricciones_absolutas": [
+    "NO alterar KNOWN set (congelado)",
+    "NO cambiar encoder BioCLIP",
+    "NO fine-tuning",
+    "NO usar embeddings pre-generados de otras fases",
+    "SI usar BioCLIP congelado (SHA256 219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad)",
+    "SI documentar TODAS las decisiones",
+    "SI mantener reproducibilidad"
+  ],
+  "contacto_y_preguntas": {
+    "fase_anterior_autor": "Claude Haiku 4.5",
+    "fecha_fase_anterior": "2026-09-14",
+    "documentacion_fase_anterior": "validation/fase23a_open_set_automatic/FASE23A_REPORT.md",
+    "preguntas_frecuentes": {
+      "q1": "¿Debo cambiar el dataset durante curación?",
+      "a1": "NO. Solo APPROVE/REJECT. No modificar imágenes.",
+      "q2": "¿Qué hago si encuentro mala calidad?",
+      "a2": "REJECT esa imagen. No editar. Incluir motivo en curation_decisions.json.",
+      "q3": "¿Necesito perceptual hash para duplicados?",
+      "a3": "Ideal sí. Pero inspección manual de individuos (col_obs_*) también válida.",
+      "q4": "¿Smilisca_phaeota: qué elijo?",
+      "a4": "Recomendación: Opción B (limitar a 100, rigor contractual).",
+      "q5": "¿Cuánto tiempo toma?",
+      "a5": "~1-2 días para 622 imágenes a ~300 por día."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+weight_geo,subgroup,n_unknown,AUROC
+0.0,same_genus,426,0.6616555969036068
+0.0,different_genus,194,0.5225252560079992
+0.5,same_genus,426,0.7270202710129225
+0.5,different_genus,194,0.6823742371478811
+0.5,unknown_with_zone_assigned,262,
+0.5,unknown_without_zone,358,

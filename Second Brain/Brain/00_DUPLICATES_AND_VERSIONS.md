@@ -1,4 +1,4 @@
-﻿# Duplicados y versiones
+# Duplicados y versiones
 
 ## Método
 El manifiesto [00_SOURCE_MANIFEST.json](./00_SOURCE_MANIFEST.json) registra ruta, título y SHA-256 de las fuentes inventariadas. Se conserva cada original; no se borran ni se sobrescriben para resolver duplicados. La comparación de contenido debe usar la ruta y el hash, no solo el título.

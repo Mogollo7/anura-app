@@ -1,0 +1,13 @@
+{
+  "phase": "16.4",
+  "centroid_source_definition": "Group A centroids <- REFERENCE (798 imgs); Group B centroids <- TRAIN (4724 imgs)",
+  "CENTROID_SOURCE_REFERENCE_vs_CLEAN_KNOWN": {
+    "overlap_count": 0,
+    "method": "SHA256"
+  },
+  "CENTROID_SOURCE_TRAIN_vs_CLEAN_KNOWN": {
+    "overlap_count": 0,
+    "method": "path completo"
+  },
+  "conclusion": "OUT_OF_SAMPLE"
+}

@@ -1,0 +1,12 @@
+species,final_images,final_individuals,decision,replacement_species,reason
+Hyloxalus_picachos,15,15,ACCEPT,,"Meets contract (15 images, 15 individuals)"
+Sachatamia_electrops,39,19,ACCEPT,,"Meets contract (39 images, 19 individuals)"
+Dendropsophus_labialis,74,43,ACCEPT,,"Meets contract (74 images, 43 individuals)"
+Dendropsophus_minutus,23,19,ACCEPT,,"Meets contract (23 images, 19 individuals)"
+Pristimantis_w_nigrum,53,21,ACCEPT,,"Meets contract (53 images, 21 individuals)"
+Pristimantis_nervicus,3,2,REPLACE,Pristimantis_brevirostris,Final images (3) below 70 threshold
+Rhinella_marina,83,41,ACCEPT,,"Meets contract (83 images, 41 individuals)"
+Leptodactylus_fragilis,85,44,ACCEPT,,"Meets contract (85 images, 44 individuals)"
+Boana_geographica,2,1,REPLACE,Boana_albifrons,Final images (2) below 70 threshold
+Smilisca_phaeota,107,55,ACCEPT,,"Meets contract (107 images, 55 individuals)"
+Espadarana_prosoblepon,89,45,ACCEPT,,"Meets contract (89 images, 45 individuals)"

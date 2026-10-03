@@ -1,0 +1,69 @@
+{
+  "gate0_passed": true,
+  "reproduced_auroc": 0.5732919408781961,
+  "coverage_unknown": {
+    "n": 620,
+    "with_obs_id": 620,
+    "without_obs_id": 0,
+    "with_latlon": 620,
+    "without_latlon": 0,
+    "with_zone": 262,
+    "without_zone": 358,
+    "coverage_zone_pct": 42.26,
+    "geo2_reported_zone_assigned": 262,
+    "geo2_reported_pct": 42.26
+  },
+  "coverage_known": {
+    "n": 7475,
+    "with_obs_id": 7431,
+    "without_obs_id": 44,
+    "with_latlon": 7431,
+    "without_latlon": 44,
+    "with_zone": 2763,
+    "without_zone": 4712,
+    "coverage_zone_pct": 36.96
+  },
+  "coverage_total": {
+    "n": 8095,
+    "with_zone": 3025,
+    "coverage_zone_pct": 37.37
+  },
+  "elevation_check": {
+    "n_with_elevation": 0,
+    "n_total": 4466,
+    "confirmed_0_of_4466": true
+  },
+  "coordinate_validation": {
+    "known_valid_coords": 7431,
+    "known_total_with_coords_checked": 7475,
+    "unknown_valid_coords": 620,
+    "unknown_total_with_coords_checked": 620,
+    "known_duplicate_obs_ids": 3372,
+    "unknown_duplicate_obs_ids": 208,
+    "known_obscured_flagged": 283,
+    "unknown_obscured_flagged": 34
+  },
+  "recovery_a1": {
+    "n_unique_obs_id_needed": 4466,
+    "n_missing_from_cache": 0,
+    "n_missing_from_extracted": 0,
+    "missing_obs_ids_sample": [],
+    "action": "NO se realizaron llamadas nuevas a iNaturalist: el cache existente (cache/inat_observations_cache.json, 4466 entradas) ya cubre el 100% de los observation_id presentes en KNOWN(7431 con obs_id)+UNKNOWN(412 obs_id unicos de 620 imagenes) evaluados por GEO-1/GEO-2. No hay candidatos verificables para recuperacion adicional sin scraping nuevo agresivo.",
+    "gbif_used": false,
+    "gbif_reason": "No aplico: no quedaron observation_id sin cobertura de iNaturalist que requirieran una fuente alterna."
+  },
+  "leakage_check_a3": {
+    "leakage_verified_directly": false,
+    "prior_has_obs_id_column": null,
+    "prior_records_before": 15081,
+    "prior_records_removed": 1214,
+    "prior_records_after_purge_raw": 13867,
+    "prior_records_after_aggregation_rows": 1164,
+    "purge_rule": "exclude any source record whose iNaturalist observation_id appears in the eval set (validation/fase23a_geographic_context/per_sample_results.csv, column individual_id) — i.e. observations later scored by the visual+geo evaluation must not also feed the geographic prior.",
+    "n_evaluation_observation_ids": 4466,
+    "n_intersection_prior_vs_eval": 0,
+    "intersection_is_zero": true,
+    "note": "El prior_zone_taxon_v2_clean.csv es agregado por (zone_id, scientific_name) sin columna observation_id explicita (purga de leakage se hizo en phase_clean_prior.py por individual_id/observation_id ANTES de agregar, ver prior_zone_taxon_v2_clean_manifest.json). Este chequeo confirma que el prior agregado no contiene una columna de trazabilidad a nivel de observacion individual (diseño intencional del prior FASE12.2), por lo que la garantia de no-leakage proviene del proceso de purga documentado en phase_clean_prior.py, reproducido aqui por referencia a su manifest, no por interseccion directa de IDs post-agregacion."
+  },
+  "verdict": "GEO3_THRESHOLD_OPERATING_POINT_FOUND"
+}

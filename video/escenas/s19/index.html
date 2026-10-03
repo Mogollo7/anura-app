@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S19 Internet</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #t18 { position: absolute; left: 96px; top: 400px; width: 960px; margin: 0; font-weight: 500; font-size: 68px; line-height: 1.25; }
+      #sweep { position: absolute; inset: 0; background: #1f7a33; z-index: 5; }
+      #t19 { position: absolute; left: 210px; top: 430px; width: 1500px; margin: 0; z-index: 6; text-align: center; color: #fefefe; font-weight: 500; font-size: 84px; line-height: 1.2; text-wrap: balance; opacity: 0; }
+    
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-style: normal; letter-spacing: -0.02em; }
+      .brand { font-weight: 800; font-style: normal; font-family: "Archivo", sans-serif; }
+      #root p, #root h1, #root span { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s19" data-start="0" data-width="1920" data-height="1080" data-duration="3">
+      <p id="t18" data-layout-allow-occlusion>Con más contexto <span class="serif">el resultado de tu observación mejora</span></p>
+      <div id="sweep"></div>
+      <p id="t19">Cuando tengas internet puedes sincronizar con nuestro servidor</p>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 76.50 - 76.90: barrido vertical corto de #EEF5EE a #1F7A33 (baja desde arriba)
+      tl.fromTo("#sweep", { yPercent: -100 }, { yPercent: 0, duration: 0.4, ease: "expo.inOut" }, 0);
+      tl.fromTo("#t18", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power1.in" }, 0.2);
+      // 76.90 - 77.30 (local 0.50): entra T19
+      tl.fromTo("#t19", { y: 24, opacity: 0, filter: "blur(12px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: EASE }, 0.5);
+      window.__timelines["s19"] = tl;
+    </script>
+  </body>
+</html>

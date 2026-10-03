@@ -1,0 +1,34 @@
+{
+  "euclidean_raw": {
+    "TN": 117,
+    "FP": 503,
+    "FN": 1039,
+    "TP": 6436
+  },
+  "cosine": {
+    "TN": 111,
+    "FP": 509,
+    "FN": 974,
+    "TP": 6501
+  },
+  "normalized_euclidean": {
+    "TN": 111,
+    "FP": 509,
+    "FN": 974,
+    "TP": 6501
+  },
+  "mahalanobis": {
+    "TN": 93,
+    "FP": 527,
+    "FN": 1316,
+    "TP": 6159
+  },
+  "convention": {
+    "positive_class": "KNOWN (label=1, accept=correct)",
+    "negative_class": "UNKNOWN (label=0, reject=correct)",
+    "TP": "known correctly accepted",
+    "TN": "unknown correctly rejected",
+    "FP": "unknown wrongly accepted (=FAR numerator)",
+    "FN": "known wrongly rejected (=FRR numerator)"
+  }
+}

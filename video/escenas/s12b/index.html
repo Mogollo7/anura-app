@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S12b Y el contexto</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; font-family: "Archivo", sans-serif; }
+      /* barrido vertical: el verde baja de arriba hacia abajo */
+      #wipe { position: absolute; inset: 0; background: #1f7a33; clip-path: inset(0 0 100.3% 0); }
+      #frase { position: absolute; left: 160px; width: 1600px; top: 460px; margin: 0; text-align: center; font-weight: 500; font-size: 80px; line-height: 1.1; color: #fefefe; opacity: 0; filter: url(#fv); white-space: nowrap; }
+      #frase b { font-weight: 800; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s12b" data-start="0" data-width="1920" data-height="1080" data-duration="3" data-fps="60">
+      <div id="wipe"></div>
+      <p id="frase">y el <b>contexto</b>, que es</p>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="fv" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur id="fvg" stdDeviation="0 0"/></filter>
+      </svg>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 73.50-74.00: barrido vertical #EEF5EE -> #1F7A33
+      tl.fromTo("#wipe", { clipPath: "inset(0 0 100.3% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.5, ease: "expo.inOut" }, 0);
+      // 74.00-74.50: la frase desde y+20, blur vertical 12 -> 0
+      tl.fromTo("#frase", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: EASE }, 0.5);
+      tl.fromTo("#fvg", { attr: { stdDeviation: "0 12" } }, { attr: { stdDeviation: "0 0" }, duration: 0.5, ease: EASE }, 0.5);
+      // 76.00-76.50: la frase baja a opacidad 0 y el barrido vuelve al revés
+      tl.to("#frase", { opacity: 0, duration: 0.25, ease: "power1.out" }, 2.5);
+      tl.to("#wipe", { clipPath: "inset(0 0 100.3% 0)", duration: 0.5, ease: "expo.inOut" }, 2.5);
+      window.__timelines["s12b"] = tl;
+    </script>
+  </body>
+</html>

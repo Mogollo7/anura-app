@@ -1,0 +1,17 @@
+{
+  "fixture_type": "SYNTHETIC_TEST_ONLY",
+  "status": "TEST_ONLY / SYNTHETIC / NOT_FOR_PRODUCTION",
+  "purpose": "Ejercitar el pipeline completo (taxonomy -> species_id -> embedding -> centroid -> release -> regional package) sin usar datos biologicos inventados ni contaminar splits reales.",
+  "declared_scientific_name": "Testus syntheticus",
+  "declared_family": "Testaceae_SYNTHETIC",
+  "declared_genus": "Testus",
+  "why_this_name": "Genero/especie deliberadamente no biologico (no existe en ninguna taxonomia real de anuros), para que sea imposible confundirlo con una especie real en cualquier reporte o dataset futuro.",
+  "actual_image_source": "data cleaned/Dendrobates_truncatus/ (25 imagenes REALES, existentes, no modificadas)",
+  "image_reuse_disclosure": "Las imagenes son fotografias reales de Dendrobates_truncatus. Se reutilizan UNICAMENTE para generar embeddings reales con el encoder congelado y ejercitar el pipeline mecanico. NO se declara que estas imagenes pertenezcan biologicamente a 'Testus syntheticus'. Esto es un fixture de ingenieria de software, no un dato cientifico.",
+  "not_used_for": [
+    "No se usa en TRAIN/REFERENCE/CALIBRATION/F3/F4 reales",
+    "No se usa para entrenar ni recalibrar nada",
+    "No se declara como especie real en ningun reporte de produccion",
+    "No se incorpora a taxonomia.py ni a species_registry.json real"
+  ]
+}

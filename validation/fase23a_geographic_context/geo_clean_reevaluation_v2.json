@@ -1,0 +1,360 @@
+{
+  "gate1_passed": true,
+  "official_23a": {
+    "auroc": 0.5732919408781961,
+    "auroc_ci_lo": 0.5425980488949688,
+    "auroc_ci_hi": 0.6041284714269096,
+    "far": 0.8112903225806452,
+    "frr": 0.13899665551839466,
+    "n_known": 7475,
+    "n_unknown": 620
+  },
+  "geo_clean_visual_only_w0": {
+    "weight_geo": 0.0,
+    "weight_visual": 1.0,
+    "AUROC": 0.5732919408781961,
+    "AUPRC": 0.09220093228803046,
+    "threshold": 0.7003836013843223,
+    "n_known": 7475.0,
+    "n_unknown": 620.0,
+    "n_individuals": 4467.0,
+    "TPR": 0.06612903225806452,
+    "TNR": 0.9499665551839465,
+    "FAR": 0.9338709677419355,
+    "FRR": 0.05003344481605351,
+    "BalancedAccuracy": 0.5080477937210055,
+    "TP": 41.0,
+    "FP": 374.0,
+    "TN": 7101.0,
+    "FN": 579.0,
+    "AUROC_ci_lo": 0.5407588003156896,
+    "AUROC_ci_hi": 0.6055339116221761,
+    "FAR_ci_lo": 0.9143559485943954,
+    "FAR_ci_hi": 0.9631396944436291,
+    "FRR_ci_lo": 0.05,
+    "FRR_ci_hi": 0.050396869631516975,
+    "bootstrap_n_valid": 1000.0
+  },
+  "geo_clean_best_weight": {
+    "weight_geo": 0.5,
+    "weight_visual": 0.5,
+    "AUROC": 0.6781981875067429,
+    "AUPRC": 0.12683233072476494,
+    "threshold": 0.7971625764690418,
+    "n_known": 7475.0,
+    "n_unknown": 620.0,
+    "n_individuals": 4467.0,
+    "TPR": 0.10967741935483871,
+    "TNR": 0.9499665551839465,
+    "FAR": 0.8903225806451613,
+    "FRR": 0.05003344481605351,
+    "BalancedAccuracy": 0.5298219872693926,
+    "TP": 68.0,
+    "FP": 374.0,
+    "TN": 7101.0,
+    "FN": 552.0,
+    "AUROC_ci_lo": 0.6515767739353685,
+    "AUROC_ci_hi": 0.7048202141480631,
+    "FAR_ci_lo": 0.8571306679668454,
+    "FAR_ci_hi": 0.9239164832140891,
+    "FRR_ci_lo": 0.05,
+    "FRR_ci_hi": 0.050398611587870214,
+    "bootstrap_n_valid": 1000.0
+  },
+  "weight_sweep_full": [
+    {
+      "weight_geo": 0.0,
+      "weight_visual": 1.0,
+      "AUROC": 0.5732919408781961,
+      "AUPRC": 0.09220093228803046,
+      "threshold": 0.7003836013843223,
+      "n_known": 7475,
+      "n_unknown": 620,
+      "n_individuals": 4467,
+      "TPR": 0.06612903225806452,
+      "TNR": 0.9499665551839465,
+      "FAR": 0.9338709677419355,
+      "FRR": 0.05003344481605351,
+      "BalancedAccuracy": 0.5080477937210055,
+      "TP": 41,
+      "FP": 374,
+      "TN": 7101,
+      "FN": 579,
+      "AUROC_ci_lo": 0.5407588003156896,
+      "AUROC_ci_hi": 0.6055339116221761,
+      "FAR_ci_lo": 0.9143559485943954,
+      "FAR_ci_hi": 0.9631396944436291,
+      "FRR_ci_lo": 0.05,
+      "FRR_ci_hi": 0.050396869631516975,
+      "bootstrap_n_valid": 1000
+    },
+    {
+      "weight_geo": 0.1,
+      "weight_visual": 0.9,
+      "AUROC": 0.6000536195921891,
+      "AUPRC": 0.10114663448135536,
+      "threshold": 0.7068405599723768,
+      "n_known": 7475,
+      "n_unknown": 620,
+      "n_individuals": 4467,
+      "TPR": 0.08387096774193549,
+      "TNR": 0.9499665551839465,
+      "FAR": 0.9161290322580645,
+      "FRR": 0.05003344481605351,
+      "BalancedAccuracy": 0.516918761462941,
+      "TP": 52,
+      "FP": 374,
+      "TN": 7101,
+      "FN": 568,
+      "AUROC_ci_lo": 0.5685941704541689,
+      "AUROC_ci_hi": 0.6318273087408685,
+      "FAR_ci_lo": 0.8943993729852976,
+      "FAR_ci_hi": 0.9456521739130435,
+      "FRR_ci_lo": 0.05,
+      "FRR_ci_hi": 0.050407057075397166,
+      "bootstrap_n_valid": 1000
+    },
+    {
+      "weight_geo": 0.2,
+      "weight_visual": 0.8,
+      "AUROC": 0.6280294530154278,
+      "AUPRC": 0.11033552237367256,
+      "threshold": 0.7220509032455841,
+      "n_known": 7475,
+      "n_unknown": 620,
+      "n_individuals": 4467,
+      "TPR": 0.09516129032258064,
+      "TNR": 0.9499665551839465,
+      "FAR": 0.9048387096774193,
+      "FRR": 0.05003344481605351,
+      "BalancedAccuracy": 0.5225639227532636,
+      "TP": 59,
+      "FP": 374,
+      "TN": 7101,
+      "FN": 561,
+      "AUROC_ci_lo": 0.5976744046648739,
+      "AUROC_ci_hi": 0.6587513943569803,
+      "FAR_ci_lo": 0.8787722957422325,
+      "FAR_ci_hi": 0.9335444320210081,
+      "FRR_ci_lo": 0.05,
+      "FRR_ci_hi": 0.05041905058852806,
+      "bootstrap_n_valid": 1000
+    },
+    {
+      "weight_geo": 0.3,
+      "weight_visual": 0.7,
+      "AUROC": 0.6529680655949941,
+      "AUPRC": 0.11803652096888645,
+      "threshold": 0.7449667412127878,
+      "n_known": 7475,
+      "n_unknown": 620,
+      "n_individuals": 4467,
+      "TPR": 0.09838709677419355,
+      "TNR": 0.9499665551839465,
+      "FAR": 0.9016129032258065,
+      "FRR": 0.05003344481605351,
+      "BalancedAccuracy": 0.52417682597907,
+      "TP": 61,
+      "FP": 374,
+      "TN": 7101,
+      "FN": 559,
+      "AUROC_ci_lo": 0.6244961118855091,
+      "AUROC_ci_hi": 0.6820822885557158,
+      "FAR_ci_lo": 0.8712871287128713,
+      "FAR_ci_hi": 0.9289280313893162,
+      "FRR_ci_lo": 0.05,
+      "FRR_ci_hi": 0.05038509109156755,
+      "bootstrap_n_valid": 1000
+    },
+    {
+      "weight_geo": 0.4,
+      "weight_visual": 0.6,
+      "AUROC": 0.6700644082425289,
+      "AUPRC": 0.12317699796502532,
+      "threshold": 0.7702332965009075,
+      "n_known": 7475,
+      "n_unknown": 620,
+      "n_individuals": 4467,
+      "TPR": 0.1032258064516129,
+      "TNR": 0.9499665551839465,
+      "FAR": 0.896774193548387,
+      "FRR": 0.05003344481605351,
+      "BalancedAccuracy": 0.5265961808177797,
+      "TP": 64,
+      "FP": 374,
+      "TN": 7101,
+      "FN": 556,
+      "AUROC_ci_lo": 0.643149447776312,
+      "AUROC_ci_hi": 0.6975341867784558,
+      "FAR_ci_lo": 0.8695635083401695,
+      "FAR_ci_hi": 0.9277864992150706,
+      "FRR_ci_lo": 0.05,
+      "FRR_ci_hi": 0.05037752256040382,
+      "bootstrap_n_valid": 1000
+    },
+    {
+      "weight_geo": 0.5,
+      "weight_visual": 0.5,
+      "AUROC": 0.6781981875067429,
+      "AUPRC": 0.12683233072476494,
+      "threshold": 0.7971625764690418,
+      "n_known": 7475,
+      "n_unknown": 620,
+      "n_individuals": 4467,
+      "TPR": 0.10967741935483871,
+      "TNR": 0.9499665551839465,
+      "FAR": 0.8903225806451613,
+      "FRR": 0.05003344481605351,
+      "BalancedAccuracy": 0.5298219872693926,
+      "TP": 68,
+      "FP": 374,
+      "TN": 7101,
+      "FN": 552,
+      "AUROC_ci_lo": 0.6515767739353685,
+      "AUROC_ci_hi": 0.7048202141480631,
+      "FAR_ci_lo": 0.8571306679668454,
+      "FAR_ci_hi": 0.9239164832140891,
+      "FRR_ci_lo": 0.05,
+      "FRR_ci_hi": 0.050398611587870214,
+      "bootstrap_n_valid": 1000
+    }
+  ],
+  "bootstrap_by_weight": {
+    "w_geo_0.0": {
+      "auroc": {
+        "mean": 0.5732084209970685,
+        "ci_lo": 0.5407588003156896,
+        "ci_hi": 0.6055339116221761,
+        "n_valid": 1000
+      },
+      "far": {
+        "mean": 0.9392569234225242,
+        "ci_lo": 0.9143559485943954,
+        "ci_hi": 0.9631396944436291,
+        "n_valid": 1000
+      },
+      "frr": {
+        "mean": 0.05013011805622932,
+        "ci_lo": 0.05,
+        "ci_hi": 0.050396869631516975,
+        "n_valid": 1000
+      }
+    },
+    "w_geo_0.1": {
+      "auroc": {
+        "mean": 0.6002136605394838,
+        "ci_lo": 0.5685941704541689,
+        "ci_hi": 0.6318273087408685,
+        "n_valid": 1000
+      },
+      "far": {
+        "mean": 0.9208305337477949,
+        "ci_lo": 0.8943993729852976,
+        "ci_hi": 0.9456521739130435,
+        "n_valid": 1000
+      },
+      "frr": {
+        "mean": 0.050132324376153704,
+        "ci_lo": 0.05,
+        "ci_hi": 0.050407057075397166,
+        "n_valid": 1000
+      }
+    },
+    "w_geo_0.2": {
+      "auroc": {
+        "mean": 0.6284022080796585,
+        "ci_lo": 0.5976744046648739,
+        "ci_hi": 0.6587513943569803,
+        "n_valid": 1000
+      },
+      "far": {
+        "mean": 0.9058859831285409,
+        "ci_lo": 0.8787722957422325,
+        "ci_hi": 0.9335444320210081,
+        "n_valid": 1000
+      },
+      "frr": {
+        "mean": 0.050132738244576355,
+        "ci_lo": 0.05,
+        "ci_hi": 0.05041905058852806,
+        "n_valid": 1000
+      }
+    },
+    "w_geo_0.3": {
+      "auroc": {
+        "mean": 0.6534992515756153,
+        "ci_lo": 0.6244961118855091,
+        "ci_hi": 0.6820822885557158,
+        "n_valid": 1000
+      },
+      "far": {
+        "mean": 0.9005465990295809,
+        "ci_lo": 0.8712871287128713,
+        "ci_hi": 0.9289280313893162,
+        "n_valid": 1000
+      },
+      "frr": {
+        "mean": 0.050127601913636785,
+        "ci_lo": 0.05,
+        "ci_hi": 0.05038509109156755,
+        "n_valid": 1000
+      }
+    },
+    "w_geo_0.4": {
+      "auroc": {
+        "mean": 0.6706430237427983,
+        "ci_lo": 0.643149447776312,
+        "ci_hi": 0.6975341867784558,
+        "n_valid": 1000
+      },
+      "far": {
+        "mean": 0.8985869705747536,
+        "ci_lo": 0.8695635083401695,
+        "ci_hi": 0.9277864992150706,
+        "n_valid": 1000
+      },
+      "frr": {
+        "mean": 0.050122668252290156,
+        "ci_lo": 0.05,
+        "ci_hi": 0.05037752256040382,
+        "n_valid": 1000
+      }
+    },
+    "w_geo_0.5": {
+      "auroc": {
+        "mean": 0.6787254045951124,
+        "ci_lo": 0.6515767739353685,
+        "ci_hi": 0.7048202141480631,
+        "n_valid": 1000
+      },
+      "far": {
+        "mean": 0.8917007280371426,
+        "ci_lo": 0.8571306679668454,
+        "ci_hi": 0.9239164832140891,
+        "n_valid": 1000
+      },
+      "frr": {
+        "mean": 0.05013300035709007,
+        "ci_lo": 0.05,
+        "ci_hi": 0.050398611587870214,
+        "n_valid": 1000
+      }
+    }
+  },
+  "prior_source": "validation/fase23a_geographic_context/prior_zone_taxon_v2_clean.csv (1214 contaminated observation_id excluded)",
+  "visual_score_source": "validation/fase23a_geographic_context/reproduced_scores_v2.npz (official euclidean_raw, gate-verified AUROC diff=0.0 vs 0.57329)",
+  "visual_only_official_comparable_threshold": {
+    "tau_calibration_kar95_raw_distance": 0.8243664749764885,
+    "FAR": 0.8112903225806452,
+    "FRR": 0.13899665551839466,
+    "official_FAR": 0.8112903225806452,
+    "official_FRR": 0.13899665551839466,
+    "note": "Computed with the CALIBRATION split (same convention as official method_comparison.csv), unlike the sweep table below which uses a KAR95-of-eval-KNOWN-pool threshold (documented limitation: CALIBRATION images have no coordinates, so this convention cannot be extended to the combined visual+geo scores)."
+  },
+  "verdict": "GEOGRAPHY_HELPFUL",
+  "verdict_rationale": {
+    "best_weight_geo": 0.5,
+    "delta_auroc_vs_visual_only": 0.10490624662854675,
+    "ci_overlap_best_vs_baseline": false
+  }
+}

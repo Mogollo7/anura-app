@@ -48,6 +48,7 @@ import me.juanlabs.anura.core.data.RegionalPackageRecord
 import me.juanlabs.anura.core.data.flattenPackages
 import me.juanlabs.anura.core.data.findPackage
 import me.juanlabs.anura.core.data.RegionalPackageStatus
+import me.juanlabs.anura.core.data.hasUsableLocalInstall
 import me.juanlabs.anura.core.data.rememberAnuraRepository
 import me.juanlabs.anura.designsystem.component.AnuraErrorState
 import androidx.compose.ui.Alignment
@@ -275,7 +276,7 @@ fun RegionalPackagesScreen(
                             expandable = node.hijos.isNotEmpty(),
                             expanded = node.id in expanded,
                             showActive = node.formato == "sqlite",
-                            canOpen = node.formato == "sqlite" && status == PackageUiStatus.Installed,
+                            canOpen = node.formato == "sqlite" && record?.hasUsableLocalInstall() == true,
                             onToggle = { toggle(node.id) },
                             onOpenClick = { openedZoneId = node.id },
                             onDownloadClick = { pendingDownloadId = node.id },
@@ -566,7 +567,7 @@ private fun PackageRow(
                     style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                if (status == PackageUiStatus.Installed) {
+                if (status == PackageUiStatus.Installed || active) {
                     OfflineReadyChip()
                     if (showActive) {
                     Row(

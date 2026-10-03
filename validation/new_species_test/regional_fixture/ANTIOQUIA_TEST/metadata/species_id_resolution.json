@@ -1,0 +1,251 @@
+{
+  "department": "ANTIOQUIA_TEST",
+  "source": "COLOMBIA_ANURA/ANTIOQUIA/SPECIES/*/species.json (no modificado)",
+  "taxonomia_source": "training/taxonomia.py",
+  "species_registry_source": "taxonomy/species/species_registry.json",
+  "total_species": 30,
+  "resolved_count": 29,
+  "unresolved_count": 1,
+  "resolutions": [
+    {
+      "taxon_id": "COL_ANURA_0001",
+      "scientific_name": "Rheobates palmatus",
+      "canonical_name": "Rheobates_palmatus",
+      "species_id": "ANU_COL_RHEO_PAL_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0002",
+      "scientific_name": "Rhinella alata",
+      "canonical_name": "Rhinella_alata",
+      "species_id": "ANU_COL_RHIN_ALA_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 303
+    },
+    {
+      "taxon_id": "COL_ANURA_0003",
+      "scientific_name": "Rhinella horribilis",
+      "canonical_name": "Rhinella_horribilis",
+      "species_id": "ANU_COL_RHIN_HOR_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 681
+    },
+    {
+      "taxon_id": "COL_ANURA_0005",
+      "scientific_name": "Sachatamia electrops",
+      "canonical_name": "Sachatamia_electrops",
+      "species_id": null,
+      "resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "occurrences_in_department": 7
+    },
+    {
+      "taxon_id": "COL_ANURA_0006",
+      "scientific_name": "Craugastor raniformis",
+      "canonical_name": "Craugastor_raniformis",
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 95
+    },
+    {
+      "taxon_id": "COL_ANURA_0007",
+      "scientific_name": "Pristimantis achatinus",
+      "canonical_name": "Pristimantis_achatinus",
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 361
+    },
+    {
+      "taxon_id": "COL_ANURA_0009",
+      "scientific_name": "Pristimantis erythropleura",
+      "canonical_name": "Pristimantis_erythropleura",
+      "species_id": "ANU_COL_PRIS_ERY_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 42
+    },
+    {
+      "taxon_id": "COL_ANURA_0010",
+      "scientific_name": "Pristimantis gaigei",
+      "canonical_name": "Pristimantis_gaigei",
+      "species_id": "ANU_COL_PRIS_GAI_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 151
+    },
+    {
+      "taxon_id": "COL_ANURA_0011",
+      "scientific_name": "Pristimantis paisa",
+      "canonical_name": "Pristimantis_paisa",
+      "species_id": "ANU_COL_PRIS_PAI_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 240
+    },
+    {
+      "taxon_id": "COL_ANURA_0012",
+      "scientific_name": "Pristimantis palmeri",
+      "canonical_name": "Pristimantis_palmeri",
+      "species_id": "ANU_COL_PRIS_PAL_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0013",
+      "scientific_name": "Pristimantis penelopus",
+      "canonical_name": "Pristimantis_penelopus",
+      "species_id": "ANU_COL_PRIS_PEN_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 65
+    },
+    {
+      "taxon_id": "COL_ANURA_0014",
+      "scientific_name": "Pristimantis permixtus",
+      "canonical_name": "Pristimantis_permixtus",
+      "species_id": "ANU_COL_PRIS_PER_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 67
+    },
+    {
+      "taxon_id": "COL_ANURA_0015",
+      "scientific_name": "Pristimantis taeniatus",
+      "canonical_name": "Pristimantis_taeniatus",
+      "species_id": "ANU_COL_PRIS_TAE_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 51
+    },
+    {
+      "taxon_id": "COL_ANURA_0016",
+      "scientific_name": "Pristimantis thectopternus",
+      "canonical_name": "Pristimantis_thectopternus",
+      "species_id": "ANU_COL_PRIS_THE_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0018",
+      "scientific_name": "Dendrobates truncatus",
+      "canonical_name": "Dendrobates_truncatus",
+      "species_id": "ANU_COL_DEND_TRU_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 243
+    },
+    {
+      "taxon_id": "COL_ANURA_0020",
+      "scientific_name": "Boana boans",
+      "canonical_name": "Boana_boans",
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 123
+    },
+    {
+      "taxon_id": "COL_ANURA_0023",
+      "scientific_name": "Boana platanera",
+      "canonical_name": "Boana_platanera",
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 150
+    },
+    {
+      "taxon_id": "COL_ANURA_0024",
+      "scientific_name": "Boana pugnax",
+      "canonical_name": "Boana_pugnax",
+      "species_id": "ANU_COL_BOAN_PUG_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 250
+    },
+    {
+      "taxon_id": "COL_ANURA_0026",
+      "scientific_name": "Boana rosenbergi",
+      "canonical_name": "Boana_rosenbergi",
+      "species_id": "ANU_COL_BOAN_ROS_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 25
+    },
+    {
+      "taxon_id": "COL_ANURA_0028",
+      "scientific_name": "Dendropsophus bogerti",
+      "canonical_name": "Dendropsophus_bogerti",
+      "species_id": "ANU_COL_DEND_BOG_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 482
+    },
+    {
+      "taxon_id": "COL_ANURA_0029",
+      "scientific_name": "Dendropsophus columbianus",
+      "canonical_name": "Dendropsophus_columbianus",
+      "species_id": "ANU_COL_DEND_COL_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 48
+    },
+    {
+      "taxon_id": "COL_ANURA_0030",
+      "scientific_name": "Dendropsophus ebraccatus",
+      "canonical_name": "Dendropsophus_ebraccatus",
+      "species_id": "ANU_COL_DEND_EBR_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 102
+    },
+    {
+      "taxon_id": "COL_ANURA_0032",
+      "scientific_name": "Dendropsophus microcephalus",
+      "canonical_name": "Dendropsophus_microcephalus",
+      "species_id": "ANU_COL_DEND_MIC_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 69
+    },
+    {
+      "taxon_id": "COL_ANURA_0034",
+      "scientific_name": "Dendropsophus norandinus",
+      "canonical_name": "Dendropsophus_norandinus",
+      "species_id": "ANU_COL_DEND_NOR_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 11
+    },
+    {
+      "taxon_id": "COL_ANURA_0037",
+      "scientific_name": "Hyloscirtus palmeri",
+      "canonical_name": "Hyloscirtus_palmeri",
+      "species_id": "ANU_COL_HYLO_PAL_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 60
+    },
+    {
+      "taxon_id": "COL_ANURA_0038",
+      "scientific_name": "Scinax ruber",
+      "canonical_name": "Scinax_ruber",
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 28
+    },
+    {
+      "taxon_id": "COL_ANURA_0039",
+      "scientific_name": "Engystomops pustulosus",
+      "canonical_name": "Engystomops_pustulosus",
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 169
+    },
+    {
+      "taxon_id": "COL_ANURA_0040",
+      "scientific_name": "Leptodactylus colombiensis",
+      "canonical_name": "Leptodactylus_colombiensis",
+      "species_id": "ANU_COL_LEPT_COL_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 23
+    },
+    {
+      "taxon_id": "COL_ANURA_0042",
+      "scientific_name": "Phyllomedusa venusta",
+      "canonical_name": "Phyllomedusa_venusta",
+      "species_id": "ANU_COL_PHYL_VEN_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 116
+    },
+    {
+      "taxon_id": "TEST_TAXON_SYN_001",
+      "scientific_name": "Testus syntheticus",
+      "canonical_name": "Testus_syntheticus",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "resolution_status": "RESOLVED",
+      "occurrences_in_department": 1
+    }
+  ]
+}

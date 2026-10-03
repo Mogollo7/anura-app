@@ -1,0 +1,26 @@
+{
+  "department": "ANTIOQUIA",
+  "dane_code": "05",
+  "generated_on": "2026-09-12",
+  "species_in_department": 29,
+  "species_in_catalog": 43,
+  "occurrences_in_department": 3967,
+  "data_status_counts": {
+    "DATA_SUFFICIENT": 27,
+    "DATA_LIMITED": 1,
+    "MANUAL_REVIEW": 1
+  },
+  "geographic_assignment": {
+    "method": "point-in-polygon contra límites departamentales DANE",
+    "source": "colombia_departamentos.geojson (33 features, códigos DANE)",
+    "border_tolerance_km": 2.0,
+    "max_positional_accuracy_m": 10000
+  },
+  "thresholds": {
+    "DATA_SUFFICIENT": ">= 45 individuos independientes con foto curada",
+    "DATA_LIMITED": "10-44 individuos",
+    "DATA_CRITICAL": "< 10 individuos",
+    "MANUAL_REVIEW": "cualquier motivo de revisión registrado (ver review_reasons)"
+  },
+  "caveat": "El catálogo se limita a las especies ya scrapeadas del proyecto. NO es todavía el catálogo completo de anuros del departamento: falta cruzar con Batrachia y GBIF para incorporar las especies con ocurrencia documentada y sin fotos propias."
+}

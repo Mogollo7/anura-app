@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S08 Semilleros</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #group { position: absolute; inset: 0; }
+      #t8 { position: absolute; left: 260px; width: 1400px; top: 120px; margin: 0; text-align: center; font-weight: 500; font-size: 52px; line-height: 1.25; opacity: 0; }
+      .sem { position: absolute; top: 450px; width: 240px; text-align: center; opacity: 0; }
+      .logo { width: 240px; height: 240px; border-radius: 50%; overflow: hidden; background: #ffffff; }
+      .logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .logo.free { border-radius: 0; overflow: visible; background: none; }
+      .logo.free img { object-fit: contain; }
+      .name { margin-top: 32px; font-weight: 700; font-size: 30px; letter-spacing: 0.12em; line-height: 1.1; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s08" data-start="0" data-width="1920" data-height="1080" data-duration="5">
+      <div id="group">
+        <p id="t8">ANURA es una iniciativa de 3 semilleros de investigación de la Corporación Universitaria Lasallista.</p>
+        <div id="s0" class="sem" style="left:480px"><div class="logo"><img src="assets/img/SIVET.png" alt="" /></div><div class="name">SIVET</div></div>
+        <div id="s1" class="sem" style="left:840px"><div class="logo free"><img src="assets/img/DEDALOS.png" alt="" /></div><div class="name">DÉDALOS</div></div>
+        <div id="s2" class="sem" style="left:1200px"><div class="logo"><img src="assets/img/ECOSOMOS.png" alt="" /></div><div class="name">ECOSOMOS</div></div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 29.10 -> local 0.00
+      tl.fromTo("#t8", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 0);
+      // logos: local 1.00, 1.50, 2.00
+      [0, 1, 2].forEach((i) => {
+        tl.fromTo("#s" + i, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 1 + i * 0.5);
+      });
+      // 33.20 -> local 4.25: salen logos y título
+      tl.to("#group", { y: -20, opacity: 0, duration: 0.75, ease: "power2.inOut" }, 4.25);
+      window.__timelines["s08"] = tl;
+    </script>
+  </body>
+</html>

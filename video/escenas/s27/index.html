@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S27 Administracion</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #txt { position: absolute; left: 80px; top: 280px; width: 760px; display: flex; flex-direction: column; gap: 24px; opacity: 0.7; }
+      #txt p { margin: 0; }
+      #t25 { font-weight: 500; font-size: 52px; line-height: 1.15; }
+      #t26 { font-size: 44px; line-height: 1.25; }
+      #t26 .mono { font-size: 38px; }
+      .ax { position: absolute; background: #1b1c1e; opacity: 1; }
+      .head { position: absolute; width: 0; height: 0; opacity: 1; }
+      .col { position: absolute; width: 160px; }
+      .bar { position: absolute; inset: 0; transform-origin: 50% 100%; }
+      .val { position: absolute; left: 0; right: 0; top: -44px; text-align: center; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 28px; line-height: 28px; opacity: 1; }
+      #t28c { position: absolute; margin: 0; left: 80px; top: 460px; width: 1760px; text-align: center; font-weight: 500; font-size: 104px; line-height: 1.1; opacity: 0; }
+    
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-style: normal; letter-spacing: -0.02em; }
+      .brand { font-weight: 800; font-style: normal; font-family: "Archivo", sans-serif; }
+      #root p, #root h1, #root span { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s27" data-start="0" data-width="1920" data-height="1080" data-duration="3">
+      <div id="txt">
+        <p id="t25"><span class="brand">ANURA</span> ha pasado por distintas actualizaciones</p>
+        <p id="t26" class="serif">Pasamos de <span class="mono">10</span> especies a <span class="mono">28</span> y luego a <span class="mono">41</span></p>
+      </div>
+      <div id="axY" class="ax" style="left:998px;top:172px;width:4px;height:650px;transform-origin:50% 100%"></div>
+      <div id="hdY" class="head" style="left:986px;top:150px;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:24px solid #1b1c1e"></div>
+      <div id="axX" class="ax" style="left:998px;top:818px;width:822px;height:4px;transform-origin:0% 50%"></div>
+      <div id="hdX" class="head" style="left:1820px;top:806px;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:24px solid #1b1c1e"></div>
+      <div class="col" style="left:1100px;top:683px;height:137px"><div class="val" id="val0">10</div><div class="bar" id="bar0" style="background:#7EB8DA"></div></div>
+      <div class="col" style="left:1360px;top:437px;height:383px"><div class="val" id="val1">28</div><div class="bar" id="bar1" style="background:#5B8FA8"></div></div>
+      <div class="col" style="left:1620px;top:260px;height:560px"><div class="val" id="val2">41</div><div class="bar" id="bar2" style="background:#1F7A33"></div></div>
+
+      <p id="t28c">Antes todo era manual</p>
+    </div>
+
+    <script>
+      // Ventana 109.00–112.00. El texto sale a la izquierda; barras y ejes se encogen en 0.5 s; T27 entra al centro.
+      const tl = gsap.timeline({ paused: true });
+      const H = [137, 383, 560];
+      gsap.set("#txt", { x: -24 });
+      tl.to("#txt", { x: -160, opacity: 0, filter: "blur(12px)", duration: 0.5, ease: "power2.in" }, 1.0);
+      for (let i = 0; i < 3; i++) {
+        tl.to("#bar" + i, { scaleY: 0, duration: 0.5, ease: "power3.inOut" }, 1.0 + i * 0.05);
+        tl.to("#val" + i, { y: H[i], opacity: 0, duration: 0.5, ease: "power3.inOut" }, 1.0 + i * 0.05);
+      }
+      tl.to(["#axY", "#hdY", "#axX", "#hdX"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 1.2);
+      tl.fromTo("#t28c", { scale: 1.15, opacity: 0, filter: "blur(16px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 1.75);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s27"] = tl;
+    </script>
+  </body>
+</html>

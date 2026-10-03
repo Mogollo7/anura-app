@@ -1,0 +1,39 @@
+{
+  "phase": "FASE21_HARD_SPECIES_ANALYSIS",
+  "source": "Fase20 cross-individual test (negative-margin rate > 0.4 indicates generalization issues)",
+  "species_list": [
+    {
+      "name": "Pristimantis_paisa",
+      "issue": "Intra-genus confusion"
+    },
+    {
+      "name": "Pristimantis_taeniatus",
+      "issue": "Intra-genus confusion"
+    },
+    {
+      "name": "Dendropsophus_bogerti",
+      "issue": "Intra-genus confusion"
+    },
+    {
+      "name": "Dendropsophus_microcephalus",
+      "issue": "Intra-genus confusion"
+    },
+    {
+      "name": "Boana_cinerascens",
+      "issue": "Intra-genus confusion"
+    },
+    {
+      "name": "Boana_punctata",
+      "issue": "Intra-genus confusion"
+    },
+    {
+      "name": "Pristimantis_erythropleura",
+      "issue": "Intra-genus confusion"
+    }
+  ],
+  "analysis": {
+    "methods_comparison_on_hard_species": "NOT_PERFORMED (hard species not in BLIND TEST split)",
+    "reason": "BLIND TEST contains only 2 UNKNOWN species, no KNOWN hard species evaluation"
+  },
+  "conclusion": "UNABLE_TO_ASSESS without dedicated hard-species evaluation dataset"
+}

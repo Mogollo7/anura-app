@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S17 Pasos 4 resumen analizando</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #t17 { position: absolute; margin: 0; text-align: center; font-weight: 500; left: 120px; top: 70px; width: 1680px; font-size: 56px; line-height: 1.2; white-space: nowrap; }
+      .lab { position: absolute; top: 190px; width: 340px; text-align: center; font-weight: 700; font-size: 36px; line-height: 40px; }
+      .phone { position: absolute; top: 250px; width: 340px; height: 720px; box-sizing: border-box; padding: 14px; border-radius: 36px; background: #1b1c1e; box-shadow: 0 24px 40px rgba(27, 28, 30, 0.18); }
+      .phone .scr { width: 100%; height: 100%; border-radius: 24px; overflow: hidden; }
+      .phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .n { opacity: 0; }
+    
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-style: normal; letter-spacing: -0.02em; }
+      .brand { font-weight: 800; font-style: normal; font-family: "Archivo", sans-serif; }
+      #root p, #root h1, #root span { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s17" data-start="0" data-width="1920" data-height="1080" data-duration="3.5">
+      <svg width="0" height="0" style="position: absolute" aria-hidden="true"><filter id="obl0" x="-80%" y="-10%" width="260%" height="120%"><feGaussianBlur id="ob0" stdDeviation="0 0" /></filter><filter id="obl1" x="-80%" y="-10%" width="260%" height="120%"><feGaussianBlur id="ob1" stdDeviation="0 0" /></filter><filter id="obl2" x="-80%" y="-10%" width="260%" height="120%"><feGaussianBlur id="ob2" stdDeviation="0 0" /></filter><filter id="nbl0" x="-80%" y="-10%" width="260%" height="120%"><feGaussianBlur id="nb0" stdDeviation="0 0" /></filter><filter id="nbl1" x="-80%" y="-10%" width="260%" height="120%"><feGaussianBlur id="nb1" stdDeviation="0 0" /></filter><filter id="nbl2" x="-80%" y="-10%" width="260%" height="120%"><feGaussianBlur id="nb2" stdDeviation="0 0" /></filter></svg>
+      <p id="t17">Un cuestionario <span class="serif" style="white-space:nowrap">paso a paso</span> afina el modelo</p>
+      <div id="olab0" class="lab" style="left:310px">Paso 1</div>
+      <div id="oph0" class="phone" style="left:310px;filter:url(#obl0)" data-layout-allow-overflow data-layout-allow-occlusion><div class="scr"><img src="assets/img/1.jpg" alt="" /></div></div>
+      <div id="olab1" class="lab" style="left:790px">Paso 2</div>
+      <div id="oph1" class="phone" style="left:790px;filter:url(#obl1)" data-layout-allow-overflow data-layout-allow-occlusion><div class="scr"><img src="assets/img/2.jpg" alt="" /></div></div>
+      <div id="olab2" class="lab" style="left:1270px">Paso 3</div>
+      <div id="oph2" class="phone" style="left:1270px;filter:url(#obl2)" data-layout-allow-overflow data-layout-allow-occlusion><div class="scr"><img src="assets/img/3.jpg" alt="" /></div></div>
+      <div id="nlab0" class="lab n" style="left:310px">Paso 4</div>
+      <div id="nph0" class="phone n" style="left:310px;filter:url(#nbl0)" data-layout-allow-overflow data-layout-allow-occlusion><div class="scr"><img src="assets/img/4.jpg" alt="" /></div></div>
+      <div id="nlab1" class="lab n" style="left:790px">Resumen</div>
+      <div id="nph1" class="phone n" style="left:790px;filter:url(#nbl1)" data-layout-allow-overflow data-layout-allow-occlusion><div class="scr"><img src="assets/img/6.jpg" alt="" /></div></div>
+      <div id="nlab2" class="lab n" style="left:1270px">Analizando</div>
+      <div id="nph2" class="phone n" style="left:1270px;filter:url(#nbl2)" data-layout-allow-overflow data-layout-allow-occlusion><div class="scr"><img src="assets/img/an.jpg" alt="" /></div></div>
+      <audio id="sfx0" src="assets/sfx/rollover2.ogg" data-start="0.8" data-duration="0.06" data-track-index="10" data-volume="1"></audio>
+      <audio id="sfx1" src="assets/sfx/rollover2.ogg" data-start="1.3" data-duration="0.06" data-track-index="11" data-volume="1"></audio>
+      <audio id="sfx2" src="assets/sfx/rollover2.ogg" data-start="1.8" data-duration="0.06" data-track-index="12" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      const $ = (id) => document.getElementById(id);
+      function blurTo(id, from, to, dur, ease, at) {
+        const node = $(id), p = { v: from };
+        node.setAttribute("stdDeviation", from + " 0");
+        tl.to(p, { v: to, duration: dur, ease, onUpdate() { node.setAttribute("stdDeviation", p.v + " 0"); } }, at);
+      }
+      // 68.50 - 68.85: los tres de S16 salen juntos hacia la derecha (centro x -> 2500), inExpo + blur horizontal
+      [0, 1, 2].forEach((i) => {
+        const dx = 2500 - [480, 960, 1440][i];
+        tl.to("#oph" + i, { x: dx, duration: 0.35, ease: "expo.in" }, 0);
+        tl.to("#olab" + i, { x: dx, duration: 0.35, ease: "expo.in" }, 0);
+        blurTo("ob" + i, 0, 40, 0.35, "expo.in", 0);
+      });
+      // entran otros tres desde la derecha, stagger 0.5 s
+      [0, 1, 2].forEach((i) => {
+        const t0 = 0.5 + i * 0.5;
+        tl.fromTo("#nph" + i, { x: 1000, opacity: 1 }, { x: 0, opacity: 1, duration: 0.6, ease: EASE }, t0);
+        blurTo("nb" + i, 40, 0, 0.6, EASE, t0);
+        tl.fromTo("#nlab" + i, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: EASE }, t0 + 0.3);
+      });
+      window.__timelines["s17"] = tl;
+    </script>
+  </body>
+</html>

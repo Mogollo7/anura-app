@@ -1,0 +1,27 @@
+{
+  "status": "CRITICAL_LEAKAGE_CONFIRMED",
+  "summary": "F3 (766 imagenes KNOWN) es un subconjunto EXACTO (path completo identico) de TRAIN. El blind test de Fase 13 para KNOWN nunca fue genuinamente ciego.",
+  "verification_method": "Comparacion de 'path' completo (no solo filename) entre knn_open_set_results.json (F3/F4) y training/manifiesto.json (TRAIN, particiones train+val+test)",
+  "results": {
+    "F4_UNKNOWN": {"total": 56, "overlap_with_TRAIN": 0, "status": "CLEAN — blind test genuino para UNKNOWN"},
+    "F3_KNOWN_Group_A": {
+      "total": 197,
+      "overlap_with_TRAIN": 197,
+      "overlap_fraction": 1.0,
+      "status": "LEAKAGE — pero via encoder (fine-tuning), NO via centroide (Group A centroids vienen de REFERENCE, no de TRAIN)",
+      "species_count": 9
+    },
+    "F3_KNOWN_Group_B": {
+      "total": 569,
+      "overlap_with_TRAIN": 569,
+      "overlap_fraction": 1.0,
+      "status": "LEAKAGE DIRECTO Y SEVERO — el centroide de Group B se calculo CON estas mismas imagenes de TRAIN, y la evaluacion se hizo sobre las MISMAS imagenes",
+      "species_count": 32
+    }
+  },
+  "scientific_implication": "KAR (Known Acceptance Rate) reportado en Fase 13 (85.38%) NO es una estimacion valida de generalizacion para las 32 especies Group B: es esencialmente una medida de ajuste in-sample (el modelo evalua contra los mismos datos que definieron su centroide). Para Group A el problema es mas sutil: el centroide no vio estas imagenes directamente, pero el ENCODER BioCLIP fue fine-tuneado (fase_4_transfer_learning.py) viendo estas mismas imagenes de TRAIN, lo cual puede inflar artificialmente la similitud embedding-a-centroide.",
+  "what_remains_valid": "F4 (UNKNOWN, 56 imagenes, 0% overlap con TRAIN) SI es un blind test genuino. UDR/FAR calculados sobre F4 siguen siendo validos como estimacion de rechazo de especies desconocidas — el problema esta especificamente en el lado KNOWN (F3) de la evaluacion, no en el lado UNKNOWN.",
+  "root_cause": "El chequeo de contaminacion cruzada de Fase 13 (fase13_pre_audit.py, build_dataset_manifest.py) verifico REFERENCE vs CALIBRATION vs TRAIN, pero NUNCA verifico F3/F4 vs TRAIN. Este gap especifico no fue detectado durante las correcciones previas de Fase 13 en esta sesion, que se enfocaron en el bug de extraccion de embeddings y el leakage de construccion de centroides Group B usando F3 (ya corregido), sin verificar si TRAIN mismo comparte imagenes con F3.",
+  "recommendation": "Los numeros AUROC/KAR oficiales de Fase 13 deben reinterpretarse: son una medida de separacion KNOWN-vs-UNKNOWN donde el lado KNOWN esta contaminado con datos de entrenamiento. El UDR/FAR sobre F4 (UNKNOWN limpio) sigue siendo la evidencia mas confiable disponible. Se requiere un nuevo conjunto KNOWN genuinamente held-out (nunca visto por TRAIN ni por el fine-tuning del encoder) para una estimacion valida de KAR.",
+  "not_modified": "Este hallazgo NO modifica ningun archivo de evaluation/fase13/ ni visual_catalog/v1.0.0/. Se documenta como limitacion descubierta, consistente con la regla de no ocultar ni corregir silenciosamente resultados historicos."
+}

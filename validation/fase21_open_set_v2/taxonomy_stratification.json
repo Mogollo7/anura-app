@@ -1,0 +1,38 @@
+{
+  "phase": "FASE21_TAXONOMY_STRATIFICATION",
+  "unknown_species": [
+    {
+      "name": "Hyloxalus_picachos",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus"
+    },
+    {
+      "name": "Sachatamia_electrops",
+      "family": "Hylidae",
+      "genus": "Sachatamia"
+    }
+  ],
+  "known_coverage": {
+    "n_species": 24,
+    "n_genera": 4,
+    "n_families": 5
+  },
+  "stratification": {
+    "note": "Ambas especies UNKNOWN estan fuera del catalogo KNOWN:",
+    "Hyloxalus_picachos": {
+      "family_in_known": true,
+      "family_names": [
+        "Dendrobatidae"
+      ],
+      "genus_in_known": false,
+      "taxonomic_distance": "SAME_FAMILY_DIFFERENT_GENUS"
+    },
+    "Sachatamia_electrops": {
+      "family_in_known": false,
+      "family_names": [],
+      "genus_in_known": false,
+      "taxonomic_distance": "DIFFERENT_FAMILY"
+    }
+  },
+  "limitation": "UNKNOWN too small (2 species, 56 images) to assess method performance by taxonomic strata"
+}

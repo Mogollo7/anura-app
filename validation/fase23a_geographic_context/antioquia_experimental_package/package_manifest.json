@@ -1,0 +1,25 @@
+{
+  "package_id": "ANTIOQUIA_EXPERIMENTAL_v1",
+  "phase": "GEO-5 (Fase B)",
+  "created_utc": "2026-09-14T16:09:01.233485+00:00",
+  "validation_status": "EXPERIMENTAL -- NOT READY FOR DEPLOYMENT",
+  "contents": {
+    "catalog_audited.csv": "291 especies, taxonomia resuelta, species_id, n_registros_geograficos, embeddings_evaluable flag",
+    "prior_zone_species_full.csv": "prior geografico por especie x zona, 291 especies x 4 zonas (extension confirmada de prior_zone_taxon_v2_clean.csv, mismo metodo de smoothing, sin recalculo necesario porque ya cubria el catalogo completo)",
+    "coverage_report.json": "cobertura de prior geografico vs embeddings evaluables",
+    "exclusions.json": "especies excluidas de evaluacion visual y por que",
+    "leakage_audit.json": "auditoria de purga de leakage (reutiliza FASE12.2/v2_clean)",
+    "reproducibility_manifest.json": "hashes de inputs, seed, gate0, reglas duras confirmadas"
+  },
+  "evaluation_outputs_outside_package": [
+    "../GEO5_AUDIT.md",
+    "../GEO5_closed_identification_metrics.json",
+    "../GEO5_confusion_matrix.csv",
+    "../GEO5_performance_by_genus.csv",
+    "../GEO5_performance_by_family.csv",
+    "../GEO5_openset_comparison.json",
+    "../GEO5_threshold_curve.csv",
+    "../GEO5_merlin_ranking_examples.json",
+    "../GEO5_REPORT.md"
+  ]
+}

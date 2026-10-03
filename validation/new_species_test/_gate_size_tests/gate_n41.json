@@ -1,0 +1,31 @@
+{
+  "catalog_release": "visual_catalog_1.0.0",
+  "mode": "RETROFIT",
+  "gate_result": "PENDING",
+  "steps": {
+    "data_quality": "PENDING",
+    "taxonomic_validation": "PENDING",
+    "contamination_check": "PASS",
+    "embedding_validation": "PASS",
+    "centroid_validation": "PASS",
+    "open_set_evaluation": "PASS",
+    "blind_test": "PASS"
+  },
+  "evidence": {
+    "auroc": 0.6247668780305856,
+    "kar": 0.8537859007832899,
+    "udr": 0.08928571428571429,
+    "far": 0.9107142857142857,
+    "total_centroids": 41,
+    "group_a_count": 9,
+    "group_b_count": 32,
+    "threshold_frozen": 39.35406371422803,
+    "method": "M5_LedoitWolf_Shared"
+  },
+  "warnings": [
+    "FAR=0.9107 — sistema muy permisivo con UNKNOWN, revisar antes de decision de produccion",
+    "INDIVIDUAL_INDEPENDENCE=CONTROLLED_NOT_FORMALLY_VERIFIABLE (ver Fase 13)",
+    "RETROFIT: este reporte reconstruye evidencia de Fase 13 ejecutada manualmente, NO es una ejecucion nueva del gate. data_quality y taxonomic_validation quedan PENDING porque no existe un artefacto unico auditable para esos pasos en Fase 13."
+  ],
+  "generated_at": "2026-09-14T18:37:27.752382+00:00"
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S02 Despliegue</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        src: url("assets/fonts/Archivo.woff2") format("woff2");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+      }
+      body {
+        margin: 0;
+        background: #1f7a33;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #1f7a33;
+        color: #fefefe;
+        font-family: "Archivo", sans-serif;
+      }
+      #copy {
+        position: absolute;
+        left: 96px;
+        z-index: 5;
+        top: 420px;
+        width: 760px;
+      }
+      #hola {
+        margin: 0;
+        font-size: 200px;
+        font-weight: 900;
+        font-stretch: 110%;
+        line-height: 1;
+        opacity: 1;
+      }
+      #pregunta {
+        margin: 24px 0 0 0;
+        font-family: "Instrument Serif", serif; font-style: italic; font-size: 64px; font-weight: 400;
+        line-height: 1.25;
+        opacity: 1;
+      }
+      .card {
+        position: absolute;
+        left: 1200px;
+        top: 300px;
+        width: 400px;
+        height: 560px;
+        border-radius: 32px;
+        transform-origin: 50% 100%;
+        overflow: hidden;
+        box-shadow: 24px 30px 50px rgba(0, 0, 0, 0.35);
+      }
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #cardA {
+        z-index: 3;
+      }
+      #cardB {
+        z-index: 2;
+      }
+      #cardC {
+        z-index: 1;
+      }
+      #estos {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 780px;
+        margin: 0;
+        text-align: center;
+        font-family: "Instrument Serif", serif; font-style: italic; font-size: 120px; font-weight: 400;
+        line-height: 1.1;
+        opacity: 0;
+      }
+    
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-style: normal; letter-spacing: -0.02em; }
+      .brand { font-weight: 800; font-style: normal; font-family: "Archivo", sans-serif; }
+      #root p, #root h1, #root span { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s02" data-start="0" data-width="1920" data-height="1080" data-duration="3.5">
+      <div id="copy">
+        <h1 id="hola">hola</h1>
+        <p id="pregunta">¿sabes quién es este pequeño?</p>
+      </div>
+
+      <div id="cardA" class="card"><img src="assets/img/a.jpg" alt="" /></div>
+      <div id="cardB" class="card"><img src="assets/img/b.jpg" alt="" /></div>
+      <div id="cardC" class="card"><img src="assets/img/c.jpg" alt="" /></div>
+
+      <p id="estos">o estos</p>
+
+      <audio id="sfx-fan" src="assets/sfx/card-fan-1.ogg" data-start="0.5" data-duration="1" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+
+      // Textos de S01 suben 30 px y se apagan: 0.00 - 0.40
+      tl.to(["#hola", "#pregunta"], { y: -30, opacity: 0, filter: "blur(10px)", duration: 0.4, ease: "power2.in" }, 0);
+
+      // Abanico de S01 -> fila. Mismo punto de giro (base de la carta) y misma posición de partida.
+      // Base: left 1200, top 300. Destino: left 280 / 760 / 1240, top 120.
+      gsap.set("#cardA", { rotation: 10 });
+      gsap.set("#cardB", { rotation: 0 });
+      gsap.set("#cardC", { rotation: -10 });
+      tl.to("#cardC", { x: -920, y: -180, rotation: 0, duration: 1.2, ease: EASE }, 0);
+      tl.to("#cardB", { x: -440, y: -180, rotation: 0, duration: 1.2, ease: EASE }, 0);
+      tl.to("#cardA", { x: 40, y: -180, rotation: 0, duration: 1.2, ease: EASE }, 0);
+
+      // o estos: 1.25 - 1.65
+      tl.fromTo("#estos", { y: 20, opacity: 0, filter: "blur(12px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: EASE }, 1.25);
+
+      window.__timelines["s02"] = tl;
+    </script>
+  </body>
+</html>

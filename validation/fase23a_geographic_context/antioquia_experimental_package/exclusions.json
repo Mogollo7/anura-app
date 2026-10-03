@@ -1,0 +1,3034 @@
+{
+  "timestamp_utc": "2026-09-14T16:09:01.233485+00:00",
+  "n_excluded_from_visual_evaluation": 258,
+  "reason": "NO_EMBEDDINGS_AVAILABLE -- especie presente en el catalogo taxonomico/geografico (GBIF/iNaturalist) pero sin centroide de embeddings BioCLIP en evaluation/fase13/embeddings/{reference,train}_embeddings.npz. No se genero embedding sintetico ni se sustituyo por centroide de otra especie (regla dura del encargo).",
+  "excluded_species": [
+    {
+      "taxon_id": "COL_ANURA_0005",
+      "species_id": "ANU_COL_SACH_ELE_001",
+      "scientific_name": "Sachatamia electrops",
+      "family": "Centrolenidae",
+      "genus": "Sachatamia",
+      "records_valid": 7,
+      "visual_data_status": "DATA_LIMITED"
+    },
+    {
+      "taxon_id": "COL_ANURA_0044",
+      "species_id": "ANU_COL_ALLO_BRU_001",
+      "scientific_name": "Allobates brunneus",
+      "family": "Aromobatidae",
+      "genus": "Allobates",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0045",
+      "species_id": "ANU_COL_ALLO_NIP_001",
+      "scientific_name": "Allobates niputidea",
+      "family": "Aromobatidae",
+      "genus": "Allobates",
+      "records_valid": 19,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0046",
+      "species_id": "ANU_COL_ALLO_TAL_001",
+      "scientific_name": "Allobates talamancae",
+      "family": "Aromobatidae",
+      "genus": "Allobates",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0047",
+      "species_id": "ANU_COL_RHEO_PSE_001",
+      "scientific_name": "Rheobates pseudopalmatus",
+      "family": "Aromobatidae",
+      "genus": "Rheobates",
+      "records_valid": 35,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0048",
+      "species_id": "ANU_COL_ATEL_CAR_001",
+      "scientific_name": "Atelopus carauta",
+      "family": "Bufonidae",
+      "genus": "Atelopus",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0049",
+      "species_id": "ANU_COL_ATEL_NIC_001",
+      "scientific_name": "Atelopus nicefori",
+      "family": "Bufonidae",
+      "genus": "Atelopus",
+      "records_valid": 31,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0050",
+      "species_id": "ANU_COL_ATEL_NOC_001",
+      "scientific_name": "Atelopus nocturnus",
+      "family": "Bufonidae",
+      "genus": "Atelopus",
+      "records_valid": 10,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0051",
+      "species_id": "ANU_COL_ATEL_SAN_001",
+      "scientific_name": "Atelopus sanjosei",
+      "family": "Bufonidae",
+      "genus": "Atelopus",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0052",
+      "species_id": "ANU_COL_ATEL_SER_001",
+      "scientific_name": "Atelopus sernai",
+      "family": "Bufonidae",
+      "genus": "Atelopus",
+      "records_valid": 17,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0053",
+      "species_id": "ANU_COL_ATEL_SON_001",
+      "scientific_name": "Atelopus sonsonensis",
+      "family": "Bufonidae",
+      "genus": "Atelopus",
+      "records_valid": 20,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0054",
+      "species_id": "ANU_COL_BUFO_BUF_001",
+      "scientific_name": "Bufo bufo",
+      "family": "Bufonidae",
+      "genus": "Bufo",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0055",
+      "species_id": "ANU_COL_INCI_CON_001",
+      "scientific_name": "Incilius coniferus",
+      "family": "Bufonidae",
+      "genus": "Incilius",
+      "records_valid": 14,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0056",
+      "species_id": "ANU_COL_OSOR_PER_001",
+      "scientific_name": "Osornophryne percrassa",
+      "family": "Bufonidae",
+      "genus": "Osornophryne",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0057",
+      "species_id": "ANU_COL_RHAE_BLO_001",
+      "scientific_name": "Rhaebo blombergi",
+      "family": "Bufonidae",
+      "genus": "Rhaebo",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0058",
+      "species_id": "ANU_COL_RHAE_HAE_001",
+      "scientific_name": "Rhaebo haematiticus",
+      "family": "Bufonidae",
+      "genus": "Rhaebo",
+      "records_valid": 169,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0059",
+      "species_id": "ANU_COL_RHAE_LYN_001",
+      "scientific_name": "Rhaebo lynchi",
+      "family": "Bufonidae",
+      "genus": "Rhaebo",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0060",
+      "species_id": "ANU_COL_RHIN_ACR_001",
+      "scientific_name": "Rhinella acrolopha",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0061",
+      "species_id": "ANU_COL_RHIN_GRA_001",
+      "scientific_name": "Rhinella granulosa",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 23,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0062",
+      "species_id": "ANU_COL_RHIN_HUM_001",
+      "scientific_name": "Rhinella humboldti",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 133,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0063",
+      "species_id": "ANU_COL_RHIN_LIN_001",
+      "scientific_name": "Rhinella lindae",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0064",
+      "species_id": "ANU_COL_RHIN_MAC_001",
+      "scientific_name": "Rhinella macrorhina",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 120,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0065",
+      "species_id": "ANU_COL_RHIN_MAR_002",
+      "scientific_name": "Rhinella marina",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 153,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0066",
+      "species_id": "ANU_COL_RHIN_NIC_001",
+      "scientific_name": "Rhinella nicefori",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 92,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0067",
+      "species_id": "ANU_COL_RHIN_PAR_001",
+      "scientific_name": "Rhinella paraguas",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0068",
+      "species_id": "ANU_COL_RHIN_ROS_001",
+      "scientific_name": "Rhinella rostrata",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 11,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0069",
+      "species_id": "ANU_COL_RHIN_RUI_001",
+      "scientific_name": "Rhinella ruizi",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 94,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0070",
+      "species_id": "ANU_COL_RHIN_STE_001",
+      "scientific_name": "Rhinella sternosignata",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0071",
+      "species_id": "ANU_COL_RHIN_TEN_001",
+      "scientific_name": "Rhinella tenrec",
+      "family": "Bufonidae",
+      "genus": "Rhinella",
+      "records_valid": 15,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0072",
+      "species_id": "ANU_COL_CENT_ANT_001",
+      "scientific_name": "Centrolene antioquiense",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 23,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0073",
+      "species_id": "ANU_COL_CENT_BUC_001",
+      "scientific_name": "Centrolene buckleyi",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 22,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0074",
+      "species_id": "ANU_COL_CENT_GEC_001",
+      "scientific_name": "Centrolene geckoideum",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0075",
+      "species_id": "ANU_COL_CENT_PER_001",
+      "scientific_name": "Centrolene peristictum",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0076",
+      "species_id": "ANU_COL_CENT_QUI_001",
+      "scientific_name": "Centrolene quindianum",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 8,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0077",
+      "species_id": "ANU_COL_CENT_ROB_001",
+      "scientific_name": "Centrolene robledoi",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 51,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0078",
+      "species_id": "ANU_COL_CENT_SAV_001",
+      "scientific_name": "Centrolene savagei",
+      "family": "Centrolenidae",
+      "genus": "Centrolene",
+      "records_valid": 15,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0079",
+      "species_id": "ANU_COL_COCH_EUK_001",
+      "scientific_name": "Cochranella euknemos",
+      "family": "Centrolenidae",
+      "genus": "Cochranella",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0080",
+      "species_id": "ANU_COL_COCH_MEG_001",
+      "scientific_name": "Cochranella megista",
+      "family": "Centrolenidae",
+      "genus": "Cochranella",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0081",
+      "species_id": "ANU_COL_COCH_RAM_001",
+      "scientific_name": "Cochranella ramirezi",
+      "family": "Centrolenidae",
+      "genus": "Cochranella",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0082",
+      "species_id": "ANU_COL_COCH_RES_001",
+      "scientific_name": "Cochranella resplendens",
+      "family": "Centrolenidae",
+      "genus": "Cochranella",
+      "records_valid": 11,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0083",
+      "species_id": "ANU_COL_ESPA_AND_001",
+      "scientific_name": "Espadarana andina",
+      "family": "Centrolenidae",
+      "genus": "Espadarana",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0084",
+      "species_id": "ANU_COL_ESPA_PRO_001",
+      "scientific_name": "Espadarana prosoblepon",
+      "family": "Centrolenidae",
+      "genus": "Espadarana",
+      "records_valid": 172,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0085",
+      "species_id": "ANU_COL_HYAL_AUR_001",
+      "scientific_name": "Hyalinobatrachium aureoguttatum",
+      "family": "Centrolenidae",
+      "genus": "Hyalinobatrachium",
+      "records_valid": 32,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0086",
+      "species_id": "ANU_COL_HYAL_CHI_001",
+      "scientific_name": "Hyalinobatrachium chirripoi",
+      "family": "Centrolenidae",
+      "genus": "Hyalinobatrachium",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0087",
+      "species_id": "ANU_COL_HYAL_COL_001",
+      "scientific_name": "Hyalinobatrachium colymbiphyllum",
+      "family": "Centrolenidae",
+      "genus": "Hyalinobatrachium",
+      "records_valid": 68,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0088",
+      "species_id": "ANU_COL_HYAL_FLE_001",
+      "scientific_name": "Hyalinobatrachium fleischmanni",
+      "family": "Centrolenidae",
+      "genus": "Hyalinobatrachium",
+      "records_valid": 27,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0089",
+      "species_id": "ANU_COL_HYAL_TAT_001",
+      "scientific_name": "Hyalinobatrachium tatayoi",
+      "family": "Centrolenidae",
+      "genus": "Hyalinobatrachium",
+      "records_valid": 63,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0090",
+      "species_id": "ANU_COL_HYAL_VAL_001",
+      "scientific_name": "Hyalinobatrachium valerioi",
+      "family": "Centrolenidae",
+      "genus": "Hyalinobatrachium",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0091",
+      "species_id": "ANU_COL_NYMP_CHA_001",
+      "scientific_name": "Nymphargus chami",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0092",
+      "species_id": "ANU_COL_NYMP_GRA_001",
+      "scientific_name": "Nymphargus grandisonae",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 43,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0093",
+      "species_id": "ANU_COL_NYMP_GRI_001",
+      "scientific_name": "Nymphargus griffithsi",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 23,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0094",
+      "species_id": "ANU_COL_NYMP_IGN_001",
+      "scientific_name": "Nymphargus ignotus",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0095",
+      "species_id": "ANU_COL_NYMP_LUM_001",
+      "scientific_name": "Nymphargus luminosus",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0096",
+      "species_id": "ANU_COL_NYMP_PIJ_001",
+      "scientific_name": "Nymphargus pijao",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 10,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0097",
+      "species_id": "ANU_COL_NYMP_PRA_001",
+      "scientific_name": "Nymphargus prasinus",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0098",
+      "species_id": "ANU_COL_NYMP_ROS_001",
+      "scientific_name": "Nymphargus rosada",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 22,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0099",
+      "species_id": "ANU_COL_NYMP_SPI_001",
+      "scientific_name": "Nymphargus spilotus",
+      "family": "Centrolenidae",
+      "genus": "Nymphargus",
+      "records_valid": 0,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0100",
+      "species_id": "ANU_COL_RULY_SUS_001",
+      "scientific_name": "Rulyrana susatamai",
+      "family": "Centrolenidae",
+      "genus": "Rulyrana",
+      "records_valid": 55,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0101",
+      "species_id": "ANU_COL_SACH_ILE_001",
+      "scientific_name": "Sachatamia ilex",
+      "family": "Centrolenidae",
+      "genus": "Sachatamia",
+      "records_valid": 17,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0102",
+      "species_id": "ANU_COL_SACH_PUN_001",
+      "scientific_name": "Sachatamia punctulata",
+      "family": "Centrolenidae",
+      "genus": "Sachatamia",
+      "records_valid": 23,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0103",
+      "species_id": "ANU_COL_TERA_PUL_001",
+      "scientific_name": "Teratohyla pulverata",
+      "family": "Centrolenidae",
+      "genus": "Teratohyla",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0104",
+      "species_id": "ANU_COL_TERA_SPI_001",
+      "scientific_name": "Teratohyla spinosa",
+      "family": "Centrolenidae",
+      "genus": "Teratohyla",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0105",
+      "species_id": "ANU_COL_ATOP_SYN_001",
+      "scientific_name": "Atopophrynus syntomopus",
+      "family": "Craugastoridae",
+      "genus": "Atopophrynus",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0106",
+      "species_id": "ANU_COL_CRAU_FIT_001",
+      "scientific_name": "Craugastor fitzingeri",
+      "family": "Craugastoridae",
+      "genus": "Craugastor",
+      "records_valid": 46,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0107",
+      "species_id": "ANU_COL_CRAU_GOL_001",
+      "scientific_name": "Craugastor gollmeri",
+      "family": "Craugastoridae",
+      "genus": "Craugastor",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0108",
+      "species_id": "ANU_COL_CRAU_LON_001",
+      "scientific_name": "Craugastor longirostris",
+      "family": "Craugastoridae",
+      "genus": "Craugastor",
+      "records_valid": 38,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0109",
+      "species_id": "ANU_COL_CRAU_MET_001",
+      "scientific_name": "Craugastor metriosistus",
+      "family": "Craugastoridae",
+      "genus": "Craugastor",
+      "records_valid": 118,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0110",
+      "species_id": "ANU_COL_CRAU_OPI_001",
+      "scientific_name": "Craugastor opimus",
+      "family": "Craugastoridae",
+      "genus": "Craugastor",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0111",
+      "species_id": "ANU_COL_NICE_ADE_001",
+      "scientific_name": "Niceforonia adenobrachia",
+      "family": "Craugastoridae",
+      "genus": "Niceforonia",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0112",
+      "species_id": "ANU_COL_NICE_BAB_001",
+      "scientific_name": "Niceforonia babax",
+      "family": "Craugastoridae",
+      "genus": "Niceforonia",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0113",
+      "species_id": "ANU_COL_NICE_LAT_001",
+      "scientific_name": "Niceforonia latens",
+      "family": "Craugastoridae",
+      "genus": "Niceforonia",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0114",
+      "species_id": "ANU_COL_NICE_MAN_001",
+      "scientific_name": "Niceforonia mantipus",
+      "family": "Craugastoridae",
+      "genus": "Niceforonia",
+      "records_valid": 17,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0115",
+      "species_id": "ANU_COL_PRIS_ACA_001",
+      "scientific_name": "Pristimantis acatallelus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 10,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0116",
+      "species_id": "ANU_COL_PRIS_ACT_001",
+      "scientific_name": "Pristimantis actinolaimus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 0,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0117",
+      "species_id": "ANU_COL_PRIS_AEM_001",
+      "scientific_name": "Pristimantis aemulatus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 7,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0118",
+      "species_id": "ANU_COL_PRIS_AUR_001",
+      "scientific_name": "Pristimantis aurantiguttatus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0119",
+      "species_id": "ANU_COL_PRIS_BAI_001",
+      "scientific_name": "Pristimantis baiotis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0120",
+      "species_id": "ANU_COL_PRIS_BEL_001",
+      "scientific_name": "Pristimantis bellona",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 32,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0121",
+      "species_id": "ANU_COL_PRIS_BER_001",
+      "scientific_name": "Pristimantis bernali",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0122",
+      "species_id": "ANU_COL_PRIS_BIC_001",
+      "scientific_name": "Pristimantis bicolor",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0123",
+      "species_id": "ANU_COL_PRIS_BOU_001",
+      "scientific_name": "Pristimantis boulengeri",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0124",
+      "species_id": "ANU_COL_PRIS_BRE_001",
+      "scientific_name": "Pristimantis brevifrons",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 7,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0125",
+      "species_id": "ANU_COL_PRIS_CAB_001",
+      "scientific_name": "Pristimantis cabrerai",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0126",
+      "species_id": "ANU_COL_PRIS_CAL_001",
+      "scientific_name": "Pristimantis calcaratus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0127",
+      "species_id": "ANU_COL_PRIS_CAP_001",
+      "scientific_name": "Pristimantis caprifer",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0128",
+      "species_id": "ANU_COL_PRIS_CAR_001",
+      "scientific_name": "Pristimantis carylae",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0129",
+      "species_id": "ANU_COL_PRIS_CAR_002",
+      "scientific_name": "Pristimantis caryophyllaceus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0130",
+      "species_id": "ANU_COL_PRIS_CHA_001",
+      "scientific_name": "Pristimantis chalceus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0131",
+      "species_id": "ANU_COL_PRIS_CHO_001",
+      "scientific_name": "Pristimantis chocolatebari",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0132",
+      "species_id": "ANU_COL_PRIS_CON_001",
+      "scientific_name": "Pristimantis conspicillatus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0133",
+      "species_id": "ANU_COL_PRIS_CRU_001",
+      "scientific_name": "Pristimantis cruentus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 8,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0134",
+      "species_id": "ANU_COL_PRIS_DEI_001",
+      "scientific_name": "Pristimantis deinops",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0135",
+      "species_id": "ANU_COL_PRIS_DEV_001",
+      "scientific_name": "Pristimantis devillei",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0136",
+      "species_id": "ANU_COL_PRIS_DOR_001",
+      "scientific_name": "Pristimantis dorsopictus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 43,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0137",
+      "species_id": "ANU_COL_PRIS_FAC_001",
+      "scientific_name": "Pristimantis factiosus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 74,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0138",
+      "species_id": "ANU_COL_PRIS_FAL_001",
+      "scientific_name": "Pristimantis fallax",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 15,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0139",
+      "species_id": "ANU_COL_PRIS_FER_001",
+      "scientific_name": "Pristimantis ferwerdai",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 8,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0140",
+      "species_id": "ANU_COL_PRIS_FRA_001",
+      "scientific_name": "Pristimantis frater",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0141",
+      "species_id": "ANU_COL_PRIS_GRA_001",
+      "scientific_name": "Pristimantis gracilis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0142",
+      "species_id": "ANU_COL_PRIS_HEL_001",
+      "scientific_name": "Pristimantis helvolus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0143",
+      "species_id": "ANU_COL_PRIS_JAG_001",
+      "scientific_name": "Pristimantis jaguensis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 15,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0144",
+      "species_id": "ANU_COL_PRIS_JOH_001",
+      "scientific_name": "Pristimantis johannesdei",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0145",
+      "species_id": "ANU_COL_PRIS_JUA_001",
+      "scientific_name": "Pristimantis juanchoi",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0146",
+      "species_id": "ANU_COL_PRIS_KEL_001",
+      "scientific_name": "Pristimantis kelephus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0147",
+      "species_id": "ANU_COL_PRIS_LAS_001",
+      "scientific_name": "Pristimantis lasalleorum",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0148",
+      "species_id": "ANU_COL_PRIS_LAT_001",
+      "scientific_name": "Pristimantis latidiscus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0149",
+      "species_id": "ANU_COL_PRIS_LEM_001",
+      "scientific_name": "Pristimantis lemur",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 16,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0150",
+      "species_id": "ANU_COL_PRIS_LEO_001",
+      "scientific_name": "Pristimantis leopardus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0151",
+      "species_id": "ANU_COL_PRIS_MAC_001",
+      "scientific_name": "Pristimantis maculosus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0152",
+      "species_id": "ANU_COL_PRIS_MYO_001",
+      "scientific_name": "Pristimantis myops",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0153",
+      "species_id": "ANU_COL_PRIS_ORP_001",
+      "scientific_name": "Pristimantis orpacobates",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 34,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0154",
+      "species_id": "ANU_COL_PRIS_PAR_001",
+      "scientific_name": "Pristimantis parectatus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 65,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0155",
+      "species_id": "ANU_COL_PRIS_PHR_001",
+      "scientific_name": "Pristimantis phragmipleuron",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 7,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0156",
+      "species_id": "ANU_COL_PRIS_PIC_001",
+      "scientific_name": "Pristimantis piceus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0157",
+      "species_id": "ANU_COL_PRIS_PLA_001",
+      "scientific_name": "Pristimantis platychilus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0158",
+      "species_id": "ANU_COL_PRIS_POL_001",
+      "scientific_name": "Pristimantis polychrus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0159",
+      "species_id": "ANU_COL_PRIS_POS_001",
+      "scientific_name": "Pristimantis postducheminorum",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0160",
+      "species_id": "ANU_COL_PRIS_QUA_001",
+      "scientific_name": "Pristimantis quantus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0161",
+      "species_id": "ANU_COL_PRIS_RES_001",
+      "scientific_name": "Pristimantis restrepoi",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 8,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0162",
+      "species_id": "ANU_COL_PRIS_RID_001",
+      "scientific_name": "Pristimantis ridens",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0163",
+      "species_id": "ANU_COL_PRIS_RUE_001",
+      "scientific_name": "Pristimantis ruedai",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 16,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0164",
+      "species_id": "ANU_COL_PRIS_SAN_001",
+      "scientific_name": "Pristimantis sanguineus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 50,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0165",
+      "species_id": "ANU_COL_PRIS_SAT_001",
+      "scientific_name": "Pristimantis satagius",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 27,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0166",
+      "species_id": "ANU_COL_PRIS_SAV_001",
+      "scientific_name": "Pristimantis savagei",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0167",
+      "species_id": "ANU_COL_PRIS_SCO_001",
+      "scientific_name": "Pristimantis scoloblepharus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 84,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0168",
+      "species_id": "ANU_COL_PRIS_SIG_001",
+      "scientific_name": "Pristimantis signifer",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 0,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0169",
+      "species_id": "ANU_COL_PRIS_SUE_001",
+      "scientific_name": "Pristimantis suetus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 44,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0170",
+      "species_id": "ANU_COL_PRIS_SUP_001",
+      "scientific_name": "Pristimantis supernatis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 21,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0171",
+      "species_id": "ANU_COL_PRIS_TRI_001",
+      "scientific_name": "Pristimantis tribulosus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0172",
+      "species_id": "ANU_COL_PRIS_UNI_001",
+      "scientific_name": "Pristimantis unistrigatus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 10,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0173",
+      "species_id": "ANU_COL_PRIS_URA_001",
+      "scientific_name": "Pristimantis uranobates",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 49,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0174",
+      "species_id": "ANU_COL_PRIS_VEL_001",
+      "scientific_name": "Pristimantis veletis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0175",
+      "species_id": "ANU_COL_PRIS_VER_001",
+      "scientific_name": "Pristimantis vertebralis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0176",
+      "species_id": "ANU_COL_PRIS_VIE_001",
+      "scientific_name": "Pristimantis viejas",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 125,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0177",
+      "species_id": "ANU_COL_PRIS_VIR_001",
+      "scientific_name": "Pristimantis viridis",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 19,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0178",
+      "species_id": "ANU_COL_PRIS_W-N_001",
+      "scientific_name": "Pristimantis w-nigrum",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 105,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0179",
+      "species_id": "ANU_COL_PRIS_ZOP_001",
+      "scientific_name": "Pristimantis zophus",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 151,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0180",
+      "species_id": "ANU_COL_PRIS_ZOR_001",
+      "scientific_name": "Pristimantis zorro",
+      "family": "Craugastoridae",
+      "genus": "Pristimantis",
+      "records_valid": 10,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0181",
+      "species_id": "ANU_COL_STRA_BIP_001",
+      "scientific_name": "Strabomantis biporcatus",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0182",
+      "species_id": "ANU_COL_STRA_BUF_001",
+      "scientific_name": "Strabomantis bufoniformis",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 31,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0183",
+      "species_id": "ANU_COL_STRA_CER_001",
+      "scientific_name": "Strabomantis cerastes",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 7,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0184",
+      "species_id": "ANU_COL_STRA_CHE_001",
+      "scientific_name": "Strabomantis cheiroplethus",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0185",
+      "species_id": "ANU_COL_STRA_NEC_001",
+      "scientific_name": "Strabomantis necopinus",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0186",
+      "species_id": "ANU_COL_STRA_RUI_001",
+      "scientific_name": "Strabomantis ruizi",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0187",
+      "species_id": "ANU_COL_STRA_ZYG_001",
+      "scientific_name": "Strabomantis zygodactylus",
+      "family": "Craugastoridae",
+      "genus": "Strabomantis",
+      "records_valid": 26,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0188",
+      "species_id": "ANU_COL_ANDI_BOM_001",
+      "scientific_name": "Andinobates bombetes",
+      "family": "Dendrobatidae",
+      "genus": "Andinobates",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0189",
+      "species_id": "ANU_COL_ANDI_CAS_001",
+      "scientific_name": "Andinobates cassidyhornae",
+      "family": "Dendrobatidae",
+      "genus": "Andinobates",
+      "records_valid": 14,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0190",
+      "species_id": "ANU_COL_ANDI_DAL_001",
+      "scientific_name": "Andinobates daleswansoni",
+      "family": "Dendrobatidae",
+      "genus": "Andinobates",
+      "records_valid": 0,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0191",
+      "species_id": "ANU_COL_ANDI_FUL_001",
+      "scientific_name": "Andinobates fulguritus",
+      "family": "Dendrobatidae",
+      "genus": "Andinobates",
+      "records_valid": 14,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0192",
+      "species_id": "ANU_COL_ANDI_OPI_001",
+      "scientific_name": "Andinobates opisthomelas",
+      "family": "Dendrobatidae",
+      "genus": "Andinobates",
+      "records_valid": 361,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0193",
+      "species_id": "ANU_COL_ANDI_VIC_001",
+      "scientific_name": "Andinobates victimatus",
+      "family": "Dendrobatidae",
+      "genus": "Andinobates",
+      "records_valid": 30,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0194",
+      "species_id": "ANU_COL_COLO_DYS_001",
+      "scientific_name": "Colostethus dysprosium",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0195",
+      "species_id": "ANU_COL_COLO_IMB_001",
+      "scientific_name": "Colostethus imbricolus",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 21,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0196",
+      "species_id": "ANU_COL_COLO_ING_001",
+      "scientific_name": "Colostethus inguinalis",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 75,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0197",
+      "species_id": "ANU_COL_COLO_LAT_001",
+      "scientific_name": "Colostethus latinasus",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0198",
+      "species_id": "ANU_COL_COLO_PRA_001",
+      "scientific_name": "Colostethus pratti",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 37,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0199",
+      "species_id": "ANU_COL_COLO_THO_001",
+      "scientific_name": "Colostethus thorntoni",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0200",
+      "species_id": "ANU_COL_COLO_YAG_001",
+      "scientific_name": "Colostethus yaguara",
+      "family": "Dendrobatidae",
+      "genus": "Colostethus",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0201",
+      "species_id": "ANU_COL_DEND_AUR_001",
+      "scientific_name": "Dendrobates auratus",
+      "family": "Dendrobatidae",
+      "genus": "Dendrobates",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0202",
+      "species_id": "ANU_COL_DEND_TIN_001",
+      "scientific_name": "Dendrobates tinctorius",
+      "family": "Dendrobatidae",
+      "genus": "Dendrobates",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0203",
+      "species_id": "ANU_COL_ECTO_ATO_001",
+      "scientific_name": "Ectopoglossus atopoglossus",
+      "family": "Dendrobatidae",
+      "genus": "Ectopoglossus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0204",
+      "species_id": "ANU_COL_ECTO_SAX_001",
+      "scientific_name": "Ectopoglossus saxatilis",
+      "family": "Dendrobatidae",
+      "genus": "Ectopoglossus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0205",
+      "species_id": "ANU_COL_HYLO_ABD_001",
+      "scientific_name": "Hyloxalus abditaurantius",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0206",
+      "species_id": "ANU_COL_HYLO_BOC_001",
+      "scientific_name": "Hyloxalus bocagei",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0207",
+      "species_id": "ANU_COL_HYLO_CHO_001",
+      "scientific_name": "Hyloxalus chocoensis",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0208",
+      "species_id": "ANU_COL_HYLO_DEL_001",
+      "scientific_name": "Hyloxalus delatorreae",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0209",
+      "species_id": "ANU_COL_HYLO_EXC_001",
+      "scientific_name": "Hyloxalus excisus",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0210",
+      "species_id": "ANU_COL_HYLO_LEH_001",
+      "scientific_name": "Hyloxalus lehmanni",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 8,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0211",
+      "species_id": "ANU_COL_HYLO_RAM_001",
+      "scientific_name": "Hyloxalus ramosi",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0212",
+      "species_id": "ANU_COL_HYLO_SUB_001",
+      "scientific_name": "Hyloxalus subpunctatus",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0213",
+      "species_id": "ANU_COL_HYLO_VER_001",
+      "scientific_name": "Hyloxalus vergeli",
+      "family": "Dendrobatidae",
+      "genus": "Hyloxalus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0214",
+      "species_id": "ANU_COL_LEUC_BRA_001",
+      "scientific_name": "Leucostethus brachistriatus",
+      "family": "Dendrobatidae",
+      "genus": "Leucostethus",
+      "records_valid": 10,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0215",
+      "species_id": "ANU_COL_LEUC_FRA_001",
+      "scientific_name": "Leucostethus fraterdanieli",
+      "family": "Dendrobatidae",
+      "genus": "Leucostethus",
+      "records_valid": 332,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0216",
+      "species_id": "ANU_COL_LEUC_JOT_001",
+      "scientific_name": "Leucostethus jota",
+      "family": "Dendrobatidae",
+      "genus": "Leucostethus",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0217",
+      "species_id": "ANU_COL_LEUC_RAM_001",
+      "scientific_name": "Leucostethus ramirezi",
+      "family": "Dendrobatidae",
+      "genus": "Leucostethus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0218",
+      "species_id": "ANU_COL_OOPH_AND_001",
+      "scientific_name": "Oophaga andresi",
+      "family": "Dendrobatidae",
+      "genus": "Oophaga",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0219",
+      "species_id": "ANU_COL_OOPH_HIS_001",
+      "scientific_name": "Oophaga histrionica",
+      "family": "Dendrobatidae",
+      "genus": "Oophaga",
+      "records_valid": 65,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0220",
+      "species_id": "ANU_COL_OOPH_SOL_001",
+      "scientific_name": "Oophaga solanensis",
+      "family": "Dendrobatidae",
+      "genus": "Oophaga",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0221",
+      "species_id": "ANU_COL_PHYL_AUR_001",
+      "scientific_name": "Phyllobates aurotaenia",
+      "family": "Dendrobatidae",
+      "genus": "Phyllobates",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0222",
+      "species_id": "ANU_COL_PHYL_TER_001",
+      "scientific_name": "Phyllobates terribilis",
+      "family": "Dendrobatidae",
+      "genus": "Phyllobates",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0223",
+      "species_id": "ANU_COL_SILV_ERA_001",
+      "scientific_name": "Silverstoneia erasmios",
+      "family": "Dendrobatidae",
+      "genus": "Silverstoneia",
+      "records_valid": 18,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0224",
+      "species_id": "ANU_COL_SILV_MIN_001",
+      "scientific_name": "Silverstoneia minutissima",
+      "family": "Dendrobatidae",
+      "genus": "Silverstoneia",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0225",
+      "species_id": "ANU_COL_SILV_NUB_001",
+      "scientific_name": "Silverstoneia nubicola",
+      "family": "Dendrobatidae",
+      "genus": "Silverstoneia",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0226",
+      "species_id": "ANU_COL_HOPL_TIG_001",
+      "scientific_name": "Hoplobatrachus tigerinus",
+      "family": "Dicroglossidae",
+      "genus": "Hoplobatrachus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0227",
+      "species_id": "ANU_COL_DIAS_ANT_001",
+      "scientific_name": "Diasporus anthrax",
+      "family": "Eleutherodactylidae",
+      "genus": "Diasporus",
+      "records_valid": 33,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0228",
+      "species_id": "ANU_COL_DIAS_DIA_001",
+      "scientific_name": "Diasporus diastema",
+      "family": "Eleutherodactylidae",
+      "genus": "Diasporus",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0229",
+      "species_id": "ANU_COL_DIAS_GUL_001",
+      "scientific_name": "Diasporus gularis",
+      "family": "Eleutherodactylidae",
+      "genus": "Diasporus",
+      "records_valid": 35,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0230",
+      "species_id": "ANU_COL_DIAS_QUI_001",
+      "scientific_name": "Diasporus quidditus",
+      "family": "Eleutherodactylidae",
+      "genus": "Diasporus",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0231",
+      "species_id": "ANU_COL_DIAS_TIN_001",
+      "scientific_name": "Diasporus tinker",
+      "family": "Eleutherodactylidae",
+      "genus": "Diasporus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0232",
+      "species_id": "ANU_COL_ELEU_EMI_001",
+      "scientific_name": "Eleutherodactylus emiliae",
+      "family": "Eleutherodactylidae",
+      "genus": "Eleutherodactylus",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0233",
+      "species_id": "ANU_COL_ELEU_JOH_001",
+      "scientific_name": "Eleutherodactylus johnstonei",
+      "family": "Eleutherodactylidae",
+      "genus": "Eleutherodactylus",
+      "records_valid": 21,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0234",
+      "species_id": "ANU_COL_CRYP_FUH_001",
+      "scientific_name": "Cryptobatrachus fuhrmanni",
+      "family": "Hemiphractidae",
+      "genus": "Cryptobatrachus",
+      "records_valid": 58,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0235",
+      "species_id": "ANU_COL_GAST_ANT_001",
+      "scientific_name": "Gastrotheca antomia",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0236",
+      "species_id": "ANU_COL_GAST_ARG_001",
+      "scientific_name": "Gastrotheca argenteovirens",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0237",
+      "species_id": "ANU_COL_GAST_BUF_001",
+      "scientific_name": "Gastrotheca bufona",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0238",
+      "species_id": "ANU_COL_GAST_DEN_001",
+      "scientific_name": "Gastrotheca dendronastes",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 14,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0239",
+      "species_id": "ANU_COL_GAST_DUN_001",
+      "scientific_name": "Gastrotheca dunni",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 38,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0240",
+      "species_id": "ANU_COL_GAST_GUE_001",
+      "scientific_name": "Gastrotheca guentheri",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0241",
+      "species_id": "ANU_COL_GAST_NIC_001",
+      "scientific_name": "Gastrotheca nicefori",
+      "family": "Hemiphractidae",
+      "genus": "Gastrotheca",
+      "records_valid": 56,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0242",
+      "species_id": "ANU_COL_HEMI_FAS_001",
+      "scientific_name": "Hemiphractus fasciatus",
+      "family": "Hemiphractidae",
+      "genus": "Hemiphractus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0243",
+      "species_id": "ANU_COL_ACRI_CRE_001",
+      "scientific_name": "Acris crepitans",
+      "family": "Hylidae",
+      "genus": "Acris",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0244",
+      "species_id": "ANU_COL_BOAN_ALB_001",
+      "scientific_name": "Boana albomarginata",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0245",
+      "species_id": "ANU_COL_BOAN_CRE_001",
+      "scientific_name": "Boana crepitans",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "records_valid": 31,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0246",
+      "species_id": "ANU_COL_BOAN_PEL_001",
+      "scientific_name": "Boana pellucens",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0247",
+      "species_id": "ANU_COL_BOAN_PIC_001",
+      "scientific_name": "Boana picturata",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "records_valid": 33,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0248",
+      "species_id": "ANU_COL_BOAN_RUB_001",
+      "scientific_name": "Boana rubracyla",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "records_valid": 34,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0249",
+      "species_id": "ANU_COL_BOAN_RUF_001",
+      "scientific_name": "Boana rufitela",
+      "family": "Hylidae",
+      "genus": "Boana",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0250",
+      "species_id": "ANU_COL_DEND_CAR_001",
+      "scientific_name": "Dendropsophus carnifex",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "records_valid": 14,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0251",
+      "species_id": "ANU_COL_DEND_PHL_001",
+      "scientific_name": "Dendropsophus phlebodes",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "records_valid": 70,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0252",
+      "species_id": "ANU_COL_DEND_SUB_001",
+      "scientific_name": "Dendropsophus subocularis",
+      "family": "Hylidae",
+      "genus": "Dendropsophus",
+      "records_valid": 11,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0253",
+      "species_id": "ANU_COL_ECNO_PHA_001",
+      "scientific_name": "Ecnomiohyla phantasmagoria",
+      "family": "Hylidae",
+      "genus": "Ecnomiohyla",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0254",
+      "species_id": "ANU_COL_HYLO_ANT_001",
+      "scientific_name": "Hyloscirtus antioquia",
+      "family": "Hylidae",
+      "genus": "Hyloscirtus",
+      "records_valid": 93,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0255",
+      "species_id": "ANU_COL_HYLO_BOG_001",
+      "scientific_name": "Hyloscirtus bogotensis",
+      "family": "Hylidae",
+      "genus": "Hyloscirtus",
+      "records_valid": 27,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0256",
+      "species_id": "ANU_COL_HYLO_COL_001",
+      "scientific_name": "Hyloscirtus colymba",
+      "family": "Hylidae",
+      "genus": "Hyloscirtus",
+      "records_valid": 36,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0257",
+      "species_id": "ANU_COL_HYLO_LAR_001",
+      "scientific_name": "Hyloscirtus larinopygion",
+      "family": "Hylidae",
+      "genus": "Hyloscirtus",
+      "records_valid": 42,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0258",
+      "species_id": "ANU_COL_PSEU_PAR_001",
+      "scientific_name": "Pseudis paradoxa",
+      "family": "Hylidae",
+      "genus": "Pseudis",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0259",
+      "species_id": "ANU_COL_SCAR_VIG_001",
+      "scientific_name": "Scarthyla vigilans",
+      "family": "Hylidae",
+      "genus": "Scarthyla",
+      "records_valid": 67,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0260",
+      "species_id": "ANU_COL_SCIN_BOU_001",
+      "scientific_name": "Scinax boulengeri",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "records_valid": 35,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0261",
+      "species_id": "ANU_COL_SCIN_CAP_001",
+      "scientific_name": "Scinax caprarius",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "records_valid": 59,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0262",
+      "species_id": "ANU_COL_SCIN_ELA_001",
+      "scientific_name": "Scinax elaeochroa",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "records_valid": 38,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0263",
+      "species_id": "ANU_COL_SCIN_ROS_001",
+      "scientific_name": "Scinax rostratus",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "records_valid": 99,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0264",
+      "species_id": "ANU_COL_SCIN_SUG_001",
+      "scientific_name": "Scinax sugillatus",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "records_valid": 41,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0265",
+      "species_id": "ANU_COL_SCIN_X-S_001",
+      "scientific_name": "Scinax x-signatus",
+      "family": "Hylidae",
+      "genus": "Scinax",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0266",
+      "species_id": "ANU_COL_SMIL_PHA_001",
+      "scientific_name": "Smilisca phaeota",
+      "family": "Hylidae",
+      "genus": "Smilisca",
+      "records_valid": 415,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0267",
+      "species_id": "ANU_COL_SMIL_SIL_001",
+      "scientific_name": "Smilisca sila",
+      "family": "Hylidae",
+      "genus": "Smilisca",
+      "records_valid": 72,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0268",
+      "species_id": "ANU_COL_SMIL_SOR_001",
+      "scientific_name": "Smilisca sordida",
+      "family": "Hylidae",
+      "genus": "Smilisca",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0269",
+      "species_id": "ANU_COL_TRAC_MAC_001",
+      "scientific_name": "Trachycephalus macrotis",
+      "family": "Hylidae",
+      "genus": "Trachycephalus",
+      "records_valid": 41,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0270",
+      "species_id": "ANU_COL_TRAC_TYP_001",
+      "scientific_name": "Trachycephalus typhonius",
+      "family": "Hylidae",
+      "genus": "Trachycephalus",
+      "records_valid": 16,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0271",
+      "species_id": "ANU_COL_TRAC_VEN_001",
+      "scientific_name": "Trachycephalus venulosus",
+      "family": "Hylidae",
+      "genus": "Trachycephalus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0272",
+      "species_id": "ANU_COL_LEPT_BOL_001",
+      "scientific_name": "Leptodactylus bolivianus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 21,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0273",
+      "species_id": "ANU_COL_LEPT_FRA_001",
+      "scientific_name": "Leptodactylus fragilis",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 136,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0274",
+      "species_id": "ANU_COL_LEPT_FUS_001",
+      "scientific_name": "Leptodactylus fuscus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 157,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0275",
+      "species_id": "ANU_COL_LEPT_INS_001",
+      "scientific_name": "Leptodactylus insularum",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 138,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0276",
+      "species_id": "ANU_COL_LEPT_MEL_001",
+      "scientific_name": "Leptodactylus melanonotus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 4,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0277",
+      "species_id": "ANU_COL_LEPT_MYS_001",
+      "scientific_name": "Leptodactylus mystacinus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0278",
+      "species_id": "ANU_COL_LEPT_PEN_001",
+      "scientific_name": "Leptodactylus pentadactylus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0279",
+      "species_id": "ANU_COL_LEPT_POE_001",
+      "scientific_name": "Leptodactylus poecilochilus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 11,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0280",
+      "species_id": "ANU_COL_LEPT_RHO_001",
+      "scientific_name": "Leptodactylus rhodomerus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0281",
+      "species_id": "ANU_COL_LEPT_SAV_001",
+      "scientific_name": "Leptodactylus savagei",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 52,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0282",
+      "species_id": "ANU_COL_LEPT_VEN_001",
+      "scientific_name": "Leptodactylus ventrimaculatus",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0283",
+      "species_id": "ANU_COL_PHYS_FIS_001",
+      "scientific_name": "Physalaemus fischeri",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0284",
+      "species_id": "ANU_COL_PLEU_BRA_001",
+      "scientific_name": "Pleurodema brachyops",
+      "family": "Leptodactylidae",
+      "genus": "Pleurodema",
+      "records_valid": 11,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0285",
+      "species_id": "ANU_COL_PSEU_PUS_001",
+      "scientific_name": "Pseudopaludicola pusilla",
+      "family": "Leptodactylidae",
+      "genus": "Pseudopaludicola",
+      "records_valid": 27,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0286",
+      "species_id": "ANU_COL_CTEN_ATE_001",
+      "scientific_name": "Ctenophryne aterrima",
+      "family": "Microhylidae",
+      "genus": "Ctenophryne",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0287",
+      "species_id": "ANU_COL_ELAC_PAN_001",
+      "scientific_name": "Elachistocleis panamensis",
+      "family": "Microhylidae",
+      "genus": "Elachistocleis",
+      "records_valid": 9,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0288",
+      "species_id": "ANU_COL_ELAC_PEA_001",
+      "scientific_name": "Elachistocleis pearsei",
+      "family": "Microhylidae",
+      "genus": "Elachistocleis",
+      "records_valid": 82,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0289",
+      "species_id": "ANU_COL_AGAL_BUC_001",
+      "scientific_name": "Agalychnis buckleyi",
+      "family": "Phyllomedusidae",
+      "genus": "Agalychnis",
+      "records_valid": 5,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0290",
+      "species_id": "ANU_COL_AGAL_DAN_001",
+      "scientific_name": "Agalychnis danieli",
+      "family": "Phyllomedusidae",
+      "genus": "Agalychnis",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0291",
+      "species_id": "ANU_COL_AGAL_SPU_001",
+      "scientific_name": "Agalychnis spurrelli",
+      "family": "Phyllomedusidae",
+      "genus": "Agalychnis",
+      "records_valid": 6,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0292",
+      "species_id": "ANU_COL_AGAL_TER_001",
+      "scientific_name": "Agalychnis terranova",
+      "family": "Phyllomedusidae",
+      "genus": "Agalychnis",
+      "records_valid": 28,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0293",
+      "species_id": "ANU_COL_CALL_PER_001",
+      "scientific_name": "Callimedusa perinesos",
+      "family": "Phyllomedusidae",
+      "genus": "Callimedusa",
+      "records_valid": 2,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0294",
+      "species_id": "ANU_COL_PHYL_BIC_001",
+      "scientific_name": "Phyllomedusa bicolor",
+      "family": "Phyllomedusidae",
+      "genus": "Phyllomedusa",
+      "records_valid": 1,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0295",
+      "species_id": "ANU_COL_PIPA_MYE_001",
+      "scientific_name": "Pipa myersi",
+      "family": "Pipidae",
+      "genus": "Pipa",
+      "records_valid": 16,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0296",
+      "species_id": "ANU_COL_LITH_CAT_001",
+      "scientific_name": "Lithobates catesbeianus",
+      "family": "Ranidae",
+      "genus": "Lithobates",
+      "records_valid": 43,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0297",
+      "species_id": "ANU_COL_LITH_PAL_001",
+      "scientific_name": "Lithobates palmipes",
+      "family": "Ranidae",
+      "genus": "Lithobates",
+      "records_valid": 3,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0298",
+      "species_id": "ANU_COL_LITH_VAI_001",
+      "scientific_name": "Lithobates vaillanti",
+      "family": "Ranidae",
+      "genus": "Lithobates",
+      "records_valid": 73,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0299",
+      "species_id": "ANU_COL_PRIS_CAM_001",
+      "scientific_name": "Pristimantis campesino",
+      "family": "nan",
+      "genus": "Pristimantis",
+      "records_valid": 15,
+      "visual_data_status": "NO_VISUAL_DATA"
+    },
+    {
+      "taxon_id": "COL_ANURA_0300",
+      "species_id": "ANU_COL_PRIS_CRY_001",
+      "scientific_name": "Pristimantis cryptopictus",
+      "family": "nan",
+      "genus": "Pristimantis",
+      "records_valid": 18,
+      "visual_data_status": "NO_VISUAL_DATA"
+    }
+  ],
+  "n_visual_excluded_review_flagged_in_catalog": 4,
+  "visual_excluded_review_species": [
+    {
+      "taxon_id": "COL_ANURA_0005",
+      "scientific_name": "Sachatamia electrops",
+      "visual_exclusion_reason": "excluida_del_entrenamiento_por_integridad_de_datos"
+    },
+    {
+      "taxon_id": "COL_ANURA_0008",
+      "scientific_name": "Pristimantis bogotensis",
+      "visual_exclusion_reason": "presencia_dudosa_en_departamento"
+    },
+    {
+      "taxon_id": "COL_ANURA_0033",
+      "scientific_name": "Dendropsophus molitor",
+      "visual_exclusion_reason": "presencia_dudosa_en_departamento"
+    },
+    {
+      "taxon_id": "COL_ANURA_0041",
+      "scientific_name": "Phyllomedusa tarsius",
+      "visual_exclusion_reason": "presencia_dudosa_en_departamento"
+    }
+  ],
+  "low_geo_record_species_lt5": [
+    {
+      "taxon_id": "COL_ANURA_0008",
+      "species_id": "ANU_COL_PRIS_BOG_001",
+      "scientific_name": "Pristimantis bogotensis",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0033",
+      "species_id": "ANU_COL_DEND_MOL_001",
+      "scientific_name": "Dendropsophus molitor",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0041",
+      "species_id": "ANU_COL_PHYL_TAR_001",
+      "scientific_name": "Phyllomedusa tarsius",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0044",
+      "species_id": "ANU_COL_ALLO_BRU_001",
+      "scientific_name": "Allobates brunneus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0051",
+      "species_id": "ANU_COL_ATEL_SAN_001",
+      "scientific_name": "Atelopus sanjosei",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0054",
+      "species_id": "ANU_COL_BUFO_BUF_001",
+      "scientific_name": "Bufo bufo",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0056",
+      "species_id": "ANU_COL_OSOR_PER_001",
+      "scientific_name": "Osornophryne percrassa",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0057",
+      "species_id": "ANU_COL_RHAE_BLO_001",
+      "scientific_name": "Rhaebo blombergi",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0059",
+      "species_id": "ANU_COL_RHAE_LYN_001",
+      "scientific_name": "Rhaebo lynchi",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0060",
+      "species_id": "ANU_COL_RHIN_ACR_001",
+      "scientific_name": "Rhinella acrolopha",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0063",
+      "species_id": "ANU_COL_RHIN_LIN_001",
+      "scientific_name": "Rhinella lindae",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0067",
+      "species_id": "ANU_COL_RHIN_PAR_001",
+      "scientific_name": "Rhinella paraguas",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0070",
+      "species_id": "ANU_COL_RHIN_STE_001",
+      "scientific_name": "Rhinella sternosignata",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0074",
+      "species_id": "ANU_COL_CENT_GEC_001",
+      "scientific_name": "Centrolene geckoideum",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0075",
+      "species_id": "ANU_COL_CENT_PER_001",
+      "scientific_name": "Centrolene peristictum",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0079",
+      "species_id": "ANU_COL_COCH_EUK_001",
+      "scientific_name": "Cochranella euknemos",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0080",
+      "species_id": "ANU_COL_COCH_MEG_001",
+      "scientific_name": "Cochranella megista",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0081",
+      "species_id": "ANU_COL_COCH_RAM_001",
+      "scientific_name": "Cochranella ramirezi",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0083",
+      "species_id": "ANU_COL_ESPA_AND_001",
+      "scientific_name": "Espadarana andina",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0086",
+      "species_id": "ANU_COL_HYAL_CHI_001",
+      "scientific_name": "Hyalinobatrachium chirripoi",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0090",
+      "species_id": "ANU_COL_HYAL_VAL_001",
+      "scientific_name": "Hyalinobatrachium valerioi",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0091",
+      "species_id": "ANU_COL_NYMP_CHA_001",
+      "scientific_name": "Nymphargus chami",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0094",
+      "species_id": "ANU_COL_NYMP_IGN_001",
+      "scientific_name": "Nymphargus ignotus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0097",
+      "species_id": "ANU_COL_NYMP_PRA_001",
+      "scientific_name": "Nymphargus prasinus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0099",
+      "species_id": "ANU_COL_NYMP_SPI_001",
+      "scientific_name": "Nymphargus spilotus",
+      "records_valid": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0103",
+      "species_id": "ANU_COL_TERA_PUL_001",
+      "scientific_name": "Teratohyla pulverata",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0104",
+      "species_id": "ANU_COL_TERA_SPI_001",
+      "scientific_name": "Teratohyla spinosa",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0105",
+      "species_id": "ANU_COL_ATOP_SYN_001",
+      "scientific_name": "Atopophrynus syntomopus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0110",
+      "species_id": "ANU_COL_CRAU_OPI_001",
+      "scientific_name": "Craugastor opimus",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0111",
+      "species_id": "ANU_COL_NICE_ADE_001",
+      "scientific_name": "Niceforonia adenobrachia",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0112",
+      "species_id": "ANU_COL_NICE_BAB_001",
+      "scientific_name": "Niceforonia babax",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0113",
+      "species_id": "ANU_COL_NICE_LAT_001",
+      "scientific_name": "Niceforonia latens",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0116",
+      "species_id": "ANU_COL_PRIS_ACT_001",
+      "scientific_name": "Pristimantis actinolaimus",
+      "records_valid": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0118",
+      "species_id": "ANU_COL_PRIS_AUR_001",
+      "scientific_name": "Pristimantis aurantiguttatus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0119",
+      "species_id": "ANU_COL_PRIS_BAI_001",
+      "scientific_name": "Pristimantis baiotis",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0121",
+      "species_id": "ANU_COL_PRIS_BER_001",
+      "scientific_name": "Pristimantis bernali",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0122",
+      "species_id": "ANU_COL_PRIS_BIC_001",
+      "scientific_name": "Pristimantis bicolor",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0123",
+      "species_id": "ANU_COL_PRIS_BOU_001",
+      "scientific_name": "Pristimantis boulengeri",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0125",
+      "species_id": "ANU_COL_PRIS_CAB_001",
+      "scientific_name": "Pristimantis cabrerai",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0126",
+      "species_id": "ANU_COL_PRIS_CAL_001",
+      "scientific_name": "Pristimantis calcaratus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0127",
+      "species_id": "ANU_COL_PRIS_CAP_001",
+      "scientific_name": "Pristimantis caprifer",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0130",
+      "species_id": "ANU_COL_PRIS_CHA_001",
+      "scientific_name": "Pristimantis chalceus",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0131",
+      "species_id": "ANU_COL_PRIS_CHO_001",
+      "scientific_name": "Pristimantis chocolatebari",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0132",
+      "species_id": "ANU_COL_PRIS_CON_001",
+      "scientific_name": "Pristimantis conspicillatus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0134",
+      "species_id": "ANU_COL_PRIS_DEI_001",
+      "scientific_name": "Pristimantis deinops",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0140",
+      "species_id": "ANU_COL_PRIS_FRA_001",
+      "scientific_name": "Pristimantis frater",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0141",
+      "species_id": "ANU_COL_PRIS_GRA_001",
+      "scientific_name": "Pristimantis gracilis",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0145",
+      "species_id": "ANU_COL_PRIS_JUA_001",
+      "scientific_name": "Pristimantis juanchoi",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0146",
+      "species_id": "ANU_COL_PRIS_KEL_001",
+      "scientific_name": "Pristimantis kelephus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0147",
+      "species_id": "ANU_COL_PRIS_LAS_001",
+      "scientific_name": "Pristimantis lasalleorum",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0148",
+      "species_id": "ANU_COL_PRIS_LAT_001",
+      "scientific_name": "Pristimantis latidiscus",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0150",
+      "species_id": "ANU_COL_PRIS_LEO_001",
+      "scientific_name": "Pristimantis leopardus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0151",
+      "species_id": "ANU_COL_PRIS_MAC_001",
+      "scientific_name": "Pristimantis maculosus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0152",
+      "species_id": "ANU_COL_PRIS_MYO_001",
+      "scientific_name": "Pristimantis myops",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0157",
+      "species_id": "ANU_COL_PRIS_PLA_001",
+      "scientific_name": "Pristimantis platychilus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0159",
+      "species_id": "ANU_COL_PRIS_POS_001",
+      "scientific_name": "Pristimantis postducheminorum",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0166",
+      "species_id": "ANU_COL_PRIS_SAV_001",
+      "scientific_name": "Pristimantis savagei",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0168",
+      "species_id": "ANU_COL_PRIS_SIG_001",
+      "scientific_name": "Pristimantis signifer",
+      "records_valid": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0171",
+      "species_id": "ANU_COL_PRIS_TRI_001",
+      "scientific_name": "Pristimantis tribulosus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0174",
+      "species_id": "ANU_COL_PRIS_VEL_001",
+      "scientific_name": "Pristimantis veletis",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0175",
+      "species_id": "ANU_COL_PRIS_VER_001",
+      "scientific_name": "Pristimantis vertebralis",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0181",
+      "species_id": "ANU_COL_STRA_BIP_001",
+      "scientific_name": "Strabomantis biporcatus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0184",
+      "species_id": "ANU_COL_STRA_CHE_001",
+      "scientific_name": "Strabomantis cheiroplethus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0185",
+      "species_id": "ANU_COL_STRA_NEC_001",
+      "scientific_name": "Strabomantis necopinus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0186",
+      "species_id": "ANU_COL_STRA_RUI_001",
+      "scientific_name": "Strabomantis ruizi",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0188",
+      "species_id": "ANU_COL_ANDI_BOM_001",
+      "scientific_name": "Andinobates bombetes",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0190",
+      "species_id": "ANU_COL_ANDI_DAL_001",
+      "scientific_name": "Andinobates daleswansoni",
+      "records_valid": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0197",
+      "species_id": "ANU_COL_COLO_LAT_001",
+      "scientific_name": "Colostethus latinasus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0201",
+      "species_id": "ANU_COL_DEND_AUR_001",
+      "scientific_name": "Dendrobates auratus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0202",
+      "species_id": "ANU_COL_DEND_TIN_001",
+      "scientific_name": "Dendrobates tinctorius",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0203",
+      "species_id": "ANU_COL_ECTO_ATO_001",
+      "scientific_name": "Ectopoglossus atopoglossus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0204",
+      "species_id": "ANU_COL_ECTO_SAX_001",
+      "scientific_name": "Ectopoglossus saxatilis",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0206",
+      "species_id": "ANU_COL_HYLO_BOC_001",
+      "scientific_name": "Hyloxalus bocagei",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0207",
+      "species_id": "ANU_COL_HYLO_CHO_001",
+      "scientific_name": "Hyloxalus chocoensis",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0208",
+      "species_id": "ANU_COL_HYLO_DEL_001",
+      "scientific_name": "Hyloxalus delatorreae",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0209",
+      "species_id": "ANU_COL_HYLO_EXC_001",
+      "scientific_name": "Hyloxalus excisus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0211",
+      "species_id": "ANU_COL_HYLO_RAM_001",
+      "scientific_name": "Hyloxalus ramosi",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0212",
+      "species_id": "ANU_COL_HYLO_SUB_001",
+      "scientific_name": "Hyloxalus subpunctatus",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0213",
+      "species_id": "ANU_COL_HYLO_VER_001",
+      "scientific_name": "Hyloxalus vergeli",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0216",
+      "species_id": "ANU_COL_LEUC_JOT_001",
+      "scientific_name": "Leucostethus jota",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0217",
+      "species_id": "ANU_COL_LEUC_RAM_001",
+      "scientific_name": "Leucostethus ramirezi",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0218",
+      "species_id": "ANU_COL_OOPH_AND_001",
+      "scientific_name": "Oophaga andresi",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0220",
+      "species_id": "ANU_COL_OOPH_SOL_001",
+      "scientific_name": "Oophaga solanensis",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0221",
+      "species_id": "ANU_COL_PHYL_AUR_001",
+      "scientific_name": "Phyllobates aurotaenia",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0222",
+      "species_id": "ANU_COL_PHYL_TER_001",
+      "scientific_name": "Phyllobates terribilis",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0224",
+      "species_id": "ANU_COL_SILV_MIN_001",
+      "scientific_name": "Silverstoneia minutissima",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0226",
+      "species_id": "ANU_COL_HOPL_TIG_001",
+      "scientific_name": "Hoplobatrachus tigerinus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0228",
+      "species_id": "ANU_COL_DIAS_DIA_001",
+      "scientific_name": "Diasporus diastema",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0230",
+      "species_id": "ANU_COL_DIAS_QUI_001",
+      "scientific_name": "Diasporus quidditus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0231",
+      "species_id": "ANU_COL_DIAS_TIN_001",
+      "scientific_name": "Diasporus tinker",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0235",
+      "species_id": "ANU_COL_GAST_ANT_001",
+      "scientific_name": "Gastrotheca antomia",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0237",
+      "species_id": "ANU_COL_GAST_BUF_001",
+      "scientific_name": "Gastrotheca bufona",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0240",
+      "species_id": "ANU_COL_GAST_GUE_001",
+      "scientific_name": "Gastrotheca guentheri",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0242",
+      "species_id": "ANU_COL_HEMI_FAS_001",
+      "scientific_name": "Hemiphractus fasciatus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0243",
+      "species_id": "ANU_COL_ACRI_CRE_001",
+      "scientific_name": "Acris crepitans",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0244",
+      "species_id": "ANU_COL_BOAN_ALB_001",
+      "scientific_name": "Boana albomarginata",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0246",
+      "species_id": "ANU_COL_BOAN_PEL_001",
+      "scientific_name": "Boana pellucens",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0253",
+      "species_id": "ANU_COL_ECNO_PHA_001",
+      "scientific_name": "Ecnomiohyla phantasmagoria",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0258",
+      "species_id": "ANU_COL_PSEU_PAR_001",
+      "scientific_name": "Pseudis paradoxa",
+      "records_valid": 3
+    },
+    {
+      "taxon_id": "COL_ANURA_0271",
+      "species_id": "ANU_COL_TRAC_VEN_001",
+      "scientific_name": "Trachycephalus venulosus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0276",
+      "species_id": "ANU_COL_LEPT_MEL_001",
+      "scientific_name": "Leptodactylus melanonotus",
+      "records_valid": 4
+    },
+    {
+      "taxon_id": "COL_ANURA_0277",
+      "species_id": "ANU_COL_LEPT_MYS_001",
+      "scientific_name": "Leptodactylus mystacinus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0280",
+      "species_id": "ANU_COL_LEPT_RHO_001",
+      "scientific_name": "Leptodactylus rhodomerus",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0282",
+      "species_id": "ANU_COL_LEPT_VEN_001",
+      "scientific_name": "Leptodactylus ventrimaculatus",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0283",
+      "species_id": "ANU_COL_PHYS_FIS_001",
+      "scientific_name": "Physalaemus fischeri",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0290",
+      "species_id": "ANU_COL_AGAL_DAN_001",
+      "scientific_name": "Agalychnis danieli",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0293",
+      "species_id": "ANU_COL_CALL_PER_001",
+      "scientific_name": "Callimedusa perinesos",
+      "records_valid": 2
+    },
+    {
+      "taxon_id": "COL_ANURA_0294",
+      "species_id": "ANU_COL_PHYL_BIC_001",
+      "scientific_name": "Phyllomedusa bicolor",
+      "records_valid": 1
+    },
+    {
+      "taxon_id": "COL_ANURA_0297",
+      "species_id": "ANU_COL_LITH_PAL_001",
+      "scientific_name": "Lithobates palmipes",
+      "records_valid": 3
+    }
+  ],
+  "zero_cell_species": [
+    {
+      "taxon_id": "COL_ANURA_0099",
+      "species_id": "ANU_COL_NYMP_SPI_001",
+      "scientific_name": "Nymphargus spilotus",
+      "cells_occupied": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0116",
+      "species_id": "ANU_COL_PRIS_ACT_001",
+      "scientific_name": "Pristimantis actinolaimus",
+      "cells_occupied": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0168",
+      "species_id": "ANU_COL_PRIS_SIG_001",
+      "scientific_name": "Pristimantis signifer",
+      "cells_occupied": 0
+    },
+    {
+      "taxon_id": "COL_ANURA_0190",
+      "species_id": "ANU_COL_ANDI_DAL_001",
+      "scientific_name": "Andinobates daleswansoni",
+      "cells_occupied": 0
+    }
+  ]
+}

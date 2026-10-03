@@ -1,0 +1,17 @@
+{
+  "phase": "16.12",
+  "TRAIN_vs_BLIND": 0,
+  "CALIBRATION_vs_BLIND": 0,
+  "REFERENCE_vs_BLIND": 0,
+  "CENTROID_SOURCE_vs_BLIND": {
+    "REFERENCE": 0,
+    "TRAIN": 0
+  },
+  "INDIVIDUAL_ID_overlap": {
+    "CLEAN_KNOWN_vs_TRAIN": 0,
+    "note": "Verificado en Fase 16.2: 0 imagenes candidatas rechazadas por obs_id compartido con TRAIN de las 7475 encontradas — el pool final ya excluye cualquier overlap de individuo.",
+    "CALIBRATION_vs_BLIND": "UNKNOWN (CALIBRATION no tiene obs_id extraible, declarado explicitamente, no asumido 0)"
+  },
+  "NOTE_ON_F3": "F3 (usado en Fase 13) NO se reutiliza en Fase 16. El nuevo BLIND KNOWN es clean_known_manifest.json (7475 imgs, verificado 0 overlap con TRAIN/REFERENCE/CALIBRATION por hash+path+individual_id). El BLIND UNKNOWN sigue siendo F4 (56 imgs), re-verificado limpio.",
+  "overall_result": "PASS_NO_LEAKAGE_DETECTED_IN_FASE16_BLIND_SET"
+}

@@ -31,6 +31,10 @@ object ExplorerRemote {
         return AnuraApi.get<List<ExplorerFeedItem>>(path, bearer).orEmpty()
     }
 
+    /** Copia autenticada de las observaciones de la sesión, incluidas las privadas. */
+    suspend fun ownFeed(bearer: String): List<ExplorerFeedItem> =
+        AnuraApi.get<List<ExplorerFeedItem>>("/api/explorer/mine", bearer).orEmpty()
+
     /** Foto completa de una observación (no miniatura), para bajarla al teléfono. */
     fun originalUrl(key: String?): String? = thumbUrl(key, size = "original")
 
@@ -72,7 +76,7 @@ data class FavoriteToggleResponse(val liked: Boolean)
 @Serializable
 data class ExplorerSuggestion(
     val type: String,
-    val id: Int? = null,
+    val id: String? = null,
     val scientific_name: String? = null,
     val common_name: String? = null,
     val family: String? = null,
@@ -102,20 +106,23 @@ data class ExplorerFeedItem(
     val user_id: String? = null,
     val ai_class: String? = null,
     val ai_prob: Double? = null,
-    val taxon_id: Int? = null,
+    val taxon_id: String? = null,
     val class_name: String? = null,
     val order_name: String? = null,
     val family: String? = null,
     val genus: String? = null,
     val species: String? = null,
     val common_name: String? = null,
+    val photos: List<ExplorerPhoto> = emptyList(),
 ) {
     /** `observation.ownerUserId`/`ownerUsername`/etc. — la observación de otra persona, tal como
      * la app maneja las propias, para que `ObservationDetailScreen` no necesite dos caminos. */
     fun toObservationRecord(): ObservationRecord {
         val sci = if (!genus.isNullOrBlank() && !species.isNullOrBlank()) "$genus $species" else ai_class
-        val local = sci?.let(SpeciesCatalog::find)
+        val local = taxon_id?.let(SpeciesCatalog::find) ?: sci?.let(SpeciesCatalog::find)
         val epochMs = created_at?.let { runCatching { Instant.parse(it).toEpochMilli() }.getOrNull() } ?: 0L
+        val remotePhotos = photos.mapNotNull { ExplorerRemote.thumbUrl(it.thumbnail_key ?: it.image_key, size = "large") }
+            .ifEmpty { listOfNotNull(ExplorerRemote.thumbUrl(thumbnail_key ?: image_key, size = "large")) }
         return ObservationRecord(
             id = id,
             ownerUserId = user_id ?: username.orEmpty(),
@@ -125,7 +132,8 @@ data class ExplorerFeedItem(
             commonName = common_name ?: local?.commonName,
             scientificName = sci ?: local?.scientificName,
             photoTokens = emptyList(),
-            photoUrl = ExplorerRemote.thumbUrl(thumbnail_key ?: image_key, size = "large"),
+            photoUrl = remotePhotos.firstOrNull(),
+            remotePhotoUrls = remotePhotos,
             latitude = lat,
             longitude = lon,
             placeLabel = place_guess,
@@ -156,3 +164,9 @@ data class ExplorerFeedItem(
         )
     }
 }
+
+@Serializable
+data class ExplorerPhoto(
+    val image_key: String? = null,
+    val thumbnail_key: String? = null,
+)

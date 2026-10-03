@@ -1,0 +1,28 @@
+{
+  "gate0": {
+    "reproduced_auroc": 0.5732919408781961,
+    "official_auroc": 0.5732919408781961,
+    "abs_diff": 0.0,
+    "gate_passed": true
+  },
+  "reused_source_records": "COLOMBIA_ANURA/ANTIOQUIA/occurrences/records_v1.csv (same purged set as GEO2/prior_zone_taxon_v2_clean.csv, 1214 contaminated obs_id excluded)",
+  "reused_zone_geometry": "COLOMBIA_ANURA/ANTIOQUIA/zones/cell_zone_map_v1.csv (frozen)",
+  "taxon_to_genus_family_source": "COLOMBIA_ANURA/ANTIOQUIA/catalog/catalog_v1.json (genus/family fields per taxon_id, 291 taxa, authoritative for full COL set -- broader coverage than training/taxonomia.py which only covers the 41 trained species)",
+  "genus_prior": {
+    "csv": "D:\\Anura\\validation\\fase23a_geographic_context\\prior_zone_genus_v1.csv",
+    "manifest": "D:\\Anura\\validation\\fase23a_geographic_context\\GEO4_prior_zone_genus_v1_manifest.json",
+    "alpha": 2.0,
+    "K": 58,
+    "tope": 30,
+    "n_excluded": 1214
+  },
+  "family_prior": {
+    "csv": "D:\\Anura\\validation\\fase23a_geographic_context\\prior_zone_family_v1.csv",
+    "manifest": "D:\\Anura\\validation\\fase23a_geographic_context\\GEO4_prior_zone_family_v1_manifest.json",
+    "alpha": 2.0,
+    "K": 14,
+    "tope": 67,
+    "n_excluded": 1214
+  },
+  "note_alpha_may_differ_from_species": "alpha se reselecciona independientemente por nivel via la misma CV leave-one-cell-out; K distinto (num generos / num familias vs 291 especies) cambia el termino alpha*K, es esperado que difiera."
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S08 Semilleros</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #group { position: absolute; inset: 0; }
+      p { margin: 0; }
+      b { font-weight: 800; }
+      /* la frase de S07a ya está en pantalla: mismo sitio y tamaño */
+      #t7b { position: absolute; left: 80px; width: 1760px; top: 440px; text-align: center; font-weight: 500; font-size: 96px; line-height: 1.15; }
+      #t8 { position: absolute; left: 120px; width: 1680px; top: 80px; text-align: center; font-weight: 500; font-size: 36px; line-height: 1.2; opacity: 0; }
+      .sem { position: absolute; top: 230px; text-align: center; opacity: 0; }
+      .logo { height: 480px; overflow: hidden; background: #ffffff; border-radius: 50%; }
+      .logo.free { border-radius: 0; overflow: visible; background: none; }
+      .logo img { display: block; height: 100%; width: 100%; object-fit: cover; }
+      .logo.free img { object-fit: contain; }
+      .name { margin-top: 24px; font-weight: 700; font-size: 28px; letter-spacing: 0.08em; line-height: 1.1; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s08" data-start="0" data-width="1920" data-height="1080" data-duration="5" data-fps="60">
+      <div id="group">
+        <p id="t7b">Para reconocerlos nació <b>ANURA</b></p>
+        <p id="t8"><b>ANURA</b> es una iniciativa de 3 semilleros de la Corporación Universitaria Lasallista</p>
+        <div id="s0" class="sem" style="left:148px;width:480px"><div class="logo free"><img src="assets/img/SIVET.png" alt="" /></div><div class="name">SIVET</div></div>
+        <div id="s1" class="sem" style="left:708px;width:504px"><div class="logo free"><img src="assets/img/DEDALOS.png" alt="" /></div><div class="name">DÉDALOS</div></div>
+        <div id="s2" class="sem" style="left:1292px;width:480px"><div class="logo free"><img src="assets/img/ECOSOMOS.png" alt="" /></div><div class="name">ECOSOMOS</div></div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 32.00-32.40: la frase quieta. 32.40-32.90: sube, escala 0.55, blur 12, opacidad 0
+      tl.fromTo("#t7b", { y: 0, scale: 1, opacity: 1, filter: "blur(0px)" }, { y: -300, scale: 0.55, opacity: 0, filter: "blur(12px)", duration: 0.5, ease: "expo.inOut" }, 0.4);
+      // 32.65-33.15: el título desde y+16
+      tl.fromTo("#t8", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: EASE }, 0.65);
+      // 33.25, 33.50, 33.75: logos, outExpo, escala 0.92 -> 1
+      [0, 1, 2].forEach((i) => {
+        tl.fromTo("#s" + i, { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: EASE }, 1.25 + i * 0.25);
+      });
+      // 36.25-37.00: título, logos y nombres a opacidad 0
+      tl.to(["#t8", "#s0", "#s1", "#s2"], { opacity: 0, duration: 0.75, ease: "power1.inOut" }, 4.25);
+      window.__timelines["s08"] = tl;
+    </script>
+  </body>
+</html>

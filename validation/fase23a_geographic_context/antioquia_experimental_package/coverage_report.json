@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-14T16:09:01.233485+00:00",
+  "n_catalog_species_audited": 291,
+  "n_species_with_geo_prior": 291,
+  "pct_species_with_geo_prior": 100.0,
+  "n_species_all_4_zones_in_prior": 291,
+  "n_species_embeddings_evaluable": 33,
+  "pct_species_embeddings_evaluable": 11.34,
+  "n_species_curated_known_testset": 21,
+  "pct_species_curated_known_testset": 7.22,
+  "n_species_presence_only_no_image_data": 258,
+  "n_species_low_geo_records_lt5": 109,
+  "n_species_zero_cells_occupied": 4,
+  "honest_summary": "El catalogo regional taxonomico real de Antioquia tiene 291 especies (NO ~29: ese numero del manifest v1.0.0 era un subconjunto ya scrapeado con fotos, marcado explicitamente en su propio caveat como incompleto). De esas 291, solo 33 (11.3%) tienen embeddings/centroides visuales evaluables, y de esas, 21 tienen ademas un set de imagenes KNOWN curado para evaluacion open-set (el mismo usado en GEO2/3/4). El prior geografico por especie SI cubre el catalogo completo (291/291), porque prior_zone_taxon_v2_clean.csv ya se construyo con K_taxa=291 sobre TODO el catalogo taxonomico (no solo las especies con fotos). La evaluacion de identificacion cerrada y open-set en GEO5 solo puede hacerse sobre las 33 especies con embeddings; las restantes 258 quedan sin evaluar por falta de datos de imagen, y no se sustituyen por centroides sinteticos."
+}

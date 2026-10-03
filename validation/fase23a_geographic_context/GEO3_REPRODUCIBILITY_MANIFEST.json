@@ -1,0 +1,37 @@
+{
+  "phase": "GEO-3",
+  "gate0": {
+    "reproduced_auroc": 0.5732919408781961,
+    "official_auroc": 0.5732919408781961,
+    "abs_diff": 0.0,
+    "passed": true
+  },
+  "seed": 42,
+  "n_bootstrap": 1000,
+  "w_geo_used_fixed_from_geo2": 0.9,
+  "combined_auroc_reconfirmed": 0.7014759952529939,
+  "geo2_combined_auroc_reference": 0.7014759952529939,
+  "prior_used": "prior_zone_taxon_v2_clean.csv",
+  "prior_alpha": 2.0,
+  "prior_K_taxa": 291,
+  "zone_method": "grid_cell 0.25deg -> cell_zone_map_v1.csv (in_department filter), identico a GEO-1/GEO-2",
+  "n_thresholds_evaluated": 400,
+  "threshold_range": [
+    0.03145592233688008,
+    0.9782557969128041
+  ],
+  "input_hashes_sha256": {
+    "validation\\fase23a_geographic_context\\reproduced_scores_v2.npz": "3f6fd52697c5b94f67f2d9a592a2ef394bf4524638b521da50f8b280a0158247",
+    "validation\\fase23a_geographic_context\\prior_zone_taxon_v2_clean.csv": "3691ca1994eb5ff1a1219d79dc65f6b141f320e9a9be29c663a5ec15c1e65bb1",
+    "validation\\fase23a_geographic_context\\prior_zone_taxon_v2_clean_manifest.json": "7674b355fd914e6220fb7a3b19e50adaa2bf5f2f881d7944a4af30c913b65342",
+    "validation\\fase23a_geographic_context\\cache\\inat_observations_cache.json": "62fbc22b6fd131de04da55aadd99d72dae9e64cc40fe496f912518a8e10e87bb",
+    "validation\\fase23a_geographic_context\\cache\\inat_extracted.json": "069967db8cbdd9063766dd3b274df88a0fcad98a2e9c4ac29199fd3f15ab55ba",
+    "evaluation\\fase13\\embeddings\\reference_embeddings.npz": "22ab6977274890db61d0784adac2abd3a1f20412649d75e003840d1c6e39e341",
+    "evaluation\\fase13\\embeddings\\train_embeddings.npz": "1a777f09ac90f57750aac57e4788f634eefedcdee463313dbbf445049d1e43fa",
+    "validation\\fase16_clean_open_set\\clean_known_embeddings.npz": "af2b628624945ac0ede873361bf9cdd09f7262832a8bd3625ccf8a9b71cdce54",
+    "validation\\fase16_clean_open_set\\clean_known_manifest.json": "143d88c9210100af345fe9da32ba41453c024caf31d594ca44b84f20ac0e5514",
+    "validation\\fase23a_open_set_automatic\\embeddings\\unknown_embeddings.npz": "b44380c56337e8680a90dd11d7a02193928e9a5c974b59839a89b999855d5764",
+    "COLOMBIA_ANURA\\ANTIOQUIA\\zones\\cell_zone_map_v1.csv": "a6184d5c09d7f356d2ea144879b9550b485a9ddc1e0cf0b44fce3a6abdeb46dc"
+  },
+  "encoder_note": "No se toco el encoder ni se generaron embeddings nuevos; reproduced_scores_v2.npz y unknown_embeddings.npz reutilizados sin modificacion."
+}

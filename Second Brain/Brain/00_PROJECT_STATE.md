@@ -1,4 +1,4 @@
-﻿# Estado del proyecto Anura/SITRana
+# Estado del proyecto Anura/SITRana
 
 Corte de evidencia: 2026-09-13. Esta síntesis usa únicamente Markdown y artefactos descritos dentro de esta bóveda; los documentos originales no se modifican.
 

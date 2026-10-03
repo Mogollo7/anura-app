@@ -1,0 +1,34 @@
+{
+  "encoder_path": "D:\\Anura\\bioclip\\checkpoints\\encoder_anura_fp16.onnx",
+  "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "embedding_dimension": 512,
+  "normalization": "L2",
+  "preprocessing": "open_clip.create_model_and_transforms(hf-hub:imageomics/bioclip)",
+  "python_version": "3.13.10",
+  "sklearn_version": "1.9.1",
+  "scipy_version": "1.18.1",
+  "numpy_version": "2.5.2",
+  "catalog_release": "visual_catalog_1.0.0",
+  "analysis_datetime_utc": "2026-09-13T19:50:38.672369+00:00",
+  "embeddings_reused_from": [
+    "evaluation/fase13/embeddings/reference_embeddings.npz",
+    "evaluation/fase13/embeddings/train_embeddings.npz",
+    "validation/fase16_clean_open_set/clean_known_embeddings.npz",
+    "evaluation/open_set_v1/knn/knn_embeddings.npz (F4 UNKNOWN)"
+  ],
+  "no_new_extraction": true,
+  "known": {
+    "n_images": 7475,
+    "n_individuals": 4103,
+    "n_species": 24,
+    "n_genera": 11,
+    "n_families": 5,
+    "duplicate_sha256_count": 0
+  },
+  "unknown": {
+    "n_images": 56,
+    "n_individuals": 35,
+    "n_species": 2
+  },
+  "limitation": "UNKNOWN limitado a 2 especies reales (Hyloxalus_picachos, Sachatamia_electrops), 11-15 individuos totales. No hay mas datos UNKNOWN reales en el repositorio."
+}

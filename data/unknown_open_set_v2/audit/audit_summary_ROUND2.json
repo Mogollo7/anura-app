@@ -1,0 +1,12 @@
+{
+  "by_species_status": {
+    "Scinax_rostratus": {
+      "OK": 100
+    },
+    "Craugastor_metriosistus": {
+      "OK": 85
+    }
+  },
+  "leak_count": 0,
+  "dup_count": 0
+}

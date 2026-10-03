@@ -1,0 +1,20 @@
+{
+  "phase": "19_integrity_check",
+  "bioclip_encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "bioclip_modified": false,
+  "checks": {
+    "evaluation_fase13_unchanged": true,
+    "visual_catalog_v1_0_0_unchanged": true,
+    "bioclip_checkpoints_unchanged": true,
+    "fase16_artifacts_unchanged": true,
+    "fase17_artifacts_unchanged": true,
+    "fase18_artifacts_unchanged": true,
+    "no_threshold_modified": true,
+    "no_new_embeddings_extracted": true,
+    "no_pca_used_for_primary_metrics": true,
+    "pca_used_only_for": "embedding_projection.png (visualization only)"
+  },
+  "verification_method": "SHA256 de 44 archivos (evaluation/fase13/, visual_catalog/v1.0.0/, bioclip/checkpoints/) comparado contra baseline capturado antes de Fase 18 -- diff exit code 0. git status --short vacio en las 6 rutas protegidas (fase16/17/18 aparecen como untracked por no haberse hecho commit nunca, no por modificacion).",
+  "determinism": "Todos los calculos de distancia (Euclidean/Cosine) son deterministas por construccion (sin aleatoriedad). El unico muestreo aleatorio (para especies con >200-300 imagenes, por costo computacional de pdist) usa semillas fijas documentadas en el codigo (42, 123, 7).",
+  "reproducibility": "run_fase19_diagnosis.py y generate_figures.py son scripts standalone, ejecutables de nuevo con los mismos inputs (embeddings ya persistidos de Fases 13/16), producen resultados identicos dado que no hay aleatoriedad no-seedeada."
+}

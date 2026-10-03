@@ -1,4 +1,4 @@
-﻿# 03_AI_BIOCLIP: consolidación del modelo
+# 03_AI_BIOCLIP: consolidación del modelo
 
 ## Rol y arquitectura vigente
 BioCLIP es el extractor visual del servidor: transforma la imagen en un embedding para cabezas jerárquicas, búsqueda por similitud y open-set. La propuesta histórica de EfficientNet-B0 quedó sustituida. El checkpoint vigente para 41 especies usa **variante A, imagen completa**, no recorte binario.

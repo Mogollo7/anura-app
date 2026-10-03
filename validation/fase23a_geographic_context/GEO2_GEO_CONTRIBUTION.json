@@ -1,0 +1,22 @@
+{
+  "n_unknown_with_zone_assigned": 262,
+  "n_unknown_without_zone": 358,
+  "zone_distribution_assigned": {
+    "ZONE_005": 221,
+    "ZONE_006": 20,
+    "ZONE_001": 20,
+    "ZONE_002": 1
+  },
+  "unknown_species_frequency_top10": {
+    "Smilisca_phaeota": 107,
+    "Scinax_rostratus": 100,
+    "Espadarana_prosoblepon": 87,
+    "Craugastor_metriosistus": 85,
+    "Leptodactylus_fragilis": 84,
+    "Rhinella_marina": 83,
+    "Dendropsophus_labialis": 74
+  },
+  "elevation_note": "NO se uso elevacion (0/4466 recuperable, confirmado en experimento anterior; no reintroducida).",
+  "no_new_inaturalist_calls": true,
+  "cache_source": "validation/fase23a_geographic_context/cache/inat_extracted.json (existente, sin llamadas nuevas)"
+}

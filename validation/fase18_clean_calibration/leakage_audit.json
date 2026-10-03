@@ -1,0 +1,31 @@
+{
+  "phase": "18_leakage_audit",
+  "BLIND_F18_vs_TRAIN": "0 (por construccion: todo el pool KNOWN de Fase 16 ya excluye TRAIN)",
+  "BLIND_F18_vs_CALIBRATION_18": "0 (particion disjunta por individual_id, verificado programaticamente en build_splits.py)",
+  "BLIND_F18_vs_REFERENCE": "0 (por construccion: pool KNOWN de Fase 16 ya excluye REFERENCE)",
+  "BLIND_F18_vs_CENTROID_SOURCE": "0 (centroides = REFERENCE + TRAIN, ninguno se solapa con el pool KNOWN de Fase 16)",
+  "individual_id_overlap_calibration_vs_blind": {
+    "known": 0,
+    "unknown": 0,
+    "verified_programmatically": true
+  },
+  "KNOWN_ADVERTENCIA_CRITICA": {
+    "status": "PARTIAL_INDEPENDENCE_ONLY",
+    "description": "BLIND_F18 (KNOWN) es un SUBCONJUNTO del mismo pool de 7475 imagenes que Fase 17 ya evaluo integramente como METHOD_SELECTION_BLIND para calcular AUROC de Cosine/Euclidean/Mahalanobis. No existen mas datos KNOWN limpios (fuera de TRAIN/REFERENCE/CALIBRATION/F3) en el repositorio -- este es el 100% del remanente real disponible.",
+    "risk": "Sesgo de seleccion de metodo (model selection leakage), no de calibracion de threshold. En Fase 17 no se ajusto ningun hiperparametro mirando este pool -- solo se comparo el AUROC de 3 formulas matematicas fijas (Cosine, Euclidean, Mahalanobis). El riesgo es que la decision de 'explorar Euclidean/Cosine como candidato' ya fue informada por haber visto como se comportaban en (una porcion de) estos mismos datos.",
+    "mitigation": "Ninguna posible sin recolectar mas datos reales. Se documenta explicitamente para que la conclusion final refleje esta limitacion, en vez de presentarse como blind completamente virgen.",
+    "affects_conclusion": "Este hallazgo por si solo es motivo suficiente para no declarar PASS incondicional, independientemente del resultado numerico obtenido."
+  },
+  "UNKNOWN_ADVERTENCIA_CRITICA": {
+    "status": "SAME_LIMITATION",
+    "description": "Las 56 imagenes UNKNOWN disponibles (F4) son el 100% de los datos UNKNOWN reales existentes en el repositorio. BLIND_F18 UNKNOWN (39 imgs, 11 individuos, 2 especies) es un subconjunto del mismo F4 ya usado en Fase 16/17.",
+    "sample_size_concern": "CALIBRATION_18 UNKNOWN tiene solo 3 individuos, BLIND_F18 UNKNOWN tiene solo 11 individuos, ambos de solo 2 especies. Estadisticamente insuficiente para generalizar sobre 'cualquier especie desconocida'."
+  },
+  "what_IS_independent": [
+    "TRAIN (fuente de centroides Group B) -- 0 overlap verificado",
+    "REFERENCE (fuente de covarianza y centroides Group A) -- 0 overlap verificado",
+    "CALIBRATION original de Fase 13 -- 0 overlap verificado",
+    "CALIBRATION_18 vs BLIND_F18 -- 0 overlap de individuo, particion nueva y disjunta"
+  ],
+  "overall_status": "LEAKAGE_FREE_RESPECTO_A_TRAIN_REFERENCE_CALIBRATION_ORIGINAL; PARTIAL_EXPOSURE_RESPECTO_A_FASE17_DIAGNOSTICO (documentado, no oculto)"
+}

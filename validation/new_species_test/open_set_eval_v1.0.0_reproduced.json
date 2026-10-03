@@ -1,0 +1,30 @@
+{
+  "catalog_release": "visual_catalog_1.0.0",
+  "covariance_release": "covariance_1.0.0",
+  "threshold_release": "threshold_1.0.0",
+  "threshold_used": 39.35406371422803,
+  "n_known": 766,
+  "n_unknown": 56,
+  "metrics": {
+    "auroc": 0.6247668780305856,
+    "aupr": 0.08133549029196789,
+    "kar": 0.8537859007832899,
+    "udr": 0.08928571428571429,
+    "far": 0.9107142857142857,
+    "frr": 0.1462140992167102,
+    "precision_unknown": 0.042735042735042736,
+    "recall_unknown": 0.08928571428571429,
+    "f1_unknown": 0.057803468208092484
+  },
+  "score_distribution": {
+    "known_mean": 31.175032324460823,
+    "known_std": 7.880590012386504,
+    "unknown_mean": 33.5211199390235,
+    "unknown_std": 4.750050366166364
+  },
+  "reused_artifacts": {
+    "covariance_npz": "covariance/v1.0.0/covariance_matrix.npz",
+    "threshold_release_manifest": "threshold/v1.0.0/manifest.json",
+    "note": "Covariance NO fue recalculada aqui — se cargo directamente del .npz versionado."
+  }
+}

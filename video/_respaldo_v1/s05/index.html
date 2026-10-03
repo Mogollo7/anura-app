@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S05 Nueve mil nueve</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        src: url("assets/fonts/Archivo.woff2") format("woff2");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+      }
+      body { margin: 0; background: #eef5ee; }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #eef5ee;
+        color: #1b1c1e;
+        font-family: "Archivo", sans-serif;
+      }
+      #block {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        top: 300px;
+        text-align: center;
+      }
+      #label {
+        margin: 0;
+        font-weight: 500;
+        font-size: 56px;
+        line-height: 1.1;
+        opacity: 0;
+      }
+      #sub {
+        margin: 16px 0 0 0;
+        font-weight: 500;
+        font-size: 56px;
+        line-height: 1.1;
+        opacity: 0;
+      }
+      #num {
+        margin: 24px 0 0 0;
+        font-weight: 800;
+        font-stretch: 120%;
+        font-size: 260px;
+        line-height: 1;
+        color: #1f7a33;
+        font-variant-numeric: tabular-nums;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s05" data-start="0" data-width="1920" data-height="1080" data-duration="4">
+      <div id="block">
+        <p id="label">En el mundo hay cerca de</p>
+        <div id="num">0</div>
+        <p id="sub">especies de ellos</p>
+      </div>
+      <audio id="sfx-num" src="assets/sfx/impactSoft_medium_000.ogg" data-start="2" data-duration="0.12" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      const num = document.getElementById("num");
+
+      // 12.10 -> 12.25 (local 0.25)
+      tl.fromTo("#label", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 0.25);
+
+      // 12.40 -> 12.50 (local 0.50); corre hasta 14.00 (local 2.00)
+      const c = { v: 0 };
+      tl.set("#num", { opacity: 1 }, 0.5);
+      tl.to(c, { v: 9009, duration: 1.5, ease: EASE, onUpdate() { num.textContent = Math.round(c.v); } }, 0.5);
+
+      // squash al asentarse: wdth 125 -> 100 en 0.2 s
+      const w = { s: 120 };
+      const setW = () => { num.style.fontStretch = w.s + "%"; };
+      tl.to(w, { s: 125, duration: 0.05, ease: "none", onUpdate: setW }, 1.95);
+      tl.to(w, { s: 100, duration: 0.2, ease: "power2.out", onUpdate: setW }, 2);
+
+      // debajo del conteo, al asentarse el número (local 2.00)
+      tl.fromTo("#sub", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 2);
+
+      window.__timelines["s05"] = tl;
+    </script>
+  </body>
+</html>

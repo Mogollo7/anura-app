@@ -1,0 +1,21 @@
+{
+  "UNKNOWN": {
+    "geographic_metadata_complete": "620/620",
+    "zone_assignment_complete": "262/620",
+    "elevation_complete": "0/620"
+  },
+  "KNOWN": {
+    "geographic_metadata_complete": "7431/7475",
+    "zone_assignment_complete": "2763/7475",
+    "elevation_complete": "0/7475"
+  },
+  "KNOWN_excluded_no_observation_id": 44,
+  "fetch_summary": {
+    "n_unique_ids": 4466,
+    "n_found": 4466,
+    "n_with_geo": 4466,
+    "n_with_elev": 0,
+    "n_unknown_image_rows": 620,
+    "n_known_unique_obs": 4059
+  }
+}

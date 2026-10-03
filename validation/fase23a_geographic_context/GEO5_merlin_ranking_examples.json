@@ -1,0 +1,322 @@
+[
+  {
+    "example_id": "GEO5_MERLIN_01297",
+    "true_species": "Dendrobates truncatus",
+    "zone": null,
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Dendrobates truncatus",
+        "visual_score": 1.0,
+        "combined_score_w_geo_0_9": 0.1,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Dendrobatidae",
+        "genus": "Dendrobates"
+      },
+      {
+        "rank": 2,
+        "species": "Dendropsophus triangulum",
+        "visual_score": 0.2949,
+        "combined_score_w_geo_0_9": 0.0295,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Hylidae",
+        "genus": "Dendropsophus"
+      },
+      {
+        "rank": 3,
+        "species": "Dendropsophus ebraccatus",
+        "visual_score": 0.2944,
+        "combined_score_w_geo_0_9": 0.0294,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Hylidae",
+        "genus": "Dendropsophus"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Dendrobates truncatus' (true='Dendrobates truncatus'), combined_score_w0.9(top1)=0.1000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_00576",
+    "true_species": "Craugastor raniformis",
+    "zone": "ZONE_005",
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Rhinella horribilis",
+        "visual_score": 0.2679,
+        "combined_score_w_geo_0_9": 0.9268,
+        "geo_compatibility": "compatible",
+        "geo_prior_p": 0.05983,
+        "family": "Bufonidae",
+        "genus": "Rhinella"
+      },
+      {
+        "rank": 2,
+        "species": "Boana pugnax",
+        "visual_score": 0.2179,
+        "combined_score_w_geo_0_9": 0.5371,
+        "geo_compatibility": "compatible",
+        "geo_prior_p": 0.034387,
+        "family": "Hylidae",
+        "genus": "Boana"
+      },
+      {
+        "rank": 3,
+        "species": "Dendrobates truncatus",
+        "visual_score": 0.2526,
+        "combined_score_w_geo_0_9": 0.5266,
+        "geo_compatibility": "compatible",
+        "geo_prior_p": 0.033462,
+        "family": "Dendrobatidae",
+        "genus": "Dendrobates"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Rhinella horribilis' (true='Craugastor raniformis'), combined_score_w0.9(top1)=0.9268, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_05422",
+    "true_species": "Hyloscirtus palmeri",
+    "zone": "ZONE_005",
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Rhinella horribilis",
+        "visual_score": 0.0,
+        "combined_score_w_geo_0_9": 0.9,
+        "geo_compatibility": "compatible",
+        "geo_prior_p": 0.05983,
+        "family": "Bufonidae",
+        "genus": "Rhinella"
+      },
+      {
+        "rank": 2,
+        "species": "Boana pugnax",
+        "visual_score": 0.1762,
+        "combined_score_w_geo_0_9": 0.5329,
+        "geo_compatibility": "compatible",
+        "geo_prior_p": 0.034387,
+        "family": "Hylidae",
+        "genus": "Boana"
+      },
+      {
+        "rank": 3,
+        "species": "Dendrobates truncatus",
+        "visual_score": 0.0049,
+        "combined_score_w_geo_0_9": 0.5018,
+        "geo_compatibility": "compatible",
+        "geo_prior_p": 0.033462,
+        "family": "Dendrobatidae",
+        "genus": "Dendrobates"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Rhinella horribilis' (true='Hyloscirtus palmeri'), combined_score_w0.9(top1)=0.9000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_04338",
+    "true_species": "Engystomops pustulosus",
+    "zone": null,
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Engystomops pustulosus",
+        "visual_score": 1.0,
+        "combined_score_w_geo_0_9": 0.1,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Leptodactylidae",
+        "genus": "Engystomops"
+      },
+      {
+        "rank": 2,
+        "species": "Pristimantis bogotensis",
+        "visual_score": 0.8003,
+        "combined_score_w_geo_0_9": 0.08,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      },
+      {
+        "rank": 3,
+        "species": "Leptodactylus colombiensis",
+        "visual_score": 0.7043,
+        "combined_score_w_geo_0_9": 0.0704,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Leptodactylidae",
+        "genus": "Leptodactylus"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Engystomops pustulosus' (true='Engystomops pustulosus'), combined_score_w0.9(top1)=0.1000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_04975",
+    "true_species": "Engystomops pustulosus",
+    "zone": null,
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Pristimantis bogotensis",
+        "visual_score": 1.0,
+        "combined_score_w_geo_0_9": 0.1,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      },
+      {
+        "rank": 2,
+        "species": "Rheobates palmatus",
+        "visual_score": 0.9528,
+        "combined_score_w_geo_0_9": 0.0953,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Aromobatidae",
+        "genus": "Rheobates"
+      },
+      {
+        "rank": 3,
+        "species": "Engystomops pustulosus",
+        "visual_score": 0.8014,
+        "combined_score_w_geo_0_9": 0.0801,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Leptodactylidae",
+        "genus": "Engystomops"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Pristimantis bogotensis' (true='Engystomops pustulosus'), combined_score_w0.9(top1)=0.1000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_06810",
+    "true_species": "Pristimantis achatinus",
+    "zone": null,
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Pristimantis thectopternus",
+        "visual_score": 1.0,
+        "combined_score_w_geo_0_9": 0.1,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      },
+      {
+        "rank": 2,
+        "species": "Pristimantis achatinus",
+        "visual_score": 0.7725,
+        "combined_score_w_geo_0_9": 0.0772,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      },
+      {
+        "rank": 3,
+        "species": "Craugastor raniformis",
+        "visual_score": 0.7555,
+        "combined_score_w_geo_0_9": 0.0755,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Craugastor"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Pristimantis thectopternus' (true='Pristimantis achatinus'), combined_score_w0.9(top1)=0.1000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_04960",
+    "true_species": "Engystomops pustulosus",
+    "zone": null,
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Pristimantis bogotensis",
+        "visual_score": 1.0,
+        "combined_score_w_geo_0_9": 0.1,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      },
+      {
+        "rank": 2,
+        "species": "Pristimantis paisa",
+        "visual_score": 0.8849,
+        "combined_score_w_geo_0_9": 0.0885,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      },
+      {
+        "rank": 3,
+        "species": "Pristimantis taeniatus",
+        "visual_score": 0.8456,
+        "combined_score_w_geo_0_9": 0.0846,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Craugastoridae",
+        "genus": "Pristimantis"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Pristimantis bogotensis' (true='Engystomops pustulosus'), combined_score_w0.9(top1)=0.1000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  },
+  {
+    "example_id": "GEO5_MERLIN_01649",
+    "true_species": "Dendrobates truncatus",
+    "zone": null,
+    "candidates": [
+      {
+        "rank": 1,
+        "species": "Dendrobates truncatus",
+        "visual_score": 1.0,
+        "combined_score_w_geo_0_9": 0.1,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Dendrobatidae",
+        "genus": "Dendrobates"
+      },
+      {
+        "rank": 2,
+        "species": "Dendropsophus triangulum",
+        "visual_score": 0.3017,
+        "combined_score_w_geo_0_9": 0.0302,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Hylidae",
+        "genus": "Dendropsophus"
+      },
+      {
+        "rank": 3,
+        "species": "Dendropsophus ebraccatus",
+        "visual_score": 0.2944,
+        "combined_score_w_geo_0_9": 0.0294,
+        "geo_compatibility": "no_zone_data",
+        "geo_prior_p": 0.003436,
+        "family": "Hylidae",
+        "genus": "Dendropsophus"
+      }
+    ],
+    "open_set_decision": "ESPECIE_CONOCIDA",
+    "decision_basis": "top1 predicho='Dendrobates truncatus' (true='Dendrobates truncatus'), combined_score_w0.9(top1)=0.1000, especie del catalogo con embeddings evaluables.",
+    "score_types_note": "visual_score = similitud normalizada por fila (min-max sobre 41 candidatos, NO probabilidad calibrada). combined_score_w0.9 = 0.1*visual_score + 0.9*geo_prior_normalizado (misma formula validada en GEO2/GEO3, NO probabilidad). NO existe una calibrated_probability real en este experimento -- no se reporta porque no se calibro (isotonic/Platt) contra un holdout independiente; reportar un numero aqui seria inventar precision que no existe. acceptance_confidence tampoco se calibro; se usa unicamente la decision binaria KNOWN/UNKNOWN por threshold (ver GEO5_openset_comparison.json)."
+  }
+]

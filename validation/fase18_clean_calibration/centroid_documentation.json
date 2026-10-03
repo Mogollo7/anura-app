@@ -1,0 +1,210 @@
+{
+  "species_count": 41,
+  "per_species": {
+    "Dendrobates_truncatus": {
+      "source": "REFERENCE",
+      "images": 73,
+      "species_id": "ANU_COL_DEND_TRU_001"
+    },
+    "Dendropsophus_bogerti": {
+      "source": "REFERENCE",
+      "images": 80,
+      "species_id": "ANU_COL_DEND_BOG_001"
+    },
+    "Dendropsophus_microcephalus": {
+      "source": "REFERENCE",
+      "images": 81,
+      "species_id": "ANU_COL_DEND_MIC_001"
+    },
+    "Hyloscirtus_palmeri": {
+      "source": "REFERENCE",
+      "images": 84,
+      "species_id": "ANU_COL_HYLO_PAL_001"
+    },
+    "Pristimantis_achatinus": {
+      "source": "REFERENCE",
+      "images": 80,
+      "species_id": "ANU_COL_PRIS_ACH_001"
+    },
+    "Pristimantis_paisa": {
+      "source": "REFERENCE",
+      "images": 83,
+      "species_id": "ANU_COL_PRIS_PAI_001"
+    },
+    "Pristimantis_penelopus": {
+      "source": "REFERENCE",
+      "images": 80,
+      "species_id": "ANU_COL_PRIS_PEN_001"
+    },
+    "Rhinella_alata": {
+      "source": "REFERENCE",
+      "images": 85,
+      "species_id": "ANU_COL_RHIN_ALA_001"
+    },
+    "Rhinella_horribilis": {
+      "source": "REFERENCE",
+      "images": 68,
+      "species_id": "ANU_COL_RHIN_HOR_001"
+    },
+    "Boana_boans": {
+      "source": "TRAIN",
+      "images": 88,
+      "species_id": "ANU_COL_BOAN_BOA_001"
+    },
+    "Boana_cinerascens": {
+      "source": "TRAIN",
+      "images": 80,
+      "species_id": "ANU_COL_BOAN_CIN_001"
+    },
+    "Boana_lanciformis": {
+      "source": "TRAIN",
+      "images": 85,
+      "species_id": "ANU_COL_BOAN_LAN_001"
+    },
+    "Boana_platanera": {
+      "source": "TRAIN",
+      "images": 98,
+      "species_id": "ANU_COL_BOAN_PLA_001"
+    },
+    "Boana_pugnax": {
+      "source": "TRAIN",
+      "images": 101,
+      "species_id": "ANU_COL_BOAN_PUG_001"
+    },
+    "Boana_punctata": {
+      "source": "TRAIN",
+      "images": 84,
+      "species_id": "ANU_COL_BOAN_PUN_001"
+    },
+    "Boana_rosenbergi": {
+      "source": "TRAIN",
+      "images": 107,
+      "species_id": "ANU_COL_BOAN_ROS_001"
+    },
+    "Boana_xerophylla": {
+      "source": "TRAIN",
+      "images": 87,
+      "species_id": "ANU_COL_BOAN_XER_001"
+    },
+    "Craugastor_raniformis": {
+      "source": "TRAIN",
+      "images": 83,
+      "species_id": "ANU_COL_CRAU_RAN_001"
+    },
+    "Dendropsophus_columbianus": {
+      "source": "TRAIN",
+      "images": 102,
+      "species_id": "ANU_COL_DEND_COL_001"
+    },
+    "Dendropsophus_ebraccatus": {
+      "source": "TRAIN",
+      "images": 104,
+      "species_id": "ANU_COL_DEND_EBR_001"
+    },
+    "Dendropsophus_mathiassoni": {
+      "source": "TRAIN",
+      "images": 115,
+      "species_id": "ANU_COL_DEND_MAT_001"
+    },
+    "Dendropsophus_molitor": {
+      "source": "TRAIN",
+      "images": 76,
+      "species_id": "ANU_COL_DEND_MOL_001"
+    },
+    "Dendropsophus_norandinus": {
+      "source": "TRAIN",
+      "images": 59,
+      "species_id": "ANU_COL_DEND_NOR_001"
+    },
+    "Dendropsophus_reticulatus": {
+      "source": "TRAIN",
+      "images": 100,
+      "species_id": "ANU_COL_DEND_RET_001"
+    },
+    "Dendropsophus_triangulum": {
+      "source": "TRAIN",
+      "images": 108,
+      "species_id": "ANU_COL_DEND_TRI_001"
+    },
+    "Engystomops_pustulosus": {
+      "source": "TRAIN",
+      "images": 95,
+      "species_id": "ANU_COL_ENGY_PUS_001"
+    },
+    "Leptodactylus_colombiensis": {
+      "source": "TRAIN",
+      "images": 121,
+      "species_id": "ANU_COL_LEPT_COL_001"
+    },
+    "Phyllomedusa_tarsius": {
+      "source": "TRAIN",
+      "images": 77,
+      "species_id": "ANU_COL_PHYL_TAR_001"
+    },
+    "Phyllomedusa_venusta": {
+      "source": "TRAIN",
+      "images": 87,
+      "species_id": "ANU_COL_PHYL_VEN_001"
+    },
+    "Pithecopus_hypochondrialis": {
+      "source": "TRAIN",
+      "images": 94,
+      "species_id": "ANU_COL_PITH_HYP_001"
+    },
+    "Pristimantis_bogotensis": {
+      "source": "TRAIN",
+      "images": 118,
+      "species_id": "ANU_COL_PRIS_BOG_001"
+    },
+    "Pristimantis_erythropleura": {
+      "source": "TRAIN",
+      "images": 67,
+      "species_id": "ANU_COL_PRIS_ERY_001"
+    },
+    "Pristimantis_gaigei": {
+      "source": "TRAIN",
+      "images": 81,
+      "species_id": "ANU_COL_PRIS_GAI_001"
+    },
+    "Pristimantis_palmeri": {
+      "source": "TRAIN",
+      "images": 83,
+      "species_id": "ANU_COL_PRIS_PAL_001"
+    },
+    "Pristimantis_permixtus": {
+      "source": "TRAIN",
+      "images": 94,
+      "species_id": "ANU_COL_PRIS_PER_001"
+    },
+    "Pristimantis_taeniatus": {
+      "source": "TRAIN",
+      "images": 73,
+      "species_id": "ANU_COL_PRIS_TAE_001"
+    },
+    "Pristimantis_thectopternus": {
+      "source": "TRAIN",
+      "images": 71,
+      "species_id": "ANU_COL_PRIS_THE_001"
+    },
+    "Pristimantis_vilarsi": {
+      "source": "TRAIN",
+      "images": 101,
+      "species_id": "ANU_COL_PRIS_VIL_001"
+    },
+    "Rheobates_palmatus": {
+      "source": "TRAIN",
+      "images": 75,
+      "species_id": "ANU_COL_RHEO_PAL_001"
+    },
+    "Rhinella_margaritifera": {
+      "source": "TRAIN",
+      "images": 75,
+      "species_id": "ANU_COL_RHIN_MAR_001"
+    },
+    "Scinax_ruber": {
+      "source": "TRAIN",
+      "images": 64,
+      "species_id": "ANU_COL_SCIN_RUB_001"
+    }
+  }
+}

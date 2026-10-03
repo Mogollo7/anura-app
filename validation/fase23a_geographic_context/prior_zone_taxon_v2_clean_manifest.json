@@ -1,0 +1,198 @@
+{
+  "source": "prior_zone_taxon_v2_clean.csv (derived, NOT overwriting v1)",
+  "original_prior": "COLOMBIA_ANURA/ANTIOQUIA/priors/prior_zone_taxon_v1.csv (untouched)",
+  "purge_rule": "exclude any source record whose iNaturalist observation_id appears in the eval set (validation/fase23a_geographic_context/per_sample_results.csv, column individual_id) — i.e. observations later scored by the visual+geo evaluation must not also feed the geographic prior.",
+  "n_records_original": 15081,
+  "n_records_purged_total": 13867,
+  "n_records_excluded": 1214,
+  "n_contaminated_obs_ids": 1214,
+  "n_source_inaturalist_records_original": 6422,
+  "n_records_no_zone_after_purge": 0,
+  "excluded_records_by_cell_top10": [
+    [
+      "G025_25_-302",
+      245
+    ],
+    [
+      "G025_25_-303",
+      111
+    ],
+    [
+      "G025_25_-300",
+      98
+    ],
+    [
+      "G025_31_-307",
+      51
+    ],
+    [
+      "G025_24_-299",
+      51
+    ],
+    [
+      "G025_24_-300",
+      44
+    ],
+    [
+      "G025_26_-299",
+      43
+    ],
+    [
+      "G025_22_-303",
+      41
+    ],
+    [
+      "G025_31_-306",
+      41
+    ],
+    [
+      "G025_24_-302",
+      39
+    ]
+  ],
+  "excluded_records_by_species_top10": [
+    {
+      "taxon_id": "COL_ANURA_0028",
+      "scientific_name": "Dendropsophus bogerti",
+      "n_excluded": 339
+    },
+    {
+      "taxon_id": "COL_ANURA_0007",
+      "scientific_name": "Pristimantis achatinus",
+      "n_excluded": 234
+    },
+    {
+      "taxon_id": "COL_ANURA_0018",
+      "scientific_name": "Dendrobates truncatus",
+      "n_excluded": 209
+    },
+    {
+      "taxon_id": "COL_ANURA_0039",
+      "scientific_name": "Engystomops pustulosus",
+      "n_excluded": 137
+    },
+    {
+      "taxon_id": "COL_ANURA_0266",
+      "scientific_name": "Smilisca phaeota",
+      "n_excluded": 43
+    },
+    {
+      "taxon_id": "COL_ANURA_0032",
+      "scientific_name": "Dendropsophus microcephalus",
+      "n_excluded": 42
+    },
+    {
+      "taxon_id": "COL_ANURA_0109",
+      "scientific_name": "Craugastor metriosistus",
+      "n_excluded": 42
+    },
+    {
+      "taxon_id": "COL_ANURA_0006",
+      "scientific_name": "Craugastor raniformis",
+      "n_excluded": 39
+    },
+    {
+      "taxon_id": "COL_ANURA_0011",
+      "scientific_name": "Pristimantis paisa",
+      "n_excluded": 25
+    },
+    {
+      "taxon_id": "COL_ANURA_0263",
+      "scientific_name": "Scinax rostratus",
+      "n_excluded": 24
+    }
+  ],
+  "effort_cap_tope": 17,
+  "alpha_selected": 2.0,
+  "alpha_at_grid_edge": false,
+  "alpha_curve": [
+    {
+      "alpha": 0.001,
+      "mean_heldout_loglik": -5.302825563757545
+    },
+    {
+      "alpha": 0.002,
+      "mean_heldout_loglik": -5.2315649139875084
+    },
+    {
+      "alpha": 0.005,
+      "mean_heldout_loglik": -5.137510100637133
+    },
+    {
+      "alpha": 0.01,
+      "mean_heldout_loglik": -5.0665985465048085
+    },
+    {
+      "alpha": 0.02,
+      "mean_heldout_loglik": -4.996121425169854
+    },
+    {
+      "alpha": 0.05,
+      "mean_heldout_loglik": -4.9044003262942875
+    },
+    {
+      "alpha": 0.1,
+      "mean_heldout_loglik": -4.83732325746583
+    },
+    {
+      "alpha": 0.2,
+      "mean_heldout_loglik": -4.774317517900591
+    },
+    {
+      "alpha": 0.5,
+      "mean_heldout_loglik": -4.703592488276731
+    },
+    {
+      "alpha": 1.0,
+      "mean_heldout_loglik": -4.667665883211406
+    },
+    {
+      "alpha": 2.0,
+      "mean_heldout_loglik": -4.656885518655687
+    },
+    {
+      "alpha": 5.0,
+      "mean_heldout_loglik": -4.699406654990222
+    },
+    {
+      "alpha": 10.0,
+      "mean_heldout_loglik": -4.785971826891236
+    }
+  ],
+  "K_taxa": 291,
+  "n_zones": 4,
+  "zones": [
+    "ZONE_001",
+    "ZONE_002",
+    "ZONE_005",
+    "ZONE_006"
+  ],
+  "zone_geometry_reused_from": "COLOMBIA_ANURA/ANTIOQUIA/zones/cell_zone_map_v1.csv (frozen, not modified)",
+  "method_reference": "pipeline_dataset/zonas_finales_y_prior.py (alpha via leave-one-cell-out CV, same GRID_ALPHA, same effort-cap rule at percentile 90, same formula P(s|z)=(N(s,z)+alpha)/(N(z)+alpha*K))",
+  "diagnostics_by_zone": {
+    "ZONE_001": {
+      "records": 721,
+      "effective_records": 606,
+      "species_observed": 86,
+      "p_unobserved": 0.0016835016835016834
+    },
+    "ZONE_002": {
+      "records": 813,
+      "effective_records": 724,
+      "species_observed": 93,
+      "p_unobserved": 0.0015313935681470138
+    },
+    "ZONE_005": {
+      "records": 7975,
+      "effective_records": 5903,
+      "species_observed": 175,
+      "p_unobserved": 0.00030840400925212025
+    },
+    "ZONE_006": {
+      "records": 4358,
+      "effective_records": 2482,
+      "species_observed": 141,
+      "p_unobserved": 0.0006527415143603133
+    }
+  }
+}

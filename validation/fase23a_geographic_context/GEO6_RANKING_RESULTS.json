@@ -1,0 +1,54 @@
+{
+  "w_geo_rank_sweep": [
+    0.0,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "candidate_pool": {
+    "n_species": 41,
+    "choice_justification": "Se evalua sobre las 41 especies con centroide (pool completo de GEO2/3/4/5), NO el subconjunto de 33 (o 21 KNOWN) restringido al catalogo regional de Antioquia identificado en GEO-5. Razon: el pool de candidatos relevante para el problema de ranking es 'que especies pueden confundirse visualmente entre si segun el encoder', una propiedad del modelo/embedding, no de la escala geografica de despliegue. Restringir candidatos a 33/21 cambiaria artificialmente Top-1/Top-3 al eliminar distractores reales del espacio de embeddings, y rompe comparabilidad directa con GEO2/3/4/5 (que tambien usan 41). Se documenta explicitamente esta decision."
+  },
+  "ground_truth": {
+    "n_images": 7475,
+    "n_species": 24,
+    "source": "validation/fase16_clean_open_set/clean_known_{embeddings,manifest}.json (mismo pool KNOWN de GEO2/3/4/5)"
+  },
+  "normalization": "min-max por fila sobre las 41 candidatas, tanto para visual_sim (-distancia euclidiana) como para geo_species (prior bayesiano por zona, K=291, mismo prior_zone_taxon_v2_clean.csv de GEO2/3/5) -- misma normalizacion que GEO2/GEO4/GEO5.",
+  "results_by_w": {
+    "0.0": {
+      "top1_acc": 0.5851505016722408,
+      "top3_acc": 0.8140468227424749,
+      "top5_acc": 0.8933779264214047,
+      "f1_macro": 0.277818443040353,
+      "mrr": 0.7145170006761052,
+      "mean_rank": 2.743010033444816
+    },
+    "0.1": {
+      "top1_acc": 0.6263545150501673,
+      "top3_acc": 0.8387959866220736,
+      "top5_acc": 0.9044816053511706,
+      "f1_macro": 0.29703674890999554,
+      "mrr": 0.7447026732457042,
+      "mean_rank": 2.554782608695652
+    },
+    "0.2": {
+      "top1_acc": 0.6564548494983278,
+      "top3_acc": 0.8553846153846154,
+      "top5_acc": 0.9127759197324414,
+      "f1_macro": 0.3079461558186367,
+      "mrr": 0.7661280297789937,
+      "mean_rank": 2.4157859531772576
+    },
+    "0.3": {
+      "top1_acc": 0.6624749163879599,
+      "top3_acc": 0.8671571906354515,
+      "top5_acc": 0.920133779264214,
+      "f1_macro": 0.31053074590179436,
+      "mrr": 0.7741258945935662,
+      "mean_rank": 2.321070234113712
+    }
+  },
+  "selection_criterion": "Top-1 accuracy primario; empate resuelto por Top-3, luego por MRR (mayor MRR = candidato correcto en posiciones mas altas en promedio).",
+  "best_w_geo_rank": 0.3
+}

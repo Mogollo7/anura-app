@@ -1,4 +1,4 @@
-﻿# Mapa de conocimiento
+# Mapa de conocimiento
 
 Árbol navegable de la bóveda. Las carpetas numeradas son consolidaciones; las rutas con espacios usan URL encoding para que los enlaces relativos sean comprobables.
 
@@ -24,6 +24,8 @@
   - [Ecología](./12_ECOLOGY/INDEX.md) · [Riesgos](./13_RISKS/INDEX.md) · [Cronograma](./14_TIMELINE/INDEX.md)
 - **15_DECISIONS / 16_REFERENCES / 17_OPERATIONS / 18_ARCHIVE**
   - [Decisiones](./15_DECISIONS/DECISION_LOG.md) · [Referencias](./16_REFERENCES/INDEX.md) · [Operaciones](./17_OPERATIONS/INDEX.md) · [Archivo](./18_ARCHIVE/INDEX.md)
+- **19_ADMIN — modo administrativo**
+  - [Índice](./19_ADMIN/00_Indice_Principal.md) · [Decisiones de escalabilidad](./19_ADMIN/Decisiones%20de%20Escalabilidad%20del%20Admin.md) · [Modo administrativo](./19_ADMIN/Modo%20Administrativo.md) · [Contradicciones](./19_ADMIN/Contradicciones%20del%20Modo%20Administrativo.md)
 
 ## Flujo de lectura recomendado
 [Estado actual](./00_PROJECT_STATE.md) → [Resultados](./06_EVALUATION/RESULTS_INDEX.md) → [Open set](./05_OPEN_SET/INDEX.md) → [BioCLIP](./03_AI_BIOCLIP/INDEX.md) → [Decisiones](./15_DECISIONS/DECISION_LOG.md) → [Tareas](./00_OPEN_TASKS.md).

@@ -1,0 +1,31 @@
+{
+  "sources_searched": [
+    "evaluation/open_set_v1/knn/knn_open_set_results.json (F3/F4 blind, only UNKNOWN-labeled records)",
+    "No other UNKNOWN-labeled real dataset found elsewhere in repo (searched taxonomy/, evaluation/, validation/, data cleaned/ manifests) as of this analysis."
+  ],
+  "n_unknown_species_total": 2,
+  "unknown_species": [
+    "Hyloxalus_picachos",
+    "Sachatamia_electrops"
+  ],
+  "n_unknown_images_total": 56,
+  "n_unknown_individuals_total": 35,
+  "strata_relative_to_known_catalog": {
+    "SAME_FAMILY_DIFFERENT_GENUS": {
+      "n_images": 15,
+      "n_individuals": 15,
+      "species": [
+        "Hyloxalus_picachos"
+      ]
+    },
+    "DIFFERENT_FAMILY": {
+      "n_images": 41,
+      "n_individuals": 20,
+      "species": [
+        "Sachatamia_electrops"
+      ]
+    }
+  },
+  "diversity_status": "INSUFFICIENT",
+  "note": "Solo 2 especies UNKNOWN reales existen en el repositorio (Hyloxalus_picachos, Sachatamia_electrops), las mismas ya identificadas en Fase 16/19. No se fabrica diversidad adicional. La estratificacion taxonomica es sobre 2 puntos de dato, no una muestra."
+}

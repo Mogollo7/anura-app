@@ -1,0 +1,46 @@
+{
+  "label": "DIAGNOSTIC_ONLY - not a new Open Set validation",
+  "known_to_known": {
+    "n": 1932,
+    "mean": 0.6413362519372077,
+    "median": 0.6323089599609375,
+    "p05": 0.42768750637769704,
+    "p25": 0.5416333377361298,
+    "p50": 0.6323089599609375,
+    "p75": 0.7319061756134033,
+    "p95": 0.8881584912538528
+  },
+  "unknown_to_known": {
+    "n": 56,
+    "mean": 0.7386428117752075,
+    "median": 0.7194274663925171,
+    "p05": 0.6010792255401611,
+    "p25": 0.672203779220581,
+    "p50": 0.7194274663925171,
+    "p75": 0.8040730357170105,
+    "p95": 0.9008138179779053
+  },
+  "auroc_diagnostic_only": 0.7244990387459331,
+  "overlap_fraction_unknown_below_known_p95": 0.9107142857142857,
+  "hypothesis_evidence": {
+    "encoder_separability": {
+      "hierarchy_consistent_with_taxonomy": true,
+      "same_genus_mean_dist": 0.6078191820418124,
+      "diff_family_mean_dist": 1.0844597443491772,
+      "ratio_diff_family_vs_same_genus": 1.7841815072472924,
+      "mean_fraction_negative_margin_across_species": 0.19479666722061495,
+      "interpretation": "Si hierarchy_consistent=True Y el ratio es alto, el encoder SI organiza el espacio segun taxonomia -- la dificultad esta en especies filogeneticamente cercanas, no en el encoder en general."
+    },
+    "unknown_coverage": {
+      "n_unknown_species": 2,
+      "n_unknown_individuals": 35,
+      "sufficient_for_strong_conclusion": false,
+      "interpretation": "2 especies / <20 individuos es insuficiente para concluir sobre 'capacidad general de rechazo Open Set' -- solo permite diagnostico de estos 2 casos especificos."
+    },
+    "postprocessing_evidence": {
+      "diagnostic_auroc_raw_distance": 0.7244990387459331,
+      "note": "auroc_diag usa distancia cruda al centroide mas cercano (equivalente a Euclidean sin threshold), comparable a AUROC de Fase 17/18. Si este numero tambien es mediocre, el problema no es el mecanismo de rechazo posterior (threshold/metodo) sino la separacion de base del embedding para estas especies."
+    },
+    "diagnosed_hypothesis": "D_MIXED"
+  }
+}

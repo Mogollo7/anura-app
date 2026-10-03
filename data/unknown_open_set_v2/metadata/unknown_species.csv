@@ -1,0 +1,3 @@
+species,species_id,genus,resolution_status,n_images,n_individuals,n_observations,taxonomic_relation_to_known_genus_level
+Hyloxalus_picachos,ANU_COL_HYLO_PIC_001,Hyloxalus,RESOLVED,15,15,15,SAME_FAMILY_OR_DIFFERENT_FAMILY_SEE_FAMILY_FIELD
+Sachatamia_electrops,,Sachatamia,UNRESOLVED_NOT_IN_REGISTRY,39,19,19,SAME_FAMILY_OR_DIFFERENT_FAMILY_SEE_FAMILY_FIELD

@@ -1,0 +1,370 @@
+[
+  {
+    "example_id": "GEO6_MERLIN_KNOWN_01297",
+    "is_known_ground_truth": true,
+    "true_species": "Dendrobates truncatus",
+    "zone": null,
+    "candidate_1": {
+      "rank": 1,
+      "species": "Dendrobates truncatus",
+      "genus": "Dendrobates",
+      "family": "Dendrobatidae",
+      "visual_score": 1.0,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.7
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Dendropsophus triangulum",
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "visual_score": 0.2949,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.2064
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Dendropsophus ebraccatus",
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "visual_score": 0.2944,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.2061
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Dendrobates truncatus",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.8821,
+      "geo_prior_p_proposed_species": 0.003436,
+      "geo_compatibility": "no_zone_data",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)",
+      "decision_basis": "open_set_score=0.8821 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Dendrobates truncatus' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_KNOWN_00576",
+    "is_known_ground_truth": true,
+    "true_species": "Craugastor raniformis",
+    "zone": "ZONE_005",
+    "candidate_1": {
+      "rank": 1,
+      "species": "Craugastor raniformis",
+      "genus": "Craugastor",
+      "family": "Craugastoridae",
+      "visual_score": 1.0,
+      "geographic_score": 0.023439,
+      "ranking_score": 0.8166
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Pristimantis thectopternus",
+      "genus": "Pristimantis",
+      "family": "Craugastoridae",
+      "visual_score": 0.8397,
+      "geographic_score": 0.002005,
+      "ranking_score": 0.5963
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Pristimantis permixtus",
+      "genus": "Pristimantis",
+      "family": "Craugastoridae",
+      "visual_score": 0.6738,
+      "geographic_score": 0.00586,
+      "ranking_score": 0.4996
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Craugastor raniformis",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.6314,
+      "geo_prior_p_proposed_species": 0.023439,
+      "geo_compatibility": "compatible",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE",
+      "decision_basis": "open_set_score=0.6314 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Craugastor raniformis' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_KNOWN_05422",
+    "is_known_ground_truth": true,
+    "true_species": "Hyloscirtus palmeri",
+    "zone": "ZONE_005",
+    "candidate_1": {
+      "rank": 1,
+      "species": "Rheobates palmatus",
+      "genus": "Rheobates",
+      "family": "Aromobatidae",
+      "visual_score": 1.0,
+      "geographic_score": 0.005705,
+      "ranking_score": 0.7272
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Dendropsophus bogerti",
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "visual_score": 0.9042,
+      "geographic_score": 0.006322,
+      "ranking_score": 0.6632
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Hyloscirtus palmeri",
+      "genus": "Hyloscirtus",
+      "family": "Hylidae",
+      "visual_score": 0.7918,
+      "geographic_score": 0.008635,
+      "ranking_score": 0.5962
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Rheobates palmatus",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.9014,
+      "geo_prior_p_proposed_species": 0.005705,
+      "geo_compatibility": "less_compatible",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)",
+      "decision_basis": "open_set_score=0.9014 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Rheobates palmatus' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_KNOWN_04338",
+    "is_known_ground_truth": true,
+    "true_species": "Engystomops pustulosus",
+    "zone": null,
+    "candidate_1": {
+      "rank": 1,
+      "species": "Engystomops pustulosus",
+      "genus": "Engystomops",
+      "family": "Leptodactylidae",
+      "visual_score": 1.0,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.7
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Pristimantis bogotensis",
+      "genus": "Pristimantis",
+      "family": "Craugastoridae",
+      "visual_score": 0.8003,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.5602
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Leptodactylus colombiensis",
+      "genus": "Leptodactylus",
+      "family": "Leptodactylidae",
+      "visual_score": 0.7043,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.493
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Engystomops pustulosus",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.907,
+      "geo_prior_p_proposed_species": 0.003436,
+      "geo_compatibility": "no_zone_data",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)",
+      "decision_basis": "open_set_score=0.9070 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Engystomops pustulosus' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_KNOWN_04975",
+    "is_known_ground_truth": true,
+    "true_species": "Engystomops pustulosus",
+    "zone": null,
+    "candidate_1": {
+      "rank": 1,
+      "species": "Pristimantis bogotensis",
+      "genus": "Pristimantis",
+      "family": "Craugastoridae",
+      "visual_score": 1.0,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.7
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Rheobates palmatus",
+      "genus": "Rheobates",
+      "family": "Aromobatidae",
+      "visual_score": 0.9528,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.6669
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Engystomops pustulosus",
+      "genus": "Engystomops",
+      "family": "Leptodactylidae",
+      "visual_score": 0.8014,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.561
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Pristimantis bogotensis",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.9182,
+      "geo_prior_p_proposed_species": 0.003436,
+      "geo_compatibility": "no_zone_data",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)",
+      "decision_basis": "open_set_score=0.9182 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Pristimantis bogotensis' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_UNKNOWN_00402",
+    "is_known_ground_truth": false,
+    "true_species": "UNKNOWN (true=Dendropsophus_labialis, fuera del pool KNOWN)",
+    "zone": null,
+    "candidate_1": {
+      "rank": 1,
+      "species": "Dendropsophus molitor",
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "visual_score": 1.0,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.7
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Pithecopus hypochondrialis",
+      "genus": "Pithecopus",
+      "family": "Hylidae",
+      "visual_score": 0.7675,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.5373
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Phyllomedusa venusta",
+      "genus": "Phyllomedusa",
+      "family": "Hylidae",
+      "visual_score": 0.6375,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.4462
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Dendropsophus molitor",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.9002,
+      "geo_prior_p_proposed_species": 0.003436,
+      "geo_compatibility": "no_zone_data",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)",
+      "decision_basis": "open_set_score=0.9002 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Dendropsophus molitor' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_UNKNOWN_00385",
+    "is_known_ground_truth": false,
+    "true_species": "UNKNOWN (true=Dendropsophus_labialis, fuera del pool KNOWN)",
+    "zone": null,
+    "candidate_1": {
+      "rank": 1,
+      "species": "Dendropsophus molitor",
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "visual_score": 1.0,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.7
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Scinax ruber",
+      "genus": "Scinax",
+      "family": "Hylidae",
+      "visual_score": 0.7365,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.5155
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Dendropsophus bogerti",
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "visual_score": 0.6734,
+      "geographic_score": 0.003436,
+      "ranking_score": 0.4714
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Dendropsophus molitor",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.8927,
+      "geo_prior_p_proposed_species": 0.003436,
+      "geo_compatibility": "no_zone_data",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)",
+      "decision_basis": "open_set_score=0.8927 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Dendropsophus molitor' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  },
+  {
+    "example_id": "GEO6_MERLIN_UNKNOWN_00606",
+    "is_known_ground_truth": false,
+    "true_species": "UNKNOWN (true=Craugastor_metriosistus, fuera del pool KNOWN)",
+    "zone": "ZONE_005",
+    "candidate_1": {
+      "rank": 1,
+      "species": "Craugastor raniformis",
+      "genus": "Craugastor",
+      "family": "Craugastoridae",
+      "visual_score": 1.0,
+      "geographic_score": 0.023439,
+      "ranking_score": 0.8166
+    },
+    "candidate_2": {
+      "rank": 2,
+      "species": "Pristimantis thectopternus",
+      "genus": "Pristimantis",
+      "family": "Craugastoridae",
+      "visual_score": 0.8816,
+      "geographic_score": 0.002005,
+      "ranking_score": 0.6256
+    },
+    "candidate_3": {
+      "rank": 3,
+      "species": "Pristimantis permixtus",
+      "genus": "Pristimantis",
+      "family": "Craugastoridae",
+      "visual_score": 0.7722,
+      "geographic_score": 0.00586,
+      "ranking_score": 0.5685
+    },
+    "etapa1_ranking_config": "w_geo_rank=0.3",
+    "open_set_gate": {
+      "proposed_species": "Craugastor raniformis",
+      "w_geo_open_set": 0.9,
+      "open_set_score": 0.6315,
+      "geo_prior_p_proposed_species": 0.023439,
+      "geo_compatibility": "compatible",
+      "threshold_low_far5pct": 0.519,
+      "threshold_high_far30pct": 0.8233,
+      "decision": "NO_CONCLUYENTE",
+      "decision_basis": "open_set_score=0.6315 vs THR_LOW=0.5190 / THR_HIGH=0.8233 (DIAGNOSTIC, ver GEO6_OPENSET_DECISION_SUMMARY.json). especie propuesta='Craugastor raniformis' tomada del top-1 de Etapa 1 (ranking_score con w_geo_rank=0.3), NO recalculada desde cero."
+    },
+    "score_types_note": "visual_score = similitud normalizada min-max por fila sobre 41 candidatos (Etapa 1, NO probabilidad). geographic_score = prior bayesiano por zona (K=291, prior_zone_taxon_v2_clean.csv), sin normalizar (0..1 pero no probabilidad calibrada). ranking_score = combinacion de Etapa 1 ((1-w_geo_rank)*visual_score_norm_fila + w_geo_rank*geographic_score_norm_fila). open_set_score = score SEPARADO de Etapa 2 ((1-0.9)*visual_norm_top1_escalar + 0.9*geo_unknownness_especie_propuesta), NO es el mismo score ni la misma normalizacion que ranking_score. genus/family = metadata contextual, NUNCA usados para ordenar ni para el gate. No se reporta calibrated_probability: no existe calibracion real (isotonic/Platt sobre holdout independiente) en ningun experimento de esta cadena (GEO2-GEO6)."
+  }
+]

@@ -1,0 +1,12 @@
+species,genus,family,taxon_id,n_images,n_individuals,n_observations,relation_to_known,geographic_regions,acceptance_rate,quality_summary
+Boana_geographica,Boana,Hylidae,,2,1,1,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Dendropsophus_labialis,Dendropsophus,Hylidae,,74,43,43,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Dendropsophus_minutus,Dendropsophus,Hylidae,,23,19,19,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Espadarana_prosoblepon,Espadarana,Centrolenidae,,89,45,45,DIFFERENT_FAMILY,Colombia (iNaturalist research-grade),,
+Hyloxalus_picachos,Hyloxalus,Dendrobatidae,,15,15,15,SAME_FAMILY,historical (source region not recorded in F13 lineage),,
+Leptodactylus_fragilis,Leptodactylus,Leptodactylidae,,85,44,44,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Pristimantis_nervicus,Pristimantis,Craugastoridae,,3,2,2,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Pristimantis_w_nigrum,Pristimantis,Craugastoridae,,53,21,21,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Rhinella_marina,Rhinella,Bufonidae,,83,41,41,SAME_GENUS,Colombia (iNaturalist research-grade),,
+Sachatamia_electrops,Sachatamia,Centrolenidae,,39,19,19,DIFFERENT_FAMILY,historical (source region not recorded in F13 lineage),,
+Smilisca_phaeota,Smilisca,Hylidae,,108,55,55,SAME_FAMILY,Colombia (iNaturalist research-grade),,

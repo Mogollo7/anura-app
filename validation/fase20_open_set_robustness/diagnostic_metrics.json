@@ -1,0 +1,143 @@
+{
+  "label": "DIAGNOSTIC_ONLY - Fase 20, no reemplaza threshold/covariance oficiales",
+  "raw_embedding_separability": {
+    "metric": "euclidean_min_distance_to_nearest_official_centroid",
+    "known": {
+      "n": 7475,
+      "mean": 0.6486426159051748,
+      "median": 0.6454839110374451,
+      "std": 0.1581348679197216,
+      "p10": 0.43903984427452086,
+      "p25": 0.5303554832935333,
+      "p50": 0.6454839110374451,
+      "p75": 0.7607429325580597,
+      "p90": 0.857444167137146,
+      "p95": 0.9133126378059386,
+      "p99": 1.0325277137756348
+    },
+    "unknown": {
+      "n": 56,
+      "mean": 0.7429675725953919,
+      "median": 0.7239444851875305,
+      "std": 0.09302931863278394,
+      "p10": 0.6215892732143402,
+      "p25": 0.6887748092412949,
+      "p50": 0.7239444851875305,
+      "p75": 0.8146506100893021,
+      "p90": 0.8737640976905823,
+      "p95": 0.8973386436700821,
+      "p99": 0.9167894065380097
+    },
+    "auroc": 0.693609651218347,
+    "pr_auc": 0.011504482812217005,
+    "note": "Comparable en espiritu al AUROC=0.7245 de Fase19, aunque Fase19 uso centroides calculados sobre el propio KNOWN limpio (no REFERENCE+TRAIN); aqui se usan los centroides OFICIALES fijos para poder comparar etapas del pipeline de forma controlada. Diferencia esperada por esta razon metodologica, documentada explicitamente."
+  },
+  "distance_metric_comparison_summary": [
+    {
+      "metric": "cosine_similarity",
+      "auroc": 0.6892283803153367,
+      "pr_auc": 0.011184213054935261,
+      "diagnostic_threshold": "0.7370467",
+      "diagnostic_threshold_far": 0.17857142857142858,
+      "diagnostic_threshold_frr": 0.42046822742474915,
+      "diagnostic_threshold_balanced_accuracy": 0.7004801720019111,
+      "diagnostic_threshold_youden_j": 0.4009603440038223,
+      "is_official_frozen_threshold": false
+    },
+    {
+      "metric": "cosine_distance",
+      "auroc": 0.6892283803153367,
+      "pr_auc": 0.011184213054935261,
+      "diagnostic_threshold": "0.26293713",
+      "diagnostic_threshold_far": 0.17857142857142858,
+      "diagnostic_threshold_frr": 0.4206020066889632,
+      "diagnostic_threshold_balanced_accuracy": 0.7004132823698042,
+      "diagnostic_threshold_youden_j": 0.4008265647396083,
+      "is_official_frozen_threshold": false
+    },
+    {
+      "metric": "euclidean",
+      "auroc": 0.693609651218347,
+      "pr_auc": 0.011504482812217005,
+      "diagnostic_threshold": "0.68039924",
+      "diagnostic_threshold_far": 0.17857142857142858,
+      "diagnostic_threshold_frr": 0.41578595317725753,
+      "diagnostic_threshold_balanced_accuracy": 0.702821309125657,
+      "diagnostic_threshold_youden_j": 0.405642618251314,
+      "is_official_frozen_threshold": false
+    },
+    {
+      "metric": "mahalanobis",
+      "auroc": 0.5920043000477784,
+      "pr_auc": 0.008162823164637772,
+      "diagnostic_threshold": 27.204981176399972,
+      "diagnostic_threshold_far": 0.0,
+      "diagnostic_threshold_frr": 0.65685618729097,
+      "diagnostic_threshold_balanced_accuracy": 0.671571906354515,
+      "diagnostic_threshold_youden_j": 0.34314381270903005,
+      "is_official_frozen_threshold": false
+    },
+    {
+      "metric": "mahalanobis_official_frozen_threshold",
+      "auroc": 0.5920043000477784,
+      "pr_auc": 0.008162823164637772,
+      "diagnostic_threshold": 39.35406371422803,
+      "diagnostic_threshold_far": 0.9107142857142857,
+      "diagnostic_threshold_frr": 0.17605351170568562,
+      "diagnostic_threshold_balanced_accuracy": 0.45661610129001434,
+      "diagnostic_threshold_youden_j": -0.08676779741997132,
+      "is_official_frozen_threshold": true
+    }
+  ],
+  "stagewise_auroc": [
+    {
+      "stage": "1_raw_l2_normalized_embedding_euclidean_to_centroid",
+      "auroc": 0.693609651218347,
+      "pr_auc": 0.011504482812217005
+    },
+    {
+      "stage": "2_centered_euclidean_to_centroid",
+      "auroc": 0.693609651218347,
+      "pr_auc": 0.011504482812217005
+    },
+    {
+      "stage": "3_cosine_distance_to_centroid",
+      "auroc": 0.6892283803153367,
+      "pr_auc": 0.011184213054935261
+    },
+    {
+      "stage": "4_mahalanobis_shared_covariance",
+      "auroc": 0.5920043000477784,
+      "pr_auc": 0.008162823164637772
+    },
+    {
+      "stage": "5_official_pipeline_fase16_reported",
+      "auroc": 0.5927974199713331,
+      "pr_auc": null
+    }
+  ],
+  "far_concentration_by_unknown_species": {
+    "Hyloxalus_picachos": {
+      "n_accepted_false": 13,
+      "n_total": 15,
+      "far_rate": 0.8666666666666667
+    },
+    "Sachatamia_electrops": {
+      "n_accepted_false": 38,
+      "n_total": 41,
+      "far_rate": 0.926829268292683
+    }
+  },
+  "official_frozen_threshold": 39.35406371422803,
+  "official_threshold_release": "threshold/v1.1.0_CLEAN",
+  "official_covariance_release": "covariance/v1.1.0_CLEAN",
+  "n_known_test_images": 7475,
+  "n_unknown_test_images": 56,
+  "n_known_test_individuals": 4103,
+  "n_unknown_test_individuals": 35,
+  "cross_individual_species_test": {
+    "n_species_evaluated": 24,
+    "mean_top1_accuracy": 0.5353961755410636,
+    "mean_negative_margin_rate": 0.4646038244589365
+  }
+}

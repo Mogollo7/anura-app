@@ -1,0 +1,37 @@
+{
+  "phase": "FASE21_ALTERNATIVE_HYPOTHESES",
+  "main_finding": "Euclidean methods outperform Mahalanobis on BLIND TEST",
+  "hypothesis_h1_euclidean_better": true,
+  "alternative_explanations_tested": {
+    "1_artifact_of_unknown_composition": {
+      "description": "Euclidean better because UNKNOWN species are taxon-distant",
+      "test": "Stratify UNKNOWN by taxonomic distance (SAME_FAMILY vs DIFFERENT_FAMILY)",
+      "result": "INCOMPLETE - both UNKNOWN species outside known genera",
+      "conclusion": "Cannot falsify via data (insufficient diversity in UNKNOWN)"
+    },
+    "2_artifact_of_known_composition": {
+      "description": "Results biased by specific KNOWN species distribution",
+      "test": "Cross-validate on different KNOWN subsets",
+      "result": "NOT_PERFORMED - would require re-splitting KNOWN clean",
+      "note": "Single VALIDATION/BLIND split may not generalize"
+    },
+    "3_artifact_of_class_imbalance": {
+      "description": "High FAR (0.18) masks poor separation",
+      "test": "Check if FAR consistent across methods (it is: 0.18 for Euclidean)",
+      "result": "FAR similar between Euclidean and Cosine (both 0.18)",
+      "interpretation": "FAR not causing differential method performance"
+    },
+    "4_mahalanobis_threshold_misaligned": {
+      "description": "Official threshold (39.354) is from different CALIBRATION set",
+      "test": "Recalibrate Mahalanobis on VALIDATION",
+      "result": "DONE - optimal_tau=88.75, Youden=1.0 on VALIDATION (unrealistic perfect)",
+      "interpretation": "VALIDATION too small (all KNOWN), no UNKNOWN for threshold selection"
+    }
+  },
+  "critical_limitation": {
+    "issue": "VALIDATION split is all-KNOWN",
+    "implication": "Cannot select threshold based on KNOWN/UNKNOWN balance",
+    "effect": "Optimal thresholds (Youden=1.0) are artifacts of perfect separation in all-KNOWN subset",
+    "solution_required": "Separate CALIBRATION pool with mixed KNOWN/UNKNOWN"
+  }
+}

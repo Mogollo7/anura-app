@@ -1,0 +1,27 @@
+{
+  "threshold_release": "threshold_1.1.0_CLEAN",
+  "catalog_release": "visual_catalog_1.0.0",
+  "covariance_release": "covariance_1.1.0_CLEAN",
+  "encoder_contract": {
+    "encoder_id": "bioclip_anura_v1",
+    "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad"
+  },
+  "threshold": 39.35406371422803,
+  "metric": "Mahalanobis min-distance to nearest centroid",
+  "calibration_method": "M5_LedoitWolf_Shared",
+  "calibration_dataset": "CALIBRATION (192 imagenes)",
+  "calibration_split": "CALIBRATION",
+  "target_operating_point": "KAR 95%",
+  "alternative_thresholds": {
+    "KAR_80_percent": 32.36951098564399,
+    "KAR_85_percent": 34.04141353120939,
+    "KAR_90_percent": 35.361070335430924,
+    "KAR_95_percent": 39.35406371422803
+  },
+  "created_at": "2026-09-13T19:05:58.491999+00:00",
+  "source_artifacts": [
+    "evaluation/fase13/selection/frozen_rejection_config.json"
+  ],
+  "sha256": "e7df72553bf6d10167148e76948d6c8ee9d17cb4ab73e66d7b151793dfb83a0a",
+  "historical_note": "threshold=39.35406371422803 es EL MISMO valor congelado originalmente en Fase 13 (timestamp original: 2026-09-13T16:40:34.552729+00:00). Este artefacto NO recalibra — solo formaliza procedencia y versión."
+}

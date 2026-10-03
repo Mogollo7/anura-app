@@ -1,0 +1,137 @@
+{
+  "method": "frozen_visual_k2_margin + train_only_topographic_habitat_envelope",
+  "opentopodata": {
+    "endpoint": "https://api.opentopodata.org/v1/srtm30m",
+    "dataset": "srtm30m",
+    "interpolation": "bilinear",
+    "radius_m": 90.0,
+    "cache_sha256": "cf1a6abaaee7b2d927b8a5aaee2a7e42e7da94c46068ae1b1ded4acce287905c"
+  },
+  "profile": {
+    "features": [
+      "latitude",
+      "longitude",
+      "elevation_m",
+      "slope_deg",
+      "aspect_sin",
+      "aspect_cos",
+      "local_relief_m",
+      "roughness_m"
+    ],
+    "source_split": "Fase13 TRAIN only",
+    "minimum_train_localities": 10,
+    "profiles_enabled": 38,
+    "train_localities_total": 1678
+  },
+  "coverage": {
+    "calibration_known_images": {
+      "total": 2545,
+      "topography": 2429
+    },
+    "calibration_unknown_images": {
+      "total": 130,
+      "topography": 100
+    },
+    "fase23a_blind_images": {
+      "total": 620,
+      "topography": 429,
+      "without_context": 191
+    }
+  },
+  "freeze": {
+    "visual_method": "F_multiple_prototypes_k2_margin",
+    "topographic_distance_threshold": 72.52993353344644,
+    "selection": "max calibration KAR subject to calibration FAR <= 5%; Fase23A excluded"
+  },
+  "calibration": {
+    "visual_only": {
+      "far": 0.046153846153846156,
+      "udr": 0.9538461538461538,
+      "kar": 0.4495088408644401,
+      "frr": 0.5504911591355599,
+      "balanced_accuracy": 0.7016774973552969,
+      "known_accepted": 1144,
+      "unknown_false_accepted": 6
+    },
+    "visual_plus_topography": {
+      "far": 0.046153846153846156,
+      "udr": 0.9538461538461538,
+      "kar": 0.4495088408644401,
+      "frr": 0.5504911591355599,
+      "balanced_accuracy": 0.7016774973552969,
+      "known_accepted": 1144,
+      "unknown_false_accepted": 6
+    }
+  },
+  "fase23a_blind": {
+    "visual_only_all": {
+      "far": 0.36935483870967745,
+      "udr": 0.6306451612903226,
+      "kar": 0.36935483870967745,
+      "frr": 0.6306451612903226,
+      "balanced_accuracy": 0.5,
+      "known_accepted": 229,
+      "unknown_false_accepted": 229
+    },
+    "visual_plus_topography_all": {
+      "far": 0.36774193548387096,
+      "udr": 0.6322580645161291,
+      "kar": 0.36774193548387096,
+      "frr": 0.6322580645161291,
+      "balanced_accuracy": 0.5,
+      "known_accepted": 228,
+      "unknown_false_accepted": 228
+    },
+    "visual_only_covered": {
+      "far": 0.4592074592074592,
+      "udr": 0.5407925407925408,
+      "kar": 0.4592074592074592,
+      "frr": 0.5407925407925408,
+      "balanced_accuracy": 0.5,
+      "known_accepted": 197,
+      "unknown_false_accepted": 197
+    },
+    "visual_plus_topography_covered": {
+      "far": 0.4568764568764569,
+      "udr": 0.543123543123543,
+      "kar": 0.4568764568764569,
+      "frr": 0.543123543123543,
+      "balanced_accuracy": 0.5,
+      "known_accepted": 196,
+      "unknown_false_accepted": 196
+    },
+    "accepted_by_true_species_evaluation_only": {
+      "Smilisca phaeota": 29,
+      "Espadarana prosoblepon": 23,
+      "Leptodactylus fragilis": 32,
+      "Rhinella marina": 66,
+      "Dendropsophus labialis": 47,
+      "Scinax rostratus": 5,
+      "Craugastor metriosistus": 26
+    },
+    "accepted_by_predicted_catalog_species": {
+      "Dendropsophus molitor": 52,
+      "Boana lanciformis": 21,
+      "Pithecopus hypochondrialis": 3,
+      "Hyloscirtus palmeri": 22,
+      "Boana cinerascens": 1,
+      "Leptodactylus colombiensis": 17,
+      "Scinax ruber": 2,
+      "Engystomops pustulosus": 11,
+      "Craugastor raniformis": 30,
+      "Rheobates palmatus": 1,
+      "Pristimantis vilarsi": 1,
+      "Rhinella horribilis": 60,
+      "Rhinella margaritifera": 2,
+      "Pristimantis thectopternus": 4,
+      "Pristimantis bogotensis": 1
+    }
+  },
+  "invariants": {
+    "encoder_weights_modified": false,
+    "source_embeddings_modified": false,
+    "fase23a_used_for_selection": false,
+    "missing_coordinate_does_not_reject": true,
+    "context_cannot_accept_visual_rejection": true
+  }
+}

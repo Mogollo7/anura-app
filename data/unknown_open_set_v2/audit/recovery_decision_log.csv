@@ -1,0 +1,12 @@
+species,valid_images_available,inaturalist_colombia_recovery_attempted,inaturalist_colombia_observations_found,additional_valid_images_obtained,final_image_count,contract_requirement_met,decision,decision_date
+Boana_albifrons,95,No,,,95,Yes,PRIMARY_PASS,2026-09-14
+Dendropsophus_labialis,74,No,,,74,Yes,PRIMARY_PASS,2026-09-14
+Dendropsophus_minutus,23,Yes,0,0,23,No,SUPPLEMENTARY_EXCLUDED,2026-09-14
+Espadarana_prosoblepon,89,No,,,89,Yes,PRIMARY_PASS,2026-09-14
+Hyloxalus_picachos,15,Yes,0,0,15,No,SUPPLEMENTARY_EXCLUDED,2026-09-14
+Leptodactylus_fragilis,85,No,,,85,Yes,PRIMARY_PASS,2026-09-14
+Pristimantis_brevirostris,89,No,,,89,Yes,PRIMARY_PASS,2026-09-14
+Pristimantis_w_nigrum,53,Yes,0,0,53,No,SUPPLEMENTARY_EXCLUDED,2026-09-14
+Rhinella_marina,83,No,,,83,Yes,PRIMARY_PASS,2026-09-14
+Sachatamia_electrops,39,Yes,0,0,39,No,SUPPLEMENTARY_EXCLUDED,2026-09-14
+Smilisca_phaeota,107,No,,,107,Yes,PRIMARY_PASS,2026-09-14

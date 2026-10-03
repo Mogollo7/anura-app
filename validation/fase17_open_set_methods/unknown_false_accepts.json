@@ -1,0 +1,182 @@
+{
+  "total_false_accepts_mahalanobis_hist_threshold": 51,
+  "nearest_species_frequency": {
+    "Pristimantis_paisa": 2,
+    "Rheobates_palmatus": 2,
+    "Pristimantis_gaigei": 3,
+    "Boana_cinerascens": 13,
+    "Craugastor_raniformis": 2,
+    "Pristimantis_taeniatus": 1,
+    "Hyloscirtus_palmeri": 11,
+    "Boana_punctata": 1,
+    "Dendropsophus_bogerti": 2,
+    "Pristimantis_vilarsi": 2,
+    "Scinax_ruber": 3,
+    "Dendropsophus_columbianus": 3,
+    "Pristimantis_bogotensis": 3,
+    "Pristimantis_permixtus": 1,
+    "Dendropsophus_mathiassoni": 2
+  },
+  "top20_closest": [
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0010",
+      "nearest_species": "Pristimantis_paisa",
+      "mahalanobis_distance": 27.21512121401082,
+      "cosine_score": 0.6044200658798218,
+      "euclidean_distance": 0.8249781727790833
+    },
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0013",
+      "nearest_species": "Rheobates_palmatus",
+      "mahalanobis_distance": 27.28556729813776,
+      "cosine_score": 0.6554324626922607,
+      "euclidean_distance": 0.7624918818473816
+    },
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0003",
+      "nearest_species": "Pristimantis_gaigei",
+      "mahalanobis_distance": 27.666239204900187,
+      "cosine_score": 0.7674535512924194,
+      "euclidean_distance": 0.6431488394737244
+    },
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0012",
+      "nearest_species": "Rheobates_palmatus",
+      "mahalanobis_distance": 28.35744455267601,
+      "cosine_score": 0.6350197792053223,
+      "euclidean_distance": 0.7825796604156494
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0016",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 28.368404417138198,
+      "cosine_score": 0.7852697372436523,
+      "euclidean_distance": 0.6217427253723145
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0055",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 28.526195562566446,
+      "cosine_score": 0.7837570309638977,
+      "euclidean_distance": 0.6237881183624268
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0036",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 28.578096347594386,
+      "cosine_score": 0.8518161773681641,
+      "euclidean_distance": 0.5239337086677551
+    },
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0014",
+      "nearest_species": "Craugastor_raniformis",
+      "mahalanobis_distance": 28.720910053847035,
+      "cosine_score": 0.5587834119796753,
+      "euclidean_distance": 0.8690875768661499
+    },
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0006",
+      "nearest_species": "Pristimantis_taeniatus",
+      "mahalanobis_distance": 28.79695354271531,
+      "cosine_score": 0.7131123542785645,
+      "euclidean_distance": 0.7089554667472839
+    },
+    {
+      "unknown_species": "Hyloxalus_picachos",
+      "image_id": "Hyloxalus_picachos_0005",
+      "nearest_species": "Pristimantis_paisa",
+      "mahalanobis_distance": 28.80822340651596,
+      "cosine_score": 0.5683663487434387,
+      "euclidean_distance": 0.8242775201797485
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0049",
+      "nearest_species": "Hyloscirtus_palmeri",
+      "mahalanobis_distance": 28.829242721250257,
+      "cosine_score": 0.7174215912818909,
+      "euclidean_distance": 0.7009299397468567
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0056",
+      "nearest_species": "Boana_punctata",
+      "mahalanobis_distance": 29.003665536443666,
+      "cosine_score": 0.7369576096534729,
+      "euclidean_distance": 0.6840444207191467
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0017",
+      "nearest_species": "Hyloscirtus_palmeri",
+      "mahalanobis_distance": 29.15596355233051,
+      "cosine_score": 0.7878209352493286,
+      "euclidean_distance": 0.615944504737854
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0041",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 29.277757010555067,
+      "cosine_score": 0.7854962348937988,
+      "euclidean_distance": 0.621435821056366
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0053",
+      "nearest_species": "Hyloscirtus_palmeri",
+      "mahalanobis_distance": 29.290646880765863,
+      "cosine_score": 0.7139058113098145,
+      "euclidean_distance": 0.7049055695533752
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0052",
+      "nearest_species": "Hyloscirtus_palmeri",
+      "mahalanobis_distance": 29.355330508375317,
+      "cosine_score": 0.7872653007507324,
+      "euclidean_distance": 0.6166613101959229
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0019",
+      "nearest_species": "Hyloscirtus_palmeri",
+      "mahalanobis_distance": 29.430907769702312,
+      "cosine_score": 0.7144073843955994,
+      "euclidean_distance": 0.7043397426605225
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0021",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 29.4400254363647,
+      "cosine_score": 0.8276991844177246,
+      "euclidean_distance": 0.5613530278205872
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0034",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 30.95719446090664,
+      "cosine_score": 0.7028508186340332,
+      "euclidean_distance": 0.7248097062110901
+    },
+    {
+      "unknown_species": "Sachatamia_electrops",
+      "image_id": "Sachatamia_electrops_0035",
+      "nearest_species": "Boana_cinerascens",
+      "mahalanobis_distance": 31.01750158046747,
+      "cosine_score": 0.746864914894104,
+      "euclidean_distance": 0.6717394590377808
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "2026-09-14T16:09:01.233485+00:00",
+  "criterion": "Las observation_id evaluadas en el set open-set/closed-set (KNOWN=fase16, UNKNOWN=fase23a) no deben contribuir al prior geografico -- mismo criterio aplicado en GEO2/GEO3.",
+  "prior_used": "prior_zone_taxon_v2_clean.csv (ya purgado de 1214 observation_id contaminados en FASE12.2 / prior_zone_taxon_v2_clean_manifest.json)",
+  "n_records_original_source": 15081,
+  "n_records_purged_total": 13867,
+  "n_contaminated_obs_ids_excluded": 1214,
+  "reused_not_recomputed": true,
+  "note": "GEO5 no reconstruye el purge: lo AUDITA (confirma set(taxon_id) del prior limpio == set(taxon_id) del catalogo completo, ver coverage_report.json) y lo reempaqueta con trazabilidad de species_id. El purge en si ya fue verificado independiente de individuos en FASE12.2 (con la limitacion documentada NOT_FORMALLY_VERIFIABLE por falta de obs_id en algunos manifests, ver memoria del proyecto)."
+}

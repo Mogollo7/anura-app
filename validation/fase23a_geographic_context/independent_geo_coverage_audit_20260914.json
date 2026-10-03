@@ -1,0 +1,81 @@
+{
+  "audit_type": "independent_geographic_coverage_audit",
+  "date": "2026-09-14",
+  "method": "image-level observation_id normalized by removing OBS_; FOUND_GEO iff GEO cache has finite in-range lat/lon; no labels/ground truth used for scores",
+  "results": {
+    "KNOWN_clean_manifest": {
+      "n_images": 7475,
+      "FOUND_GEO": 7431,
+      "NOT_FOUND": 44,
+      "unique_observation_ids": 4060,
+      "unique_found": 4059
+    },
+    "UNKNOWN_embeddings": {
+      "n_images": 620,
+      "FOUND_GEO": 620,
+      "NOT_FOUND": 0,
+      "unique_observation_ids": 412,
+      "unique_found": 412
+    }
+  },
+  "source_intersections": {
+    "coordinate_audit_clean_records": {
+      "records": 13565,
+      "known_image_matches": 7321,
+      "unknown_image_matches": 68
+    },
+    "download_manifest_downloaded_records": 521,
+    "unknown_image_matches": 435,
+    "geo_cache_entries": 4466,
+    "geo_cache_unique_target_ids": 4466,
+    "extracted_cache_entries": 4466
+  },
+  "topography_cache": {
+    "path": "validation/open_set_topography_v1/opentopodata_cache.json",
+    "entries": 14841,
+    "interpretation": "coordinate-keyed elevation responses; not an image/observation manifest, so not used to claim FOUND_GEO"
+  },
+  "existing_ablation": {
+    "script": "validation/fase23a_geographic_context/scripts/phase1to8_main.py",
+    "existing_output": "validation/fase23a_geographic_context/ablation_summary.json",
+    "executed_by_this_audit": false,
+    "reason": "coverage audit only; avoids changing historical threshold/encoder/dataset/production artifacts"
+  },
+  "hashes": [
+    {
+      "path": "validation/fase16_clean_open_set/clean_known_manifest.json",
+      "bytes": 3866303,
+      "sha256": "143d88c9210100af345fe9da32ba41453c024caf31d594ca44b84f20ac0e5514"
+    },
+    {
+      "path": "validation/fase23a_open_set_automatic/embeddings/unknown_embeddings.npz",
+      "bytes": 1220013,
+      "sha256": "b44380c56337e8680a90dd11d7a02193928e9a5c974b59839a89b999855d5764"
+    },
+    {
+      "path": "bioclip/evaluation/coordenadas_auditoria.json",
+      "bytes": 2383810,
+      "sha256": "5598c824ea070f8a7aeab2f2b0198e255814e0aa79e532b3585ca9e554f161d7"
+    },
+    {
+      "path": "data/unknown_open_set_v2/manifests/download_manifest.json",
+      "bytes": 371543,
+      "sha256": "f1aa98168bdb81e0e009d732301473b6cc2a59e187e9e846684af38a1e46eb6e"
+    },
+    {
+      "path": "validation/fase23a_geographic_context/cache/inat_observations_cache.json",
+      "bytes": 1130574,
+      "sha256": "62fbc22b6fd131de04da55aadd99d72dae9e64cc40fe496f912518a8e10e87bb"
+    },
+    {
+      "path": "validation/fase23a_geographic_context/cache/inat_extracted.json",
+      "bytes": 786721,
+      "sha256": "069967db8cbdd9063766dd3b274df88a0fcad98a2e9c4ac29199fd3f15ab55ba"
+    },
+    {
+      "path": "validation/open_set_topography_v1/opentopodata_cache.json",
+      "bytes": 1326491,
+      "sha256": "cf1a6abaaee7b2d927b8a5aaee2a7e42e7da94c46068ae1b1ded4acce287905c"
+    }
+  ]
+}

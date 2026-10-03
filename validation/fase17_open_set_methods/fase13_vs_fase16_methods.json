@@ -1,0 +1,20 @@
+{
+  "historical_fase13": {
+    "note": "CONTAMINATED KNOWN evaluation (F3 KNOWN es subconjunto exacto de TRAIN, ver Fase 15/16 leakage audit)",
+    "AUROC_final_blind": 0.6247668780305856,
+    "method_selected_via_CV_on_REFERENCE": "M5_LedoitWolf_Shared",
+    "CV_mean_scores_on_REFERENCE": {
+      "M1_Euclidean": 0.5713015198707581,
+      "M2_Cosine": 0.19597065448760986,
+      "M5_LedoitWolf": 24.396055442957277
+    },
+    "cv_selection_caveat": "La CV de Fase 13 comparo METODOS sobre REFERENCE usando estabilidad de scores/condicionamiento, NO AUROC KNOWN-vs-UNKNOWN (no habia UNKNOWN disponible en esa etapa por diseno). No es directamente comparable a AUROC de Fase 17."
+  },
+  "clean_fase16_fase17": {
+    "note": "CLEAN evaluation (blind KNOWN sin leakage, verificado Fase 16)",
+    "AUROC_Cosine": 0.6892283803153367,
+    "AUROC_Euclidean": 0.693609651218347,
+    "AUROC_Mahalanobis": 0.5920043000477784
+  },
+  "explicit_non_mixing_statement": "Los resultados de Fase 13 (contaminados) y Fase 16/17 (limpios) se reportan por separado y NUNCA se combinan en un promedio ni se usan uno para validar al otro."
+}

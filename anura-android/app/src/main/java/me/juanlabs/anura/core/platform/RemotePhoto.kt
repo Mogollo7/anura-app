@@ -34,11 +34,14 @@ private suspend fun downloadPhoto(context: Context, url: String): ImageBitmap? =
     if (!file.exists()) {
         val ok = runCatching {
             val conn = (URL(url).openConnection() as HttpURLConnection).apply {
-                connectTimeout = 3_000
-                readTimeout = 12_000
+                connectTimeout = 10_000
+                readTimeout = 25_000
             }
             try {
-                if (conn.responseCode != HttpURLConnection.HTTP_OK) return@runCatching false
+                if (conn.responseCode != HttpURLConnection.HTTP_OK) {
+                    android.util.Log.w("RemotePhoto", "HTTP ${conn.responseCode} downloading photo: $url")
+                    return@runCatching false
+                }
                 file.parentFile?.mkdirs()
                 val tmp = File(file.parentFile, file.name + ".part")
                 conn.inputStream.use { input -> tmp.outputStream().use { input.copyTo(it) } }
@@ -46,7 +49,8 @@ private suspend fun downloadPhoto(context: Context, url: String): ImageBitmap? =
             } finally {
                 conn.disconnect()
             }
-        }.getOrDefault(false)
+        }.onFailure { android.util.Log.w("RemotePhoto", "Error downloading photo $url: ${it.message}") }
+        .getOrDefault(false)
         if (!ok) return@withContext null
     }
     runCatching { BitmapFactory.decodeFile(file.path)?.asImageBitmap() }.getOrNull()

@@ -1,0 +1,307 @@
+{
+  "total_centroids": 100,
+  "group_a_count": 20,
+  "group_b_count": 80,
+  "species_details": {
+    "Species_0": {
+      "group": "A"
+    },
+    "Species_1": {
+      "group": "A"
+    },
+    "Species_2": {
+      "group": "A"
+    },
+    "Species_3": {
+      "group": "A"
+    },
+    "Species_4": {
+      "group": "A"
+    },
+    "Species_5": {
+      "group": "A"
+    },
+    "Species_6": {
+      "group": "A"
+    },
+    "Species_7": {
+      "group": "A"
+    },
+    "Species_8": {
+      "group": "A"
+    },
+    "Species_9": {
+      "group": "A"
+    },
+    "Species_10": {
+      "group": "A"
+    },
+    "Species_11": {
+      "group": "A"
+    },
+    "Species_12": {
+      "group": "A"
+    },
+    "Species_13": {
+      "group": "A"
+    },
+    "Species_14": {
+      "group": "A"
+    },
+    "Species_15": {
+      "group": "A"
+    },
+    "Species_16": {
+      "group": "A"
+    },
+    "Species_17": {
+      "group": "A"
+    },
+    "Species_18": {
+      "group": "A"
+    },
+    "Species_19": {
+      "group": "A"
+    },
+    "Species_20": {
+      "group": "B"
+    },
+    "Species_21": {
+      "group": "B"
+    },
+    "Species_22": {
+      "group": "B"
+    },
+    "Species_23": {
+      "group": "B"
+    },
+    "Species_24": {
+      "group": "B"
+    },
+    "Species_25": {
+      "group": "B"
+    },
+    "Species_26": {
+      "group": "B"
+    },
+    "Species_27": {
+      "group": "B"
+    },
+    "Species_28": {
+      "group": "B"
+    },
+    "Species_29": {
+      "group": "B"
+    },
+    "Species_30": {
+      "group": "B"
+    },
+    "Species_31": {
+      "group": "B"
+    },
+    "Species_32": {
+      "group": "B"
+    },
+    "Species_33": {
+      "group": "B"
+    },
+    "Species_34": {
+      "group": "B"
+    },
+    "Species_35": {
+      "group": "B"
+    },
+    "Species_36": {
+      "group": "B"
+    },
+    "Species_37": {
+      "group": "B"
+    },
+    "Species_38": {
+      "group": "B"
+    },
+    "Species_39": {
+      "group": "B"
+    },
+    "Species_40": {
+      "group": "B"
+    },
+    "Species_41": {
+      "group": "B"
+    },
+    "Species_42": {
+      "group": "B"
+    },
+    "Species_43": {
+      "group": "B"
+    },
+    "Species_44": {
+      "group": "B"
+    },
+    "Species_45": {
+      "group": "B"
+    },
+    "Species_46": {
+      "group": "B"
+    },
+    "Species_47": {
+      "group": "B"
+    },
+    "Species_48": {
+      "group": "B"
+    },
+    "Species_49": {
+      "group": "B"
+    },
+    "Species_50": {
+      "group": "B"
+    },
+    "Species_51": {
+      "group": "B"
+    },
+    "Species_52": {
+      "group": "B"
+    },
+    "Species_53": {
+      "group": "B"
+    },
+    "Species_54": {
+      "group": "B"
+    },
+    "Species_55": {
+      "group": "B"
+    },
+    "Species_56": {
+      "group": "B"
+    },
+    "Species_57": {
+      "group": "B"
+    },
+    "Species_58": {
+      "group": "B"
+    },
+    "Species_59": {
+      "group": "B"
+    },
+    "Species_60": {
+      "group": "B"
+    },
+    "Species_61": {
+      "group": "B"
+    },
+    "Species_62": {
+      "group": "B"
+    },
+    "Species_63": {
+      "group": "B"
+    },
+    "Species_64": {
+      "group": "B"
+    },
+    "Species_65": {
+      "group": "B"
+    },
+    "Species_66": {
+      "group": "B"
+    },
+    "Species_67": {
+      "group": "B"
+    },
+    "Species_68": {
+      "group": "B"
+    },
+    "Species_69": {
+      "group": "B"
+    },
+    "Species_70": {
+      "group": "B"
+    },
+    "Species_71": {
+      "group": "B"
+    },
+    "Species_72": {
+      "group": "B"
+    },
+    "Species_73": {
+      "group": "B"
+    },
+    "Species_74": {
+      "group": "B"
+    },
+    "Species_75": {
+      "group": "B"
+    },
+    "Species_76": {
+      "group": "B"
+    },
+    "Species_77": {
+      "group": "B"
+    },
+    "Species_78": {
+      "group": "B"
+    },
+    "Species_79": {
+      "group": "B"
+    },
+    "Species_80": {
+      "group": "B"
+    },
+    "Species_81": {
+      "group": "B"
+    },
+    "Species_82": {
+      "group": "B"
+    },
+    "Species_83": {
+      "group": "B"
+    },
+    "Species_84": {
+      "group": "B"
+    },
+    "Species_85": {
+      "group": "B"
+    },
+    "Species_86": {
+      "group": "B"
+    },
+    "Species_87": {
+      "group": "B"
+    },
+    "Species_88": {
+      "group": "B"
+    },
+    "Species_89": {
+      "group": "B"
+    },
+    "Species_90": {
+      "group": "B"
+    },
+    "Species_91": {
+      "group": "B"
+    },
+    "Species_92": {
+      "group": "B"
+    },
+    "Species_93": {
+      "group": "B"
+    },
+    "Species_94": {
+      "group": "B"
+    },
+    "Species_95": {
+      "group": "B"
+    },
+    "Species_96": {
+      "group": "B"
+    },
+    "Species_97": {
+      "group": "B"
+    },
+    "Species_98": {
+      "group": "B"
+    },
+    "Species_99": {
+      "group": "B"
+    }
+  }
+}

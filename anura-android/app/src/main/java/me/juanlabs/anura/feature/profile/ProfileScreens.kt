@@ -38,6 +38,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
@@ -125,6 +126,9 @@ fun ProfileScreen(
     // `userId` es en realidad el username real (auth.users.username) para perfiles ajenos —
     // es la clave natural de /api/auth/public/:username, no hay CommunityCatalog de respaldo.
     val isOwn = userId.isNullOrBlank() || userId == "me" || userId == session.userId || userId == session.username
+    LaunchedEffect(isOwn, session.authToken) {
+        if (isOwn && session.authToken != null) repository.hydrateOwnObservations()
+    }
     val otherUsername = userId?.takeIf { !isOwn }
     val otherProfile by produceState<PublicProfileResponse?>(initialValue = null, otherUsername) {
         value = otherUsername?.let { AuthRemote.publicProfile(it) }

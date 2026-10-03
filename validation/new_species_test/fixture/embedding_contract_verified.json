@@ -1,0 +1,10 @@
+{
+  "encoder_id": "bioclip_anura_v1",
+  "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "embedding_dimension": 512,
+  "preprocessing_version": "open_clip.create_model_and_transforms(hf-hub:imageomics/bioclip)",
+  "normalization_version": "L2",
+  "checkpoint_sha256": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac",
+  "n_embeddings": 25,
+  "matches_fase13_contract": true
+}

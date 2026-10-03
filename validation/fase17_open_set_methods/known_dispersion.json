@@ -1,0 +1,194 @@
+{
+  "Boana_cinerascens": {
+    "species_id": "ANU_COL_BOAN_CIN_001",
+    "n_images": 30,
+    "nearest_centroid_dist_mean": 27.472481279268152,
+    "nearest_centroid_dist_std": 5.445926324384731,
+    "nearest_centroid_dist_p95": 37.017579703029526,
+    "nearest_centroid_dist_p99": 40.692582172056824
+  },
+  "Pristimantis_penelopus": {
+    "species_id": "ANU_COL_PRIS_PEN_001",
+    "n_images": 14,
+    "nearest_centroid_dist_mean": 25.736156505187715,
+    "nearest_centroid_dist_std": 4.597905387131612,
+    "nearest_centroid_dist_p95": 32.92426161656258,
+    "nearest_centroid_dist_p99": 34.780087615823675
+  },
+  "Pristimantis_erythropleura": {
+    "species_id": "ANU_COL_PRIS_ERY_001",
+    "n_images": 28,
+    "nearest_centroid_dist_mean": 35.53020006245287,
+    "nearest_centroid_dist_std": 5.8831106883362,
+    "nearest_centroid_dist_p95": 41.92468257940412,
+    "nearest_centroid_dist_p99": 49.71401325781288
+  },
+  "Phyllomedusa_venusta": {
+    "species_id": "ANU_COL_PHYL_VEN_001",
+    "n_images": 14,
+    "nearest_centroid_dist_mean": 35.1001572359867,
+    "nearest_centroid_dist_std": 6.400394305075618,
+    "nearest_centroid_dist_p95": 45.02683630581293,
+    "nearest_centroid_dist_p99": 47.561917700840525
+  },
+  "Boana_platanera": {
+    "species_id": "ANU_COL_BOAN_PLA_001",
+    "n_images": 18,
+    "nearest_centroid_dist_mean": 30.501834517794585,
+    "nearest_centroid_dist_std": 5.648017471004983,
+    "nearest_centroid_dist_p95": 39.60801440024147,
+    "nearest_centroid_dist_p99": 45.23824948126309
+  },
+  "Boana_lanciformis": {
+    "species_id": "ANU_COL_BOAN_LAN_001",
+    "n_images": 84,
+    "nearest_centroid_dist_mean": 29.686115964838553,
+    "nearest_centroid_dist_std": 4.905097859722952,
+    "nearest_centroid_dist_p95": 38.45984099852253,
+    "nearest_centroid_dist_p99": 43.24541327338418
+  },
+  "Craugastor_raniformis": {
+    "species_id": "ANU_COL_CRAU_RAN_001",
+    "n_images": 184,
+    "nearest_centroid_dist_mean": 29.916259443008613,
+    "nearest_centroid_dist_std": 7.427865543284204,
+    "nearest_centroid_dist_p95": 43.35724973286037,
+    "nearest_centroid_dist_p99": 46.33955042871066
+  },
+  "Rhinella_margaritifera": {
+    "species_id": "ANU_COL_RHIN_MAR_001",
+    "n_images": 51,
+    "nearest_centroid_dist_mean": 27.60895627080522,
+    "nearest_centroid_dist_std": 7.336078022362254,
+    "nearest_centroid_dist_p95": 43.53422488236523,
+    "nearest_centroid_dist_p99": 45.40973445178534
+  },
+  "Dendrobates_truncatus": {
+    "species_id": "ANU_COL_DEND_TRU_001",
+    "n_images": 1684,
+    "nearest_centroid_dist_mean": 25.688091299758447,
+    "nearest_centroid_dist_std": 8.049128512054518,
+    "nearest_centroid_dist_p95": 41.169151207397114,
+    "nearest_centroid_dist_p99": 61.38471676682573
+  },
+  "Pristimantis_achatinus": {
+    "species_id": "ANU_COL_PRIS_ACH_001",
+    "n_images": 1761,
+    "nearest_centroid_dist_mean": 32.10189570790314,
+    "nearest_centroid_dist_std": 7.655509019367501,
+    "nearest_centroid_dist_p95": 46.21567742229886,
+    "nearest_centroid_dist_p99": 55.46033818268371
+  },
+  "Dendropsophus_ebraccatus": {
+    "species_id": "ANU_COL_DEND_EBR_001",
+    "n_images": 8,
+    "nearest_centroid_dist_mean": 22.222793871743857,
+    "nearest_centroid_dist_std": 1.9473955071019433,
+    "nearest_centroid_dist_p95": 25.520354800528366,
+    "nearest_centroid_dist_p99": 26.355616531097624
+  },
+  "Dendropsophus_bogerti": {
+    "species_id": "ANU_COL_DEND_BOG_001",
+    "n_images": 814,
+    "nearest_centroid_dist_mean": 32.85046197453371,
+    "nearest_centroid_dist_std": 7.956617426741569,
+    "nearest_centroid_dist_p95": 48.13061592061265,
+    "nearest_centroid_dist_p99": 55.76421991965848
+  },
+  "Leptodactylus_colombiensis": {
+    "species_id": "ANU_COL_LEPT_COL_001",
+    "n_images": 38,
+    "nearest_centroid_dist_mean": 31.896307587689943,
+    "nearest_centroid_dist_std": 8.022071410376284,
+    "nearest_centroid_dist_p95": 42.583067859205755,
+    "nearest_centroid_dist_p99": 60.03276448996963
+  },
+  "Boana_boans": {
+    "species_id": "ANU_COL_BOAN_BOA_001",
+    "n_images": 30,
+    "nearest_centroid_dist_mean": 30.3775061113369,
+    "nearest_centroid_dist_std": 7.035111647715779,
+    "nearest_centroid_dist_p95": 42.46955787312374,
+    "nearest_centroid_dist_p99": 48.33918373491331
+  },
+  "Hyloscirtus_palmeri": {
+    "species_id": "ANU_COL_HYLO_PAL_001",
+    "n_images": 44,
+    "nearest_centroid_dist_mean": 28.486420661872867,
+    "nearest_centroid_dist_std": 6.680730186016801,
+    "nearest_centroid_dist_p95": 41.498919159532456,
+    "nearest_centroid_dist_p99": 47.1520376269976
+  },
+  "Dendropsophus_microcephalus": {
+    "species_id": "ANU_COL_DEND_MIC_001",
+    "n_images": 611,
+    "nearest_centroid_dist_mean": 29.597281059307036,
+    "nearest_centroid_dist_std": 8.39678882560717,
+    "nearest_centroid_dist_p95": 45.20061329460242,
+    "nearest_centroid_dist_p99": 56.652010730556135
+  },
+  "Scinax_ruber": {
+    "species_id": "ANU_COL_SCIN_RUB_001",
+    "n_images": 36,
+    "nearest_centroid_dist_mean": 31.421761752274058,
+    "nearest_centroid_dist_std": 5.389939766129988,
+    "nearest_centroid_dist_p95": 40.98356379701303,
+    "nearest_centroid_dist_p99": 46.01339836704335
+  },
+  "Dendropsophus_columbianus": {
+    "species_id": "ANU_COL_DEND_COL_001",
+    "n_images": 6,
+    "nearest_centroid_dist_mean": 34.53044491869847,
+    "nearest_centroid_dist_std": 7.268452123149763,
+    "nearest_centroid_dist_p95": 45.95078012893922,
+    "nearest_centroid_dist_p99": 48.845830367806144
+  },
+  "Dendropsophus_molitor": {
+    "species_id": "ANU_COL_DEND_MOL_001",
+    "n_images": 41,
+    "nearest_centroid_dist_mean": 34.944653304281864,
+    "nearest_centroid_dist_std": 5.667799701934431,
+    "nearest_centroid_dist_p95": 46.32124489015576,
+    "nearest_centroid_dist_p99": 47.86991571146598
+  },
+  "Boana_pugnax": {
+    "species_id": "ANU_COL_BOAN_PUG_001",
+    "n_images": 12,
+    "nearest_centroid_dist_mean": 31.553081284216834,
+    "nearest_centroid_dist_std": 3.3795388322477558,
+    "nearest_centroid_dist_p95": 37.5000412824469,
+    "nearest_centroid_dist_p99": 37.74618630838743
+  },
+  "Pristimantis_paisa": {
+    "species_id": "ANU_COL_PRIS_PAI_001",
+    "n_images": 48,
+    "nearest_centroid_dist_mean": 30.049105012959775,
+    "nearest_centroid_dist_std": 7.332172346027516,
+    "nearest_centroid_dist_p95": 43.038487447644755,
+    "nearest_centroid_dist_p99": 47.05464640475491
+  },
+  "Boana_punctata": {
+    "species_id": "ANU_COL_BOAN_PUN_001",
+    "n_images": 281,
+    "nearest_centroid_dist_mean": 31.72967452997822,
+    "nearest_centroid_dist_std": 6.427280880205923,
+    "nearest_centroid_dist_p95": 44.02432233002131,
+    "nearest_centroid_dist_p99": 48.13808406658427
+  },
+  "Pristimantis_taeniatus": {
+    "species_id": "ANU_COL_PRIS_TAE_001",
+    "n_images": 46,
+    "nearest_centroid_dist_mean": 28.88478914155271,
+    "nearest_centroid_dist_std": 6.109190677271348,
+    "nearest_centroid_dist_p95": 39.47813189307657,
+    "nearest_centroid_dist_p99": 42.15337689521286
+  },
+  "Engystomops_pustulosus": {
+    "species_id": "ANU_COL_ENGY_PUS_001",
+    "n_images": 1592,
+    "nearest_centroid_dist_mean": 39.241508634493854,
+    "nearest_centroid_dist_std": 7.324912244244556,
+    "nearest_centroid_dist_p95": 54.981501953568554,
+    "nearest_centroid_dist_p99": 64.11371587999292
+  }
+}

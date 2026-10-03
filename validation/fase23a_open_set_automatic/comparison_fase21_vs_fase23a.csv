@@ -1,0 +1,5 @@
+method,fase23a_auroc,fase23a_far,fase21_auroc,fase21_far,auroc_delta
+Euclidean_Raw,,1.0,0.5991,0.1786,
+Cosine,,1.0,0.5905,0.1786,
+Normalized_Euclidean,,1.0,0.5905,0.1786,
+Mahalanobis,,0.7539863325740319,0.4629,0.1429,

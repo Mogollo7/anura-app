@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-09-14T16:09:01.233485+00:00",
+  "candidate_pool_n_species": 41,
+  "ground_truth_n_species": 24,
+  "n_known_images_evaluated": 7475,
+  "w_geo_used": 0.9,
+  "A_visual_only": {
+    "top1_acc": 0.5851505016722408,
+    "top3_acc": 0.8140468227424749,
+    "top5_acc": 0.8933779264214047,
+    "f1_macro": 0.277818443040353,
+    "mean_rank": 2.743010033444816
+  },
+  "B_visual_plus_geo_especie_w0.9": {
+    "top1_acc": 0.4107023411371237,
+    "top3_acc": 0.7549163879598663,
+    "top5_acc": 0.9044816053511706,
+    "f1_macro": 0.22649394473587645,
+    "mean_rank": 3.119866220735786
+  },
+  "delta_top1_B_minus_A": -0.17444816053511708,
+  "delta_f1_macro_B_minus_A": -0.05132449830447658,
+  "note_C_not_run": "GEO-4 (genero/familia en el score) demostrado HARMFUL, no se reproduce (regla dura). El formato Merlin muestra genero/familia SOLO como metadata contextual (ver GEO5_merlin_ranking_examples.json)."
+}

@@ -1,0 +1,45 @@
+UNKNOWN_V2.1 â€” FREEZE SUMMARY
+Date: 2026-09-14
+Status: READY_FOR_MANUAL_REVIEW
+
+PRIMARY DATASET:
+  Species: 7 (all >=70 and <=100 images)
+  Total images: 622
+  Total individuals: 321
+  Leakage: 0
+  Exact duplicates: 0
+  Gate verification: PASS
+
+SUPPLEMENTARY DATASET:
+  Species: 4 (all <70 images, unrecoverable)
+  Total images: 130
+  Total individuals: 74
+  Exclusion reason: BELOW_MINIMUM_IMAGE_CONTRACT_AND_UNRECOVERABLE
+  Recovery attempt: YES (Fase 22.1, iNaturalist Colombia search)
+  Recovery result: FAILED (0 additional images available)
+
+NEXT STEPS:
+  1. Manual review of PRIMARY images (user responsibility)
+  2. Correctness verification (taxonomy, visibility, quality)
+  3. Near-duplicate detection (perceptual, not automated)
+  4. Flag anomalies or errors
+  5. Approve or reject per-image/per-species
+  6. Proceed to Fase 23 with approved PRIMARY set
+
+FILES:
+  /manifests/PRIMARY_MANIFEST.json
+  /manifests/SUPPLEMENTARY_MANIFEST.json
+  /audit/final_freeze_audit_table.csv
+  /audit/recovery_decision_log.csv
+  /MANUAL_REVIEW_MANIFEST.csv
+  /manifests/QUALITY_LIMITATIONS.json
+  /manifests/GATE_PRIMARY_VERIFICATION.json
+  /FREEZE_SUMMARY.txt
+
+NOT PERFORMED:
+  - Fase 23 (evaluation)
+  - Fine-tuning
+  - Commit/push
+  - Modification of protected artifacts
+
+STATUS: READY_FOR_MANUAL_REVIEW

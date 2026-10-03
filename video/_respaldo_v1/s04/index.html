@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S04 Definicion</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        src: url("assets/fonts/Archivo.woff2") format("woff2");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+      }
+      @font-face {
+        font-family: "Instrument Serif";
+        src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+        font-style: italic;
+      }
+      body { margin: 0; background: #eef5ee; }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #eef5ee;
+        color: #1b1c1e;
+      }
+      #block {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        top: 400px;
+        text-align: center;
+      }
+      #l1 {
+        margin: 0;
+        font-family: "Archivo", sans-serif;
+        font-weight: 800;
+        font-size: 104px;
+        line-height: 1.1;
+        opacity: 0;
+      }
+      #l2 {
+        margin: 12px 0 0 0;
+        font-family: "Instrument Serif", serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 84px;
+        line-height: 1.1;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s04" data-start="0" data-width="1920" data-height="1080" data-duration="3.5">
+      <div id="block">
+        <h1 id="l1">Ellos son los anuros,</h1>
+        <p id="l2">los anfibios sin cola.</p>
+      </div>
+      <audio id="sfx-text" src="assets/sfx/rollover2.ogg" data-start="0" data-duration="0.06" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 8.75 -> local 0.25 ; 9.00 -> local 0.50
+      tl.fromTo("#l1", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 0.25);
+      tl.fromTo("#l2", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: EASE }, 0.5);
+      // 11.30 -> local 2.80 : se comprimen
+      tl.to("#block", { scale: 0.96, opacity: 0, duration: 0.7, ease: "power2.inOut", transformOrigin: "50% 50%" }, 2.8);
+      window.__timelines["s04"] = tl;
+    </script>
+  </body>
+</html>

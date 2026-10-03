@@ -1,0 +1,157 @@
+{
+  "level": "genus",
+  "K": 58,
+  "levels": [
+    "Acris",
+    "Agalychnis",
+    "Allobates",
+    "Andinobates",
+    "Atelopus",
+    "Atopophrynus",
+    "Boana",
+    "Bufo",
+    "Callimedusa",
+    "Centrolene",
+    "Cochranella",
+    "Colostethus",
+    "Craugastor",
+    "Cryptobatrachus",
+    "Ctenophryne",
+    "Dendrobates",
+    "Dendropsophus",
+    "Diasporus",
+    "Ecnomiohyla",
+    "Ectopoglossus",
+    "Elachistocleis",
+    "Eleutherodactylus",
+    "Engystomops",
+    "Espadarana",
+    "Gastrotheca",
+    "Hemiphractus",
+    "Hoplobatrachus",
+    "Hyalinobatrachium",
+    "Hyloscirtus",
+    "Hyloxalus",
+    "Incilius",
+    "Leptodactylus",
+    "Leucostethus",
+    "Lithobates",
+    "Niceforonia",
+    "Nymphargus",
+    "Oophaga",
+    "Osornophryne",
+    "Phyllobates",
+    "Phyllomedusa",
+    "Physalaemus",
+    "Pipa",
+    "Pleurodema",
+    "Pristimantis",
+    "Pseudis",
+    "Pseudopaludicola",
+    "Rhaebo",
+    "Rheobates",
+    "Rhinella",
+    "Rulyrana",
+    "Sachatamia",
+    "Scarthyla",
+    "Scinax",
+    "Silverstoneia",
+    "Smilisca",
+    "Strabomantis",
+    "Teratohyla",
+    "Trachycephalus"
+  ],
+  "alpha_selected": 2.0,
+  "alpha_at_grid_edge": false,
+  "alpha_curve": [
+    {
+      "alpha": 0.001,
+      "mean_heldout_loglik": -3.3254074647966534
+    },
+    {
+      "alpha": 0.002,
+      "mean_heldout_loglik": -3.3098785136219697
+    },
+    {
+      "alpha": 0.005,
+      "mean_heldout_loglik": -3.2893518580646504
+    },
+    {
+      "alpha": 0.01,
+      "mean_heldout_loglik": -3.273826642114279
+    },
+    {
+      "alpha": 0.02,
+      "mean_heldout_loglik": -3.258306760679619
+    },
+    {
+      "alpha": 0.05,
+      "mean_heldout_loglik": -3.237813005063432
+    },
+    {
+      "alpha": 0.1,
+      "mean_heldout_loglik": -3.2223605084883644
+    },
+    {
+      "alpha": 0.2,
+      "mean_heldout_loglik": -3.2070459807690597
+    },
+    {
+      "alpha": 0.5,
+      "mean_heldout_loglik": -3.1875399897762273
+    },
+    {
+      "alpha": 1.0,
+      "mean_heldout_loglik": -3.174529029776091
+    },
+    {
+      "alpha": 2.0,
+      "mean_heldout_loglik": -3.1655181767724883
+    },
+    {
+      "alpha": 5.0,
+      "mean_heldout_loglik": -3.167480581490369
+    },
+    {
+      "alpha": 10.0,
+      "mean_heldout_loglik": -3.1882191056189986
+    }
+  ],
+  "effort_cap_tope": 30,
+  "n_records_purged_total": 13867,
+  "n_records_excluded": 1214,
+  "n_zones": 4,
+  "zones": [
+    "ZONE_001",
+    "ZONE_002",
+    "ZONE_005",
+    "ZONE_006"
+  ],
+  "method_reference": "identico a phase_clean_prior.py (prior_zone_taxon_v2_clean.csv), agregado a nivel genus via catalog_v1.json[taxon_id].genus",
+  "diagnostics_by_zone": {
+    "ZONE_001": {
+      "records": 721,
+      "effective_records": 508,
+      "genus_observed": 27,
+      "p_unobserved": 0.003205128205128205
+    },
+    "ZONE_002": {
+      "records": 813,
+      "effective_records": 670,
+      "genus_observed": 34,
+      "p_unobserved": 0.002544529262086514
+    },
+    "ZONE_005": {
+      "records": 7975,
+      "effective_records": 5818,
+      "genus_observed": 49,
+      "p_unobserved": 0.0003370407819346141
+    },
+    "ZONE_006": {
+      "records": 4358,
+      "effective_records": 2377,
+      "genus_observed": 39,
+      "p_unobserved": 0.0008022462896109105
+    }
+  }
+}

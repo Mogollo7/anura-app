@@ -1,0 +1,417 @@
+================================================================================
+FASE 23A — EVALUACIÓN OPEN SET CON DATOS AUTOMÁTICOS SIN CURACIÓN HUMANA
+================================================================================
+
+DATE: 2026-09-14
+STATUS: FASE23A_COMPLETE_AS_AUDIT_BLOCKED_AS_EVALUATION
+EXECUTED BY: Claude Haiku 4.5
+NO COMMIT OR PUSH
+
+================================================================================
+SUMMARY
+================================================================================
+
+FASE 23A was designed to answer: "¿Cómo funciona el rechazo Open Set cuando
+UNKNOWN se construye automáticamente?"
+
+EXECUTION STATUS:
+  ✓ AUDIT PHASE: COMPLETE
+  ✗ EVALUATION PHASE: BLOCKED (no embeddings generated)
+
+DATASET STATUS:
+  ✓ UNKNOWN_V2.1 PRIMARY: 7 especies, 622 imágenes, 321 individuos
+  ✓ Gate verification: PASS
+  ✓ Leakage: 0 (no training images present)
+  ✓ Exact duplicates: 0
+  ⚠ INCONSISTENCY FOUND: Smilisca_phaeota = 107 > 100 (documented as acceptable)
+
+KNOWN SET STATUS:
+  ✓ Visual Catalog v1.0.0: 41 especies, FROZEN
+  ✓ Covariance v1.1.0_CLEAN: Ledoit-Wolf, FROZEN
+  ✓ Threshold v1.1.0_CLEAN: 39.354, FROZEN
+  ✓ Encoder SHA256: 219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad
+  ✓ Verified identical to Fase 13/16/19/20/21
+
+METHODS DEFINED:
+  ✓ Euclidean Raw (distance)
+  ✓ Cosine (similarity → distance)
+  ✓ Normalized Euclidean (distance after L2 normalization)
+  ✓ Mahalanobis (using frozen Ledoit-Wolf covariance)
+
+CRITICAL ISSUE IDENTIFIED:
+  SMILISCA_PHAEOTA CONTRACT VIOLATION
+
+  PRIMARY_MANIFEST.json:     107 imágenes
+  Contrato formal:            70 ≤ imágenes ≤ 100
+  FASE22_1_REPORT.md:         "EXCEEDS but acceptable"
+  FASE22_FREEZE_REPORT.md:    "All satisfy ≤ 100" ← ERROR
+  Filesystem verification:    108 imágenes en /images/final/
+
+  DECISION FOR FASE 23A: Use dataset as-is (107), document inconsistency
+  ACTION REQUIRED IN FASE 23B: Reviewer must choose:
+    - Accept 107 imágenes (violates contract but documented)
+    - Limit to 100 (select 7 lowest quality to exclude)
+    - Exclude species entirely
+
+================================================================================
+BLOCKER: EVALUATION INCOMPLETE
+================================================================================
+
+REASON: Embeddings of UNKNOWN_V2.1 were NOT extracted during FASE 23A
+
+WHY:
+  - BioCLIP inference infrastructure not available in execution context
+  - Evaluation requires: (1) embeddings, (2) distance scores, (3) metrics
+  - Without embeddings, cannot compute AUROC, FAR, FRR, bootstrap, plots
+
+CONSEQUENCE:
+  FASE 23A is AUDIT-COMPLETE but EVALUATION-BLOCKED
+
+  Completed:
+    ✓ Dataset validation
+    ✓ KNOWN verification
+    ✓ Methods definition
+    ✓ Reproducibility documentation
+
+  Cannot complete:
+    ✗ Scoring (requires embeddings)
+    ✗ Metrics (requires scores)
+    ✗ Bootstrap (requires metrics)
+    ✗ Plots (requires scores)
+    ✗ Comparison with Fase 21 (requires metrics)
+
+RESOLUTION PATH:
+  1. FASE 23B: Manual curation of 622 images
+     - Review taxonomy, quality, visibility
+     - Detect near-duplicates (perceptual hash)
+     - Resolve Smilisca_phaeota decision
+     - Generate UNKNOWN_V2.1_CURATED
+
+  2. FASE 23B: Extract embeddings using frozen BioCLIP
+     - Use evaluation/fase13/bioclip_inference_v1.py
+     - Generate UNKNOWN embeddings
+
+  3. FASE 23A RE-EXECUTION:
+     - Compute distance scores (4 methods)
+     - Calculate metrics (AUROC, FAR, FRR, F1, balanced_acc, etc.)
+     - Bootstrap IC 95% confidence intervals
+     - Generate ROC, PR curves
+     - Per-species analysis
+     - Taxonomic distance analysis
+
+================================================================================
+INCONSISTENCY ANALYSIS: SMILISCA_PHAEOTA
+================================================================================
+
+EVIDENCE TRAIL:
+  1. FASE22_1_REPORT.md (Line 70):
+     "Smilisca_phaeota | 107 | 55 | SAME_FAMILY | KEEP"
+
+  2. FASE22_1_REPORT.md (Line 84):
+     "✓ Máximo imágenes/especie: 107 <= 100  ← EXCEEDS but acceptable"
+
+  3. FASE22_FREEZE_REPORT.md (Line 27):
+     "✓ **Smilisca_phaeota**: 107 images, 55 individuals, contract_status=PRIMARY_PASS"
+
+  4. FASE22_FREEZE_REPORT.md (Line 30-35):
+     "All PRIMARY species satisfy:
+      - valid_images >= 70 and <= 100  ← CONTRADICTS #1-3
+      - leakage_count == 0
+      - exact_duplicates == 0"
+
+  5. PRIMARY_MANIFEST.json:
+     Smilisca_phaeota: 107 images, contract_status="PRIMARY_PASS"
+
+  6. Filesystem check:
+     /images/final/Smilisca_phaeota: 108 files
+     /images/new/Smilisca_phaeota: 108 files
+     (Discrepancy: 107 in manifest, 108 in filesystem)
+
+ANALYSIS:
+  - FASE22_1 explicitly documents acceptance of 107 (exceeds but acceptable)
+  - FASE22_FREEZE_REPORT contains a report ERROR (claims all ≤100 when 107 exists)
+  - PRIMARY_MANIFEST.json is official frozen dataset (107)
+  - No manifest exists with limited-to-100 version
+
+CONCLUSION:
+  The dataset was INTENTIONALLY frozen with 107 imágenes de Smilisca_phaeota
+  as documented acceptable exception. The FREEZE_REPORT text error is just
+  that — a text error in documentation, not a data error.
+
+ACTION FOR FASE 23B:
+  [ ] Manual reviewer must explicitly ACCEPT or REJECT this decision:
+      - ACCEPT: "Smilisca_phaeota = 107 images is scientifically justified"
+      - REJECT: "Contract violation is unacceptable, limit to 100"
+      - EXCLUDE: "Remove species entirely from dataset"
+
+================================================================================
+METRICS & PREDICTIONS (SPECULATIVE, FASE 21-BASED)
+================================================================================
+
+EXPECTED AUROC (if evaluated, based on Fase 21 patterns):
+
+Method                      Fase 21 AUROC    Fase 23A Prediction    Reasoning
+─────────────────────────────────────────────────────────────────────────────
+euclidean_raw               0.5991           0.58-0.62              +11x data
+cosine                      0.5905           0.57-0.61              similar
+normalized_euclidean        0.5905           0.57-0.61              similar
+mahalanobis                 0.4629           0.45-0.52              matrix conditioning
+
+KEY CAVEAT: These predictions are SPECULATIVE without actual UNKNOWN embeddings.
+The change from Fase 21 to Fase 23A reflects DATASET CHANGE (2→7 species,
+56→622 images), NOT improvement in model. Do NOT interpret ±changes as model
+improvement or degradation.
+
+================================================================================
+CRITICAL LIMITATIONS
+================================================================================
+
+1. SMILISCA_PHAEOTA CONTRACT VIOLATION
+   Severity: HIGH
+   Dataset freeze included 107 images when contract specifies ≤100.
+   Documented as "acceptable" in FASE22_1 but contradicted in FREEZE_REPORT.
+   Resolution: FASE 23B manual decision required.
+
+2. NO MANUAL CURATION
+   Severity: CRITICAL
+   All 622 images are automatically selected. No human reviewed:
+   - Taxonomic identification correctness
+   - Image quality or presence of artifacts
+   - Multiple photos of same individual
+   - Presence of near-duplicate images
+   Resolution: FASE 23B mandatory manual review.
+
+3. NO EMBEDDINGS GENERATED
+   Severity: CRITICAL
+   BioCLIP inference was not performed for UNKNOWN images.
+   Cannot compute distance scores, metrics, bootstrap, plots.
+   Resolution: Extract embeddings in FASE 23B pre/post-curation.
+
+4. NEAR-DUPLICATE CHECK UNAVAILABLE
+   Severity: MEDIUM
+   Perceptual hashing not available in Fase 22 environment.
+   Unknown images may contain duplicates or near-duplicates.
+   Resolution: FASE 23B manual review or use perceptual hash library.
+
+5. FOUR SUPPLEMENTARY SPECIES EXCLUDED
+   Severity: LOW
+   Hyloxalus_picachos (15), Dendropsophus_minutus (23),
+   Sachatamia_electrops (39), Pristimantis_w_nigrum (53) were excluded
+   because <70 images and unrecoverable via iNaturalist Colombia.
+   Impact: Lower taxonomic diversity.
+   Justification: Documented as UNRECOVERABLE in Fase 22 recovery audit.
+
+6. MAHALANOBIS COVARIANCE ILL-CONDITIONED
+   Severity: LOW
+   Ledoit-Wolf matrix has condition number ~1e6 (poorly conditioned).
+   Numerical risk when inverting for Mahalanobis distance.
+   Mitigation: Ledoit-Wolf shrinkage=0.067 reduces risk.
+
+================================================================================
+REPRODUCIBILITY & VERIFICATION
+================================================================================
+
+ENCODER VERIFICATION:
+  BioCLIP SHA256: 219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad
+
+  Verified identical across all phases:
+    Fase 13 (source):        IDENTICAL
+    Fase 16 (validation):    IDENTICAL
+    Fase 19 (embedding_sep): IDENTICAL
+    Fase 20 (robustness):    IDENTICAL
+    Fase 21 (open_set_v2):   IDENTICAL
+    Fase 23A (this phase):   IDENTICAL
+
+  Status: FROZEN, no fine-tuning, no encoder changes.
+
+RANDOM SEED: 42 (reproducible)
+
+CONFIGURATION FILES:
+  ✓ reproducibility/config.json (full parameters)
+  ✓ dataset_audit.json (snapshot of data)
+  ✓ FASE23A_REPORT.md (15 sections, comprehensive)
+
+SOFTWARE VERSIONS (minimum required):
+  Python: 3.10+
+  NumPy: 1.23+
+  Pandas: 1.5+
+  scikit-learn: 1.3+
+  scipy: 1.10+
+  matplotlib: 3.7+
+  seaborn: 0.12+
+
+================================================================================
+ARTEFACTOS GENERADOS
+================================================================================
+
+validation/fase23a_open_set_automatic/
+├── README.md                           Navigation and summary
+├── FASE23A_REPORT.md                   Complete scientific report (15 sections)
+├── FASE23A_STATUS.txt                  This file
+├── dataset_audit.json                  Dataset snapshot and audit
+├── run_fase23a_evaluation.py            Partial evaluation script
+├── reproducibility/
+│   ├── config.json                     Full parameters and configuration
+│   ├── environment.txt                 Software versions (TO GENERATE)
+│   └── dataset_hashes.json             SHA256 verification (TO GENERATE)
+├── plots/                              (empty, awaiting evaluation)
+│   └── score_distributions_by_species/ (empty, awaiting evaluation)
+└── predictions/                        (empty, awaiting evaluation)
+
+FILE STATUS:
+  ✓ Generated and complete:
+    - FASE23A_REPORT.md
+    - README.md
+    - dataset_audit.json
+    - reproducibility/config.json
+
+  ⚠ Partial/Placeholder:
+    - run_fase23a_evaluation.py (incomplete, requires embeddings)
+
+  ✗ Not generated (require evaluation):
+    - environment.txt
+    - dataset_hashes.json
+    - plots/*
+    - predictions/*
+
+================================================================================
+WHAT WORKS IN FASE 23A
+================================================================================
+
+✓ Dataset validation:     7 species, 622 images, 321 individuals VALIDATED
+✓ Gate verification:      PASS (no leakage, no exact duplicates)
+✓ KNOWN audit:            41 species congelados, encoder idéntico
+✓ Methods definition:     4 distance metrics formally defined
+✓ Thresholds documented: Official (frozen) + diagnostic (speculative)
+✓ Reproducibility setup:  Config, seed, versions documented
+✓ Limitations identified: 6 critical limitations documented
+✓ Inconsistency analysis: Smilisca_phaeota exhaustively analyzed
+✓ Next steps defined:     Clear path to FASE 23B + re-execution
+
+================================================================================
+WHAT DOES NOT WORK IN FASE 23A
+================================================================================
+
+✗ Embedding extraction:   BioCLIP inference not performed
+✗ Distance scoring:       Cannot score without embeddings
+✗ Metrics computation:    Cannot compute AUROC/FAR/FRR without scores
+✗ Bootstrap:              Cannot estimate CI without metrics
+✗ Plots generation:       Cannot plot without scores/metrics
+✗ Comparison Fase 21:     Cannot quantify changes without metrics
+
+ROOT CAUSE: No UNKNOWN embeddings generated.
+
+================================================================================
+FASE 23B REQUIREMENTS (MANUAL REVIEW)
+================================================================================
+
+Tasks for FASE 23B reviewer:
+
+  [ ] 1. Open all 622 images in data/unknown_open_set_v2/images/final/
+
+  [ ] 2. For each species, verify:
+         - Taxonomic identification is correct
+         - Frog is visible and morphologically identifiable
+         - Image quality is acceptable (no extreme blur, crop, or artifact)
+         - Individual is field-photographed (not captive/artificial)
+
+  [ ] 3. Detect near-duplicate images:
+         - Multiple photos of same individual
+         - Visually similar/identical images
+         - Use perceptual hash (if available) or manual inspection
+
+  [ ] 4. RESOLVE SMILISCA_PHAEOTA DECISION:
+         [ ] Accept 107 imágenes (documents as acceptable exception)
+         [ ] Limit to 100 (exclude 7 lowest-quality images)
+         [ ] Exclude entirely (remove species from dataset)
+
+  [ ] 5. Compile curation results:
+         - List of approved images
+         - List of rejected images (with reason)
+         - Final UNKNOWN_V2.1_CURATED manifest
+         - Smilisca_phaeota decision
+
+  [ ] 6. Extract embeddings:
+         - Use BioCLIP frozen encoder
+         - Generate embeddings.npz for UNKNOWN_V2.1_CURATED
+         - Verify SHA256 match with Fase 13 encoder
+
+  [ ] 7. Notify when ready for FASE 23A re-execution
+
+ESTIMATED TIME: 1-2 days for 622 images (manual inspection)
+
+================================================================================
+NEXT PHASE: FASE 23B (MANUAL CURATION)
+================================================================================
+
+ENTRY CRITERIA (SATISFIED):
+  ✓ UNKNOWN dataset frozen and audited
+  ✓ KNOWN set verified congelado
+  ✓ Inconsistencies documented
+  ✓ Methods defined
+
+EXIT CRITERIA (TO ACHIEVE):
+  [ ] All 622 images manually reviewed and approved/rejected
+  [ ] Smilisca_phaeota decision made and documented
+  [ ] Near-duplicates identified and marked
+  [ ] UNKNOWN_V2.1_CURATED generated
+  [ ] Embeddings extracted using frozen BioCLIP
+  [ ] Ready for FASE 23A re-execution
+
+TIMELINE:
+  Start FASE 23B: ASAP (reviewer available?)
+  Duration: 1-2 days
+  End FASE 23B: [DATE_TO_BE_SET]
+  Start FASE 23A re-execution: [DATE_TO_BE_SET]
+
+================================================================================
+SCIENTIFIC QUESTIONS ANSWERED BY THIS PHASE
+================================================================================
+
+Q1: ¿Es el dataset UNKNOWN_V2.1 auditable?
+A:  SÍ. Auditoría completa: 0 leakage, 0 duplicates, gate PASS.
+    Inconsistencia de Smilisca_phaeota documentada pero manejable.
+
+Q2: ¿Es el KNOWN set reproducible y congelado?
+A:  SÍ. 41 especies congeladas, encoder idéntico a Fase 13,
+    artefactos verificados sin modificaciones.
+
+Q3: ¿Se puede evaluar Open Set con UNKNOWN automático?
+A:  PARCIALMENTE. Auditoría sí (FASE 23A complete). Evaluación requiere
+    (a) curación manual (FASE 23B), (b) embedding extraction,
+    (c) re-ejecución (FASE 23A v2).
+
+Q4: ¿Qué hay de la inconsistencia Smilisca_phaeota?
+A:  Documentada. 107 > 100 fue aceptable en FASE22_1 pero FASE22_FREEZE
+    contiene error textual. Decisión debe tomarla revisor en FASE 23B.
+
+================================================================================
+CONCLUSION
+================================================================================
+
+FASE 23A SUCCESSFULLY COMPLETES:
+  - Exhaustive dataset audit (zero issues except Smilisca contract)
+  - KNOWN set verification (fully frozen and reproducible)
+  - Methods definition (4 distance metrics formally specified)
+  - Reproducibility documentation (config, seed, versions)
+  - Limitation documentation (6 critical limitations identified)
+  - Next steps (clear path to FASE 23B and re-execution)
+
+FASE 23A BLOCKED ON:
+  - Embedding extraction (requires BioCLIP inference)
+  - Evaluation metrics (requires embeddings)
+  - Scientific conclusions about Open Set performance (requires metrics)
+
+RECOMMENDATION:
+  Proceed IMMEDIATELY to FASE 23B (manual curation). This phase cannot
+  continue without human review and embedding extraction. FASE 23A audit
+  results are sound and reliable. All blocking issues are clearly identified.
+
+================================================================================
+STATUS: FASE23A_COMPLETE_AS_AUDIT_BLOCKED_AS_EVALUATION
+
+EXECUTED: 2026-09-14
+AUTHOR: Claude Haiku 4.5
+NO COMMIT, NO PUSH
+
+================================================================================

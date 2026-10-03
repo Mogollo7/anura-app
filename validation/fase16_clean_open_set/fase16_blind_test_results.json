@@ -1,0 +1,37 @@
+{
+  "phase": "16.9_16.10_BLIND_TEST",
+  "frozen_threshold": 39.35406371422803,
+  "margin_fraction_for_no_conclusive": 0.05,
+  "n_images": {
+    "known": 7475,
+    "unknown": 56
+  },
+  "n_individuals": {
+    "known": 4103,
+    "_correction_note": "Corregido: antes usaba len(set(image_ids))==n_images por error. Ahora cuenta individuos reales via individual_id (obs_id)."
+  },
+  "n_species": {
+    "known": 24,
+    "unknown": 2
+  },
+  "classification_counts": {
+    "KNOWN_ACCEPTED": 5727,
+    "KNOWN_REJECTED": 960,
+    "UNKNOWN_REJECTED": 3,
+    "UNKNOWN_FALSE_ACCEPTED": 46,
+    "NO_CONCLUSIVE_known": 788,
+    "NO_CONCLUSIVE_unknown": 7
+  },
+  "metrics": {
+    "known_acceptance_rate_KAR": 0.8564378645132347,
+    "known_false_rejection_rate_FRR": 0.14356213548676536,
+    "unknown_rejection_rate_UDR": 0.061224489795918366,
+    "unknown_false_acceptance_rate_FAR": 0.9387755102040817,
+    "precision_unknown_detection": 0.0038138825324180014,
+    "recall_unknown_detection": 0.08928571428571429,
+    "f1_unknown_detection": 0.0073152889539136795,
+    "balanced_accuracy": 0.4572849976110846,
+    "auroc": 0.5927974199713331
+  },
+  "coverage_note": "KNOWN limpio cubre 24/41 especies del catalogo (solo las que tenian imagenes reales sin usar en TRAIN/REFERENCE/CALIBRATION/F3). Las 17 especies restantes no tienen datos held-out disponibles."
+}

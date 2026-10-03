@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-14T09:32:36.562684",
+  "seed": 42,
+  "bootstrap_iterations": 1000,
+  "encoder_sha256_expected": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac",
+  "unknown_embeddings_sha256": "b44380c56337e8680a90dd11d7a02193928e9a5c974b59839a89b999855d5764",
+  "known_embeddings_sha256": "af2b628624945ac0ede873361bf9cdd09f7262832a8bd3625ccf8a9b71cdce54",
+  "prior_csv_sha256": "1d8c28a2da30f3edb055ee860d7825c5981d415b792e77f36d94ea9c32949b05",
+  "cell_zone_map_sha256": "a6184d5c09d7f356d2ea144879b9550b485a9ddc1e0cf0b44fce3a6abdeb46dc",
+  "alpha": 2.0,
+  "K": 291,
+  "neutral_geo_score": 0.003436426116838488,
+  "zone_assignment_method": "row=round(lat/0.25), col=round(lon/0.25), cell_id=f'G025_{row}_{col}'; zone = cell_zone_map_v1.csv[cell_id] if cell_id in-department else None",
+  "visual_score_method": "euclidean_raw min-distance to per-species mean centroid (KNOWN: leave-one-out; UNKNOWN: full-sample centroids)",
+  "combination_method": "weighted sum of min-max normalized [0,1] scores: combined = (1-w)*visual_norm + w*(1-geo_prob_norm)",
+  "threshold_method": "KAR95 quantile of KNOWN-only score distribution (diagnostic convention, same as Fase23A anomalies.json \u2014 NOT Youden-J, no independent UNKNOWN calibration split available)",
+  "weights_swept": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "best_weight_by_auroc": 0.5,
+  "anti_contamination_overlap_n": 1214
+}

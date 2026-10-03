@@ -1,0 +1,19 @@
+{
+  "decision": "ADDITIVE_RELEASE — v1.1.0 hereda covariance/threshold de v1.0.0 sin recalculo",
+  "rationale": "Igual que el Grupo B de v1.0.0 (32 especies estructurales) usa centroides propios pero la MISMA covarianza compartida estimada sobre REFERENCE, la especie de prueba se trata como una especie adicional bajo el mismo esquema: centroide propio, covarianza y threshold heredados sin recalcular. Esto evita tocar el baseline congelado.",
+  "global_to_release_v1.0.0_INHERITED_UNCHANGED": {
+    "covariance_method": "Ledoit-Wolf shared, estimado sobre REFERENCE (798 imgs, 9 especies Group A)",
+    "covariance_source": "evaluation/fase13/embeddings/reference_embeddings.npz (NO recalculado, NO tocado)",
+    "threshold_frozen": 39.354064,
+    "threshold_source": "evaluation/fase13/selection/frozen_rejection_config.json (NO recalibrado)",
+    "distance_metric": "Mahalanobis (min distancia a cualquier centroide del release)"
+  },
+  "specific_to_species": {
+    "species_id": "ANU_COL_TEST_SYN_001",
+    "centroid": "testus_syntheticus_centroid.npz (NUEVO, calculado en esta prueba)",
+    "individual_count": 15,
+    "data_sufficiency_status": "DATA_LIMITED"
+  },
+  "what_v1.1.0_actually_is": "v1.0.0's 41 centroides + covariance + threshold (sin cambios) + 1 centroide nuevo (Testus_syntheticus). El scoring Mahalanobis para CUALQUIER imagen de test ahora compara contra 42 centroides en vez de 41, usando la MISMA matriz de covarianza y el MISMO threshold.",
+  "limitation_disclosed": "Esta decision de diseño (heredar covarianza sin recalcular) NO fue formalmente validada cientificamente en esta prueba — es una decision arquitectonica razonable pero un release real de produccion deberia evaluar si agregar centroides sin recalcular la covarianza compartida degrada las metricas Open Set existentes (KAR/UDR/FAR) para las 41 especies originales. Esto queda como trabajo pendiente, no resuelto aqui."
+}

@@ -1,0 +1,6 @@
+{
+  "baseline_auroc_reported": 0.5732919408781961,
+  "reproduced_auroc_this_session": 0.6181212644298198,
+  "reproduction_method": "KNOWN score = leave-one-out distance to own-species centroid (computed from clean_known_embeddings.npz, 7475 images, 41 species). UNKNOWN score = min euclidean distance to nearest of 41 full-sample KNOWN centroids (620 images, unknown_embeddings.npz). This differs slightly from the exact original Fase23A evaluation protocol (whose per-sample scores were not persisted to disk), so an exact digit match is not expected; the qualitative AUROC magnitude replicates.",
+  "match_quality": "DIVERGENT - see note"
+}

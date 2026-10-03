@@ -1,0 +1,15 @@
+{
+  "note": "KNOWN pool species labels are species_id codes from Fase16 (e.g. ANU_COL_XXX_YYY_001), not scientific names. Mapping species_id -> genus/family requires taxonomy/species/species_registry.json cross-reference.",
+  "sample_known_labels": [
+    "ANU_COL_BOAN_BOA_001",
+    "ANU_COL_BOAN_CIN_001",
+    "ANU_COL_BOAN_LAN_001",
+    "ANU_COL_BOAN_PLA_001",
+    "ANU_COL_BOAN_PUG_001",
+    "ANU_COL_BOAN_PUN_001",
+    "ANU_COL_CRAU_RAN_001",
+    "ANU_COL_DEND_BOG_001",
+    "ANU_COL_DEND_COL_001",
+    "ANU_COL_DEND_EBR_001"
+  ]
+}

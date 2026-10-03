@@ -1,0 +1,51 @@
+{
+  "catalog_release": "visual_catalog_1.1.0_CANDIDATE",
+  "baseline_reference": "visual_catalog_1.0.0 (FROZEN, unchanged, used only as inherited covariance/threshold source)",
+  "mode": "NEW_RELEASE_CANDIDATE_TEST",
+  "species_under_test": {
+    "species_id": "ANU_COL_TEST_SYN_001",
+    "scientific_name": "Testus syntheticus",
+    "real_or_synthetic": "SYNTHETIC_TEST_ONLY"
+  },
+  "gate_result": "FAIL",
+  "steps": {
+    "data_quality": {
+      "status": "PASS",
+      "evidence": "25/25 imagenes cargadas sin error, formato valido, 512D embeddings generados correctamente"
+    },
+    "taxonomic_validation": {
+      "status": "FAIL",
+      "evidence": "La especie declarada ('Testus syntheticus') es SINTETICA, no existe en ninguna fuente taxonomica real. Este paso NO PUEDE pasar honestamente para un fixture de prueba — se marca FAIL por diseño, no por error del pipeline."
+    },
+    "contamination_check": {
+      "status": "PASS",
+      "evidence": "0 overlap de SHA256 contra REFERENCE (798) y CALIBRATION (192). 2/15 individuos (obs_id) coinciden con TRAIN, lo cual es esperado y aceptable: las imagenes prestadas pertenecen realmente a Dendrobates_truncatus, que si esta en TRAIN. No se contamino ningun split protegido con datos de una 'especie nueva' inexistente."
+    },
+    "embedding_validation": {
+      "status": "PASS",
+      "evidence": "encoder_sha256 verificado identico a Fase 13 (219e860e...), embedding_dimension=512, mismo preprocessing (create_model_and_transforms hf-hub:imageomics/bioclip)"
+    },
+    "centroid_validation": {
+      "status": "PASS",
+      "evidence": "Centroide calculado con compute_centroids() identica a Fase 13, metadata completa (individual_count=15, image_count=25, source_split=SYNTHETIC_TEST_ONLY)"
+    },
+    "covariance_threshold_inheritance": {
+      "status": "PASS (documentado, no recalculado)",
+      "evidence": "v1.1.0 hereda covariance Ledoit-Wolf y threshold=39.354064 de v1.0.0 SIN recalculo. Ver open_set_v1_1_0_decision.json."
+    },
+    "open_set_evaluation": {
+      "status": "PENDING",
+      "evidence": "No existe evidencia real de evaluacion Open Set (AUROC/KAR/UDR/FAR) para esta especie especifica bajo el release candidato. No se genero conjunto de evaluacion (analogo a F3/F4) para la especie de prueba."
+    },
+    "blind_test": {
+      "status": "PENDING",
+      "evidence": "No existe conjunto ciego (analogo a F4) para validar rechazo/aceptacion de esta especie especifica. No se puede declarar PASS sin esa evidencia."
+    }
+  },
+  "warnings": [
+    "gate_result = FAIL es el resultado CORRECTO y ESPERADO para este fixture: una especie sintetica nunca deberia pasar taxonomic_validation.",
+    "Esto DEMUESTRA que el gate rechaza correctamente cuando corresponde, en vez de inventar un PASS.",
+    "generate_species_id.py marca automaticamente visual_lifecycle_status=DEPLOYED para especies nuevas, lo cual VIOLA SPECIES_LIFECYCLE.md. Se corrigio manualmente a DISCOVERED en el registry candidato para esta prueba (ver species_registry_v1.1.0_candidate_run1.json vs species_registry_v1.1.0_CORRECTED.json)."
+  ],
+  "conclusion": "El pipeline mecanico (species_id -> embedding -> centroid -> release manifest -> regional package) funciona end-to-end. El gate de validacion NO otorga un PASS artificial: rechaza correctamente la promocion de una especie sin taxonomia real y sin evaluacion Open Set/blind test propia. Para una especie REAL con datos suficientes, taxonomic_validation, open_set_evaluation y blind_test deberian ejecutarse con evidencia real antes de poder alcanzar PASS."
+}

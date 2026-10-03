@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S22 Me gusta</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #1f7a33; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #1f7a33; color: #fefefe; font-family: "Archivo", sans-serif; }
+      .t { position: absolute; left: 80px; top: 380px; width: 700px; margin: 0; font-weight: 700; font-size: 80px; line-height: 1.15; }
+      #t21 { opacity: 0; }
+      #frame { position: absolute; left: 880px; top: 140px; width: 960px; height: 840px; border-radius: 24px; overflow: hidden; box-sizing: border-box; border: 1px solid rgba(254, 254, 254, 0.35); box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28); background: #000; }
+      /* ancla del zoom: el corazón (heart-header-btn), en coordenadas del marco */
+      #zoom { position: absolute; left: 0; top: 0; width: 960px; height: 840px; transform-origin: 893.5px 84.6px; }
+      #rec { position: absolute; left: 0; top: 0; width: 960px; height: 840px; object-fit: cover; }
+      #cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+      #cursor .ring { position: absolute; inset: 0; border-radius: 50%; border: 5px solid #fefefe; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+      #cursor .dot { position: absolute; left: 22px; top: 22px; width: 20px; height: 20px; border-radius: 50%; background: #1f7a33; border: 2px solid #fefefe; box-sizing: border-box; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s22" data-start="0" data-width="1920" data-height="1080" data-duration="4">
+      <p id="t20" class="t" data-layout-allow-overlap>con diferentes personas.</p>
+      <p id="t21" class="t" data-layout-allow-overlap>Ahí puedes dar me gusta</p>
+      <div id="frame" data-layout-allow-occlusion>
+        <div id="zoom" data-layout-allow-overflow>
+          <video id="rec" src="assets/video/heart.mp4" data-start="0" data-duration="4" data-track-index="1" muted playsinline></video>
+        </div>
+        <div id="cursor"><div class="ring"></div><div class="dot"></div></div>
+      </div>
+      <audio id="sfx-click" src="assets/sfx/click_003.ogg" data-start="2.585" data-duration="0.01" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const K = 960 / 1142;
+      // Grabación real (capturas con su hora): ratón de (560, 620) al corazón (1062.9, 100.6) entre 0.877 y 1.877 s;
+      // clic en 2.585 s; icono de carga 0.25 s; corazón lleno ("Quitar de favoritos") desde 2.974 s.
+      const A = { x: 560 * K, y: 620 * K }, H = { x: 1062.9 * K, y: 100.6 * K };
+      const CLICK = 2.585;
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      tl.to("#t20", { opacity: 0, duration: 0.15, ease: "power1.in" }, 0);
+      tl.fromTo("#t21", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: EASE }, 0.1);
+      tl.fromTo("#frame", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: EASE }, 0);
+
+      tl.set("#cursor", { x: A.x, y: A.y }, 0);
+      tl.to("#cursor", { x: H.x, y: H.y, duration: 1.0, ease: "power3.inOut" }, 0.877);
+      tl.to("#cursor", { scale: 0.8, duration: 0.08, ease: "power2.out" }, CLICK - 0.02);
+      tl.to("#cursor", { scale: 1, duration: 0.25, ease: "back.out(3)" }, CLICK + 0.08);
+      // el cursor se aparta para que se vea el corazón lleno
+      tl.to("#cursor", { x: H.x - 90, y: H.y + 80, duration: 0.45, ease: "power2.inOut" }, 2.8);
+
+      // zoom 1.12 anclado en el corazón, 0.45 s, justo antes del clic; vuelve a 1.00 en los últimos 0.4 s
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 0.45, ease: "expo.inOut" }, 1.95);
+      tl.to("#zoom", { scale: 1, duration: 0.4, ease: "expo.inOut" }, 3.6);
+      window.__timelines["s22"] = tl;
+    </script>
+  </body>
+</html>

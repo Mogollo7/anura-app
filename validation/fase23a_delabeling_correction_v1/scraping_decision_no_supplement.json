@@ -1,0 +1,27 @@
+{
+  "decision": "NO_SCRAPING_PERFORMED",
+  "date": "2026-09-14",
+  "reason_primary": "El taxon 'Dendropsophus labialis' ya no existe como especie distinta activa en la taxonomia actual de iNaturalist (fuente de datos original del dataset UNKNOWN). Fue sinonimizado/fusionado con 'Dendropsophus molitor' (la MISMA especie que ya esta en el catalogo KNOWN). Por lo tanto no es posible obtener observaciones NUEVAS y genuinamente distintas de 'Dendropsophus labialis': cualquier busqueda actual por ese nombre resuelve a Dendropsophus molitor.",
+  "evidence": {
+    "query_1": {
+      "endpoint": "GET https://api.inaturalist.org/v1/taxa?q=Dendropsophus+labialis&rank=species",
+      "result": "1 resultado: taxon_id=1595931, name='Dendropsophus molitor', is_active=true. No existe un taxon activo separado para 'labialis'."
+    },
+    "query_2": {
+      "endpoint": "GET https://api.inaturalist.org/v1/taxa?q=Dendropsophus+labialis&is_active=any",
+      "result": "3 resultados: taxon_id=1595931 'Dendropsophus molitor' (active=true); taxon_id=65363 'Dendropsophus labialis' (active=false); taxon_id=555168 'Dendropsophus labialis' (active=false). Ambos taxon_id historicos de 'labialis' estan INACTIVOS."
+    },
+    "query_3": {
+      "endpoint": "GET https://api.inaturalist.org/v1/taxa/65363 y /v1/taxa/555168",
+      "result": "current_synonymous_taxon_ids = [1595931] para ambos -> iNaturalist redirige formalmente cualquier taxon historico 'labialis' hacia 'Dendropsophus molitor'."
+    },
+    "query_4": {
+      "endpoint": "GET https://api.inaturalist.org/v1/observations?taxon_id=65363&place_id=7196 (y taxon_id=555168)",
+      "result": "total_results = 0 para ambos taxon_id historicos en Colombia. Todas las observaciones historicamente etiquetadas como 'Dendropsophus labialis' fueron migradas por iNaturalist al taxon activo 'Dendropsophus molitor'. No queda ninguna observacion accesible bajo el nombre/taxon original."
+    }
+  },
+  "interpretation": "Esto es consistente con (y explica mejor) la causa raiz documentada en LEAKAGE_AUDIT_CORRECTION_v2.md: el bug de contaminacion 34/43 observation_id no fue un accidente de scraping, sino el resultado de un proceso de sinonimizacion taxonomica en curso en iNaturalist en el momento de las descargas originales, que ahora (fecha de esta auditoria) se completo del todo. 'Dendropsophus labialis' y 'Dendropsophus molitor' no son ya, segun la autoridad taxonomica de la fuente de datos, dos especies con identidad separada -- son la misma especie.",
+  "consequence_for_part3_remainder": "Los 9 observation_id / 18 imagenes 'limpias' restantes de Dendropsophus_labialis (ver dendropsophus_labialis_clean_count.json) probablemente tambien seran reclasificadas a Dendropsophus molitor si se re-consulta su estado actual en iNaturalist -- no se verificaron una por una contra la taxonomia viva (serian necesarias 9 consultas adicionales; no se hizo para no exceder el alcance de esta tarea), pero dado que la sinonimizacion ya es total (0 observaciones bajo taxon_id historico), es razonable asumir que la mayoria o todas actualmente se muestran como molitor tambien. Esto refuerza que 'purgar la contaminacion y reponer con datos nuevos' no es la solucion correcta: no hay poblacion nueva de 'Dendropsophus labialis' de la cual reponer.",
+  "recommendation": "No forzar scraping. La accion correcta a mediano plazo (fuera del alcance de esta tarea, requiere decision del equipo) es evaluar si 'Dendropsophus_labialis' debe seguir existiendo como categoria UNKNOWN separada en el pipeline de open-set, dado que la fuente de verdad taxonomica ya no la reconoce como especie distinta de 'Dendropsophus molitor' (que es KNOWN). Mantenerla invita a repetir este mismo tipo de contaminacion en cualquier scraping futuro.",
+  "user_instruction_compliance": "El usuario pidio scraping SOLO condicionalmente ('en caso de que no dispongamos de datos suficientes'). Aunque el conteo de 9 observaciones/18 imagenes limpias esta por debajo del umbral practico (~10 obs / ~15 img), el motivo de la insuficiencia no es falta de disponibilidad de datos scrapeables, sino que la especie ya no existe como taxon distinto scrapeable. Por lo tanto no se realizo scraping: hacerlo violaria el espiritu de la instruccion del usuario (evitar scraping innecesario) y ademas seria tecnicamente inviable/incoherente."
+}

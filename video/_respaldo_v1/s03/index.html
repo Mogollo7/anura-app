@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S03 Diamond wipe</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        src: url("assets/fonts/Archivo.woff2") format("woff2");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+      }
+      body {
+        margin: 0;
+        background: #1f7a33;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #1f7a33;
+        color: #fefefe;
+        font-family: "Archivo", sans-serif;
+      }
+      #copy {
+        position: absolute;
+        left: 96px;
+        z-index: 5;
+        top: 420px;
+        width: 760px;
+      }
+      #hola {
+        margin: 0;
+        font-size: 200px;
+        font-weight: 900;
+        font-stretch: 110%;
+        line-height: 1;
+        opacity: 1;
+      }
+      #pregunta {
+        margin: 24px 0 0 0;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.25;
+        opacity: 1;
+      }
+      .card {
+        position: absolute;
+        left: 1200px;
+        top: 300px;
+        width: 400px;
+        height: 560px;
+        border-radius: 32px;
+        transform-origin: 50% 100%;
+        overflow: hidden;
+        box-shadow: 24px 30px 50px rgba(0, 0, 0, 0.35);
+      }
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #cardA {
+        z-index: 3;
+      }
+      #cardA { left: 1240px; top: 120px; }
+      #cardB { left: 760px; top: 120px; z-index: 2; }
+      #cardC { left: 280px; top: 120px; z-index: 1; }
+      #estos { opacity: 1 !important; }
+      #wipe { position: absolute; left: 0; top: 0; z-index: 10; }
+      #estos {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 780px;
+        margin: 0;
+        text-align: center;
+        font-size: 96px;
+        font-weight: 700;
+        line-height: 1.1;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s03" data-start="0" data-width="1920" data-height="1080" data-duration="1.5">
+      <div id="cardA" class="card"><img src="assets/img/a.jpg" alt="" /></div>
+      <div id="cardB" class="card"><img src="assets/img/b.jpg" alt="" /></div>
+      <div id="cardC" class="card"><img src="assets/img/c.jpg" alt="" /></div>
+      <p id="estos" data-layout-allow-occlusion>o estos</p>
+      <canvas id="wipe" data-layout-allow-overflow data-layout-allow-occlusion width="1920" height="1080"></canvas>
+      <audio id="sfx-wipe" src="assets/sfx/impactSoft_medium_001.ogg" data-start="0" data-duration="0.18" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const CELL = 56, ROWS = 21, COLS = 36, DELAY = 0.04, ROW_DUR = 0.7;
+      const cv = document.getElementById("wipe");
+      const ctx = cv.getContext("2d");
+
+      function inOutExpo(x) {
+        if (x <= 0) return 0;
+        if (x >= 1) return 1;
+        return x < 0.5 ? Math.pow(2, 20 * x - 10) / 2 : (2 - Math.pow(2, -20 * x + 10)) / 2;
+      }
+
+      // Rombos |x|+|y| <= CELL sobre red de tablero: a escala 1 cubren el cuadro sin huecos.
+      function draw(t) {
+        ctx.clearRect(0, 0, 1920, 1080);
+        ctx.fillStyle = "#EEF5EE";
+        if (t >= (ROWS - 1) * DELAY + ROW_DUR) {
+          ctx.fillRect(0, 0, 1920, 1080);
+          return;
+        }
+        for (let j = 0; j < ROWS; j++) {
+          const s = inOutExpo((t - j * DELAY) / ROW_DUR);
+          if (s <= 0) continue;
+          const r = CELL * s * 1.03;
+          const cy = j * CELL;
+          for (let i = j % 2; i < COLS; i += 2) {
+            const cx = i * CELL;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - r);
+            ctx.lineTo(cx + r, cy);
+            ctx.lineTo(cx, cy + r);
+            ctx.lineTo(cx - r, cy);
+            ctx.closePath();
+            ctx.fill();
+          }
+        }
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const p = { t: 0 };
+      draw(0);
+      tl.to(p, { t: 1.5, duration: 1.5, ease: "none", onUpdate() { draw(p.t); } }, 0);
+      window.__timelines["s03"] = tl;
+    </script>
+  </body>
+</html>

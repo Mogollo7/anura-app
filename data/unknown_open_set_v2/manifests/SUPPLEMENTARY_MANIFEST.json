@@ -1,0 +1,67 @@
+{
+  "dataset_name": "UNKNOWN_V2.1_SUPPLEMENTARY_HISTORICAL",
+  "version": "v2.1_SUPPLEMENTARY",
+  "purpose": "Historical reference and traceability; NOT for primary evaluation",
+  "n_species": 4,
+  "n_images": 130,
+  "n_individuals": 74,
+  "species": [
+    {
+      "species_id": "UNK_V2.1_Hyloxalus_picachos",
+      "scientific_name": "Hyloxalus picachos",
+      "valid_images": 15,
+      "independent_individuals": 15,
+      "exclusion_reason": "BELOW_MINIMUM_IMAGE_CONTRACT_AND_UNRECOVERABLE",
+      "recovery_attempted": true,
+      "recovery_result": "UNRECOVERABLE (0 images available on iNaturalist Colombia)",
+      "source_phases": [
+        "Fase22",
+        "Fase22.1"
+      ],
+      "contract_status": "SUPPLEMENTARY_BELOW_70"
+    },
+    {
+      "species_id": "UNK_V2.1_Dendropsophus_minutus",
+      "scientific_name": "Dendropsophus minutus",
+      "valid_images": 23,
+      "independent_individuals": 19,
+      "exclusion_reason": "BELOW_MINIMUM_IMAGE_CONTRACT_AND_UNRECOVERABLE",
+      "recovery_attempted": true,
+      "recovery_result": "UNRECOVERABLE (0 images available on iNaturalist Colombia)",
+      "source_phases": [
+        "Fase22",
+        "Fase22.1"
+      ],
+      "contract_status": "SUPPLEMENTARY_BELOW_70"
+    },
+    {
+      "species_id": "UNK_V2.1_Sachatamia_electrops",
+      "scientific_name": "Sachatamia electrops",
+      "valid_images": 39,
+      "independent_individuals": 19,
+      "exclusion_reason": "BELOW_MINIMUM_IMAGE_CONTRACT_AND_UNRECOVERABLE",
+      "recovery_attempted": true,
+      "recovery_result": "UNRECOVERABLE (0 images available on iNaturalist Colombia)",
+      "source_phases": [
+        "Fase22",
+        "Fase22.1"
+      ],
+      "contract_status": "SUPPLEMENTARY_BELOW_70"
+    },
+    {
+      "species_id": "UNK_V2.1_Pristimantis_w_nigrum",
+      "scientific_name": "Pristimantis w-nigrum",
+      "valid_images": 53,
+      "independent_individuals": 21,
+      "exclusion_reason": "BELOW_MINIMUM_IMAGE_CONTRACT_AND_UNRECOVERABLE",
+      "recovery_attempted": true,
+      "recovery_result": "UNRECOVERABLE (0 images available on iNaturalist Colombia)",
+      "source_phases": [
+        "Fase22",
+        "Fase22.1"
+      ],
+      "contract_status": "SUPPLEMENTARY_BELOW_70"
+    }
+  ],
+  "note": "These species were evaluated for recovery via iNaturalist (Fase 22.1) and found unrecoverable. Retained for historical traceability and secondary analyses only."
+}

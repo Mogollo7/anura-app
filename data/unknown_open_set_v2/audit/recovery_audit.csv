@@ -1,0 +1,5 @@
+species,research_grade_count,research_grade_valid,needs_id_available,casual_available,downloaded_needs_id_casual,valid_after_audit,total_final_images,decision,reason
+Hyloxalus_picachos,0,15,0,0,0,0,15,EXCLUDE,UNRECOVERABLE: No iNaturalist observations in Colombia (taxon_id=1250338). Images from BMC archive & DendroWiki historical sources cannot be supplemented. Needs 55 more images.
+Dendropsophus_minutus,0,23,0,0,0,0,23,EXCLUDE,UNRECOVERABLE: No iNaturalist observations in Colombia (taxon_id=65377). No recovery potential from needs_id/casual grades. Needs 47 more images.
+Pristimantis_w_nigrum,0,53,0,0,0,0,53,EXCLUDE,UNRECOVERABLE: No iNaturalist observations in Colombia (taxon_id=66936). Cannot reach 70-image minimum through available sources. Needs 17 more images.
+Sachatamia_electrops,0,39,0,0,0,0,39,EXCLUDE,UNRECOVERABLE: No iNaturalist observations in Colombia (taxon_id=604172). Current images from historical iNaturalist + field observations. No supplementary data available. Needs 31 more images.

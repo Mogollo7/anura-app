@@ -1,0 +1,57 @@
+image_path,decision,rejection_reason,width,height,blur_score,brightness_score,contrast_score,subject_visibility,duplicate_group,leakage_status,taxonomic_status,notes
+D:\Anura\data cleaned\Hyloxalus_picachos\bmc_campo_02.jpg,ACCEPT,,1280,1159,33.0,67.46,34.6,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Hyloxalus_picachos\bmc_campo_fotografo_03.jpg,ACCEPT,,1280,1280,39.18,30.71,39.6,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Hyloxalus_picachos\bmc_diagnostica_01.jpg,ACCEPT,,1280,783,2197.22,24.2,44.43,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\bmc_retrato_04.jpg,ACCEPT,,1280,1280,133.7,77.01,43.92,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_297476356_photo_535741216.jpg,ACCEPT,,2048,1368,670.52,55.26,29.01,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_297476358_photo_535741206.jpg,ACCEPT,,1152,2048,1011.77,79.16,37.02,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_297476360_photo_535741247.jpg,ACCEPT,,1638,2048,626.13,132.51,26.91,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_297476362_photo_535741214.jpg,ACCEPT,,2048,1425,330.24,88.42,23.68,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_297476363_photo_535741237.jpg,ACCEPT,,1152,2048,919.79,108.72,87.58,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_299076534_photo_538760273.jpg,ACCEPT,,2048,1365,227.83,117.11,49.67,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\col_obs_299081593_photo_538800498.jpg,ACCEPT,,2048,1365,105.94,232.45,43.31,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Hyloxalus_picachos\dendrowiki_5669.jpg,ACCEPT,,1024,753,740.03,58.18,35.5,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\dendrowiki_5670.jpg,ACCEPT,,987,768,289.37,99.22,37.88,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Hyloxalus_picachos\dendrowiki_5671.jpg,ACCEPT,,1024,681,848.95,48.4,20.52,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Hyloxalus_picachos\dendrowiki_5672.jpg,ACCEPT,,1024,692,737.83,106.22,40.59,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_156488742_photo_270601921.jpg,ACCEPT,,2048,1639,290.45,36.21,20.99,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_156488742_photo_270601964.jpg,REJECT_QUALITY,brightness_10.7_out_of_range,2048,1638,146.74,10.68,24.61,,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_156488742_photo_270602005.jpg,ACCEPT,,2048,1638,353.05,49.77,24.51,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_156488742_photo_270602393.jpg,ACCEPT,,2048,1639,471.57,37.46,47.52,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_19467476_photo_29951899.jpg,ACCEPT,,2048,1536,652.12,54.71,69.66,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_19467476_photo_29951910.jpg,ACCEPT,,2048,1536,482.56,64.6,46.55,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_19467476_photo_29951924.jpg,ACCEPT,,2048,1536,848.8,63.43,63.51,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644841.jpg,ACCEPT,,2048,1542,3462.14,108.82,53.29,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644853.jpg,ACCEPT,,1200,1600,286.68,77.5,55.93,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644865.jpg,ACCEPT,,1200,1600,232.52,76.36,57.65,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644873.jpg,ACCEPT,,1200,1600,173.53,38.53,28.63,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644883.jpg,ACCEPT,,1200,1600,222.82,40.76,29.96,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644894.jpg,ACCEPT,,1200,1600,276.07,103.15,63.19,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197884576_photo_348644910.jpg,ACCEPT,,1200,1600,224.83,74.25,44.86,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197927794_photo_348731209.jpg,ACCEPT,,1200,1600,715.39,83.23,52.88,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197927794_photo_348731230.jpg,ACCEPT,,1200,1600,565.67,97.25,59.24,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197927794_photo_348731255.jpg,ACCEPT,,1200,1600,947.73,97.07,57.95,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_197927794_photo_348731295.jpg,ACCEPT,,2048,1542,5093.69,119.03,57.43,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_25388999_photo_39312678.jpg,ACCEPT,,2048,1365,1145.77,33.16,36.07,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_324593666_photo_587620730.jpg,ACCEPT,,2048,1542,2285.46,102.61,64.64,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_324593666_photo_587620799.jpg,ACCEPT,,1542,2048,962.58,112.38,59.7,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_324593666_photo_587620944.jpg,ACCEPT,,1542,2048,366.94,101.15,57.37,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_34660191_photo_54573892.jpg,ACCEPT,,2048,1366,1270.49,89.16,48.4,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_34660191_photo_54574016.jpg,ACCEPT,,2048,1366,180.14,93.06,75.04,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_34660191_photo_54574021.jpg,ACCEPT,,2048,1366,226.84,125.66,69.45,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_34660191_photo_54574026.jpg,ACCEPT,,2032,2032,113.44,63.19,74.69,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_34660191_photo_54574032.jpg,ACCEPT,,2048,2048,455.45,114.99,43.8,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\col_obs_34660191_photo_54574034.jpg,ACCEPT,,2048,2047,184.48,131.87,41.74,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20251013-WA0387.jpg,ACCEPT,,1600,1204,304.57,149.6,56.69,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20251013-WA0388.jpg,ACCEPT,,1204,1600,154.94,112.91,71.05,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20251013-WA0390.jpg,ACCEPT,,1204,1600,35.31,25.58,24.82,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20251013-WA0397.jpg,ACCEPT,,1204,1600,111.77,54.41,64.76,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20251013-WA0398.jpg,ACCEPT,,1600,1204,79.9,42.93,23.73,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20251205-WA0056.jpg,ACCEPT,,1296,972,123.87,128.54,54.75,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\IMG-20260409-WA0121.jpg,ACCEPT,,720,275,215.65,124.16,34.52,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\large (1).jpg,ACCEPT,,1024,819,410.37,49.74,24.39,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\large (2).jpg,REJECT_QUALITY,brightness_10.6_out_of_range,1024,819,210.69,10.64,24.58,,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\large (3).jpg,ACCEPT,,1024,820,518.5,37.46,47.46,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\large (4).jpg,ACCEPT,,1024,683,1360.5,89.19,48.19,OK,,PENDING_STEP3,PENDING_STEP4,
+D:\Anura\data cleaned\Sachatamia_electrops\large.jpg,ACCEPT,,1024,820,318.9,36.21,20.89,LOW_CONFIDENCE_FLAT_IMAGE,,PENDING_STEP3,PENDING_STEP4,low edge density - possible poor subject definition; not auto-rejected
+D:\Anura\data cleaned\Sachatamia_electrops\Sachatamia_electrops.jpg,ACCEPT,,500,371,522.42,150.55,40.16,OK,,PENDING_STEP3,PENDING_STEP4,

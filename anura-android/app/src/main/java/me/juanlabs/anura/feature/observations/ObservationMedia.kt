@@ -44,9 +44,8 @@ internal fun mediaForObservation(observation: ObservationRecord): List<Observati
     val photos = observation.photoTokens.mapIndexed { index, token ->
         ObservationMediaItem.FilePhoto("p$index", token)
     }
-    val remote = observation.photoUrl?.let {
-        listOf(ObservationMediaItem.RemotePhoto(id = "p-remote", url = it))
-    }.orEmpty()
+    val remote = observation.remotePhotoUrls.ifEmpty { listOfNotNull(observation.photoUrl) }
+        .mapIndexed { index, url -> ObservationMediaItem.RemotePhoto(id = "p-remote-$index", url = url) }
     val photoItems = photos.ifEmpty { remote }
     val audio = observation.audioPath?.let {
         listOf(

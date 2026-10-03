@@ -1,0 +1,139 @@
+{
+  "dataset_name": "unknown_open_set_v2_PRIMARY",
+  "version": "v1.3.0-rebuild-dedup",
+  "freeze_date": "2026-09-14",
+  "status": "READY_FOR_PHASE23A_EVALUATION",
+  "correction_note": "Manifest regenerado desde cero a partir de verificacion fisica del filesystem (no copiado del manifest fantasma anterior). Se copiaron mecanicamente 5 especies (Smilisca_phaeota, Espadarana_prosoblepon, Leptodactylus_fragilis, Rhinella_marina, Dendropsophus_labialis) desde images/final/<especie>/ hacia images/primary/<especie>/, verificando identidad SHA256 antes/despues de cada copia (100% OK). Scinax_rostratus y Craugastor_metriosistus ya estaban correctamente pobladas en primary/ y se re-auditaron sin modificar. ANOMALIA DETECTADA Y NO CORREGIDA SILENCIOSAMENTE: el archivo audit/hash_index_recovery_reference.txt (12234 hashes) esta contaminado / es auto-referencial: senala leakage=100% (439/624 archivos) para las 5 especies recien copiadas, pero una busqueda exhaustiva de esos mismos SHA256 contra el directorio raiz real del dataset KNOWN ('D:/Anura/data cleaned', 12254 archivos JPEG/PNG hasheados frescos en esta sesion) da leakage=0 coincidencias. Es decir, el indice de referencia pre-existente incluye erroneamente hashes de images/new/ o images/final/ del propio unknown_open_set_v2 (autocontaminacion), no hashes reales de TRAIN/REFERENCE/CALIBRATION/VALIDATION/BLIND. El leakage real verificado contra el dataset KNOWN es 0. El indice original NO fue sobreescrito por este proceso (se dejo intacto para no destruir evidencia de auditoria); el indice limpio reconstruido se referencia en reproducibility. DEDUPLICACION APLICADA (decision explicita del usuario, 2026-09-14): los 3 grupos de duplicados exactos (4 archivos) detectados en la re-auditoria fueron resueltos con una regla mecanica determinista (NO curacion visual): dentro de cada grupo de SHA256 identico se conserva el archivo con menor observation_id, se remueven los demas. Los 4 archivos removidos se movieron (no se borraron) a audit/_deduplicated_removed/<especie>/ para trazabilidad. Conteo final post-dedup: 620 imagenes (624 - 4).",
+  "n_species": 7,
+  "n_images": 620,
+  "n_individuals_estimated": 412,
+  "individuals_method": "distinct observation_id/individual_id parsed from filename convention (col_obs_<obsid>_photo_<photoid>.jpg for the 5 rebuilt species; <obsid>_<photoid>.jpg for Scinax/Craugastor) — NOT 1 image = 1 individual",
+  "leakage_count_total_vs_pregenerated_index": 439,
+  "leakage_count_total_vs_pregenerated_index_status": "FALSE_POSITIVE_INDEX_CONTAMINATED_SEE_NOTE",
+  "leakage_count_total_vs_real_known_dataset": 0,
+  "leakage_verification_method": "fresh SHA256 of every file in 'D:/Anura/data cleaned' (12254 files) compared against SHA256 of all primary/ files (624 pre-dedup, 620 post-dedup), computed in this session; re-verified after deduplication, still 0/620",
+  "duplicates_exact_within_primary_set": {
+    "count_groups_pre_dedup": 3,
+    "count_extra_files_pre_dedup": 4,
+    "status": "RESOLVED — deterministic SHA256/observation_id dedup applied per explicit user decision 2026-09-14",
+    "dedup_rule": "within each exact-SHA256 group, keep the file with the lowest observation_id; move the rest to audit/_deduplicated_removed/<species>/ (not deleted)",
+    "count_groups_post_dedup": 0,
+    "detail_pre_dedup": [
+      {
+        "sha256": "0b0f47678bc75381361f9fca0515cfea28e3f2d6e46991fa620065101c7aa7a8",
+        "species": "Smilisca_phaeota",
+        "type": "CROSS_OBSERVATION_DUPLICATE (different observation_id, byte-identical image)",
+        "kept": "col_obs_350918262_photo_640324804.jpg (obs_id=350918262, lowest)",
+        "removed": [
+          "col_obs_366894693_photo_669971437.jpg (obs_id=366894693)"
+        ]
+      },
+      {
+        "sha256": "c8de293b01db18b4cc7e64c19fca650ae606634782e4a2fcfa1040f8c58ce44a",
+        "species": "Espadarana_prosoblepon",
+        "type": "SAME_OBSERVATION_DUPLICATE (observation_id 320644020, 3 identical photo uploads)",
+        "kept": "col_obs_320644020_photo_579765862.jpg (lowest photo_id, tiebreak)",
+        "removed": [
+          "col_obs_320644020_photo_579765880.jpg",
+          "col_obs_320644020_photo_579766366.jpg"
+        ]
+      },
+      {
+        "sha256": "9acecd8dda376b4c896d91eefa0d55f605305327a0259a7a55c9f67691a683c8",
+        "species": "Leptodactylus_fragilis",
+        "type": "SAME_OBSERVATION_DUPLICATE (observation_id 288843271, 2 identical photo uploads)",
+        "kept": "col_obs_288843271_photo_519472876.jpg (lowest photo_id, tiebreak)",
+        "removed": [
+          "col_obs_288843271_photo_519482732.jpg"
+        ]
+      }
+    ]
+  },
+  "integrity_failures": 0,
+  "taxonomic_resolution": "all 7 species resolve to UNRESOLVED_NOT_IN_REGISTRY via tools/catalog/taxonomic_resolution.py against taxonomy/species/species_registry.json — EXPECTED result, confirms these are genuinely open-set species not present in the 41-species KNOWN catalog. Genus/family assigned from standard taxonomy (not project-derived data).",
+  "species": {
+    "Smilisca_phaeota": {
+      "n_images_verified": 107,
+      "n_individuals_verified": 54,
+      "genus": "Smilisca",
+      "family": "Hylidae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "final",
+      "range_status": "CONTRACT_DEVIATION_AUTOMATIC_DATA",
+      "deviation_note": "CONTRACT_DEVIATION_AUTOMATIC_DATA (n>100, documented, kept uncropped per instruction)"
+    },
+    "Espadarana_prosoblepon": {
+      "n_images_verified": 87,
+      "n_individuals_verified": 45,
+      "genus": "Espadarana",
+      "family": "Centrolenidae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "final",
+      "range_status": "IN_RANGE_70_100",
+      "deviation_note": null
+    },
+    "Leptodactylus_fragilis": {
+      "n_images_verified": 84,
+      "n_individuals_verified": 44,
+      "genus": "Leptodactylus",
+      "family": "Leptodactylidae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "final",
+      "range_status": "IN_RANGE_70_100",
+      "deviation_note": null
+    },
+    "Rhinella_marina": {
+      "n_images_verified": 83,
+      "n_individuals_verified": 41,
+      "genus": "Rhinella",
+      "family": "Bufonidae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "final",
+      "range_status": "IN_RANGE_70_100",
+      "deviation_note": null
+    },
+    "Dendropsophus_labialis": {
+      "n_images_verified": 74,
+      "n_individuals_verified": 43,
+      "genus": "Dendropsophus",
+      "family": "Hylidae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "final",
+      "range_status": "IN_RANGE_70_100",
+      "deviation_note": null
+    },
+    "Scinax_rostratus": {
+      "n_images_verified": 100,
+      "n_individuals_verified": 100,
+      "genus": "Scinax",
+      "family": "Hylidae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "primary (already correct prior to this rebuild)",
+      "range_status": "IN_RANGE_70_100",
+      "deviation_note": null
+    },
+    "Craugastor_metriosistus": {
+      "n_images_verified": 85,
+      "n_individuals_verified": 85,
+      "genus": "Craugastor",
+      "family": "Craugastoridae",
+      "species_id": null,
+      "taxonomic_resolution_status": "UNRESOLVED_NOT_IN_REGISTRY",
+      "source_directory": "primary (already correct prior to this rebuild)",
+      "range_status": "IN_RANGE_70_100",
+      "deviation_note": null
+    }
+  },
+  "excluded_empty_species_confirmed_not_in_manifest": [
+    "Boana_albifrons",
+    "Pristimantis_brevirostris"
+  ],
+  "ready_for_phase23a": true,
+  "ready_for_phase23a_blocking_reasons": []
+}

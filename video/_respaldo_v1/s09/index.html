@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S09 La app y tres checks</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #t9 { position: absolute; left: 96px; top: 370px; width: 760px; margin: 0; font-weight: 600; font-size: 56px; line-height: 1.2; opacity: 0; }
+      .card { position: absolute; left: 1040px; width: 720px; height: 120px; border-radius: 20px; background: #ffffff; box-shadow: 0 12px 28px rgba(27, 28, 30, 0.10); opacity: 0; }
+      .txt { position: absolute; left: 104px; top: 0; height: 120px; display: flex; align-items: center; font-weight: 500; font-size: 36px; white-space: nowrap; }
+      .ck { position: absolute; left: 32px; top: 40px; width: 40px; height: 40px; }
+      .ck svg { display: block; width: 40px; height: 40px; }
+      #pill { position: absolute; left: 1144px; top: 0; height: 68px; padding: 0 34px; border-radius: 999px; background: #1f7a33; color: #fefefe; font-weight: 700; font-size: 36px; display: flex; align-items: center; white-space: nowrap; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s09" data-start="0" data-width="1920" data-height="1080" data-duration="6">
+      <p id="t9">Juntos creamos ANURA, una app móvil para la identificación de anuros.</p>
+
+      <div id="c0" class="card" style="top:316px">
+        <div class="ck" id="k0"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#1F7A33"/><path d="M11 21 L17.5 27.5 L29.5 14" fill="none" stroke="#FEFEFE" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="txt">Identificación por imagen</div>
+      </div>
+      <div id="c1" class="card" style="top:460px">
+        <div class="ck" id="k1"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#1F7A33"/><path d="M11 21 L17.5 27.5 L29.5 14" fill="none" stroke="#FEFEFE" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="txt">Modelo basado en contexto</div>
+      </div>
+      <div id="c2" class="card" style="top:604px">
+        <div class="ck" id="k2"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#1F7A33"/><path d="M11 21 L17.5 27.5 L29.5 14" fill="none" stroke="#FEFEFE" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div id="pill" style="top:630px">IA local</div>
+
+      <audio id="sfx-a" src="assets/sfx/rollover2.ogg" data-start="1" data-duration="0.06" data-track-index="10" data-volume="1"></audio>
+      <audio id="sfx-b" src="assets/sfx/rollover2.ogg" data-start="1.25" data-duration="0.06" data-track-index="11" data-volume="1"></audio>
+      <audio id="sfx-c" src="assets/sfx/rollover2.ogg" data-start="1.5" data-duration="0.06" data-track-index="12" data-volume="1"></audio>
+      <audio id="sfx-d" src="assets/sfx/switch_007.ogg" data-start="1.5" data-duration="0.61" data-track-index="13" data-volume="1"></audio>
+    </div>
+
+    <script>
+      // Medidas fijas al montar: destino de la pastilla (x=96, y=96) para S10.
+      const pb = document.getElementById("pill").getBoundingClientRect();
+      const fx = 96 - pb.left, fy = 96 - pb.top;
+
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+
+      // 34.10 -> local 0.00
+      tl.fromTo("#t9", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 0);
+
+      // tarjetas: local 1.00, 1.25, 1.50 (35.00, 35.25, 35.50)
+      [0, 1, 2].forEach((i) => {
+        const t0 = 1 + i * 0.25;
+        tl.fromTo("#c" + i, { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: EASE }, t0);
+        tl.fromTo("#k" + i, { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, t0 + 0.15);
+      });
+      // spring 0.55 s
+      tl.fromTo("#pill", { x: 40, opacity: 0, scale: 0.85 }, { x: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(2)" }, 1.5);
+
+      // 39.40 -> local 5.40: salen T9 y dos tarjetas; la pastilla vuela a (96, 96)
+      tl.to("#t9", { y: -20, opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      tl.to(["#c0", "#c1"], { y: -20, opacity: 0, duration: 0.5, ease: "power2.in" }, 5.4);
+      tl.to("#c2", { opacity: 0, duration: 0.4, ease: "power2.in" }, 5.4);
+      tl.to("#pill", { x: fx, y: fy, duration: 0.6, ease: "expo.inOut" }, 5.4);
+
+      window.__timelines["s09"] = tl;
+    </script>
+  </body>
+</html>

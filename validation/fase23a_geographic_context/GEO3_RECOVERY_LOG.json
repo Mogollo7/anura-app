@@ -1,0 +1,9 @@
+{
+  "n_unique_obs_id_needed": 4466,
+  "n_missing_from_cache": 0,
+  "n_missing_from_extracted": 0,
+  "missing_obs_ids_sample": [],
+  "action": "NO se realizaron llamadas nuevas a iNaturalist: el cache existente (cache/inat_observations_cache.json, 4466 entradas) ya cubre el 100% de los observation_id presentes en KNOWN(7431 con obs_id)+UNKNOWN(412 obs_id unicos de 620 imagenes) evaluados por GEO-1/GEO-2. No hay candidatos verificables para recuperacion adicional sin scraping nuevo agresivo.",
+  "gbif_used": false,
+  "gbif_reason": "No aplico: no quedaron observation_id sin cobertura de iNaturalist que requirieran una fuente alterna."
+}

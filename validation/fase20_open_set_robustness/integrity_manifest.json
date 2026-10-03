@@ -1,0 +1,28 @@
+{
+  "analysis_datetime_utc": "2026-09-13T20:12:04.939114+00:00",
+  "python_version": "3.13.10",
+  "sklearn_version": "1.9.1",
+  "scipy_version": "1.18.1",
+  "numpy_version": "2.5.2",
+  "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "encoder_sha256_matches_fase13_16_19": true,
+  "embedding_dimension_confirmed_512": true,
+  "normalization": "L2 (per encoder contract)",
+  "preprocessing": "open_clip.create_model_and_transforms(hf-hub:imageomics/bioclip)",
+  "embeddings_reused_from": [
+    "evaluation/fase13/embeddings/reference_embeddings.npz",
+    "evaluation/fase13/embeddings/train_embeddings.npz",
+    "validation/fase16_clean_open_set/clean_known_embeddings.npz",
+    "evaluation/open_set_v1/knn/knn_embeddings.npz (UNKNOWN records only)"
+  ],
+  "no_new_extraction": true,
+  "official_artifacts_touched": [],
+  "official_artifacts_read_only_referenced": [
+    "covariance/v1.1.0_CLEAN/covariance_matrix.npz",
+    "threshold/v1.1.0_CLEAN/manifest.json",
+    "visual_catalog/v1.0.0/manifest.json"
+  ],
+  "fine_tuning_performed": false,
+  "git_commit_performed": false,
+  "outputs_written_under": "validation/fase20_open_set_robustness/ only"
+}

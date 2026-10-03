@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S01 Gancho</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        src: url("assets/fonts/Archivo.woff2") format("woff2");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+      }
+      body {
+        margin: 0;
+        background: #1f7a33;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #1f7a33;
+        color: #fefefe;
+        font-family: "Archivo", sans-serif;
+      }
+      #copy {
+        position: absolute;
+        left: 96px;
+        top: 420px;
+        width: 760px;
+      }
+      #hola {
+        margin: 0;
+        font-size: 200px;
+        font-weight: 900;
+        font-stretch: 70%;
+        line-height: 1;
+        opacity: 0;
+      }
+      #pregunta {
+        margin: 24px 0 0 0;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.25;
+        opacity: 0;
+      }
+      .card {
+        position: absolute;
+        left: 1200px;
+        top: 300px;
+        width: 400px;
+        height: 560px;
+        border-radius: 32px;
+        transform-origin: 50% 100%;
+        overflow: hidden;
+        box-shadow: 24px 30px 50px rgba(0, 0, 0, 0.35);
+      }
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #cardA {
+        z-index: 3;
+      }
+      #cardB {
+        z-index: 2;
+        opacity: 0;
+      }
+      #cardC {
+        z-index: 1;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="s01"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="3.5"
+    >
+      <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+        <filter id="blurHola" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur id="bHola" stdDeviation="0 0" />
+        </filter>
+        <filter id="blurPregunta" x="-30%" y="-60%" width="160%" height="220%">
+          <feGaussianBlur id="bPregunta" stdDeviation="0 0" />
+        </filter>
+        <filter id="blurA" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur id="bA" stdDeviation="0 0" />
+        </filter>
+        <filter id="blurB" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur id="bB" stdDeviation="0 0" />
+        </filter>
+        <filter id="blurC" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur id="bC" stdDeviation="0 0" />
+        </filter>
+      </svg>
+
+      <div id="copy">
+        <h1 id="hola">hola</h1>
+        <p id="pregunta">¿sabes quién es este pequeño?</p>
+      </div>
+
+      <div id="cardA" class="card"><img src="assets/img/a.jpg" alt="" /></div>
+      <div id="cardB" class="card"><img src="assets/img/b.jpg" alt="" /></div>
+      <div id="cardC" class="card"><img src="assets/img/c.jpg" alt="" /></div>
+
+      <audio id="sfx-a" src="assets/sfx/card-place-1.ogg" data-start="0.5" data-duration="0.69" data-track-index="10" data-volume="1"></audio>
+      <audio id="sfx-b" src="assets/sfx/card-slide-1.ogg" data-start="1.5" data-duration="0.6" data-track-index="11" data-volume="1"></audio>
+      <audio id="sfx-c" src="assets/sfx/card-slide-1.ogg" data-start="2" data-duration="0.6" data-track-index="12" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      const $ = (id) => document.getElementById(id);
+
+      // Desenfoque de movimiento: el valor vive en un objeto y se escribe al SVG en cada seek.
+      function smear(id, axis, amount, start, dur) {
+        const node = $(id);
+        const p = { v: amount };
+        tl.to(
+          p,
+          {
+            v: 0,
+            duration: dur,
+            ease: EASE,
+            onUpdate() {
+              node.setAttribute("stdDeviation", axis === "x" ? p.v + " 0" : "0 " + p.v);
+            },
+          },
+          start
+        );
+        node.setAttribute("stdDeviation", axis === "x" ? amount + " 0" : "0 " + amount);
+      }
+
+      // ---- hola: 0.00 ----
+      $("hola").style.filter = "url(#blurHola)";
+      tl.fromTo("#hola", { x: -48, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: EASE }, 0);
+      smear("bHola", "x", 14, 0, 0.35);
+      const wd = { w: 70 };
+      tl.to(
+        wd,
+        {
+          w: 110,
+          duration: 0.5,
+          ease: EASE,
+          onUpdate() {
+            $("hola").style.fontStretch = wd.w + "%";
+          },
+        },
+        0
+      );
+
+      // ---- pregunta: 0.50 ----
+      $("pregunta").style.filter = "url(#blurPregunta)";
+      tl.fromTo("#pregunta", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: EASE }, 0.5);
+      smear("bPregunta", "y", 6, 0.5, 0.35);
+
+      // ---- carta A: entra de la derecha 0.50 -> 1.50, reposo rotate(10deg) ----
+      gsap.set("#cardA", { rotation: 10 });
+      $("cardA").style.filter = "url(#blurA)";
+      tl.fromTo("#cardA", { x: 1000 }, { x: 0, duration: 1, ease: EASE }, 0.5);
+      smear("bA", "x", 40, 0.5, 1);
+
+      // ---- carta B: sale de detrás de A, 1.50 -> 2.00 ----
+      gsap.set("#cardB", { rotation: 10 });
+      tl.set("#cardB", { opacity: 1 }, 1.5);
+      tl.to("#cardB", { rotation: 0, duration: 0.5, ease: EASE }, 1.5);
+
+      // ---- carta C: sale de detrás de B, 2.00 -> 2.50 ----
+      gsap.set("#cardC", { rotation: 10 });
+      tl.set("#cardC", { opacity: 1 }, 2);
+      tl.to("#cardC", { rotation: -10, duration: 0.5, ease: EASE }, 2);
+
+      window.__timelines["s01"] = tl;
+    </script>
+  </body>
+</html>

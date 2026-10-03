@@ -1,0 +1,56 @@
+{
+  "phase": "FASE21_OPEN_SET_V2",
+  "hypothesis": "H1: Non-whitened distance (Euclidean/Cosine) preserves KNOWN/UNKNOWN separation better than Mahalanobis",
+  "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+  "encoder_match_with_fase13_16_19": true,
+  "datasets": {
+    "reference": {
+      "n_images": 798,
+      "n_species": 10,
+      "role": "REFERENCE (Group A centroids + covariance source)"
+    },
+    "train": {
+      "n_images": 3608,
+      "n_species": 41,
+      "role": "TRAIN (Group B centroids)"
+    },
+    "known_clean": {
+      "n_images": 7475,
+      "role": "KNOWN clean from Fase16 (no leakage verified)"
+    },
+    "unknown": {
+      "n_images": 56,
+      "n_species": 56,
+      "role": "UNKNOWN (F4, held-out)"
+    }
+  },
+  "splits": {
+    "validation": {
+      "n_images": 4485,
+      "composition": "60% of KNOWN clean",
+      "use": "Compare methods, select best"
+    },
+    "blind_test_known": {
+      "n_images": 2990,
+      "composition": "40% of KNOWN clean",
+      "use": "Independent evaluation"
+    },
+    "blind_test_unknown": {
+      "n_images": 56,
+      "composition": "F4 (held-out UNKNOWN)",
+      "use": "Independent evaluation"
+    }
+  },
+  "independence_guarantees": {
+    "encoder_frozen": true,
+    "bioclip_not_retrained": true,
+    "no_production_modification": true,
+    "known_clean_excludes_reference_train": true,
+    "note": "UNKNOWN independence from KNOWN per Fase16 audit (F4 clean)"
+  },
+  "data_limitation": {
+    "unknown_coverage": "2 real species only (insufficient for general conclusions)",
+    "unknown_images": 56,
+    "known_species_with_images": "24/41 catalog species"
+  }
+}

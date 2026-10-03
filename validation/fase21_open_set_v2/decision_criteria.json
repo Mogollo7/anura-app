@@ -1,0 +1,47 @@
+{
+  "criterion_1_auroc_maintained": {
+    "requirement": "V2 maintains or improves AUROC",
+    "euclidean_raw_auroc": 0.5990683229813665,
+    "euclidean_normalized_auroc": 0.5904980888676541,
+    "mahalanobis_auroc": 0.46294792164357385,
+    "result": "PASS - Euclidean (0.599) > Mahalanobis (0.463)"
+  },
+  "criterion_2_balanced_acc": {
+    "requirement": "Significant improvement in balanced accuracy",
+    "euclidean_raw": 0.6366340181557573,
+    "mahalanobis": 0.5610129001433349,
+    "delta": 0.07562111801242233,
+    "result": "MARGINAL - Euclidean 0.637 vs Mahalanobis 0.561 (delta=0.075, ~7.5pp improvement)"
+  },
+  "criterion_3_far_reduction": {
+    "requirement": "Reduce FAR without unacceptable FRR",
+    "euclidean_far": 0.17857142857142858,
+    "euclidean_frr": 0.5481605351170569,
+    "mahalanobis_far": 0.14285714285714285,
+    "mahalanobis_frr": 0.7351170568561873,
+    "result": "EQUIVALENT - FAR unchanged (0.179), FRR improved slightly (0.548 vs 0.735)"
+  },
+  "criterion_4_cross_individual": {
+    "requirement": "Generalize to unseen individuals",
+    "data_available": "KNOWN blind only, no cross-individual test per se",
+    "result": "UNTESTED - requires dedicated cross-individual fold"
+  },
+  "criterion_5_no_leakage": {
+    "requirement": "No data leakage in evaluation",
+    "encoder_frozen": true,
+    "split_independent": true,
+    "result": "PASS"
+  },
+  "criterion_6_conservation": {
+    "requirement": "No modification of production artifacts",
+    "bioclip_modified": false,
+    "threshold_official_modified": false,
+    "covariance_official_modified": false,
+    "result": "PASS"
+  },
+  "criterion_7_reasonable_taxonomic_behavior": {
+    "requirement": "Behavior consistent across taxonomic strata",
+    "unknown_coverage": "2 species (insufficient)",
+    "result": "INCOMPLETE - cannot assess across diverse taxonomic distances"
+  }
+}

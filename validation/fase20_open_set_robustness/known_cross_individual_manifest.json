@@ -1,0 +1,40 @@
+{
+  "source": "validation/fase16_clean_open_set/clean_known_manifest.json (Fase16, reused unmodified)",
+  "verification": {
+    "excluded_from_train_reference_calibration_f3_f4_by_sha256": true,
+    "individual_id_overlap_with_train_check": []
+  },
+  "n_images": 7475,
+  "n_individuals": 4103,
+  "n_species": 24,
+  "n_genera": 11,
+  "n_families": 5,
+  "species_covered": [
+    "Boana_boans",
+    "Boana_cinerascens",
+    "Boana_lanciformis",
+    "Boana_platanera",
+    "Boana_pugnax",
+    "Boana_punctata",
+    "Craugastor_raniformis",
+    "Dendrobates_truncatus",
+    "Dendropsophus_bogerti",
+    "Dendropsophus_columbianus",
+    "Dendropsophus_ebraccatus",
+    "Dendropsophus_microcephalus",
+    "Dendropsophus_molitor",
+    "Engystomops_pustulosus",
+    "Hyloscirtus_palmeri",
+    "Leptodactylus_colombiensis",
+    "Phyllomedusa_venusta",
+    "Pristimantis_achatinus",
+    "Pristimantis_erythropleura",
+    "Pristimantis_paisa",
+    "Pristimantis_penelopus",
+    "Pristimantis_taeniatus",
+    "Rhinella_margaritifera",
+    "Scinax_ruber"
+  ],
+  "species_covered_fraction_of_catalog": "24/41",
+  "limitation": "17/41 especies del catalogo NO tienen imagenes KNOWN cross-individual disponibles (consumieron el 100% de sus datos reales en TRAIN/REFERENCE/CALIBRATION en fases previas). No se fabrican individuos ni imagenes para esas especies."
+}

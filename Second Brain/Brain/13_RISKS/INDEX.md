@@ -1,4 +1,4 @@
-﻿# 13_RISKS: Riesgos
+# 13_RISKS: Riesgos
 
 Fuentes inventariadas: 502. Consolidación trazable. Fases no evidenciadas: NOT_EXECUTED.
 

@@ -1,0 +1,7 @@
+pipeline,auroc,far,frr,balanced_acc
+A_raw_euclidean,nan,nan,0.0,nan
+B_raw_cosine,nan,nan,0.0,nan
+C_centered_euclidean,nan,nan,0.0,nan
+D_centered_cosine,nan,nan,0.0,nan
+E_centered_mahalanobis,nan,nan,0.0,nan
+F_normalized_euclidean,nan,nan,0.0,nan

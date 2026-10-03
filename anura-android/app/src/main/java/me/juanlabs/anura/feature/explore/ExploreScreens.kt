@@ -1250,7 +1250,7 @@ private fun ExplorerFeedItem.toExploreObservation(): ExploreObservation? {
     val lat = lat ?: return null
     val lon = lon ?: return null
     val sci = if (!genus.isNullOrBlank() && !species.isNullOrBlank()) "$genus $species" else ai_class
-    val local = sci?.let(SpeciesCatalog::find)
+    val local = taxon_id?.let(SpeciesCatalog::find) ?: sci?.let(SpeciesCatalog::find)
     return ExploreObservation(
         id = id,
         photoUrl = ExplorerRemote.thumbUrl(thumbnail_key ?: image_key),

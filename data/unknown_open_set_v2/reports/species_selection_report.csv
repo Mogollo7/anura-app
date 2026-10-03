@@ -1,0 +1,12 @@
+species,status,images,individuals,relation_to_known,notes
+Hyloxalus_picachos,ACCEPTED,15,15,SAME_FAMILY,Historical from Fase 13/19/20/21
+Sachatamia_electrops,ACCEPTED,39,19,DIFFERENT_FAMILY,Historical from Fase 13/19/20/21
+Dendropsophus_labialis,ACCEPTED,74,43,SAME_GENUS,New from Fase 22
+Dendropsophus_minutus,ACCEPTED,23,19,SAME_GENUS,New from Fase 22 (small but real data)
+Pristimantis_w_nigrum,ACCEPTED,53,21,SAME_GENUS,New from Fase 22
+Pristimantis_brevirostris,REPLACEMENT,89,45,SAME_GENUS,Replaces Pristimantis_nervicus in Fase 22.1
+Rhinella_marina,ACCEPTED,83,41,SAME_GENUS,New from Fase 22
+Leptodactylus_fragilis,ACCEPTED,85,44,SAME_GENUS,New from Fase 22
+Boana_albifrons,REPLACEMENT,95,48,SAME_GENUS,Replaces Boana_geographica in Fase 22.1
+Smilisca_phaeota,ACCEPTED,107,55,SAME_FAMILY,New from Fase 22
+Espadarana_prosoblepon,ACCEPTED,89,45,DIFFERENT_FAMILY,New from Fase 22

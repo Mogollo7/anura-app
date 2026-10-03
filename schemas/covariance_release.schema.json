@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/covariance_release.schema.json",
+  "title": "CovarianceRelease",
+  "type": "object",
+  "required": ["covariance_release", "catalog_release", "encoder_contract", "species_count",
+               "species_ids", "calibration_dataset", "method", "dimension", "sha256"],
+  "properties": {
+    "covariance_release": { "type": "string", "pattern": "^covariance_[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "catalog_release": { "type": "string" },
+    "encoder_contract": {
+      "type": "object",
+      "properties": {
+        "encoder_id": { "type": "string" },
+        "encoder_sha256": { "type": "string" }
+      }
+    },
+    "embedding_space": { "type": "string", "description": "ej. 'L2-normalized 512D BioCLIP embeddings'" },
+    "species_count": { "type": "integer", "description": "Especies con species_id resuelto que contribuyeron a esta covarianza (Group A)" },
+    "species_ids": { "type": "array", "items": { "type": "string" } },
+    "species_used_for_centering_count": { "type": "integer", "description": "Total de especies de REFERENCE usadas para centrar, puede incluir especies huerfanas sin species_id" },
+    "orphaned_species_excluded_from_species_ids": { "type": "array", "items": { "type": "string" } },
+    "calibration_dataset": { "type": "string", "description": "ej. 'REFERENCE (798 imagenes)'" },
+    "calibration_split": { "type": "string" },
+    "method": { "type": "string", "const": "Ledoit-Wolf shared shrinkage" },
+    "dimension": { "type": "integer" },
+    "regularization": { "type": "string" },
+    "created_at": { "type": "string" },
+    "source_artifacts": { "type": "array", "items": { "type": "string" } },
+    "sha256": { "type": "string", "description": "SHA256 de la matriz de covarianza serializada (.npz)" },
+    "npz_artifact": { "type": "string", "description": "Ruta al .npz que contiene la matriz real" },
+    "reproducibility_check": {
+      "type": "object",
+      "description": "Evidencia de que esta covarianza coincide con el calculo on-the-fly de Fase 13 (no es una recalibracion nueva)"
+    }
+  },
+  "additionalProperties": false
+}

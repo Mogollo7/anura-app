@@ -1,0 +1,27 @@
+{
+  "n_known_images": 7475,
+  "n_species": 24,
+  "n_candidate_classes": 41,
+  "visual_only": {
+    "top1_acc": 0.5851505016722408,
+    "top3_acc": 0.8140468227424749,
+    "f1_macro": 0.277818443040353
+  },
+  "visual_plus_geo_species": {
+    "top1_acc": 0.6338461538461538,
+    "top3_acc": 0.8672909698996656,
+    "f1_macro": 0.30826852019092715
+  },
+  "visual_plus_geo_hierarchical_C_main": {
+    "top1_acc": 0.4107023411371237,
+    "top3_acc": 0.7781939799331103,
+    "f1_macro": 0.22649394473587645
+  },
+  "weight_scheme_C_main": {
+    "w_v": 0.1,
+    "w_sp": 0.54,
+    "w_ge": 0.225,
+    "w_fa": 0.135
+  },
+  "note": "Ranking Top-k sobre 41 clases candidatas (centroides), verdad-terreno restringida a las 24 especies KNOWN de fase16_clean_open_set. Distinto de la decision binaria Open Set (KNOWN vs UNKNOWN) del PASO 4."
+}

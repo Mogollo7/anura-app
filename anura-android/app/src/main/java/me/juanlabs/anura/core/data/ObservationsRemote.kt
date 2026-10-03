@@ -24,9 +24,12 @@ object ObservationsRemote {
     private const val ConnectTimeoutMs = 8_000
     private const val ReadTimeoutMs = 30_000
     private const val BoundaryPrefix = "AnuraBoundary"
+    private const val MaxPhotosPerObservation = 8
 
     suspend fun upload(
-        photo: File,
+        photos: List<File>,
+        clientId: String,
+        recordedAt: String,
         latitude: Double?,
         longitude: Double?,
         notes: String?,
@@ -35,7 +38,9 @@ object ObservationsRemote {
         aiTopProb: Double?,
         bearer: String,
     ): ObservationUpload = withContext(Dispatchers.IO) {
-        if (!photo.exists()) return@withContext ObservationUpload.Failed
+        if (photos.isEmpty() || photos.size > MaxPhotosPerObservation || photos.any { !it.isFile }) {
+            return@withContext ObservationUpload.Failed
+        }
         runCatching {
             val boundary = "$BoundaryPrefix${UUID.randomUUID()}"
             val conn = (URL(AnuraServerConfig.AUTH_BASE_URL + "/api/observations").openConnection() as HttpURLConnection).apply {
@@ -53,6 +58,8 @@ object ObservationsRemote {
                         out.write("Content-Disposition: form-data; name=\"$name\"\r\n\r\n".toByteArray())
                         out.write("$value\r\n".toByteArray())
                     }
+                    field("client_id", clientId)
+                    field("recorded_at", recordedAt)
                     latitude?.let { field("lat", it.toString()) }
                     longitude?.let { field("lon", it.toString()) }
                     notes?.takeIf { it.isNotBlank() }?.let { field("notes", it) }
@@ -60,13 +67,17 @@ object ObservationsRemote {
                     aiTopClass?.let { field("ai_top_class", it) }
                     aiTopProb?.let { field("ai_top_prob", it.toString()) }
                     field("ai_location_used", (latitude != null && longitude != null).toString())
-                    out.write("--$boundary\r\n".toByteArray())
-                    out.write(
-                        "Content-Disposition: form-data; name=\"image\"; filename=\"${photo.name}\"\r\n".toByteArray(),
-                    )
-                    out.write("Content-Type: image/jpeg\r\n\r\n".toByteArray())
-                    photo.inputStream().use { it.copyTo(out) }
-                    out.write("\r\n--$boundary--\r\n".toByteArray())
+                    photos.forEach { photo ->
+                        val safeFileName = photo.name.replace("\"", "").replace("\r", "").replace("\n", "")
+                        out.write("--$boundary\r\n".toByteArray())
+                        out.write(
+                            "Content-Disposition: form-data; name=\"images\"; filename=\"$safeFileName\"\r\n".toByteArray(),
+                        )
+                        out.write("Content-Type: image/jpeg\r\n\r\n".toByteArray())
+                        photo.inputStream().use { it.copyTo(out) }
+                        out.write("\r\n".toByteArray())
+                    }
+                    out.write("--$boundary--\r\n".toByteArray())
                 }
                 val code = conn.responseCode
                 if (code == 401) return@runCatching ObservationUpload.Unauthorized
@@ -74,11 +85,14 @@ object ObservationsRemote {
                 val text = conn.inputStream.bufferedReader().use { it.readText() }
                 val body = json.decodeFromString(UploadResponse.serializer(), text)
                 val observationId = body.observation_id ?: return@runCatching ObservationUpload.Failed
+                val photoUrls = body.photos.mapNotNull { absoluteMediaUrl(it.thumbnail_url ?: it.image_url) }
+                    .ifEmpty { listOfNotNull(absoluteMediaUrl(body.thumbnail_url ?: body.image_url)) }
                 ObservationUpload.Saved(
                     UploadResult(
                         observationId = observationId,
                         thumbnailUrl = absoluteMediaUrl(body.thumbnail_url),
                         imageUrl = absoluteMediaUrl(body.image_url),
+                        photoUrls = photoUrls,
                     ),
                 )
             } finally {
@@ -115,11 +129,19 @@ data class UploadResult(
     val observationId: String,
     val thumbnailUrl: String?,
     val imageUrl: String?,
+    val photoUrls: List<String>,
 )
 
 @Serializable
 private data class UploadResponse(
     val observation_id: String? = null,
+    val image_url: String? = null,
+    val thumbnail_url: String? = null,
+    val photos: List<UploadPhotoResponse> = emptyList(),
+)
+
+@Serializable
+private data class UploadPhotoResponse(
     val image_url: String? = null,
     val thumbnail_url: String? = null,
 )

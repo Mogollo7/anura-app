@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S30 Conseguir</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+@font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Geist"; src: url("assets/fonts/Geist.woff2") format("woff2"); font-weight: 100 900; }
+body { margin: 0; background: #eef5ee; }
+#root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+#t30old { position: absolute; margin: 0; left: 80px; top: 280px; width: 760px; font-weight: 700; font-size: 48px; line-height: 1.15; }
+#t30 { position: absolute; margin: 0; left: 80px; top: 80px; width: 1680px; font-weight: 700; font-size: 36px; line-height: 1.15; }
+.foot { position: absolute; margin: 0; left: 80px; top: 960px; width: 1760px; font-weight: 500; font-size: 28px; line-height: 1.3; opacity: 0; }
+#t31 { position: absolute; margin: 0; left: 210px; top: 860px; width: 1500px; text-align: center; font-weight: 700; font-size: 44px; line-height: 1.2; opacity: 0; }
+#panel { position: absolute; left: 80px; top: 150px; width: 1760px; height: 750px; border-radius: 16px; overflow: hidden; box-sizing: border-box; border: 1px solid #38383a; background: #000; box-shadow: 0 24px 48px rgba(27, 28, 30, 0.28); transform-origin: 0 0; }
+#ui { position: absolute; left: 0; top: 0; width: 1173.33px; height: 500px; transform: scale(1.5); transform-origin: 0 0; display: flex; font-family: "Geist", -apple-system, "Segoe UI", sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+.ic { display: block; flex: none; }
+aside { width: 240px; flex: none; display: flex; flex-direction: column; background: #1c1c1e; border-right: 1px solid #38383a; }
+.brand { height: 56px; box-sizing: border-box; flex: none; display: flex; align-items: center; gap: 8px; padding: 0 20px; border-bottom: 1px solid #38383a; }
+.brand .logo { width: 28px; height: 28px; border-radius: 6px; background: #30d158; color: #062b12; display: flex; align-items: center; justify-content: center; }
+.brand b { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+nav { position: relative; flex: 1; overflow: hidden; padding: 12px 8px; }
+#navc { position: relative; }
+.area { display: flex; align-items: center; gap: 2px; margin-bottom: 2px; }
+.arow { flex: 1; min-width: 0; height: 32px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 8px; border-radius: 6px; font-size: 13px; color: #aeaeb2; }
+.arow .aic { color: #98989d; }
+.chev { width: 28px; height: 32px; flex: none; display: flex; align-items: center; justify-content: center; color: #98989d; }
+.chev .ic { transform: rotate(-90deg); }
+.open { margin-left: 12px; overflow: hidden; height: 0; }
+.openin { margin: 2px 0 8px 0; padding-left: 8px; border-left: 1px solid #38383a; }
+.sec { margin-top: 6px; }
+.stitle { margin: 0; height: 18px; padding: 0 8px; font-size: 11px; line-height: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: #98989d; }
+.irow { height: 30px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 8px; border-radius: 6px; font-size: 13px; color: #aeaeb2; }
+#hl { position: absolute; left: 0; top: 0; width: 10px; height: 10px; border-radius: 8px; border: 2px solid #30d158; box-sizing: border-box; opacity: 0; pointer-events: none; }
+.col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+header { height: 56px; box-sizing: border-box; flex: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 20px; background: #1c1c1e; border-bottom: 1px solid #38383a; }
+.ttls { position: relative; width: 200px; height: 20px; }
+.ttl { position: absolute; left: 0; top: 0; font-size: 14px; line-height: 20px; font-weight: 600; opacity: 0; white-space: nowrap; }
+.hr { display: flex; align-items: center; gap: 12px; }
+.search { width: 320px; height: 32px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid #38383a; border-radius: 6px; background: #2c2c2e; color: #98989d; font-size: 14px; }
+.bell { color: #aeaeb2; }
+.chip { display: flex; align-items: center; padding: 4px 8px; border-radius: 999px; background: #2c2c2e; color: #aeaeb2; }
+main { position: relative; flex: 1; background: #000; overflow: hidden; }
+.page { position: absolute; left: 24px; top: 24px; right: 24px; opacity: 0; }
+.ph1 { margin: 0; font-size: 24px; line-height: 32px; font-weight: 700; letter-spacing: -0.02em; }
+.pblurb { margin: 4px 0 0 0; font-size: 14px; line-height: 20px; color: #aeaeb2; white-space: nowrap; }
+.kgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.card { border-radius: 8px; border: 1px solid #38383a; background: #1c1c1e; padding: 16px; }
+.kic { width: 32px; height: 32px; margin-bottom: 12px; border-radius: 6px; background: rgba(48, 209, 88, 0.16); color: #30d158; display: flex; align-items: center; justify-content: center; }
+.kval { margin: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
+.klab { margin: 0; font-size: 12px; line-height: 16px; color: #aeaeb2; }
+.khint { margin: 4px 0 0 0; font-size: 11px; line-height: 16px; color: #98989d; }
+.rel { margin-top: 24px; display: flex; align-items: center; gap: 24px; }
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 150px; height: 36px; border-radius: 6px; background: #30d158; color: #062b12; font-size: 14px; font-weight: 500; }
+.btn span { position: absolute; }
+#btn-b { opacity: 0; }
+.prog { width: 360px; opacity: 0; }
+.plab { display: flex; justify-content: space-between; font-size: 13px; line-height: 18px; color: #fff; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+.track { height: 8px; border-radius: 999px; background: #2c2c2e; overflow: hidden; }
+#fill { width: 100%; height: 100%; background: #30d158; transform-origin: 0 50%; }
+#file { position: absolute; left: 1180px; top: 380px; width: 480px; display: flex; flex-direction: column; align-items: center; opacity: 0; }
+#file p { margin: 0 0 28px 0; font-weight: 600; font-size: 36px; line-height: 1.2; color: #1b1c1e; }
+#fileic { width: 200px; height: 200px; color: #1f7a33; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s30" data-start="0" data-width="1920" data-height="1080" data-duration="4">
+      <p id="t30">Ahora, con el modo admin, puedes repetir el ciclo.</p>
+      <p class="foot" id="f30">Conseguir las fotos y nombrar las especies.</p>
+      <p class="foot" id="f31">Limpiar lo que no debe entrenar.</p>
+      <p class="foot" id="f32">Procesar: vectores, centroides y lo que se confunde.</p>
+      <p class="foot" id="f33">Una persona valida el rechazo. Luego se mira si está listo.</p>
+      <p class="foot" id="f34">Compilar y publicar el paquete de la región.</p>
+      <div id="panel" data-layout-allow-overflow>
+        <div id="ui">
+          <aside>
+            <div class="brand"><span class="logo"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"></path><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"></path></svg></span><b>ANURA Admin</b></div>
+            <nav>
+<div id="navc">
+<div id="hl"></div>
+<div class="area" id="ar-inicio"><div class="arow" id="a-inicio"><span class="aic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg></span><span>Inicio</span></div></div>
+<div class="area" id="ar-analitica"><div class="arow" id="a-analitica"><span class="aic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg></span><span>Analítica</span></div></div>
+<div class="area" id="ar-modelo"><div class="arow" id="a-modelo"><span class="aic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg></span><span>Modelo</span></div><span class="chev" id="chev-modelo"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></div>
+<div id="open-modelo" class="open"><div class="openin">
+<div class="sec" id="s-Conseguir"><p class="stitle" id="st-Conseguir">Conseguir</p>
+<div class="irow" id="r-scraping"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg><span>Scraping</span></div>
+<div class="irow" id="r-curacion"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"></path><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"></path><circle cx="13" cy="7" r="1" fill="currentColor"></circle><rect x="8" y="2" width="14" height="14" rx="2"></rect></svg><span>Imágenes</span></div>
+<div class="irow" id="r-catalogo"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834A.25.25 0 0016 9.751V2"></path><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H19a1 1 0 011 1v18a1 1 0 01-1 1H6.5a1 1 0 010-5H20"></path></svg><span>Especies</span></div>
+<div class="irow" id="r-paquetes"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg><span>Regiones</span></div>
+<div class="irow" id="r-contenido"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg><span>Contenido</span></div>
+<div class="irow" id="r-destacados"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"></path><path d="M16 2v3"></path><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M8 13h.01"></path><path d="M12 13h.01"></path><path d="M16 13h.01"></path><path d="M8 17h.01"></path><path d="M12 17h.01"></path><path d="M16 17h.01"></path></svg><span>Destacados</span></div>
+</div>
+<div class="sec" id="s-Limpiar"><p class="stitle" id="st-Limpiar">Limpiar</p>
+<div class="irow" id="r-ficha"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span>Ficha</span></div>
+<div class="irow" id="r-calidad"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg><span>Calidad</span></div>
+</div>
+<div class="sec" id="s-Procesar"><p class="stitle" id="st-Procesar">Procesar</p>
+<div class="irow" id="r-ia"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M9 13a4.5 4.5 0 0 0 3-4"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M12 13h4"></path><path d="M12 18h6a2 2 0 0 1 2 2v1"></path><path d="M12 8h8"></path><path d="M16 8V5a2 2 0 0 1 2-2"></path><circle cx="16" cy="13" r=".5"></circle><circle cx="18" cy="3" r=".5"></circle><circle cx="20" cy="21" r=".5"></circle><circle cx="20" cy="8" r=".5"></circle></svg><span>Worker</span></div>
+<div class="irow" id="r-vectorial"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg><span>DB vectorial</span></div>
+<div class="irow" id="r-centroides"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><span>Centroides</span></div>
+<div class="irow" id="r-clusteres"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg><span>Clústeres</span></div>
+<div class="irow" id="r-osr"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg><span>OSR</span></div>
+</div>
+<div class="sec" id="s-Resultado"><p class="stitle" id="st-Resultado">Resultado</p>
+<div class="irow" id="r-valtec"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg><span>Validación</span></div>
+<div class="irow" id="r-compilador"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"></path><path d="m16 17 2 2 4-4"></path><path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753"></path><path d="M3.29 7 12 12l8.71-5"></path><path d="m7.5 4.27 8.997 5.148"></path></svg><span>Release</span></div>
+<div class="irow" id="r-laboratorio"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"></path><path d="M6.453 15h11.094"></path><path d="M8.5 2h7"></path></svg><span>Simulador</span></div>
+<div class="irow" id="r-metricas"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"></path><path d="M6.453 15h11.094"></path><path d="M8.5 2h7"></path></svg><span>Métricas</span></div>
+</div>
+</div></div>
+<div class="area" id="ar-movil"><div class="arow" id="a-movil"><span class="aic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg></span><span>App</span></div><span class="chev" id="chev-movil"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></div>
+<div class="area" id="ar-operacion"><div class="arow" id="a-operacion"><span class="aic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8"></path><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="m8 17 4-4 4 4"></path></svg></span><span>Operación</span></div><span class="chev" id="chev-operacion"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></div>
+<div class="area" id="ar-sistema"><div class="arow" id="a-sistema"><span class="aic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span>Sistema</span></div></div>
+</div>
+            </nav>
+          </aside>
+          <div class="col">
+            <header>
+              <div class="ttls"><span class="ttl" id="t-dashboard">Inicio</span><span class="ttl" id="t-scraping">Scraping</span><span class="ttl" id="t-curacion">Imágenes</span><span class="ttl" id="t-catalogo">Especies</span><span class="ttl" id="t-ficha">Ficha</span><span class="ttl" id="t-calidad">Calidad</span><span class="ttl" id="t-ia">Worker</span><span class="ttl" id="t-vectorial">DB vectorial</span><span class="ttl" id="t-centroides">Centroides</span><span class="ttl" id="t-osr">OSR</span><span class="ttl" id="t-valtec">Validación</span><span class="ttl" id="t-compilador">Release</span></div>
+              <div class="hr"><div class="search"><svg class="ic " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><span>Ir a una pantalla…</span></div><span class="bell"><svg class="ic " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg></span><span class="chip"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.925 20.056a6 6 0 0 0-11.851.001"></path><circle cx="12" cy="11" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg></span></div>
+            </header>
+            <main>
+<section class="page" id="p-dashboard"><div class="kgrid"><div class="card"><span class="kic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></span><p class="kval">—</p><p class="klab">Usuarios</p><p class="khint">Inicia sesión para verlo</p></div><div class="card"><span class="kic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg></span><p class="kval">—</p><p class="klab">Dispositivos</p><p class="khint">Inicia sesión para verlo</p></div><div class="card"><span class="kic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg></span><p class="kval">—</p><p class="klab">Observaciones</p><p class="khint">Inicia sesión para verlo</p></div><div class="card"><span class="kic"><svg class="ic " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg></span><p class="kval">—</p><p class="klab">Avisos enviados</p><p class="khint">Inicia sesión para verlo</p></div></div></section>
+<section class="page" id="p-scraping"><h2 class="ph1">Scraping</h2><p class="pblurb">iNaturalist y GBIF, con los mismos filtros del script.</p></section>
+<section class="page" id="p-curacion"><h2 class="ph1">Imágenes</h2><p class="pblurb">Fotos ya en el servidor. Excluir o invalidar, con motivo.</p></section>
+<section class="page" id="p-catalogo"><h2 class="ph1">Especies</h2><p class="pblurb">Crear y revisar la taxonomía.</p></section>
+<section class="page" id="p-ficha"><h2 class="ph1">Ficha de especie</h2><p class="pblurb">Altitud, sustrato, atípicos y pesos.</p></section>
+<section class="page" id="p-calidad"><h2 class="ph1">Calidad</h2><p class="pblurb">Lo que hay que corregir antes de entrenar.</p></section>
+<section class="page" id="p-ia"><h2 class="ph1">Worker y embeddings</h2><p class="pblurb">BioCLIP escribe los vectores de 512.</p></section>
+<section class="page" id="p-vectorial"><h2 class="ph1">DB vectorial</h2><p class="pblurb">Dónde quedan esos vectores para verlos.</p></section>
+<section class="page" id="p-centroides"><h2 class="ph1">Centroides y morfos</h2><p class="pblurb">Global, regional y morfo.</p></section>
+<section class="page" id="p-osr"><h2 class="ph1">OSR · rechazo de desconocidas</h2><p class="pblurb">Umbrales de rechazo. La persona los valida.</p></section>
+<section class="page" id="p-valtec"><h2 class="ph1">Validación técnica</h2><p class="pblurb">Lista para compilar, o el motivo por el que no.</p></section>
+<section class="page" id="p-compilador"><h2 class="ph1">Release</h2><p class="pblurb">Compilar, aprobar y publicar el paquete de cada subregión.</p><div class="rel"><span class="btn"><span id="btn-a">Compilar paquete</span><span id="btn-b">Compilando…</span></span><div class="prog"><div class="plab"><span>Compilando</span><span id="pct">0%</span></div><div class="track"><div id="fill"></div></div></div></div></section>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+const tl = gsap.timeline({ paused: true });
+const EASE = "expo.out";
+const $ = (s) => document.querySelector(s);
+const PAGES = {"dashboard": null, "scraping": "scraping", "curacion": "curacion", "catalogo": "catalogo", "ficha": "ficha", "calidad": "calidad", "ia": "ia", "vectorial": "vectorial", "centroides": "centroides", "osr": "osr", "valtec": "valtec", "compilador": "compilador"};
+gsap.set("#fill", { scaleX: 0 });
+const OPEN = $("#open-modelo"), NAVC = $("#navc"), VIEW = 420;
+const OPEN_H = OPEN.scrollHeight;
+const offTop = (el) => { let y = 0; while (el && el !== NAVC) { y += el.offsetTop; el = el.offsetParent; } return y; };
+// Cajas en coordenadas de #navc, con Modelo abierto (siempre lo está cuando se resalta algo).
+const box = (el) => ({ x: el.offsetLeft, y: offTop(el), w: el.offsetWidth, h: el.offsetHeight });
+// Todas las cajas se miden una vez con Modelo abierto (fuentes y alturas fijas: el resultado no depende del cuadro).
+gsap.set(OPEN, { height: OPEN_H });
+const CACHE = {};
+const CLIP = [...document.querySelectorAll(".area, .stitle, .irow")];
+document.querySelectorAll(".sec, .irow, .area, .stitle").forEach((el) => { CACHE[el.id] = box(el); });
+const NAV_H = NAVC.scrollHeight;
+const secBox = (name) => { const b = CACHE["s-" + name]; return { x: b.x - 4, y: b.y - 2, w: b.w + 8, h: b.h + 4 }; };
+const rowBox = (id) => { const b = CACHE["r-" + id]; return { x: b.x - 2, y: b.y - 2, w: b.w + 4, h: b.h + 4 }; };
+const scrollFor = (b) => { const max = Math.max(0, NAV_H - VIEW); let s = Math.max(0, b.y + b.h + 12 - VIEW); if (b.y - s < 8) s = b.y - 8; return Math.min(max, Math.max(0, s)); };
+// Filas fuera de la vista del nav: ya las recorta el overflow; además quedan en visibility hidden.
+const inView = (el, sc) => { const b = CACHE[el.id]; return b.y + b.h > sc && b.y < sc + VIEW; };
+function clipAt(sc, t) {
+  CLIP.forEach((el) => {
+    if (el.closest(".open") && areaOf(cur) !== "modelo" && t === undefined) return;
+    const v = inView(el, sc) ? "visible" : "hidden";
+    if (t === undefined) gsap.set(el, { visibility: v }); else if (v === "visible") tl.set(el, { visibility: v }, t); else tl.set(el, { visibility: v }, t + 0.4);
+  });
+}
+const ON_AREA = { backgroundColor: "#2c2c2e", color: "#ffffff" }, OFF_AREA = { backgroundColor: "rgba(44,44,46,0)", color: "#aeaeb2" };
+const ON_ROW = { backgroundColor: "rgba(48,209,88,0.16)", color: "#30d158" }, OFF_ROW = { backgroundColor: "rgba(48,209,88,0)", color: "#aeaeb2" };
+const areaOf = (pid) => (pid === "dashboard" ? "inicio" : "modelo");
+
+// Estado de partida de la escena (lo que dejó la anterior).
+function start(pid, hl) {
+  gsap.set(".arow", OFF_AREA); gsap.set(".irow", OFF_ROW);
+  gsap.set("#a-" + areaOf(pid), ON_AREA); gsap.set("#a-" + areaOf(pid) + " .aic", { color: "#30d158" });
+  const row = PAGES[pid];
+  if (row) gsap.set("#r-" + row, ON_ROW);
+  const open = areaOf(pid) === "modelo";
+  gsap.set(OPEN, open ? { height: OPEN_H, visibility: "visible" } : { height: 0, visibility: "hidden" });
+  gsap.set("#chev-modelo .ic", { rotation: open ? 0 : -90 });
+  gsap.set(".page", { opacity: 0 }); gsap.set("#p-" + pid, { opacity: 1 });
+  gsap.set(".ttl", { opacity: 0 }); gsap.set("#t-" + pid, { opacity: 1 });
+  cur = pid;
+  if (hl) { gsap.set("#hl", { opacity: 1, x: hl.x, y: hl.y, width: hl.w, height: hl.h }); gsap.set(NAVC, { y: -scrollFor(hl) }); clipAt(scrollFor(hl)); }
+  else if (open) clipAt(0);
+}
+let cur = null;
+
+// Cambia de pantalla sin recargar: fila activa, topbar y lienzo.
+function go(t, pid, hl) {
+  const prev = cur;
+  if (areaOf(prev) !== areaOf(pid)) {
+    tl.to("#a-" + areaOf(prev), { ...OFF_AREA, duration: 0.15 }, t);
+    tl.to("#a-" + areaOf(prev) + " .aic", { color: "#98989d", duration: 0.15 }, t);
+    tl.to("#a-" + areaOf(pid), { ...ON_AREA, duration: 0.15 }, t);
+    tl.to("#a-" + areaOf(pid) + " .aic", { color: "#30d158", duration: 0.15 }, t);
+    if (areaOf(pid) === "modelo") {
+      tl.set(OPEN, { visibility: "visible" }, t);
+      tl.to(OPEN, { height: OPEN_H, duration: 0.35, ease: "power3.out" }, t);
+      tl.to("#chev-modelo .ic", { rotation: 0, duration: 0.25, ease: "power2.out" }, t);
+    }
+  }
+  if (PAGES[prev]) tl.to("#r-" + PAGES[prev], { ...OFF_ROW, duration: 0.15 }, t);
+  if (PAGES[pid]) tl.to("#r-" + PAGES[pid], { ...ON_ROW, duration: 0.15 }, t);
+  tl.to("#t-" + prev, { opacity: 0, duration: 0.12 }, t);
+  tl.to("#t-" + pid, { opacity: 1, duration: 0.2 }, t + 0.08);
+  tl.to("#p-" + prev, { opacity: 0, y: -6, duration: 0.15, ease: "power2.in" }, t);
+  tl.fromTo("#p-" + pid, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: EASE, immediateRender: false }, t + 0.1);
+  if (hl) {
+    if (!hlShown) { tl.set("#hl", { x: hl.x, y: hl.y, width: hl.w, height: hl.h }, t); tl.fromTo("#hl", { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, t + 0.1); hlShown = true; }
+    else tl.to("#hl", { x: hl.x, y: hl.y, width: hl.w, height: hl.h, duration: 0.4, ease: "power3.inOut" }, t);
+    tl.to(NAVC, { y: -scrollFor(hl), duration: 0.4, ease: "power3.inOut" }, t);
+    clipAt(scrollFor(hl), t);
+  }
+  cur = pid;
+}
+let hlShown = false;
+function foot(t, from, to) {
+  if (from) tl.to(from, { y: -12, opacity: 0, duration: 0.25, ease: "power2.in" }, t);
+  if (to) tl.fromTo(to, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, t + 0.15);
+}
+
+
+// 121.00–125.00. Se abre Modelo y se resalta Conseguir. Scraping, Imágenes y Especies, cada dos beats.
+start("dashboard");
+tl.to("#t30", { y: -12, opacity: 0, duration: 0.25, ease: "power2.in" }, 0);
+foot(0.1, null, "#f30");
+go(0.5, "scraping", secBox("Conseguir"));
+go(1.5, "curacion");
+go(2.5, "catalogo");
+
+window.__timelines = window.__timelines || {};
+window.__timelines["s30"] = tl;
+    </script>
+  </body>
+</html>

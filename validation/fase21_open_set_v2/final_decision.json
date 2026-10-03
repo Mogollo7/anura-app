@@ -1,0 +1,39 @@
+{
+  "phase": "FASE21_FINAL_DECISION",
+  "hypothesis_h1": "Non-whitened distance preserves KNOWN/UNKNOWN separation better than Mahalanobis",
+  "hypothesis_h1_status": "SUPPORTED_BY_DATA",
+  "statistical_support": {
+    "euclidean_raw_auroc": 0.5991,
+    "mahalanobis_auroc": 0.4629,
+    "auroc_difference": 0.1361,
+    "balanced_acc_euclidean": 0.6366,
+    "balanced_acc_mahalanobis": 0.561,
+    "balanced_acc_delta": 0.0756
+  },
+  "criteria_assessment": {
+    "pass": 5,
+    "incomplete": 2,
+    "fail": 0
+  },
+  "candidate_validation": "V2_METHOD_PROMISING_BUT_INSUFFICIENT_EVIDENCE",
+  "reasons": [
+    "Euclidean methods show consistent improvement over Mahalanobis (AUROC +13.6pp)",
+    "Improvement is marginal in absolute terms (AUROC 0.599 is still <0.6, weak separation)",
+    "UNKNOWN coverage extremely limited (2 species, 56 images)",
+    "Cross-individual generalization not formally tested",
+    "Single VALIDATION/BLIND split may not generalize",
+    "Cannot assess improvement on hard species (Pristimantis, Dendropsophus, Boana)",
+    "Official threshold (39.354) still produces worse-than-random balanced accuracy (0.456) on independent Fase16 data"
+  ],
+  "fine_tuning_justification": "NOT_JUSTIFIED",
+  "fine_tuning_note": "Cannot proceed with BioCLIP fine-tuning without:\n  - More UNKNOWN species (taxonomically diverse)\n  - Cross-individual evaluation on hard species\n  - Formal recalibration on independent CALIBRATION set",
+  "next_recommended_step": "COLLECT_MORE_UNKNOWN_DATA",
+  "next_experiments": [
+    "Gather real UNKNOWN species (>=10 species, >=200 images)",
+    "Stratify by taxonomic distance (same-family, same-genus, different-family)",
+    "Replicate V2-Euclidean evaluation with diverse UNKNOWN",
+    "If improvement persists, then consider fine-tuning gating"
+  ],
+  "production_change_recommendation": "NO",
+  "reason_no_change": "Current improvement is marginal, UNKNOWN coverage insufficient, and risk of overfitting to 2 specific species"
+}

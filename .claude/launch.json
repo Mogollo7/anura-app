@@ -4,14 +4,156 @@
     {
       "name": "anura-design-system",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8777", "--directory", "D:/Anura/design-system"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8777",
+        "--directory",
+        "D:/Anura/design-system"
+      ],
       "port": 8777
     },
     {
       "name": "anura-design-system-verify",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8779", "--directory", "D:/Anura/design-system"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8779",
+        "--directory",
+        "D:/Anura/design-system"
+      ],
       "port": 8779
+    },
+    {
+      "name": "anura-server-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "D:/server/Anura/frontend",
+        "--",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
+      "port": 5173
+    },
+    {
+      "name": "anura-admin",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "D:/server/Anura/admin",
+        "--",
+        "--port",
+        "3012"
+      ],
+      "port": 3012
+    },
+    {
+      "name": "anura-admin-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "start",
+        "--prefix",
+        "D:/server/Anura/admin",
+        "--",
+        "--port",
+        "3013"
+      ],
+      "port": 3013
+    },
+    {
+      "name": "anura-server-frontend-session",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "D:/server/Anura/frontend",
+        "--",
+        "--port",
+        "5199",
+        "--strictPort"
+      ],
+      "port": 5199
+    },
+    {
+      "name": "anura-admin-prueba-aislada",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_prueba.js"
+      ],
+      "port": 3099
+    },
+    {
+      "name": "anura-admin-ficha",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_ficha.js"
+      ],
+      "port": 3101
+    },
+    {
+      "name": "anura-admin-especies",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_especies.js"
+      ],
+      "port": 3102
+    },
+    {
+      "name": "anura-admin-vectores",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_vectores.js"
+      ],
+      "port": 3104
+    },
+    {
+      "name": "anura-admin-release",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_release.js"
+      ],
+      "port": 3103
+    },
+    {
+      "name": "anura-admin-osr",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_osr.js"
+      ],
+      "port": 3105
+    },
+    {
+      "name": "anura-admin-barrido",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_barrido.js"
+      ],
+      "port": 3106
+    },
+    {
+      "name": "anura-admin-recorrido",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "D:/server/Anura/_pruebas/entorno_recorrido.js"
+      ],
+      "port": 3107
+    },
+    {
+      "name": "anura-admin-legado",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/user/AppData/Local/Temp/claude/D--Anura/311511b4-f5bd-44fd-b541-5e93b3bfa860/scratchpad/entorno_legado.js"
+      ],
+      "port": 39247
     }
   ]
 }

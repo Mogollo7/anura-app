@@ -1,0 +1,641 @@
+{
+  "fecha": "2026-09-26",
+  "datos": {
+    "referencias": 4028,
+    "prueba_conocidas": 547,
+    "val_calibracion": 501,
+    "desconocidas": 715,
+    "especies_desconocidas": [
+      "Craugastor_metriosistus",
+      "Dendropsophus_labialis",
+      "Dendropsophus_minutus",
+      "Espadarana_prosoblepon",
+      "Hyloxalus_picachos",
+      "Leptodactylus_fragilis",
+      "Pristimantis_w_nigrum",
+      "Rhinella_marina",
+      "Sachatamia_electrops",
+      "Scinax_rostratus",
+      "Smilisca_phaeota"
+    ],
+    "altitud_fuente": {
+      "dem_cercano": 8008,
+      "registro": 7070
+    },
+    "prueba_con_altitud": 167,
+    "desconocidas_con_altitud": 164
+  },
+  "viejo": {
+    "top1_visual_sin_rechazo": 0.5904936014625228,
+    "nota": "k-NN con vectores puros; el rechazo Mahalanobis del teléfono no aplica"
+  },
+  "nuevo": {
+    "capa1_cascada": {
+      "especie_correcta": 0.5813528336380256,
+      "especie_equivocada": 0.3930530164533821,
+      "kar": 0.9744058500914077,
+      "genero_correcto_sin_especie": 0.0,
+      "estados_conocidas": {
+        "MATCH_SPECIES": 533,
+        "OSR_GLOBAL": 13,
+        "MATCH_FAMILY": 1
+      },
+      "far": 0.9664335664335665,
+      "auroc": 0.5992252719857839,
+      "estados_desconocidas": {
+        "MATCH_SPECIES": 691,
+        "OSR_GLOBAL": 22,
+        "MATCH_FAMILY": 2
+      },
+      "desconocidas_respuesta_segura": 0.03356643356643352,
+      "desconocidas_nivel_correcto": 0.0013986013986013986
+    },
+    "capa1_cascada_clusters": {
+      "especie_correcta": 0.6179159049360147,
+      "especie_equivocada": 0.2851919561243144,
+      "kar": 0.903107861060329,
+      "genero_correcto_sin_especie": 0.043875685557586835,
+      "estados_conocidas": {
+        "MATCH_SPECIES": 494,
+        "OSR_CLUSTER": 39,
+        "OSR_GLOBAL": 13,
+        "MATCH_FAMILY": 1
+      },
+      "far": 0.8937062937062937,
+      "auroc": 0.5992252719857839,
+      "estados_desconocidas": {
+        "MATCH_SPECIES": 639,
+        "OSR_CLUSTER": 52,
+        "OSR_GLOBAL": 22,
+        "MATCH_FAMILY": 2
+      },
+      "desconocidas_respuesta_segura": 0.10629370629370627,
+      "desconocidas_nivel_correcto": 0.016783216783216783
+    },
+    "completo_tres_capas": {
+      "especie_correcta": 0.6051188299817185,
+      "especie_equivocada": 0.2413162705667276,
+      "kar": 0.8464351005484461,
+      "genero_correcto_sin_especie": 0.07861060329067641,
+      "estados_conocidas": {
+        "MATCH_SPECIES": 463,
+        "OSR_CLUSTER": 39,
+        "OSR_GEO": 31,
+        "OSR_GLOBAL": 13,
+        "MATCH_FAMILY": 1
+      },
+      "far": 0.8419580419580419,
+      "auroc": 0.5992252719857839,
+      "estados_desconocidas": {
+        "MATCH_SPECIES": 602,
+        "OSR_CLUSTER": 52,
+        "OSR_GEO": 37,
+        "OSR_GLOBAL": 22,
+        "MATCH_FAMILY": 2
+      },
+      "desconocidas_respuesta_segura": 0.15804195804195809,
+      "desconocidas_nivel_correcto": 0.022377622377622378
+    },
+    "completo_radio_val": {
+      "especie_correcta": 0.6106032906764168,
+      "especie_equivocada": 0.23583180987202926,
+      "kar": 0.8464351005484461,
+      "genero_correcto_sin_especie": 0.06946983546617916,
+      "estados_conocidas": {
+        "MATCH_SPECIES": 463,
+        "OSR_CLUSTER": 45,
+        "OSR_GEO": 31,
+        "OSR_GLOBAL": 7,
+        "MATCH_GENUS": 1
+      },
+      "far": 0.8447552447552448,
+      "auroc": 0.5459429053578962,
+      "estados_desconocidas": {
+        "MATCH_SPECIES": 604,
+        "OSR_CLUSTER": 56,
+        "OSR_GEO": 36,
+        "OSR_GLOBAL": 15,
+        "MATCH_FAMILY": 3,
+        "MATCH_GENUS": 1
+      },
+      "desconocidas_respuesta_segura": 0.15524475524475523,
+      "desconocidas_nivel_correcto": 0.019580419580419582
+    },
+    "sin_altitud_radio_val": {
+      "especie_correcta": 0.623400365630713,
+      "especie_equivocada": 0.2797074954296161,
+      "kar": 0.903107861060329,
+      "genero_correcto_sin_especie": 0.03656307129798903,
+      "estados_conocidas": {
+        "MATCH_SPECIES": 494,
+        "OSR_CLUSTER": 45,
+        "OSR_GLOBAL": 7,
+        "MATCH_GENUS": 1
+      },
+      "far": 0.8951048951048951,
+      "auroc": 0.5459429053578962,
+      "estados_desconocidas": {
+        "MATCH_SPECIES": 640,
+        "OSR_CLUSTER": 56,
+        "OSR_GLOBAL": 15,
+        "MATCH_FAMILY": 3,
+        "MATCH_GENUS": 1
+      },
+      "desconocidas_respuesta_segura": 0.1048951048951049,
+      "desconocidas_nivel_correcto": 0.013986013986013986
+    }
+  },
+  "misma_exigencia": {
+    "kar_objetivo": 0.03290676416819013,
+    "far_viejo": 0.04895104895104895,
+    "far_nuevo_capa1": 0.012587412587412588
+  },
+  "por_desconocida": {
+    "Craugastor_metriosistus": {
+      "n": 85,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.09411764705882353,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 80,
+        "OSR_CLUSTER": 3,
+        "OSR_GLOBAL": 2
+      }
+    },
+    "Dendropsophus_labialis": {
+      "n": 64,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.03125,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 51,
+        "OSR_GLOBAL": 6,
+        "OSR_CLUSTER": 7
+      }
+    },
+    "Dendropsophus_minutus": {
+      "n": 23,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.0,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 21,
+        "OSR_CLUSTER": 1,
+        "OSR_GLOBAL": 1
+      }
+    },
+    "Espadarana_prosoblepon": {
+      "n": 87,
+      "ideal": "OSR_GLOBAL",
+      "viejo_aceptada_como_especie": 0.011494252873563218,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 81,
+        "OSR_CLUSTER": 1,
+        "OSR_GEO": 4,
+        "OSR_GLOBAL": 1
+      }
+    },
+    "Hyloxalus_picachos": {
+      "n": 15,
+      "ideal": "MATCH_FAMILY",
+      "viejo_aceptada_como_especie": 0.0,
+      "nuevo_estados": {
+        "OSR_CLUSTER": 2,
+        "MATCH_SPECIES": 13
+      }
+    },
+    "Leptodactylus_fragilis": {
+      "n": 84,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.0,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 67,
+        "MATCH_FAMILY": 2,
+        "OSR_CLUSTER": 12,
+        "OSR_GEO": 3
+      }
+    },
+    "Pristimantis_w_nigrum": {
+      "n": 53,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.0,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 41,
+        "OSR_GEO": 5,
+        "OSR_CLUSTER": 3,
+        "OSR_GLOBAL": 4
+      }
+    },
+    "Rhinella_marina": {
+      "n": 58,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.27586206896551724,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 55,
+        "OSR_CLUSTER": 2,
+        "OSR_GLOBAL": 1
+      }
+    },
+    "Sachatamia_electrops": {
+      "n": 39,
+      "ideal": "OSR_GLOBAL",
+      "viejo_aceptada_como_especie": 0.0,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 36,
+        "OSR_CLUSTER": 3
+      }
+    },
+    "Scinax_rostratus": {
+      "n": 100,
+      "ideal": "MATCH_GENUS",
+      "viejo_aceptada_como_especie": 0.04,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 83,
+        "OSR_CLUSTER": 12,
+        "OSR_GLOBAL": 5
+      }
+    },
+    "Smilisca_phaeota": {
+      "n": 107,
+      "ideal": "MATCH_FAMILY",
+      "viejo_aceptada_como_especie": 0.037383177570093455,
+      "nuevo_estados": {
+        "MATCH_SPECIES": 74,
+        "OSR_CLUSTER": 6,
+        "OSR_GEO": 25,
+        "OSR_GLOBAL": 2
+      }
+    }
+  },
+  "por_especie": {
+    "Rheobates palmatus": {
+      "n": 10,
+      "fotos_ref": 48,
+      "individuos_ref": 31,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.7,
+      "radio": 0.47318944503310123,
+      "tau_cos": 0.5268105549668988,
+      "geo_rechazos": 0
+    },
+    "Rhinella alata": {
+      "n": 19,
+      "fotos_ref": 62,
+      "individuos_ref": 38,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.7894736842105263,
+      "radio": 0.4820983107323183,
+      "tau_cos": 0.5179016892676818,
+      "geo_rechazos": 0
+    },
+    "Rhinella horribilis": {
+      "n": 10,
+      "fotos_ref": 63,
+      "individuos_ref": 45,
+      "viejo_ok": 0.1,
+      "nuevo_ok": 0.6,
+      "radio": 0.4239256091134301,
+      "tau_cos": 0.57607439088657,
+      "geo_rechazos": 0
+    },
+    "Rhinella margaritifera": {
+      "n": 18,
+      "fotos_ref": 126,
+      "individuos_ref": 83,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5555555555555556,
+      "radio": 0.4864299468349805,
+      "tau_cos": 0.5135700531650196,
+      "geo_rechazos": 0
+    },
+    "Craugastor raniformis": {
+      "n": 18,
+      "fotos_ref": 267,
+      "individuos_ref": 154,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5555555555555556,
+      "radio": 0.49534768139478386,
+      "tau_cos": 0.5046523186052161,
+      "geo_rechazos": 3
+    },
+    "Pristimantis achatinus": {
+      "n": 32,
+      "fotos_ref": 300,
+      "individuos_ref": 300,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5625,
+      "radio": 0.5076178662982495,
+      "tau_cos": 0.49238213370175055,
+      "geo_rechazos": 2
+    },
+    "Pristimantis erythropleura": {
+      "n": 19,
+      "fotos_ref": 95,
+      "individuos_ref": 65,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.42105263157894735,
+      "radio": 0.5253121871137341,
+      "tau_cos": 0.47468781288626594,
+      "geo_rechazos": 3
+    },
+    "Pristimantis gaigei": {
+      "n": 11,
+      "fotos_ref": 65,
+      "individuos_ref": 38,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.8181818181818182,
+      "radio": 0.40949095901949223,
+      "tau_cos": 0.5905090409805078,
+      "geo_rechazos": 1
+    },
+    "Pristimantis paisa": {
+      "n": 21,
+      "fotos_ref": 134,
+      "individuos_ref": 82,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.47619047619047616,
+      "radio": 0.5001909767534435,
+      "tau_cos": 0.4998090232465565,
+      "geo_rechazos": 7
+    },
+    "Pristimantis palmeri": {
+      "n": 19,
+      "fotos_ref": 72,
+      "individuos_ref": 40,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.47368421052631576,
+      "radio": 0.4368573061257025,
+      "tau_cos": 0.5631426938742975,
+      "geo_rechazos": 1
+    },
+    "Pristimantis penelopus": {
+      "n": 28,
+      "fotos_ref": 107,
+      "individuos_ref": 59,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5,
+      "radio": 0.48413937505871385,
+      "tau_cos": 0.5158606249412861,
+      "geo_rechazos": 1
+    },
+    "Pristimantis permixtus": {
+      "n": 25,
+      "fotos_ref": 74,
+      "individuos_ref": 42,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.72,
+      "radio": 0.45226556432393544,
+      "tau_cos": 0.5477344356760645,
+      "geo_rechazos": 2
+    },
+    "Pristimantis taeniatus": {
+      "n": 15,
+      "fotos_ref": 119,
+      "individuos_ref": 84,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5333333333333333,
+      "radio": 0.4368444758656206,
+      "tau_cos": 0.5631555241343794,
+      "geo_rechazos": 1
+    },
+    "Pristimantis thectopternus": {
+      "n": 13,
+      "fotos_ref": 56,
+      "individuos_ref": 39,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.38461538461538464,
+      "radio": 0.4596855733143238,
+      "tau_cos": 0.5403144266856762,
+      "geo_rechazos": 0
+    },
+    "Dendrobates truncatus": {
+      "n": 23,
+      "fotos_ref": 300,
+      "individuos_ref": 300,
+      "viejo_ok": 0.391304347826087,
+      "nuevo_ok": 1.0,
+      "radio": 0.4076425349579837,
+      "tau_cos": 0.5923574650420163,
+      "geo_rechazos": 0
+    },
+    "Boana boans": {
+      "n": 14,
+      "fotos_ref": 118,
+      "individuos_ref": 63,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.7142857142857143,
+      "radio": 0.5062222804352762,
+      "tau_cos": 0.4937777195647238,
+      "geo_rechazos": 0
+    },
+    "Boana platanera": {
+      "n": 15,
+      "fotos_ref": 116,
+      "individuos_ref": 59,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5333333333333333,
+      "radio": 0.5627213496829307,
+      "tau_cos": 0.43727865031706925,
+      "geo_rechazos": 0
+    },
+    "Boana pugnax": {
+      "n": 19,
+      "fotos_ref": 113,
+      "individuos_ref": 54,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5263157894736842,
+      "radio": 0.5032980264654541,
+      "tau_cos": 0.4967019735345459,
+      "geo_rechazos": 0
+    },
+    "Boana rosenbergi": {
+      "n": 20,
+      "fotos_ref": 101,
+      "individuos_ref": 46,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.4,
+      "radio": 0.4239058364221679,
+      "tau_cos": 0.576094163577832,
+      "geo_rechazos": 0
+    },
+    "Boana xerophylla": {
+      "n": 20,
+      "fotos_ref": 68,
+      "individuos_ref": 38,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5,
+      "radio": 0.56840550120319,
+      "tau_cos": 0.43159449879681,
+      "geo_rechazos": 0
+    },
+    "Dendropsophus bogerti": {
+      "n": 21,
+      "fotos_ref": 300,
+      "individuos_ref": 300,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.42857142857142855,
+      "radio": 0.5452139017593257,
+      "tau_cos": 0.4547860982406743,
+      "geo_rechazos": 6
+    },
+    "Dendropsophus columbianus": {
+      "n": 17,
+      "fotos_ref": 108,
+      "individuos_ref": 55,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.35294117647058826,
+      "radio": 0.5295231399747738,
+      "tau_cos": 0.47047686002522615,
+      "geo_rechazos": 0
+    },
+    "Dendropsophus ebraccatus": {
+      "n": 18,
+      "fotos_ref": 112,
+      "individuos_ref": 53,
+      "viejo_ok": 0.05555555555555555,
+      "nuevo_ok": 0.7777777777777778,
+      "radio": 0.4370071404617125,
+      "tau_cos": 0.5629928595382875,
+      "geo_rechazos": 1
+    },
+    "Dendropsophus microcephalus": {
+      "n": 14,
+      "fotos_ref": 300,
+      "individuos_ref": 300,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.6428571428571429,
+      "radio": 0.5190315635443662,
+      "tau_cos": 0.4809684364556338,
+      "geo_rechazos": 0
+    },
+    "Dendropsophus norandinus": {
+      "n": 7,
+      "fotos_ref": 17,
+      "individuos_ref": 8,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.0,
+      "radio": 0.5696057920258123,
+      "tau_cos": 0.4303942079741877,
+      "geo_rechazos": 0
+    },
+    "Hyloscirtus palmeri": {
+      "n": 29,
+      "fotos_ref": 127,
+      "individuos_ref": 73,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.6896551724137931,
+      "radio": 0.4442255592186044,
+      "tau_cos": 0.5557744407813956,
+      "geo_rechazos": 2
+    },
+    "Scinax ruber": {
+      "n": 12,
+      "fotos_ref": 100,
+      "individuos_ref": 74,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.5,
+      "radio": 0.44675857002807434,
+      "tau_cos": 0.5532414299719257,
+      "geo_rechazos": 0
+    },
+    "Engystomops pustulosus": {
+      "n": 14,
+      "fotos_ref": 300,
+      "individuos_ref": 300,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.8571428571428571,
+      "radio": 0.5652522482279511,
+      "tau_cos": 0.43474775177204894,
+      "geo_rechazos": 0
+    },
+    "Leptodactylus colombiensis": {
+      "n": 25,
+      "fotos_ref": 159,
+      "individuos_ref": 74,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.84,
+      "radio": 0.47760220751784715,
+      "tau_cos": 0.5223977924821528,
+      "geo_rechazos": 0
+    },
+    "Phyllomedusa venusta": {
+      "n": 21,
+      "fotos_ref": 101,
+      "individuos_ref": 58,
+      "viejo_ok": 0.0,
+      "nuevo_ok": 0.8571428571428571,
+      "radio": 0.5136327810632674,
+      "tau_cos": 0.4863672189367326,
+      "geo_rechazos": 1
+    }
+  },
+  "clusters": [
+    {
+      "id": "CL_01",
+      "miembros": [
+        "Rhinella alata",
+        "Rhinella margaritifera",
+        "Craugastor raniformis",
+        "Pristimantis achatinus",
+        "Pristimantis erythropleura",
+        "Pristimantis paisa",
+        "Pristimantis palmeri",
+        "Pristimantis penelopus",
+        "Pristimantis permixtus",
+        "Pristimantis taeniatus",
+        "Pristimantis thectopternus",
+        "Engystomops pustulosus",
+        "Leptodactylus colombiensis"
+      ],
+      "epsilon": 0.35426283450335766,
+      "columnas": 64,
+      "bytes_fp16": 65536
+    },
+    {
+      "id": "CL_02",
+      "miembros": [
+        "Boana boans",
+        "Boana platanera",
+        "Boana pugnax",
+        "Boana rosenbergi",
+        "Boana xerophylla",
+        "Dendropsophus bogerti",
+        "Dendropsophus columbianus",
+        "Dendropsophus ebraccatus",
+        "Dendropsophus microcephalus",
+        "Dendropsophus norandinus",
+        "Scinax ruber"
+      ],
+      "epsilon": 0.3560674825880766,
+      "columnas": 64,
+      "bytes_fp16": 65536
+    }
+  ],
+  "nodos": {
+    "generos": {
+      "Boana": 0.4503486173257225,
+      "Craugastor": 0.5046523186052161,
+      "Dendrobates": 0.5923574650420165,
+      "Dendropsophus": 0.4537442415301459,
+      "Engystomops": 0.43474775177204894,
+      "Hyloscirtus": 0.5557744407813956,
+      "Leptodactylus": 0.5223977924821528,
+      "Phyllomedusa": 0.48636721893673274,
+      "Pristimantis": 0.4816571408815531,
+      "Rheobates": 0.5268105549668988,
+      "Rhinella": 0.49419126259039037,
+      "Scinax": 0.5532414299719257
+    },
+    "familias": {
+      "Aromobatidae": 0.5268105549668988,
+      "Bufonidae": 0.49419126259039037,
+      "Craugastoridae": 0.46559157799750317,
+      "Dendrobatidae": 0.5923574650420165,
+      "Hylidae": 0.43290229821857096,
+      "Leptodactylidae": 0.43005515604749067,
+      "Phyllomedusidae": 0.48636721893673274
+    }
+  },
+  "tamano": {
+    "viejo_bytes": 11777008,
+    "nuevo_vectores_y_matrices_bytes_fp16": 181248
+  },
+  "encoder": "puro"
+}

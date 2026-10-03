@@ -1,0 +1,19 @@
+species,genus,relation_to_known,available_observations,cc_license_images,estimated_usable_images,candidate_status,rejection_reason,selected_for_replacement
+Boana_albifrons,Boana,SAME_GENUS,142,116,95,PASS,,Boana_geographica
+Boana_aurantiaca,Boana,SAME_GENUS,89,73,60,FAIL,estimated_usable_images=60 is below 85,
+Boana_faber,Boana,SAME_GENUS,156,128,105,PASS,,backup
+Boana_thalassina,Boana,SAME_GENUS,118,97,80,FAIL,estimated_usable_images=80 is below 85,
+Boana_picturata,Boana,SAME_GENUS,94,77,63,FAIL,estimated_usable_images=63 is below 85,
+Boana_raniceps,Boana,SAME_GENUS,107,88,72,FAIL,estimated_usable_images=72 is below 85,
+Boana_leptolineata,Boana,SAME_GENUS,73,60,49,FAIL,estimated_usable_images=49 is below 85,
+Pristimantis_achatinus,Pristimantis,SAME_GENUS,118,97,80,FAIL,estimated_usable_images=80 is below 85,
+Pristimantis_brevirostris,Pristimantis,SAME_GENUS,132,108,89,PASS,,Pristimantis_nervicus
+Pristimantis_devillei,Pristimantis,SAME_GENUS,101,83,68,FAIL,estimated_usable_images=68 is below 85,
+Pristimantis_elegans,Pristimantis,SAME_GENUS,145,119,98,PASS,,backup
+Pristimantis_maculatus,Pristimantis,SAME_GENUS,98,80,66,FAIL,estimated_usable_images=66 is below 85,
+Pristimantis_occultator,Pristimantis,SAME_GENUS,126,103,85,PASS,,backup
+Agalychnis_callidryas,Agalychnis,SAME_FAMILY,161,132,108,PASS,,backup
+Scinax_fuscovarius,Scinax,SAME_FAMILY,127,104,85,PASS,,backup
+Trachycephalus_venulosus,Trachycephalus,SAME_FAMILY,71,58,48,FAIL,estimated_usable_images=48 is below 85,
+Cochranella_granulosa,Cochranella,DIFFERENT_FAMILY,68,56,46,FAIL,estimated_usable_images=46 is below 85,
+Hyalinobatrachium_colymbiphyllum,Hyalinobatrachium,DIFFERENT_FAMILY,92,75,62,FAIL,estimated_usable_images=62 is below 85,

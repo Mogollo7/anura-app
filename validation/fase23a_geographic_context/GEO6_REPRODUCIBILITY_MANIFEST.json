@@ -1,0 +1,44 @@
+{
+  "phase": "GEO-6",
+  "timestamp_utc": "2026-09-14T16:42:54.203018+00:00",
+  "seed": 42,
+  "gate0": {
+    "official_auroc": 0.5732919408781961,
+    "reproduced_auroc": 0.5732919408781961,
+    "abs_diff": 0.0,
+    "passed": true
+  },
+  "etapa1_w_geo_rank_sweep": [
+    0.0,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "etapa1_best_w_geo_rank": 0.3,
+  "etapa1_selection_criterion": "Top-1 > Top-3 > MRR",
+  "etapa2_w_geo_open_set": 0.9,
+  "threshold_status": "DIAGNOSTIC",
+  "threshold_low_far5pct": 0.519000742678619,
+  "threshold_high_far30pct": 0.8233217349267955,
+  "bootstrap_protocol": "1000 iter, seed=42, estratificado por individuo (identico a GEO2/GEO3)",
+  "input_file_hashes_sha256": {
+    "validation\\fase23a_geographic_context\\baseline_reproduction_v2.json": "c90a14fbdac9630f8e3dccc61e0601efe5be6cea67594f0b6d4341af45f4b615",
+    "validation\\fase23a_geographic_context\\reproduced_scores_v2.npz": "3f6fd52697c5b94f67f2d9a592a2ef394bf4524638b521da50f8b280a0158247",
+    "validation\\fase23a_geographic_context\\prior_zone_taxon_v2_clean.csv": "3691ca1994eb5ff1a1219d79dc65f6b141f320e9a9be29c663a5ec15c1e65bb1",
+    "validation\\fase23a_geographic_context\\prior_zone_taxon_v2_clean_manifest.json": "7674b355fd914e6220fb7a3b19e50adaa2bf5f2f881d7944a4af30c913b65342",
+    "validation\\fase23a_geographic_context\\GEO2_WEIGHT_SWEEP.csv": "571e632c7db8e8ad0fd35bbe81b274b031ce563ea0f61b2f27ee59373647a1b7",
+    "validation\\fase23a_geographic_context\\GEO3_OPERATING_POINTS.csv": "7bf434d0c42cca0ed5fd4b3a43bef4a5af79470e924603b26b1aff52572526c9",
+    "validation\\fase16_clean_open_set\\clean_known_manifest.json": "143d88c9210100af345fe9da32ba41453c024caf31d594ca44b84f20ac0e5514",
+    "validation\\fase18_clean_calibration\\calibration_results.json": "dfc95af9c16e3b7c522464525d50b4032aca60d4e518bb686ad0aa24b572749a",
+    "evaluation\\fase13\\embeddings\\reference_embeddings.npz": "22ab6977274890db61d0784adac2abd3a1f20412649d75e003840d1c6e39e341",
+    "evaluation\\fase13\\embeddings\\train_embeddings.npz": "1a777f09ac90f57750aac57e4788f634eefedcdee463313dbbf445049d1e43fa"
+  },
+  "hard_rules_confirmed": [
+    "no genus/family used in any score (context-only in Merlin output)",
+    "no fine-tuning / no new embeddings / no new bulk API calls",
+    "GEO2_*/GEO3_*/GEO4_*/GEO5_* and regional_packages/ANTIOQUIA/v1.0.0/ untouched (read-only reference)",
+    "prior_zone_taxon_v1.csv original untouched (used v2_clean only)",
+    "no commit/push performed by this script"
+  ],
+  "candidate_pool_choice": "41 species with centroids (same as GEO2/3/4/5), NOT the 33/21 subset restricted to Antioquia catalog -- documented in GEO6_RANKING_RESULTS.json"
+}

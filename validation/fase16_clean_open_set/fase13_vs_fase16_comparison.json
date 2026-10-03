@@ -1,0 +1,28 @@
+{
+  "fase13": {
+    "AUROC": 0.6247668780305856,
+    "KAR": 0.8537859007832899,
+    "UDR": 0.08928571428571429,
+    "FAR": 0.9107142857142857,
+    "n_known": 766,
+    "n_unknown": 56,
+    "n_species_known_covered": 41,
+    "SCIENTIFIC_STATUS": "COMPROMISED_BY_LEAKAGE",
+    "leakage_detail": "F3 KNOWN (766/766) es subconjunto exacto de TRAIN. Group A: 197/197, Group B: 569/569.",
+    "generalization_evidence": "NO_GENERALIZATION_EVIDENCE"
+  },
+  "fase16": {
+    "AUROC": 0.5927974199713331,
+    "KAR": 0.8564378645132347,
+    "UDR": 0.061224489795918366,
+    "FAR": 0.9387755102040817,
+    "balanced_accuracy": 0.4572849976110846,
+    "n_known": 7475,
+    "n_unknown": 56,
+    "n_species_known_covered": 24,
+    "SCIENTIFIC_STATUS": "CLEAN_NO_LEAKAGE_VERIFIED",
+    "generalization_evidence": "PARTIAL — 24/41 especies KNOWN, 2 especies UNKNOWN"
+  },
+  "interpretation": "KAR se mantiene similar (85.6% vs 85.4%), sugiriendo que la aceptacion de KNOWN generaliza razonablemente bien incluso sin leakage. Sin embargo AUROC EMPEORA (0.593 vs 0.625) y FAR EMPEORA (93.9% vs 91.1%) al eliminar el leakage — esto indica que el leakage de Fase 13 estaba, si acaso, INFLANDO artificialmente la separacion KNOWN/UNKNOWN aparente, no ocultando un problema peor. balanced_accuracy=0.457 en Fase 16 es PEOR que un clasificador aleatorio (0.5), lo cual es una senal cientifica seria: con datos limpios, el mecanismo de rechazo Open Set actual no demuestra capacidad de discriminacion KNOWN/UNKNOWN por encima del azar.",
+  "which_is_valid": "Fase 16 es la evaluacion metodologicamente valida (split limpio, verificado sin leakage). Fase 13 NO debe usarse como evidencia de generalizacion. Fase 16 tiene cobertura parcial (24/41 especies KNOWN) por falta de datos held-out para las 17 restantes."
+}

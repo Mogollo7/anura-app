@@ -1,0 +1,28 @@
+{
+  "bootstrap_samples": 10000,
+  "unit": "individual_id (observation in BLIND TEST UNKNOWN)",
+  "note": "Bootstrapped at individual level to capture correlations",
+  "comparisons": {
+    "euclidean_normalized_vs_mahalanobis": {
+      "mean_auroc_diff": NaN,
+      "std_auroc_diff": NaN,
+      "ci_lower_2_5": NaN,
+      "ci_upper_97_5": NaN,
+      "note": "Positive = m1 better"
+    },
+    "cosine_vs_mahalanobis": {
+      "mean_auroc_diff": NaN,
+      "std_auroc_diff": NaN,
+      "ci_lower_2_5": NaN,
+      "ci_upper_97_5": NaN,
+      "note": "Positive = m1 better"
+    },
+    "euclidean_normalized_vs_cosine": {
+      "mean_auroc_diff": NaN,
+      "std_auroc_diff": NaN,
+      "ci_lower_2_5": NaN,
+      "ci_upper_97_5": NaN,
+      "note": "Positive = m1 better"
+    }
+  }
+}

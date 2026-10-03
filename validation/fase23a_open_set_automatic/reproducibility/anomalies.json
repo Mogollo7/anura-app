@@ -1,0 +1,14 @@
+[
+  {
+    "method": "euclidean_raw",
+    "issue": "CALIBRATION split (evaluation/fase13/embeddings/calibration_embeddings.npz) contains only KNOWN-class scores (192 images, 0 UNKNOWN). A genuine Youden-J index requires both classes in the calibration set. No independent UNKNOWN-calibration split was available (BLIND/TEST cannot be used per instructions). Threshold used instead: KAR-95% quantile of CALIBRATION known-only scores (same operating-point convention as the frozen Mahalanobis threshold). Labeled CALIBRATED_DIAGNOSTIC_KAR95_QUANTILE_KNOWN_ONLY, NOT Youden-J."
+  },
+  {
+    "method": "cosine",
+    "issue": "CALIBRATION split (evaluation/fase13/embeddings/calibration_embeddings.npz) contains only KNOWN-class scores (192 images, 0 UNKNOWN). A genuine Youden-J index requires both classes in the calibration set. No independent UNKNOWN-calibration split was available (BLIND/TEST cannot be used per instructions). Threshold used instead: KAR-95% quantile of CALIBRATION known-only scores (same operating-point convention as the frozen Mahalanobis threshold). Labeled CALIBRATED_DIAGNOSTIC_KAR95_QUANTILE_KNOWN_ONLY, NOT Youden-J."
+  },
+  {
+    "method": "normalized_euclidean",
+    "issue": "CALIBRATION split (evaluation/fase13/embeddings/calibration_embeddings.npz) contains only KNOWN-class scores (192 images, 0 UNKNOWN). A genuine Youden-J index requires both classes in the calibration set. No independent UNKNOWN-calibration split was available (BLIND/TEST cannot be used per instructions). Threshold used instead: KAR-95% quantile of CALIBRATION known-only scores (same operating-point convention as the frozen Mahalanobis threshold). Labeled CALIBRATED_DIAGNOSTIC_KAR95_QUANTILE_KNOWN_ONLY, NOT Youden-J."
+  }
+]

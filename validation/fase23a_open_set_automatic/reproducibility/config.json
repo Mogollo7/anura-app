@@ -1,0 +1,16 @@
+{
+  "random_seed": 42,
+  "bootstrap_iterations": 1000,
+  "bootstrap_stratification": "resample individuals with replacement (not images), separately for KNOWN and UNKNOWN pools",
+  "python_env": "D:/Anura/.venv-train",
+  "encoder_sha256_verified": "98a6c54d6edb27e2b0344b8bbbaebd2ab749b1bf5136991ff73b37f66ee2c1ac",
+  "no_fine_tuning": true,
+  "no_onnx_used": true,
+  "scripts_used_this_session": [
+    "compute_unknown_embeddings.py (BioCLIP inference, scratchpad)",
+    "fase23a_run.py (centroids, distances, thresholds, raw metrics, scratchpad)",
+    "fase23a_stage2.py (bootstrap, stratification, scratchpad)",
+    "fase23a_stage3.py (comparison tables, plots, scratchpad)"
+  ],
+  "note_on_prior_artifacts": "This directory contained prior files from an earlier (incomplete/incorrect) session run \u2014 e.g. FASE23A_STATUS.txt claimed encoder SHA256=219e860e... and 622 images/321 individuals, both contradicted by this session's fresh, verified computation (98a6c54d... encoder match confirmed True; 620 images/412 individuals verified from filesystem). Those prior files (FASE23A_FINAL_STATUS.md, method_comparison_corrected.csv, bootstrap_far_corrected.csv, metrics_by_species_corrected.csv, comparison_fase21_vs_fase23a.csv, fase23a_final.py, generate_and_evaluate_fase23a.py, fix_per_method_thresholds.py, fase23a_fast_eval.py, run_fase23a_evaluation.py, execution.log, FASE23B_REQUIREMENTS.json) were left in place (not deleted) but are SUPERSEDED by this session's artifacts: method_comparison.csv, bootstrap_results.csv, metrics_by_species.csv, comparison_fase20_fase21_vs_fase23a.csv, FASE23A_REPORT.md (this report)."
+}

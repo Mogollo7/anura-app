@@ -1,0 +1,22 @@
+{
+  "gate": "reproduce_fase23a_euclidean_raw",
+  "official_auroc": 0.5732919408781961,
+  "reproduced_auroc": 0.5732919408781961,
+  "abs_diff": 0.0,
+  "tolerance": 0.02,
+  "gate_passed": true,
+  "n_known": 7475,
+  "n_unknown": 620,
+  "n_official_known": 7475,
+  "n_official_unknown": 620,
+  "n_known_matches_official": true,
+  "n_unknown_matches_official": true,
+  "method": "euclidean_raw (min distance to 41 species centroids; centroids from reference_embeddings.npz + train_embeddings.npz, KNOWN pool = fase16_clean_open_set/clean_known_embeddings.npz, no leave-one-out, no additional subsampling)",
+  "sources": {
+    "reference_embeddings": "evaluation/fase13/embeddings/reference_embeddings.npz",
+    "train_embeddings": "evaluation/fase13/embeddings/train_embeddings.npz",
+    "known_pool": "validation/fase16_clean_open_set/clean_known_embeddings.npz",
+    "unknown_pool": "validation/fase23a_open_set_automatic/embeddings/unknown_embeddings.npz",
+    "recovered_original_script": "fase23a_run.py (recovered from prior session scratchpad, not present in repo; logic replicated verbatim in this script)"
+  }
+}

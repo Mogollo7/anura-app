@@ -1,0 +1,49 @@
+{
+  "protocol": "Calibration uses the four historical supplementary species physically stored in images/final; Fase23A primary is opened after freeze only.",
+  "seed": 20260914,
+  "known": {
+    "images": 2545,
+    "individuals": 1406,
+    "source": "D:\\Anura\\validation\\fase18_clean_calibration\\calibration_manifest.json"
+  },
+  "unknown": {
+    "images": 130,
+    "species": {
+      "Dendropsophus minutus": 23,
+      "Hyloxalus picachos": 15,
+      "Pristimantis w nigrum": 53,
+      "Sachatamia electrops": 39
+    },
+    "strata": {
+      "SAME_GENUS_CATALOG_PRESENT": 76,
+      "SAME_FAMILY_GENUS_ABSENT": 15,
+      "FAMILY_ABSENT": 39
+    }
+  },
+  "f23a_not_used_for_selection": true,
+  "quality_gate": {
+    "supported_by_calibration": false,
+    "thresholds_from_known_p05": {
+      "blur_laplacian_variance": 137.12984619140624,
+      "contrast": 27.203377532958985,
+      "min_dimension": 714.2
+    },
+    "historical_d1_check": {
+      "blur_laplacian_variance": {
+        "accepted_median": 678.1428833007812,
+        "rejected_median": 304.4359436035156
+      },
+      "contrast": {
+        "accepted_median": 51.98286819458008,
+        "rejected_median": 44.69548034667969
+      },
+      "min_dimension": {
+        "accepted_median": 768.0,
+        "rejected_median": 956.0
+      }
+    }
+  },
+  "encoder_weights_modified": false,
+  "threshold_release_modified": false,
+  "dataset_modified": false
+}

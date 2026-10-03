@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-09-14T10:53:21.050663",
+  "gate0_auroc": 0.5732919408781961,
+  "files": {
+    "prior_zone_genus_v1.csv": {
+      "exists": true,
+      "sha256": "2d3bc7e6b892a4350d7b08a1df596e3d2950e737cc338294da88eab28a6512a0",
+      "size_bytes": 11160
+    },
+    "prior_zone_family_v1.csv": {
+      "exists": true,
+      "sha256": "d9b6807a8673e18451e5ec5043898c03c761402d3d80fbc4e4561ca7cd9e6a25",
+      "size_bytes": 2858
+    },
+    "GEO4_priors_genus_family_manifest.json": {
+      "exists": true,
+      "sha256": "30afac7fcff1885e71725478dca82c35be8a6fc03b5d628c36d79aa45823ca0d",
+      "size_bytes": 1517
+    },
+    "GEO4_prior_zone_genus_v1_manifest.json": {
+      "exists": true,
+      "sha256": "a33dad39841c18614279e72e01ad5acbd1a23bbc843b1bc0cb8f4b5d04c70cdd",
+      "size_bytes": 3399
+    },
+    "GEO4_prior_zone_family_v1_manifest.json": {
+      "exists": true,
+      "sha256": "04f2e82eae2f3b02a7613dc6a5ca4039ee62ad22b513ce449521a81fc6fb452f",
+      "size_bytes": 2581
+    },
+    "GEO4_species_precision_metrics.json": {
+      "exists": true,
+      "sha256": "a163ee59cab06fa3fbf8fb531a324cbf5329b46611d3d33fb48c85b88156d205",
+      "size_bytes": 853
+    },
+    "GEO4_confusion_matrix.csv": {
+      "exists": true,
+      "sha256": "3fcb6aeaac7c61e1d26b1d090b73b030c8e5c1a241d2eceb944c81f95d575a17",
+      "size_bytes": 3442
+    },
+    "GEO4_performance_by_family.csv": {
+      "exists": true,
+      "sha256": "73c6257d464d2a3a7b579a6f33cfda9434d325d6385f78a7962bbf27daaf9cc4",
+      "size_bytes": 523
+    },
+    "GEO4_performance_by_genus.csv": {
+      "exists": true,
+      "sha256": "9a87b5683bae9ecd542d415d29c50c4d3bb55d03aaebab933a70d0e13245f756",
+      "size_bytes": 978
+    },
+    "GEO4_openset_comparison.json": {
+      "exists": true,
+      "sha256": "b42ff0252dcb624c48a90a7d80657810570aeb18446171d1f4530a2ea7af43c4",
+      "size_bytes": 7331
+    },
+    "GEO4_per_sample_results.csv": {
+      "exists": true,
+      "sha256": "4eda43ad4a257c5f0de02c3d12f2851a8b8977441b65db079f6b794ac1eb555e",
+      "size_bytes": 1303116
+    },
+    "GEO4_AUDIT.md": {
+      "exists": true,
+      "sha256": "cd847d3cc36b32b34826b07b7ceda2b343f773428dda32e0992e3abc3084aabd",
+      "size_bytes": 3206
+    },
+    "GEO4_REPORT.md": {
+      "exists": true,
+      "sha256": "08d8472dd7009a39228bd49db3219348aa9e49f4cefdfe166292755afe8656c6",
+      "size_bytes": 9612
+    },
+    "scripts/phase_geo4_hierarchical_priors.py": {
+      "exists": true,
+      "sha256": "f33f01e812cbdabcf7554c67862ac049678fb7b84791ab3209dfa06f84a62bd7",
+      "size_bytes": 9401
+    },
+    "scripts/phase_geo4_main.py": {
+      "exists": true,
+      "sha256": "471106d312fc113dd1708de9611c8c34af3ea14aa19769302591ab18effce426",
+      "size_bytes": 30993
+    }
+  },
+  "read_only_inputs": [
+    "validation/fase23a_geographic_context/reproduced_scores_v2.npz",
+    "validation/fase23a_geographic_context/baseline_reproduction_v2.json",
+    "validation/fase23a_geographic_context/prior_zone_taxon_v2_clean.csv",
+    "validation/fase23a_geographic_context/prior_zone_taxon_v2_clean_manifest.json",
+    "validation/fase23a_geographic_context/cache/inat_extracted.json",
+    "COLOMBIA_ANURA/ANTIOQUIA/occurrences/records_v1.csv",
+    "COLOMBIA_ANURA/ANTIOQUIA/zones/cell_zone_map_v1.csv",
+    "COLOMBIA_ANURA/ANTIOQUIA/catalog/catalog_v1.json",
+    "validation/fase16_clean_open_set/clean_known_manifest.json",
+    "validation/fase16_clean_open_set/clean_known_embeddings.npz",
+    "validation/fase23a_open_set_automatic/embeddings/unknown_embeddings.npz",
+    "evaluation/fase13/embeddings/reference_embeddings.npz",
+    "evaluation/fase13/embeddings/train_embeddings.npz",
+    "training/taxonomia.py"
+  ],
+  "reproduction_command": [
+    "python validation/fase23a_geographic_context/scripts/phase_geo4_hierarchical_priors.py",
+    "python validation/fase23a_geographic_context/scripts/phase_geo4_main.py"
+  ],
+  "python_env": ".venv-train (pandas/sklearn/numpy)",
+  "seed": 42,
+  "bootstrap_iter": 1000
+}

@@ -1,0 +1,12 @@
+species_id,scientific_name,taxon_family,taxon_genus,valid_images,independent_individuals,quality_pass,exact_duplicates,leakage_count,source_distribution,contract_status
+UNK_V2.1_Boana_albifrons,Boana albifrons,Hylidae,Boana,95,48,True,0,0,100% Fase22,PRIMARY_PASS
+UNK_V2.1_Dendropsophus_labialis,Dendropsophus labialis,Hylidae,Dendropsophus,74,43,True,0,0,100% Fase22,PRIMARY_PASS
+UNK_V2.1_Dendropsophus_minutus,Dendropsophus minutus,Hylidae,Dendropsophus,23,19,True,0,0,100% Fase22,SUPPLEMENTARY_BELOW_70
+UNK_V2.1_Espadarana_prosoblepon,Espadarana prosoblepon,Centrolenidae,Espadarana,89,45,True,0,0,100% Fase22,PRIMARY_PASS
+UNK_V2.1_Hyloxalus_picachos,Hyloxalus picachos,Dendrobatidae,Hyloxalus,15,15,True,0,0,100% Fase22,SUPPLEMENTARY_BELOW_70
+UNK_V2.1_Leptodactylus_fragilis,Leptodactylus fragilis,Leptodactylidae,Leptodactylus,85,44,True,0,0,100% Fase22,PRIMARY_PASS
+UNK_V2.1_Pristimantis_brevirostris,Pristimantis brevirostris,Craugastoridae,Pristimantis,89,45,True,0,0,100% Fase22,PRIMARY_PASS
+UNK_V2.1_Pristimantis_w_nigrum,Pristimantis w-nigrum,Craugastoridae,Pristimantis,53,21,True,0,0,100% Fase22,SUPPLEMENTARY_BELOW_70
+UNK_V2.1_Rhinella_marina,Rhinella marina,Bufonidae,Rhinella,83,41,True,0,0,100% Fase22,PRIMARY_PASS
+UNK_V2.1_Sachatamia_electrops,Sachatamia electrops,Hemiphractidae,Sachatamia,39,19,True,0,0,100% Fase22,SUPPLEMENTARY_BELOW_70
+UNK_V2.1_Smilisca_phaeota,Smilisca phaeota,Hylidae,Smilisca,107,55,True,0,0,100% Fase22,PRIMARY_PASS

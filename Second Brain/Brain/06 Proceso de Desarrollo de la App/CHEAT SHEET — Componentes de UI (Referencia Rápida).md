@@ -1,4 +1,4 @@
-﻿---
+---
 title: "CHEAT SHEET â€” Componentes de UI (Referencia Rápida)"
 proyecto: Anura
 tipo: referencia

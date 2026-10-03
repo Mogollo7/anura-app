@@ -1,0 +1,341 @@
+{
+  "fixture_type": "SYNTHETIC_TEST_ONLY",
+  "species_id": "ANU_COL_TEST_SYN_001",
+  "individual_count": 15,
+  "observation_count": 15,
+  "image_count": 25,
+  "observations": [
+    {
+      "observation_id": "OBS_TEST_SYN_135615735",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "135615735",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_135932695",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "135932695",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_135988074",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "135988074",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_136583425",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "136583425",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_136649101",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "136649101",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_137172535",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "137172535",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_137531583",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "137531583",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_138516932",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "138516932",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_138876372",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "138876372",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_138984498",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "138984498",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "139133722",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_139161962",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "139161962",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_139349739",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "139349739",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_139431306",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "139431306",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    },
+    {
+      "observation_id": "OBS_TEST_SYN_139585966",
+      "source": "SYNTHETIC_TEST_ONLY (real iNaturalist obs_id borrowed from Dendrobates_truncatus)",
+      "source_id": "139585966",
+      "species_id": "ANU_COL_TEST_SYN_001",
+      "quality_status": "PENDING"
+    }
+  ],
+  "images": [
+    {
+      "image_id": "IMG_TEST_b13f91688e64",
+      "observation_id": "OBS_TEST_SYN_135615735",
+      "file_hash": "b13f91688e6450f4c45a4a2c32ffaa7600674236f0e0f2c1e4e08e20a027256f",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_135615735_photo_231331908.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_74e42906f51c",
+      "observation_id": "OBS_TEST_SYN_135932695",
+      "file_hash": "74e42906f51ca129db93bf68f7e3aa570d601303b3d9ffe5a4c8c33367546384",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_135932695_photo_231920495.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_9f7414ef7307",
+      "observation_id": "OBS_TEST_SYN_135988074",
+      "file_hash": "9f7414ef73076a88fa3b75ce4a626b5bd017a5b304eae199cc1741967f00bf6d",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_135988074_photo_232022575.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_869df8a85fd2",
+      "observation_id": "OBS_TEST_SYN_135988074",
+      "file_hash": "869df8a85fd2278e8fe84f1f8891f5a15a4ce9e167ac5e0f675c6c62c8bd571c",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_135988074_photo_232022603.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_1b7276eab54d",
+      "observation_id": "OBS_TEST_SYN_136583425",
+      "file_hash": "1b7276eab54d1c62316c8b1840ecd6241ab01dd966d8c5246735e1a1aac787a8",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_136583425_photo_233125590.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_8c2cc0ef4d7f",
+      "observation_id": "OBS_TEST_SYN_136583425",
+      "file_hash": "8c2cc0ef4d7fbfa232c3e3bfc0c63fcc4c406baaf508a5805b43db759b0fabf6",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_136583425_photo_233125623.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_38f0faa5d9fe",
+      "observation_id": "OBS_TEST_SYN_136649101",
+      "file_hash": "38f0faa5d9feca95e9f7f0e1dd9442aae9a4dce94308e655098d30719bdd08eb",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_136649101_photo_233224101.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_d200a286b613",
+      "observation_id": "OBS_TEST_SYN_137172535",
+      "file_hash": "d200a286b61396b7e93cf3c3f7be54f4ad82ad2a07491635e47bb722bd362919",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_137172535_photo_234224314.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_4c5cae4453a4",
+      "observation_id": "OBS_TEST_SYN_137531583",
+      "file_hash": "4c5cae4453a457056c99bd58f2bc6d737222abae9d40272b941b044728339405",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_137531583_photo_234908946.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_410db08c6b2c",
+      "observation_id": "OBS_TEST_SYN_138516932",
+      "file_hash": "410db08c6b2c51b36a4b7286e1f0b92ff11c2ed16b401d0a6526e6b645904da7",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_138516932_photo_236770371.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_67831e4ec9d9",
+      "observation_id": "OBS_TEST_SYN_138876372",
+      "file_hash": "67831e4ec9d95c448473ba450a51eae0987f7ef5c28571db529407688304b249",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_138876372_photo_237423543.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_bf5767f8096d",
+      "observation_id": "OBS_TEST_SYN_138876372",
+      "file_hash": "bf5767f8096df8a34ff721dd80141c139154b5e90673843310c0ee2b3ccd5974",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_138876372_photo_237425020.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_16ca45cca9a7",
+      "observation_id": "OBS_TEST_SYN_138984498",
+      "file_hash": "16ca45cca9a76887fcb52dd4721bf6c3a57faeb3b80594638d04445ffad7f1c3",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_138984498_photo_237630181.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_20c91333f4dc",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "20c91333f4dca0cd963c12ccdb18db675e6428a3236ec1fdb984dddc1c461f92",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914552.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_b1155ecfd671",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "b1155ecfd671a69ac5b7f5337e0cdc057b6c2ac4229a9ce67a57e50ee8f17d0c",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914569.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_67696ef6611b",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "67696ef6611b42cc7dcf508e2a04d9e3bd68dcbf7a5d882cca8163957dfbad28",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914592.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_4d707e985926",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "4d707e985926e4137a014b83e2745cab4ef06fb0b84ba104a69da0843ae682f3",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914612.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_ecc5b7732a2b",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "ecc5b7732a2b365522c1a40277b87add6b13c0ede1d549ad4658cc76a46983b0",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914632.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_b8ef2b9b035f",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "b8ef2b9b035f7a7b16f920121c5fe6aa6feac39ec9a23113e0fb51c1f1413c70",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914655.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_65270424dde7",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "65270424dde74af62d73009b028a39a60173dcaaee80cdaba0189c9d91984069",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914672.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_d9be16a04c60",
+      "observation_id": "OBS_TEST_SYN_139133722",
+      "file_hash": "d9be16a04c60eb7fe41eed0cff548f555dc672970a32f814681a5ed21530ba7e",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139133722_photo_237914694.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_389b2a1d2fba",
+      "observation_id": "OBS_TEST_SYN_139161962",
+      "file_hash": "389b2a1d2fba90722341253e89f91c6bbee5c44df65017f31531c562372e22ed",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139161962_photo_237968805.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_8a285ff182c1",
+      "observation_id": "OBS_TEST_SYN_139349739",
+      "file_hash": "8a285ff182c14a13ca97f8cf9c423472d0437b208062670f478fbda20139cbbc",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139349739_photo_238323125.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_f1d9a12278b8",
+      "observation_id": "OBS_TEST_SYN_139431306",
+      "file_hash": "f1d9a12278b81e5725c8b3904f1285689b0af6a8351299ea65fd8d2546cc83fe",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139431306_photo_238478965.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    },
+    {
+      "image_id": "IMG_TEST_254c3f6d290d",
+      "observation_id": "OBS_TEST_SYN_139585966",
+      "file_hash": "254c3f6d290da638fe3e4539fc3a652f9d43805d96e93b074f79b6ee4ac5cd12",
+      "path": "D:\\Anura\\data cleaned\\Dendrobates_truncatus\\col_obs_139585966_photo_238774395.jpg",
+      "annotation_status": "NONE",
+      "segmentation_status": "NONE",
+      "quality_status": "PENDING"
+    }
+  ]
+}

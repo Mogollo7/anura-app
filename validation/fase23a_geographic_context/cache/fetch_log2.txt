@@ -1,0 +1,20 @@
+Total unique ids: 4466, already cached: 1000, to fetch: 3466
+  batch 0-200: got 200/200
+  batch 200-400: got 200/200
+  batch 400-600: got 200/200
+  batch 600-800: got 200/200
+  batch 800-1000: got 200/200
+  batch 1000-1200: got 200/200
+  batch 1200-1400: got 200/200
+  batch 1400-1600: got 200/200
+  batch 1600-1800: got 200/200
+  batch 1800-2000: got 200/200
+  batch 2000-2200: got 200/200
+  batch 2200-2400: got 200/200
+  batch 2400-2600: got 200/200
+  batch 2600-2800: got 200/200
+  batch 2800-3000: got 200/200
+  batch 3000-3200: got 200/200
+  batch 3200-3400: got 200/200
+  batch 3400-3466: got 66/66
+unique obs ids=4466 found=4466 with_geo=4466 with_elev=0

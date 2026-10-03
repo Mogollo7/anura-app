@@ -1,4 +1,4 @@
-﻿# BUILD REPORT
+# BUILD REPORT
 
 Corte: 2026-09-13. Solo se escribieron archivos dentro de `Second Brain/Brain`; no se modificaron fuentes originales.
 

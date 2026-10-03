@@ -1,0 +1,2282 @@
+[
+  {
+    "index": 0,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "350409538",
+    "topographic_distance": 41.39124498992678,
+    "topographic_context_available": true,
+    "visual_d1": 0.7331029176712036,
+    "margin": 0.10712510347366333
+  },
+  {
+    "index": 1,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "350409538",
+    "topographic_distance": 41.39124498992678,
+    "topographic_context_available": true,
+    "visual_d1": 0.7209190130233765,
+    "margin": 0.1815010905265808
+  },
+  {
+    "index": 6,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "351772118",
+    "topographic_distance": 3.7311431447935033,
+    "topographic_context_available": true,
+    "visual_d1": 0.7317183613777161,
+    "margin": 0.14200365543365479
+  },
+  {
+    "index": 8,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "351858887",
+    "topographic_distance": 41.35374948885638,
+    "topographic_context_available": true,
+    "visual_d1": 0.7186539769172668,
+    "margin": 0.09936761856079102
+  },
+  {
+    "index": 16,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "353107452",
+    "topographic_distance": 3.5141154029365844,
+    "topographic_context_available": true,
+    "visual_d1": 0.7422129511833191,
+    "margin": 0.15692353248596191
+  },
+  {
+    "index": 19,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "357372696",
+    "topographic_distance": 10.910011831155797,
+    "topographic_context_available": true,
+    "visual_d1": 0.7396443486213684,
+    "margin": 0.13944178819656372
+  },
+  {
+    "index": 20,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Pithecopus hypochondrialis",
+    "observation_id": "357372696",
+    "topographic_distance": 18.77735382306294,
+    "topographic_context_available": true,
+    "visual_d1": 0.79034024477005,
+    "margin": 0.10334509611129761
+  },
+  {
+    "index": 21,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Pithecopus hypochondrialis",
+    "observation_id": "357372696",
+    "topographic_distance": 18.77735382306294,
+    "topographic_context_available": true,
+    "visual_d1": 0.7537088394165039,
+    "margin": 0.09613066911697388
+  },
+  {
+    "index": 22,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "358011946",
+    "topographic_distance": 3.7895868090034,
+    "topographic_context_available": true,
+    "visual_d1": 0.7637282013893127,
+    "margin": 0.10082191228866577
+  },
+  {
+    "index": 35,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "361067011",
+    "topographic_distance": 1.762763902362605,
+    "topographic_context_available": true,
+    "visual_d1": 0.5325214862823486,
+    "margin": 0.11926990747451782
+  },
+  {
+    "index": 36,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "361228692",
+    "topographic_distance": 2.1782924509506456,
+    "topographic_context_available": true,
+    "visual_d1": 0.7163838744163513,
+    "margin": 0.10032069683074951
+  },
+  {
+    "index": 37,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "361228692",
+    "topographic_distance": 2.1782924509506456,
+    "topographic_context_available": true,
+    "visual_d1": 0.7084118127822876,
+    "margin": 0.16058075428009033
+  },
+  {
+    "index": 38,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "361228692",
+    "topographic_distance": 2.1782924509506456,
+    "topographic_context_available": true,
+    "visual_d1": 0.5884333252906799,
+    "margin": 0.2264731526374817
+  },
+  {
+    "index": 39,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "361228692",
+    "topographic_distance": 2.1782924509506456,
+    "topographic_context_available": true,
+    "visual_d1": 0.531954824924469,
+    "margin": 0.2470601201057434
+  },
+  {
+    "index": 41,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "361334401",
+    "topographic_distance": 2.8831018626651597,
+    "topographic_context_available": true,
+    "visual_d1": 0.5952387452125549,
+    "margin": 0.14186769723892212
+  },
+  {
+    "index": 42,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "362702619",
+    "topographic_distance": 2.4139382591955245,
+    "topographic_context_available": true,
+    "visual_d1": 0.6411473155021667,
+    "margin": 0.12261772155761719
+  },
+  {
+    "index": 43,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Pithecopus hypochondrialis",
+    "observation_id": "362964998",
+    "topographic_distance": 3.5295090239069427,
+    "topographic_context_available": true,
+    "visual_d1": 0.7516531944274902,
+    "margin": 0.12141561508178711
+  },
+  {
+    "index": 59,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "364153172",
+    "topographic_distance": 3.0440040278806495,
+    "topographic_context_available": true,
+    "visual_d1": 0.7754459381103516,
+    "margin": 0.09477376937866211
+  },
+  {
+    "index": 64,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "364663506",
+    "topographic_distance": 27.461202395228714,
+    "topographic_context_available": true,
+    "visual_d1": 0.7474753260612488,
+    "margin": 0.1177130937576294
+  },
+  {
+    "index": 67,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "366302669",
+    "topographic_distance": 2.198438192234694,
+    "topographic_context_available": true,
+    "visual_d1": 0.8189530372619629,
+    "margin": 0.118053138256073
+  },
+  {
+    "index": 68,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "366302669",
+    "topographic_distance": 2.198438192234694,
+    "topographic_context_available": true,
+    "visual_d1": 0.8222830295562744,
+    "margin": 0.09555035829544067
+  },
+  {
+    "index": 69,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "366302669",
+    "topographic_distance": 2.198438192234694,
+    "topographic_context_available": true,
+    "visual_d1": 0.7081186175346375,
+    "margin": 0.10504353046417236
+  },
+  {
+    "index": 70,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "366302669",
+    "topographic_distance": 2.198438192234694,
+    "topographic_context_available": true,
+    "visual_d1": 0.7457653880119324,
+    "margin": 0.11403948068618774
+  },
+  {
+    "index": 83,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "367480200",
+    "topographic_distance": 3.217276768090699,
+    "topographic_context_available": true,
+    "visual_d1": 0.6603365540504456,
+    "margin": 0.10427635908126831
+  },
+  {
+    "index": 85,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "367480200",
+    "topographic_distance": 3.217276768090699,
+    "topographic_context_available": true,
+    "visual_d1": 0.6653525233268738,
+    "margin": 0.14336955547332764
+  },
+  {
+    "index": 87,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "368076117",
+    "topographic_distance": 44.79342509325988,
+    "topographic_context_available": true,
+    "visual_d1": 0.7576921582221985,
+    "margin": 0.09836810827255249
+  },
+  {
+    "index": 89,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "368076117",
+    "topographic_distance": 3.637433221109809,
+    "topographic_context_available": true,
+    "visual_d1": 0.7270222306251526,
+    "margin": 0.11037898063659668
+  },
+  {
+    "index": 102,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "394549119",
+    "topographic_distance": 5.4204232394312415,
+    "topographic_context_available": true,
+    "visual_d1": 0.542829155921936,
+    "margin": 0.1818123459815979
+  },
+  {
+    "index": 106,
+    "true_species_evaluation_only": "Smilisca phaeota",
+    "predicted_species": "Boana lanciformis",
+    "observation_id": "399441134",
+    "topographic_distance": 2.394067908156198,
+    "topographic_context_available": true,
+    "visual_d1": 0.5367915630340576,
+    "margin": 0.18739324808120728
+  },
+  {
+    "index": 113,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "318134541",
+    "topographic_distance": 3.792373665563363,
+    "topographic_context_available": true,
+    "visual_d1": 0.7453113794326782,
+    "margin": 0.1272411346435547
+  },
+  {
+    "index": 116,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "318210559",
+    "topographic_distance": 1.7865026184778086,
+    "topographic_context_available": true,
+    "visual_d1": 0.5362739562988281,
+    "margin": 0.12168139219284058
+  },
+  {
+    "index": 123,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "320644020",
+    "topographic_distance": 4.294778160427278,
+    "topographic_context_available": true,
+    "visual_d1": 0.6175119876861572,
+    "margin": 0.1016741394996643
+  },
+  {
+    "index": 129,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443439",
+    "topographic_distance": 1.6710620540262047,
+    "topographic_context_available": true,
+    "visual_d1": 0.5587799549102783,
+    "margin": 0.11726051568984985
+  },
+  {
+    "index": 130,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443439",
+    "topographic_distance": 1.6710620540262047,
+    "topographic_context_available": true,
+    "visual_d1": 0.46610116958618164,
+    "margin": 0.1579042673110962
+  },
+  {
+    "index": 131,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443439",
+    "topographic_distance": 1.6710620540262047,
+    "topographic_context_available": true,
+    "visual_d1": 0.5319236516952515,
+    "margin": 0.1356000304222107
+  },
+  {
+    "index": 132,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443502",
+    "topographic_distance": 1.5861044760218943,
+    "topographic_context_available": true,
+    "visual_d1": 0.4871748685836792,
+    "margin": 0.146073579788208
+  },
+  {
+    "index": 133,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443502",
+    "topographic_distance": 1.5861044760218943,
+    "topographic_context_available": true,
+    "visual_d1": 0.5084249973297119,
+    "margin": 0.1447170376777649
+  },
+  {
+    "index": 134,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443502",
+    "topographic_distance": 1.5861044760218943,
+    "topographic_context_available": true,
+    "visual_d1": 0.5018492341041565,
+    "margin": 0.16272228956222534
+  },
+  {
+    "index": 135,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "325443502",
+    "topographic_distance": 1.5861044760218943,
+    "topographic_context_available": true,
+    "visual_d1": 0.46452781558036804,
+    "margin": 0.18267932534217834
+  },
+  {
+    "index": 142,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "337215651",
+    "topographic_distance": 3.274575951519689,
+    "topographic_context_available": true,
+    "visual_d1": 0.48922351002693176,
+    "margin": 0.1334076225757599
+  },
+  {
+    "index": 145,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "339182739",
+    "topographic_distance": 1.9714818535982068,
+    "topographic_context_available": true,
+    "visual_d1": 0.5682098865509033,
+    "margin": 0.14478129148483276
+  },
+  {
+    "index": 147,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "339220952",
+    "topographic_distance": 5.756185358101201,
+    "topographic_context_available": true,
+    "visual_d1": 0.5720729827880859,
+    "margin": 0.1673142910003662
+  },
+  {
+    "index": 156,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "339905927",
+    "topographic_distance": 4.5888037200479905,
+    "topographic_context_available": true,
+    "visual_d1": 0.46751564741134644,
+    "margin": 0.11068391799926758
+  },
+  {
+    "index": 165,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "341382917",
+    "topographic_distance": 4.294777613801642,
+    "topographic_context_available": true,
+    "visual_d1": 0.5874580144882202,
+    "margin": 0.10831910371780396
+  },
+  {
+    "index": 168,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "341392040",
+    "topographic_distance": 4.935076959596743,
+    "topographic_context_available": true,
+    "visual_d1": 0.5097169876098633,
+    "margin": 0.1286953091621399
+  },
+  {
+    "index": 169,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "341392040",
+    "topographic_distance": 4.935076959596743,
+    "topographic_context_available": true,
+    "visual_d1": 0.48828038573265076,
+    "margin": 0.17788127064704895
+  },
+  {
+    "index": 170,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "341392040",
+    "topographic_distance": 4.935076959596743,
+    "topographic_context_available": true,
+    "visual_d1": 0.6130163669586182,
+    "margin": 0.13726121187210083
+  },
+  {
+    "index": 171,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "341392040",
+    "topographic_distance": 4.935076959596743,
+    "topographic_context_available": true,
+    "visual_d1": 0.5503814816474915,
+    "margin": 0.14089035987854004
+  },
+  {
+    "index": 173,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "341392040",
+    "topographic_distance": 4.935076959596743,
+    "topographic_context_available": true,
+    "visual_d1": 0.5021142363548279,
+    "margin": 0.2013988494873047
+  },
+  {
+    "index": 182,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "361315792",
+    "topographic_distance": 1.3635732481305034,
+    "topographic_context_available": true,
+    "visual_d1": 0.5939377546310425,
+    "margin": 0.1482018232345581
+  },
+  {
+    "index": 184,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Hyloscirtus palmeri",
+    "observation_id": "374818721",
+    "topographic_distance": 1.2698781731996762,
+    "topographic_context_available": true,
+    "visual_d1": 0.5042807459831238,
+    "margin": 0.11308008432388306
+  },
+  {
+    "index": 190,
+    "true_species_evaluation_only": "Espadarana prosoblepon",
+    "predicted_species": "Boana cinerascens",
+    "observation_id": "392282553",
+    "topographic_distance": 13.864422371799616,
+    "topographic_context_available": true,
+    "visual_d1": 0.6264825463294983,
+    "margin": 0.09977775812149048
+  },
+  {
+    "index": 195,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "265845259",
+    "topographic_distance": 2.538431066211896,
+    "topographic_context_available": true,
+    "visual_d1": 0.4997667670249939,
+    "margin": 0.3144059181213379
+  },
+  {
+    "index": 198,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Scinax ruber",
+    "observation_id": "265941053",
+    "topographic_distance": 1.8983115506161958,
+    "topographic_context_available": true,
+    "visual_d1": 0.7720705270767212,
+    "margin": 0.10261130332946777
+  },
+  {
+    "index": 200,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "281129030",
+    "topographic_distance": 3.1640862839869293,
+    "topographic_context_available": true,
+    "visual_d1": 0.6986706256866455,
+    "margin": 0.09581249952316284
+  },
+  {
+    "index": 205,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "288843271",
+    "topographic_distance": 6.05909200484297,
+    "topographic_context_available": true,
+    "visual_d1": 0.6678305864334106,
+    "margin": 0.21484118700027466
+  },
+  {
+    "index": 206,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "288843271",
+    "topographic_distance": 6.05909200484297,
+    "topographic_context_available": true,
+    "visual_d1": 0.7272932529449463,
+    "margin": 0.12545621395111084
+  },
+  {
+    "index": 207,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "294595331",
+    "topographic_distance": 3.654249021076101,
+    "topographic_context_available": true,
+    "visual_d1": 0.5644566416740417,
+    "margin": 0.25496989488601685
+  },
+  {
+    "index": 208,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "294595331",
+    "topographic_distance": 3.654249021076101,
+    "topographic_context_available": true,
+    "visual_d1": 0.6612344980239868,
+    "margin": 0.12923502922058105
+  },
+  {
+    "index": 209,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "305567215",
+    "topographic_distance": 3.1011100453753686,
+    "topographic_context_available": true,
+    "visual_d1": 0.7715457677841187,
+    "margin": 0.13583403825759888
+  },
+  {
+    "index": 211,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "317536161",
+    "topographic_distance": 3.852994723312486,
+    "topographic_context_available": true,
+    "visual_d1": 0.5460799932479858,
+    "margin": 0.21420294046401978
+  },
+  {
+    "index": 214,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "320271106",
+    "topographic_distance": 5.316606448516239,
+    "topographic_context_available": true,
+    "visual_d1": 0.8238110542297363,
+    "margin": 0.1440443992614746
+  },
+  {
+    "index": 222,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "329262232",
+    "topographic_distance": 3.078341695317273,
+    "topographic_context_available": true,
+    "visual_d1": 0.6787864565849304,
+    "margin": 0.21772199869155884
+  },
+  {
+    "index": 227,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "331268057",
+    "topographic_distance": 3.01924366919713,
+    "topographic_context_available": true,
+    "visual_d1": 0.5765042901039124,
+    "margin": 0.22847974300384521
+  },
+  {
+    "index": 229,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Rheobates palmatus",
+    "observation_id": "333015085",
+    "topographic_distance": 2.785340427461954,
+    "topographic_context_available": true,
+    "visual_d1": 0.6348175406455994,
+    "margin": 0.1590316891670227
+  },
+  {
+    "index": 231,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "334403866",
+    "topographic_distance": 3.830928184844841,
+    "topographic_context_available": true,
+    "visual_d1": 0.7226513028144836,
+    "margin": 0.15983319282531738
+  },
+  {
+    "index": 235,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "335299924",
+    "topographic_distance": 3.485711314159515,
+    "topographic_context_available": true,
+    "visual_d1": 0.8721679449081421,
+    "margin": 0.12053245306015015
+  },
+  {
+    "index": 236,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "335299924",
+    "topographic_distance": 4.639523040775773,
+    "topographic_context_available": true,
+    "visual_d1": 0.7192670702934265,
+    "margin": 0.10442698001861572
+  },
+  {
+    "index": 237,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "336277256",
+    "topographic_distance": 2.592142108023044,
+    "topographic_context_available": true,
+    "visual_d1": 0.6540938019752502,
+    "margin": 0.13308227062225342
+  },
+  {
+    "index": 238,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "338966350",
+    "topographic_distance": 7.17667709632384,
+    "topographic_context_available": true,
+    "visual_d1": 0.6599485278129578,
+    "margin": 0.20386648178100586
+  },
+  {
+    "index": 239,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "338966350",
+    "topographic_distance": 7.17667709632384,
+    "topographic_context_available": true,
+    "visual_d1": 0.7019891142845154,
+    "margin": 0.12889444828033447
+  },
+  {
+    "index": 245,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "341158244",
+    "topographic_distance": 8.86529140839111,
+    "topographic_context_available": true,
+    "visual_d1": 0.5988286137580872,
+    "margin": 0.23142856359481812
+  },
+  {
+    "index": 246,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "341392055",
+    "topographic_distance": 2.6403646029590724,
+    "topographic_context_available": true,
+    "visual_d1": 0.5708023309707642,
+    "margin": 0.2741382122039795
+  },
+  {
+    "index": 247,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "341398648",
+    "topographic_distance": 2.782855955113753,
+    "topographic_context_available": true,
+    "visual_d1": 0.7299399971961975,
+    "margin": 0.10938471555709839
+  },
+  {
+    "index": 253,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "343232113",
+    "topographic_distance": 6.16459251680406,
+    "topographic_context_available": true,
+    "visual_d1": 0.7039744257926941,
+    "margin": 0.1183241605758667
+  },
+  {
+    "index": 257,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Scinax ruber",
+    "observation_id": "345778928",
+    "topographic_distance": 9.618803742157413,
+    "topographic_context_available": true,
+    "visual_d1": 0.7869669795036316,
+    "margin": 0.14610064029693604
+  },
+  {
+    "index": 263,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "352434104",
+    "topographic_distance": 2.9735159675446075,
+    "topographic_context_available": true,
+    "visual_d1": 0.6768478155136108,
+    "margin": 0.14242053031921387
+  },
+  {
+    "index": 266,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "356722390",
+    "topographic_distance": 2.782855940629066,
+    "topographic_context_available": true,
+    "visual_d1": 0.5991562008857727,
+    "margin": 0.3279997706413269
+  },
+  {
+    "index": 267,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "356722390",
+    "topographic_distance": 2.782855940629066,
+    "topographic_context_available": true,
+    "visual_d1": 0.5520586967468262,
+    "margin": 0.3424074053764343
+  },
+  {
+    "index": 269,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "380903606",
+    "topographic_distance": 3.717763555398049,
+    "topographic_context_available": true,
+    "visual_d1": 0.6704270243644714,
+    "margin": 0.1278631091117859
+  },
+  {
+    "index": 272,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "380903606",
+    "topographic_distance": 8.351380799108872,
+    "topographic_context_available": true,
+    "visual_d1": 0.7135176658630371,
+    "margin": 0.1291378140449524
+  },
+  {
+    "index": 274,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "386900741",
+    "topographic_distance": 8.639542963935076,
+    "topographic_context_available": true,
+    "visual_d1": 0.6717257499694824,
+    "margin": 0.3156331777572632
+  },
+  {
+    "index": 276,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Pristimantis vilarsi",
+    "observation_id": "399152930",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.7165923714637756,
+    "margin": 0.15053993463516235
+  },
+  {
+    "index": 277,
+    "true_species_evaluation_only": "Leptodactylus fragilis",
+    "predicted_species": "Leptodactylus colombiensis",
+    "observation_id": "399441122",
+    "topographic_distance": 2.2708508881679705,
+    "topographic_context_available": true,
+    "visual_d1": 0.5507782101631165,
+    "margin": 0.23855316638946533
+  },
+  {
+    "index": 278,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "337121627",
+    "topographic_distance": 2.780285763822827,
+    "topographic_context_available": true,
+    "visual_d1": 0.32486826181411743,
+    "margin": 0.2922336459159851
+  },
+  {
+    "index": 279,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "337121627",
+    "topographic_distance": 2.780285763822827,
+    "topographic_context_available": true,
+    "visual_d1": 0.42107176780700684,
+    "margin": 0.2729024887084961
+  },
+  {
+    "index": 280,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "337121627",
+    "topographic_distance": 2.780285763822827,
+    "topographic_context_available": true,
+    "visual_d1": 0.5245972871780396,
+    "margin": 0.16596448421478271
+  },
+  {
+    "index": 281,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "337121627",
+    "topographic_distance": 2.780285763822827,
+    "topographic_context_available": true,
+    "visual_d1": 0.33683285117149353,
+    "margin": 0.2878718674182892
+  },
+  {
+    "index": 282,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "338449073",
+    "topographic_distance": 6.703629067820811,
+    "topographic_context_available": true,
+    "visual_d1": 0.3504042625427246,
+    "margin": 0.31128358840942383
+  },
+  {
+    "index": 283,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "339454979",
+    "topographic_distance": 2.9858136652038425,
+    "topographic_context_available": true,
+    "visual_d1": 0.3160107433795929,
+    "margin": 0.3031691014766693
+  },
+  {
+    "index": 284,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "339825067",
+    "topographic_distance": 2.9858136652038425,
+    "topographic_context_available": true,
+    "visual_d1": 0.303343266248703,
+    "margin": 0.33749398589134216
+  },
+  {
+    "index": 285,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "340210143",
+    "topographic_distance": 2.629012628904478,
+    "topographic_context_available": true,
+    "visual_d1": 0.3278544545173645,
+    "margin": 0.31149357557296753
+  },
+  {
+    "index": 287,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "340876298",
+    "topographic_distance": 3.08520715664389,
+    "topographic_context_available": true,
+    "visual_d1": 0.35603833198547363,
+    "margin": 0.31915074586868286
+  },
+  {
+    "index": 288,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "341743807",
+    "topographic_distance": 8.72462622498502,
+    "topographic_context_available": true,
+    "visual_d1": 0.396716445684433,
+    "margin": 0.30301228165626526
+  },
+  {
+    "index": 289,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "341976681",
+    "topographic_distance": 4.5278445179801325,
+    "topographic_context_available": true,
+    "visual_d1": 0.5571746826171875,
+    "margin": 0.25591742992401123
+  },
+  {
+    "index": 290,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "341976681",
+    "topographic_distance": 4.5278445179801325,
+    "topographic_context_available": true,
+    "visual_d1": 0.43462231755256653,
+    "margin": 0.2665551006793976
+  },
+  {
+    "index": 291,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "341976681",
+    "topographic_distance": 4.5278445179801325,
+    "topographic_context_available": true,
+    "visual_d1": 0.4473210871219635,
+    "margin": 0.2914838492870331
+  },
+  {
+    "index": 292,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "343134399",
+    "topographic_distance": 4.8002994706373725,
+    "topographic_context_available": true,
+    "visual_d1": 0.39398422837257385,
+    "margin": 0.23783770203590393
+  },
+  {
+    "index": 293,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "343134399",
+    "topographic_distance": 4.8002994706373725,
+    "topographic_context_available": true,
+    "visual_d1": 0.3711322844028473,
+    "margin": 0.3071482479572296
+  },
+  {
+    "index": 294,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "343134399",
+    "topographic_distance": 4.8002994706373725,
+    "topographic_context_available": true,
+    "visual_d1": 0.4554053544998169,
+    "margin": 0.24550729990005493
+  },
+  {
+    "index": 296,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "343579529",
+    "topographic_distance": 4.389326821002519,
+    "topographic_context_available": true,
+    "visual_d1": 0.505405843257904,
+    "margin": 0.16956347227096558
+  },
+  {
+    "index": 299,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella margaritifera",
+    "observation_id": "343579529",
+    "topographic_distance": 28.733255850444227,
+    "topographic_context_available": true,
+    "visual_d1": 0.6748089790344238,
+    "margin": 0.10936379432678223
+  },
+  {
+    "index": 303,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "345750782",
+    "topographic_distance": 3.3888852762338435,
+    "topographic_context_available": true,
+    "visual_d1": 0.6238608360290527,
+    "margin": 0.2633589506149292
+  },
+  {
+    "index": 304,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "345750782",
+    "topographic_distance": 3.3888852762338435,
+    "topographic_context_available": true,
+    "visual_d1": 0.4896739423274994,
+    "margin": 0.22781279683113098
+  },
+  {
+    "index": 305,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "346526020",
+    "topographic_distance": 9.041127250286927,
+    "topographic_context_available": true,
+    "visual_d1": 0.5529010891914368,
+    "margin": 0.2866852283477783
+  },
+  {
+    "index": 306,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "346526020",
+    "topographic_distance": 9.041127250286927,
+    "topographic_context_available": true,
+    "visual_d1": 0.47749438881874084,
+    "margin": 0.31559327244758606
+  },
+  {
+    "index": 307,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "346526020",
+    "topographic_distance": 9.041127250286927,
+    "topographic_context_available": true,
+    "visual_d1": 0.46612244844436646,
+    "margin": 0.3373660445213318
+  },
+  {
+    "index": 308,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "346526020",
+    "topographic_distance": 9.041127250286927,
+    "topographic_context_available": true,
+    "visual_d1": 0.561219334602356,
+    "margin": 0.28796595335006714
+  },
+  {
+    "index": 309,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "347969150",
+    "topographic_distance": 3.973856755588058,
+    "topographic_context_available": true,
+    "visual_d1": 0.338412880897522,
+    "margin": 0.4215724468231201
+  },
+  {
+    "index": 310,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "347969150",
+    "topographic_distance": 3.973856755588058,
+    "topographic_context_available": true,
+    "visual_d1": 0.33243268728256226,
+    "margin": 0.40664708614349365
+  },
+  {
+    "index": 311,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "348052086",
+    "topographic_distance": 3.973856755588058,
+    "topographic_context_available": true,
+    "visual_d1": 0.3136538565158844,
+    "margin": 0.40932586789131165
+  },
+  {
+    "index": 312,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "348052086",
+    "topographic_distance": 3.973856755588058,
+    "topographic_context_available": true,
+    "visual_d1": 0.3462466895580292,
+    "margin": 0.3888060748577118
+  },
+  {
+    "index": 313,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "348591387",
+    "topographic_distance": 3.359634665306808,
+    "topographic_context_available": true,
+    "visual_d1": 0.5401274561882019,
+    "margin": 0.2565634250640869
+  },
+  {
+    "index": 314,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "348591387",
+    "topographic_distance": 3.359634665306808,
+    "topographic_context_available": true,
+    "visual_d1": 0.571595311164856,
+    "margin": 0.21996885538101196
+  },
+  {
+    "index": 315,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "350218275",
+    "topographic_distance": 8.483346276731016,
+    "topographic_context_available": true,
+    "visual_d1": 0.3732125163078308,
+    "margin": 0.3268135190010071
+  },
+  {
+    "index": 316,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "353627520",
+    "topographic_distance": 4.556716193360816,
+    "topographic_context_available": true,
+    "visual_d1": 0.6800791025161743,
+    "margin": 0.1878068447113037
+  },
+  {
+    "index": 317,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "353627520",
+    "topographic_distance": 4.556716193360816,
+    "topographic_context_available": true,
+    "visual_d1": 0.680041491985321,
+    "margin": 0.1626926064491272
+  },
+  {
+    "index": 318,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "353627520",
+    "topographic_distance": 3.8703862166501097,
+    "topographic_context_available": true,
+    "visual_d1": 0.7622426152229309,
+    "margin": 0.13163691759109497
+  },
+  {
+    "index": 319,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "353627520",
+    "topographic_distance": 4.556716193360816,
+    "topographic_context_available": true,
+    "visual_d1": 0.6535965204238892,
+    "margin": 0.14653253555297852
+  },
+  {
+    "index": 324,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "357869344",
+    "topographic_distance": 8.811668688038488,
+    "topographic_context_available": true,
+    "visual_d1": 0.3604571521282196,
+    "margin": 0.2840140163898468
+  },
+  {
+    "index": 325,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "358701067",
+    "topographic_distance": 3.9974885608567474,
+    "topographic_context_available": true,
+    "visual_d1": 0.4252685010433197,
+    "margin": 0.2070043981075287
+  },
+  {
+    "index": 326,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "358701067",
+    "topographic_distance": 3.9974885608567474,
+    "topographic_context_available": true,
+    "visual_d1": 0.41593673825263977,
+    "margin": 0.29829779267311096
+  },
+  {
+    "index": 327,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "358701067",
+    "topographic_distance": 3.9974885608567474,
+    "topographic_context_available": true,
+    "visual_d1": 0.4307869076728821,
+    "margin": 0.2117999792098999
+  },
+  {
+    "index": 328,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "358701067",
+    "topographic_distance": 3.9974885608567474,
+    "topographic_context_available": true,
+    "visual_d1": 0.5351516008377075,
+    "margin": 0.2680325508117676
+  },
+  {
+    "index": 329,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "360973558",
+    "topographic_distance": 8.485608720695799,
+    "topographic_context_available": true,
+    "visual_d1": 0.5055385231971741,
+    "margin": 0.35009944438934326
+  },
+  {
+    "index": 330,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "360973558",
+    "topographic_distance": 8.485608720695799,
+    "topographic_context_available": true,
+    "visual_d1": 0.39800944924354553,
+    "margin": 0.3639806807041168
+  },
+  {
+    "index": 331,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "360973558",
+    "topographic_distance": 8.485608720695799,
+    "topographic_context_available": true,
+    "visual_d1": 0.5325132012367249,
+    "margin": 0.251914381980896
+  },
+  {
+    "index": 332,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "361041033",
+    "topographic_distance": 3.9476279364014846,
+    "topographic_context_available": true,
+    "visual_d1": 0.3882588744163513,
+    "margin": 0.29208213090896606
+  },
+  {
+    "index": 333,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "361041033",
+    "topographic_distance": 3.9476279364014846,
+    "topographic_context_available": true,
+    "visual_d1": 0.3984772562980652,
+    "margin": 0.359924852848053
+  },
+  {
+    "index": 334,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "361223025",
+    "topographic_distance": 3.835086839406101,
+    "topographic_context_available": true,
+    "visual_d1": 0.3957217037677765,
+    "margin": 0.3603678047657013
+  },
+  {
+    "index": 336,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "365072043",
+    "topographic_distance": 9.085518150091607,
+    "topographic_context_available": true,
+    "visual_d1": 0.6105430126190186,
+    "margin": 0.1146014928817749
+  },
+  {
+    "index": 337,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "372173568",
+    "topographic_distance": 8.675453963217455,
+    "topographic_context_available": true,
+    "visual_d1": 0.4978901147842407,
+    "margin": 0.15478438138961792
+  },
+  {
+    "index": 338,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "372173568",
+    "topographic_distance": 8.675453963217455,
+    "topographic_context_available": true,
+    "visual_d1": 0.418786883354187,
+    "margin": 0.24723803997039795
+  },
+  {
+    "index": 339,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "373032066",
+    "topographic_distance": 2.7629339054495525,
+    "topographic_context_available": true,
+    "visual_d1": 0.3833608329296112,
+    "margin": 0.3339044749736786
+  },
+  {
+    "index": 340,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "379518265",
+    "topographic_distance": 8.479118661375677,
+    "topographic_context_available": true,
+    "visual_d1": 0.5480523705482483,
+    "margin": 0.26887255907058716
+  },
+  {
+    "index": 341,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "382751066",
+    "topographic_distance": 9.006592812051093,
+    "topographic_context_available": true,
+    "visual_d1": 0.5420894026756287,
+    "margin": 0.1507616639137268
+  },
+  {
+    "index": 342,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "383477199",
+    "topographic_distance": 3.0046516160432475,
+    "topographic_context_available": true,
+    "visual_d1": 0.38484981656074524,
+    "margin": 0.294263631105423
+  },
+  {
+    "index": 343,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "383493773",
+    "topographic_distance": 16.76408873528788,
+    "topographic_context_available": true,
+    "visual_d1": 0.7584653496742249,
+    "margin": 0.10073530673980713
+  },
+  {
+    "index": 344,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "383493773",
+    "topographic_distance": 8.527708028229565,
+    "topographic_context_available": true,
+    "visual_d1": 0.47421184182167053,
+    "margin": 0.20684203505516052
+  },
+  {
+    "index": 348,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "385119922",
+    "topographic_distance": 6.2676034535243526,
+    "topographic_context_available": true,
+    "visual_d1": 0.5715370178222656,
+    "margin": 0.32505595684051514
+  },
+  {
+    "index": 349,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "385119922",
+    "topographic_distance": 6.2676034535243526,
+    "topographic_context_available": true,
+    "visual_d1": 0.6469725370407104,
+    "margin": 0.22840243577957153
+  },
+  {
+    "index": 350,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "385119922",
+    "topographic_distance": 6.2676034535243526,
+    "topographic_context_available": true,
+    "visual_d1": 0.5705839991569519,
+    "margin": 0.3397194743156433
+  },
+  {
+    "index": 352,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "385750002",
+    "topographic_distance": 5.865357767276955,
+    "topographic_context_available": true,
+    "visual_d1": 0.6779313683509827,
+    "margin": 0.1334444284439087
+  },
+  {
+    "index": 353,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "385750002",
+    "topographic_distance": 5.865357767276955,
+    "topographic_context_available": true,
+    "visual_d1": 0.6677905321121216,
+    "margin": 0.19326287508010864
+  },
+  {
+    "index": 355,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "388641746",
+    "topographic_distance": 9.001685322880835,
+    "topographic_context_available": true,
+    "visual_d1": 0.5422301888465881,
+    "margin": 0.1809418797492981
+  },
+  {
+    "index": 356,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "390170414",
+    "topographic_distance": 4.739156237058402,
+    "topographic_context_available": true,
+    "visual_d1": 0.4876120984554291,
+    "margin": 0.26725468039512634
+  },
+  {
+    "index": 357,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "390170414",
+    "topographic_distance": 4.739156237058402,
+    "topographic_context_available": true,
+    "visual_d1": 0.41838666796684265,
+    "margin": 0.26443997025489807
+  },
+  {
+    "index": 358,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "391102878",
+    "topographic_distance": 8.954810460709657,
+    "topographic_context_available": true,
+    "visual_d1": 0.4787711501121521,
+    "margin": 0.27537375688552856
+  },
+  {
+    "index": 359,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "391102878",
+    "topographic_distance": 8.954810460709657,
+    "topographic_context_available": true,
+    "visual_d1": 0.43803754448890686,
+    "margin": 0.31291142106056213
+  },
+  {
+    "index": 360,
+    "true_species_evaluation_only": "Rhinella marina",
+    "predicted_species": "Rhinella horribilis",
+    "observation_id": "391427074",
+    "topographic_distance": 3.288279673749118,
+    "topographic_context_available": true,
+    "visual_d1": 0.39320987462997437,
+    "margin": 0.31024664640426636
+  },
+  {
+    "index": 361,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "372634674",
+    "topographic_distance": 1.643670531068812,
+    "topographic_context_available": true,
+    "visual_d1": 0.48088040947914124,
+    "margin": 0.1328236162662506
+  },
+  {
+    "index": 362,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "372650690",
+    "topographic_distance": 1.2854913293091428,
+    "topographic_context_available": true,
+    "visual_d1": 0.5879805684089661,
+    "margin": 0.18787556886672974
+  },
+  {
+    "index": 366,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "373092737",
+    "topographic_distance": 5.295163352863868,
+    "topographic_context_available": true,
+    "visual_d1": 0.7536892890930176,
+    "margin": 0.09401965141296387
+  },
+  {
+    "index": 371,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "373457992",
+    "topographic_distance": 1.513859425468257,
+    "topographic_context_available": true,
+    "visual_d1": 0.6814755797386169,
+    "margin": 0.1560000777244568
+  },
+  {
+    "index": 372,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "373457992",
+    "topographic_distance": 1.513859425468257,
+    "topographic_context_available": true,
+    "visual_d1": 0.5800133943557739,
+    "margin": 0.19687426090240479
+  },
+  {
+    "index": 373,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "373457992",
+    "topographic_distance": 1.513859425468257,
+    "topographic_context_available": true,
+    "visual_d1": 0.6088815331459045,
+    "margin": 0.22883588075637817
+  },
+  {
+    "index": 374,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "374130656",
+    "topographic_distance": 1.7432914864422846,
+    "topographic_context_available": true,
+    "visual_d1": 0.6574367880821228,
+    "margin": 0.14611321687698364
+  },
+  {
+    "index": 376,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "378247279",
+    "topographic_distance": 1.8099753874547748,
+    "topographic_context_available": true,
+    "visual_d1": 0.5824918746948242,
+    "margin": 0.13160407543182373
+  },
+  {
+    "index": 378,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "378585244",
+    "topographic_distance": 1.712718871515323,
+    "topographic_context_available": true,
+    "visual_d1": 0.5254205465316772,
+    "margin": 0.1455898880958557
+  },
+  {
+    "index": 379,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "380176757",
+    "topographic_distance": 18.851694838769713,
+    "topographic_context_available": true,
+    "visual_d1": 0.8962389230728149,
+    "margin": 0.11778461933135986
+  },
+  {
+    "index": 380,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "380176757",
+    "topographic_distance": 18.851694838769713,
+    "topographic_context_available": true,
+    "visual_d1": 0.7304505705833435,
+    "margin": 0.2736942172050476
+  },
+  {
+    "index": 381,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "380176757",
+    "topographic_distance": 18.851694838769713,
+    "topographic_context_available": true,
+    "visual_d1": 0.5365983247756958,
+    "margin": 0.21829891204833984
+  },
+  {
+    "index": 382,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "380176757",
+    "topographic_distance": 18.851694838769713,
+    "topographic_context_available": true,
+    "visual_d1": 0.8634981513023376,
+    "margin": 0.13136988878250122
+  },
+  {
+    "index": 384,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "383929385",
+    "topographic_distance": 1.2682241433175887,
+    "topographic_context_available": true,
+    "visual_d1": 0.6616542339324951,
+    "margin": 0.12075692415237427
+  },
+  {
+    "index": 385,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "383931685",
+    "topographic_distance": 1.3418954075381242,
+    "topographic_context_available": true,
+    "visual_d1": 0.5596500039100647,
+    "margin": 0.20437055826187134
+  },
+  {
+    "index": 387,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "383968818",
+    "topographic_distance": 1.2854913293091428,
+    "topographic_context_available": true,
+    "visual_d1": 0.6842197179794312,
+    "margin": 0.18344712257385254
+  },
+  {
+    "index": 388,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "384727196",
+    "topographic_distance": 11.41381907377753,
+    "topographic_context_available": true,
+    "visual_d1": 0.6695013642311096,
+    "margin": 0.17504912614822388
+  },
+  {
+    "index": 389,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "385803911",
+    "topographic_distance": 2.023366436596355,
+    "topographic_context_available": true,
+    "visual_d1": 0.5587747097015381,
+    "margin": 0.30051058530807495
+  },
+  {
+    "index": 390,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "386560760",
+    "topographic_distance": 21.078208944696716,
+    "topographic_context_available": true,
+    "visual_d1": 0.6419405937194824,
+    "margin": 0.21005046367645264
+  },
+  {
+    "index": 391,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "386619505",
+    "topographic_distance": 1.9506932107998425,
+    "topographic_context_available": true,
+    "visual_d1": 0.6450479626655579,
+    "margin": 0.11162632703781128
+  },
+  {
+    "index": 392,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "386619505",
+    "topographic_distance": 1.9506932107998425,
+    "topographic_context_available": true,
+    "visual_d1": 0.5133543610572815,
+    "margin": 0.183846116065979
+  },
+  {
+    "index": 395,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "387093046",
+    "topographic_distance": 1.4152306162577133,
+    "topographic_context_available": true,
+    "visual_d1": 0.7233520746231079,
+    "margin": 0.1812761425971985
+  },
+  {
+    "index": 396,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "388207524",
+    "topographic_distance": 1.762880359367245,
+    "topographic_context_available": true,
+    "visual_d1": 0.7529430985450745,
+    "margin": 0.1606684923171997
+  },
+  {
+    "index": 397,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "388285149",
+    "topographic_distance": 8.954339617301079,
+    "topographic_context_available": true,
+    "visual_d1": 0.6926303505897522,
+    "margin": 0.11147046089172363
+  },
+  {
+    "index": 398,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "388520491",
+    "topographic_distance": 1.8438838682894263,
+    "topographic_context_available": true,
+    "visual_d1": 0.5711094737052917,
+    "margin": 0.1877492070198059
+  },
+  {
+    "index": 399,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "389794299",
+    "topographic_distance": 7.525403733187546,
+    "topographic_context_available": true,
+    "visual_d1": 0.5557212829589844,
+    "margin": 0.16912329196929932
+  },
+  {
+    "index": 400,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "390050591",
+    "topographic_distance": 2.3178590794940788,
+    "topographic_context_available": true,
+    "visual_d1": 0.8458157181739807,
+    "margin": 0.10098344087600708
+  },
+  {
+    "index": 401,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "390997940",
+    "topographic_distance": 1.8508838664405867,
+    "topographic_context_available": true,
+    "visual_d1": 0.8211548328399658,
+    "margin": 0.13333505392074585
+  },
+  {
+    "index": 402,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "391132715",
+    "topographic_distance": 2.0189489534341143,
+    "topographic_context_available": true,
+    "visual_d1": 0.6395285725593567,
+    "margin": 0.1305685043334961
+  },
+  {
+    "index": 403,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "394767990",
+    "topographic_distance": 1.7205170294734207,
+    "topographic_context_available": true,
+    "visual_d1": 0.6052664518356323,
+    "margin": 0.09531569480895996
+  },
+  {
+    "index": 404,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "394769787",
+    "topographic_distance": 12.17558099981101,
+    "topographic_context_available": true,
+    "visual_d1": 0.7371708154678345,
+    "margin": 0.11150127649307251
+  },
+  {
+    "index": 405,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "394769787",
+    "topographic_distance": 12.17558099981101,
+    "topographic_context_available": true,
+    "visual_d1": 0.5825186967849731,
+    "margin": 0.22920286655426025
+  },
+  {
+    "index": 407,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "394769787",
+    "topographic_distance": 12.17558099981101,
+    "topographic_context_available": true,
+    "visual_d1": 0.5591138005256653,
+    "margin": 0.20655936002731323
+  },
+  {
+    "index": 408,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "394769787",
+    "topographic_distance": 12.17558099981101,
+    "topographic_context_available": true,
+    "visual_d1": 0.6134004592895508,
+    "margin": 0.2770480513572693
+  },
+  {
+    "index": 409,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "394769787",
+    "topographic_distance": 12.17558099981101,
+    "topographic_context_available": true,
+    "visual_d1": 0.6370088458061218,
+    "margin": 0.24391353130340576
+  },
+  {
+    "index": 410,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "395383936",
+    "topographic_distance": 1.706895156142712,
+    "topographic_context_available": true,
+    "visual_d1": 0.5946680307388306,
+    "margin": 0.21068936586380005
+  },
+  {
+    "index": 411,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "395383936",
+    "topographic_distance": 1.706895156142712,
+    "topographic_context_available": true,
+    "visual_d1": 0.7875550389289856,
+    "margin": 0.13444793224334717
+  },
+  {
+    "index": 414,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "395384588",
+    "topographic_distance": 1.5691161608942323,
+    "topographic_context_available": true,
+    "visual_d1": 0.6180482506752014,
+    "margin": 0.26109981536865234
+  },
+  {
+    "index": 416,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "395384588",
+    "topographic_distance": 1.5691161608942323,
+    "topographic_context_available": true,
+    "visual_d1": 0.5464814305305481,
+    "margin": 0.28541505336761475
+  },
+  {
+    "index": 417,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "396010025",
+    "topographic_distance": 1.4451395011745911,
+    "topographic_context_available": true,
+    "visual_d1": 0.6256263256072998,
+    "margin": 0.16151660680770874
+  },
+  {
+    "index": 418,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "396010056",
+    "topographic_distance": 1.5077865265139898,
+    "topographic_context_available": true,
+    "visual_d1": 0.5493131279945374,
+    "margin": 0.22550618648529053
+  },
+  {
+    "index": 420,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "396451584",
+    "topographic_distance": 1.6067158071440064,
+    "topographic_context_available": true,
+    "visual_d1": 0.5600568652153015,
+    "margin": 0.2922508716583252
+  },
+  {
+    "index": 421,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "396451584",
+    "topographic_distance": 1.6067158071440064,
+    "topographic_context_available": true,
+    "visual_d1": 0.6603471636772156,
+    "margin": 0.1541891098022461
+  },
+  {
+    "index": 422,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "398344076",
+    "topographic_distance": 12.709973501817265,
+    "topographic_context_available": true,
+    "visual_d1": 0.48697805404663086,
+    "margin": 0.25782066583633423
+  },
+  {
+    "index": 426,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "398756459",
+    "topographic_distance": 6.490154247524001,
+    "topographic_context_available": true,
+    "visual_d1": 0.4785930812358856,
+    "margin": 0.18798699975013733
+  },
+  {
+    "index": 427,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "399160300",
+    "topographic_distance": 1.1796540842855432,
+    "topographic_context_available": true,
+    "visual_d1": 0.5817076563835144,
+    "margin": 0.11038386821746826
+  },
+  {
+    "index": 428,
+    "true_species_evaluation_only": "Dendropsophus labialis",
+    "predicted_species": "Dendropsophus molitor",
+    "observation_id": "399325213",
+    "topographic_distance": 2.6565250306472628,
+    "topographic_context_available": true,
+    "visual_d1": 0.6092056632041931,
+    "margin": 0.22341883182525635
+  },
+  {
+    "index": 436,
+    "true_species_evaluation_only": "Scinax rostratus",
+    "predicted_species": "Pristimantis thectopternus",
+    "observation_id": "103274788",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.7759953737258911,
+    "margin": 0.09740787744522095
+  },
+  {
+    "index": 460,
+    "true_species_evaluation_only": "Scinax rostratus",
+    "predicted_species": "Pristimantis bogotensis",
+    "observation_id": "187985854",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.78348308801651,
+    "margin": 0.09867185354232788
+  },
+  {
+    "index": 490,
+    "true_species_evaluation_only": "Scinax rostratus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "322881099",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.8040933609008789,
+    "margin": 0.1266700029373169
+  },
+  {
+    "index": 501,
+    "true_species_evaluation_only": "Scinax rostratus",
+    "predicted_species": "Rhinella margaritifera",
+    "observation_id": "340944944",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.6374186873435974,
+    "margin": 0.1461319923400879
+  },
+  {
+    "index": 518,
+    "true_species_evaluation_only": "Scinax rostratus",
+    "predicted_species": "Engystomops pustulosus",
+    "observation_id": "387291388",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.8072313070297241,
+    "margin": 0.11413955688476562
+  },
+  {
+    "index": 537,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "271820742",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.45987963676452637,
+    "margin": 0.15441244840621948
+  },
+  {
+    "index": 538,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "271820743",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.40596872568130493,
+    "margin": 0.20361405611038208
+  },
+  {
+    "index": 539,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "271820747",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.37114962935447693,
+    "margin": 0.10172286629676819
+  },
+  {
+    "index": 540,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "274604596",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.4170216917991638,
+    "margin": 0.20563459396362305
+  },
+  {
+    "index": 542,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "281128300",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.667378306388855,
+    "margin": 0.10712456703186035
+  },
+  {
+    "index": 544,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "288724385",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.46985459327697754,
+    "margin": 0.1689542531967163
+  },
+  {
+    "index": 545,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Pristimantis thectopternus",
+    "observation_id": "293893104",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5777941942214966,
+    "margin": 0.19329816102981567
+  },
+  {
+    "index": 546,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "294491842",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.49875685572624207,
+    "margin": 0.2003099024295807
+  },
+  {
+    "index": 550,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "317407555",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.44848334789276123,
+    "margin": 0.11518824100494385
+  },
+  {
+    "index": 553,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "318466281",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.4069363474845886,
+    "margin": 0.128820538520813
+  },
+  {
+    "index": 559,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Pristimantis thectopternus",
+    "observation_id": "333787226",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.4622255265712738,
+    "margin": 0.15475454926490784
+  },
+  {
+    "index": 561,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "335327894",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.4575687050819397,
+    "margin": 0.10646158456802368
+  },
+  {
+    "index": 568,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "338006893",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.39449623227119446,
+    "margin": 0.13082459568977356
+  },
+  {
+    "index": 571,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "338889303",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5243712067604065,
+    "margin": 0.1915469765663147
+  },
+  {
+    "index": 573,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "339158374",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5940290689468384,
+    "margin": 0.13761353492736816
+  },
+  {
+    "index": 574,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "339182754",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.3722013831138611,
+    "margin": 0.14126676321029663
+  },
+  {
+    "index": 577,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "340529066",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5352127552032471,
+    "margin": 0.11310851573944092
+  },
+  {
+    "index": 580,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "341388497",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.46780288219451904,
+    "margin": 0.09825623035430908
+  },
+  {
+    "index": 591,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "346705696",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.49652981758117676,
+    "margin": 0.19125819206237793
+  },
+  {
+    "index": 592,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "347607506",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5075598359107971,
+    "margin": 0.14751124382019043
+  },
+  {
+    "index": 593,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "347611201",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.40027716755867004,
+    "margin": 0.11940595507621765
+  },
+  {
+    "index": 598,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Pristimantis thectopternus",
+    "observation_id": "348596771",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.6115825772285461,
+    "margin": 0.10156905651092529
+  },
+  {
+    "index": 603,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "359231335",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5269933342933655,
+    "margin": 0.15848350524902344
+  },
+  {
+    "index": 610,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "366017025",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.48043355345726013,
+    "margin": 0.09762522578239441
+  },
+  {
+    "index": 611,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "366139058",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.562885046005249,
+    "margin": 0.135461688041687
+  },
+  {
+    "index": 617,
+    "true_species_evaluation_only": "Craugastor metriosistus",
+    "predicted_species": "Craugastor raniformis",
+    "observation_id": "392151740",
+    "topographic_distance": null,
+    "topographic_context_available": false,
+    "visual_d1": 0.5947274565696716,
+    "margin": 0.1918644905090332
+  }
+]

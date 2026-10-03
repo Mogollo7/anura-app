@@ -1,0 +1,21 @@
+{
+  "phase": "16.8_FREEZE",
+  "timestamp_utc": "2026-09-13T19:06:12.262124+00:00",
+  "frozen_before_blind_test": true,
+  "hashes": {
+    "encoder_onnx": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad",
+    "catalog_release_manifest": "70b4ef5165e5cef8608ac7a5871801d1e98ee2c1a5706ecccb55a241fffac161",
+    "covariance_npz": "fc7dbdc3b9eec60464cc8e63be9bf7ecef04ab9868f4dc053b52e2524b7b2ff4",
+    "covariance_release_manifest": "01b95fc0d7b11147c5d53596d3a0078c704f66093469427945c1098204573bb4",
+    "threshold_release_manifest": "e55b4d240d05a1536b5b7b643726689c2917ab1a97119383e36873dd408a05ae",
+    "reference_embeddings_npz": "22ab6977274890db61d0784adac2abd3a1f20412649d75e003840d1c6e39e341",
+    "train_embeddings_npz": "1a777f09ac90f57750aac57e4788f634eefedcdee463313dbbf445049d1e43fa",
+    "calibration_manifest": "140fb1d3e9e5dec9fb25e55b96b50c2e046cc22b68b23d9ec34db2feb3ce6c1c",
+    "clean_known_manifest_blind": "143d88c9210100af345fe9da32ba41453c024caf31d594ca44b84f20ac0e5514",
+    "f4_unknown_source": "908c9bf2bf60d232067da54d66996b60eca391c72a8364e260f35537eefd419a"
+  },
+  "threshold_value_frozen": 39.35406371422803,
+  "covariance_release": "covariance_1.1.0_CLEAN",
+  "threshold_release": "threshold_1.1.0_CLEAN",
+  "note": "A partir de este punto, centroides/covariance/threshold/calibration/seleccion blind NO deben modificarse. El blind test se ejecuta DESPUES de este freeze."
+}

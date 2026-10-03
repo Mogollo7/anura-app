@@ -18,8 +18,9 @@
 - [16_REFERENCES](./16_REFERENCES/INDEX.md)
 - [17_OPERATIONS](./17_OPERATIONS/INDEX.md)
 - [18_ARCHIVE](./18_ARCHIVE/INDEX.md)
+- [19_ADMIN — modo administrativo](./19_ADMIN/00_Indice_Principal.md)
 
-Fuentes Markdown: **502**
+Fuentes Markdown: **502** en el inventario previo. El sector 19_ADMIN se añadió el 2026-09-25 a partir de `Second Brain/notes` y no está incluido en esa cifra.
 
 
 

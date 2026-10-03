@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S15 Titulo del cuestionario</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #t17 { position: absolute; left: 210px; top: 430px; width: 1500px; margin: 0; text-align: center; font-weight: 600; font-size: 88px; line-height: 1.2; opacity: 0; text-wrap: balance; }
+      #fTab { position: absolute; left: 700px; top: 768px; width: 190px; height: 44px; border-radius: 14px 14px 0 0; background: #196528; }
+      #fBack { position: absolute; left: 700px; top: 788px; width: 520px; height: 142px; border-radius: 12px; background: #196528; }
+      #fFront { position: absolute; left: 700px; top: 800px; width: 520px; height: 130px; border-radius: 12px; background: #1f7a33; box-shadow: inset 0 2px 0 rgba(254, 254, 254, 0.18); }
+      #folder { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s15" data-start="0" data-width="1920" data-height="1080" data-duration="3">
+      <div id="folder">
+        <div id="fTab"></div>
+        <div id="fBack"></div>
+        <div id="fFront"></div>
+      </div>
+      <p id="t17">ANURA hace un cuestionario, <span style="white-space:nowrap">paso a paso,</span> para afinar el modelo.</p>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 62.00 - 62.30: el folder sale
+      tl.to("#folder", { y: 40, opacity: 0, duration: 0.3, ease: "power2.in" }, 0);
+      // 62.25: entra T17 y se queda hasta 65.00
+      tl.fromTo("#t17", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: EASE }, 0.25);
+      window.__timelines["s15"] = tl;
+    </script>
+  </body>
+</html>

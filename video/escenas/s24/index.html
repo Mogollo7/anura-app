@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S24 Llega a evaluacion</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #1f7a33; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #1f7a33; color: #fefefe; font-family: "Archivo", sans-serif; }
+      .t { position: absolute; margin: 0; font-weight: 700; }
+      #t23 { left: 80px; top: 280px; width: 700px; font-weight: 500; font-size: 36px; line-height: 1.3; color: #fefefe; }
+      #t23b { left: 80px; top: 80px; width: 1760px; text-align: center; font-weight: 500; font-size: 40px; line-height: 1.2; color: #fefefe; opacity: 0; }
+      #t23b b { font-weight: 700; }
+      #frame { position: absolute; left: 160px; top: 192px; width: 1600px; height: 720px; border-radius: 24px; overflow: hidden; box-sizing: border-box; border: 1px solid rgba(254, 254, 254, 0.35); box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28); background: #fff; opacity: 0; }
+      /* ancla del zoom: centro de la parte visible de la tabla, en coordenadas del marco */
+      #zoom { position: absolute; left: 0; top: 0; width: 1600px; height: 720px; transform-origin: 931px 452px; }
+      #rec { position: absolute; left: 0; top: 0; width: 1600px; height: 720px; object-fit: cover; object-position: top left; }
+      #cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+      #cursor .ring { position: absolute; inset: 0; border-radius: 50%; border: 5px solid #fefefe; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+      #cursor .dot { position: absolute; left: 22px; top: 22px; width: 20px; height: 20px; border-radius: 50%; background: #1f7a33; border: 2px solid #fefefe; box-sizing: border-box; }
+    
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 800; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-style: normal; letter-spacing: -0.02em; }
+      .brand { font-weight: 800; font-style: normal; font-family: "Archivo", sans-serif; }
+      #root p, #root h1, #root span { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s24" data-start="0" data-width="1920" data-height="1080" data-duration="4" data-fps="60">
+      <p id="t23" class="t" data-layout-allow-overlap>y si alguien cree que es otra especie puede proponerlo en los comentarios</p>
+      <p id="t23b" class="t">Nosotros veremos la propuesta y un experto la <b>validará</b></p>
+            <div id="frame" data-layout-allow-occlusion>
+        <div id="zoom" data-layout-allow-overflow>
+          <video id="rec" src="assets/video/admin.mp4" data-start="0" data-duration="4" data-track-index="1" muted playsinline></video>
+        </div>
+        <div id="cursor"><div class="ring"></div><div class="dot"></div></div>
+      </div>
+    </div>
+
+    <script>
+      // Grabación 1468x700 mostrada a 1600 de ancho (factor 1.090). Ratón real: de (1300, 120) a la tabla; el cursor queda en una zona vacía de la primera fila.
+      const K = 1600 / 1468, Z = 1.10, O = { x: 931, y: 452 };
+      const zp = (x, y) => ({ x: O.x + (x * K - O.x) * Z, y: O.y + (y * K - O.y) * Z });
+      const A = zp(1300, 120), B = zp(540, 212);
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 0.00: sale el texto de S23, entra la frase y el marco
+      tl.to("#t23", { y: -24, opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power2.in" }, 0);
+      // 115.70-116.20: T23b desde y+16
+      tl.fromTo("#t23b", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: EASE }, 0.2);
+      tl.fromTo("#frame", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: EASE }, 0.2);
+      // zoom a 1.10 sobre la tabla al entrar, 0.5 s
+      tl.fromTo("#zoom", { scale: 1 }, { scale: Z, duration: 0.5, ease: "expo.inOut" }, 0.35);
+      // cursor 64 px, lento, sobre la primera fila
+      tl.set("#cursor", { x: A.x, y: A.y, opacity: 0 }, 0);
+      tl.to("#cursor", { opacity: 1, duration: 0.2 }, 0.85);
+      tl.to("#cursor", { x: B.x, y: B.y, duration: 1.4, ease: "power3.inOut" }, 1.0);
+      window.__timelines["s24"] = tl;
+    </script>
+  </body>
+</html>

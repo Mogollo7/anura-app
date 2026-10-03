@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Dataset Jerárquico de Colombia â€” Paquetes Departamentales"
 proyecto: Anura
 tipo: metodología

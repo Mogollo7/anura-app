@@ -1,0 +1,133 @@
+{
+  "total_centroids": 42,
+  "group_a_count": 9,
+  "group_b_count": 33,
+  "species_details": {
+    "Species_0": {
+      "group": "A"
+    },
+    "Species_1": {
+      "group": "A"
+    },
+    "Species_2": {
+      "group": "A"
+    },
+    "Species_3": {
+      "group": "A"
+    },
+    "Species_4": {
+      "group": "A"
+    },
+    "Species_5": {
+      "group": "A"
+    },
+    "Species_6": {
+      "group": "A"
+    },
+    "Species_7": {
+      "group": "A"
+    },
+    "Species_8": {
+      "group": "A"
+    },
+    "Species_9": {
+      "group": "B"
+    },
+    "Species_10": {
+      "group": "B"
+    },
+    "Species_11": {
+      "group": "B"
+    },
+    "Species_12": {
+      "group": "B"
+    },
+    "Species_13": {
+      "group": "B"
+    },
+    "Species_14": {
+      "group": "B"
+    },
+    "Species_15": {
+      "group": "B"
+    },
+    "Species_16": {
+      "group": "B"
+    },
+    "Species_17": {
+      "group": "B"
+    },
+    "Species_18": {
+      "group": "B"
+    },
+    "Species_19": {
+      "group": "B"
+    },
+    "Species_20": {
+      "group": "B"
+    },
+    "Species_21": {
+      "group": "B"
+    },
+    "Species_22": {
+      "group": "B"
+    },
+    "Species_23": {
+      "group": "B"
+    },
+    "Species_24": {
+      "group": "B"
+    },
+    "Species_25": {
+      "group": "B"
+    },
+    "Species_26": {
+      "group": "B"
+    },
+    "Species_27": {
+      "group": "B"
+    },
+    "Species_28": {
+      "group": "B"
+    },
+    "Species_29": {
+      "group": "B"
+    },
+    "Species_30": {
+      "group": "B"
+    },
+    "Species_31": {
+      "group": "B"
+    },
+    "Species_32": {
+      "group": "B"
+    },
+    "Species_33": {
+      "group": "B"
+    },
+    "Species_34": {
+      "group": "B"
+    },
+    "Species_35": {
+      "group": "B"
+    },
+    "Species_36": {
+      "group": "B"
+    },
+    "Species_37": {
+      "group": "B"
+    },
+    "Species_38": {
+      "group": "B"
+    },
+    "Species_39": {
+      "group": "B"
+    },
+    "Species_40": {
+      "group": "B"
+    },
+    "Species_41": {
+      "group": "B"
+    }
+  }
+}

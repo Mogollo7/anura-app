@@ -144,6 +144,7 @@ class AnuraRepository(
         scope.launch {
             hydrateFavorites()
             hydrateOwnObservations()
+            syncPendingObservations()
         }
     }
 
@@ -297,7 +298,7 @@ class AnuraRepository(
                 return IdentificationOutcome.Failed(IdentificationFailure.NoPhoto, "El borrador no tiene foto")
             }
             val pack = snapshot.packages.firstOrNull {
-                it.active && it.status == RegionalPackageStatus.Installed && it.localPath != null
+                it.active && it.hasUsableLocalInstall()
             } ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
             val path = pack.localPath
                 ?: return IdentificationOutcome.Failed(IdentificationFailure.NoActivePackage, "Ningún paquete activo")
@@ -444,18 +445,22 @@ class AnuraRepository(
         }
         if (snapshot.deviceBlocked) return
         if (record.serverId != null) return
-        // Privada = solo en el teléfono. Al publicarla se sube; al volverla privada se baja y se borra del servidor.
-        if (!record.visibilityPublic) return
-        val photoToken = record.photoTokens.firstOrNull() ?: return
-        val photo = MediaPersistence.fileFromToken(photoToken) ?: return
+        // Una observación privada también se respalda: el servidor la devuelve solo a su dueña.
+        // `visibilityPublic` decide si aparece en Explorer, no si se sincroniza.
+        if (record.photoTokens.isEmpty()) return
         if (!uploadsInFlight.add(record.id)) return
-        val topCandidate = record.candidates.firstOrNull()
         scope.launch {
             try {
                 val latest = snapshot.observations.find { it.id == record.id } ?: record
+                val localPhotos = latest.photoTokens
+                val photoFiles = localPhotos.mapNotNull(MediaPersistence::fileFromToken)
+                if (photoFiles.size != localPhotos.size) return@launch
+                val topCandidate = latest.candidates.firstOrNull()
                 val uploaded = when (
                     val outcome = ObservationsRemote.upload(
-                        photo = photo,
+                        photos = photoFiles,
+                        clientId = latest.id,
+                        recordedAt = java.time.Instant.ofEpochMilli(latest.createdAtEpochMs).toString(),
                         latitude = latest.latitude,
                         longitude = latest.longitude,
                         notes = observationNotes(latest),
@@ -472,8 +477,8 @@ class AnuraRepository(
                     }
                     ObservationUpload.Failed -> return@launch
                 }
-                val remotePhoto = uploaded.thumbnailUrl ?: uploaded.imageUrl
-                val localPhotos = latest.photoTokens
+                if (uploaded.photoUrls.size != localPhotos.size) return@launch
+                val remotePhotos = uploaded.photoUrls
                 // Persistir serverId + URL remota y vaciar tokens locales ANTES de borrar archivos,
                 // para que la ficha nunca quede sin imagen si el delete falla a medias.
                 update { current ->
@@ -482,7 +487,8 @@ class AnuraRepository(
                             if (it.id == record.id) {
                                 it.copy(
                                     serverId = uploaded.observationId,
-                                    photoUrl = remotePhoto ?: it.photoUrl,
+                                    photoUrl = remotePhotos.firstOrNull() ?: it.photoUrl,
+                                    remotePhotoUrls = remotePhotos,
                                     photoTokens = emptyList(),
                                 )
                             } else {
@@ -669,7 +675,7 @@ class AnuraRepository(
         val token = snapshot.session.authToken ?: return DeviceReportResult.Failed
         val deviceKey = ensureDeviceKey()
         val paquetes = snapshot.packages
-            .filter { it.status == RegionalPackageStatus.Installed }
+            .filter { it.hasUsableLocalInstall() }
             .map { pack ->
                 DevicePackageEntry(
                     subregion = findPackage(_packageTree.value, pack.id)?.nombre ?: pack.id,
@@ -809,80 +815,61 @@ class AnuraRepository(
         }
     }
 
-    /**
-     * Privada = vive solo en el teléfono. Pública = vive en el servidor.
-     * - Privada → pública: se marca y se sube (o, si ya estaba allá, se publica con PUT).
-     * - Pública → privada: primero se baja la foto original al teléfono y se guarda; solo si eso
-     *   salió bien se borra del servidor. Si algo falla, la observación sigue pública y nada se pierde.
-     */
+    /** Una observación siempre se respalda; la privacidad solo controla su visibilidad para terceros. */
     fun setObservationVisibility(id: String, public: Boolean) {
         if (!isOwnObservation(id)) return
         val actual = snapshot.observations.find { it.id == id } ?: return
         if (actual.visibilityPublic == public) return
         val token = snapshot.session.authToken
         val serverId = actual.serverId
-        if (public) {
-            update { current ->
-                current.copy(observations = current.observations.map { if (it.id == id) it.copy(visibilityPublic = true) else it })
-            }
-            if (token == null) return
-            if (serverId != null) {
-                scope.launch { ObservationsRemote.updateVisibility(serverId, isPrivate = false, bearer = token) }
-            } else {
-                snapshot.observations.find { it.id == id }?.let { uploadObservationIfPossible(it) }
-            }
-            return
+        update { current ->
+            current.copy(observations = current.observations.map {
+                if (it.id == id) it.copy(visibilityPublic = public) else it
+            })
         }
+        if (token == null || isJwtExpired(token)) return
         if (serverId == null) {
-            update { current ->
-                current.copy(observations = current.observations.map { if (it.id == id) it.copy(visibilityPublic = false) else it })
-            }
-            return
-        }
-        if (token == null || isJwtExpired(token)) {
-            notify("Entra a tu cuenta para volver privada una observación que está en el servidor.")
+            snapshot.observations.find { it.id == id }?.let(::uploadObservationIfPossible)
             return
         }
         scope.launch {
-            val local = actual.photoTokens.firstOrNull()?.takeIf { MediaPersistence.fileFromToken(it) != null }
-            val photo = local ?: run {
-                val remote = ExplorerRemote.observation(serverId)
-                val url = ExplorerRemote.originalUrl(remote?.image_key ?: remote?.thumbnail_key)
-                val bytes = url?.let { ExplorerRemote.downloadBytes(it) }
-                bytes?.let { media?.savePhotoBytes(it) }
-            }
-            if (photo == null) {
-                notify("No se pudo bajar la foto al teléfono. La observación sigue pública.")
-                return@launch
-            }
-            if (!ObservationsRemote.delete(serverId, token)) {
-                if (local == null) MediaPersistence.deleteLocalFile(photo)
-                notify("No se pudo quitar la observación del servidor. Sigue pública.")
-                return@launch
-            }
-            update { current ->
-                current.copy(
-                    observations = current.observations.map {
-                        if (it.id == id) it.copy(visibilityPublic = false, serverId = null, photoUrl = null, photoTokens = listOf(photo)) else it
-                    },
-                )
+            if (!ObservationsRemote.updateVisibility(serverId, isPrivate = !public, bearer = token)) {
+                // El estado local vuelve a ser el confirmado en el servidor; el próximo inicio reintentará.
+                update { current ->
+                    current.copy(observations = current.observations.map {
+                        if (it.id == id) it.copy(visibilityPublic = actual.visibilityPublic) else it
+                    })
+                }
+                notify("No se pudo actualizar la privacidad en el servidor.")
             }
         }
     }
 
     /**
      * Trae al teléfono las observaciones propias que están en el servidor (otro dispositivo,
-     * la web o una reinstalación), para que salgan en el perfil. Solo añade las que faltan;
-     * no pisa ni borra nada de lo local. Sin red o sin respuesta no hace nada.
+     * la web o una reinstalación), para que salgan en el perfil. También refresca fotos y
+     * privacidad de las que ya existen. Sin red o sin respuesta no hace nada.
      */
     suspend fun hydrateOwnObservations() {
         val token = snapshot.session.authToken ?: return
         val session = snapshot.session
-        if (session.username.isBlank() || isJwtExpired(token)) return
-        val remote = ExplorerRemote.feed(username = session.username, bearer = token)
+        if (isJwtExpired(token)) return
+        val remote = ExplorerRemote.ownFeed(token)
         if (remote.isEmpty()) return
         update { current ->
-            val known = current.observations.flatMap { listOfNotNull(it.id, it.serverId) }.toSet()
+            val remotasPorId = remote.associateBy { it.id }
+            val actualizadas = current.observations.map { local ->
+                val remoto = local.serverId?.let(remotasPorId::get) ?: return@map local
+                remoto.toObservationRecord().copy(
+                    id = local.id,
+                    ownerUserId = session.userId,
+                    ownerDisplayName = session.displayName,
+                    ownerUsername = session.username,
+                    serverId = remoto.id,
+                    photoTokens = local.photoTokens,
+                )
+            }
+            val known = actualizadas.flatMap { listOfNotNull(it.id, it.serverId) }.toSet()
             val nuevas = remote.filter { it.id !in known }.map {
                 it.toObservationRecord().copy(
                     ownerUserId = session.userId,
@@ -891,7 +878,7 @@ class AnuraRepository(
                     serverId = it.id,
                 )
             }
-            if (nuevas.isEmpty()) current else current.copy(observations = current.observations + nuevas)
+            current.copy(observations = actualizadas + nuevas)
         }
     }
 
@@ -1124,7 +1111,7 @@ class AnuraRepository(
                                 // El primer paquete de identificación que se instala queda activo: sin
                                 // eso la identificación seguiría diciendo que falta un paquete.
                                 val noneActive = snapshot.packages.none {
-                                    it.id != file.id && it.active && it.status == RegionalPackageStatus.Installed
+                                    it.id != file.id && it.active && it.hasUsableLocalInstall()
                                 }
                                 pack.copy(
                                     status = RegionalPackageStatus.Installed,
@@ -1216,13 +1203,13 @@ class AnuraRepository(
     fun activatePackage(id: String) {
         val node = findPackage(_packageTree.value, id)
         if (node?.formato == "json") return
-        val path = snapshot.packages.find { it.id == id }?.localPath
-        if (path != null && !path.endsWith("package.sqlite")) return
+        val target = snapshot.packages.find { it.id == id } ?: return
+        if (!target.hasUsableLocalInstall()) return
         update { current ->
             current.copy(
                 packages = current.packages.map { pack ->
                     when {
-                        pack.id == id && pack.status == RegionalPackageStatus.Installed -> pack.copy(active = true)
+                        pack.id == id && pack.hasUsableLocalInstall() -> pack.copy(active = true)
                         pack.id != id -> pack.copy(active = false)
                         else -> pack
                     }
@@ -1274,6 +1261,14 @@ class AnuraRepository(
                     }
                 }
                 repo._hydrated.value = true
+                // La copia del servidor debe empezar al restaurar la sesión, incluso antes de
+                // que la UI complete el reporte del dispositivo. Esto recupera observaciones
+                // creadas en la web, otro teléfono o una instalación anterior.
+                val restoredToken = repo.snapshot.session.authToken
+                if (restoredToken != null && !isJwtExpired(restoredToken)) {
+                    repo.syncPendingObservations()
+                    repo.hydrateOwnObservations()
+                }
             }
             return repo
         }

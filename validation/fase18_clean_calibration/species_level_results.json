@@ -1,0 +1,203 @@
+{
+  "unknown": {
+    "Sachatamia_electrops": {
+      "n_images": 29,
+      "false_accepts": 28,
+      "FAR": 0.9655172413793104,
+      "nearest_known_species_counts": {
+        "Boana_cinerascens": 11,
+        "Hyloscirtus_palmeri": 8,
+        "Dendropsophus_molitor": 1,
+        "Dendropsophus_norandinus": 4,
+        "Dendropsophus_columbianus": 1,
+        "Scinax_ruber": 2,
+        "Boana_punctata": 2
+      },
+      "metric_mean": 0.7059348821640015
+    },
+    "Hyloxalus_picachos": {
+      "n_images": 10,
+      "false_accepts": 9,
+      "FAR": 0.9,
+      "nearest_known_species_counts": {
+        "Pristimantis_achatinus": 4,
+        "Rheobates_palmatus": 2,
+        "Pristimantis_bogotensis": 1,
+        "Craugastor_raniformis": 1,
+        "Dendropsophus_columbianus": 1,
+        "Pristimantis_thectopternus": 1
+      },
+      "metric_mean": 0.6102279424667358
+    }
+  },
+  "known": {
+    "Dendrobates_truncatus": {
+      "species_id": "ANU_COL_DEND_TRU_001",
+      "n_images": 1096,
+      "accepts": 1063,
+      "rejects": 33,
+      "FRR": 0.030109489051094892
+    },
+    "Pristimantis_erythropleura": {
+      "species_id": "ANU_COL_PRIS_ERY_001",
+      "n_images": 23,
+      "accepts": 20,
+      "rejects": 3,
+      "FRR": 0.13043478260869565
+    },
+    "Boana_boans": {
+      "species_id": "ANU_COL_BOAN_BOA_001",
+      "n_images": 24,
+      "accepts": 23,
+      "rejects": 1,
+      "FRR": 0.041666666666666664
+    },
+    "Boana_punctata": {
+      "species_id": "ANU_COL_BOAN_PUN_001",
+      "n_images": 183,
+      "accepts": 179,
+      "rejects": 4,
+      "FRR": 0.02185792349726776
+    },
+    "Pristimantis_taeniatus": {
+      "species_id": "ANU_COL_PRIS_TAE_001",
+      "n_images": 30,
+      "accepts": 30,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Boana_pugnax": {
+      "species_id": "ANU_COL_BOAN_PUG_001",
+      "n_images": 11,
+      "accepts": 11,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Dendropsophus_columbianus": {
+      "species_id": "ANU_COL_DEND_COL_001",
+      "n_images": 5,
+      "accepts": 4,
+      "rejects": 1,
+      "FRR": 0.2
+    },
+    "Dendropsophus_bogerti": {
+      "species_id": "ANU_COL_DEND_BOG_001",
+      "n_images": 557,
+      "accepts": 517,
+      "rejects": 40,
+      "FRR": 0.0718132854578097
+    },
+    "Pristimantis_penelopus": {
+      "species_id": "ANU_COL_PRIS_PEN_001",
+      "n_images": 10,
+      "accepts": 9,
+      "rejects": 1,
+      "FRR": 0.1
+    },
+    "Boana_lanciformis": {
+      "species_id": "ANU_COL_BOAN_LAN_001",
+      "n_images": 62,
+      "accepts": 62,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Boana_platanera": {
+      "species_id": "ANU_COL_BOAN_PLA_001",
+      "n_images": 11,
+      "accepts": 11,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Leptodactylus_colombiensis": {
+      "species_id": "ANU_COL_LEPT_COL_001",
+      "n_images": 23,
+      "accepts": 21,
+      "rejects": 2,
+      "FRR": 0.08695652173913043
+    },
+    "Dendropsophus_ebraccatus": {
+      "species_id": "ANU_COL_DEND_EBR_001",
+      "n_images": 7,
+      "accepts": 7,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Rhinella_margaritifera": {
+      "species_id": "ANU_COL_RHIN_MAR_001",
+      "n_images": 38,
+      "accepts": 34,
+      "rejects": 4,
+      "FRR": 0.10526315789473684
+    },
+    "Dendropsophus_molitor": {
+      "species_id": "ANU_COL_DEND_MOL_001",
+      "n_images": 19,
+      "accepts": 19,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Craugastor_raniformis": {
+      "species_id": "ANU_COL_CRAU_RAN_001",
+      "n_images": 120,
+      "accepts": 114,
+      "rejects": 6,
+      "FRR": 0.05
+    },
+    "Dendropsophus_microcephalus": {
+      "species_id": "ANU_COL_DEND_MIC_001",
+      "n_images": 384,
+      "accepts": 375,
+      "rejects": 9,
+      "FRR": 0.0234375
+    },
+    "Hyloscirtus_palmeri": {
+      "species_id": "ANU_COL_HYLO_PAL_001",
+      "n_images": 24,
+      "accepts": 23,
+      "rejects": 1,
+      "FRR": 0.041666666666666664
+    },
+    "Pristimantis_paisa": {
+      "species_id": "ANU_COL_PRIS_PAI_001",
+      "n_images": 32,
+      "accepts": 29,
+      "rejects": 3,
+      "FRR": 0.09375
+    },
+    "Boana_cinerascens": {
+      "species_id": "ANU_COL_BOAN_CIN_001",
+      "n_images": 19,
+      "accepts": 19,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Phyllomedusa_venusta": {
+      "species_id": "ANU_COL_PHYL_VEN_001",
+      "n_images": 10,
+      "accepts": 10,
+      "rejects": 0,
+      "FRR": 0.0
+    },
+    "Pristimantis_achatinus": {
+      "species_id": "ANU_COL_PRIS_ACH_001",
+      "n_images": 1168,
+      "accepts": 1090,
+      "rejects": 78,
+      "FRR": 0.06678082191780822
+    },
+    "Engystomops_pustulosus": {
+      "species_id": "ANU_COL_ENGY_PUS_001",
+      "n_images": 1050,
+      "accepts": 906,
+      "rejects": 144,
+      "FRR": 0.13714285714285715
+    },
+    "Scinax_ruber": {
+      "species_id": "ANU_COL_SCIN_RUB_001",
+      "n_images": 24,
+      "accepts": 23,
+      "rejects": 1,
+      "FRR": 0.041666666666666664
+    }
+  }
+}

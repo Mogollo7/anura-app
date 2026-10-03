@@ -1,0 +1,17 @@
+{
+  "THR_LOW_FAR_le_5pct": 0.519000742678619,
+  "THR_HIGH_FAR_le_30pct": 0.8233217349267955,
+  "status": "DIAGNOSTIC",
+  "calibration_rejection_reason": "validation/fase18_clean_calibration/ tiene un split CALIBRATION independiente con ambas clases representadas (known_n=2545, unknown_n=17), pero se descarta para seleccionar el threshold de GEO-6 por dos razones: (1) unknown_n=17 es demasiado pequeno para estimar FAR de forma confiable (un solo UNKNOWN mal clasificado mueve FAR en ~5.9 puntos porcentuales); (2) el pipeline de fase18 selecciono COSINE como metrica final (method_selection.json), mientras que GEO-6 hereda el pipeline oficial euclidean_raw de fase23a (Gate 0) -- aunque fase18 reporta tambien un EUCLIDEAN de referencia, ese EUCLIDEAN no es el mismo score combinado visual+geo de GEO-2/3/5/6 (fase18 no incluye componente geografico). Por lo tanto el threshold de aceptacion de GEO-6 se marca DIAGNOSTIC: se selecciona con el mismo metodo de busqueda por FAR objetivo que GEO-3 (percentil 95 de KNOWN + busqueda de umbral con FAR<=nivel), pero sobre el propio split de TEST (7475 KNOWN + 620 UNKNOWN), la misma limitacion heredada que ya tenian GEO-2 y GEO-3 (documentada alli, no nueva de GEO-6).",
+  "threshold_selection_note": "Banda de dos thresholds sobre score_C (Etapa 2, w_geo_open_set=0.9, especie propuesta = top1 de Etapa 1 con w_geo_rank=0.3): THR_LOW=0.5190 (umbral con FAR<=5%, mismo nivel operativo que GEO-3 eligio como su punto mas estricto) -> score < THR_LOW => ESPECIE_CONOCIDA (alta confianza, bajo riesgo de aceptar una especie realmente no-registrada). THR_HIGH=0.8233 (umbral con FAR<=30%, el punto operativo que GEO-3 selecciono como su recomendacion central) -> score >= THR_HIGH => zona de fuerte incompatibilidad visual+geografica. Banda intermedia (THR_LOW<=score<THR_HIGH) => NO_CONCLUYENTE. DIAGNOSTIC: ambos thresholds se calibraron sobre el mismo split de TEST evaluado (no hay CALIBRATION independiente valida, ver arriba), por lo que estos numeros NO deben tratarse como umbrales de produccion.",
+  "known_set_decision_counts": {
+    "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)": 4936,
+    "ESPECIE_CONOCIDA": 1511,
+    "NO_CONCLUYENTE": 1028
+  },
+  "unknown_set_decision_counts": {
+    "NO_CONCLUYENTE (alta incompatibilidad visual+geografica -- posible especie no registrada, pero no se afirma NO_REGISTRADA: no existe evidencia suficiente en este experimento para distinguir formalmente 'especie ausente del catalogo' de 'observacion ambigua/borderline' con el mismo score. Ver limitacion en GEO6_REPORT.md)": 436,
+    "NO_CONCLUYENTE": 153,
+    "ESPECIE_CONOCIDA": 31
+  }
+}

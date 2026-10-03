@@ -1,0 +1,36 @@
+{
+  "phase": "18_blind_test",
+  "method": "COSINE",
+  "threshold": 0.49660250544548035,
+  "n_known": 4930,
+  "n_unknown": 39,
+  "n_known_individuals": 2654,
+  "n_unknown_individuals": 11,
+  "n_known_species": 24,
+  "n_unknown_species": 2,
+  "classification_counts": {
+    "KNOWN_ACCEPTED": 4599,
+    "KNOWN_REJECTED": 331,
+    "UNKNOWN_REJECTED": 2,
+    "UNKNOWN_FALSE_ACCEPTED": 37
+  },
+  "metrics": {
+    "KAR": 0.9328600405679514,
+    "KAR_95CI": [
+      0.9255315526580417,
+      0.9395144593582339
+    ],
+    "FRR": 0.06713995943204869,
+    "FAR": 0.9487179487179487,
+    "FAR_95CI": [
+      0.8311406095436208,
+      0.9858223423536004
+    ],
+    "UDR": 0.05128205128205128,
+    "precision_unknown": 0.006006006006006006,
+    "recall_unknown": 0.05128205128205128,
+    "f1_unknown": 0.010752688172043012,
+    "balanced_accuracy": 0.49207104592500134,
+    "AUROC": 0.6672179747230457
+  }
+}

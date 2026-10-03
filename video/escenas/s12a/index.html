@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S12a Qué es un paquete</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      #txt { position: absolute; left: 80px; top: 160px; width: 1760px; text-align: center; opacity: 0; filter: url(#ft); }
+      #txt p { margin: 0; color: #1b1c1e; }
+      #l1 { font-weight: 500; font-size: 48px; line-height: 1.2; }
+      #l1 b { font-weight: 700; }
+      #l2 { margin-top: 16px !important; font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; font-size: 40px; line-height: 1.15; }
+      #net { position: absolute; inset: 0; }
+      #lines { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+      .ln { stroke: #1b1c1e; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
+      .dot { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #1f7a33; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s12a" data-start="0" data-width="1920" data-height="1080" data-duration="5" data-fps="60">
+      <div id="txt">
+        <p id="l1">Los paquetes son un grupo de <b>embeddings</b></p>
+        <p id="l2">que tienen toda la información de varias especies</p>
+      </div>
+      <div id="net">
+        <svg id="lines" viewBox="0 0 1920 1080" aria-hidden="true"><line class="ln" id="lAB" x1="500" y1="480" x2="660" y2="420" pathLength="1"/><line class="ln" id="lBC" x1="660" y1="420" x2="820" y2="520" pathLength="1"/><line class="ln" id="lAD" x1="500" y1="480" x2="540" y2="680" pathLength="1"/><line class="ln" id="lDE" x1="540" y1="680" x2="740" y2="740" pathLength="1"/><line class="ln" id="lCF" x1="820" y1="520" x2="640" y2="600" pathLength="1"/><line class="ln" id="lFE" x1="640" y1="600" x2="740" y2="740" pathLength="1"/><line class="ln" id="lBF" x1="660" y1="420" x2="640" y2="600" pathLength="1"/><line class="ln" id="lAF" x1="500" y1="480" x2="640" y2="600" pathLength="1"/><line class="ln" id="lGH" x1="1140" y1="460" x2="1320" y2="400" pathLength="1"/><line class="ln" id="lHI" x1="1320" y1="400" x2="1480" y2="540" pathLength="1"/><line class="ln" id="lGJ" x1="1140" y1="460" x2="1180" y2="700" pathLength="1"/><line class="ln" id="lJK" x1="1180" y1="700" x2="1400" y2="780" pathLength="1"/><line class="ln" id="lIL" x1="1480" y1="540" x2="1280" y2="620" pathLength="1"/><line class="ln" id="lLK" x1="1280" y1="620" x2="1400" y2="780" pathLength="1"/><line class="ln" id="lHL" x1="1320" y1="400" x2="1280" y2="620" pathLength="1"/><line class="ln" id="lGL" x1="1140" y1="460" x2="1280" y2="620" pathLength="1"/><line class="ln" id="lCG" x1="820" y1="520" x2="1140" y2="460" pathLength="1"/></svg>
+        <div class="dot" id="pA" style="left:492px;top:472px"></div><div class="dot" id="pB" style="left:652px;top:412px"></div><div class="dot" id="pC" style="left:812px;top:512px"></div><div class="dot" id="pD" style="left:532px;top:672px"></div><div class="dot" id="pE" style="left:732px;top:732px"></div><div class="dot" id="pF" style="left:632px;top:592px"></div><div class="dot" id="pG" style="left:1132px;top:452px"></div><div class="dot" id="pH" style="left:1312px;top:392px"></div><div class="dot" id="pI" style="left:1472px;top:532px"></div><div class="dot" id="pJ" style="left:1172px;top:692px"></div><div class="dot" id="pK" style="left:1392px;top:772px"></div><div class="dot" id="pL" style="left:1272px;top:612px"></div>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="ft" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur id="ftg" stdDeviation="0 0"/></filter>
+      </svg>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      const DOTS = "ABCDEFGHIJKL".split("");
+      const EDGES = ['AB', 'BC', 'AD', 'DE', 'CF', 'FE', 'BF', 'AF', 'GH', 'HI', 'GJ', 'JK', 'IL', 'LK', 'HL', 'GL', 'CG'];
+      // 68.50-68.75: las dos líneas juntas desde y+20, blur vertical 12 -> 0
+      tl.fromTo("#txt", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: EASE }, 0);
+      tl.fromTo("#ftg", { attr: { stdDeviation: "0 12" } }, { attr: { stdDeviation: "0 0" }, duration: 0.25, ease: EASE }, 0);
+      // 69.25-70.50: doce puntos, uno cada 0.08 s, escala 0 -> 1, outBack
+      DOTS.forEach((k, i) => tl.fromTo("#p" + k, { scale: 0, opacity: 1 }, { scale: 1, opacity: 1, duration: 0.37, ease: "back.out(1.7)" }, 0.75 + i * 0.08));
+      // 70.25-71.60: líneas en orden, una cada 0.05 s, 0.45 s cada trazo, outExpo; quedan a opacidad 0.55
+      EDGES.forEach((e, i) => {
+        tl.fromTo("#l" + e, { strokeDashoffset: 1, opacity: 0.55 }, { strokeDashoffset: 0, opacity: 0.55, duration: 0.45, ease: EASE }, 1.75 + i * 0.05);
+      });
+      // 73.25-73.50: texto, puntos y líneas suben 24 px, blur 10, opacidad 0
+      tl.to(["#txt", "#net"], { y: -24, opacity: 0, duration: 0.25, ease: "power2.inOut" }, 4.75);
+      tl.to("#ftg", { attr: { stdDeviation: "10 10" }, duration: 0.25, ease: "power2.inOut" }, 4.75);
+      tl.fromTo("#net", { filter: "blur(0px)" }, { filter: "blur(10px)", duration: 0.25, ease: "power2.inOut", immediateRender: false }, 4.75);
+      window.__timelines["s12a"] = tl;
+    </script>
+  </body>
+</html>

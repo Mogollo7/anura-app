@@ -1,0 +1,118 @@
+{
+  "eer_approx": {
+    "threshold": 0.8762197202041206,
+    "FAR": 0.36774193548387096,
+    "FRR": 0.3867558528428094,
+    "gap": 0.019013917358938426
+  },
+  "max_balanced_accuracy": {
+    "threshold": 0.8928302443194877,
+    "FAR": 0.5451612903225806,
+    "FRR": 0.1939799331103679,
+    "BalancedAccuracy": 0.6304293882835257
+  },
+  "min_far_point": {
+    "threshold": 0.03145592233688008,
+    "FAR": 0.0,
+    "FRR": 1.0
+  },
+  "min_frr_at_far_le_50pct": {
+    "threshold": 0.8880843802865257,
+    "FAR": 0.49838709677419357,
+    "FRR": 0.2462876254180602
+  },
+  "n_pareto_candidates": 104,
+  "pareto_candidates_sample": [
+    {
+      "threshold": 0.3233265603640446,
+      "FAR": 0.0,
+      "FRR": 0.8614046822742475,
+      "BalancedAccuracy": 0.5692976588628762
+    },
+    {
+      "threshold": 0.3304453564134877,
+      "FAR": 0.0032258064516129032,
+      "FRR": 0.8555183946488294,
+      "BalancedAccuracy": 0.5706278994497789
+    },
+    {
+      "threshold": 0.3375641524629307,
+      "FAR": 0.004838709677419355,
+      "FRR": 0.851371237458194,
+      "BalancedAccuracy": 0.5718950264321934
+    },
+    {
+      "threshold": 0.34231001649589277,
+      "FAR": 0.0064516129032258064,
+      "FRR": 0.8492307692307692,
+      "BalancedAccuracy": 0.5721588089330025
+    },
+    {
+      "threshold": 0.4134979769903231,
+      "FAR": 0.008064516129032258,
+      "FRR": 0.7796655518394648,
+      "BalancedAccuracy": 0.6061349660157515
+    },
+    {
+      "threshold": 0.41824384102328516,
+      "FAR": 0.00967741935483871,
+      "FRR": 0.7694983277591974,
+      "BalancedAccuracy": 0.610412126442982
+    },
+    {
+      "threshold": 0.4301085011056902,
+      "FAR": 0.01129032258064516,
+      "FRR": 0.7471571906354515,
+      "BalancedAccuracy": 0.6207762433919517
+    },
+    {
+      "threshold": 0.4348543651386523,
+      "FAR": 0.016129032258064516,
+      "FRR": 0.742742474916388,
+      "BalancedAccuracy": 0.6205642464127737
+    },
+    {
+      "threshold": 0.4372272971551332,
+      "FAR": 0.017741935483870968,
+      "FRR": 0.7408695652173913,
+      "BalancedAccuracy": 0.6206942496493689
+    },
+    {
+      "threshold": 0.45621075328698135,
+      "FAR": 0.01935483870967742,
+      "FRR": 0.734314381270903,
+      "BalancedAccuracy": 0.6231653900097098
+    },
+    {
+      "threshold": 0.4918047335341965,
+      "FAR": 0.020967741935483872,
+      "FRR": 0.7224080267558528,
+      "BalancedAccuracy": 0.6283121156543316
+    },
+    {
+      "threshold": 0.49417766555067755,
+      "FAR": 0.027419354838709678,
+      "FRR": 0.720267558528428,
+      "BalancedAccuracy": 0.6261565433164311
+    },
+    {
+      "threshold": 0.4989235295836396,
+      "FAR": 0.02903225806451613,
+      "FRR": 0.7129096989966556,
+      "BalancedAccuracy": 0.6290290214694142
+    },
+    {
+      "threshold": 0.5012964616001205,
+      "FAR": 0.035483870967741936,
+      "FRR": 0.7088963210702341,
+      "BalancedAccuracy": 0.627809903981012
+    },
+    {
+      "threshold": 0.5036693936166016,
+      "FAR": 0.04032258064516129,
+      "FRR": 0.705953177257525,
+      "BalancedAccuracy": 0.6268621210486568
+    }
+  ],
+  "note_not_choosing_by_balacc_alone": "Se reportan multiples candidatos (EER, max BalAcc, min FAR, Pareto); no se selecciona un unico threshold operativo solo por maximizar BalancedAccuracy."
+}

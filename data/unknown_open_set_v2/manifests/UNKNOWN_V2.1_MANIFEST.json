@@ -1,0 +1,89 @@
+{
+  "dataset_version": "V2.1",
+  "creation_date": "2026-09-14T00:41:07.559168",
+  "description": "UNKNOWN species pool rebuilt with 70-100 images per species contract",
+  "pipeline_phase": "FASE22_1_COMPLETE",
+  "species_in_final": [
+    "Boana_albifrons",
+    "Pristimantis_brevirostris"
+  ],
+  "species_rejected": [
+    "Pristimantis_nervicus",
+    "Boana_geographica"
+  ],
+  "species_rejected_reasons": {
+    "Pristimantis_nervicus": "final_images=3 < 70_minimum",
+    "Boana_geographica": "final_images=2 < 70_minimum"
+  },
+  "replacement_decisions": {
+    "Boana_geographica": "Boana_albifrons",
+    "Pristimantis_nervicus": "Pristimantis_brevirostris"
+  },
+  "n_final_species": 2,
+  "n_final_images": 752,
+  "n_final_individuals": 395,
+  "images_per_species": {
+    "Hyloxalus_picachos": 15,
+    "Sachatamia_electrops": 39,
+    "Dendropsophus_labialis": 74,
+    "Dendropsophus_minutus": 23,
+    "Pristimantis_w_nigrum": 53,
+    "Pristimantis_brevirostris": 89,
+    "Rhinella_marina": 83,
+    "Leptodactylus_fragilis": 85,
+    "Boana_albifrons": 95,
+    "Smilisca_phaeota": 107,
+    "Espadarana_prosoblepon": 89
+  },
+  "individuals_per_species": {
+    "Hyloxalus_picachos": 15,
+    "Sachatamia_electrops": 19,
+    "Dendropsophus_labialis": 43,
+    "Dendropsophus_minutus": 19,
+    "Pristimantis_w_nigrum": 21,
+    "Pristimantis_brevirostris": 45,
+    "Rhinella_marina": 41,
+    "Leptodactylus_fragilis": 44,
+    "Boana_albifrons": 48,
+    "Smilisca_phaeota": 55,
+    "Espadarana_prosoblepon": 45
+  },
+  "taxonomic_distribution": {
+    "SAME_GENUS": 7,
+    "SAME_FAMILY": 2,
+    "DIFFERENT_FAMILY": 2
+  },
+  "same_genus_species": [
+    "Dendropsophus_labialis",
+    "Dendropsophus_minutus",
+    "Pristimantis_w_nigrum",
+    "Pristimantis_brevirostris",
+    "Rhinella_marina",
+    "Leptodactylus_fragilis",
+    "Boana_albifrons"
+  ],
+  "same_family_species": [
+    "Hyloxalus_picachos",
+    "Smilisca_phaeota"
+  ],
+  "different_family_species": [
+    "Sachatamia_electrops",
+    "Espadarana_prosoblepon"
+  ],
+  "leakage_count": 0,
+  "duplicate_count": 0,
+  "quality_rejection_count": 93,
+  "historical_unchanged": true,
+  "new_processed": true,
+  "manual_review_required": true,
+  "manual_review_location": "manual_review/",
+  "contract_satisfaction": {
+    "min_images_per_species": 70,
+    "max_images_per_species": 100,
+    "target_images_per_species": 80,
+    "min_individuals_per_species": 10,
+    "all_species_pass": false,
+    "all_species_min_individuals": true
+  },
+  "status": "READY_FOR_MANUAL_REVIEW"
+}

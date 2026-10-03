@@ -1,0 +1,46 @@
+{
+  "phase": "16.1",
+  "comparisons": {
+    "TRAIN_vs_CALIBRATION": {
+      "count": 0,
+      "examples": [],
+      "comparison_method": "SHA256 (calculado en runtime para especies compartidas)"
+    },
+    "TRAIN_vs_REFERENCE": {
+      "count": 0,
+      "examples": [],
+      "comparison_method": "SHA256 (calculado en runtime para especies compartidas)"
+    },
+    "TRAIN_vs_BLIND_F4_UNKNOWN": {
+      "count": 0,
+      "examples": [],
+      "comparison_method": "path completo"
+    },
+    "TRAIN_vs_BLIND_F3_KNOWN": {
+      "count": 766,
+      "examples": [
+        "Boana_punctata/col_obs_50235_photo_80040.jpg",
+        "Dendropsophus_mathiassoni/col_obs_239478949_photo_426520148.jpg",
+        "Dendropsophus_ebraccatus/col_obs_343793345_photo_626325261.jpg",
+        "Pristimantis_taeniatus/col_obs_6343189_photo_7994735.jpg",
+        "Boana_boans/col_obs_340770763_photo_620197017.jpg"
+      ],
+      "comparison_method": "path completo",
+      "note": "Ya documentado en Fase 15 como leakage confirmado. F3 NO se reutiliza en Fase 16."
+    },
+    "CALIBRATION_vs_BLIND_F4": {
+      "count": 0,
+      "examples": [],
+      "comparison_method": "filename (CALIBRATION no tiene path completo comparable a F4)"
+    },
+    "REFERENCE_vs_BLIND_F4": {
+      "count": 0,
+      "examples": [],
+      "comparison_method": "filename"
+    },
+    "individual_id_CALIBRATION_vs_BLIND": {
+      "status": "UNKNOWN",
+      "reason": "CALIBRATION no tiene obs_id/individual_id extraible (nombres reindexados Especie_NNN.jpg sin patron de observacion). No se asume 0 — se declara UNKNOWN explicitamente, consistente con FASE12_1_INDEPENDENCE_AUDIT.md previamente documentado."
+    }
+  }
+}

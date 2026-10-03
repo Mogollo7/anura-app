@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Anura â€” àndice General"
 proyecto: Anura
 tipo: índice

@@ -1,0 +1,10 @@
+{
+  "method": "PCA",
+  "n_components": 2,
+  "random_state": 42,
+  "explained_variance_ratio": [
+    0.3286319077014923,
+    0.1305132508277893
+  ],
+  "note": "UMAP no disponible en el entorno; PCA usado unicamente para esta figura, ninguna metrica principal de Fase 19 depende de esta proyeccion."
+}

@@ -1,0 +1,9 @@
+{
+  "clean_images_remaining": 18,
+  "clean_unique_observations_remaining": 9,
+  "original_images": 74,
+  "original_unique_observations": 43,
+  "excluded_images_contaminated": 56,
+  "excluded_unique_observations_contaminated": 34,
+  "sufficiency_assessment": "INSUFICIENTE para uso individual robusto como especie UNKNOWN aislada: quedan solo 9 observaciones limpias (18 imagenes), por debajo del umbral practico minimo (~10 observaciones / ~15 imagenes) para estimar FAR/FRR especifico de especie con margen estadistico razonable."
+}

@@ -1,5 +1,6 @@
 package me.juanlabs.anura.core.data
 
+import java.io.File
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -94,6 +95,8 @@ data class ObservationRecord(
      * lo que ya acepta `POST /api/observations`). Null = todavía solo local (invitado, sin
      * foto, o la subida falló). */
     val serverId: String? = null,
+    /** Todas las URLs remotas de una galería sincronizada; `photoUrl` sigue siendo la primera. */
+    val remotePhotoUrls: List<String> = emptyList(),
 ) {
     val isCommunity: Boolean get() = ownerUserId.startsWith("user-")
 }
@@ -170,6 +173,10 @@ data class RegionalPackageRecord(
     val installedAtEpochMs: Long? = null,
     val localPath: String? = null,
 )
+
+/** Una actualización puede fallar, pero el archivo confirmado anteriormente sigue siendo utilizable. */
+fun RegionalPackageRecord.hasUsableLocalInstall(): Boolean =
+    !sha256.isNullOrBlank() && !localPath.isNullOrBlank() && File(localPath).isFile
 
 @Serializable
 data class AnuraSnapshot(

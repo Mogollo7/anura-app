@@ -1,0 +1,30 @@
+{
+  "euclidean_normalized": {
+    "method": "euclidean_normalized",
+    "optimal_threshold_validation": 1.3093173986071878,
+    "youden_j_validation": 1.0,
+    "dataset_used": "VALIDATION (60% of KNOWN clean)",
+    "hash_validation_set": "29173f1fe9316905f9583eb61de44a27d5f4df618d1bbf5fcf986bcb1e345355"
+  },
+  "euclidean_raw": {
+    "method": "euclidean_raw",
+    "optimal_threshold_validation": 1.1817087242386428,
+    "youden_j_validation": 1.0,
+    "dataset_used": "VALIDATION (60% of KNOWN clean)",
+    "hash_validation_set": "29173f1fe9316905f9583eb61de44a27d5f4df618d1bbf5fcf986bcb1e345355"
+  },
+  "cosine": {
+    "method": "cosine",
+    "optimal_threshold_validation": 0.8571560725729571,
+    "youden_j_validation": 1.0,
+    "dataset_used": "VALIDATION (60% of KNOWN clean)",
+    "hash_validation_set": "29173f1fe9316905f9583eb61de44a27d5f4df618d1bbf5fcf986bcb1e345355"
+  },
+  "mahalanobis": {
+    "method": "mahalanobis",
+    "optimal_threshold_validation": 88.75210571289062,
+    "youden_j_validation": 1.0,
+    "dataset_used": "VALIDATION (60% of KNOWN clean)",
+    "hash_validation_set": "29173f1fe9316905f9583eb61de44a27d5f4df618d1bbf5fcf986bcb1e345355"
+  }
+}

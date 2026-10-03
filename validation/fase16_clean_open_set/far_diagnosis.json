@@ -1,0 +1,49 @@
+{
+  "H7_normalizacion_embedding": {
+    "status": "DESCARTADA",
+    "evidence": "norm_known=1.0000, norm_unknown=1.0000 (esperado ~1.0)"
+  },
+  "H9_insuficientes_especies_covariance": {
+    "status": "CONFIRMADA_COMO_FACTOR",
+    "evidence": "Solo 10 especies (798 imgs) estiman una covarianza de 512x512=262144 parametros. Ledoit-Wolf regulariza, pero con tan pocas clases el 'shared covariance' probablemente no representa bien la variabilidad real del embedding space completo (41 especies)."
+  },
+  "H2_covariance_mal_condicionada": {
+    "status": "CONFIRMADA_COMO_FACTOR",
+    "evidence": "condition_number=623.99 (Ledoit-Wolf ya regulariza; valor alto igual indica que el espacio de embeddings tiene direcciones de muy baja/alta varianza no bien resueltas con solo 9-10 especies de REFERENCE)."
+  },
+  "H4_H8_centroides_dispersos_o_amplios": {
+    "intra_class_std_euclidean_sample": 0.1126265898346901,
+    "inter_centroid_dist_mean": 1.0095083713531494,
+    "inter_centroid_dist_min": 0.19440272450447083,
+    "ratio": 8.963321685791016,
+    "status": "REQUIERE_CONTEXTO"
+  },
+  "H5_metrica_alternativa": {
+    "auroc_mahalanobis": 0.7470892857142857,
+    "auroc_euclidean": 0.827875,
+    "auroc_cosine": 0.8299821428571428,
+    "status": "CONFIRMADA_COMO_FACTOR",
+    "note": "Si Euclidean/Cosine superan claramente a Mahalanobis, la covarianza compartida esta distorsionando la geometria en vez de ayudarla."
+  },
+  "H6_cercania_taxonomica": {
+    "unknown_species": {
+      "Hyloxalus_picachos": 15,
+      "Sachatamia_electrops": 41
+    },
+    "status": "CONFIRMADA_COMO_FACTOR_PARCIAL",
+    "evidence": "Hyloxalus_picachos comparte familia (Dendrobatidae) con una especie KNOWN (Dendrobates_truncatus), lo cual biologicamente puede producir embeddings visualmente similares. Sachatamia_electrops no tiene familiar cercano en el catalogo — si tambien tiene FAR alto, la cercania taxonomica NO explica todo el problema."
+  },
+  "H6_far_by_unknown_species": {
+    "Hyloxalus_picachos": 0.8666666666666667,
+    "Sachatamia_electrops": 0.926829268292683
+  },
+  "H1_H3_distribucion_overlap": {
+    "known_mean": 31.8534212418104,
+    "known_std": 8.930204977329097,
+    "unknown_mean": 33.5211199390235,
+    "unknown_std": 4.750050366166364,
+    "overlap_fraction_unknown_below_known_p95": 1.0,
+    "status": "CONFIRMADA_COMO_CAUSA_PRINCIPAL",
+    "evidence": "Las distribuciones de distancia KNOWN y UNKNOWN se solapan sustancialmente — no existe un threshold global que pueda separarlas bien, independientemente de donde se fije."
+  }
+}

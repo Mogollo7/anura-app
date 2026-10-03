@@ -1,0 +1,25 @@
+true,Boana boans,Boana cinerascens,Boana lanciformis,Boana platanera,Boana pugnax,Boana punctata,Boana rosenbergi,Boana xerophylla,Craugastor raniformis,Dendrobates truncatus,Dendropsophus bogerti,Dendropsophus columbianus,Dendropsophus ebraccatus,Dendropsophus mathiassoni,Dendropsophus microcephalus,Dendropsophus molitor,Dendropsophus norandinus,Dendropsophus reticulatus,Dendropsophus triangulum,Engystomops pustulosus,Hyloscirtus palmeri,Leptodactylus colombiensis,Phyllomedusa tarsius,Phyllomedusa venusta,Pithecopus hypochondrialis,Pristimantis achatinus,Pristimantis bogotensis,Pristimantis erythropleura,Pristimantis gaigei,Pristimantis paisa,Pristimantis palmeri,Pristimantis penelopus,Pristimantis permixtus,Pristimantis taeniatus,Pristimantis thectopternus,Pristimantis vilarsi,Rheobates palmatus,Rhinella alata,Rhinella horribilis,Rhinella margaritifera,Scinax ruber
+Boana boans,25,0,2,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Boana cinerascens,0,24,0,0,0,3,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Boana lanciformis,2,0,65,0,0,6,0,0,1,0,0,7,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Boana platanera,0,0,0,9,5,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Boana pugnax,0,0,0,0,4,0,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Boana punctata,0,50,0,2,0,195,0,4,0,0,0,4,0,1,0,10,0,3,0,0,5,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Craugastor raniformis,0,0,7,0,0,0,0,0,131,0,0,1,0,0,0,0,0,0,0,2,0,7,0,0,0,3,4,1,1,1,1,0,5,0,5,5,3,0,0,0,7
+Dendrobates truncatus,0,0,2,3,0,0,0,0,1,1644,0,4,0,0,0,6,0,0,4,4,0,1,2,3,0,0,3,0,0,0,0,0,0,0,1,0,3,0,1,2,0
+Dendropsophus bogerti,0,0,7,17,5,1,0,3,2,0,269,245,2,30,41,29,41,26,4,1,1,2,0,0,1,0,18,1,0,1,0,0,6,0,0,0,12,0,2,0,47
+Dendropsophus columbianus,0,0,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Dendropsophus ebraccatus,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dendropsophus microcephalus,2,0,6,26,1,1,0,0,0,0,8,116,11,68,287,2,1,66,4,0,0,0,0,0,0,0,5,0,0,0,1,0,0,0,2,0,1,0,0,0,3
+Dendropsophus molitor,0,1,2,1,0,0,0,1,0,0,0,1,0,0,0,32,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Engystomops pustulosus,4,0,4,9,4,0,0,3,14,0,2,8,0,0,0,13,5,0,0,1186,0,35,0,1,1,1,158,4,2,4,3,19,1,1,11,1,39,0,17,34,8
+Hyloscirtus palmeri,0,3,0,0,0,3,0,0,0,0,1,0,0,0,0,0,1,0,0,0,33,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0
+Leptodactylus colombiensis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,29,0,0,0,0,1,1,0,0,0,0,0,0,0,1,2,0,0,0,1
+Phyllomedusa venusta,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,7,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pristimantis achatinus,1,0,42,1,0,0,0,0,355,0,2,45,0,3,6,7,5,5,1,11,0,16,0,0,0,314,140,62,24,14,25,5,118,30,393,88,27,0,0,7,14
+Pristimantis erythropleura,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,5,10,0,2,2,1,2,0,1,1,0,0,0,1,0
+Pristimantis paisa,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,8,2,0,19,5,7,1,1,1,0,0,0,0,0,0
+Pristimantis penelopus,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,6,4,0,0,0,1,0,0,0,0,0
+Pristimantis taeniatus,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,7,0,1,0,8,1,0,24,2,1,0,0,0,0,1
+Rhinella margaritifera,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,21,0,26,0
+Scinax ruber,0,0,0,2,1,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,28

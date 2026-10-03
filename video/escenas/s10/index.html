@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S10 Siempre en el celular</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      body { margin: 0; background: #eef5ee; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #eef5ee; color: #1b1c1e; font-family: "Archivo", sans-serif; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .brand { font-weight: 800; }
+      /* la pastilla ya viene puesta desde S09 */
+      #pill { position: absolute; left: 80px; top: 120px; padding: 10px 16px; border-radius: 12px; background: #1f7a33; color: #fefefe; font-weight: 800; font-size: 32px; line-height: 1.1; white-space: nowrap; }
+      #txt { position: absolute; left: 80px; top: 220px; width: 900px; }
+      #txt p { margin: 0; }
+      #t13 { font-weight: 500; font-size: 52px; line-height: 1.25; }
+      #sub { margin-top: 12px; font-size: 46px; line-height: 1.15; }
+      #wifi { position: absolute; left: 80px; top: 470px; width: 150px; height: 150px; overflow: visible; }
+      #wifi .arc { fill: none; stroke: #1f7a33; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+      #wifi .dot { fill: #1f7a33; }
+      #wifi .off { fill: none; stroke: #1b1c1e; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+      #phone { position: absolute; left: 1280px; top: 150px; width: 360px; height: 780px; box-sizing: border-box; padding: 14px; border-radius: 36px; background: #1b1c1e; box-shadow: 0 24px 40px rgba(27, 28, 30, 0.18); filter: url(#bx); }
+      #phone .scr { width: 100%; height: 100%; border-radius: 24px; overflow: hidden; }
+      #phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s10" data-start="0" data-width="1920" data-height="1080" data-duration="5" data-fps="60">
+      <div id="pill">IA local</div>
+      <div id="txt">
+        <p id="t13">No importa dónde estés <span class="brand">ANURA</span> se ejecuta en tu celular</p>
+        <p id="sub" class="serif">sin necesidad de internet</p>
+      </div>
+      <svg id="wifi" viewBox="0 0 112 112" aria-hidden="true">
+        <path class="arc" d="M37.62,73.62A26,26 0 0 1 74.38,73.62" pathLength="1"/><path class="arc" d="M20.64,56.64A50,50 0 0 1 91.36,56.64" pathLength="1"/><path class="arc" d="M3.67,39.67A74,74 0 0 1 108.33,39.67" pathLength="1"/>
+        <circle class="dot" cx="56" cy="92" r="7"/>
+        <path class="off" d="M6,6L106,106" pathLength="1"/>
+      </svg>
+      <div id="phone"><div class="scr"><img src="assets/img/1.jpg" alt="" /></div></div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="bx" x="-30%" y="-10%" width="160%" height="120%"><feGaussianBlur id="bxg" stdDeviation="0 0"/></filter>
+      </svg>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      // 40.00-40.40: frase y subfrase desde y+16
+      tl.fromTo("#txt", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE }, 0);
+      // 40.25-40.75: el teléfono entra desde la derecha (centro x 2500 -> 1460)
+      tl.fromTo("#phone", { x: 1040 }, { x: 0, duration: 0.5, ease: EASE }, 0.25);
+      tl.fromTo("#bxg", { attr: { stdDeviation: "18 0" } }, { attr: { stdDeviation: "0 0" }, duration: 0.5, ease: EASE }, 0.25);
+      // 41.00-41.50: wifi encendido, arcos de dentro hacia fuera cada 0.15 s
+      tl.to("#wifi .arc", { strokeDashoffset: 0, duration: 0.2, ease: EASE, stagger: 0.15 }, 1);
+      // 42.00-42.40: diagonal, wifi apagado
+      tl.to("#wifi .off", { strokeDashoffset: 0, duration: 0.4, ease: EASE }, 2);
+      tl.to("#wifi .arc, #wifi .dot", { opacity: 0.3, duration: 0.4, ease: EASE }, 2);
+      // 44.25-45.00: el teléfono sale solo hacia la derecha (centro x 1460 -> 2500), inExpo
+      tl.to("#phone", { x: 1040, duration: 0.75, ease: "expo.in" }, 4.25);
+      tl.fromTo("#bxg", { attr: { stdDeviation: "0 0" } }, { attr: { stdDeviation: "18 0" }, duration: 0.75, ease: "expo.in", immediateRender: false }, 4.25);
+      // 44.60-45.00: pastilla, líneas y wifi bajan a opacidad 0 sin moverse
+      tl.to(["#pill", "#txt", "#wifi"], { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 4.6);
+      window.__timelines["s10"] = tl;
+    </script>
+  </body>
+</html>

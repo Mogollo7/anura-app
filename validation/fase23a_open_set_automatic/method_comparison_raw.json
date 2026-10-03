@@ -1,0 +1,90 @@
+{
+  "euclidean_raw": {
+    "auroc": 0.5732919408781961,
+    "auprc": 0.9404194113222974,
+    "balanced_accuracy": 0.5248565109504801,
+    "far": 0.8112903225806452,
+    "frr": 0.13899665551839466,
+    "tpr": 0.8610033444816053,
+    "tnr": 0.18870967741935485,
+    "precision": 0.9275111687563049,
+    "recall": 0.8610033444816053,
+    "f1": 0.8930206743443875,
+    "tau_used": 0.8243664503097534,
+    "tau_status": "CALIBRATED_DIAGNOSTIC_KAR95_QUANTILE_KNOWN_ONLY",
+    "confusion_matrix": {
+      "TN": 117,
+      "FP": 503,
+      "FN": 1039,
+      "TP": 6436
+    },
+    "n_known": 7475,
+    "n_unknown": 620
+  },
+  "cosine": {
+    "auroc": 0.573054698457223,
+    "auprc": 0.9398526527136467,
+    "balanced_accuracy": 0.5243656273600172,
+    "far": 0.8209677419354838,
+    "frr": 0.1303010033444816,
+    "tpr": 0.8696989966555184,
+    "tnr": 0.17903225806451614,
+    "precision": 0.9273894436519258,
+    "recall": 0.8696989966555184,
+    "f1": 0.8976182257507765,
+    "tau_used": 0.42224013805389404,
+    "tau_status": "CALIBRATED_DIAGNOSTIC_KAR95_QUANTILE_KNOWN_ONLY",
+    "confusion_matrix": {
+      "TN": 111,
+      "FP": 509,
+      "FN": 974,
+      "TP": 6501
+    },
+    "n_known": 7475,
+    "n_unknown": 620
+  },
+  "normalized_euclidean": {
+    "auroc": 0.5730546984572229,
+    "auprc": 0.9398525100158786,
+    "balanced_accuracy": 0.5243656273600172,
+    "far": 0.8209677419354838,
+    "frr": 0.1303010033444816,
+    "tpr": 0.8696989966555184,
+    "tnr": 0.17903225806451614,
+    "precision": 0.9273894436519258,
+    "recall": 0.8696989966555184,
+    "f1": 0.8976182257507765,
+    "tau_used": 0.9189514517784119,
+    "tau_status": "CALIBRATED_DIAGNOSTIC_KAR95_QUANTILE_KNOWN_ONLY",
+    "confusion_matrix": {
+      "TN": 111,
+      "FP": 509,
+      "FN": 974,
+      "TP": 6501
+    },
+    "n_known": 7475,
+    "n_unknown": 620
+  },
+  "mahalanobis": {
+    "auroc": 0.5380420757363253,
+    "auprc": 0.9372181101201429,
+    "balanced_accuracy": 0.4869732441471572,
+    "far": 0.85,
+    "frr": 0.17605351170568562,
+    "tpr": 0.8239464882943144,
+    "tnr": 0.15,
+    "precision": 0.9211785821118755,
+    "recall": 0.8239464882943144,
+    "f1": 0.8698538238824941,
+    "tau_used": 39.35406371422803,
+    "tau_status": "HISTORICAL_FROZEN_NOT_OPTIMIZED_FOR_THIS_UNKNOWN",
+    "confusion_matrix": {
+      "TN": 93,
+      "FP": 527,
+      "FN": 1316,
+      "TP": 6159
+    },
+    "n_known": 7475,
+    "n_unknown": 620
+  }
+}

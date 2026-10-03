@@ -1,0 +1,14 @@
+{
+  "species_id": "ANU_COL_TEST_SYN_001",
+  "centroid_version": "visual_catalog_1.1.0_CANDIDATE",
+  "encoder_version": "bioclip_anura_v1",
+  "dataset_version": "SYNTHETIC_TEST_FIXTURE (25 imgs, 15 individuals, borrowed from Dendrobates_truncatus real photos)",
+  "method": "compute_centroids() \u2014 mean of L2-normalized embeddings, identical to Fase 13",
+  "individual_count": 15,
+  "image_count": 25,
+  "embedding_dimension": 512,
+  "centroid_sha256": "9c42dc001640875ab64c6c65b74116c57ffbc6b9000d6e231649b4281f090e73",
+  "generated_at": "2026-09-13T18:27:38.154548+00:00",
+  "source_split": "SYNTHETIC_TEST_ONLY",
+  "validation_status": "PENDING"
+}

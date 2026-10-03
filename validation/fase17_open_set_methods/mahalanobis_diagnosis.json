@@ -1,0 +1,8 @@
+{
+  "embedding_dimension": 512,
+  "covariance_parameters": "512x512",
+  "effective_parameters": 262144,
+  "calibration_species": 10,
+  "calibration_images": 798,
+  "condition_number": 623.9888979855957
+}

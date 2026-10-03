@@ -1,0 +1,44 @@
+{
+  "method": "euclidean_raw (identico a phase_reproduce_23a.py): min distancia a 41 centroides de especie (Group A=9 desde reference_embeddings.npz, Group B=32 desde train_embeddings.npz); KNOWN pool = fase16_clean_open_set/clean_known_embeddings.npz sin cambios; UNKNOWN pool oficial vs corregido (excluyendo 34 observation_id contaminados de Dendropsophus_labialis/Dendropsophus_molitor).",
+  "official": {
+    "n_known": 7475,
+    "n_unknown": 620,
+    "auroc": 0.5732919408781961,
+    "bootstrap_1000iter_seed42": {
+      "n_valid_iter": 1000,
+      "mean": 0.5736328261070132,
+      "std": 0.015100159851377618,
+      "ci95_lo": 0.5462789944286988,
+      "ci95_hi": 0.6048285902575926
+    },
+    "threshold_youden_j": -0.7006047368049622,
+    "far": 0.5161290322580645,
+    "frr": 0.3725752508361204,
+    "balanced_accuracy": 0.5556478584529075
+  },
+  "corrected_v2_delabeling_fixed": {
+    "n_known": 7475,
+    "n_unknown": 564,
+    "n_excluded_contaminated_images": 56,
+    "auroc": 0.5712774259351503,
+    "bootstrap_1000iter_seed42": {
+      "n_valid_iter": 1000,
+      "mean": 0.5712463410454987,
+      "std": 0.01625371944576708,
+      "ci95_lo": 0.5377486178461247,
+      "ci95_hi": 0.6008150226192022
+    },
+    "threshold_used_youden_j_from_official": -0.7006047368049622,
+    "far": 0.5141843971631206,
+    "frr": 0.3725752508361204,
+    "balanced_accuracy": 0.5566201760003795
+  },
+  "delta": {
+    "auroc_diff": -0.002014514943045831,
+    "ci95_overlap": true
+  },
+  "dendropsophus_labialis_clean_remaining": {
+    "images": 18,
+    "unique_observations": 9
+  }
+}

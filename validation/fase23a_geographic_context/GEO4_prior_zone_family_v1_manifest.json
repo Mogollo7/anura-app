@@ -1,0 +1,113 @@
+{
+  "level": "family",
+  "K": 14,
+  "levels": [
+    "Aromobatidae",
+    "Bufonidae",
+    "Centrolenidae",
+    "Craugastoridae",
+    "Dendrobatidae",
+    "Dicroglossidae",
+    "Eleutherodactylidae",
+    "Hemiphractidae",
+    "Hylidae",
+    "Leptodactylidae",
+    "Microhylidae",
+    "Phyllomedusidae",
+    "Pipidae",
+    "Ranidae"
+  ],
+  "alpha_selected": 2.0,
+  "alpha_at_grid_edge": false,
+  "alpha_curve": [
+    {
+      "alpha": 0.001,
+      "mean_heldout_loglik": -1.9812671458069615
+    },
+    {
+      "alpha": 0.002,
+      "mean_heldout_loglik": -1.9798747124828169
+    },
+    {
+      "alpha": 0.005,
+      "mean_heldout_loglik": -1.9780339149683748
+    },
+    {
+      "alpha": 0.01,
+      "mean_heldout_loglik": -1.9766412549804628
+    },
+    {
+      "alpha": 0.02,
+      "mean_heldout_loglik": -1.9752483695559488
+    },
+    {
+      "alpha": 0.05,
+      "mean_heldout_loglik": -1.9734067155874375
+    },
+    {
+      "alpha": 0.1,
+      "mean_heldout_loglik": -1.9720142309424766
+    },
+    {
+      "alpha": 0.2,
+      "mean_heldout_loglik": -1.9706272805536846
+    },
+    {
+      "alpha": 0.5,
+      "mean_heldout_loglik": -1.9688414351281842
+    },
+    {
+      "alpha": 1.0,
+      "mean_heldout_loglik": -1.9676388501313335
+    },
+    {
+      "alpha": 2.0,
+      "mean_heldout_loglik": -1.9668725983632411
+    },
+    {
+      "alpha": 5.0,
+      "mean_heldout_loglik": -1.9679175200895445
+    },
+    {
+      "alpha": 10.0,
+      "mean_heldout_loglik": -1.9726072283481066
+    }
+  ],
+  "effort_cap_tope": 67,
+  "n_records_purged_total": 13867,
+  "n_records_excluded": 1214,
+  "n_zones": 4,
+  "zones": [
+    "ZONE_001",
+    "ZONE_002",
+    "ZONE_005",
+    "ZONE_006"
+  ],
+  "method_reference": "identico a phase_clean_prior.py (prior_zone_taxon_v2_clean.csv), agregado a nivel family via catalog_v1.json[taxon_id].family",
+  "diagnostics_by_zone": {
+    "ZONE_001": {
+      "records": 721,
+      "effective_records": 596,
+      "family_observed": 10,
+      "p_unobserved": 0.003205128205128205
+    },
+    "ZONE_002": {
+      "records": 813,
+      "effective_records": 687,
+      "family_observed": 11,
+      "p_unobserved": 0.002797202797202797
+    },
+    "ZONE_005": {
+      "records": 7958,
+      "effective_records": 6587,
+      "family_observed": 13,
+      "p_unobserved": 0.0003023431594860166
+    },
+    "ZONE_006": {
+      "records": 4342,
+      "effective_records": 3082,
+      "family_observed": 13,
+      "p_unobserved": 0.0006430868167202572
+    }
+  }
+}

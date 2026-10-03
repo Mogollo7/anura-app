@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ANURA S23 Comentarios</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+      body { margin: 0; background: #1f7a33; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #1f7a33; color: #fefefe; font-family: "Archivo", sans-serif; }
+      #t23 { position: absolute; left: 80px; top: 280px; width: 700px; margin: 0; font-weight: 500; font-size: 56px; line-height: 1.3; opacity: 0; }
+      /* emulación de .detail-card.card.comments-section (tema claro) */
+      #card { position: absolute; left: 880px; top: 160px; width: 960px; box-sizing: border-box; padding: 48px 56px 56px; border-radius: 20px; background: #ffffff; color: #1b1c1e; box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22); opacity: 0; }
+      .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+      .head h3 { display: flex; align-items: center; gap: 16px; margin: 0; font-size: 44px; font-weight: 700; }
+      .head svg { display: block; }
+      .empty { margin: 0 0 40px; font-size: 30px; line-height: 1.35; color: #6c6c70; }
+      .row { display: flex; align-items: center; gap: 18px; }
+      #field { position: relative; flex: 1; height: 88px; box-sizing: border-box; border-radius: 999px; border: 2px solid rgba(60, 60, 67, 0.22); background: #f2f4f2; display: flex; align-items: center; padding: 0 36px; font-size: 28px; color: #8a8a8e; white-space: nowrap; overflow: hidden; }
+      #fieldFocus { position: absolute; inset: -2px; border-radius: 999px; border: 3px solid #1f7a33; opacity: 0; }
+      #caret { position: absolute; left: 36px; top: 24px; width: 3px; height: 40px; background: #1f7a33; opacity: 0; }
+      .send { flex-shrink: 0; width: 88px; height: 88px; border-radius: 50%; background: #eceeec; display: grid; place-items: center; }
+      #cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; opacity: 0; }
+      #cursor .ring { position: absolute; inset: 0; border-radius: 50%; border: 5px solid #fefefe; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+      #cursor .dot { position: absolute; left: 22px; top: 22px; width: 20px; height: 20px; border-radius: 50%; background: #1f7a33; border: 2px solid #fefefe; box-sizing: border-box; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="s23" data-start="0" data-width="1920" data-height="1080" data-duration="4.5">
+      <p id="t23">y, si alguien cree que es otra especie, puede proponerlo en los comentarios.</p>
+
+      <div id="card">
+        <div class="head">
+          <h3>
+            <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1b1c1e" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+            Comentarios
+          </h3>
+          <svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" style="transform: rotate(180deg)"><path fill="#6c6c70" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+        </div>
+        <p class="empty">Todavía no hay comentarios. Aportá a la identificación.</p>
+        <div class="row">
+          <div id="field">
+            <span id="ph">Aportá a la identificación… (mencioná un taxón con @)</span>
+            <div id="fieldFocus"></div>
+            <div id="caret"></div>
+          </div>
+          <div class="send" aria-label="Publicar comentario">
+            <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b0b0b4" d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div id="cursor"><div class="ring"></div><div class="dot"></div></div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const EASE = "expo.out";
+      tl.fromTo("#t23", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: EASE }, 0);
+      tl.fromTo("#card", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: EASE }, 0.25);
+
+      // cursor grande: entra por abajo a la derecha y va despacio al campo
+      tl.set("#cursor", { x: 1760, y: 900 }, 0);
+      tl.to("#cursor", { opacity: 1, duration: 0.25, ease: "power1.out" }, 0.75);
+      tl.to("#cursor", { x: 1180, y: 510, duration: 1.1, ease: "power3.inOut" }, 0.9);
+      // clic en el campo: foco (borde verde y caret), sin escribir ni enviar
+      tl.to("#cursor", { scale: 0.8, duration: 0.08, ease: "power2.out" }, 2.0);
+      tl.to("#cursor", { scale: 1, duration: 0.25, ease: "back.out(3)" }, 2.1);
+      tl.to("#fieldFocus", { opacity: 1, duration: 0.15, ease: "power1.out" }, 2.05);
+      // caret parpadea: 0.5 s encendido, 0.25 s apagado (pasos fijos en la línea de tiempo)
+      for (let t = 2.05; t < 4.5; t += 0.75) { tl.set("#caret", { opacity: 1 }, t); tl.set("#caret", { opacity: 0 }, t + 0.5); }
+      // el cursor se aparta para no tapar el campo
+      tl.to("#cursor", { x: 1250, y: 610, duration: 0.6, ease: "power2.inOut" }, 2.5);
+      window.__timelines["s23"] = tl;
+    </script>
+  </body>
+</html>

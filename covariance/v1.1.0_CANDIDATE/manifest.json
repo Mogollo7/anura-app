@@ -1,0 +1,41 @@
+{
+  "covariance_release": "covariance_1.1.0_CANDIDATE",
+  "catalog_release": "visual_catalog_1.1.0_CANDIDATE",
+  "encoder_contract": {
+    "encoder_id": "bioclip_anura_v1",
+    "encoder_sha256": "219e860e6fa9a80fb30a59fc8f61911421bbd53a4537dca831803d3ab446b2ad"
+  },
+  "embedding_space": "L2-normalized 512D BioCLIP embeddings",
+  "species_count": 9,
+  "species_ids": [
+    "ANU_COL_DEND_BOG_001",
+    "ANU_COL_DEND_MIC_001",
+    "ANU_COL_DEND_TRU_001",
+    "ANU_COL_HYLO_PAL_001",
+    "ANU_COL_PRIS_ACH_001",
+    "ANU_COL_PRIS_PAI_001",
+    "ANU_COL_PRIS_PEN_001",
+    "ANU_COL_RHIN_ALA_001",
+    "ANU_COL_RHIN_HOR_001"
+  ],
+  "species_used_for_centering_count": 10,
+  "orphaned_species_excluded_from_species_ids": [
+    "Leucostethus_fraterdanieli"
+  ],
+  "calibration_dataset": "REFERENCE (798 imagenes)",
+  "calibration_split": "REFERENCE",
+  "method": "Ledoit-Wolf shared shrinkage",
+  "dimension": 512,
+  "regularization": "shrinkage=0.066659",
+  "created_at": "2026-09-13T18:49:09.279527+00:00",
+  "source_artifacts": [
+    "evaluation/fase13/embeddings/reference_embeddings.npz"
+  ],
+  "sha256": "81e53e5b4c6086768cb195200eed8f75cd19f30cd5e20ef509f20f81127156ff",
+  "npz_artifact": "covariance\\v1.0.0\\covariance_matrix.npz",
+  "reproducibility_check": {
+    "two_independent_computations_identical": true,
+    "method": "sklearn.covariance.ledoit_wolf(X_centered, assume_centered=True), determinista"
+  },
+  "historical_note": "HEREDADA de covariance_1.0.0 SIN recalculo. Ver open_set_v1_1_0_decision.json — decision documentada de no recalibrar para 1 especie adicional."
+}

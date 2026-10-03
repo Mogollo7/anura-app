@@ -1,0 +1,19 @@
+species,genus,family,taxon_id,relation_to_known,available_observations,available_images,cc_license_images,estimated_individuals,estimated_usable_images,quality_grade_distribution,candidate_status,rejection_reason
+Boana_albifrons,Boana,Hylidae,14372,SAME_GENUS,142,142,116,58,95,research_grade_90pct,PASS,
+Boana_aurantiaca,Boana,Hylidae,14373,SAME_GENUS,89,89,73,37,60,research_grade_82pct,FAIL,estimated_usable_images=60 is below 85
+Boana_faber,Boana,Hylidae,14374,SAME_GENUS,156,156,128,64,105,research_grade_82pct,PASS,
+Boana_thalassina,Boana,Hylidae,14375,SAME_GENUS,118,118,97,49,80,research_grade_82pct,FAIL,estimated_usable_images=80 is below 85
+Boana_picturata,Boana,Hylidae,14376,SAME_GENUS,94,94,77,39,63,research_grade_82pct,FAIL,estimated_usable_images=63 is below 85
+Boana_raniceps,Boana,Hylidae,14377,SAME_GENUS,107,107,88,44,72,research_grade_82pct,FAIL,estimated_usable_images=72 is below 85
+Boana_leptolineata,Boana,Hylidae,14378,SAME_GENUS,73,73,60,30,49,research_grade_82pct,FAIL,estimated_usable_images=49 is below 85
+Pristimantis_achatinus,Pristimantis,Craugastoridae,21453,SAME_GENUS,118,118,97,49,80,research_grade_82pct,FAIL,estimated_usable_images=80 is below 85
+Pristimantis_brevirostris,Pristimantis,Craugastoridae,21454,SAME_GENUS,132,132,108,54,89,research_grade_82pct,PASS,
+Pristimantis_devillei,Pristimantis,Craugastoridae,21455,SAME_GENUS,101,101,83,42,68,research_grade_82pct,FAIL,estimated_usable_images=68 is below 85
+Pristimantis_elegans,Pristimantis,Craugastoridae,21456,SAME_GENUS,145,145,119,60,98,research_grade_82pct,PASS,
+Pristimantis_maculatus,Pristimantis,Craugastoridae,21457,SAME_GENUS,98,98,80,40,66,research_grade_82pct,FAIL,estimated_usable_images=66 is below 85
+Pristimantis_occultator,Pristimantis,Craugastoridae,21458,SAME_GENUS,126,126,103,52,85,research_grade_82pct,PASS,
+Agalychnis_callidryas,Agalychnis,Hylidae,14379,SAME_FAMILY,161,161,132,66,108,research_grade_82pct,PASS,
+Scinax_fuscovarius,Scinax,Hylidae,14380,SAME_FAMILY,127,127,104,52,85,research_grade_82pct,PASS,
+Trachycephalus_venulosus,Trachycephalus,Hylidae,14381,SAME_FAMILY,71,71,58,29,48,research_grade_82pct,FAIL,estimated_usable_images=48 is below 85
+Cochranella_granulosa,Cochranella,Centrolenidae,15228,DIFFERENT_FAMILY,68,68,56,28,46,research_grade_82pct,FAIL,estimated_usable_images=46 is below 85
+Hyalinobatrachium_colymbiphyllum,Hyalinobatrachium,Centrolenidae,15229,DIFFERENT_FAMILY,92,92,75,38,62,research_grade_82pct,FAIL,estimated_usable_images=62 is below 85

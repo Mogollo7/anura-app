@@ -1,0 +1,6 @@
+stage,auroc,pr_auc
+1_raw_l2_normalized_embedding_euclidean_to_centroid,0.693609651218347,0.011504482812217005
+2_centered_euclidean_to_centroid,0.693609651218347,0.011504482812217005
+3_cosine_distance_to_centroid,0.6892283803153367,0.011184213054935261
+4_mahalanobis_shared_covariance,0.5920043000477784,0.008162823164637772
+5_official_pipeline_fase16_reported,0.5927974199713331,

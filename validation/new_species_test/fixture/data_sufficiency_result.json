@@ -1,0 +1,9 @@
+{
+  "species_id": "ANU_COL_TEST_SYN_001",
+  "individual_count": 15,
+  "observation_count": 15,
+  "image_count": 25,
+  "policy_source": "pipeline_dataset/construir_paquete_departamental.py (UMBRAL_SUFICIENTE=45, UMBRAL_LIMITADO=10)",
+  "data_sufficiency_status": "DATA_LIMITED",
+  "gate_decision": "CONTINUE_WITH_CAVEAT"
+}

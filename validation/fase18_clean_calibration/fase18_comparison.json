@@ -1,0 +1,30 @@
+{
+  "fase13_mahalanobis_CONTAMINATED": {
+    "AUROC": 0.6247668780305856,
+    "KAR": 0.8537859007832899,
+    "FAR": 0.9107142857142857,
+    "status": "COMPROMISED_BY_LEAKAGE (F3 KNOWN subset of TRAIN)"
+  },
+  "fase16_mahalanobis_CLEAN_diagnostic": {
+    "AUROC": 0.5927974199713331,
+    "KAR": 0.8564378645132347,
+    "FAR": 0.9387755102040817,
+    "status": "CLEAN but full pool used as diagnostic blind"
+  },
+  "fase17_diagnostic_method_selection_blind": {
+    "cosine_AUROC": 0.6892283803153367,
+    "euclidean_AUROC": 0.693609651218347,
+    "mahalanobis_AUROC": 0.5920043000477784,
+    "status": "METHOD_SELECTION_BLIND -- not reused for threshold selection here"
+  },
+  "fase18_selected_candidate_INDEPENDENT_BLIND": {
+    "method": "COSINE",
+    "threshold": 0.49660250544548035,
+    "AUROC": 0.6672179747230457,
+    "KAR": 0.9328600405679514,
+    "FAR": 0.9487179487179487,
+    "balanced_accuracy": 0.49207104592500134,
+    "status": "Calibrated on CALIBRATION_18, evaluated on disjoint BLIND_F18. NOTE: BLIND_F18 KNOWN pool overlaps with Fase16/17 diagnostic exposure (see leakage_audit.json) -- not a fully virgin blind."
+  },
+  "never_mixed": "Estos 4 resultados se reportan por separado, nunca promediados ni combinados."
+}

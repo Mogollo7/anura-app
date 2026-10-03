@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anura.local/schemas/threshold_release.schema.json",
+  "title": "ThresholdRelease",
+  "type": "object",
+  "required": ["threshold_release", "catalog_release", "covariance_release", "threshold",
+               "metric", "calibration_dataset", "sha256"],
+  "properties": {
+    "threshold_release": { "type": "string", "pattern": "^threshold_[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "catalog_release": { "type": "string" },
+    "covariance_release": { "type": "string" },
+    "encoder_contract": {
+      "type": "object",
+      "properties": {
+        "encoder_id": { "type": "string" },
+        "encoder_sha256": { "type": "string" }
+      }
+    },
+    "threshold": { "type": "number" },
+    "metric": { "type": "string", "const": "Mahalanobis min-distance to nearest centroid" },
+    "calibration_method": { "type": "string" },
+    "calibration_dataset": { "type": "string" },
+    "calibration_split": { "type": "string" },
+    "target_operating_point": { "type": "string", "description": "ej. 'KAR 95%'" },
+    "alternative_thresholds": {
+      "type": "object",
+      "description": "Tabla de umbrales alternativos calculados en el mismo proceso de calibracion (ej. KAR 80/85/90%)"
+    },
+    "created_at": { "type": "string" },
+    "source_artifacts": { "type": "array", "items": { "type": "string" } },
+    "sha256": { "type": "string", "description": "SHA256 del contenido completo del threshold_release (para deteccion de alteracion)" },
+    "historical_note": { "type": "string" }
+  },
+  "additionalProperties": false
+}

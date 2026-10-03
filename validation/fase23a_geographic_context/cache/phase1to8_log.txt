@@ -1,0 +1,69 @@
+Loading embeddings and metadata...
+UNKNOWN: 620 images, 412 unique observations, 7 species
+KNOWN: 7475 images, 44 without observation_id (museum, excluded from geo)
+species_id->name vs manifest name mismatches: 0/7475 (using manifest name as authoritative)
+Centroids computed for 24 KNOWN species (leave-nothing-out mean, as in Fase23A euclidean_raw)
+Reproduced euclidean_raw AUROC (LOO known-centroid vs unknown min-dist to full centroids): 0.61812  (baseline reported: 0.57329)
+Coverage audit: {
+  "UNKNOWN": {
+    "geographic_metadata_complete": "620/620",
+    "zone_assignment_complete": "262/620",
+    "elevation_complete": "0/620"
+  },
+  "KNOWN": {
+    "geographic_metadata_complete": "7431/7475",
+    "zone_assignment_complete": "2763/7475",
+    "elevation_complete": "0/7475"
+  },
+  "KNOWN_excluded_no_observation_id": 44,
+  "fetch_summary": {
+    "n_unique_ids": 4466,
+    "n_found": 4466,
+    "n_with_geo": 4466,
+    "n_with_elev": 0,
+    "n_unknown_image_rows": 620,
+    "n_known_unique_obs": 4059
+  }
+}
+NEUTRAL_GEO_SCORE (no zone) = 1/K = 0.003436
+Anti-contamination check: {
+  "n_eval_unique_obs_ids": 4466,
+  "n_prior_source_inat_obs_ids": 6422,
+  "n_overlap": 1214,
+  "overlap_fraction_of_eval": 0.27183161665920286,
+  "overlap_sample": [
+    "101052452",
+    "101208529",
+    "101861706",
+    "102374007",
+    "102374011",
+    "10342534",
+    "105750311",
+    "106243572",
+    "107451370",
+    "107662891",
+    "107769885",
+    "108022569",
+    "109182363",
+    "109943530",
+    "109946705",
+    "110013773",
+    "110019044",
+    "110023713",
+    "110256450",
+    "110256479"
+  ],
+  "verdict": "GEOGRAPHIC_PRIOR_DIAGNOSTIC"
+}
+w_geo=0.0: AUROC=0.61812 [0.5885,0.6435] FAR=0.0500 FRR=0.9871 BalAcc=0.4814
+w_geo=0.1: AUROC=0.65696 [0.6297,0.6806] FAR=0.0500 FRR=0.9839 BalAcc=0.4830
+w_geo=0.2: AUROC=0.68782 [0.6626,0.7103] FAR=0.0500 FRR=0.9645 BalAcc=0.4927
+w_geo=0.3: AUROC=0.70378 [0.6786,0.7264] FAR=0.0500 FRR=0.9581 BalAcc=0.4960
+w_geo=0.4: AUROC=0.71067 [0.6852,0.7332] FAR=0.0500 FRR=0.9516 BalAcc=0.4992
+w_geo=0.5: AUROC=0.71305 [0.6872,0.7355] FAR=0.0500 FRR=0.9419 BalAcc=0.5040
+GEO-ONLY: {'AUROC': 0.6694095371669003, 'AUPRC': 0.2739602879431559, 'threshold': 0.936975788842741, 'TPR': np.float64(0.7806451612903226), 'TNR': np.float64(0.3670903010033445), 'FAR': np.float64(0.6329096989966555), 'FRR': np.float64(0.21935483870967742), 'BalancedAccuracy': 0.5738677311468335, 'TP': 484, 'FP': 4731, 'TN': 2744, 'FN': 136, 'AUROC_ci': [0.6441845559956962, 0.6948342943433453]}
+BEST COMBINED: {'weight_geo': 0.5, 'weight_visual': 0.5, 'AUROC': 0.7130503829970871, 'AUPRC': 0.132960697692587, 'threshold': 0.7620705586613352, 'n_known': 7475.0, 'n_unknown': 620.0, 'n_individuals': 4467.0, 'TPR': 0.05806451612903226, 'TNR': 0.9499665551839465, 'FAR': 0.05003344481605351, 'FRR': 0.9419354838709677, 'BalancedAccuracy': 0.5040155356564894, 'TP': 36.0, 'FP': 374.0, 'TN': 7101.0, 'FN': 584.0, 'AUROC_ci_lo': 0.6872213091246235, 'AUROC_ci_hi': 0.7355030958044155, 'bootstrap_n_valid': 1000.0}
+Subgroup AUROCs: [{'weight_geo': 0.0, 'subgroup': 'same_genus', 'n_unknown': 426, 'AUROC': 0.6616555969036068}, {'weight_geo': 0.0, 'subgroup': 'different_genus', 'n_unknown': 194, 'AUROC': 0.5225252560079992}, {'weight_geo': 0.5, 'subgroup': 'same_genus', 'n_unknown': 426, 'AUROC': 0.7270202710129225}, {'weight_geo': 0.5, 'subgroup': 'different_genus', 'n_unknown': 194, 'AUROC': 0.6823742371478811}, {'weight_geo': 0.5, 'subgroup': 'unknown_with_zone_assigned', 'n_unknown': 262, 'AUROC': None}, {'weight_geo': 0.5, 'subgroup': 'unknown_without_zone', 'n_unknown': 358, 'AUROC': None}]
+Threshold-crossing cases (baseline vs best combined): 308 / 8095
+
+DONE. All artifacts written to D:\Anura\validation\fase23a_geographic_context
