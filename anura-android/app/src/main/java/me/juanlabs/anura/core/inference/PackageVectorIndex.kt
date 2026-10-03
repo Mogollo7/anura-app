@@ -168,6 +168,17 @@ class PackageVectorIndex private constructor(
         }
     }.getOrNull()
 
+    /**
+     * sha256 del encoder con el que se calcularon los vectores del paquete
+     * (`package_info.encoder_onnx_sha256`). Null si el paquete es antiguo y no lo trae: se asume el
+     * encoder empaquetado en el APK.
+     */
+    fun encoderSha256(): String? = runCatching {
+        connection.prepare("select value from package_info where key = 'encoder_onnx_sha256'").use { st ->
+            if (st.step()) st.getText(0).lowercase() else null
+        }
+    }.getOrNull()
+
     override fun close() = connection.close()
 
     companion object {
